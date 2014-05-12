@@ -1,0 +1,424 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="..\../manifest.appcache">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>Using Schedulers | RxJS &lt;sup&gt;v2.2&lt;/sup&gt;</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="">
+        <meta name="description" content="Reactive Extensions (Rx) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators.">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="..\../content/getting_started_with_rxjs/testing_your_rx_application.html" />
+        
+        
+        <link rel="prev" href="..\../content/getting_started_with_rxjs/subjects.html" />
+        
+
+        <meta property="og:title" content="Using Schedulers | RxJS &lt;sup&gt;v2.2&lt;/sup&gt;">
+        <meta property="og:site_name" content="RxJS &lt;sup&gt;v2.2&lt;/sup&gt;">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="..\..\gitbook/images/favicon.ico" type="image/x-icon">
+        
+    </head>
+    <body>
+        
+
+        <link rel="stylesheet" href="..\..\gitbook/style.css">
+        
+
+
+        
+    <div class="book"  data-level="1.4" data-basepath="..\.." data-revision="1399935423493">
+    <div class="book-header">
+    <!-- Actions Left -->
+    
+    <a href="https://github.com/null" target="_blank" class="btn pull-left"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+	<div class="dropdown-caret">
+  <span class="caret-outer"></span>
+  <span class="caret-inner"></span>
+</div>
+
+	<div class="btn-group btn-block">
+		<button id="reduce-font-size" class="btn btn-default">A</button>
+		<button id="enlarge-font-size" class="btn btn-default">A</button>
+	</div>
+
+	<ul class="list-group font-family-list">
+		<li class="list-group-item" data-font="0">Serif</li>
+		<li class="list-group-item" data-font="1">Sans</li>
+	</ul>
+
+	<div class="btn-group btn-group-xs btn-block color-theme-list">
+	  <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+	</div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="..\../" >RxJS &lt;sup&gt;v2.2&lt;/sup&gt;</a>
+    </h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+
+        
+        <li>
+            <a href="https://github.com/null/issues" target="blank">Questions and Issues</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/null/edit/master/content/getting_started_with_rxjs/using_schedulers.md" target="blank">Edit and Contribute</a>
+        </li>
+        
+
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="..\../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1" data-path="content/getting_started_with_rxjs/README.html">
+                
+                <a href="..\../content/getting_started_with_rxjs/README.html">
+                    <i class="fa fa-check"></i> <b>1.</b> Getting Started With RxJS
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1" data-path="content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
+                            
+                            <a href="..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
+                                <i class="fa fa-check"></i> <b>1.1.</b> What are the Reactive Extensions?
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2" data-path="content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
+                            
+                            <a href="..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
+                                <i class="fa fa-check"></i> <b>1.2.</b> Exploring Major Concepts in RxJS
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.3" data-path="content/getting_started_with_rxjs/subjects.html">
+                            
+                            <a href="..\../content/getting_started_with_rxjs/subjects.html">
+                                <i class="fa fa-check"></i> <b>1.3.</b> Subjects
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.4" data-path="content/getting_started_with_rxjs/using_schedulers.html">
+                            
+                            <a href="..\../content/getting_started_with_rxjs/using_schedulers.html">
+                                <i class="fa fa-check"></i> <b>1.4.</b> Using Schedulers
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.5" data-path="content/getting_started_with_rxjs/testing_your_rx_application.html">
+                            
+                            <a href="..\../content/getting_started_with_rxjs/testing_your_rx_application.html">
+                                <i class="fa fa-check"></i> <b>1.5.</b> Testing your Rx application
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.6" data-path="content/implementing_your_own_observable_operators.html">
+                            
+                            <a href="..\../content/implementing_your_own_observable_operators.html">
+                                <i class="fa fa-check"></i> <b>1.6.</b> Implementing Your Own Observable Operators
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="2" data-path="content/creating_and_querying_observable_sequences/README.html">
+                
+                <a href="..\../content/creating_and_querying_observable_sequences/README.html">
+                    <i class="fa fa-check"></i> <b>2.</b> Creating and Querying Observable Sequences
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
+                            
+                            <a href="..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
+                                <i class="fa fa-check"></i> <b>2.1.</b> Creating and Subscribing to Simple Observable Sequences
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="content/creating_and_querying_observable_sequences/bridging_to_events.html">
+                            
+                            <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_events.html">
+                                <i class="fa fa-check"></i> <b>2.2.</b> Bridging to Events
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.3" data-path="content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
+                            
+                            <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
+                                <i class="fa fa-check"></i> <b>2.3.</b> Bridging to Callbacks and Promises
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.4" data-path="content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
+                            
+                            <a href="..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
+                                <i class="fa fa-check"></i> <b>2.4.</b> Querying Observable Sequences
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.5" data-path="content/creating_and_querying_observable_sequences/operators_by_category.html">
+                            
+                            <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html">
+                                <i class="fa fa-check"></i> <b>2.5.</b> Operators by Category
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 38.46153846153846%;min-width: 30.76923076923077%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="..\../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/README.html" title="Getting Started With RxJS" class="chapter done new-chapter" data-progress="1" style="left: 7.6923076923076925%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html" title="What are the Reactive Extensions?" class="chapter done " data-progress="1.1" style="left: 15.384615384615385%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html" title="Exploring Major Concepts in RxJS" class="chapter done " data-progress="1.2" style="left: 23.076923076923077%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/subjects.html" title="Subjects" class="chapter done " data-progress="1.3" style="left: 30.76923076923077%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/using_schedulers.html" title="Using Schedulers" class="chapter done " data-progress="1.4" style="left: 38.46153846153846%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/testing_your_rx_application.html" title="Testing your Rx application" class="chapter  " data-progress="1.5" style="left: 46.15384615384615%;"></a>
+    
+        <a href="..\../content/implementing_your_own_observable_operators.html" title="Implementing Your Own Observable Operators" class="chapter  " data-progress="1.6" style="left: 53.84615384615385%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/README.html" title="Creating and Querying Observable Sequences" class="chapter  new-chapter" data-progress="2" style="left: 61.53846153846154%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html" title="Creating and Subscribing to Simple Observable Sequences" class="chapter  " data-progress="2.1" style="left: 69.23076923076923%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_events.html" title="Bridging to Events" class="chapter  " data-progress="2.2" style="left: 76.92307692307692%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html" title="Bridging to Callbacks and Promises" class="chapter  " data-progress="2.3" style="left: 84.61538461538461%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html" title="Querying Observable Sequences" class="chapter  " data-progress="2.4" style="left: 92.3076923076923%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" title="Operators by Category" class="chapter  " data-progress="2.5" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_13">
+                    
+                        <h1 id="using-schedulers">Using Schedulers</h1>
+<p>A scheduler controls when a subscription starts and when notifications are published. It consists of three components. It is first a data structure. When you schedule for tasks to be completed, they are put into the scheduler for queueing based on priority or other criteria. It also offers an execution context which denotes where the task is executed (e.g., in the immediately, current thread, or in another callback mechanism such as <code>setTimeout</code> or <code>process.nextTick</code>). Lastly, it has a clock which provides a notion of time for itself (by accessing the <code>now</code> method of a scheduler). Tasks being scheduled on a particular scheduler will adhere to the time denoted by that clock only.</p>
+<p>Schedulers also introduce the notion of virtual time (denoted by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/virtualtimescheduler.md" target="_blank"><code>VirtualTimeScheduler</code></a> type), which does not correlate with real time that is used in our daily life. For example, a sequence that is specified to take 100 years to complete can be scheduled to complete in virtual time in a mere 5 minutes. This will be covered in the <a href="testing.html">Testing and Debugging Observable Sequences</a> topic.</p>
+<h2 id="scheduler-types">Scheduler Types</h2>
+<p>The various Scheduler types provided by Rx all implement the <code>Scheduler</code> methods. Each of these can be created and returned by using static properties of the <code>Scheduler</code> object. The <code>ImmediateScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulerimmediate" target="_blank"><code>immediate</code></a> property) will start the specified action immediately. The <code>CurrentThreadScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulercurrentthread" target="_blank"><code>currentThread</code></a> property) will schedule actions to be performed on the thread that makes the original call. The action is not executed immediately, but is placed in a queue and only executed after the current action is complete.  The <code>TimeoutScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulertimeout" target="_blank"><code>timeout</code></a> property) will schedule actions to be performed on a asynchronous callback, which is optimized for the particular runtime, such as <code>setImmediate</code> or <code>process.nextTick</code> on Node.js or in the browser with a fallback to <code>setTimeout</code>.</p>
+<h2 id="using-schedulers">Using Schedulers</h2>
+<p>You may have already used schedulers in your Rx code without explicitly stating the type of schedulers to be used. This is because all Observable operators that deal with concurrency have optional schedulers. If you do not provide the scheduler, RxJS will pick a default scheduler by using the principle of least concurrency. This means that the scheduler which introduces the least amount of concurrency that satisfies the needs of the operator is chosen.  For example, for operators returning an observable with a finite and small number of messages, RxJS calls <code>immediate</code>.  For operators returning a potentially large or infinite number of messages, <code>currentThread</code> is called. For operators which use timers, <code>timeout</code> is used.</p>
+<p>Because RxJS uses the least concurrency scheduler, you can pick a different scheduler if you want to introduce concurrency for performance purpose.  To specify a particular scheduler, you can use those operator methods that take a scheduler, e.g., <code>return(42, Rx.Scheduler.timeout)</code>.</p>
+<p>In the following example, the source observable sequence is producing values at a frantic pace. The default scheduler of the generate operator would place onNext messages on the <code>currentThread</code>.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obs = Rx.Observable.generate(
+    <span class="hljs-number">0</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x; });
+</code></pre>
+<p>This will queue up on the observer quickly. We can improve this code by using the observeOn operator, which allows you to specify the context that you want to use to send pushed notifications (onNext) to observers. By default, the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypeobserveonscheduler" target="_blank"><code>observeOn</code></a> operator ensures that <code>onNext</code> will be called as many times as possible on the current thread. You can use its overloads and redirect the <code>onNext</code> outputs to a different context. In addition, you can use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeonscheduler" target="_blank"><code>subscribeOn</code></a> operator to return a proxy observable that delegates actions to a specific scheduler. For example, for a UI-intensive application, you can delegate all background operations to be performed on a scheduler running in the background by using <code>subscribeOn</code> and passing to it the <code>TimeoutScheduler</code>.</p>
+<p>The following example will schedule any onNext notifications on the current Dispatcher, so that any value pushed out is sent on the UI thread. This is especially beneficial to Silverlight developers who use RxJS.</p>
+<pre><code class="lang-js">Rx.Observable.generate(
+    <span class="hljs-number">0</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x; }
+    )
+    .observeOn(Rx.Scheduler.timeout)
+    .subscribe(...);
+</code></pre>
+<p>Instead of using the <code>observeOn</code> operator to change the execution context on which the observable sequence produces messages, we can create concurrency in the right place to begin with. As operators parameterize introduction of concurrency by providing a scheduler argument overload, passing the right scheduler will lead to fewer places where the ObserveOn operator has to be used. For example, we can unblock the observer and subscribe to the UI thread directly by changing the scheduler used by the source, as in the following example. In this code, by using the <code>generate</code> method passing a scheduler, and providing the <code>Rx.Scheduler.timeout</code> instance, all values pushed out from this observable sequence will originate via an asynchronous callback.</p>
+<pre><code class="lang-js">Rx.Observable.generate(
+    <span class="hljs-number">0</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x; },
+    observeOn(Rx.Scheduler.timeout)
+    .subscribe(...);
+</code></pre>
+<p>You should also note that by using the <code>observeOn</code> operator, an action is scheduled for each message that comes through the original observable sequence. This potentially changes timing information as well as puts additional stress on the system. If you have a query that composes various observable sequences running on many different execution contexts, and you are doing filtering in the query, it is best to place <code>observeOn</code> later in the query. This is because a query will potentially filter out a lot of messages, and placing the <code>observeOn</code> operator earlier in the query would do extra work on messages that would be filtered out anyway. Calling the <code>observeOn</code> operator at the end of the query will create the least performance impact.</p>
+<p>Another advantage of specifying a scheduler type explicitly is that you can introduce concurrency for performance purpose, as illustrated by the following code.</p>
+<pre><code class="lang-js">seq.groupBy(...)
+        .select(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x.observeOn(Rx.Scheduler.timeout); })
+        .select(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span>  {</span> <span class="hljs-keyword">return</span> expensive(x); })  <span class="hljs-comment">// perform operations that are expensive on resources</span>
+</code></pre>
+<h2 id="when-to-use-which-scheduler">When to Use Which Scheduler</h2>
+<p>To make things a little easier when you are creating your own operators, or using the standard built-in ones, which scheduler you should use.  The following table lays out each scenario with the suggested scheduler.</p>
+<table>
+    <th>
+        Scenario
+    </th>
+    <th>
+        Scheduler
+    </th>
+    <tr>
+        <td>Constant Time Operations</td>
+        <td><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulerimmediate">Rx.Scheduler.immediate</a></td>
+    </tr>
+    <tr>
+        <td>Tail Recursive Operations</td>
+        <td><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulerimmediate">Rx.Scheduler.immediate</a></td>
+    </tr>
+    <tr>
+        <td>Iteration Operations</td>
+        <td><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulercurrentthread">Rx.Scheduler.currentThread</a></td>
+    </tr>
+    <tr>
+        <td>Time-based Operations</td>
+        <td><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulertimeout">Rx.Scheduler.timeout</a></td>
+    </tr>
+    <tr>
+        <td>Asynchronous Conversions</td>
+        <td><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulertimeout">Rx.Scheduler.timeout</a></td>
+    </tr>
+    <tr>
+        <td>Historical Data Operations</td>
+        <td><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/historicalscheduler.md">Rx.HistoricalScheduler</a></td>
+    </tr>
+    <tr>
+        <td>Unit Testing</td>
+        <td><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md">Rx.TestScheduler</a></td>
+    </tr>
+</table>
+
+<h2 id="see-also">See Also</h2>
+<p><em>Reference</em></p>
+<ul>
+<li><a href="testing.html">Testing and Debugging Observable Sequences</a></li>
+</ul>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="..\../content/getting_started_with_rxjs/subjects.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="..\../content/getting_started_with_rxjs/testing_your_rx_application.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="..\..\gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="..\..\gitbook/app.js"></script>
+        
+
+    
+    <script src="..\..\gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="..\..\gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+    </body>
+</html>

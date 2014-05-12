@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="..\../manifest.appcache">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>Subjects | RxJS &lt;sup&gt;v2.2&lt;/sup&gt;</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="">
+        <meta name="description" content="Reactive Extensions (Rx) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators.">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="..\../content/getting_started_with_rxjs/using_schedulers.html" />
+        
+        
+        <link rel="prev" href="..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html" />
+        
+
+        <meta property="og:title" content="Subjects | RxJS &lt;sup&gt;v2.2&lt;/sup&gt;">
+        <meta property="og:site_name" content="RxJS &lt;sup&gt;v2.2&lt;/sup&gt;">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="..\..\gitbook/images/favicon.ico" type="image/x-icon">
+        
+    </head>
+    <body>
+        
+
+        <link rel="stylesheet" href="..\..\gitbook/style.css">
+        
+
+
+        
+    <div class="book"  data-level="1.3" data-basepath="..\.." data-revision="1399935423493">
+    <div class="book-header">
+    <!-- Actions Left -->
+    
+    <a href="https://github.com/null" target="_blank" class="btn pull-left"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+	<div class="dropdown-caret">
+  <span class="caret-outer"></span>
+  <span class="caret-inner"></span>
+</div>
+
+	<div class="btn-group btn-block">
+		<button id="reduce-font-size" class="btn btn-default">A</button>
+		<button id="enlarge-font-size" class="btn btn-default">A</button>
+	</div>
+
+	<ul class="list-group font-family-list">
+		<li class="list-group-item" data-font="0">Serif</li>
+		<li class="list-group-item" data-font="1">Sans</li>
+	</ul>
+
+	<div class="btn-group btn-group-xs btn-block color-theme-list">
+	  <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+	</div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="..\../" >RxJS &lt;sup&gt;v2.2&lt;/sup&gt;</a>
+    </h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+
+        
+        <li>
+            <a href="https://github.com/null/issues" target="blank">Questions and Issues</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/null/edit/master/content/getting_started_with_rxjs/subjects.md" target="blank">Edit and Contribute</a>
+        </li>
+        
+
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="..\../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1" data-path="content/getting_started_with_rxjs/README.html">
+                
+                <a href="..\../content/getting_started_with_rxjs/README.html">
+                    <i class="fa fa-check"></i> <b>1.</b> Getting Started With RxJS
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1" data-path="content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
+                            
+                            <a href="..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
+                                <i class="fa fa-check"></i> <b>1.1.</b> What are the Reactive Extensions?
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2" data-path="content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
+                            
+                            <a href="..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
+                                <i class="fa fa-check"></i> <b>1.2.</b> Exploring Major Concepts in RxJS
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.3" data-path="content/getting_started_with_rxjs/subjects.html">
+                            
+                            <a href="..\../content/getting_started_with_rxjs/subjects.html">
+                                <i class="fa fa-check"></i> <b>1.3.</b> Subjects
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.4" data-path="content/getting_started_with_rxjs/using_schedulers.html">
+                            
+                            <a href="..\../content/getting_started_with_rxjs/using_schedulers.html">
+                                <i class="fa fa-check"></i> <b>1.4.</b> Using Schedulers
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.5" data-path="content/getting_started_with_rxjs/testing_your_rx_application.html">
+                            
+                            <a href="..\../content/getting_started_with_rxjs/testing_your_rx_application.html">
+                                <i class="fa fa-check"></i> <b>1.5.</b> Testing your Rx application
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.6" data-path="content/implementing_your_own_observable_operators.html">
+                            
+                            <a href="..\../content/implementing_your_own_observable_operators.html">
+                                <i class="fa fa-check"></i> <b>1.6.</b> Implementing Your Own Observable Operators
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="2" data-path="content/creating_and_querying_observable_sequences/README.html">
+                
+                <a href="..\../content/creating_and_querying_observable_sequences/README.html">
+                    <i class="fa fa-check"></i> <b>2.</b> Creating and Querying Observable Sequences
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
+                            
+                            <a href="..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
+                                <i class="fa fa-check"></i> <b>2.1.</b> Creating and Subscribing to Simple Observable Sequences
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="content/creating_and_querying_observable_sequences/bridging_to_events.html">
+                            
+                            <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_events.html">
+                                <i class="fa fa-check"></i> <b>2.2.</b> Bridging to Events
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.3" data-path="content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
+                            
+                            <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
+                                <i class="fa fa-check"></i> <b>2.3.</b> Bridging to Callbacks and Promises
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.4" data-path="content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
+                            
+                            <a href="..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
+                                <i class="fa fa-check"></i> <b>2.4.</b> Querying Observable Sequences
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.5" data-path="content/creating_and_querying_observable_sequences/operators_by_category.html">
+                            
+                            <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html">
+                                <i class="fa fa-check"></i> <b>2.5.</b> Operators by Category
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 30.76923076923077%;min-width: 23.076923076923077%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="..\../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/README.html" title="Getting Started With RxJS" class="chapter done new-chapter" data-progress="1" style="left: 7.6923076923076925%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html" title="What are the Reactive Extensions?" class="chapter done " data-progress="1.1" style="left: 15.384615384615385%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html" title="Exploring Major Concepts in RxJS" class="chapter done " data-progress="1.2" style="left: 23.076923076923077%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/subjects.html" title="Subjects" class="chapter done " data-progress="1.3" style="left: 30.76923076923077%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/using_schedulers.html" title="Using Schedulers" class="chapter  " data-progress="1.4" style="left: 38.46153846153846%;"></a>
+    
+        <a href="..\../content/getting_started_with_rxjs/testing_your_rx_application.html" title="Testing your Rx application" class="chapter  " data-progress="1.5" style="left: 46.15384615384615%;"></a>
+    
+        <a href="..\../content/implementing_your_own_observable_operators.html" title="Implementing Your Own Observable Operators" class="chapter  " data-progress="1.6" style="left: 53.84615384615385%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/README.html" title="Creating and Querying Observable Sequences" class="chapter  new-chapter" data-progress="2" style="left: 61.53846153846154%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html" title="Creating and Subscribing to Simple Observable Sequences" class="chapter  " data-progress="2.1" style="left: 69.23076923076923%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_events.html" title="Bridging to Events" class="chapter  " data-progress="2.2" style="left: 76.92307692307692%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html" title="Bridging to Callbacks and Promises" class="chapter  " data-progress="2.3" style="left: 84.61538461538461%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html" title="Querying Observable Sequences" class="chapter  " data-progress="2.4" style="left: 92.3076923076923%;"></a>
+    
+        <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" title="Operators by Category" class="chapter  " data-progress="2.5" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_8">
+                    
+                        <h1 id="using-subjects">Using Subjects</h1>
+<p>The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/subject.md" target="_blank"><code>Subject</code></a> class inherits both <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md" target="_blank"><code>Observable</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md" target="_blank"><code>Observer</code></a>, in the sense that it is both an observer and an observable. You can use a subject to subscribe all the observers, and then subscribe the subject to a backend data source. In this way, the subject can act as a proxy for a group of subscribers and a source. You can use subjects to implement a custom observable with caching, buffering and time shifting. In addition, you can use subjects to broadcast data to multiple subscribers.</p>
+<p>By default, subjects do not perform any synchronization across threads. They do not take a scheduler but rather assume that all serialization and grammatical correctness are handled by the caller of the subject.  A subject simply broadcasts to all subscribed observers in the thread-safe list of subscribers. Doing so has the advantage of reducing overhead and improving performance.</p>
+<h2 id="using-subjects">Using Subjects</h2>
+<p>In the following example, we create a subject, subscribe to that subject and then use the same subject to publish values to the observer. By doing so, we combine the publication and subscription into the same source.</p>
+<p>In addition to taking an <code>Observer</code>, the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted" target="_blank"><code>subscribe</code></a> method can also take a function for onNext, which means that the action will be executed every time an item is published. In our sample, whenever onNext is invoked, the item will be written to the console.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
+
+<span class="hljs-keyword">var</span> subscription = subject.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'onNext: '</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+
+subject.onNext(<span class="hljs-number">1</span>);
+<span class="hljs-comment">// =&gt; onNext: 1</span>
+
+subject.onNext(<span class="hljs-number">2</span>);
+<span class="hljs-comment">// =&gt; onNext: 2</span>
+
+subject.onCompleted();
+<span class="hljs-comment">// =&gt; onCompleted</span>
+
+subscription.dispose();
+</code></pre>
+<p>The following example illustrates the proxy and broadcast nature of a <code>Subject</code>. We first create a source sequence which produces an integer every 1 second. We then create a <code>Subject</code>, and pass it as an observer to the source so that it will receive all the values pushed out by this source sequence. After that, we create another two subscriptions, this time with the subject as the source. The <code>subSubject1</code> and <code>subSubject2</code> subscriptions will then receive any value passed down (from the source) by the <code>Subject</code>.</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Every second</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>);
+
+<span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
+
+<span class="hljs-keyword">var</span> subSource = source.subscribe(subject);
+
+<span class="hljs-keyword">var</span> subSubject1 = subject.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'Value published to observer #1: '</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+
+<span class="hljs-keyword">var</span> subSubject2 = subject.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'Value published to observer #2: '</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+
+setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+    <span class="hljs-comment">// Clean up</span>
+    subject.onCompleted();
+    subSubject1.dispose();
+    subSubject2.dispose();
+}, <span class="hljs-number">5000</span>);
+
+<span class="hljs-comment">// =&gt; Value published to observer #1: 0</span>
+<span class="hljs-comment">// =&gt; Value published to observer #2: 0</span>
+<span class="hljs-comment">// =&gt; Value published to observer #1: 1</span>
+<span class="hljs-comment">// =&gt; Value published to observer #2: 1</span>
+<span class="hljs-comment">// =&gt; Value published to observer #1: 2</span>
+<span class="hljs-comment">// =&gt; Value published to observer #2: 2</span>
+<span class="hljs-comment">// =&gt; Value published to observer #1: 3</span>
+<span class="hljs-comment">// =&gt; Value published to observer #2: 3</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
+</code></pre>
+<h2 id="different-types-of-subjects">Different types of Subjects</h2>
+<p>The <code>Subject</code> object in the RxJS library is a basic implementation, but you can create your own using  the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/subject.md#rxsubjectcreateobserver-observable" target="_blank"><code>Subject.create</code></a> method. There are other implementations of Subjects that offer different functionalities. All of these types store some (or all of) values pushed to them via onNext, and broadcast it back to its observers. In this way, they convert a Cold Observable into a Hot one. This means that if you Subscribe to any of these more than once (i.e. subscribe -&gt; unsubscribe -&gt; subscribe again), you will see at least one of the same value again. For more information on hot and cold observables, see the last section of the <a href="creating.html">Creating and Subscribing to Simple Observable Sequences</a> topic.</p>
+<p><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/replaysubject.md" target="_blank"><code>ReplaySubject</code></a> stores all the values that it has published. Therefore, when you subscribe to it, you automatically receive an entire history of values that it has published, even though your subscription might have come in after certain values have been pushed out. <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/behaviorsubject.md" target="_blank"><code>BehaviourSubject</code></a> is similar to <code>ReplaySubject</code>, except that it only stored the last value it published. <code>BehaviourSubject</code> also requires a default value upon initialization. This value is sent to observers when no other value has been received by the subject yet. This means that all subscribers will receive a value instantly on <code>subscribe</code>, unless the <code>Subject</code> has already completed. <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/asyncsubject.md" target="_blank"><code>AsyncSubject</code></a> is similar to the Replay and Behavior subjects, however it will only store the last value, and only publish it when the sequence is completed. You can use the <code>AsyncSubject</code> type for situations when the source observable is hot and might complete before any observer can subscribe to it. In this case, <code>AsyncSubject</code> can still provide the last value and publish it to any future subscribers.</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="..\../content/getting_started_with_rxjs/using_schedulers.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="..\..\gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="..\..\gitbook/app.js"></script>
+        
+
+    
+    <script src="..\..\gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="..\..\gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+    </body>
+</html>

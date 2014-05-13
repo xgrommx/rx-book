@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Bridging to Events | RxJS</title>
+        <title>Rx.Observable | RxJS</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html" />
+        <link rel="next" href="..\../content/observable/amb.html" />
         
         
-        <link rel="prev" href="..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html" />
+        <link rel="prev" href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" />
         
 
-        <meta property="og:title" content="Bridging to Events | RxJS">
+        <meta property="og:title" content="Rx.Observable | RxJS">
         <meta property="og:site_name" content="RxJS">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="2.2" data-basepath="..\.." data-revision="1399940773360">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3" data-basepath="..\.." data-revision="1399940773360">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -120,7 +120,7 @@
 
         
         <li>
-            <a href="https://github.com/xgrommx/rx-book/edit/master/content/creating_and_querying_observable_sequences/bridging_to_events.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/xgrommx/rx-book/edit/master/content/observable/README.md" target="blank">Edit and Contribute</a>
         </li>
         
 
@@ -314,7 +314,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 52.63157894736842%;min-width: 47.36842105263158%;"></div>
+        <div class="inner" style="width: 73.6842105263158%;min-width: 68.42105263157895%;"></div>
     </div>
     <div class="chapters">
     
@@ -340,13 +340,13 @@
     
         <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_events.html" title="Bridging to Events" class="chapter done " data-progress="2.2" style="left: 52.63157894736842%;"></a>
     
-        <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html" title="Bridging to Callbacks and Promises" class="chapter  " data-progress="2.3" style="left: 57.89473684210526%;"></a>
+        <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html" title="Bridging to Callbacks and Promises" class="chapter done " data-progress="2.3" style="left: 57.89473684210526%;"></a>
     
-        <a href="..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html" title="Querying Observable Sequences" class="chapter  " data-progress="2.4" style="left: 63.1578947368421%;"></a>
+        <a href="..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html" title="Querying Observable Sequences" class="chapter done " data-progress="2.4" style="left: 63.1578947368421%;"></a>
     
-        <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" title="Operators by Category" class="chapter  " data-progress="2.5" style="left: 68.42105263157895%;"></a>
+        <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" title="Operators by Category" class="chapter done " data-progress="2.5" style="left: 68.42105263157895%;"></a>
     
-        <a href="..\../content/observable/README.html" title="Rx.Observable" class="chapter  new-chapter" data-progress="3" style="left: 73.6842105263158%;"></a>
+        <a href="..\../content/observable/README.html" title="Rx.Observable" class="chapter done new-chapter" data-progress="3" style="left: 73.6842105263158%;"></a>
     
         <a href="..\../content/observable/amb.html" title="amb" class="chapter  " data-progress="3.1" style="left: 78.94736842105263%;"></a>
     
@@ -363,116 +363,177 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_15">
                     
-                        <h1 id="bridging-to-events">Bridging to Events</h1>
-<p>RxJS provides factory methods for you to bridge with existing asynchronous sources in the DOM or Node.js so that you can employ the rich composing, filtering and resource management features provided by RxJS on any kind of data streams. This topic examines the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromeventelement-eventname" target="_blank"><code>fromEvent</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromeventpatternaddhander-removehandler" target="_blank"><code>fromEventPattern</code></a> operator that allows &quot;importing&quot; a DOM or custom event into RxJS as an observable sequence. Every time an event is raised, an <code>onNext</code> message will be delivered to the observable sequence. You can then manipulate event data just like any other observable sequences.</p>
-<p>RxJS does not aim at replacing existing asynchronous programming models such as promises or callbacks. However, when you attempt to compose events, RxJS’s factory methods will provide you the convenience that cannot be found in the current programming model. This is especially true for resource maintenance (e.g., when to unsubscribe) and filtering (e.g., choosing what kind of data to receive). In this topic and the ones that follow, you can examine how these RxJS features can assist you in asynchronous programming.</p>
-<h2 id="converting-a-dom-event-to-a-rxjs-observable-sequence">Converting a DOM event to a RxJS Observable Sequence</h2>
-<p>The following sample creates a simple DOM event handler for the mouse move event, and prints out the mouse’s location on the page.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> result = document.getElementById(<span class="hljs-string">'result'</span>);
+                        <h1 id="observable-object">Observable object</h1>
+<p>The Observable object represents a push based collection.</p>
+<p>The Observer and Objects interfaces provide a generalized mechanism for push-based notification, also known as the observer design pattern. The Observable object represents the object that sends notifications (the provider); the Observer object represents the class that receives them (the observer). </p>
+<!-- div -->
 
-document.addEventListener(<span class="hljs-string">'mousemove'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span>
-    result.innerHTML = e.clientX + <span class="hljs-string">', '</span> + e.clientY;
-}, <span class="hljs-literal">false</span>);
-</code></pre>
-<p>To import an event into RxJS, you can use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromeventelement-eventname" target="_blank"><code>fromEvent</code></a> operator, and provide the event arguments that will be raised by the event being bridged. It then converts the given event into an observable sequence.</p>
-<p>In the following example, we convert the mousemove event stream of the DOM into an observable sequence. Every time a mouse-move event is fired, the subscriber will receive an <code>onNext</code> notification. We can then examine the event arguments value of such notification and get the location of the mouse-move.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> result = document.getElementById(<span class="hljs-string">'result'</span>);
-
-<span class="hljs-keyword">var</span> source = Rx.Observable.fromEvent(document, <span class="hljs-string">'mousemove'</span>);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span>
-    result.innerHTML = e.clientX + <span class="hljs-string">', '</span> + e.clientY;
-});
-</code></pre>
-<p>Notice that in this sample, move becomes an observable sequence in which we can manipulate further. The <a href="querying.html">Querying Observable Sequences</a> topic will show you how you can project this sequence into a collection of Points type and filter its content, so that your application will only receive values that satisfy a certain criteria.</p>
-<p>Cleaning up of the event handler is taken care of by the <code>Disposable</code> object returned by the <code>subscribe</code> method. Calling <code>dispose</code> will release all resources being used by the sequence including the underlying event handler. This essentially takes care of unsubscribing to an event on your behalf.</p>
-<p>The <code>fromEvent</code> method also supports adding event handlers to multiple items, for example a DOM NodeList.  This example will add the &#39;click&#39; to each element in the list.</p>
-<pre><code>var result = document.getElementById(&#39;result&#39;);
-var sources = document.querySelectorAll(&#39;div&#39;);
-
-var source = Rx.Observable.fromEvent(sources, &#39;click&#39;);
-
-var subscription = source.subscribe(function (e) {
-    result.innerHTML = e.clientX + &#39;, &#39; + e.clientY;
-});
-</code></pre><p>In addition, <code>fromEvent</code> also supports libraries such as <a href="http://jquery.com/" target="_blank">jQuery</a>:</p>
-<pre><code>var $result = $(&#39;#result&#39;);
-var $sources = $(&#39;div&#39;);
-
-var source = Rx.Observable.fromEvent($sources, &#39;click&#39;);
-
-var subscription = source.subscribe(function (e) {
-    $result.html(e.clientX + &#39;, &#39; + e.clientY);
-});
-</code></pre><h2 id="converting-a-node-js-event-to-a-rxjs-observable-sequence">Converting a Node.js event to a RxJS Observable Sequence</h2>
-<p>Node.js is also supported such as an <a href="http://nodejs.org/api/events.html#events_class_events_eventemitter" target="_blank"><code>EventEmitter</code></a>:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rx'</span>),
-    EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'events'</span>).EventEmitter;
-
-<span class="hljs-keyword">var</span> eventEmitter = <span class="hljs-keyword">new</span> EventEmitter();
-
-<span class="hljs-keyword">var</span> source = Rx.Observable.fromEvent(eventEmitter, <span class="hljs-string">'data'</span>)
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> {</span>
-    console.log(<span class="hljs-string">'data: '</span> + data);
-});
-
-eventEmitter.emit(<span class="hljs-string">'data'</span>, <span class="hljs-string">'foo'</span>);
-<span class="hljs-comment">// =&gt; data: foo</span>
-</code></pre>
-<h2 id="bridging-to-custom-events-with-fromeventpattern">Bridging to Custom Events with FromEventPattern</h2>
-<p>There may be instances dealing with libraries which have different ways of subscribing and unsubscribing from events.  The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromeventpatternaddhander-removehandler" target="_blank"><code>fromEventPattern</code></a> method was created exactly for this purpose to allow you to bridge to each of these custom event emitters.</p>
-<p>For example, you might want to bridge to using jQuery <a href="http://api.jquery.com/on/" target="_blank"><code>on</code></a> method.  We can convert the following code which alerts based upon the click of a table row.</p>
-<pre><code class="lang-js">$( <span class="hljs-string">"#dataTable tbody"</span> ).on(<span class="hljs-string">'click'</span>, <span class="hljs-string">'tr'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-  alert( $( <span class="hljs-keyword">this</span> ).text() );
-});
-</code></pre>
-<p>The converted code looks like this while using the <code>fromEventPattern</code> method.  Each function passes in the handler function which allows you to call the <code>on</code> and <code>off</code> methods to properly handle disposal of events.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> $tbody = $(<span class="hljs-string">'#dataTable tbody'</span>);
-
-<span class="hljs-keyword">var</span> source = Rx.Observable.fromEventPattern(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addHandler</span> <span class="hljs-params">(h)</span> {</span> $tbody.on(<span class="hljs-string">'click'</span>, <span class="hljs-string">'tr'</span>, h); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delHandler</span> <span class="hljs-params">(h)</span> {</span> $tbody.off(<span class="hljs-string">'click'</span>, <span class="hljs-string">'tr'</span>, h); });
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span>
-    alert( $(e.target).text() );
-});
-</code></pre>
-<p>In addition to this normal support, we also support if the <code>addHandler</code> returns an object, it can be passed to the <code>removeHandler</code> to properly unsubscribe.  In this example, we&#39;ll use the <a href="http://dojotoolkit.org" target="_blank">Dojo Toolkit</a> and the <a href="http://dojotoolkit.org/api/1.9/dojo/on.html" target="_blank"><code>on</code></a> module.</p>
-<pre><code class="lang-js"><span class="hljs-built_in">require</span>([<span class="hljs-string">'dojo/on'</span>, <span class="hljs-string">'dojo/dom'</span>, <span class="hljs-string">'rx'</span>, <span class="hljs-string">'rx.async'</span>, <span class="hljs-string">'rx.binding'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(on, dom, rx)</span> {</span>
-
-    <span class="hljs-keyword">var</span> input = dom.byId(<span class="hljs-string">'input'</span>);
-
-    <span class="hljs-keyword">var</span> source = Rx.Observable.fromEventPattern(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addHandler</span> <span class="hljs-params">(h)</span> {</span>
-            <span class="hljs-keyword">return</span> on(input, <span class="hljs-string">'click'</span>, h);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delHandler</span> <span class="hljs-params">(_, signal)</span> {</span>
-            signal.remove();
-        }
-    );
-
-    <span class="hljs-keyword">var</span> subscription = source.subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-            console.log(<span class="hljs-string">'Next: Clicked!'</span>);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-            console.log(<span class="hljs-string">'Error: '</span> + err);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-            console.log(<span class="hljs-string">'Completed'</span>);
-        });
-
-    on.emit(input, <span class="hljs-string">'click'</span>);
-    <span class="hljs-comment">// =&gt; Next: Clicked!</span>
-});
-</code></pre>
-<h2 id="see-also">See Also</h2>
-<p>Concepts</p>
+<h2 id="-observable-methods-"><code>Observable Methods</code></h2>
 <ul>
-<li><a href="querying.html">Querying Observable Sequences</a></li>
+<li><a href="amb.html"><code>amb</code></a></li>
+<li><a href="#rxobservablecaseselector-sources-elsesourcescheduler"><code>case | switchCase</code></a></li>
+<li><a href="#rxobservablecatchargs"><code>catch | catchException</code></a></li>
+<li><a href="#rxobservableconcatargs"><code>concat</code></a></li>
+<li><a href="#rxobservablecreatesubscribe"><code>create | createWithDisposable</code></a></li>
+<li><a href="#rxobservabledeferobservablefactory"><code>defer</code></a></li>
+<li><a href="#rxobservableemptyscheduler"><code>empty</code></a></li>
+<li><a href="#rxobservableforsources-resultselector"><code>for | forIn</code></a></li>
+<li><a href="#rxobservableforkjoinargs"><code>forkJoin</code></a></li>
+<li><a href="#rxobservablefromarrayarray-scheduler"><code>fromArray</code></a></li>
+<li><a href="#rxobservablefromcallbackfunc-scheduler-context-selector"><code>fromCallback</code></a></li>
+<li><a href="#rxobservablefromeventelement-eventname-selector"><code>fromEvent</code></a></li>
+<li><a href="#rxobservablefromeventpatternaddhandler-removehandler-selector"><code>fromEventPattern</code></a></li>
+<li><a href="#rxobservablefromiterableiterable-scheduler"><code>fromIterable</code></a></li>
+<li><a href="#rxobservablefromnodecallbackfunc-scheduler-context-selector"><code>fromNodeCallback</code></a></li>
+<li><a href="#rxobservablefrompromisepromise"><code>fromPromise</code></a></li>
+<li><a href="#rxobservablegenerateinitialstate-condition-iterate-resultselector-scheduler"><code>generate</code></a></li>
+<li><a href="#rxobservablegeneratewithabsolutetimeinitialstate-condition-iterate-resultselector-timeselector-scheduler"><code>generateWithAbsoluteTime</code></a></li>
+<li><a href="#rxobservablegeneratewithrelativetimeinitialstate-condition-iterate-resultselector-timeselector-scheduler"><code>generateWithRelativeTime</code></a></li>
+<li><a href="#rxobservableifcondition-thensource-elsesource"><code>if | ifThen</code></a></li>
+<li><a href="#rxobservableintervalperiod-scheduler"><code>interval</code></a></li>
+<li><a href="#rxobservablemergescheduler-args"><code>merge</code></a></li>
+<li><a href="#rxobservablenever"><code>never</code></a></li>
+<li><a href="#rxobservableonerrorresumenextargs"><code>onErrorResumeNext</code></a></li>
+<li><a href="#rxobservablerangestart-count-scheduler"><code>range</code></a></li>
+<li><a href="#rxobservablerepeatvalue-repeatcount-scheduler"><code>repeat</code></a></li>
+<li><a href="#rxobservablereturnvalue-scheduler"><code>return | returnValue</code></a></li>
+<li><a href="#rxobservablestartfunc-scheduler-context"><code>start</code></a></li>
+<li><a href="#rxobservablestartasyncfunctionasync"><code>startAsync</code></a></li>
+<li><a href="#rxobservablethrowexception-scheduler"><code>throw | throwException</code></a></li>
+<li><a href="#rxobservabletimerduetime-period-scheduler"><code>timer</code></a></li>
+<li><a href="#rxobservabletoasyncfunc-scheduler-context"><code>toAsync</code></a></li>
+<li><a href="#rxobservableusingresourcefactory-observablefactory"><code>using</code></a></li>
+<li><a href="#rxobservablewhenargs"><code>when</code></a></li>
+<li><a href="#rxobservablewhilecondition-source"><code>while | whileDo</code></a></li>
+<li><a href="#rxobservablezipargs"><code>zip</code></a></li>
+<li><a href="#rxobservableziparrayargs"><code>zipArray</code></a></li>
+</ul>
+<!-- div -->
+
+
+<!-- div -->
+
+<h2 id="-observable-instance-methods-"><code>Observable Instance Methods</code></h2>
+<ul>
+<li><a href="#rxobservableprototypeaggregateseed-accumulator"><code>aggregate</code></a></li>
+<li><a href="#rxobservableprototypeallpredicate-thisarg"><code>all</code></a></li>
+<li><a href="#rxobservableprototypeambrightsource"><code>amb</code></a></li>
+<li><a href="#rxobservableprototypeandrightsource"><code>and</code></a></li>
+<li><a href="#rxobservableprototypeanypredicate-thisarg"><code>any</code></a></li>
+<li><a href="#rxobservableprototypeasobservable"><code>asObservable</code></a></li>
+<li><a href="#rxobservableprototypeaverageselector"><code>average</code></a></li>
+<li><a href="#rxobservableprototypebufferbufferopenings-bufferboundaries-bufferclosingselector"><code>buffer</code></a></li>
+<li><a href="#rxobservableprototypebufferwithcountcount-skip"><code>bufferWithCount</code></a></li>
+<li><a href="#rxobservableprototypebufferwithtimetimespan-timeshift--scheduler-scheduler"><code>bufferWithTime</code></a></li>
+<li><a href="#rxobservableprototypebufferwithtimeorcounttimespan-count-scheduler"><code>bufferWithTimeOrCount</code></a></li>
+<li><a href="#rxobservableprototypecatchsecond--handler"><code>catch | catchException</code></a></li>
+<li><a href="#rxobservableprototypecombinelatestargs-resultselector"><code>combineLatest</code></a></li>
+<li><a href="#rxobservableprototypeconcatargs"><code>concat</code></a></li>
+<li><a href="#rxobservableprototypeconcatallargs"><code>concatAll</code></a></li>
+<li><a href="#connectableobservableprototypeconnect"><code>connect</code></a></li>
+<li><a href="#rxobservableprototypecontainsvalue-comparer"><code>contains</code></a></li>
+<li><a href="#rxobservableprototypecontrolledenablequeue"><code>controlled</code></a></li>
+<li><a href="#rxobservableprototypecountpredicate"><code>count</code></a></li>
+<li><a href="#rxobservableprototypedefaultifemptydefaultvalue"><code>defaultIfEmpty</code></a></li>
+<li><a href="#rxobservableprototypedelayduetime-scheduler"><code>delay</code></a></li>
+<li><a href="#rxobservabledelaywithselectordelaysubscriptiondelay-delaydurationselector"><code>delayWithSelector</code></a></li>
+<li><a href="#rxobservableprototypedematerialize"><code>dematerialize</code></a></li>
+<li><a href="#rxobservableprototypedistinctkeyselector-keyserializer"><code>distinct</code></a></li>
+<li><a href="#rxobservableprototypedistinctuntilchangedkeyselector-comparer"><code>distinctUntilChanged</code></a></li>
+<li><a href="#rxobservableprototypedoobserver--onnext-onerror-oncompleted"><code>do | doAction</code></a></li>
+<li><a href="#rxobservableprototypedowhilecondition-source"><code>doWhile</code></a></li>
+<li><a href="#rxobservableprototypeelementatindex"><code>elementAt</code></a></li>
+<li><a href="#rxobservableprototypeelementatordefaultindex-defaultvalue"><code>elementAtOrDefault</code></a></li>
+<li><a href="#rxobservableprototypeeverypredicate-thisarg"><code>every</code></a></li>
+<li><a href="#rxobservableprototypeexpandselector-scheduler"><code>expand</code></a></li>
+<li><a href="#rxobservableprototypefilterpredicate-thisarg"><code>filter</code></a></li>
+<li><a href="#rxobservableprototypefinallyaction"><code>finally | finallyAction</code></a></li>
+<li><a href="#rxobservableprototypefindpredicate-thisarg"><code>find</code></a></li>
+<li><a href="#rxobservableprototypefindindexpredicate-thisarg"><code>findIndex</code></a></li>
+<li><a href="#rxobservableprototypefirstpredicate-thisarg"><code>first</code></a></li>
+<li><a href="#rxobservableprototypefirstordefaultpredicate-defaultvalue-thisarg"><code>firstOrDefault</code></a></li>
+<li><a href="#rxobservableprototypeflatmapselector-resultselector"><code>flatMap</code></a></li>
+<li><a href="#rxobservableprototypeflatmaplatestselector-thisarg"><code>flatMapLatest</code></a></li>
+<li><a href="#rxobservableprototypeforkjoinsecond-resultselector"><code>forkJoin</code></a></li>
+<li><a href="#rxobservableprototypegroupbykeyselector-elementselector-keyserializer"><code>groupBy</code></a></li>
+<li><a href="#rxobservableprototypegroupbyuntilkeyselector-elementselector-durationselector-keyserializer"><code>groupByUntil</code></a></li>
+<li><a href="#rxobservableprototypegroupjoinright-leftdurationselector-rightdurationselector-resultselector"><code>groupJoin</code></a></li>
+<li><a href="#rxobservableprototypeignoreelements"><code>ignoreElements</code></a></li>
+<li><a href="#rxobservableprototypeisempty"><code>isEmpty</code></a></li>
+<li><a href="#rxobservableprototypejoinright-leftdurationselector-rightdurationselector-resultselector"><code>join</code></a></li>
+<li><a href="#rxobservableprototypelastpredicate-thisarg"><code>last</code></a></li>
+<li><a href="#rxobservableprototypelastordefaultpredicate-defaultvalue-thisarg"><code>lastOrDefault</code></a></li>
+<li><a href="#rxobservableprototypeletfunc"><code>let | letBind</code></a></li>
+<li><a href="#rxobservableprototypemanyselectselector-scheduler"><code>manySelect</code></a></li>
+<li><a href="#rxobservableprototypemapselector-thisarg"><code>map</code></a></li>
+<li><a href="#rxobservableprototypemaxcomparer"><code>max</code></a></li>
+<li><a href="#rxobservableprototypemaxbykeyselector-comparer"><code>maxBy</code></a></li>
+<li><a href="#rxobservableprototypemergemaxconcurrent--other"><code>merge</code></a></li>
+<li><a href="#rxobservableprototypemergeobservable"><code>mergeAll</code></a></li>
+<li><a href="#rxobservableprototypemincomparer"><code>min</code></a></li>
+<li><a href="#rxobservableprototypeminbykeyselector-comparer"><code>minBy</code></a></li>
+<li><a href="#rxobservableprototypemulticastsubject--subjectselector-selector"><code>multicast</code></a></li>
+<li><a href="#rxobservableprototypeobserveonscheduler"><code>observeOn</code></a></li>
+<li><a href="#rxobservableprototypeonerrorresumenextsecond"><code>onErrorResumeNext</code></a></li>
+<li><a href="#rxobservableprototypepairwise"><code>pairwise</code></a></li>
+<li><a href="#rxobservableprototypepartitionpredicate-thisarg"><code>partition</code></a></li>
+<li><a href="#rxobservableprototypepausablepauser"><code>pausable</code></a></li>
+<li><a href="#rxobservableprototypepausablebufferedpauser"><code>pausableBuffered</code></a></li>
+<li><a href="#rxobservableprototypepluckproperty"><code>pluck</code></a></li>
+<li><a href="#rxobservableprototypepublishselector"><code>publish</code></a></li>
+<li><a href="#rxobservableprototypepublishlatestselector"><code>publishLast</code></a></li>
+<li><a href="#rxobservableprototypepublishvalueselector"><code>publishValue</code></a></li>
+<li><a href="#rxobservableprototypeshare"><code>share</code></a></li>
+<li><a href="#rxobservableprototypesharereplay-buffersize-window-scheduler"><code>shareReplay</code></a></li>
+<li><a href="#rxobservableprototypesharevalue"><code>shareValue</code></a></li>
+<li><a href="#connectableobservableprototyperefcount"><code>refCount</code></a></li>
+<li><a href="#rxobservableprototypereduceaccumulator-seed"><code>reduce</code></a></li>
+<li><a href="#rxobservableprototyperepeatrepeatcount"><code>repeat</code></a></li>
+<li><a href="#rxobservableprototypereplayselector-buffersize-window-scheduler"><code>replay</code></a></li>
+<li><a href="#rxobservableprototyperetryretrycount"><code>retry</code></a></li>
+<li><a href="#rxobservableprototypesampleinterval--sampleobservable"><code>sample</code></a></li>
+<li><a href="#rxobservableprototypescanseed-accumulator"><code>scan</code></a></li>
+<li><a href="#rxobservableprototypeselectselector-thisarg"><code>select</code></a></li>
+<li><a href="#rxobservableprototypeselectmanyselector-resultselector"><code>selectMany</code></a></li>
+<li><a href="#rxobservableprototypeselectswitchselector-thisarg"><code>selectSwitch</code></a></li>
+<li><a href="#rxobservableprototypesequenceequalsecond-comparer"><code>sequenceEqual</code></a></li>
+<li><a href="#rxobservableprototypesinglepredicate-thisarg"><code>single</code></a></li>
+<li><a href="#rxobservableprototypesingleordefaultpredicate-defaultvalue-thisarg"><code>singleOrDefault</code></a></li>
+<li><a href="#rxobservableprototypeskipcount"><code>skip</code></a></li>
+<li><a href="#rxobservableprototypeskiplastcount"><code>skipLast</code></a></li>
+<li><a href="#rxobservableprototypeskiplastwithtimeduration"><code>skipLastWithTime</code></a></li>
+<li><a href="#rxobservableprototypeskipuntilother"><code>skipUntil</code></a></li>
+<li><a href="#rxobservableprototypeskipuntilstarttime-scheduler"><code>skipUntilWithTime</code></a></li>
+<li><a href="#rxobservableprototypeskipwhilepredicate-thisarg"><code>skipWhile</code></a></li>
+<li><a href="#rxobservableprototypesomepredicate-thisarg"><code>some</code></a></li>
+<li><a href="#rxobservableprototypestartwithscheduler-args"><code>startWith</code></a></li>
+<li><a href="#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted"><code>subscribe</code></a></li>
+<li><a href="#rxobservableprototypesubscribeonscheduler"><code>subscribeOn</code></a></li>
+<li><a href="#rxobservableprototypesumkeyselector-thisarg"><code>sum</code></a></li>
+<li><a href="#rxobservableprototypeswitch"><code>switch | switchLatest</code></a></li>
+<li><a href="#rxobservableprototypetakecount-scheduler"><code>take</code></a></li>
+<li><a href="#rxobservableprototypetakelastcount"><code>takeLast</code></a></li>
+<li><a href="#rxobservableprototypetakelastbuffercount"><code>takeLastBuffer</code></a></li>
+<li><a href="#rxobservableprototypetakelastbufferwithtimeduration-scheduler"><code>takeLastBufferWithTime</code></a></li>
+<li><a href="#rxobservableprototypetakelastwithtimeduration-timescheduler-loopscheduler"><code>takeLastWithTime</code></a></li>
+<li><a href="#rxobservableprototypetakeuntilother"><code>takeUntil</code></a></li>
+<li><a href="#rxobservableprototypetakeuntilwithtimeendtime-scheduler"><code>takeUntilWithTime</code></a></li>
+<li><a href="#rxobservableprototypetakewhilepredicate-thisarg"><code>takeWhile</code></a></li>
+<li><a href="#rxobservableprototypethrottleduetime-scheduler"><code>throttle</code></a></li>
+<li><a href="#rxobservableprototypethrottlewithselectorthrottleselector"><code>throttleWithSelector</code></a></li>
+<li><a href="#rxobservableprototypetimeintervalscheduler"><code>timeInterval</code></a></li>
+<li><a href="#rxobservableprototypetimeoutduetime-other-scheduler"><code>timeout</code></a></li>
+<li><a href="#rxobservableprototypetimeoutwithselectorfirsttimeout-timeoutdurationselector-other"><code>timeoutWithSelector</code></a></li>
+<li><a href="#rxobservableprototypetimestampscheduler"><code>timestamp</code></a></li>
+<li><a href="#rxobservableprototypetoarray"><code>toArray</code></a></li>
+<li><a href="#rxobservableprototypewherepredicate-thisarg"><code>where</code></a></li>
+<li><a href="#rxobservableprototypewindowwindowopenings-windowboundaries-windowclosingselector"><code>window</code></a></li>
+<li><a href="#rxobservableprototypewindowwithcountcount-skip"><code>windowWithCount</code></a></li>
+<li><a href="#rxobservableprototypewindowwithtimetimespan-timeshift--scheduler"><code>windowWithTime</code></a></li>
+<li><a href="#rxobservableprototypewindowwithtimeorcounttimespan-count-scheduler"><code>windowWithTimeOrCount</code></a></li>
+<li><a href="#rxobservableprototypezipargs-resultselector"><code>zip</code></a></li>
 </ul>
 
                     
@@ -483,10 +544,10 @@ eventEmitter.emit(<span class="hljs-string">'data'</span>, <span class="hljs-str
         </div>
 
         
-        <a href="..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
+        <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
+        <a href="..\../content/observable/amb.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

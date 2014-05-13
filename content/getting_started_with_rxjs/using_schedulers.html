@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Using Schedulers | RxJS</title>
+        <title>Using Schedulers | RxJS - Javascript library for functional reactive programming.</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -19,8 +19,8 @@
         <link rel="prev" href="..\../content/getting_started_with_rxjs/subjects.html" />
         
 
-        <meta property="og:title" content="Using Schedulers | RxJS">
-        <meta property="og:site_name" content="RxJS">
+        <meta property="og:title" content="Using Schedulers | RxJS - Javascript library for functional reactive programming.">
+        <meta property="og:site_name" content="RxJS - Javascript library for functional reactive programming.">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
 
@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="1.4" data-basepath="..\.." data-revision="1399940773360">
+    <div class="book" data-github="xgrommx/rx-book" data-level="1.4" data-basepath="..\.." data-revision="1399941293382">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -97,7 +97,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-spinner fa-spin"></i>
-        <a href="..\../" >RxJS</a>
+        <a href="..\../" >RxJS - Javascript library for functional reactive programming.</a>
     </h1>
 </div>
 
@@ -363,7 +363,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_12">
+                    <section class="normal" id="section-gitbook_14">
                     
                         <h1 id="using-schedulers">Using Schedulers</h1>
 <p>A scheduler controls when a subscription starts and when notifications are published. It consists of three components. It is first a data structure. When you schedule for tasks to be completed, they are put into the scheduler for queueing based on priority or other criteria. It also offers an execution context which denotes where the task is executed (e.g., in the immediately, current thread, or in another callback mechanism such as <code>setTimeout</code> or <code>process.nextTick</code>). Lastly, it has a clock which provides a notion of time for itself (by accessing the <code>now</code> method of a scheduler). Tasks being scheduled on a particular scheduler will adhere to the time denoted by that clock only.</p>
@@ -489,7 +489,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {};
+    var config = {"fontSettings":{"theme":"white","family":"sans"}};
     gitbook.start(config);
 });
 </script>

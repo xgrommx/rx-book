@@ -1,4 +1,4 @@
-# RxJS <sup>v2.2</sup>
+# RxJS
 
 Reactive Extensions (Rx) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators.
 

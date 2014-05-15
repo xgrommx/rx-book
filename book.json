@@ -1,0 +1,13 @@
+{
+	"generator": "site",
+	"title": "RxJS - Javascript library for functional reactive programming.",
+	"description": null,
+	"plugins": ["disqus"],
+	"pluginsConfig": {
+		"fontSettings": {
+			"theme": "white",
+			"family": "sans"
+		}
+	}
+
+}

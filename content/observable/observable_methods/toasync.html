@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.34" data-basepath="..\..\.." data-revision="1404328569847">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.34" data-basepath="..\..\.." data-revision="1404334811095">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -2115,15 +2115,15 @@
         </li>
     
         
-        <li class="chapter " data-level="3.2.68" data-path="content/observable/observable_instance_methods/publishlast.html">
+        <li class="chapter " data-level="3.2.68" data-path="content/observable/observable_instance_methods/publishlatest.html">
             
                 
-                    <a href="..\..\../content/observable/observable_instance_methods/publishlast.html">
+                    <a href="..\..\../content/observable/observable_instance_methods/publishlatest.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.2.68.</b>
                         
-                         publishLast
+                         publishLatest
                     </a>
                 
             
@@ -3222,7 +3222,7 @@
     
         <a href="..\..\../content/observable/observable_instance_methods/publish.html" title="publish" class="chapter  " data-progress="3.2.67" style="left: 70.11494252873563%;"></a>
     
-        <a href="..\..\../content/observable/observable_instance_methods/publishlast.html" title="publishLast" class="chapter  " data-progress="3.2.68" style="left: 70.6896551724138%;"></a>
+        <a href="..\..\../content/observable/observable_instance_methods/publishlatest.html" title="publishLatest" class="chapter  " data-progress="3.2.68" style="left: 70.6896551724138%;"></a>
     
         <a href="..\..\../content/observable/observable_instance_methods/publishvalue.html" title="publishValue" class="chapter  " data-progress="3.2.69" style="left: 71.26436781609195%;"></a>
     
@@ -3331,9 +3331,70 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_54">
+                    <section class="normal" id="section-gitbook_167">
                     
                         <h1 id="toasync">toAsync</h1>
+<p><code>Rx.Observable.toAsync(func, [scheduler], [context])</code>
+<a href="#rxobservabletoasyncfunc-scheduler-context">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toasync.js" title="View in source" target="_blank">&#x24C8;</a> </p>
+<p>Converts the function into an asynchronous function. Each invocation of the resulting asynchronous function causes an invocation of the original synchronous function on the specified scheduler.</p>
+<h3 id="arguments">Arguments</h3>
+<ol>
+<li><code>func</code> <em>(<code>Function</code>)</em>: Function to convert to an asynchronous function.</li>
+<li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the function on. If not specified, defaults to Scheduler.timeout.</li>
+<li><code>[context]</code> <em>(<code>Any</code>)</em>: The context for the func parameter to be executed.  If not specified, defaults to undefined.</li>
+</ol>
+<h4 id="returns">Returns</h4>
+<p><em>(<code>Function</code>)</em>: Asynchronous function.</p>
+<h4 id="example">Example</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> func = Rx.Observable.toAsync(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, y)</span> {</span>
+    <span class="hljs-keyword">return</span> x + y;
+});
+
+<span class="hljs-comment">// Execute function with 3 and 4</span>
+<span class="hljs-keyword">var</span> source = func(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>);
+
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
+        console.log(<span class="hljs-string">'Next: '</span> + x);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
+        console.log(<span class="hljs-string">'Error: '</span> + err);   
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+        console.log(<span class="hljs-string">'Completed'</span>);   
+    });
+
+<span class="hljs-comment">// =&gt; Next: 7</span>
+<span class="hljs-comment">// =&gt; Completed</span>
+</code></pre>
+<h3 id="location">Location</h3>
+<p>File:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toasync.js" target="_blank">/src/core/observable/toasync.js</a></li>
+</ul>
+<p>Dist:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.js" target="_blank"><code>rx.async.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.compat.js" target="_blank"><code>rx.async.compat.js</code></a></li>
+</ul>
+<p>Prerequisites:</p>
+<ul>
+<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>.async.js | rx.async.compat.js</li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx.binding.js</code></a></li>
+</ul>
+<p>NPM Packages:</p>
+<ul>
+<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
+</ul>
+<p>NuGet Packages:</p>
+<ul>
+<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>JS-Binding</li>
+</ul>
+<p>Unit Tests:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/toasync.js" target="_blank">/tests/observable/toasync.js</a></li>
+</ul>
 
                     
                     </section>

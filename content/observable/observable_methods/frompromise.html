@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.16" data-basepath="..\..\.." data-revision="1404328569847">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.16" data-basepath="..\..\.." data-revision="1404334811095">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -2115,15 +2115,15 @@
         </li>
     
         
-        <li class="chapter " data-level="3.2.68" data-path="content/observable/observable_instance_methods/publishlast.html">
+        <li class="chapter " data-level="3.2.68" data-path="content/observable/observable_instance_methods/publishlatest.html">
             
                 
-                    <a href="..\..\../content/observable/observable_instance_methods/publishlast.html">
+                    <a href="..\..\../content/observable/observable_instance_methods/publishlatest.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.2.68.</b>
                         
-                         publishLast
+                         publishLatest
                     </a>
                 
             
@@ -3222,7 +3222,7 @@
     
         <a href="..\..\../content/observable/observable_instance_methods/publish.html" title="publish" class="chapter  " data-progress="3.2.67" style="left: 70.11494252873563%;"></a>
     
-        <a href="..\..\../content/observable/observable_instance_methods/publishlast.html" title="publishLast" class="chapter  " data-progress="3.2.68" style="left: 70.6896551724138%;"></a>
+        <a href="..\..\../content/observable/observable_instance_methods/publishlatest.html" title="publishLatest" class="chapter  " data-progress="3.2.68" style="left: 70.6896551724138%;"></a>
     
         <a href="..\..\../content/observable/observable_instance_methods/publishvalue.html" title="publishValue" class="chapter  " data-progress="3.2.69" style="left: 71.26436781609195%;"></a>
     
@@ -3331,9 +3331,95 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_34">
+                    <section class="normal" id="section-gitbook_150">
                     
                         <h1 id="frompromise">fromPromise</h1>
+<p><code>Rx.Observable.fromPromise(promise)</code>
+<a href="#rxobservablefrompromisepromise">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/frompromise.js" title="View in source" target="_blank">&#x24C8;</a> </p>
+<p>Converts a Promises/A+ spec compliant Promise and/or ES6 compliant Promise to an Observable sequence.</p>
+<h4 id="arguments">Arguments</h4>
+<ol>
+<li><code>promise</code> <em>(Promise)</em>: Promises/A+ spec compliant Promise to an Observable sequence.</li>
+</ol>
+<h4 id="returns">Returns</h4>
+<p><em>(<code>Observable</code>)</em>: An Observable sequence which wraps the existing promise success and failure.</p>
+<h4 id="example">Example</h4>
+<pre><code class="lang-js">
+<span class="hljs-comment">// Create a promise which resolves 42</span>
+<span class="hljs-keyword">var</span> promise1 = <span class="hljs-keyword">new</span> RSVP.Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(resolve, reject)</span> {</span>
+    resolve(<span class="hljs-number">42</span>);
+});
+
+<span class="hljs-keyword">var</span> source1 = Rx.Observable.fromPromise(promise);
+
+<span class="hljs-keyword">var</span> subscription1 = source1.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
+        console.log(<span class="hljs-string">'Next: '</span> + x);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
+        console.log(<span class="hljs-string">'Error: '</span> + err);   
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+        console.log(<span class="hljs-string">'Completed'</span>);   
+    });
+
+<span class="hljs-comment">// =&gt; Next: 42</span>
+<span class="hljs-comment">// =&gt; Completed</span>
+
+<span class="hljs-comment">// Create a promise which rejects with an error</span>
+<span class="hljs-keyword">var</span> promise1 = <span class="hljs-keyword">new</span> RSVP.Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(resolve, reject)</span> {</span>
+    reject(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'reason'</span>));
+});
+
+<span class="hljs-keyword">var</span> source1 = Rx.Observable.fromPromise(promise);
+
+<span class="hljs-keyword">var</span> subscription1 = source1.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
+        console.log(<span class="hljs-string">'Next: '</span> + x);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
+        console.log(<span class="hljs-string">'Error: '</span> + err);   
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+        console.log(<span class="hljs-string">'Completed'</span>);   
+    });
+
+<span class="hljs-comment">// =&gt; Error: Error: reject</span>
+</code></pre>
+<h3 id="location">Location</h3>
+<p>File:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/frompromise.js" target="_blank">/src/core/observable/frompromise.js</a></li>
+</ul>
+<p>Dist:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.js" target="_blank"><code>rx.async.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.compat.js" target="_blank"><code>rx.async.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+</ul>
+<p>Prerequisites:</p>
+<ul>
+<li>If using rx.async.js | rx.async.compat.js<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx.binding.js</code></a></li>
+</ul>
+</li>
+<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>.lite.js | rx.lite.compat.js</li>
+</ul>
+<p>NPM Packages:</p>
+<ul>
+<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
+</ul>
+<p>NuGet Packages:</p>
+<ul>
+<li><a href="http://www.nuget.org/packages/RxJS-Async" target="_blank"><code>RxJS-Async</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
+</ul>
+<p>Unit Tests:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/frompromise.js" target="_blank">/tests/observable/fromnodecallback.js</a></li>
+</ul>
 
                     
                     </section>

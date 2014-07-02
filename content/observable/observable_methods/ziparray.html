@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.39" data-basepath="..\..\.." data-revision="1404328569847">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.39" data-basepath="..\..\.." data-revision="1404334811095">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -2115,15 +2115,15 @@
         </li>
     
         
-        <li class="chapter " data-level="3.2.68" data-path="content/observable/observable_instance_methods/publishlast.html">
+        <li class="chapter " data-level="3.2.68" data-path="content/observable/observable_instance_methods/publishlatest.html">
             
                 
-                    <a href="..\..\../content/observable/observable_instance_methods/publishlast.html">
+                    <a href="..\..\../content/observable/observable_instance_methods/publishlatest.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.2.68.</b>
                         
-                         publishLast
+                         publishLatest
                     </a>
                 
             
@@ -3222,7 +3222,7 @@
     
         <a href="..\..\../content/observable/observable_instance_methods/publish.html" title="publish" class="chapter  " data-progress="3.2.67" style="left: 70.11494252873563%;"></a>
     
-        <a href="..\..\../content/observable/observable_instance_methods/publishlast.html" title="publishLast" class="chapter  " data-progress="3.2.68" style="left: 70.6896551724138%;"></a>
+        <a href="..\..\../content/observable/observable_instance_methods/publishlatest.html" title="publishLatest" class="chapter  " data-progress="3.2.68" style="left: 70.6896551724138%;"></a>
     
         <a href="..\..\../content/observable/observable_instance_methods/publishvalue.html" title="publishValue" class="chapter  " data-progress="3.2.69" style="left: 71.26436781609195%;"></a>
     
@@ -3331,9 +3331,73 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_56">
+                    <section class="normal" id="section-gitbook_172">
                     
                         <h1 id="ziparray">zipArray</h1>
+<p><code>Rx.Observable.zipArray(...args)</code>
+<a href="#rxobservableprototypeziparrayargs">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/ziparray.js" title="View in source" target="_blank">&#x24C8;</a> </p>
+<p>Merges the specified observable sequences into one observable sequence by emitting a list with the elements of the observable sequences at corresponding indexes.</p>
+<h4 id="arguments">Arguments</h4>
+<ol>
+<li><code>args</code> <em>(Arguments | Array)</em>: Observable sources.</li>
+</ol>
+<h4 id="returns">Returns</h4>
+<p><em>(<code>Observable</code>)</em>: An observable sequence containing lists of elements at corresponding indexes.</p>
+<h4 id="example">Example</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> range = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
+
+<span class="hljs-keyword">var</span> source = Rx.Observable.zipArray(
+    range,
+    range.skip(<span class="hljs-number">1</span>), 
+    range.skip(<span class="hljs-number">2</span>)
+);
+
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
+        console.log(<span class="hljs-string">'Next: '</span> + x);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
+        console.log(<span class="hljs-string">'Error: '</span> + err);   
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+        console.log(<span class="hljs-string">'Completed'</span>);   
+    });
+
+<span class="hljs-comment">// =&gt; Next: 0,1,2 </span>
+<span class="hljs-comment">// =&gt; Next: 1,2,3 </span>
+<span class="hljs-comment">// =&gt; Next: 2,3,4 </span>
+<span class="hljs-comment">// =&gt; Completed</span>
+</code></pre>
+<h3 id="location">Location</h3>
+<p>File:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/ziparay.js" target="_blank">/src/core/observable/zip.js</a></li>
+</ul>
+<p>Dist:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+</ul>
+<p>Prerequisites:</p>
+<ul>
+<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>.experimental.js</li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+</ul>
+<p>NPM Packages:</p>
+<ul>
+<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
+</ul>
+<p>NuGet Packages:</p>
+<ul>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
+</ul>
+<p>Unit Tests:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/ziparay.js" target="_blank">/tests/observable/ziparay.js</a></li>
+</ul>
 
                     
                     </section>

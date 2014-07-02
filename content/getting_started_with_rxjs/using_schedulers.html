@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="1.4" data-basepath="..\.." data-revision="1404326128267">
+    <div class="book" data-github="xgrommx/rx-book" data-level="1.4" data-basepath="..\.." data-revision="1404326515071">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3331,7 +3331,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_11">
+                    <section class="normal" id="section-gitbook_12">
                     
                         <h1 id="using-schedulers">Using Schedulers</h1>
 <p>A scheduler controls when a subscription starts and when notifications are published. It consists of three components. It is first a data structure. When you schedule for tasks to be completed, they are put into the scheduler for queueing based on priority or other criteria. It also offers an execution context which denotes where the task is executed (e.g., in the immediately, current thread, or in another callback mechanism such as <code>setTimeout</code> or <code>process.nextTick</code>). Lastly, it has a clock which provides a notion of time for itself (by accessing the <code>now</code> method of a scheduler). Tasks being scheduled on a particular scheduler will adhere to the time denoted by that clock only.</p>

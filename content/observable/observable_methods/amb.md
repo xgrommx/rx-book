@@ -1,4 +1,4 @@
-#amb
+# amb
 `Rx.Observable.amb(...args)`
 <a href="#rxobservableambargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/amb.js "View in source")
 

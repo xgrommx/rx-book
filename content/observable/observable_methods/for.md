@@ -1,4 +1,4 @@
-#for
+# for
 `Rx.Observable.for(sources, resultSelector)`
 <a href="#rxobservableforsources-resultselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/for.js "View in source")
 

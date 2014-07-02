@@ -7,6 +7,9 @@
 		"fontSettings": {
 			"theme": "white",
 			"family": "sans"
+		},
+		"disqus": {
+			"shortName": "rx-book"
 		}
 	}
 

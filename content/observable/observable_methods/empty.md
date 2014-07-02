@@ -1,3 +1,4 @@
+# empty
 `Rx.Observable.empty([scheduler])`
 <a href="#rxobservableemptyscheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/empty.js "View in source")
 

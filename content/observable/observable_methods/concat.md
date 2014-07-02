@@ -1,3 +1,4 @@
+# concat
 `Rx.Observable.concat(...args)`
 <a href="#rxobservableconcatargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/concat.js "View in source") 
 

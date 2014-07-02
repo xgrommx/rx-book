@@ -1,3 +1,4 @@
+# case
 `Rx.Observable.case(selector, sources, [elseSource|scheduler])`
 <a href="#rxobservablecaseselector-sources-elsesourcescheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/case.js "View in source") 
 

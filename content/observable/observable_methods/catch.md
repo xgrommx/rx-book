@@ -1,3 +1,4 @@
+# catch
 `Rx.Observable.catch(...args)`
 <a href="#rxobservablecatchargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/catch.js "View in source") 
 

@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Observable Methods | RxJS - Javascript library for functional reactive programming.</title>
+        <title>merge | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 0.5.6">
@@ -12,17 +12,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
         
     
     
     <meta name="author" content="xgrommx">
     
     
-    <link rel="next" href="..\../content/observable/observable_methods/amb.html" />
+    <link rel="next" href="..\..\../content/observable/observable_methods/never.html" />
     
     
-    <link rel="prev" href="..\../content/observable/README.html" />
+    <link rel="prev" href="..\..\../content/observable/observable_methods/interval.html" />
     
 
         
@@ -30,11 +30,11 @@
     <body>
         
         
-<link rel="stylesheet" href="../../gitbook/style.css">
+<link rel="stylesheet" href="../../../gitbook/style.css">
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.1" data-basepath="..\.." data-revision="1404324191790">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.22" data-basepath="..\..\.." data-revision="1404324191790">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -89,7 +89,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-spinner fa-spin"></i>
-        <a href="..\../" >RxJS - Javascript library for functional reactive programming.</a>
+        <a href="..\..\../" >RxJS - Javascript library for functional reactive programming.</a>
     </h1>
 </div>
 
@@ -118,7 +118,7 @@
         
         
         <li>
-            <a href="https://github.com/xgrommx/rx-book/edit/master/content/observable/observable_methods.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/xgrommx/rx-book/edit/master/content/observable/observable_methods/merge.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -132,7 +132,7 @@
         <li class="chapter " data-level="0" data-path="index.html">
             
                 
-                    <a href="..\../index.html">
+                    <a href="..\..\../index.html">
                         <i class="fa fa-check"></i>
                         
                          Introduction
@@ -146,7 +146,7 @@
         <li class="chapter " data-level="1" data-path="content/getting_started_with_rxjs/README.html">
             
                 
-                    <a href="..\../content/getting_started_with_rxjs/README.html">
+                    <a href="..\..\../content/getting_started_with_rxjs/README.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.</b>
@@ -163,7 +163,7 @@
         <li class="chapter " data-level="1.1" data-path="content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
             
                 
-                    <a href="..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
+                    <a href="..\..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.1.</b>
@@ -179,7 +179,7 @@
         <li class="chapter " data-level="1.2" data-path="content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
             
                 
-                    <a href="..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
+                    <a href="..\..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.2.</b>
@@ -195,7 +195,7 @@
         <li class="chapter " data-level="1.3" data-path="content/getting_started_with_rxjs/subjects.html">
             
                 
-                    <a href="..\../content/getting_started_with_rxjs/subjects.html">
+                    <a href="..\..\../content/getting_started_with_rxjs/subjects.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.3.</b>
@@ -211,7 +211,7 @@
         <li class="chapter " data-level="1.4" data-path="content/getting_started_with_rxjs/using_schedulers.html">
             
                 
-                    <a href="..\../content/getting_started_with_rxjs/using_schedulers.html">
+                    <a href="..\..\../content/getting_started_with_rxjs/using_schedulers.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.4.</b>
@@ -227,7 +227,7 @@
         <li class="chapter " data-level="1.5" data-path="content/getting_started_with_rxjs/testing_your_rx_application.html">
             
                 
-                    <a href="..\../content/getting_started_with_rxjs/testing_your_rx_application.html">
+                    <a href="..\..\../content/getting_started_with_rxjs/testing_your_rx_application.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.5.</b>
@@ -243,7 +243,7 @@
         <li class="chapter " data-level="1.6" data-path="content/getting_started_with_rxjs/implementing_your_own_observable_operators.html">
             
                 
-                    <a href="..\../content/getting_started_with_rxjs/implementing_your_own_observable_operators.html">
+                    <a href="..\..\../content/getting_started_with_rxjs/implementing_your_own_observable_operators.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.6.</b>
@@ -264,7 +264,7 @@
         <li class="chapter " data-level="2" data-path="content/creating_and_querying_observable_sequences/README.html">
             
                 
-                    <a href="..\../content/creating_and_querying_observable_sequences/README.html">
+                    <a href="..\..\../content/creating_and_querying_observable_sequences/README.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.</b>
@@ -281,7 +281,7 @@
         <li class="chapter " data-level="2.1" data-path="content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
             
                 
-                    <a href="..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
+                    <a href="..\..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.1.</b>
@@ -297,7 +297,7 @@
         <li class="chapter " data-level="2.2" data-path="content/creating_and_querying_observable_sequences/bridging_to_events.html">
             
                 
-                    <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_events.html">
+                    <a href="..\..\../content/creating_and_querying_observable_sequences/bridging_to_events.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.2.</b>
@@ -313,7 +313,7 @@
         <li class="chapter " data-level="2.3" data-path="content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
             
                 
-                    <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
+                    <a href="..\..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.3.</b>
@@ -329,7 +329,7 @@
         <li class="chapter " data-level="2.4" data-path="content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
             
                 
-                    <a href="..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
+                    <a href="..\..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.4.</b>
@@ -345,7 +345,7 @@
         <li class="chapter " data-level="2.5" data-path="content/creating_and_querying_observable_sequences/operators_by_category.html">
             
                 
-                    <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html">
+                    <a href="..\..\../content/creating_and_querying_observable_sequences/operators_by_category.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.5.</b>
@@ -366,7 +366,7 @@
         <li class="chapter " data-level="3" data-path="content/observable/README.html">
             
                 
-                    <a href="..\../content/observable/README.html">
+                    <a href="..\..\../content/observable/README.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.</b>
@@ -383,7 +383,7 @@
         <li class="chapter " data-level="3.1" data-path="content/observable/observable_methods.html">
             
                 
-                    <a href="..\../content/observable/observable_methods.html">
+                    <a href="..\..\../content/observable/observable_methods.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.</b>
@@ -400,7 +400,7 @@
         <li class="chapter " data-level="3.1.1" data-path="content/observable/observable_methods/amb.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/amb.html">
+                    <a href="..\..\../content/observable/observable_methods/amb.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.1.</b>
@@ -416,7 +416,7 @@
         <li class="chapter " data-level="3.1.2" data-path="content/observable/observable_methods/case.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/case.html">
+                    <a href="..\..\../content/observable/observable_methods/case.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.2.</b>
@@ -432,7 +432,7 @@
         <li class="chapter " data-level="3.1.3" data-path="content/observable/observable_methods/catch.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/catch.html">
+                    <a href="..\..\../content/observable/observable_methods/catch.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.3.</b>
@@ -448,7 +448,7 @@
         <li class="chapter " data-level="3.1.4" data-path="content/observable/observable_methods/concat.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/concat.html">
+                    <a href="..\..\../content/observable/observable_methods/concat.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.4.</b>
@@ -464,7 +464,7 @@
         <li class="chapter " data-level="3.1.5" data-path="content/observable/observable_methods/create.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/create.html">
+                    <a href="..\..\../content/observable/observable_methods/create.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.5.</b>
@@ -480,7 +480,7 @@
         <li class="chapter " data-level="3.1.6" data-path="content/observable/observable_methods/defer.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/defer.html">
+                    <a href="..\..\../content/observable/observable_methods/defer.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.6.</b>
@@ -496,7 +496,7 @@
         <li class="chapter " data-level="3.1.7" data-path="content/observable/observable_methods/empty.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/empty.html">
+                    <a href="..\..\../content/observable/observable_methods/empty.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.7.</b>
@@ -512,7 +512,7 @@
         <li class="chapter " data-level="3.1.8" data-path="content/observable/observable_methods/for.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/for.html">
+                    <a href="..\..\../content/observable/observable_methods/for.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.8.</b>
@@ -528,7 +528,7 @@
         <li class="chapter " data-level="3.1.9" data-path="content/observable/observable_methods/forkjoin.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/forkjoin.html">
+                    <a href="..\..\../content/observable/observable_methods/forkjoin.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.9.</b>
@@ -544,7 +544,7 @@
         <li class="chapter " data-level="3.1.10" data-path="content/observable/observable_methods/fromarray.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/fromarray.html">
+                    <a href="..\..\../content/observable/observable_methods/fromarray.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.10.</b>
@@ -560,7 +560,7 @@
         <li class="chapter " data-level="3.1.11" data-path="content/observable/observable_methods/fromcallback.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/fromcallback.html">
+                    <a href="..\..\../content/observable/observable_methods/fromcallback.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.11.</b>
@@ -576,7 +576,7 @@
         <li class="chapter " data-level="3.1.12" data-path="content/observable/observable_methods/fromevent.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/fromevent.html">
+                    <a href="..\..\../content/observable/observable_methods/fromevent.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.12.</b>
@@ -592,7 +592,7 @@
         <li class="chapter " data-level="3.1.13" data-path="content/observable/observable_methods/fromeventpattern.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/fromeventpattern.html">
+                    <a href="..\..\../content/observable/observable_methods/fromeventpattern.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.13.</b>
@@ -608,7 +608,7 @@
         <li class="chapter " data-level="3.1.14" data-path="content/observable/observable_methods/fromiterable.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/fromiterable.html">
+                    <a href="..\..\../content/observable/observable_methods/fromiterable.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.14.</b>
@@ -624,7 +624,7 @@
         <li class="chapter " data-level="3.1.15" data-path="content/observable/observable_methods/fromnodecallback.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/fromnodecallback.html">
+                    <a href="..\..\../content/observable/observable_methods/fromnodecallback.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.15.</b>
@@ -640,7 +640,7 @@
         <li class="chapter " data-level="3.1.16" data-path="content/observable/observable_methods/frompromise.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/frompromise.html">
+                    <a href="..\..\../content/observable/observable_methods/frompromise.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.16.</b>
@@ -656,7 +656,7 @@
         <li class="chapter " data-level="3.1.17" data-path="content/observable/observable_methods/generate.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/generate.html">
+                    <a href="..\..\../content/observable/observable_methods/generate.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.17.</b>
@@ -672,7 +672,7 @@
         <li class="chapter " data-level="3.1.18" data-path="content/observable/observable_methods/generatewithabsolutetime.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/generatewithabsolutetime.html">
+                    <a href="..\..\../content/observable/observable_methods/generatewithabsolutetime.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.18.</b>
@@ -688,7 +688,7 @@
         <li class="chapter " data-level="3.1.19" data-path="content/observable/observable_methods/generatewithrelativetime.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/generatewithrelativetime.html">
+                    <a href="..\..\../content/observable/observable_methods/generatewithrelativetime.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.19.</b>
@@ -704,7 +704,7 @@
         <li class="chapter " data-level="3.1.20" data-path="content/observable/observable_methods/if.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/if.html">
+                    <a href="..\..\../content/observable/observable_methods/if.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.20.</b>
@@ -720,7 +720,7 @@
         <li class="chapter " data-level="3.1.21" data-path="content/observable/observable_methods/interval.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/interval.html">
+                    <a href="..\..\../content/observable/observable_methods/interval.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.21.</b>
@@ -736,7 +736,7 @@
         <li class="chapter " data-level="3.1.22" data-path="content/observable/observable_methods/merge.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/merge.html">
+                    <a href="..\..\../content/observable/observable_methods/merge.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.22.</b>
@@ -752,7 +752,7 @@
         <li class="chapter " data-level="3.1.23" data-path="content/observable/observable_methods/never.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/never.html">
+                    <a href="..\..\../content/observable/observable_methods/never.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.23.</b>
@@ -768,7 +768,7 @@
         <li class="chapter " data-level="3.1.24" data-path="content/observable/observable_methods/of.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/of.html">
+                    <a href="..\..\../content/observable/observable_methods/of.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.24.</b>
@@ -784,7 +784,7 @@
         <li class="chapter " data-level="3.1.25" data-path="content/observable/observable_methods/ofwithscheduler.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/ofwithscheduler.html">
+                    <a href="..\..\../content/observable/observable_methods/ofwithscheduler.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.25.</b>
@@ -800,7 +800,7 @@
         <li class="chapter " data-level="3.1.26" data-path="content/observable/observable_methods/onerrorresumenext.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/onerrorresumenext.html">
+                    <a href="..\..\../content/observable/observable_methods/onerrorresumenext.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.26.</b>
@@ -816,7 +816,7 @@
         <li class="chapter " data-level="3.1.27" data-path="content/observable/observable_methods/range.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/range.html">
+                    <a href="..\..\../content/observable/observable_methods/range.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.27.</b>
@@ -832,7 +832,7 @@
         <li class="chapter " data-level="3.1.28" data-path="content/observable/observable_methods/repeat.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/repeat.html">
+                    <a href="..\..\../content/observable/observable_methods/repeat.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.28.</b>
@@ -848,7 +848,7 @@
         <li class="chapter " data-level="3.1.29" data-path="content/observable/observable_methods/return.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/return.html">
+                    <a href="..\..\../content/observable/observable_methods/return.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.29.</b>
@@ -864,7 +864,7 @@
         <li class="chapter " data-level="3.1.30" data-path="content/observable/observable_methods/start.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/start.html">
+                    <a href="..\..\../content/observable/observable_methods/start.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.30.</b>
@@ -880,7 +880,7 @@
         <li class="chapter " data-level="3.1.31" data-path="content/observable/observable_methods/startasync.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/startasync.html">
+                    <a href="..\..\../content/observable/observable_methods/startasync.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.31.</b>
@@ -896,7 +896,7 @@
         <li class="chapter " data-level="3.1.32" data-path="content/observable/observable_methods/throw.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/throw.html">
+                    <a href="..\..\../content/observable/observable_methods/throw.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.32.</b>
@@ -912,7 +912,7 @@
         <li class="chapter " data-level="3.1.33" data-path="content/observable/observable_methods/timer.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/timer.html">
+                    <a href="..\..\../content/observable/observable_methods/timer.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.33.</b>
@@ -928,7 +928,7 @@
         <li class="chapter " data-level="3.1.34" data-path="content/observable/observable_methods/toasync.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/toasync.html">
+                    <a href="..\..\../content/observable/observable_methods/toasync.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.34.</b>
@@ -944,7 +944,7 @@
         <li class="chapter " data-level="3.1.35" data-path="content/observable/observable_methods/using.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/using.html">
+                    <a href="..\..\../content/observable/observable_methods/using.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.35.</b>
@@ -960,7 +960,7 @@
         <li class="chapter " data-level="3.1.36" data-path="content/observable/observable_methods/when.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/when.html">
+                    <a href="..\..\../content/observable/observable_methods/when.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.36.</b>
@@ -976,7 +976,7 @@
         <li class="chapter " data-level="3.1.37" data-path="content/observable/observable_methods/while.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/while.html">
+                    <a href="..\..\../content/observable/observable_methods/while.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.37.</b>
@@ -992,7 +992,7 @@
         <li class="chapter " data-level="3.1.38" data-path="content/observable/observable_methods/zip.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/zip.html">
+                    <a href="..\..\../content/observable/observable_methods/zip.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.38.</b>
@@ -1008,7 +1008,7 @@
         <li class="chapter " data-level="3.1.39" data-path="content/observable/observable_methods/ziparray.html">
             
                 
-                    <a href="..\../content/observable/observable_methods/ziparray.html">
+                    <a href="..\..\../content/observable/observable_methods/ziparray.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.39.</b>
@@ -1029,7 +1029,7 @@
         <li class="chapter " data-level="3.2" data-path="content/observable/observable_instance_methods.html">
             
                 
-                    <a href="..\../content/observable/observable_instance_methods.html">
+                    <a href="..\..\../content/observable/observable_instance_methods.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.2.</b>
@@ -1046,7 +1046,7 @@
         <li class="chapter " data-level="3.2.1" data-path="content/observable/observable_instance_methods/aggregate.html">
             
                 
-                    <a href="..\../content/observable/observable_instance_methods/aggregate.html">
+                    <a href="..\..\../content/observable/observable_instance_methods/aggregate.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.2.1.</b>
@@ -1084,145 +1084,132 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 26.785714285714285%;min-width: 25%;"></div>
+        <div class="inner" style="width: 66.07142857142857%;min-width: 64.28571428571429%;"></div>
     </div>
     <div class="chapters">
     
-        <a href="..\../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+        <a href="..\..\../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
     
-        <a href="..\../content/getting_started_with_rxjs/README.html" title="Getting Started With RxJS" class="chapter done new-chapter" data-progress="1" style="left: 1.7857142857142858%;"></a>
+        <a href="..\..\../content/getting_started_with_rxjs/README.html" title="Getting Started With RxJS" class="chapter done new-chapter" data-progress="1" style="left: 1.7857142857142858%;"></a>
     
-        <a href="..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html" title="What are the Reactive Extensions?" class="chapter done " data-progress="1.1" style="left: 3.5714285714285716%;"></a>
+        <a href="..\..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html" title="What are the Reactive Extensions?" class="chapter done " data-progress="1.1" style="left: 3.5714285714285716%;"></a>
     
-        <a href="..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html" title="Exploring Major Concepts in RxJS" class="chapter done " data-progress="1.2" style="left: 5.357142857142857%;"></a>
+        <a href="..\..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html" title="Exploring Major Concepts in RxJS" class="chapter done " data-progress="1.2" style="left: 5.357142857142857%;"></a>
     
-        <a href="..\../content/getting_started_with_rxjs/subjects.html" title="Subjects" class="chapter done " data-progress="1.3" style="left: 7.142857142857143%;"></a>
+        <a href="..\..\../content/getting_started_with_rxjs/subjects.html" title="Subjects" class="chapter done " data-progress="1.3" style="left: 7.142857142857143%;"></a>
     
-        <a href="..\../content/getting_started_with_rxjs/using_schedulers.html" title="Using Schedulers" class="chapter done " data-progress="1.4" style="left: 8.928571428571429%;"></a>
+        <a href="..\..\../content/getting_started_with_rxjs/using_schedulers.html" title="Using Schedulers" class="chapter done " data-progress="1.4" style="left: 8.928571428571429%;"></a>
     
-        <a href="..\../content/getting_started_with_rxjs/testing_your_rx_application.html" title="Testing your Rx application" class="chapter done " data-progress="1.5" style="left: 10.714285714285714%;"></a>
+        <a href="..\..\../content/getting_started_with_rxjs/testing_your_rx_application.html" title="Testing your Rx application" class="chapter done " data-progress="1.5" style="left: 10.714285714285714%;"></a>
     
-        <a href="..\../content/getting_started_with_rxjs/implementing_your_own_observable_operators.html" title="Implementing Your Own Observable Operators" class="chapter done " data-progress="1.6" style="left: 12.5%;"></a>
+        <a href="..\..\../content/getting_started_with_rxjs/implementing_your_own_observable_operators.html" title="Implementing Your Own Observable Operators" class="chapter done " data-progress="1.6" style="left: 12.5%;"></a>
     
-        <a href="..\../content/creating_and_querying_observable_sequences/README.html" title="Creating and Querying Observable Sequences" class="chapter done new-chapter" data-progress="2" style="left: 14.285714285714286%;"></a>
+        <a href="..\..\../content/creating_and_querying_observable_sequences/README.html" title="Creating and Querying Observable Sequences" class="chapter done new-chapter" data-progress="2" style="left: 14.285714285714286%;"></a>
     
-        <a href="..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html" title="Creating and Subscribing to Simple Observable Sequences" class="chapter done " data-progress="2.1" style="left: 16.071428571428573%;"></a>
+        <a href="..\..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html" title="Creating and Subscribing to Simple Observable Sequences" class="chapter done " data-progress="2.1" style="left: 16.071428571428573%;"></a>
     
-        <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_events.html" title="Bridging to Events" class="chapter done " data-progress="2.2" style="left: 17.857142857142858%;"></a>
+        <a href="..\..\../content/creating_and_querying_observable_sequences/bridging_to_events.html" title="Bridging to Events" class="chapter done " data-progress="2.2" style="left: 17.857142857142858%;"></a>
     
-        <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html" title="Bridging to Callbacks and Promises" class="chapter done " data-progress="2.3" style="left: 19.642857142857142%;"></a>
+        <a href="..\..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html" title="Bridging to Callbacks and Promises" class="chapter done " data-progress="2.3" style="left: 19.642857142857142%;"></a>
     
-        <a href="..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html" title="Querying Observable Sequences" class="chapter done " data-progress="2.4" style="left: 21.428571428571427%;"></a>
+        <a href="..\..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html" title="Querying Observable Sequences" class="chapter done " data-progress="2.4" style="left: 21.428571428571427%;"></a>
     
-        <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" title="Operators by Category" class="chapter done " data-progress="2.5" style="left: 23.214285714285715%;"></a>
+        <a href="..\..\../content/creating_and_querying_observable_sequences/operators_by_category.html" title="Operators by Category" class="chapter done " data-progress="2.5" style="left: 23.214285714285715%;"></a>
     
-        <a href="..\../content/observable/README.html" title="Rx.Observable" class="chapter done new-chapter" data-progress="3" style="left: 25%;"></a>
+        <a href="..\..\../content/observable/README.html" title="Rx.Observable" class="chapter done new-chapter" data-progress="3" style="left: 25%;"></a>
     
-        <a href="..\../content/observable/observable_methods.html" title="Observable Methods" class="chapter done " data-progress="3.1" style="left: 26.785714285714285%;"></a>
+        <a href="..\..\../content/observable/observable_methods.html" title="Observable Methods" class="chapter done " data-progress="3.1" style="left: 26.785714285714285%;"></a>
     
-        <a href="..\../content/observable/observable_methods/amb.html" title="amb" class="chapter  " data-progress="3.1.1" style="left: 28.571428571428573%;"></a>
+        <a href="..\..\../content/observable/observable_methods/amb.html" title="amb" class="chapter done " data-progress="3.1.1" style="left: 28.571428571428573%;"></a>
     
-        <a href="..\../content/observable/observable_methods/case.html" title="case" class="chapter  " data-progress="3.1.2" style="left: 30.357142857142858%;"></a>
+        <a href="..\..\../content/observable/observable_methods/case.html" title="case" class="chapter done " data-progress="3.1.2" style="left: 30.357142857142858%;"></a>
     
-        <a href="..\../content/observable/observable_methods/catch.html" title="catch" class="chapter  " data-progress="3.1.3" style="left: 32.142857142857146%;"></a>
+        <a href="..\..\../content/observable/observable_methods/catch.html" title="catch" class="chapter done " data-progress="3.1.3" style="left: 32.142857142857146%;"></a>
     
-        <a href="..\../content/observable/observable_methods/concat.html" title="concat" class="chapter  " data-progress="3.1.4" style="left: 33.92857142857143%;"></a>
+        <a href="..\..\../content/observable/observable_methods/concat.html" title="concat" class="chapter done " data-progress="3.1.4" style="left: 33.92857142857143%;"></a>
     
-        <a href="..\../content/observable/observable_methods/create.html" title="create" class="chapter  " data-progress="3.1.5" style="left: 35.714285714285715%;"></a>
+        <a href="..\..\../content/observable/observable_methods/create.html" title="create" class="chapter done " data-progress="3.1.5" style="left: 35.714285714285715%;"></a>
     
-        <a href="..\../content/observable/observable_methods/defer.html" title="defer" class="chapter  " data-progress="3.1.6" style="left: 37.5%;"></a>
+        <a href="..\..\../content/observable/observable_methods/defer.html" title="defer" class="chapter done " data-progress="3.1.6" style="left: 37.5%;"></a>
     
-        <a href="..\../content/observable/observable_methods/empty.html" title="empty" class="chapter  " data-progress="3.1.7" style="left: 39.285714285714285%;"></a>
+        <a href="..\..\../content/observable/observable_methods/empty.html" title="empty" class="chapter done " data-progress="3.1.7" style="left: 39.285714285714285%;"></a>
     
-        <a href="..\../content/observable/observable_methods/for.html" title="for" class="chapter  " data-progress="3.1.8" style="left: 41.07142857142857%;"></a>
+        <a href="..\..\../content/observable/observable_methods/for.html" title="for" class="chapter done " data-progress="3.1.8" style="left: 41.07142857142857%;"></a>
     
-        <a href="..\../content/observable/observable_methods/forkjoin.html" title="forkJoin" class="chapter  " data-progress="3.1.9" style="left: 42.857142857142854%;"></a>
+        <a href="..\..\../content/observable/observable_methods/forkjoin.html" title="forkJoin" class="chapter done " data-progress="3.1.9" style="left: 42.857142857142854%;"></a>
     
-        <a href="..\../content/observable/observable_methods/fromarray.html" title="fromArray" class="chapter  " data-progress="3.1.10" style="left: 44.642857142857146%;"></a>
+        <a href="..\..\../content/observable/observable_methods/fromarray.html" title="fromArray" class="chapter done " data-progress="3.1.10" style="left: 44.642857142857146%;"></a>
     
-        <a href="..\../content/observable/observable_methods/fromcallback.html" title="fromCallback" class="chapter  " data-progress="3.1.11" style="left: 46.42857142857143%;"></a>
+        <a href="..\..\../content/observable/observable_methods/fromcallback.html" title="fromCallback" class="chapter done " data-progress="3.1.11" style="left: 46.42857142857143%;"></a>
     
-        <a href="..\../content/observable/observable_methods/fromevent.html" title="fromEvent" class="chapter  " data-progress="3.1.12" style="left: 48.214285714285715%;"></a>
+        <a href="..\..\../content/observable/observable_methods/fromevent.html" title="fromEvent" class="chapter done " data-progress="3.1.12" style="left: 48.214285714285715%;"></a>
     
-        <a href="..\../content/observable/observable_methods/fromeventpattern.html" title="fromEventPattern" class="chapter  " data-progress="3.1.13" style="left: 50%;"></a>
+        <a href="..\..\../content/observable/observable_methods/fromeventpattern.html" title="fromEventPattern" class="chapter done " data-progress="3.1.13" style="left: 50%;"></a>
     
-        <a href="..\../content/observable/observable_methods/fromiterable.html" title="fromIterable" class="chapter  " data-progress="3.1.14" style="left: 51.785714285714285%;"></a>
+        <a href="..\..\../content/observable/observable_methods/fromiterable.html" title="fromIterable" class="chapter done " data-progress="3.1.14" style="left: 51.785714285714285%;"></a>
     
-        <a href="..\../content/observable/observable_methods/fromnodecallback.html" title="fromNodeCallback" class="chapter  " data-progress="3.1.15" style="left: 53.57142857142857%;"></a>
+        <a href="..\..\../content/observable/observable_methods/fromnodecallback.html" title="fromNodeCallback" class="chapter done " data-progress="3.1.15" style="left: 53.57142857142857%;"></a>
     
-        <a href="..\../content/observable/observable_methods/frompromise.html" title="fromPromise" class="chapter  " data-progress="3.1.16" style="left: 55.357142857142854%;"></a>
+        <a href="..\..\../content/observable/observable_methods/frompromise.html" title="fromPromise" class="chapter done " data-progress="3.1.16" style="left: 55.357142857142854%;"></a>
     
-        <a href="..\../content/observable/observable_methods/generate.html" title="generate" class="chapter  " data-progress="3.1.17" style="left: 57.142857142857146%;"></a>
+        <a href="..\..\../content/observable/observable_methods/generate.html" title="generate" class="chapter done " data-progress="3.1.17" style="left: 57.142857142857146%;"></a>
     
-        <a href="..\../content/observable/observable_methods/generatewithabsolutetime.html" title="generateWithAbsoluteTime" class="chapter  " data-progress="3.1.18" style="left: 58.92857142857143%;"></a>
+        <a href="..\..\../content/observable/observable_methods/generatewithabsolutetime.html" title="generateWithAbsoluteTime" class="chapter done " data-progress="3.1.18" style="left: 58.92857142857143%;"></a>
     
-        <a href="..\../content/observable/observable_methods/generatewithrelativetime.html" title="generateWithRelativeTime" class="chapter  " data-progress="3.1.19" style="left: 60.714285714285715%;"></a>
+        <a href="..\..\../content/observable/observable_methods/generatewithrelativetime.html" title="generateWithRelativeTime" class="chapter done " data-progress="3.1.19" style="left: 60.714285714285715%;"></a>
     
-        <a href="..\../content/observable/observable_methods/if.html" title="if | ifThen" class="chapter  " data-progress="3.1.20" style="left: 62.5%;"></a>
+        <a href="..\..\../content/observable/observable_methods/if.html" title="if | ifThen" class="chapter done " data-progress="3.1.20" style="left: 62.5%;"></a>
     
-        <a href="..\../content/observable/observable_methods/interval.html" title="interval" class="chapter  " data-progress="3.1.21" style="left: 64.28571428571429%;"></a>
+        <a href="..\..\../content/observable/observable_methods/interval.html" title="interval" class="chapter done " data-progress="3.1.21" style="left: 64.28571428571429%;"></a>
     
-        <a href="..\../content/observable/observable_methods/merge.html" title="merge" class="chapter  " data-progress="3.1.22" style="left: 66.07142857142857%;"></a>
+        <a href="..\..\../content/observable/observable_methods/merge.html" title="merge" class="chapter done " data-progress="3.1.22" style="left: 66.07142857142857%;"></a>
     
-        <a href="..\../content/observable/observable_methods/never.html" title="never" class="chapter  " data-progress="3.1.23" style="left: 67.85714285714286%;"></a>
+        <a href="..\..\../content/observable/observable_methods/never.html" title="never" class="chapter  " data-progress="3.1.23" style="left: 67.85714285714286%;"></a>
     
-        <a href="..\../content/observable/observable_methods/of.html" title="of" class="chapter  " data-progress="3.1.24" style="left: 69.64285714285714%;"></a>
+        <a href="..\..\../content/observable/observable_methods/of.html" title="of" class="chapter  " data-progress="3.1.24" style="left: 69.64285714285714%;"></a>
     
-        <a href="..\../content/observable/observable_methods/ofwithscheduler.html" title="ofWithScheduler" class="chapter  " data-progress="3.1.25" style="left: 71.42857142857143%;"></a>
+        <a href="..\..\../content/observable/observable_methods/ofwithscheduler.html" title="ofWithScheduler" class="chapter  " data-progress="3.1.25" style="left: 71.42857142857143%;"></a>
     
-        <a href="..\../content/observable/observable_methods/onerrorresumenext.html" title="onErrorResumeNext" class="chapter  " data-progress="3.1.26" style="left: 73.21428571428571%;"></a>
+        <a href="..\..\../content/observable/observable_methods/onerrorresumenext.html" title="onErrorResumeNext" class="chapter  " data-progress="3.1.26" style="left: 73.21428571428571%;"></a>
     
-        <a href="..\../content/observable/observable_methods/range.html" title="range" class="chapter  " data-progress="3.1.27" style="left: 75%;"></a>
+        <a href="..\..\../content/observable/observable_methods/range.html" title="range" class="chapter  " data-progress="3.1.27" style="left: 75%;"></a>
     
-        <a href="..\../content/observable/observable_methods/repeat.html" title="repeat" class="chapter  " data-progress="3.1.28" style="left: 76.78571428571429%;"></a>
+        <a href="..\..\../content/observable/observable_methods/repeat.html" title="repeat" class="chapter  " data-progress="3.1.28" style="left: 76.78571428571429%;"></a>
     
-        <a href="..\../content/observable/observable_methods/return.html" title="return | returnValue" class="chapter  " data-progress="3.1.29" style="left: 78.57142857142857%;"></a>
+        <a href="..\..\../content/observable/observable_methods/return.html" title="return | returnValue" class="chapter  " data-progress="3.1.29" style="left: 78.57142857142857%;"></a>
     
-        <a href="..\../content/observable/observable_methods/start.html" title="start" class="chapter  " data-progress="3.1.30" style="left: 80.35714285714286%;"></a>
+        <a href="..\..\../content/observable/observable_methods/start.html" title="start" class="chapter  " data-progress="3.1.30" style="left: 80.35714285714286%;"></a>
     
-        <a href="..\../content/observable/observable_methods/startasync.html" title="startAsync" class="chapter  " data-progress="3.1.31" style="left: 82.14285714285714%;"></a>
+        <a href="..\..\../content/observable/observable_methods/startasync.html" title="startAsync" class="chapter  " data-progress="3.1.31" style="left: 82.14285714285714%;"></a>
     
-        <a href="..\../content/observable/observable_methods/throw.html" title="throw | throwException" class="chapter  " data-progress="3.1.32" style="left: 83.92857142857143%;"></a>
+        <a href="..\..\../content/observable/observable_methods/throw.html" title="throw | throwException" class="chapter  " data-progress="3.1.32" style="left: 83.92857142857143%;"></a>
     
-        <a href="..\../content/observable/observable_methods/timer.html" title="timer" class="chapter  " data-progress="3.1.33" style="left: 85.71428571428571%;"></a>
+        <a href="..\..\../content/observable/observable_methods/timer.html" title="timer" class="chapter  " data-progress="3.1.33" style="left: 85.71428571428571%;"></a>
     
-        <a href="..\../content/observable/observable_methods/toasync.html" title="toAsync" class="chapter  " data-progress="3.1.34" style="left: 87.5%;"></a>
+        <a href="..\..\../content/observable/observable_methods/toasync.html" title="toAsync" class="chapter  " data-progress="3.1.34" style="left: 87.5%;"></a>
     
-        <a href="..\../content/observable/observable_methods/using.html" title="using" class="chapter  " data-progress="3.1.35" style="left: 89.28571428571429%;"></a>
+        <a href="..\..\../content/observable/observable_methods/using.html" title="using" class="chapter  " data-progress="3.1.35" style="left: 89.28571428571429%;"></a>
     
-        <a href="..\../content/observable/observable_methods/when.html" title="when" class="chapter  " data-progress="3.1.36" style="left: 91.07142857142857%;"></a>
+        <a href="..\..\../content/observable/observable_methods/when.html" title="when" class="chapter  " data-progress="3.1.36" style="left: 91.07142857142857%;"></a>
     
-        <a href="..\../content/observable/observable_methods/while.html" title="while | whileDo" class="chapter  " data-progress="3.1.37" style="left: 92.85714285714286%;"></a>
+        <a href="..\..\../content/observable/observable_methods/while.html" title="while | whileDo" class="chapter  " data-progress="3.1.37" style="left: 92.85714285714286%;"></a>
     
-        <a href="..\../content/observable/observable_methods/zip.html" title="zip" class="chapter  " data-progress="3.1.38" style="left: 94.64285714285714%;"></a>
+        <a href="..\..\../content/observable/observable_methods/zip.html" title="zip" class="chapter  " data-progress="3.1.38" style="left: 94.64285714285714%;"></a>
     
-        <a href="..\../content/observable/observable_methods/ziparray.html" title="zipArray" class="chapter  " data-progress="3.1.39" style="left: 96.42857142857143%;"></a>
+        <a href="..\..\../content/observable/observable_methods/ziparray.html" title="zipArray" class="chapter  " data-progress="3.1.39" style="left: 96.42857142857143%;"></a>
     
-        <a href="..\../content/observable/observable_instance_methods.html" title="Observable Instance Methods" class="chapter  " data-progress="3.2" style="left: 98.21428571428571%;"></a>
+        <a href="..\..\../content/observable/observable_instance_methods.html" title="Observable Instance Methods" class="chapter  " data-progress="3.2" style="left: 98.21428571428571%;"></a>
     
-        <a href="..\../content/observable/observable_instance_methods/aggregate.html" title="aggregate" class="chapter  " data-progress="3.2.1" style="left: 100%;"></a>
+        <a href="..\..\../content/observable/observable_instance_methods/aggregate.html" title="aggregate" class="chapter  " data-progress="3.2.1" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_57">
+                    <section class="normal" id="section-gitbook_38">
                     
-                        <h1 id="observable-methods">Observable Methods</h1>
-<ul>
-<li><a href="observable_methods/amb.html">amb</a></li>
-<li><a href="observable_methods/case.html">case</a></li>
-<li><a href="observable_methods/catch.html">catch</a></li>
-<li><a href="observable_methods/concat.html">concat</a></li>
-<li><a href="observable_methods/create.html">create</a></li>
-<li><a href="observable_methods/defer.html">defer</a></li>
-<li><a href="observable_methods/empty.html">empty</a></li>
-<li><a href="observable_methods/for.html">for</a></li>
-<li><a href="observable_methods/forkjoin.html">forkJoin</a></li>
-<li><a href="observable_methods/fromarray.html">fromArray</a></li>
-<li><a href="observable_methods/fromcallback.html">fromCallback</a></li>
-</ul>
+                        <h1 id="merge">merge</h1>
 
                     
                     </section>
@@ -1232,20 +1219,20 @@
         </div>
 
         
-        <a href="..\../content/observable/README.html" class="navigation navigation-prev " aria-label="Previous page: Rx.Observable"><i class="fa fa-angle-left"></i></a>
+        <a href="..\..\../content/observable/observable_methods/interval.html" class="navigation navigation-prev " aria-label="Previous page: interval"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="..\../content/observable/observable_methods/amb.html" class="navigation navigation-next " aria-label="Next page: amb"><i class="fa fa-angle-right"></i></a>
+        <a href="..\..\../content/observable/observable_methods/never.html" class="navigation navigation-next " aria-label="Next page: never"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-<script src="../../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
-<script src="../../gitbook/app.js"></script>
+<script src="../../../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../../../gitbook/app.js"></script>
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    <script src="../../../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
     
 
     
@@ -1253,11 +1240,11 @@
     
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    <script src="../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
     
 
     
-    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

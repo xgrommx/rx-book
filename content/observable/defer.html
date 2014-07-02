@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>empty | RxJS - Javascript library for functional reactive programming.</title>
+        <title>defer | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 0.5.6">
@@ -19,8 +19,10 @@
     <meta name="author" content="xgrommx">
     
     
+    <link rel="next" href="..\../content/observable/empty.html" />
     
-    <link rel="prev" href="..\../content/observable/defer.html" />
+    
+    <link rel="prev" href="..\../content/observable/create.html" />
     
 
         
@@ -32,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.7" data-basepath="..\.." data-revision="1404313023185">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.6" data-basepath="..\.." data-revision="1404313023185">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -116,7 +118,7 @@
         
         
         <li>
-            <a href="https://github.com/xgrommx/rx-book/edit/master/content/observable/empty.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/xgrommx/rx-book/edit/master/content/observable/defer.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -510,7 +512,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 100%;min-width: 95.23809523809524%;"></div>
+        <div class="inner" style="width: 95.23809523809524%;min-width: 90.47619047619048%;"></div>
     </div>
     <div class="chapters">
     
@@ -556,27 +558,30 @@
     
         <a href="..\../content/observable/defer.html" title="defer" class="chapter done " data-progress="3.6" style="left: 95.23809523809524%;"></a>
     
-        <a href="..\../content/observable/empty.html" title="empty" class="chapter done " data-progress="3.7" style="left: 100%;"></a>
+        <a href="..\../content/observable/empty.html" title="empty" class="chapter  " data-progress="3.7" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_22">
+                    <section class="normal" id="section-gitbook_21">
                     
-                        <p><code>Rx.Observable.empty([scheduler])</code>
-<a href="#rxobservableemptyscheduler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/empty.js" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Returns an empty observable sequence, using the specified scheduler to send out the single OnCompleted message.</p>
-<p><img src="https://github.com/Netflix/RxJava/wiki/images/rx-operators/empty.png" alt="empty"></p>
+                        <p><code>Rx.Observable.defer(observableFactory)</code>
+<a href="#rxobservabledeferobservablefactory">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/defer.js" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Returns an observable sequence that invokes the specified factory function whenever a new observer subscribes.</p>
+<p><img src="https://github.com/Netflix/RxJava/wiki/images/rx-operators/defer.png" alt="defer"></p>
 <h4 id="arguments">Arguments</h4>
 <ol>
-<li><code>[scheduler=Rx.Scheduler.immediate]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to send the termination call on.</li>
+<li><code>observableFactory</code> <em>(<code>Function</code>)</em>: Observable factory function to invoke for each observer that subscribes to the resulting sequence.</li>
 </ol>
 <h4 id="returns">Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence with no elements.</p>
+<p><em>(<code>Observable</code>)</em>: An observable sequence whose observers trigger an invocation of the given observable factory function.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.empty();
+<pre><code class="lang-js"><span class="hljs-comment">/* Using an observable sequence */</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.defer(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+    <span class="hljs-keyword">return</span> Rx.Observable.return(<span class="hljs-number">42</span>);
+});
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
@@ -589,12 +594,32 @@
         console.log(<span class="hljs-string">'Completed'</span>);
     });
 
+<span class="hljs-comment">// =&gt; Next: 42</span>
+<span class="hljs-comment">// =&gt; Completed</span>
+
+<span class="hljs-comment">/* Using a promise */</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.defer(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+    <span class="hljs-keyword">return</span> RSVP.Promise.resolve(<span class="hljs-number">42</span>);
+});
+
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
+        console.log(<span class="hljs-string">'Next: '</span> + x);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
+        console.log(<span class="hljs-string">'Error: '</span> + err);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+        console.log(<span class="hljs-string">'Completed'</span>);
+    });
+
+<span class="hljs-comment">// =&gt; Next: 42</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
 <h3 id="location">Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/empty.js" target="_blank">/src/core/observable/empty.js</a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/defer.js" target="_blank"><code>/src/core/observable/defer.js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
@@ -621,7 +646,7 @@
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/empty.js" target="_blank">/tests/observable/empty.js</a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/defer.js" target="_blank"><code>/tests/observable/defer.js</code></a></li>
 </ul>
 
                     
@@ -632,8 +657,10 @@
         </div>
 
         
-        <a href="..\../content/observable/defer.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: defer"><i class="fa fa-angle-left"></i></a>
+        <a href="..\../content/observable/create.html" class="navigation navigation-prev " aria-label="Previous page: create"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="..\../content/observable/empty.html" class="navigation navigation-next " aria-label="Next page: empty"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -42,5 +42,3 @@ To put it more concretely, if you know how to program against Arrays using the A
   .subscribe(function (s) { console.log('next => '' + it); })</code></pre></td></tr>
  </tbody>
 </table></center>
-
-Alex is here!:)

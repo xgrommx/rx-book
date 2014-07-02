@@ -1,4 +1,5 @@
 # fromArray
+
 `Rx.Observable.fromArray(array, [scheduler])`
 <a href="#rxobservablefromarrayarray-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromarray.js "View in source")
 

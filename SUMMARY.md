@@ -122,7 +122,7 @@
        * [pausableBuffered](content/observable/observable_instance_methods/pausablebuffered.md)
        * [pluck](content/observable/observable_instance_methods/pluck.md)
        * [publish](content/observable/observable_instance_methods/publish.md)
-       * [publishLast](content/observable/observable_instance_methods/publishlast.md)
+       * [publishLatest](content/observable/observable_instance_methods/publishlatest.md)
        * [publishValue](content/observable/observable_instance_methods/publishvalue.md)
        * [share](content/observable/observable_instance_methods/share.md)
        * [shareReplay](content/observable/observable_instance_methods/sharereplay.md)

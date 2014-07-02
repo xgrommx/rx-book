@@ -1,92 +1,84 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\../manifest.appcache">
-    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+<html lang="en-US" >
+    
+    <head>
         
         <meta charset="UTF-8">
         <title>Rx.Observable | RxJS - Javascript library for functional reactive programming.</title>
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="robots" content="index, follow">
-        <meta name="author" content="xgrommx">
-        <meta name="description" content="Reactive Extensions (Rx) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators.">
-        <meta name="keywords" content="gitbook,github" >
-        <meta name="generator" content="www.gitbook.io">
-
-        
-        <link rel="next" href="..\../content/observable/amb.html" />
-        
-        
-        <link rel="prev" href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" />
-        
-
-        <meta property="og:title" content="Rx.Observable | RxJS - Javascript library for functional reactive programming.">
-        <meta property="og:site_name" content="RxJS - Javascript library for functional reactive programming.">
-        <meta property="og:type" content="book">
-        <meta property="og:locale" content="en_US">
-
-        <meta property="book:author" content="https://github.com/xgrommx">
-        <meta property="book:tag" content="GitBook">
-
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.5.6">
+        <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="xgrommx">
+    
+    
+    <link rel="next" href="..\../content/observable/amb.html" />
+    
+    
+    <link rel="prev" href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" />
+    
 
-        <link rel="shortcut icon" href="..\..\gitbook/images/favicon.ico" type="image/x-icon">
         
     </head>
     <body>
         
-
-        <link rel="stylesheet" href="..\..\gitbook/style.css">
         
+<link rel="stylesheet" href="../../gitbook/style.css">
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3" data-basepath="..\.." data-revision="1400183713449">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3" data-basepath="..\.." data-revision="1404312719440">
     <div class="book-header">
     <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
     
-    <a href="https://github.com/xgrommx/rx-book" target="_blank" class="btn pull-left"><i class="fa fa-bookmark-o"></i></a>
+    <a href="https://github.com/xgrommx/rx-book" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
     
-    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
-    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
     <span id="font-settings-wrapper">
-        <a href="#" class="btn pull-left toggle-font-settings"><i class="fa fa-font"></i>
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
         </a>
         <div class="dropdown-menu font-settings">
-	<div class="dropdown-caret">
-  <span class="caret-outer"></span>
-  <span class="caret-inner"></span>
-</div>
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
 
-	<div class="btn-group btn-block">
-		<button id="reduce-font-size" class="btn btn-default">A</button>
-		<button id="enlarge-font-size" class="btn btn-default">A</button>
-	</div>
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
 
-	<ul class="list-group font-family-list">
-		<li class="list-group-item" data-font="0">Serif</li>
-		<li class="list-group-item" data-font="1">Sans</li>
-	</ul>
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
 
-	<div class="btn-group btn-group-xs btn-block color-theme-list">
-	  <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
-	  <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
-	  <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
-	</div>
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
 </div>
 
     </span>
 
     <!-- Actions Right -->
     
-    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
     
     
-    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
     
     
-    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
     
 
     
@@ -101,26 +93,32 @@
     </h1>
 </div>
 
-    <div class="book-summary">
+    
+
+<div class="book-summary">
     <div class="book-search">
         <input type="text" placeholder="Search" class="form-control" />
     </div>
     <ul class="summary">
         
+        
+        
         <li>
-            <a href="https://github.com/xgrommx" target="blank">About the author</a>
+            <a href="https://github.com/xgrommx" target="blank" class="author-link">About the author</a>
         </li>
         
 
         
+        
         <li>
-            <a href="https://github.com/xgrommx/rx-book/issues" target="blank">Questions and Issues</a>
+            <a href="https://github.com/xgrommx/rx-book/issues" target="blank"class="issues-link">Questions and Issues</a>
         </li>
         
 
         
+        
         <li>
-            <a href="https://github.com/xgrommx/rx-book/edit/master/content/observable/README.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/xgrommx/rx-book/edit/master/content/observable/README.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -128,190 +126,366 @@
         <li class="divider"></li>
         
 
-        <li data-level="0" data-path="index.html">
-            <a href="..\../"><i class="fa fa-check"></i> Introduction</a>
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="..\../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
         </li>
+    
         
-            <li  data-level="1" data-path="content/getting_started_with_rxjs/README.html">
+        <li class="chapter " data-level="1" data-path="content/getting_started_with_rxjs/README.html">
+            
                 
-                <a href="..\../content/getting_started_with_rxjs/README.html">
-                    <i class="fa fa-check"></i> <b>1.</b> Getting Started With RxJS
-                </a>
+                    <a href="..\../content/getting_started_with_rxjs/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Getting Started With RxJS
+                    </a>
                 
+            
+            
+            <ul class="articles">
                 
-                <ul class="articles">
-                    
-                        <li  data-level="1.1" data-path="content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
-                            
-                            <a href="..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
-                                <i class="fa fa-check"></i> <b>1.1.</b> What are the Reactive Extensions?
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="1.2" data-path="content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
-                            
-                            <a href="..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
-                                <i class="fa fa-check"></i> <b>1.2.</b> Exploring Major Concepts in RxJS
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="1.3" data-path="content/getting_started_with_rxjs/subjects.html">
-                            
-                            <a href="..\../content/getting_started_with_rxjs/subjects.html">
-                                <i class="fa fa-check"></i> <b>1.3.</b> Subjects
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="1.4" data-path="content/getting_started_with_rxjs/using_schedulers.html">
-                            
-                            <a href="..\../content/getting_started_with_rxjs/using_schedulers.html">
-                                <i class="fa fa-check"></i> <b>1.4.</b> Using Schedulers
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="1.5" data-path="content/getting_started_with_rxjs/testing_your_rx_application.html">
-                            
-                            <a href="..\../content/getting_started_with_rxjs/testing_your_rx_application.html">
-                                <i class="fa fa-check"></i> <b>1.5.</b> Testing your Rx application
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="1.6" data-path="content/getting_started_with_rxjs/implementing_your_own_observable_operators.html">
-                            
-                            <a href="..\../content/getting_started_with_rxjs/implementing_your_own_observable_operators.html">
-                                <i class="fa fa-check"></i> <b>1.6.</b> Implementing Your Own Observable Operators
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
+    
         
-            <li  data-level="2" data-path="content/creating_and_querying_observable_sequences/README.html">
+        <li class="chapter " data-level="1.1" data-path="content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
+            
                 
-                <a href="..\../content/creating_and_querying_observable_sequences/README.html">
-                    <i class="fa fa-check"></i> <b>2.</b> Creating and Querying Observable Sequences
-                </a>
+                    <a href="..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         What are the Reactive Extensions?
+                    </a>
                 
-                
-                <ul class="articles">
-                    
-                        <li  data-level="2.1" data-path="content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
-                            
-                            <a href="..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
-                                <i class="fa fa-check"></i> <b>2.1.</b> Creating and Subscribing to Simple Observable Sequences
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="2.2" data-path="content/creating_and_querying_observable_sequences/bridging_to_events.html">
-                            
-                            <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_events.html">
-                                <i class="fa fa-check"></i> <b>2.2.</b> Bridging to Events
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="2.3" data-path="content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
-                            
-                            <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
-                                <i class="fa fa-check"></i> <b>2.3.</b> Bridging to Callbacks and Promises
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="2.4" data-path="content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
-                            
-                            <a href="..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
-                                <i class="fa fa-check"></i> <b>2.4.</b> Querying Observable Sequences
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="2.5" data-path="content/creating_and_querying_observable_sequences/operators_by_category.html">
-                            
-                            <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html">
-                                <i class="fa fa-check"></i> <b>2.5.</b> Operators by Category
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
+            
+            
+        </li>
+    
         
-            <li  data-level="3" data-path="content/observable/README.html">
+        <li class="chapter " data-level="1.2" data-path="content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
+            
                 
-                <a href="..\../content/observable/README.html">
-                    <i class="fa fa-check"></i> <b>3.</b> Rx.Observable
-                </a>
+                    <a href="..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         Exploring Major Concepts in RxJS
+                    </a>
                 
-                
-                <ul class="articles">
-                    
-                        <li  data-level="3.1" data-path="content/observable/amb.html">
-                            
-                            <a href="..\../content/observable/amb.html">
-                                <i class="fa fa-check"></i> <b>3.1.</b> amb
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="3.2" data-path="content/observable/case.html">
-                            
-                            <a href="..\../content/observable/case.html">
-                                <i class="fa fa-check"></i> <b>3.2.</b> case
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="3.3" data-path="content/observable/catch.html">
-                            
-                            <a href="..\../content/observable/catch.html">
-                                <i class="fa fa-check"></i> <b>3.3.</b> catch
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="3.4" data-path="content/observable/concat.html">
-                            
-                            <a href="..\../content/observable/concat.html">
-                                <i class="fa fa-check"></i> <b>3.4.</b> concat
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="3.5" data-path="content/observable/create.html">
-                            
-                            <a href="..\../content/observable/create.html">
-                                <i class="fa fa-check"></i> <b>3.5.</b> create
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="3.6" data-path="content/observable/defer.html">
-                            
-                            <a href="..\../content/observable/defer.html">
-                                <i class="fa fa-check"></i> <b>3.6.</b> defer
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
+            
+            
+        </li>
+    
         
+        <li class="chapter " data-level="1.3" data-path="content/getting_started_with_rxjs/subjects.html">
+            
+                
+                    <a href="..\../content/getting_started_with_rxjs/subjects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         Subjects
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.4" data-path="content/getting_started_with_rxjs/using_schedulers.html">
+            
+                
+                    <a href="..\../content/getting_started_with_rxjs/using_schedulers.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                         Using Schedulers
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.5" data-path="content/getting_started_with_rxjs/testing_your_rx_application.html">
+            
+                
+                    <a href="..\../content/getting_started_with_rxjs/testing_your_rx_application.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                         Testing your Rx application
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.6" data-path="content/getting_started_with_rxjs/implementing_your_own_observable_operators.html">
+            
+                
+                    <a href="..\../content/getting_started_with_rxjs/implementing_your_own_observable_operators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                         Implementing Your Own Observable Operators
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="content/creating_and_querying_observable_sequences/README.html">
+            
+                
+                    <a href="..\../content/creating_and_querying_observable_sequences/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Creating and Querying Observable Sequences
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
+            
+                
+                    <a href="..\../content/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         Creating and Subscribing to Simple Observable Sequences
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="content/creating_and_querying_observable_sequences/bridging_to_events.html">
+            
+                
+                    <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_events.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         Bridging to Events
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
+            
+                
+                    <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         Bridging to Callbacks and Promises
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
+            
+                
+                    <a href="..\../content/creating_and_querying_observable_sequences/querying_observable_sequences.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         Querying Observable Sequences
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.5" data-path="content/creating_and_querying_observable_sequences/operators_by_category.html">
+            
+                
+                    <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         Operators by Category
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="content/observable/README.html">
+            
+                
+                    <a href="..\../content/observable/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         Rx.Observable
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="content/observable/amb.html">
+            
+                
+                    <a href="..\../content/observable/amb.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         amb
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="content/observable/case.html">
+            
+                
+                    <a href="..\../content/observable/case.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         case
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="content/observable/catch.html">
+            
+                
+                    <a href="..\../content/observable/catch.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         catch
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.4" data-path="content/observable/concat.html">
+            
+                
+                    <a href="..\../content/observable/concat.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                         concat
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.5" data-path="content/observable/create.html">
+            
+                
+                    <a href="..\../content/observable/create.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                         create
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.6" data-path="content/observable/empty.html">
+            
+                
+                    <a href="..\../content/observable/empty.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                         empty
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
 
         
         <li class="divider"></li>
         <li>
-            <a href="http://www.gitbook.io/" target="blank">Generated using GitBook</a>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
         </li>
         
     </ul>
@@ -366,14 +540,14 @@
     
         <a href="..\../content/observable/create.html" title="create" class="chapter  " data-progress="3.5" style="left: 95%;"></a>
     
-        <a href="..\../content/observable/defer.html" title="defer" class="chapter  " data-progress="3.6" style="left: 100%;"></a>
+        <a href="..\../content/observable/empty.html" title="empty" class="chapter  " data-progress="3.6" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_18">
+                    <section class="normal" id="section-gitbook_15">
                     
                         <h1 id="observable-object">Observable object</h1>
 <p>The Observable object represents a push based collection.</p>
@@ -554,24 +728,20 @@
         </div>
 
         
-        <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
+        <a href="..\../content/creating_and_querying_observable_sequences/operators_by_category.html" class="navigation navigation-prev " aria-label="Previous page: Operators by Category"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="..\../content/observable/amb.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
+        <a href="..\../content/observable/amb.html" class="navigation navigation-next " aria-label="Next page: amb"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
-        <script src="..\..\gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
-        <script src="..\..\gitbook/app.js"></script>
-        
+<script src="../../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../../gitbook/app.js"></script>
 
     
-    <script src="..\..\gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
     
 
     
@@ -579,7 +749,11 @@
     
 
     
-    <script src="..\..\gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>
@@ -589,5 +763,7 @@ require(["gitbook"], function(gitbook) {
 });
 </script>
 
+        
     </body>
+    
 </html>

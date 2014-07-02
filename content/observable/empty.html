@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>catch | RxJS - Javascript library for functional reactive programming.</title>
+        <title>empty | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 0.5.6">
@@ -19,10 +19,8 @@
     <meta name="author" content="xgrommx">
     
     
-    <link rel="next" href="..\../content/observable/concat.html" />
     
-    
-    <link rel="prev" href="..\../content/observable/case.html" />
+    <link rel="prev" href="..\../content/observable/create.html" />
     
 
         
@@ -34,7 +32,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.3" data-basepath="..\.." data-revision="1404312719440">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.6" data-basepath="..\.." data-revision="1404312719440">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -118,7 +116,7 @@
         
         
         <li>
-            <a href="https://github.com/xgrommx/rx-book/edit/master/content/observable/catch.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/xgrommx/rx-book/edit/master/content/observable/empty.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -496,7 +494,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 85%;min-width: 80%;"></div>
+        <div class="inner" style="width: 100%;min-width: 95%;"></div>
     </div>
     <div class="chapters">
     
@@ -536,57 +534,56 @@
     
         <a href="..\../content/observable/catch.html" title="catch" class="chapter done " data-progress="3.3" style="left: 85%;"></a>
     
-        <a href="..\../content/observable/concat.html" title="concat" class="chapter  " data-progress="3.4" style="left: 90%;"></a>
+        <a href="..\../content/observable/concat.html" title="concat" class="chapter done " data-progress="3.4" style="left: 90%;"></a>
     
-        <a href="..\../content/observable/create.html" title="create" class="chapter  " data-progress="3.5" style="left: 95%;"></a>
+        <a href="..\../content/observable/create.html" title="create" class="chapter done " data-progress="3.5" style="left: 95%;"></a>
     
-        <a href="..\../content/observable/empty.html" title="empty" class="chapter  " data-progress="3.6" style="left: 100%;"></a>
+        <a href="..\../content/observable/empty.html" title="empty" class="chapter done " data-progress="3.6" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_18">
+                    <section class="normal" id="section-gitbook_21">
                     
-                        <p><code>Rx.Observable.catch(...args)</code>
-<a href="#rxobservablecatchargs">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/catch.js" title="View in source" target="_blank">&#x24C8;</a> </p>
-<p>Continues an observable sequence that is terminated by an exception with the next observable sequence.  There is an alias for this method <code>catchException</code> for browsers &lt;IE9</p>
+                        <p><code>Rx.Observable.empty([scheduler])</code>
+<a href="#rxobservableemptyscheduler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/empty.js" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Returns an empty observable sequence, using the specified scheduler to send out the single OnCompleted message.</p>
+<p><img src="https://github.com/Netflix/RxJava/wiki/images/rx-operators/empty.png" alt="empty"></p>
 <h4 id="arguments">Arguments</h4>
 <ol>
-<li><code>args</code> <em>(<code>Array</code> | <code>arguments</code>)</em>: Observable sequences to catch exceptions for.</li>
+<li><code>[scheduler=Rx.Scheduler.immediate]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to send the termination call on.</li>
 </ol>
 <h4 id="returns">Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence containing elements from consecutive source sequences until a source sequence terminates successfully.</p>
+<p><em>(<code>Observable</code>)</em>: An observable sequence with no elements.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> obs1 = Rx.Observable.throw(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'error'</span>));
-<span class="hljs-keyword">var</span> obs2 = Rx.Observable.return(<span class="hljs-number">42</span>);
-
-<span class="hljs-keyword">var</span> source = Rx.Observable.catch(obs1, obs2);
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.empty();
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
         console.log(<span class="hljs-string">'Next: '</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">'Error: '</span> + err);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">'Completed'</span>);
     });
 
-<span class="hljs-comment">// =&gt; Next: 42</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
 <h3 id="location">Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/catch.js" target="_blank"><code>/src/core/observable/catch.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/empty.js" target="_blank">/src/core/observable/empty.js</a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.js" target="_blank"><code>rx.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
 </ul>
@@ -600,12 +597,13 @@
 </ul>
 <p>NuGet Packages:</p>
 <ul>
+<li><a href="http://www.nuget.org/packages/RxJS-Complete" target="_blank"><code>RxJS-Complete</code></a></li>
 <li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
 <li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/catchexceptionproto.js" target="_blank"><code>/tests/observable/catchexceptionproto.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/empty.js" target="_blank">/tests/observable/empty.js</a></li>
 </ul>
 
                     
@@ -616,10 +614,8 @@
         </div>
 
         
-        <a href="..\../content/observable/case.html" class="navigation navigation-prev " aria-label="Previous page: case"><i class="fa fa-angle-left"></i></a>
+        <a href="..\../content/observable/create.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: create"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="..\../content/observable/concat.html" class="navigation navigation-next " aria-label="Next page: concat"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

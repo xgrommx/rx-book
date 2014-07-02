@@ -8,7 +8,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         'gitbook': {
             development: {
-                input: "C:\Users\gromm\Desktop\rx-book",
+                input: "C:\tmp\rx-book",
                 github: "xgrommx/rx-book"
             }
         },

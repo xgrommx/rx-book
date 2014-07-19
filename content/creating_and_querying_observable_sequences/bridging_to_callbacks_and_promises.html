@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -7,7 +7,7 @@
         <title>Bridging to Callbacks and Promises | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 0.5.6">
+        <meta name="generator" content="GitBook 0.6.0">
         <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="2.3" data-basepath="..\.." data-revision="1404336203041">
+    <div class="book" data-github="xgrommx/rx-book" data-level="2.3" data-basepath="..\.." data-revision="1405800923032">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -121,6 +121,8 @@
             <a href="https://github.com/xgrommx/rx-book/edit/master/content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
+
+	
 
         
         <li class="divider"></li>
@@ -310,7 +312,7 @@
         </li>
     
         
-        <li class="chapter " data-level="2.3" data-path="content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
+        <li class="chapter active" data-level="2.3" data-path="content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
             
                 
                     <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html">
@@ -3565,7 +3567,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_3">
                     
                         <h1 id="bridging-to-callbacks-and-promises">Bridging to Callbacks and Promises</h1>
 <p>Besides events, other asynchronous data sources exist in the the web and server-side world. One of them is the the simple callback pattern which is frequently used in Node.js. In this design pattern, the arguments are passed to the function, and then a callback is usually the last parameter, which when executed, passes control to the inner scope with the data.  Node.js has a standard way of doing callbacks in which the the callback is called with the <code>Error</code> object first if there is an error, else null, and then the additional parameters from the callback.</p>
@@ -3590,7 +3592,7 @@
 <span class="hljs-comment">// =&gt; onNext: true</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
-<h2 id="converting-node-js-style-callbacks-to-observable-sequences">Converting Node.js Style Callbacks to Observable Sequences</h2>
+<h2 id="converting-nodejs-style-callbacks-to-observable-sequences">Converting Node.js Style Callbacks to Observable Sequences</h2>
 <p>Node.js has adopted a convention in many of the callbacks where an error may occur, such as File I/O, Network requests, etc.  RxJS supports this through the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromnodecallbackfunc-scheduler-context" target="_blank"><code>Rx.Observable.fromNodeCallback</code></a> method in which the error, if present, is captured and the <code>onError</code> notification is sent.  Otherwise, the <code>onNext</code> is sent with the rest of the callback arguments, followed by an <code>onCompleted</code> notification.</p>
 <p>In the following example, we will convert the Node.js <a href="http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback" target="_blank"><code>fs.rename</code></a> function to an Observable sequence.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>),
@@ -3673,6 +3675,10 @@
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

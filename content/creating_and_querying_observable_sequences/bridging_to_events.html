@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -7,7 +7,7 @@
         <title>Bridging to Events | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 0.5.6">
+        <meta name="generator" content="GitBook 0.6.0">
         <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="2.2" data-basepath="..\.." data-revision="1404336203041">
+    <div class="book" data-github="xgrommx/rx-book" data-level="2.2" data-basepath="..\.." data-revision="1405800923032">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -121,6 +121,8 @@
             <a href="https://github.com/xgrommx/rx-book/edit/master/content/creating_and_querying_observable_sequences/bridging_to_events.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
+
+	
 
         
         <li class="divider"></li>
@@ -294,7 +296,7 @@
         </li>
     
         
-        <li class="chapter " data-level="2.2" data-path="content/creating_and_querying_observable_sequences/bridging_to_events.html">
+        <li class="chapter active" data-level="2.2" data-path="content/creating_and_querying_observable_sequences/bridging_to_events.html">
             
                 
                     <a href="..\../content/creating_and_querying_observable_sequences/bridging_to_events.html">
@@ -3565,7 +3567,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6">
+                    <section class="normal" id="section-gitbook_5">
                     
                         <h1 id="bridging-to-events">Bridging to Events</h1>
 <p>RxJS provides factory methods for you to bridge with existing asynchronous sources in the DOM or Node.js so that you can employ the rich composing, filtering and resource management features provided by RxJS on any kind of data streams. This topic examines the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromeventelement-eventname" target="_blank"><code>fromEvent</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromeventpatternaddhander-removehandler" target="_blank"><code>fromEventPattern</code></a> operator that allows &quot;importing&quot; a DOM or custom event into RxJS as an observable sequence. Every time an event is raised, an <code>onNext</code> message will be delivered to the observable sequence. You can then manipulate event data just like any other observable sequences.</p>
@@ -3608,7 +3610,7 @@ var source = Rx.Observable.fromEvent($sources, &#39;click&#39;);
 var subscription = source.subscribe(function (e) {
     $result.html(e.clientX + &#39;, &#39; + e.clientY);
 });
-</code></pre><h2 id="converting-a-node-js-event-to-a-rxjs-observable-sequence">Converting a Node.js event to a RxJS Observable Sequence</h2>
+</code></pre><h2 id="converting-a-nodejs-event-to-a-rxjs-observable-sequence">Converting a Node.js event to a RxJS Observable Sequence</h2>
 <p>Node.js is also supported such as an <a href="http://nodejs.org/api/events.html#events_class_events_eventemitter" target="_blank"><code>EventEmitter</code></a>:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rx'</span>),
     EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'events'</span>).EventEmitter;
@@ -3707,6 +3709,10 @@ eventEmitter.emit(<span class="hljs-string">'data'</span>, <span class="hljs-str
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

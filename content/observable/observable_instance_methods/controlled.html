@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.19" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.19" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,30 +3571,30 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6881">
+                    <section class="normal" id="section-gitbook_3552">
                     
-                        <h1 id="controlled">controlled</h1>
+                        <h1 id="controlled"><a name="controlled" class="plugin-anchor" href="#controlled"><span class="fa fa-link"></span></a>controlled</h1>
 <p><code>Rx.Observable.prototype.controlled([enableQueue])</code>
 <a href="#rxobservableprototypecontrolledenablequeue">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/backpressure/controlled.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Attaches a controller to the observable sequence with the ability to queue.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>[enableQueue]</code> <em>(Boolean)</em>: Whether to enable queueing.  If not specified, defaults to true.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence which can be used to request values from the sequence.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>).controlled();
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x.toString());
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 source.request(<span class="hljs-number">2</span>);
@@ -3598,7 +3602,7 @@ source.request(<span class="hljs-number">2</span>);
 <span class="hljs-comment">// =&gt; Next: 0</span>
 <span class="hljs-comment">// =&gt; Next: 1</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/backpressure/controlled.js" target="_blank">/src/core/backpressure/controlled.js</a></li>

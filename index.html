@@ -30,9 +30,13 @@
         
 <link rel="stylesheet" href="gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="0" data-basepath="." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="0" data-basepath="." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3565,9 +3569,9 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6847">
+                    <section class="normal" id="section-gitbook_3516">
                     
-                        <h1 id="rxjs">RxJS</h1>
+                        <h1 id="rxjs"><a name="rxjs" class="plugin-anchor" href="#rxjs"><span class="fa fa-link"></span></a>RxJS</h1>
 <p>Reactive Extensions (Rx) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators.</p>
 <p>Data sequences can take many forms, such as a stream of data from a file or web service, web services requests, system notifications, or a series of events such as user input.</p>
 <p>Reactive Extensions represents all these data sequences as observable sequences. An application can subscribe to these observable sequences to receive asynchronous notifications as new data arrive.</p>
@@ -3592,17 +3596,34 @@
 <center><table>
  <thead>
   <tr><th colspan="2">Example code showing how similar high-order functions can be applied to an Array and an Observable</th></tr>
-  <tr><th>Iterable</th><th>Observable</th></tr>
  </thead>
  <tbody>
-  <tr><td><pre><code>getDataFromLocalMemory()
-  .filter (function (s) { return s != null; })
-  .map( function (s) { return s + &#39;transformed&#39;; })
-  .forEach(function (s) { console.log(&#39;next =&gt; &#39;&#39; + it); })</code></pre></td>
-  <td><pre><code>getDataFromNetwork()
-  .filter (function (s) { return s != null; })
-  .map( function (s) { return s + &#39;transformed&#39;; })
-  .subscribe(function (s) { console.log(&#39;next =&gt; &#39;&#39; + it); })</code></pre></td></tr>
+  <table>
+      <thead>
+        <tr><th>Iterable</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><pre><code>getDataFromLocalMemory()
+          .filter (function (s) { return s != null; })
+          .map( function (s) { return s + &apos;transformed&apos;; })
+          .forEach(function (s) { console.log(&apos;next =&gt; &apos;&apos; + it); })</code></pre></td>
+        </tr>
+      </tbody>
+  </table>
+  <table>
+    <thead>
+      <tr><th>Observable</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><pre><code>getDataFromNetwork()
+        .filter (function (s) { return s != null; })
+        .map( function (s) { return s + &apos;transformed&apos;; })
+        .subscribe(function (s) { console.log(&apos;next =&gt; &apos;&apos; + it); })</code></pre></td>
+      </tr>
+    </tbody>
+  </table>
  </tbody>
 </table></center>
 

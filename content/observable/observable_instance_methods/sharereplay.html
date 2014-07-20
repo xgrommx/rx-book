@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.71" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.71" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,35 +3571,35 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6940">
+                    <section class="normal" id="section-gitbook_3612">
                     
-                        <h1 id="sharereplay">shareReplay</h1>
+                        <h1 id="sharereplay"><a name="sharereplay" class="plugin-anchor" href="#sharereplay"><span class="fa fa-link"></span></a>shareReplay</h1>
 <p><code>Rx.Observable.prototype.shareReplay([bufferSize], [window], [scheduler])</code>
 <a href="#rxobservableprototypesharereplay">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sharereplay.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Returns an observable sequence that shares a single subscription to the underlying sequence replaying notifications subject to a maximum time length for the replay buffer.</p>
 <p>This operator is a specialization of <code>replay</code> that connects to the connectable observable sequence when the number of observers goes from zero to one, and disconnects when there are no more observers.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>[bufferSize]</code> <em>(<code>Number</code>)</em>: Maximum element count of the replay buffer.</li>
 <li><code>[window]</code> <em>(<code>Number</code>)</em>: Maximum time length of the replay buffer in milliseconds.</li>
 <li><code>[scheduler]</code> <em>(<code>Scheduler</code>)</em>: Scheduler where connected observers within the selector function will be invoked on.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> interval = Rx.Observable.interval(<span class="hljs-number">1000</span>);
 
 <span class="hljs-keyword">var</span> source = interval
     .take(<span class="hljs-number">4</span>)
     .doAction(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> 
-        console.log(<span class="hljs-string">'Side effect'</span>);
+        console.log(<span class="hljs-string">&apos;Side effect&apos;</span>);
     });
 
 <span class="hljs-keyword">var</span> published = source
     .shareReplay(<span class="hljs-number">3</span>);
 
-published.subscribe(createObserver(<span class="hljs-string">'SourceA'</span>));
-published.subscribe(createObserver(<span class="hljs-string">'SourceB'</span>));
+published.subscribe(createObserver(<span class="hljs-string">&apos;SourceA&apos;</span>));
+published.subscribe(createObserver(<span class="hljs-string">&apos;SourceB&apos;</span>));
 
 <span class="hljs-comment">// Creating a third subscription after the previous two subscriptions have </span>
 <span class="hljs-comment">// completed. Notice that no side effects result from this subscription, </span>
@@ -3604,18 +3608,18 @@ Rx.Observable
     .return(<span class="hljs-literal">true</span>)
     .delay(<span class="hljs-number">6000</span>)
     .flatMap(published)
-    .subscribe(createObserver(<span class="hljs-string">'SourceC'</span>));
+    .subscribe(createObserver(<span class="hljs-string">&apos;SourceC&apos;</span>));
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createObserver</span><span class="hljs-params">(tag)</span> {</span>
     <span class="hljs-keyword">return</span> Rx.Observer.create(
         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-            console.log(<span class="hljs-string">'Next: '</span> + tag + x);
+            console.log(<span class="hljs-string">&apos;Next: &apos;</span> + tag + x);
         },
         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-            console.log(<span class="hljs-string">'Error: '</span> + err);   
+            console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
         },
         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-            console.log(<span class="hljs-string">'Completed'</span>);   
+            console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
         });
 }
 
@@ -3638,7 +3642,7 @@ Rx.Observable
 <span class="hljs-comment">// =&gt; Next: SourceC3</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sharereplay.js" target="_blank"><code>/src/core/observable/sharereplay.js</code></a></li>

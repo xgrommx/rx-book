@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.68" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.68" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,45 +3571,45 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6927">
+                    <section class="normal" id="section-gitbook_3595">
                     
-                        <h1 id="publishlast">publishLast</h1>
+                        <h1 id="publishlast"><a name="publishlast" class="plugin-anchor" href="#publishlast"><span class="fa fa-link"></span></a>publishLast</h1>
 <p><code>Rx.Observable.prototype.publishLatest([selector])</code>
 <a href="#rxobservableprototypepublishlatestselector">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publishlatest.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Returns an observable sequence that is the result of invoking the selector on a connectable observable sequence that shares a single subscription to the underlying sequence containing only the last notification.</p>
 <p>This operator is a specialization of <code>multicast</code> using a <code>Rx.AsyncSubject</code>.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>[selector]</code> <em>(<code>Function</code>)</em>: Selector function which can use the multicasted source sequence as many times as needed, without causing multiple subscriptions to the source sequence. Subscribers to the given source will only receive the last notification of the source.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(ConnectableObservable)</em>: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> interval = Rx.Observable.interval(<span class="hljs-number">1000</span>);
 
 <span class="hljs-keyword">var</span> source = interval
     .take(<span class="hljs-number">2</span>)
     .doAction(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> 
-        console.log(<span class="hljs-string">'Side effect'</span>);
+        console.log(<span class="hljs-string">&apos;Side effect&apos;</span>);
     });
 
 <span class="hljs-keyword">var</span> published = source.publishLatest();
 
-published.subscribe(createObserver(<span class="hljs-string">'SourceA'</span>));
-published.subscribe(createObserver(<span class="hljs-string">'SourceB'</span>));
+published.subscribe(createObserver(<span class="hljs-string">&apos;SourceA&apos;</span>));
+published.subscribe(createObserver(<span class="hljs-string">&apos;SourceB&apos;</span>));
 
 <span class="hljs-keyword">var</span> connection = published.connect();
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createObserver</span><span class="hljs-params">(tag)</span> {</span>
     <span class="hljs-keyword">return</span> Rx.Observer.create(
         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-            console.log(<span class="hljs-string">'Next: '</span> + tag + x);
+            console.log(<span class="hljs-string">&apos;Next: &apos;</span> + tag + x);
         },
         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-            console.log(<span class="hljs-string">'Error: '</span> + err);   
+            console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
         },
         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-            console.log(<span class="hljs-string">'Completed'</span>);   
+            console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
         });
 }
 
@@ -3616,7 +3620,7 @@ published.subscribe(createObserver(<span class="hljs-string">'SourceB'</span>));
 <span class="hljs-comment">// =&gt; Next: SourceB1 </span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publishlatest.js" target="_blank"><code>/src/core/observable/publishlatest.js</code></a></li>

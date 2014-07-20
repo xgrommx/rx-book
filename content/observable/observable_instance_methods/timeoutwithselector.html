@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.111" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.111" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,21 +3571,21 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6969">
+                    <section class="normal" id="section-gitbook_3640">
                     
-                        <h1 id="timeoutwithselector">timeoutWithSelector</h1>
+                        <h1 id="timeoutwithselector"><a name="timeoutwithselector" class="plugin-anchor" href="#timeoutwithselector"><span class="fa fa-link"></span></a>timeoutWithSelector</h1>
 <p><code>Rx.Observable.prototype.timeoutwithselector([firstTimeout], timeoutDurationSelector, [other])</code>
 <a href="#rxobservableprototypetimeoutwithselectorfirsttimeout-timeoutdurationselector-other">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timeoutwithselector.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Returns the source observable sequence, switching to the other observable sequence if a timeout is signaled.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>[firstTimeout=Rx.Observable.never()]</code> <em>(<code>Observable</code>)</em>: Observable sequence that represents the timeout for the first element. If not provided, this defaults to <code>Rx.Observable.never()</code>.</li>
 <li><code>timeoutDurationSelector</code> <em>(<code>Function</code>)</em>: Selector to retrieve an observable sequence that represents the timeout between the current element and the next element.</li>
 <li><code>[other=Rx.Observable.throw]</code> <em>(<code>Scheduler</code>)</em>:Sequence to return in case of a timeout. If not provided, this is set to <code>Observable.throw</code></li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: The source sequence switching to the other sequence in case of a timeout.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">/* without a first timeout */</span>
 <span class="hljs-keyword">var</span> array = [
     <span class="hljs-number">200</span>,
@@ -3601,13 +3605,13 @@
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 0 </span>
@@ -3634,13 +3638,13 @@
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 0 </span>
@@ -3667,13 +3671,13 @@
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 0 </span>
@@ -3682,7 +3686,7 @@
 <span class="hljs-comment">// =&gt; Next: 42</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timeoutwithselector.js" target="_blank"><code>/src/core/observable/timeoutwithselector.js</code></a></li>

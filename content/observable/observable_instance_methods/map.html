@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.52" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.52" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,13 +3571,13 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6913">
+                    <section class="normal" id="section-gitbook_3583">
                     
-                        <h1 id="map">map</h1>
+                        <h1 id="map"><a name="map" class="plugin-anchor" href="#map"><span class="fa fa-link"></span></a>map</h1>
 <p><code>Rx.Observable.prototype.map(selector, [thisArg])</code>
 <a href="#rxobservableprototypemapselector-thisarg">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4311-L4326" title="View in source" target="_blank">&#x24C8;</a> </p>
-<p>Projects each element of an observable sequence into a new form by incorporating the element&#39;s index.  This is an alias for the <code>select</code> method.</p>
-<h4 id="arguments">Arguments</h4>
+<p>Projects each element of an observable sequence into a new form by incorporating the element&apos;s index.  This is an alias for the <code>select</code> method.</p>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>selector</code> <em>(<code>Function</code>)</em>:  Transform function to apply to each source element.  The selector is called with the following information:<ol>
 <li>the value of the element</li>
@@ -3583,9 +3587,9 @@
 </li>
 <li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the predicate.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence which results from the comonadic bind operation.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>)
     .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, idx, obs)</span> {</span>
         <span class="hljs-keyword">return</span> x * x;
@@ -3593,13 +3597,13 @@
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 1</span>
@@ -3607,7 +3611,7 @@
 <span class="hljs-comment">// =&gt; Next: 9</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h4 id="location">Location</h4>
+<h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
 </ul>

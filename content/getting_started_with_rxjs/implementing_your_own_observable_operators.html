@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="1.6" data-basepath="..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="1.6" data-basepath="..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,13 +3571,13 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6855">
+                    <section class="normal" id="section-gitbook_3526">
                     
-                        <h1 id="implementing-your-own-observable-operators">Implementing Your Own Observable Operators</h1>
+                        <h1 id="implementing-your-own-observable-operators"><a name="implementing-your-own-observable-operators" class="plugin-anchor" href="#implementing-your-own-observable-operators"><span class="fa fa-link"></span></a>Implementing Your Own Observable Operators</h1>
 <p>You can extend RxJS by adding new operators for operations that are not provided by the base library, or by creating your own implementation of standard query operators to improve readability and performance. Writing a customized version of a standard operator is useful when you want to operate with in-memory objects and when the intended customization does not require a comprehensive view of the query.</p>
-<h2 id="creating-new-operators">Creating New Operators</h2>
-<p>RxJS offers a full set of operators that cover most of the possible operations on a set of entities. However, you might need an operator to add a particular semantic meaning to your query—especially if you can reuse that same operator several times in your code.  Adding new operators to RxJS is a way to extend its capabilities. However, you can also improve code readability by wrapping existing operators into more specialized and meaningful ones.</p>
-<p>For example, let&#39;s see how we might implement the <a href="http://lodash.com/docs#where" target="_blank">_.where</a> method from <a href="http://lodash.com/" target="_blank">Lo-Dash</a> or <a href="http://underscorejs.org/" target="_blank">Underscore</a>, which takes a set of attributes and does a deep comparison for equality.  We might try implementing this from scratch using the <code>Rx.Observable.createWithDisposable</code> method such as the following code.</p>
+<h2 id="creating-new-operators"><a name="creating-new-operators" class="plugin-anchor" href="#creating-new-operators"><span class="fa fa-link"></span></a>Creating New Operators</h2>
+<p>RxJS offers a full set of operators that cover most of the possible operations on a set of entities. However, you might need an operator to add a particular semantic meaning to your query&#x2014;especially if you can reuse that same operator several times in your code.  Adding new operators to RxJS is a way to extend its capabilities. However, you can also improve code readability by wrapping existing operators into more specialized and meaningful ones.</p>
+<p>For example, let&apos;s see how we might implement the <a href="http://lodash.com/docs#where" target="_blank">_.where</a> method from <a href="http://lodash.com/" target="_blank">Lo-Dash</a> or <a href="http://underscorejs.org/" target="_blank">Underscore</a>, which takes a set of attributes and does a deep comparison for equality.  We might try implementing this from scratch using the <code>Rx.Observable.createWithDisposable</code> method such as the following code.</p>
 <pre><code class="lang-js">Rx.Observable.prototype.whereProperties = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(properties)</span> {</span>
     <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>,
         comparer = Rx.Internals.equals;
@@ -3630,30 +3634,30 @@
 };
 </code></pre>
 <p>By reusing existing operators when you build a new one, you can take advantage of the existing performance or exception handling capabilities implemented in the RxJS libraries.  When writing a custom operator, it is good practice not to leave any disposables unused; otherwise, you may find that resources could actually be leaked and cancellation may not work correctly.</p>
-<h2 id="testing-your-new-operator">Testing Your New Operator</h2>
-<p>Just because you have implemented a new operator doesn&#39;t mean you are finished.  Now, let&#39;s write a test to verify its behavior from what we learned in the <a href="testing.html">Testing and Debugging</a> topic.  We&#39;ll reuse the <code>collectionAssert.assertEqual</code> from the previous topic so it is not repeated here.</p>
+<h2 id="testing-your-new-operator"><a name="testing-your-new-operator" class="plugin-anchor" href="#testing-your-new-operator"><span class="fa fa-link"></span></a>Testing Your New Operator</h2>
+<p>Just because you have implemented a new operator doesn&apos;t mean you are finished.  Now, let&apos;s write a test to verify its behavior from what we learned in the <a href="testing.html">Testing and Debugging</a> topic.  We&apos;ll reuse the <code>collectionAssert.assertEqual</code> from the previous topic so it is not repeated here.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
     onCompleted = Rx.ReactiveTest.onCompleted,
     subscribe = Rx.ReactiveTest.subscribe;
 
-test(<span class="hljs-string">'filterProperties should yield with match'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+test(<span class="hljs-string">&apos;filterProperties should yield with match&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
 
     <span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
     <span class="hljs-keyword">var</span> input = scheduler.createHotObservable(
-        onNext(<span class="hljs-number">210</span>, { <span class="hljs-string">'name'</span>: <span class="hljs-string">'curly'</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">30</span>, <span class="hljs-string">'quotes'</span>: [<span class="hljs-string">'Oh, a wise guy, eh?'</span>, <span class="hljs-string">'Poifect!'</span>] }),
-        onNext(<span class="hljs-number">220</span>, { <span class="hljs-string">'name'</span>: <span class="hljs-string">'moe'</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">40</span>, <span class="hljs-string">'quotes'</span>: [<span class="hljs-string">'Spread out!'</span>, <span class="hljs-string">'You knucklehead!'</span>] }),
+        onNext(<span class="hljs-number">210</span>, { <span class="hljs-string">&apos;name&apos;</span>: <span class="hljs-string">&apos;curly&apos;</span>, <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">30</span>, <span class="hljs-string">&apos;quotes&apos;</span>: [<span class="hljs-string">&apos;Oh, a wise guy, eh?&apos;</span>, <span class="hljs-string">&apos;Poifect!&apos;</span>] }),
+        onNext(<span class="hljs-number">220</span>, { <span class="hljs-string">&apos;name&apos;</span>: <span class="hljs-string">&apos;moe&apos;</span>, <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">40</span>, <span class="hljs-string">&apos;quotes&apos;</span>: [<span class="hljs-string">&apos;Spread out!&apos;</span>, <span class="hljs-string">&apos;You knucklehead!&apos;</span>] }),
         onCompleted(<span class="hljs-number">230</span>)
     );
 
     <span class="hljs-keyword">var</span> results = scheduler.startWithCreate(
         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-            <span class="hljs-keyword">return</span> input.filterByProperties({ <span class="hljs-string">'age'</span>: <span class="hljs-number">40</span> });
+            <span class="hljs-keyword">return</span> input.filterByProperties({ <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">40</span> });
         }
     );
 
     collectionAssert.assertEqual(results.messages, [
-        onNext(<span class="hljs-number">220</span>, { <span class="hljs-string">'name'</span>: <span class="hljs-string">'moe'</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">40</span>, <span class="hljs-string">'quotes'</span>: [<span class="hljs-string">'Spread out!'</span>, <span class="hljs-string">'You knucklehead!'</span>] }),
+        onNext(<span class="hljs-number">220</span>, { <span class="hljs-string">&apos;name&apos;</span>: <span class="hljs-string">&apos;moe&apos;</span>, <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">40</span>, <span class="hljs-string">&apos;quotes&apos;</span>: [<span class="hljs-string">&apos;Spread out!&apos;</span>, <span class="hljs-string">&apos;You knucklehead!&apos;</span>] }),
         onCompleted(<span class="hljs-number">230</span>)
     ]);
 
@@ -3663,7 +3667,7 @@ test(<span class="hljs-string">'filterProperties should yield with match'</span>
 });
 </code></pre>
 <p>In order for this to be successfully tested, we should check for when there is no data, empty, single matches, multiple matches and so forth.</p>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a name="see-also" class="plugin-anchor" href="#see-also"><span class="fa fa-link"></span></a>See Also</h2>
 <p><strong>Resources</strong></p>
 <ul>
 <li><a href="testing.html">Testing and Debugging</a></li>

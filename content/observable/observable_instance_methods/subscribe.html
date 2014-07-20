@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.95" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.95" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,25 +3571,25 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6953">
+                    <section class="normal" id="section-gitbook_3625">
                     
-                        <h1 id="subscribe">subscribe</h1>
+                        <h1 id="subscribe"><a name="subscribe" class="plugin-anchor" href="#subscribe"><span class="fa fa-link"></span></a>subscribe</h1>
 <p><code>Rx.Observable.prototype.subscribe([observer] | [onNext], [onError], [onCompleted])</code>
 <a href="#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Prepends a sequence of values to an observable sequence with an optional scheduler and an argument list of values to prepend.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>[observer]</code> <em>(Observer)</em>: The object that is to receive notifications.</li>
 <li><code>[onNext]</code> <em>(<code>Function</code>)</em>: Function to invoke for each element in the observable sequence.</li>
 <li><code>[onError]</code> <em>(<code>Function</code>)</em>: Function to invoke upon exceptional termination of the observable sequence.</li>
 <li><code>[onCompleted]</code> <em>(<code>Function</code>)</em>: Function to invoke upon graceful termination of the observable sequence.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>:  The source sequence whose subscriptions and unsubscriptions happen on the specified scheduler. </p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">/* With no arguments */</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
-    .do(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'Do Next: '</span> + x); });
+    .do(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;Do Next: &apos;</span> + x); });
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe();
 
@@ -3596,13 +3600,13 @@
 <span class="hljs-comment">/* With an observer */</span>
 <span class="hljs-keyword">var</span> observer = Rx.Observer.create(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
@@ -3618,20 +3622,20 @@
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 0</span>
 <span class="hljs-comment">// =&gt; Next: 1</span>
 <span class="hljs-comment">// =&gt; Next: 2</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js" target="_blank"><code>/src/core/observable.js</code></a></li>

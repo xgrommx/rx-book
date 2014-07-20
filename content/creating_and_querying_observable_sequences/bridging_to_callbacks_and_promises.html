@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="2.3" data-basepath="..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="2.3" data-basepath="..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,53 +3571,53 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6848">
+                    <section class="normal" id="section-gitbook_3519">
                     
-                        <h1 id="bridging-to-callbacks-and-promises">Bridging to Callbacks and Promises</h1>
+                        <h1 id="bridging-to-callbacks-and-promises"><a name="bridging-to-callbacks-and-promises" class="plugin-anchor" href="#bridging-to-callbacks-and-promises"><span class="fa fa-link"></span></a>Bridging to Callbacks and Promises</h1>
 <p>Besides events, other asynchronous data sources exist in the the web and server-side world. One of them is the the simple callback pattern which is frequently used in Node.js. In this design pattern, the arguments are passed to the function, and then a callback is usually the last parameter, which when executed, passes control to the inner scope with the data.  Node.js has a standard way of doing callbacks in which the the callback is called with the <code>Error</code> object first if there is an error, else null, and then the additional parameters from the callback.</p>
-<p>Promises have been gaining momentum within the JavaScript community and is on track to become part of the ECMAScript Standard as well as the DOM.  A promise represents the eventual result of an asynchronous operation. The primary way of interacting with a promise is through its then method, which registers callbacks to receive either a promise’s eventual value or the reason why the promise cannot be fulfilled.</p>
-<h2 id="converting-callbacks-to-observable-sequences">Converting Callbacks to Observable Sequences</h2>
+<p>Promises have been gaining momentum within the JavaScript community and is on track to become part of the ECMAScript Standard as well as the DOM.  A promise represents the eventual result of an asynchronous operation. The primary way of interacting with a promise is through its then method, which registers callbacks to receive either a promise&#x2019;s eventual value or the reason why the promise cannot be fulfilled.</p>
+<h2 id="converting-callbacks-to-observable-sequences"><a name="converting-callbacks-to-observable-sequences" class="plugin-anchor" href="#converting-callbacks-to-observable-sequences"><span class="fa fa-link"></span></a>Converting Callbacks to Observable Sequences</h2>
 <p>Many asynchronous methods in Node.js and the many JavaScript APIs are written in such a way that it has a callback as the last parameter. These standard callbacks are executed with the data passed to it once it is available.  We can use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromcallbackfunc-scheduler-context" target="_blank"><code>Rx.Observable.fromCallback</code></a> to wrap these kinds of callbacks.  Note that this does not cover the Node.js style of callbacks where the <code>Error</code> parameter is first.  For that operation, we provide the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromnodecallbackfunc-scheduler-context" target="_blank"><code>Rx.Observable.fromNodeCallback</code></a> which we will cover below.</p>
-<p>In the following example, we will convert the Node.js [<code>fs.exists</code>]<a href="http://nodejs.org/api/fs.html#fs_fs_exists_path_callback" target="_blank">http://nodejs.org/api/fs.html#fs_fs_exists_path_callback</a>) function.  This function takes a path and returns a <code>true</code> or <code>false</code> value whether the file exists, in this case we will check if &#39;file.txt&#39; exists.  The arguments returned when wrapped in <code>Rx.Observable.fromCallback</code> will return an array containing the arguments passed to the callback.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rx'</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<p>In the following example, we will convert the Node.js [<code>fs.exists</code>]<a href="http://nodejs.org/api/fs.html#fs_fs_exists_path_callback" target="_blank">http://nodejs.org/api/fs.html#fs_fs_exists_path_callback</a>) function.  This function takes a path and returns a <code>true</code> or <code>false</code> value whether the file exists, in this case we will check if &apos;file.txt&apos; exists.  The arguments returned when wrapped in <code>Rx.Observable.fromCallback</code> will return an array containing the arguments passed to the callback.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
+    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
 
 <span class="hljs-comment">// Wrap the exists method</span>
 <span class="hljs-keyword">var</span> exists = Rx.Observable.fromCallback(fs.exists);
 
-<span class="hljs-keyword">var</span> source = exists(<span class="hljs-string">'file.txt'</span>);
+<span class="hljs-keyword">var</span> source = exists(<span class="hljs-string">&apos;file.txt&apos;</span>);
 
 <span class="hljs-comment">// Get the first argument only which is true/false</span>
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'onNext: '</span> + x[<span class="hljs-number">0</span>]); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;onNext: &apos;</span> + x[<span class="hljs-number">0</span>]); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;onCompleted&apos;</span>); });
 
 <span class="hljs-comment">// =&gt; onNext: true</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
-<h2 id="converting-nodejs-style-callbacks-to-observable-sequences">Converting Node.js Style Callbacks to Observable Sequences</h2>
+<h2 id="converting-nodejs-style-callbacks-to-observable-sequences"><a name="converting-nodejs-style-callbacks-to-observable-sequences" class="plugin-anchor" href="#converting-nodejs-style-callbacks-to-observable-sequences"><span class="fa fa-link"></span></a>Converting Node.js Style Callbacks to Observable Sequences</h2>
 <p>Node.js has adopted a convention in many of the callbacks where an error may occur, such as File I/O, Network requests, etc.  RxJS supports this through the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromnodecallbackfunc-scheduler-context" target="_blank"><code>Rx.Observable.fromNodeCallback</code></a> method in which the error, if present, is captured and the <code>onError</code> notification is sent.  Otherwise, the <code>onNext</code> is sent with the rest of the callback arguments, followed by an <code>onCompleted</code> notification.</p>
 <p>In the following example, we will convert the Node.js <a href="http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback" target="_blank"><code>fs.rename</code></a> function to an Observable sequence.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>),
-    Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rx'</span>);
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>),
+    Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
 <span class="hljs-comment">// Wrap fs.rename</span>
 <span class="hljs-keyword">var</span> rename = Rx.Observable.fromCallback(fs.rename);
 
 <span class="hljs-comment">// Rename file which returns no parameters except an error</span>
-<span class="hljs-keyword">var</span> source = rename(<span class="hljs-string">'file1.txt'</span>, <span class="hljs-string">'file2.txt'</span>);
+<span class="hljs-keyword">var</span> source = rename(<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>);
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onNext: success'</span>); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;onNext: success&apos;</span>); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;onCompleted&apos;</span>); });
 
 <span class="hljs-comment">// =&gt; onNext: success!</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
-<h2 id="converting-promises-to-observable-sequences">Converting Promises to Observable Sequences</h2>
-<p>Callbacks aren&#39;t the only asynchronous feature that can be converted to an observable sequence.  It&#39;s quite simple to convert a Promise object which conforms to the <a href="http://promises-aplus.github.io/promises-spec/" target="_blank">Promises A+ Spec</a> where the behavior is uniform across implementations.  To support this, we provide the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefrompromisepromise" target="_blank"><code>Rx.Observable.fromPromise</code></a> method which calls the <code>then</code> method of the promise to handle both success and error cases.</p>
+<h2 id="converting-promises-to-observable-sequences"><a name="converting-promises-to-observable-sequences" class="plugin-anchor" href="#converting-promises-to-observable-sequences"><span class="fa fa-link"></span></a>Converting Promises to Observable Sequences</h2>
+<p>Callbacks aren&apos;t the only asynchronous feature that can be converted to an observable sequence.  It&apos;s quite simple to convert a Promise object which conforms to the <a href="http://promises-aplus.github.io/promises-spec/" target="_blank">Promises A+ Spec</a> where the behavior is uniform across implementations.  To support this, we provide the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefrompromisepromise" target="_blank"><code>Rx.Observable.fromPromise</code></a> method which calls the <code>then</code> method of the promise to handle both success and error cases.</p>
 <p>In the following example, we create promise objects using <a href="https://github.com/tildeio/rsvp.js" target="_blank">RSVP</a> library.</p>
 <pre><code class="lang-js"><span class="hljs-comment">// Create a promise which resolves 42</span>
 <span class="hljs-keyword">var</span> promise1 = <span class="hljs-keyword">new</span> RSVP.Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(resolve, reject)</span> {</span>
@@ -3623,24 +3627,24 @@
 <span class="hljs-keyword">var</span> source1 = Rx.Observable.fromPromise(promise);
 
 <span class="hljs-keyword">var</span> subscription1 = source1.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'onNext: '</span> + x); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;onNext: &apos;</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;onCompleted&apos;</span>); });
 
 <span class="hljs-comment">// =&gt; onNext: 42</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
 
 <span class="hljs-comment">// Create a promise which rejects with an error</span>
 <span class="hljs-keyword">var</span> promise2 = <span class="hljs-keyword">new</span> RSVP.Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(resolve, reject)</span> {</span>
-    reject(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'reason'</span>));
+    reject(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;reason&apos;</span>));
 });
 
 <span class="hljs-keyword">var</span> source2 = Rx.Observable.fromPromise(promise);
 
 <span class="hljs-keyword">var</span> subscription2 = source2.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'onNext: '</span> + x); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;onNext: &apos;</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;onCompleted&apos;</span>); });
 
 <span class="hljs-comment">// =&gt; onError: reject</span>
 </code></pre>

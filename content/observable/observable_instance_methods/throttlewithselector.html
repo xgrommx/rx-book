@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.108" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.108" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,19 +3571,19 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6966">
+                    <section class="normal" id="section-gitbook_3637">
                     
-                        <h1 id="throttlewithselector">throttleWithSelector</h1>
+                        <h1 id="throttlewithselector"><a name="throttlewithselector" class="plugin-anchor" href="#throttlewithselector"><span class="fa fa-link"></span></a>throttleWithSelector</h1>
 <p><code>Rx.Observable.prototype.throttleWithSelector(throttleSelector)</code>
 <a href="#rxobservableprototypethrottlewithselectorthrottleselector">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttlewithselector.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Ignores values from an observable sequence which are followed by another value before dueTime.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>dueTime</code> <em>(<code>Number</code>)</em>: Selector function to retrieve a sequence indicating the throttle duration for each given element.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: The throttled sequence. </p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> array = [
     <span class="hljs-number">800</span>,
     <span class="hljs-number">700</span>,
@@ -3600,20 +3604,20 @@
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 0</span>
 <span class="hljs-comment">// =&gt; Next: 3</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttlewithselector.js" target="_blank"><code>/src/core/observable/throttlewithselector.js</code></a></li>

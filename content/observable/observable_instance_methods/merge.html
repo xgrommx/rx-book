@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.55" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.55" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,27 +3571,27 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6914">
+                    <section class="normal" id="section-gitbook_3587">
                     
-                        <h1 id="merge">merge</h1>
+                        <h1 id="merge"><a name="merge" class="plugin-anchor" href="#merge"><span class="fa fa-link"></span></a>merge</h1>
 <p><code>Rx.Observable.prototype.merge(maxConcurrent | other)</code>
 <a href="#rxobservableprototypemergemaxconcurrent--other">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergeproto.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Merges an observable sequence of observable sequences into an observable sequence, limiting the number of concurrent subscriptions to inner sequences.
 Or merges two observable sequences into a single observable sequence.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>maxConcurrent</code> <em>(<code>Function</code>)</em>: Maximum number of inner observable sequences being subscribed to concurrently.</li>
 <li><code>other</code> <em>(<code>Observable</code>)</em>:  The second observable sequence to merge into the first.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: The observable sequence that merges the elements of the inner sequences. </p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">/* Merge two sequences */</span>
 <span class="hljs-keyword">var</span> source1 = Rx.Observable.interval(<span class="hljs-number">100</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'First: '</span> + x; });
+    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;First: &apos;</span> + x; });
 
 <span class="hljs-keyword">var</span> source2 = Rx.Observable.interval(<span class="hljs-number">50</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'Second: '</span> + x; });
+    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Second: &apos;</span> + x; });
 
 <span class="hljs-keyword">var</span> source = source1
     .merge(source2)
@@ -3595,13 +3599,13 @@ Or merges two observable sequences into a single observable sequence.</p>
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: Second: 0 </span>
@@ -3618,13 +3622,13 @@ Or merges two observable sequences into a single observable sequence.</p>
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 0 </span>
@@ -3638,7 +3642,7 @@ Or merges two observable sequences into a single observable sequence.</p>
 <span class="hljs-comment">// =&gt; Next: 4 </span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergeproto.js" target="_blank"><code>/src/core/observable/mergeproto.js</code></a></li>

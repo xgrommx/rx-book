@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="2.1" data-basepath="..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="2.1" data-basepath="..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,16 +3571,16 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6850">
+                    <section class="normal" id="section-gitbook_3520">
                     
-                        <h1 id="creating-and-subscribing-to-simple-observable-sequences">Creating and Subscribing to Simple Observable Sequences</h1>
+                        <h1 id="creating-and-subscribing-to-simple-observable-sequences"><a name="creating-and-subscribing-to-simple-observable-sequences" class="plugin-anchor" href="#creating-and-subscribing-to-simple-observable-sequences"><span class="fa fa-link"></span></a>Creating and Subscribing to Simple Observable Sequences</h1>
 <p>You do not need to implement the <code>Observable</code> class manually to create an observable sequences. Similarly, you do not need to implement <code>Observer</code> either to subscribe to a sequence. By installing the Reactive Extension libraries, you can take advantage of the <code>Observable</code> type which provides many operators for you to create a simple sequence with zero, one or more elements. In addition, RxJS provides an overloaded <code>subscribe</code> method which allows you to pass in <code>onNext</code>, <code>onError</code> and <code>onCompleted</code> function handlers.</p>
-<h2 id="creating-a-sequence-from-scratch">Creating a sequence from scratch</h2>
-<p>Before getting into many operators, let&#39;s look at how to create an <code>Observable</code> from scratch using the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe" target="_blank"><code>Rx.Observable.create</code></a> method.</p>
+<h2 id="creating-a-sequence-from-scratch"><a name="creating-a-sequence-from-scratch" class="plugin-anchor" href="#creating-a-sequence-from-scratch"><span class="fa fa-link"></span></a>Creating a sequence from scratch</h2>
+<p>Before getting into many operators, let&apos;s look at how to create an <code>Observable</code> from scratch using the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe" target="_blank"><code>Rx.Observable.create</code></a> method.</p>
 <p>First, we need to ensure we reference the core <code>rx.js</code> file.</p>
 <pre><code>    &lt;script src=&quot;rx.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>Or if we&#39;re using <a href="http://node.js" target="_blank">Node.js</a>, we can reference it as such:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rx'</span>);
+</code></pre><p>Or if we&apos;re using <a href="http://node.js" target="_blank">Node.js</a>, we can reference it as such:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 </code></pre>
 <p>In this example, we will simply yield a single value of 42 and then mark it as completed.  The return value is completely optional if no cleanup is required.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> {</span>
@@ -3586,14 +3590,14 @@
 
     <span class="hljs-comment">// Any cleanup logic might go here</span>
     <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'disposed'</span>);
+        console.log(<span class="hljs-string">&apos;disposed&apos;</span>);
     }
 });
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'onNext: '</span> + x); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;onNext: &apos;</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;onCompleted&apos;</span>); });
 
 <span class="hljs-comment">// =&gt; onNext: 42</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
@@ -3602,7 +3606,7 @@ subscription.dispose();
 <span class="hljs-comment">// =&gt; disposed</span>
 </code></pre>
 <p>For most operations, this is completely overkill, but shows the very basics of how most RxJS operators work.</p>
-<h2 id="creating-and-subscribing-to-a-simple-sequence">Creating and subscribing to a simple sequence</h2>
+<h2 id="creating-and-subscribing-to-a-simple-sequence"><a name="creating-and-subscribing-to-a-simple-sequence" class="plugin-anchor" href="#creating-and-subscribing-to-a-simple-sequence"><span class="fa fa-link"></span></a>Creating and subscribing to a simple sequence</h2>
 <p>The following sample uses the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablerangestart-count-scheduler" target="_blank"><code>range</code></a> operator of the <code>Observable</code> type to create a simple observable collection of numbers. The observer subscribes to this collection using the Subscribe method of the Observable class, and provides actions that are delegates which handle <code>onNext</code>, <code>onError</code> and <code>onCompleted</code>.  In our example, it creates a sequence of integers that starts with x and produces y sequential numbers afterwards.</p>
 <p>As soon as the subscription happens, the values are sent to the observer. The <code>onNext</code> function then prints out the values.</p>
 <pre><code class="lang-js"><span class="hljs-comment">// Creates an observable sequence of 5 integers, starting from 1</span>
@@ -3610,9 +3614,9 @@ subscription.dispose();
 
 <span class="hljs-comment">// Prints out each item</span>
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'onNext: '</span> + x); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;onNext: &apos;</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;onCompleted&apos;</span>); });
 
 <span class="hljs-comment">// =&gt; onNext: 1</span>
 <span class="hljs-comment">// =&gt; onNext: 2</span>
@@ -3631,9 +3635,9 @@ subscription.dispose();
 
 <span class="hljs-comment">// Create observer</span>
 <span class="hljs-keyword">var</span> observer = Rx.Observer.create(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'onNext: '</span> + x); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;onNext: &apos;</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;onCompleted&apos;</span>); });
 
 <span class="hljs-comment">// Prints out each item</span>
 <span class="hljs-keyword">var</span> subscription = source.subscribe(observer);
@@ -3647,13 +3651,13 @@ subscription.dispose();
 </code></pre>
 <p>In addition to creating an observable sequence from scratch, you can convert existing Arrays,  events, callbacks and promises into observable sequences. The other topics in this section will show you how to do this.</p>
 <p>Notice that this topic only shows you a few operators that can create an observable sequence from scratch. To learn more about other LINQ operators, see Querying Observable Sequences using LINQ Operators.</p>
-<h2 id="using-a-timer">Using a timer</h2>
+<h2 id="using-a-timer"><a name="using-a-timer" class="plugin-anchor" href="#using-a-timer"><span class="fa fa-link"></span></a>Using a timer</h2>
 <p>The following sample uses the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservabletimerduetime-period-scheduler" target="_blank"><code>timer</code></a> operator to create a sequence. The sequence will push out the first value after 5 second has elapsed, then it will push out subsequent values every 1 second. For illustration purpose, we chain the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypetimestampscheduler" target="_blank"><code>timestamp</code></a> operator to the query so that each value pushed out will be appended by the time when it is published. By doing so, when we subscribe to this source sequence, we can receive both its value and timestamp.</p>
 <p>First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.</p>
 <pre><code>    &lt;script src=&quot;rx.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;rx.time.js&quot;&gt;&lt;/script&gt;
 </code></pre><p>Now on to our example</p>
-<pre><code class="lang-js">console.log(<span class="hljs-string">'Current time: '</span> + <span class="hljs-built_in">Date</span>.now());
+<pre><code class="lang-js">console.log(<span class="hljs-string">&apos;Current time: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.timer(
     <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds */</span>
@@ -3662,7 +3666,7 @@ subscription.dispose();
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(x.value + <span class="hljs-string">': '</span> + x.timestamp);
+        console.log(x.value + <span class="hljs-string">&apos;: &apos;</span> + x.timestamp);
     });
 
 
@@ -3673,7 +3677,7 @@ subscription.dispose();
 <span class="hljs-comment">// 2: 1382560704820</span>
 </code></pre>
 <p>By using the <code>timestamp</code> operator, we have verified that the first item is indeed pushed out 5 seconds after the sequence has started, and each item is published 1 second later.</p>
-<h2 id="converting-an-array-to-an-observable-sequence">Converting an Array to an Observable Sequence</h2>
+<h2 id="converting-an-array-to-an-observable-sequence"><a name="converting-an-array-to-an-observable-sequence" class="plugin-anchor" href="#converting-an-array-to-an-observable-sequence"><span class="fa fa-link"></span></a>Converting an Array to an Observable Sequence</h2>
 <p>Using the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromarrayarray-scheduler" target="_blank"><code>Rx.Observable.fromArray</code></a> operator, you can convert an array to observable sequence.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> array = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
 
@@ -3682,9 +3686,9 @@ subscription.dispose();
 
 <span class="hljs-comment">// Prints out each item</span>
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'onNext: '</span> + x); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;onNext: &apos;</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;onCompleted&apos;</span>); });
 
 <span class="hljs-comment">// =&gt; onNext: 1</span>
 <span class="hljs-comment">// =&gt; onNext: 2</span>
@@ -3693,7 +3697,7 @@ subscription.dispose();
 <span class="hljs-comment">// =&gt; onNext: 5</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
-<h2 id="cold-vs-hot-observables">Cold vs. Hot Observables</h2>
+<h2 id="cold-vs-hot-observables"><a name="cold-vs-hot-observables" class="plugin-anchor" href="#cold-vs-hot-observables"><span class="fa fa-link"></span></a>Cold vs. Hot Observables</h2>
 <p>Cold observables start running upon subscription, i.e., the observable sequence only starts pushing values to the observers when Subscribe is called. Values are also not shared among subscribers. This is different from hot observables such as mouse move events or stock tickers which are already producing values even before a subscription is active. When an observer subscribes to a hot observable sequence, it will get the current value in the stream. The hot observable sequence is shared among all subscribers, and each subscriber is pushed the next value in the sequence. For example, even if no one has subscribed to a particular stock ticker, the ticker will continue to update its value based on market movement. When a subscriber registers interest in this ticker, it will automatically get the latest tick.</p>
 <p>The following example demonstrates a cold observable sequence. In this example, we use the Interval operator to create a simple observable sequence of numbers pumped out at specific intervals, in this case, every 1 second.</p>
 <p>Two observers then subscribe to this sequence and print out its values. You will notice that the sequence is reset for each subscriber, in which the second subscription will restart the sequence from the first value.</p>
@@ -3704,14 +3708,14 @@ subscription.dispose();
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>);
 
 <span class="hljs-keyword">var</span> subscription1 = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'Observer 1: onNext: '</span> + x); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'Observer 1: onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'Observer 1: onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;Observer 1: onNext: &apos;</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;Observer 1: onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;Observer 1: onCompleted&apos;</span>); });
 
 <span class="hljs-keyword">var</span> subscription2 = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'Observer 2: onNext: '</span> + x); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'Observer 2: onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'Observer 2: onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;Observer 2: onNext: &apos;</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;Observer 2: onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;Observer 2: onCompleted&apos;</span>); });
 
 setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
     subscription1.dispose();
@@ -3745,7 +3749,7 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
     &lt;script src=&quot;rx.binding.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;rx.time.js&quot;&gt;&lt;/script&gt;
 </code></pre><p>Now onto the example!</p>
-<pre><code class="lang-js">console.log(<span class="hljs-string">'Current time: '</span> + <span class="hljs-built_in">Date</span>.now());
+<pre><code class="lang-js">console.log(<span class="hljs-string">&apos;Current time: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
 <span class="hljs-comment">// Creates a sequence</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>);
@@ -3755,11 +3759,11 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
 
 <span class="hljs-comment">// No value is pushed to 1st subscription at this point</span>
 <span class="hljs-keyword">var</span> subscription1 = hot.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'Observer 1: onNext: '</span> + x); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'Observer 1: onError: '</span> + e.message); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'Observer 1: onCompleted'</span>); });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;Observer 1: onNext: &apos;</span> + x); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;Observer 1: onError: &apos;</span> + e.message); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;Observer 1: onCompleted&apos;</span>); });
 
-console.log(<span class="hljs-string">'Current Time after 1st subscription: '</span> + <span class="hljs-built_in">Date</span>.now());
+console.log(<span class="hljs-string">&apos;Current Time after 1st subscription: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
 <span class="hljs-comment">// Idle for 3 seconds</span>
 setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
@@ -3767,17 +3771,17 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
     <span class="hljs-comment">// Hot is connected to source and starts pushing value to subscribers</span>
     hot.connect();
 
-    console.log(<span class="hljs-string">'Current Time after connect: '</span> + <span class="hljs-built_in">Date</span>.now());
+    console.log(<span class="hljs-string">&apos;Current Time after connect: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
     <span class="hljs-comment">// Idle for another 3 seconds</span>
     setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
 
-        console.log(<span class="hljs-string">'Current Time after 2nd subscription: '</span> + <span class="hljs-built_in">Date</span>.now());
+        console.log(<span class="hljs-string">&apos;Current Time after 2nd subscription: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
         <span class="hljs-keyword">var</span> subscription2 = hot.subscribe(
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'Observer 2: onNext: '</span> + x); },
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">'Observer 2: onError: '</span> + e.message); },
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'Observer 2: onCompleted'</span>); });
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;Observer 2: onNext: &apos;</span> + x); },
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span> console.log(<span class="hljs-string">&apos;Observer 2: onError: &apos;</span> + e.message); },
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;Observer 2: onCompleted&apos;</span>); });
 
     }, <span class="hljs-number">3000</span>);
 }, <span class="hljs-number">3000</span>);

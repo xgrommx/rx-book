@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.119" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.119" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,21 +3571,21 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6977">
+                    <section class="normal" id="section-gitbook_3647">
                     
-                        <h1 id="zip">zip</h1>
+                        <h1 id="zip"><a name="zip" class="plugin-anchor" href="#zip"><span class="fa fa-link"></span></a>zip</h1>
 <p><code>Rx.Observable.prototype.zip(...args, [resultSelector])</code>
 <a href="#rxobservableprototypezipargs-resultselector">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/zipproto.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Merges the specified observable sequences or Promises into one observable sequence by using the selector function whenever all of the observable sequences or an array have produced an element at a corresponding index.</p>
 <p>The last element in the arguments must be a function to invoke for each series of elements at corresponding indexes in the sources.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>args</code> <em>(<code>Arguments</code> | <code>Array</code>)</em>: Arguments or an array of observable sequences.</li>
 <li><code>[resultSelector]</code> <em>(<code>Any</code>)</em>: Function to invoke for each series of elements at corresponding indexes in the sources, used only if the first parameter is not an array.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence containing the result of combining elements of the sources using the specified result selector function. </p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">/* Using arguments */</span>
 <span class="hljs-keyword">var</span> range = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
 
@@ -3589,19 +3593,19 @@
     range.skip(<span class="hljs-number">1</span>), 
     range.skip(<span class="hljs-number">2</span>), 
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(s1, s2, s3)</span> {</span>
-        <span class="hljs-keyword">return</span> s1 + <span class="hljs-string">':'</span> + s2 + <span class="hljs-string">':'</span> + s3;
+        <span class="hljs-keyword">return</span> s1 + <span class="hljs-string">&apos;:&apos;</span> + s2 + <span class="hljs-string">&apos;:&apos;</span> + s3;
     }
 );
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 0:1:2</span>
@@ -3616,18 +3620,18 @@
     .zip(
         array,
         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(s1, s2)</span> {</span>
-            <span class="hljs-keyword">return</span> s1 + <span class="hljs-string">':'</span> + s2;
+            <span class="hljs-keyword">return</span> s1 + <span class="hljs-string">&apos;:&apos;</span> + s2;
         });
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 0:3</span>
@@ -3635,7 +3639,7 @@
 <span class="hljs-comment">// =&gt; Next: 2:5</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/zipproto.js" target="_blank"><code>/src/core/observable/zipproto.js</code></a></li>

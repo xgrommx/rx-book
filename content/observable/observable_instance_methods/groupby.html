@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.42" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.42" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,21 +3571,21 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_7030">
+                    <section class="normal" id="section-gitbook_3571">
                     
-                        <h1 id="groupby">groupBy</h1>
+                        <h1 id="groupby"><a name="groupby" class="plugin-anchor" href="#groupby"><span class="fa fa-link"></span></a>groupBy</h1>
 <p><code>Rx.Observable.prototype.groupBy(keySelector, [elementSelector], [keySerializer])</code>
 <a href="#rxobservableprototypegroupbykeyselector-elementselector-keyserializer">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4187-L4191" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Groups the elements of an observable sequence according to a specified key selector function and comparer and selects the resulting elements by using a specified function.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>keySelector</code> <em>(<code>Function</code>)</em>: A function to extract the key for each element.</li>
 <li><code>[elementSelector]</code> <em>(<code>Function</code>)</em>: A function to map each source element to an element in an observable group.</li>
 <li><code>[keySerializer]</code> <em>(<code>Any</code>)</em>: Used to serialize the given object into a string for object comparison.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: A sequence of observable groups, each of which corresponds to a unique key value, containing all elements that share that same key value.    </p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> codes = [
     { keyCode: <span class="hljs-number">38</span>}, <span class="hljs-comment">// up</span>
     { keyCode: <span class="hljs-number">38</span>}, <span class="hljs-comment">// up</span>
@@ -3604,14 +3608,14 @@
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(obs)</span> {</span>
         <span class="hljs-comment">// Print the count</span>
         obs.count().subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> 
-            console.log(<span class="hljs-string">'Count: '</span> + x); 
+            console.log(<span class="hljs-string">&apos;Count: &apos;</span> + x); 
         });
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Count: 2 </span>
@@ -3622,7 +3626,7 @@
 <span class="hljs-comment">// =&gt; Count: 1 </span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h4 id="location">Location</h4>
+<h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
 </ul>

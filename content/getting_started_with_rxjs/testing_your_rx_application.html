@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="1.5" data-basepath="..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="1.5" data-basepath="..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,17 +3571,17 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6857">
+                    <section class="normal" id="section-gitbook_3529">
                     
-                        <h1 id="testing-your-rx-application">Testing your Rx application</h1>
-<p>Let&#39;s face it, testing asynchronous code is a pain.  In JavaScript, with so many asynchronous things to coordinate, testing is too hard for anyone to wrap their minds around.  Luckily the Reactive Extensions for JavaScript makes this easy.</p>
+                        <h1 id="testing-your-rx-application"><a name="testing-your-rx-application" class="plugin-anchor" href="#testing-your-rx-application"><span class="fa fa-link"></span></a>Testing your Rx application</h1>
+<p>Let&apos;s face it, testing asynchronous code is a pain.  In JavaScript, with so many asynchronous things to coordinate, testing is too hard for anyone to wrap their minds around.  Luckily the Reactive Extensions for JavaScript makes this easy.</p>
 <p>If you have an observable sequence that publishes values over an extended period of time, testing it in real time can be a stretch. The RxJS library provides the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md" target="_blank"><code>TestScheduler</code></a> type to assist testing this kind of time-dependent code without actually waiting for time to pass. The <code>TestScheduler</code> inherits <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/virtualtimescheduler.md" target="_blank"><code>VirtualScheduler</code></a> and allows you to create, publish and subscribe to sequences in emulated time. For example, you can compact a publication which takes 5 days to complete into a 2 minute run, while maintaining the correct scale. You can also take a sequence which actually has happened in the past (e.g., a sequence of stock ticks for a previous year) and compute or subscribe to it as if it is pushing out new values in real time.</p>
 <p>The factory methods <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed" target="_blank"><code>startWithTiming</code></a>, <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypestartwithcreatecreate" target="_blank"><code>startWithCreate</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypestartwithdisposecreate-disposed" target="_blank"><code>startWithDispose</code></a> executes all scheduled tasks until the queue is empty, or you can specify a time to so that queued-up tasks are only executed to the specified time.</p>
 <p>The following example creates a hot observable sequence with specified <code>onNext</code> notifications. It then starts the test scheduler and specifies when to subscribe to and dispose of the hot observable sequence. The Start method returns an instance of an <code>Observer</code>, which contains a <code>messages</code> property that records all notifications in a list.</p>
-<p>After the sequence has completed, we use can define method such as <code>collectionAssert.assertEqual</code> to compare the <code>messages</code> property, together with a list of expected values to see if both are identical (with the same number of items, and items are equal and in the same order). By doing so, we can confirm that we have indeed received the notifications that we expect. In our example, since we only start subscribing at 150, we will miss out the value &#39;abc&#39;. However, when we compare the values we have received so far at 400, we notice that we have in fact received all the published values after we subscribed to the sequence. And we also verify that the OnCompleted notification was fired at the right time at 500. In addition, subscription information is also captured by the <code>Observable</code> type returned by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypecreatehotobservableargs" target="_blank"><code>createHotObservable</code></a> method.</p>
-<p>In the same way, you can use that same defined method such as our <code>collectionAssert.assertEqual</code> below to confirm that subscriptions indeed happened at expected times.  It is easy to wrap this for your favorite unit testing framework whether it is QUnit, Mocha, Jasmine, etc.  In this example, we&#39;ll write a quick wrapper for QUnit.</p>
+<p>After the sequence has completed, we use can define method such as <code>collectionAssert.assertEqual</code> to compare the <code>messages</code> property, together with a list of expected values to see if both are identical (with the same number of items, and items are equal and in the same order). By doing so, we can confirm that we have indeed received the notifications that we expect. In our example, since we only start subscribing at 150, we will miss out the value &apos;abc&apos;. However, when we compare the values we have received so far at 400, we notice that we have in fact received all the published values after we subscribed to the sequence. And we also verify that the OnCompleted notification was fired at the right time at 500. In addition, subscription information is also captured by the <code>Observable</code> type returned by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypecreatehotobservableargs" target="_blank"><code>createHotObservable</code></a> method.</p>
+<p>In the same way, you can use that same defined method such as our <code>collectionAssert.assertEqual</code> below to confirm that subscriptions indeed happened at expected times.  It is easy to wrap this for your favorite unit testing framework whether it is QUnit, Mocha, Jasmine, etc.  In this example, we&apos;ll write a quick wrapper for QUnit.</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createMessage</span><span class="hljs-params">(actual, expected)</span> {</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-string">'Expected: ['</span> + expected.toString() + <span class="hljs-string">']\r\nActual: ['</span> + actual.toString() + <span class="hljs-string">']'</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Expected: [&apos;</span> + expected.toString() + <span class="hljs-string">&apos;]\r\nActual: [&apos;</span> + actual.toString() + <span class="hljs-string">&apos;]&apos;</span>;
 }
 
 <span class="hljs-comment">// Using QUnit testing for assertions</span>
@@ -3587,7 +3591,7 @@
             isOk = <span class="hljs-literal">true</span>;
 
         <span class="hljs-keyword">if</span> (expected.length !== actual.length) {
-            ok(<span class="hljs-literal">false</span>, <span class="hljs-string">'Not equal length. Expected: '</span> + expected.length + <span class="hljs-string">' Actual: '</span> + actual.length);
+            ok(<span class="hljs-literal">false</span>, <span class="hljs-string">&apos;Not equal length. Expected: &apos;</span> + expected.length + <span class="hljs-string">&apos; Actual: &apos;</span> + actual.length);
             <span class="hljs-keyword">return</span>;
         }
 
@@ -3606,16 +3610,16 @@
     onCompleted = Rx.ReactiveTest.onCompleted,
     subscribe = Rx.ReactiveTest.subscribe;
 
-test(<span class="hljs-string">'buffer should join strings'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+test(<span class="hljs-string">&apos;buffer should join strings&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
 
     <span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
     <span class="hljs-keyword">var</span> input = scheduler.createHotObservable(
-        onNext(<span class="hljs-number">100</span>, <span class="hljs-string">'abc'</span>),
-        onNext(<span class="hljs-number">200</span>, <span class="hljs-string">'def'</span>),
-        onNext(<span class="hljs-number">250</span>, <span class="hljs-string">'ghi'</span>),
-        onNext(<span class="hljs-number">300</span>, <span class="hljs-string">'pqr'</span>),
-        onNext(<span class="hljs-number">450</span>, <span class="hljs-string">'xyz'</span>),
+        onNext(<span class="hljs-number">100</span>, <span class="hljs-string">&apos;abc&apos;</span>),
+        onNext(<span class="hljs-number">200</span>, <span class="hljs-string">&apos;def&apos;</span>),
+        onNext(<span class="hljs-number">250</span>, <span class="hljs-string">&apos;ghi&apos;</span>),
+        onNext(<span class="hljs-number">300</span>, <span class="hljs-string">&apos;pqr&apos;</span>),
+        onNext(<span class="hljs-number">450</span>, <span class="hljs-string">&apos;xyz&apos;</span>),
         onCompleted(<span class="hljs-number">500</span>)
     );
 
@@ -3625,7 +3629,7 @@ test(<span class="hljs-string">'buffer should join strings'</span>, <span class=
                 <span class="hljs-keyword">return</span> input.throttle(<span class="hljs-number">100</span>, scheduler);
             })
             .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(b)</span> {</span>
-                <span class="hljs-keyword">return</span> b.join(<span class="hljs-string">','</span>);
+                <span class="hljs-keyword">return</span> b.join(<span class="hljs-string">&apos;,&apos;</span>);
             });
         },
         <span class="hljs-number">50</span>,  <span class="hljs-comment">// created</span>
@@ -3634,8 +3638,8 @@ test(<span class="hljs-string">'buffer should join strings'</span>, <span class=
     );
 
     collectionAssert.assertEqual(results.messages, [
-        onNext(<span class="hljs-number">400</span>, <span class="hljs-string">'def,ghi,pqr'</span>),
-        onNext(<span class="hljs-number">500</span>, <span class="hljs-string">'xyz'</span>),
+        onNext(<span class="hljs-number">400</span>, <span class="hljs-string">&apos;def,ghi,pqr&apos;</span>),
+        onNext(<span class="hljs-number">500</span>, <span class="hljs-string">&apos;xyz&apos;</span>),
         onCompleted(<span class="hljs-number">500</span>)
     ]);
 
@@ -3646,14 +3650,14 @@ test(<span class="hljs-string">'buffer should join strings'</span>, <span class=
     ]);
 });
 </code></pre>
-<h2 id="debugging-your-rx-application">Debugging your Rx application</h2>
+<h2 id="debugging-your-rx-application"><a name="debugging-your-rx-application" class="plugin-anchor" href="#debugging-your-rx-application"><span class="fa fa-link"></span></a>Debugging your Rx application</h2>
 <p>You can use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypedoobserver--onnext-onerror-oncompleted" target="_blank"><code>do</code></a> operator to debug your Rx application. The <code>do</code> operator allows you to specify various actions to be taken for each item of observable sequence (e.g., print or log the item, etc.). This is especially helpful when you are chaining many operators and you want to know what values are produced at each level.</p>
 <p>In the following example, we are going to reuse the Buffer example which generates integers every second, while putting them into buffers that can hold 5 items each. In our original example in the <a href="querying.html">Querying Observable Sequences</a> topic, we subscribe only to the final <code>Observable</code> sequence when the buffer is full (and before it is emptied). In this example, however, we will use the <code>do</code> operator to print out the values when they are being pushed out by the original sequence (an integer every second). When the buffer is full, we use the <code>do</code> operator to print the status, before handing over all this as the final sequence for the observer to subscribe.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> seq1 = Rx.Observable.interval(<span class="hljs-number">1000</span>)
    .do(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(x); })
    .bufferWithCount(<span class="hljs-number">5</span>)
-   .do(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'buffer is full'</span>))
-   .subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'Sum of the buffer is '</span> + x.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(acc, x)</span> {</span> <span class="hljs-keyword">return</span> acc + x; }, <span class="hljs-number">0</span>)); });
+   .do(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;buffer is full&apos;</span>))
+   .subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;Sum of the buffer is &apos;</span> + x.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(acc, x)</span> {</span> <span class="hljs-keyword">return</span> acc + x; }, <span class="hljs-number">0</span>)); });
 
 <span class="hljs-comment">// =&gt; 0</span>
 <span class="hljs-comment">// =&gt; 1</span>
@@ -3666,13 +3670,13 @@ test(<span class="hljs-string">'buffer should join strings'</span>, <span class=
 </code></pre>
 <p>As you can see from this sample, a subscription is on the recipient end of a series of chained observable sequences. At first, we create an observable sequence of integers separate by a second using the Interval operator. Then, we put 5 items into a buffer using the Buffer operator, and send them out as another sequence only when the buffer is full. Lastly, this is handed over to the Subscribe operator. Data propagate down all these intermediate sequences until they are pushed to the observer. In the same way, subscriptions are propagated in the reverse direction to the source sequence. By inserting the <code>do</code> operator in the middle of such propagations, you can &quot;spy&quot; on such data flow just like you use console.log  perform debugging.</p>
 <p>You can also use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypetimestampscheduler" target="_blank"><code>timestamp</code></a> operator to verify the time when an item is pushed out by an observable sequence. This can help you troubleshoot time-based operations to ensure accuracy. Recall the following example from the <a href="creating.html">Creating and Subscribing to Simple Observable Sequences</a> topic, in which we chain the <code>timestamp</code> operator to the query so that each value pushed out by the source sequence will be appended by the time when it is published. By doing so, when we subscribe to this source sequence, we can receive both its value and timestamp.</p>
-<pre><code class="lang-js">console.log(<span class="hljs-string">'Current time: '</span> + <span class="hljs-built_in">Date</span>.now());
+<pre><code class="lang-js">console.log(<span class="hljs-string">&apos;Current time: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.timer(<span class="hljs-number">5000</span>, <span class="hljs-number">1000</span>)
     .timestamp();
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-    console.log(x.value + <span class="hljs-string">': '</span> + x.timestamp);
+    console.log(x.value + <span class="hljs-string">&apos;: &apos;</span> + x.timestamp);
 });
 
 <span class="hljs-comment">/* Output will look similar to this */</span>
@@ -3687,7 +3691,7 @@ test(<span class="hljs-string">'buffer should join strings'</span>, <span class=
 </code></pre>
 <p>By using the <code>timestamp</code> operator, we have verified that the first item is indeed pushed out 5 seconds after the sequence, and each item is published 1 second later.</p>
 <p>You can remove any <code>do</code> and <code>map</code> or <code>select</code> calls after you finish debugging.</p>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a name="see-also" class="plugin-anchor" href="#see-also"><span class="fa fa-link"></span></a>See Also</h2>
 <p><strong>Concepts</strong></p>
 <ul>
 <li><a href="creating.html">Creating and Subscribing to Simple Observable Sequences</a></li>

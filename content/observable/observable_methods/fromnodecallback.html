@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.15" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.15" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,46 +3571,46 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6991">
+                    <section class="normal" id="section-gitbook_3663">
                     
-                        <h1 id="fromnodecallback">fromNodeCallback</h1>
+                        <h1 id="fromnodecallback"><a name="fromnodecallback" class="plugin-anchor" href="#fromnodecallback"><span class="fa fa-link"></span></a>fromNodeCallback</h1>
 <p><code>Rx.Observable.fromNodeCallback(func, [scheduler], [context], [selector])</code>
 <a href="#rxobservablefromnodecallbackfunc-scheduler-context-selector">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromnodecallback.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Converts a Node.js callback style function to an observable sequence.  This must be in function (err, ...) format.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>func</code> <em>(<code>Function</code>)</em>: Function with a callback as the last parameter to convert to an Observable sequence.</li>
 <li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the function on. If not specified, defaults to <code>Rx.Scheduler.timeout</code>.</li>
 <li><code>[context]</code> <em>(<code>Any</code>)</em>: The context for the func parameter to be executed.  If not specified, defaults to undefined.</li>
 <li><code>[selector]</code> <em>(<code>Function</code>)</em>: A selector which takes the arguments from callback sans the error to produce a single item to yield on next.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Function</code>)</em>: A function which when applied, returns an observable sequence with the callback arguments as an array if no selector given, else the object created by the selector function on success, or an error if the first parameter is not falsy.</p>
-<h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>),
-    Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rx'</span>);
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>),
+    Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
 <span class="hljs-comment">// Wrap fs.exists</span>
 <span class="hljs-keyword">var</span> rename = Rx.Observable.fromNodeCallback(fs.rename);
 
 <span class="hljs-comment">// Rename file which returns no parameters except an error</span>
-<span class="hljs-keyword">var</span> source = rename(<span class="hljs-string">'file1.txt'</span>, <span class="hljs-string">'file2.txt'</span>);
+<span class="hljs-keyword">var</span> source = rename(<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>);
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Next: success!'</span>);
+        console.log(<span class="hljs-string">&apos;Next: success!&apos;</span>);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: success!</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromnodecallback.js" target="_blank">/src/core/observable/fromnodecallback.js</a></li>

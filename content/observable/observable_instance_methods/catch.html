@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.12" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.12" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,25 +3571,25 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6873">
+                    <section class="normal" id="section-gitbook_3543">
                     
-                        <h1 id="catch--catchexception">catch | catchException</h1>
+                        <h1 id="catch--catchexception"><a name="catch--catchexception" class="plugin-anchor" href="#catch--catchexception"><span class="fa fa-link"></span></a>catch | catchException</h1>
 <p><code>Rx.Observable.prototype.catch(second | handler)</code>
 <a href="#rxobservableprototypecatchsecond--handler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3107-L3112" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Continues an observable sequence that is terminated by an exception with the next observable sequence.  There is an alias for this method <code>catchException</code> for browsers &lt;IE9</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>second</code> <em>(<code>Observable</code>)</em>: A second observable sequence used to produce results when an error occurred in the first sequence.</li>
 <li><code>handler</code> <em>(<code>Function</code>)</em>: Exception handler function that returns an observable sequence given the error that occurred in the first sequence</li>
 </ol>
-<h4 id="returns">Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence containing the first sequence&#39;s elements, followed by the elements of the handler sequence in case an exception occurred.</p>
-<h4 id="example">Example</h4>
-<h5 id="using-a-second-observable">Using a second observable</h5>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<p><em>(<code>Observable</code>)</em>: An observable sequence containing the first sequence&apos;s elements, followed by the elements of the handler sequence in case an exception occurred.</p>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<h5 id="using-a-second-observable"><a name="using-a-second-observable" class="plugin-anchor" href="#using-a-second-observable"><span class="fa fa-link"></span></a>Using a second observable</h5>
 <p><a href="http://jsbin.com/paxiz/1/embed?js,console" target="_blank"></a></p>
-<h5 id="using-a-handler-function">Using a handler function</h5>
+<h5 id="using-a-handler-function"><a name="using-a-handler-function" class="plugin-anchor" href="#using-a-handler-function"><span class="fa fa-link"></span></a>Using a handler function</h5>
 <p><a href="http://jsbin.com/nikay/1/embed?js,console" target="_blank"></a></p>
-<h4 id="location">Location</h4>
+<h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
 </ul>

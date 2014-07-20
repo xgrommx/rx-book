@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="1.1" data-basepath="..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="1.1" data-basepath="..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,9 +3571,9 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6858">
+                    <section class="normal" id="section-gitbook_3527">
                     
-                        <h1 id="what-are-the-reactive-extensions-for-javascript-rxjs">What are the Reactive Extensions for JavaScript (RxJS)?</h1>
+                        <h1 id="what-are-the-reactive-extensions-for-javascript-rxjs"><a name="what-are-the-reactive-extensions-for-javascript-rxjs" class="plugin-anchor" href="#what-are-the-reactive-extensions-for-javascript-rxjs"><span class="fa fa-link"></span></a>What are the Reactive Extensions for JavaScript (RxJS)?</h1>
 <p>The Reactive Extensions for JavaScript (RxJS) is a library for composing asynchronous and event-based programs using observable sequences and <a href="http://en.wikipedia.org/wiki/LINQ" target="_blank">LINQ-style query operators</a>. Using RxJS, developers <em><strong>represent</strong></em> asynchronous data streams with <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md" target="_blank">Observables</a>, <em><strong>query</strong></em> asynchronous data streams using <a href="http://msdn.microsoft.com/en-us/library/hh242983.aspx" target="_blank">LINQ operators</a>, and <em><strong>parameterize</strong></em> the concurrency in the asynchronous data streams using <a href="http://msdn.microsoft.com/en-us/library/hh242963.aspx" target="_blank">Schedulers</a>. Simply put, Rx = Observables + LINQ + Schedulers.</p>
 <p>Whether you are authoring a web-based application or server-side applications with <a href="http://nodejs.org" target="_blank">Node.js</a>, you have to deal with asynchronous and event-based programming constantly. Web applications and Node.js applications have I/O operations and computationally expensive tasks that might take a long time to complete and potentially block the main thread. Furthermore, handling exceptions, cancellation, and synchronization is difficult and error-prone.</p>
 <p>Using RxJS, you can represent multiple asynchronous data streams (that come from diverse sources, e.g., stock quote, tweets, computer events, web service requests, etc.), and subscribe to the event stream using the <code>Observer</code> object. The <code>Observable</code> object notifies the subscribed <code>Observer</code> object whenever an event occurs.</p>
@@ -3589,12 +3593,12 @@
    </tr>
 </table>
 
-<h2 id="pushing-vs-pulling-data">Pushing vs. Pulling Data</h2>
+<h2 id="pushing-vs-pulling-data"><a name="pushing-vs-pulling-data" class="plugin-anchor" href="#pushing-vs-pulling-data"><span class="fa fa-link"></span></a>Pushing vs. Pulling Data</h2>
 <p>In interactive programming, the application actively polls a data source for more information by retrieving data from a sequence that represents the source. Such behavior is represented by the iterator pattern of JavaScript Arrays, Objects, Sets, Maps, etc. In interactive programming, one must get the next item by either getting an item by an index in an Array, or through <a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators" target="_blank">ES6 iterators</a>.</p>
 <p>The application is active in the data retrieval process: it decides about the pace of the retrieval by calling <code>next</code> at its own convenience. This enumeration pattern is synchronous, which means your application might be blocked while polling the data source. Such pulling pattern is similar to visiting your library and checking out a book. After you are done with the book, you pay another visit to check out another one.</p>
 <p>On the other hand, in reactive programming, the application is offered more information by subscribing to a data stream (called observable sequence in RxJS), and any update is handed to it from the source. The application is passive in the data retrieval process: apart from subscribing to the observable source, it does not actively poll the source, but merely react to the data being pushed to it. When the event has completed, the source will send a notice to the subscriber. In this way, your application will not be blocked by waiting for the source to update.
 This is the push pattern employed by Reactive Extensions for JavaScript. This is similar to joining a book club in which you register your interest in a particular genre, and books that match your interest are automatically sent to you as they are published. You do not need to stand in a line to acquire something that you want. Employing a push pattern is especially helpful in heavy UI environment in which the UI thread cannot be blocked while the application is waiting for some events, which isessential in JavaScript environments which has its own set of asynchronous requirements. In summary, by using RxJS, you can make your application more responsive.</p>
-<p>The push model implemented by Rx is represented by the observable pattern of <code>Observable</code>/<code>Observer</code>. The <code>Observable</code> will notify all the observers automatically of any state changes. To register an interest through a subscription, you use the <code>subscribe</code> method of <code>Observable</code>, which takes on an <code>Observer</code> and returns a <code>Disposable</code> object. This gives you the ability to track your subscription and be able to dispose the subscription. You can essentially treat the observable sequence (such as a sequence of mouseover events) as if it were a normal collection. RxJS’s built-in query implementation over observable sequences allows developers to compose complex event processing queries over push-based sequences such as events, callbacks, Promises,  HTML5 Geolocation APIs, and much much more.. For more information on these two interfaces, see Exploring The Major Objects in RxJS.</p>
+<p>The push model implemented by Rx is represented by the observable pattern of <code>Observable</code>/<code>Observer</code>. The <code>Observable</code> will notify all the observers automatically of any state changes. To register an interest through a subscription, you use the <code>subscribe</code> method of <code>Observable</code>, which takes on an <code>Observer</code> and returns a <code>Disposable</code> object. This gives you the ability to track your subscription and be able to dispose the subscription. You can essentially treat the observable sequence (such as a sequence of mouseover events) as if it were a normal collection. RxJS&#x2019;s built-in query implementation over observable sequences allows developers to compose complex event processing queries over push-based sequences such as events, callbacks, Promises,  HTML5 Geolocation APIs, and much much more.. For more information on these two interfaces, see Exploring The Major Objects in RxJS.</p>
 
                     
                     </section>

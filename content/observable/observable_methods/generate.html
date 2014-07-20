@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.17" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.17" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,13 +3571,13 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6993">
+                    <section class="normal" id="section-gitbook_3665">
                     
-                        <h1 id="generate">generate</h1>
+                        <h1 id="generate"><a name="generate" class="plugin-anchor" href="#generate"><span class="fa fa-link"></span></a>generate</h1>
 <p><code>Rx.Observable.generate(initialState, condition, iterate, resultSelector, [scheduler])</code>
 <a href="#rxobservablegenerateinitialstate-condition-iterate-resultselector-scheduler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/generate.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Converts an array to an observable sequence, using an optional scheduler to enumerate the array.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>initialState</code> <em>(<code>Any</code>)</em>: Initial state.</li>
 <li><code>condition</code> <em>(<code>Function</code>)</em>: Condition to terminate generation (upon returning false).</li>
@@ -3581,11 +3585,11 @@
 <li><code>resultSelector</code> <em>(<code>Function</code>)</em>: Selector function for results produced in the sequence.</li>
 <li><code>[scheduler=Rx.Scheduler.currentThread]</code> <em>(<code>Scheduler</code>)</em>: Scheduler on which to run the generator loop. If not provided, defaults to Scheduler.currentThread.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: The generated sequence.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <p><a href="http://jsbin.com/vemibe/1/embed?js,console" target="_blank"></a></p>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/generate.js" target="_blank">/src/core/observable/generate.js</a></li>

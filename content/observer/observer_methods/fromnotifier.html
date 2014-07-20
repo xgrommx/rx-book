@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="4.1.2" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="4.1.2" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,46 +3571,46 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_7029">
+                    <section class="normal" id="section-gitbook_3697">
                     
-                        <h1 id="fromnotifier">fromNotifier</h1>
+                        <h1 id="fromnotifier"><a name="fromnotifier" class="plugin-anchor" href="#fromnotifier"><span class="fa fa-link"></span></a>fromNotifier</h1>
 <p><code>Rx.Observer.fromNotifier(handler)</code>
 <a href="#rxobserverfromotifierhandler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.js#L2862-L2872" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
 <p>Creates an observer from a notification callback.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>handler</code> <em>(Function)</em>: Function that handles a notification.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: The observer object that invokes the specified handler using a notification corresponding to each message it receives.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handler</span><span class="hljs-params">(n)</span> {</span>
     <span class="hljs-comment">// Handle next calls</span>
-    <span class="hljs-keyword">if</span> (n.kind === <span class="hljs-string">'N'</span>) {
-        console.log(<span class="hljs-string">'Next: '</span> + n.value);
+    <span class="hljs-keyword">if</span> (n.kind === <span class="hljs-string">&apos;N&apos;</span>) {
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + n.value);
     }
 
     <span class="hljs-comment">// Handle error calls</span>
-    <span class="hljs-keyword">if</span> (n.kind === <span class="hljs-string">'E'</span>) {
-        console.log(<span class="hljs-string">'Error: '</span> + n.exception);
+    <span class="hljs-keyword">if</span> (n.kind === <span class="hljs-string">&apos;E&apos;</span>) {
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + n.exception);
     }
 
     <span class="hljs-comment">// Handle completed</span>
-    <span class="hljs-keyword">if</span> (n.kind === <span class="hljs-string">'C'</span>) {
-        console.log(<span class="hljs-string">'Completed'</span>)
+    <span class="hljs-keyword">if</span> (n.kind === <span class="hljs-string">&apos;C&apos;</span>) {
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>)
     }
 }
 
 Rx.Observer.fromNotifier(handler).onNext(<span class="hljs-number">42</span>);
 <span class="hljs-comment">// =&gt; Next: 42</span>
 
-Rx.Observer.fromNotifier(handler).onError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'error!!!'</span>));
+Rx.Observer.fromNotifier(handler).onError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;error!!!&apos;</span>));
 <span class="hljs-comment">// =&gt; Error: Error: error!!!</span>
 
 Rx.Observer.fromNotifier(handler).onCompleted();
 <span class="hljs-comment">// =&gt; false</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>

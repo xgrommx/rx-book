@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.23" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.23" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,20 +3571,20 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6883">
+                    <section class="normal" id="section-gitbook_3555">
                     
-                        <h1 id="delaywithselector">delayWithSelector</h1>
+                        <h1 id="delaywithselector"><a name="delaywithselector" class="plugin-anchor" href="#delaywithselector"><span class="fa fa-link"></span></a>delayWithSelector</h1>
 <p><code>Rx.Observable.delayWithSelector.delay([subscriptionDelay], delayDurationSelector)</code>
 <a href="#rxobservabledelaywithselectordelaysubscriptiondelay-delaydurationselector">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js#L832-L882" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Time shifts the observable sequence by dueTime. The relative time intervals between the values are preserved.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>[subscriptionDelay]</code> <em>(<code>Observable</code>)</em>: Sequence indicating the delay for the subscription to the source. </li>
 <li><code>delayDurationSelector</code> <em>(<code>Function</code>)</em>: Selector function to retrieve a sequence indicating the delay for each given element.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: Time-shifted sequence.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">/* With subscriptionDelay */</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable
     .range(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
@@ -3591,17 +3595,17 @@
         }
     )
     .timeInterval()
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x.value + <span class="hljs-string">':'</span> + x.interval; });
+    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x.value + <span class="hljs-string">&apos;:&apos;</span> + x.interval; });
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 0:300</span>
@@ -3617,17 +3621,17 @@
             <span class="hljs-keyword">return</span> Rx.Observable.timer(x * <span class="hljs-number">400</span>);
         })
     .timeInterval()
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x.value + <span class="hljs-string">':'</span> + x.interval; });
+    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x.value + <span class="hljs-string">&apos;:&apos;</span> + x.interval; });
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 0:0</span>
@@ -3635,7 +3639,7 @@
 <span class="hljs-comment">// =&gt; Next: 2:400</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h4 id="location">Location</h4>
+<h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>.time.js</li>
 </ul>

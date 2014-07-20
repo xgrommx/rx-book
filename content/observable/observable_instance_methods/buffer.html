@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.8" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.8" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,9 +3571,9 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6867">
+                    <section class="normal" id="section-gitbook_3540">
                     
-                        <h1 id="buffer">buffer</h1>
+                        <h1 id="buffer"><a name="buffer" class="plugin-anchor" href="#buffer"><span class="fa fa-link"></span></a>buffer</h1>
 <p><code>Rx.Observable.prototype.buffer([bufferOpenings], [bufferBoundaries], [bufferClosingSelector])</code>
 <a href="#rxobservableprototypebufferbufferopenings-bufferboundaries-bufferclosingselector">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.coincidence.js#L572-L585" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Projects each element of an observable sequence into zero or more buffers.</p>
@@ -3582,22 +3586,22 @@ Rx.Observable.prototype.buffer(bufferOpenings, bufferClosingSelector);
 <span class="hljs-comment">// With buffer boundaries</span>
 Rx.Observable.prototype.buffer(bufferBoundaries);
 </code></pre>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>[bufferOpenings]</code> <em>(<code>Observable</code>)</em>: Observable sequence whose elements denote the creation of new windows.</li>
 <li><code>[bufferBoundaries] *(</code>Observable`)*: Sequence of buffer boundary markers. The current buffer is closed and a new buffer is opened upon receiving a boundary marker.</li>
 <li><code>[bufferClosingSelector]</code> <em>(<code>Function</code>)</em>: A function invoked to define the closing of each produced window. If a closing selector function is specified for the first parameter, this parameter is ignored.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence of windows. </p>
-<h4 id="example">Example</h4>
-<h5 id="using-buffer-boundaries">Using buffer boundaries</h5>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<h5 id="using-buffer-boundaries"><a name="using-buffer-boundaries" class="plugin-anchor" href="#using-buffer-boundaries"><span class="fa fa-link"></span></a>Using buffer boundaries</h5>
 <p><a href="http://jsbin.com/pivik/1/embed?js,console" target="_blank"></a></p>
-<h5 id="using-a-buffer-closing-selector">Using a buffer closing selector</h5>
+<h5 id="using-a-buffer-closing-selector"><a name="using-a-buffer-closing-selector" class="plugin-anchor" href="#using-a-buffer-closing-selector"><span class="fa fa-link"></span></a>Using a buffer closing selector</h5>
 <p><a href="http://jsbin.com/xijoba/1/embed?js,console" target="_blank"></a></p>
-<h5 id="using-openings-and-closing-selector">Using Openings and Closing Selector</h5>
+<h5 id="using-openings-and-closing-selector"><a name="using-openings-and-closing-selector" class="plugin-anchor" href="#using-openings-and-closing-selector"><span class="fa fa-link"></span></a>Using Openings and Closing Selector</h5>
 <p><a href="http://jsbin.com/tomav/1/embed?js,console" target="_blank"></a></p>
-<h4 id="location">Location</h4>
+<h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>.coincidence.js</li>
 </ul>

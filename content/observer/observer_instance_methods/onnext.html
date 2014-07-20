@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="4.2.6" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="4.2.6" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,33 +3571,33 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_7024">
+                    <section class="normal" id="section-gitbook_3699">
                     
-                        <h1 id="onnext">onNext</h1>
+                        <h1 id="onnext"><a name="onnext" class="plugin-anchor" href="#onnext"><span class="fa fa-link"></span></a>onNext</h1>
 <p><code>Rx.Observer.prototype.onNext(value)</code>
 <a href="#rxobserverprototypeonnextvalue">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.js#L2862-L2872" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
 <p>Notifies the observer of a new element in the sequence.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>value</code> <em>(Any)</em>: Next element in the sequence. </li>
 </ol>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> observer = Rx.Observer.create(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x)
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x)
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);
     }
 );
 
 observer.onNext(<span class="hljs-number">42</span>);
 <span class="hljs-comment">// =&gt; Next: 42</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>

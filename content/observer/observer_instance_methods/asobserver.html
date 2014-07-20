@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="4.2.1" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="4.2.1" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,15 +3571,15 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_7020">
+                    <section class="normal" id="section-gitbook_3691">
                     
-                        <h1 id="asobserver">asObserver</h1>
+                        <h1 id="asobserver"><a name="asobserver" class="plugin-anchor" href="#asobserver"><span class="fa fa-link"></span></a>asObserver</h1>
 <p><code>Rx.Observer.prototype.asObserver()</code>
 <a href="#rxobserverprototypeasobserver">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.js#L2862-L2872" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
 <p>Hides the identity of an observer.</p>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: An observer that hides the identity of the specified observer.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SampleObserver</span> <span class="hljs-params">()</span> {</span>
     Rx.Observer.call(<span class="hljs-keyword">this</span>);
     <span class="hljs-keyword">this</span>.isStopped = <span class="hljs-literal">false</span>;
@@ -3588,7 +3592,7 @@ SampleObserver.prototype.constructor = SampleObserver;
     onNext: {
         value: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
             <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isStopped) {
-                console.log(<span class="hljs-string">'Next: '</span> + x);
+                console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
             }
         }
     },
@@ -3596,7 +3600,7 @@ SampleObserver.prototype.constructor = SampleObserver;
         value: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
             <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isStopped) {
                 <span class="hljs-keyword">this</span>.isStopped = <span class="hljs-literal">true</span>;
-                console.log(<span class="hljs-string">'Error: '</span> + err);
+                console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
             }
         }
     },
@@ -3604,7 +3608,7 @@ SampleObserver.prototype.constructor = SampleObserver;
         value: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
             <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isStopped) {
                 <span class="hljs-keyword">this</span>.isStopped = <span class="hljs-literal">true</span>;
-                console.log(<span class="hljs-string">'Completed'</span>);
+                console.log(<span class="hljs-string">&apos;Completed&apos;</span>);
             }
         }
     } 
@@ -3617,7 +3621,7 @@ SampleObserver.prototype.constructor = SampleObserver;
 console.log(source === sampleObserver);
 <span class="hljs-comment">// =&gt; false</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>

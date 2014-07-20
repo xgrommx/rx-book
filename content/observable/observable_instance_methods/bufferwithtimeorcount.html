@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.11" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.11" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,23 +3571,23 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6871">
+                    <section class="normal" id="section-gitbook_3542">
                     
-                        <h1 id="bufferwithtimeorcount">bufferWithTimeOrCount</h1>
+                        <h1 id="bufferwithtimeorcount"><a name="bufferwithtimeorcount" class="plugin-anchor" href="#bufferwithtimeorcount"><span class="fa fa-link"></span></a>bufferWithTimeOrCount</h1>
 <p><code>Rx.Observable.prototype.bufferWithTimeOrCount(timeSpan, count, [scheduler])</code>
 <a href="#rxobservableprototypebufferwithtimeorcounttimespan-count-scheduler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js#L513-L518" title="View in source" target="_blank">&#x24C8;</a> </p>
-<p>Projects each element of an observable sequence into a buffer that is completed when either it&#39;s full or a given amount of time has elapsed.</p>
-<h4 id="arguments">Arguments</h4>
+<p>Projects each element of an observable sequence into a buffer that is completed when either it&apos;s full or a given amount of time has elapsed.</p>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>timeSpan</code> <em>(<code>Number</code>)</em>: Maximum time length of a buffer.</li>
 <li><code>count</code> <em>(<code>Number</code>)</em>: Maximum element count of a buffer.</li>
 <li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run buffer timers on. If not specified, the timeout scheduler is used.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence of buffers. </p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <p><a href="http://jsbin.com/qaxid/1/embed?js,console" target="_blank"></a></p>
-<h4 id="location">Location</h4>
+<h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>.time.js</li>
 </ul>

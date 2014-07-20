@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.27" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.27" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,41 +3571,41 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6886">
+                    <section class="normal" id="section-gitbook_3557">
                     
-                        <h1 id="do--doaction">do | doAction</h1>
+                        <h1 id="do--doaction"><a name="do--doaction" class="plugin-anchor" href="#do--doaction"><span class="fa fa-link"></span></a>do | doAction</h1>
 <p><code>Rx.Observable.prototype.do(observer | [onNext], [onError], [onCompleted])</code>
 <a href="#rxobservableprototypedoobserver--onnext-onerror-oncompleted">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3779-L3820" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Invokes an action for each element in the observable sequence and invokes an action upon graceful or exceptional termination of the observable sequence.
 This method can be used for debugging, logging, etc. of query behavior by intercepting the message stream to run arbitrary actions for messages on the pipeline.
 There is an alias to this method <code>doAction</code> for browsers &lt;IE9.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>observer</code> <em>(Observer)</em>: An observer to invoke for each element in the observable sequence.</li>
 <li><code>[onNext]</code> <em>(<code>Function</code>)</em>: Function to invoke for each element in the observable sequence.</li>
 <li><code>[onError]</code> <em>(<code>Function</code>)</em>: Function to invoke upon exceptional termination of the observable sequence. Used if only the first parameter is also a function.</li>
 <li><code>[oncompleted]</code> <em>(<code>Function</code>)</em>: Function to invoke upon graceful termination of the observable sequence. Used if only the first parameter is also a function.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence whose observers trigger an invocation of the given observable factory function.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">/* Using a function */</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
     .do(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'Do Next: '</span> + x; ); },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span> console.log(<span class="hljs-string">'Do Error: '</span> + x; ); },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'Do Completed'</span>); }
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;Do Next: &apos;</span> + x; ); },
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span> console.log(<span class="hljs-string">&apos;Do Error: &apos;</span> + x; ); },
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;Do Completed&apos;</span>); }
     );
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Do Next: 0</span>
@@ -3615,9 +3619,9 @@ There is an alias to this method <code>doAction</code> for browsers &lt;IE9.</p>
 
 <span class="hljs-comment">/* Using an observer */</span>
 <span class="hljs-keyword">var</span> observer = Rx.Observer.create(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">'Do Next: '</span> + x; ); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span> console.log(<span class="hljs-string">'Do Error: '</span> + x; ); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">'Do Completed'</span>); }
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;Do Next: &apos;</span> + x; ); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span> console.log(<span class="hljs-string">&apos;Do Error: &apos;</span> + x; ); },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> console.log(<span class="hljs-string">&apos;Do Completed&apos;</span>); }
 );
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
@@ -3626,13 +3630,13 @@ There is an alias to this method <code>doAction</code> for browsers &lt;IE9.</p>
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Do Next: 0</span>
@@ -3644,7 +3648,7 @@ There is an alias to this method <code>doAction</code> for browsers &lt;IE9.</p>
 <span class="hljs-comment">// =&gt; Do Completed</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h4 id="location">Location</h4>
+<h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
 </ul>

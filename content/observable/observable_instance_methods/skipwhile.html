@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.92" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.92" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,13 +3571,13 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6951">
+                    <section class="normal" id="section-gitbook_3621">
                     
-                        <h1 id="skipwhile">skipWhile</h1>
+                        <h1 id="skipwhile"><a name="skipwhile" class="plugin-anchor" href="#skipwhile"><span class="fa fa-link"></span></a>skipWhile</h1>
 <p><code>Rx.Observable.prototype.skipWhile([predicate], [thisArg])</code>
 <a href="#rxobservableprototypeskipwhilepredicate-thisarg">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipwhile.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Bypasses elements in an observable sequence as long as a specified condition is true and then returns the remaining elements.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>predicate</code> <em>(<code>Function</code>)</em>: A function to test each source element for a condition. The callback is called with the following information:<ol>
 <li>the value of the element</li>
@@ -3583,22 +3587,22 @@
 </li>
 <li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as this when executing callback.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that contains the elements from the input sequence starting at the first element in the linear series that does not pass the test specified by predicate.   </p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">// With a predicate</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>)
     .skipWhile(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x &lt; <span class="hljs-number">3</span>; });
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: 3</span>
@@ -3606,7 +3610,7 @@
 <span class="hljs-comment">// =&gt; Next: 5</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipwhile.js" target="_blank"><code>/src/core/observable/skipwhile.js</code></a></li>

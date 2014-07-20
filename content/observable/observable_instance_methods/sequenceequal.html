@@ -32,9 +32,13 @@
         
 <link rel="stylesheet" href="../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.84" data-basepath="..\..\.." data-revision="1405892743130">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.84" data-basepath="..\..\.." data-revision="1405894987214">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,21 +3571,21 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_6939">
+                    <section class="normal" id="section-gitbook_3610">
                     
-                        <h1 id="sequenceequal">sequenceEqual</h1>
-<h1 id="sharevalue">shareValue</h1>
+                        <h1 id="sequenceequal"><a name="sequenceequal" class="plugin-anchor" href="#sequenceequal"><span class="fa fa-link"></span></a>sequenceEqual</h1>
+<h1 id="sharevalue"><a name="sharevalue" class="plugin-anchor" href="#sharevalue"><span class="fa fa-link"></span></a>shareValue</h1>
 <p><code>Rx.Observable.prototype.sequenceEqual(second, [comparer])</code>
 <a href="#rxobservableprototypesequenceequalsecond-comparer">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sequenceequal.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Determines whether two sequences are equal by comparing the elements pairwise using a specified equality comparer.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>second</code> <em>(<code>Observable</code> | <code>Promise</code> | <code>Array</code>)</em>:  Second observable sequence, Promise or array to compare.</li>
 <li><code>[comparer]</code> <em>(<code>Function</code>)</em>: Comparer used to compare elements of both sequences.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that contains a single element which indicates whether both sequences are of equal length and their corresponding elements are equal according to the specified equality comparer.   </p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.return(<span class="hljs-number">42</span>);
 <span class="hljs-keyword">var</span> source2 = Rx.Observable.return(<span class="hljs-number">42</span>);
 
@@ -3589,19 +3593,19 @@
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
+        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
+        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
+        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 
 <span class="hljs-comment">// =&gt; Next: true</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sequenceequal.js" target="_blank"><code>/src/core/observable/sequenceequal.js</code></a></li>

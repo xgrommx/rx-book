@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.6" data-basepath="..\..\.." data-revision="1405843843322">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.6" data-basepath="..\..\.." data-revision="1405874051572">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,7 +3567,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_4209">
+                    <section class="normal" id="section-gitbook_4393">
                     
                         <h1 id="defer">defer</h1>
 <p><code>Rx.Observable.defer(observableFactory)</code>
@@ -3581,44 +3581,10 @@
 <h4 id="returns">Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence whose observers trigger an invocation of the given observable factory function.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* Using an observable sequence */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.defer(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-    <span class="hljs-keyword">return</span> Rx.Observable.return(<span class="hljs-number">42</span>);
-});
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);
-    });
-
-<span class="hljs-comment">// =&gt; Next: 42</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-
-<span class="hljs-comment">/* Using a promise */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.defer(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-    <span class="hljs-keyword">return</span> RSVP.Promise.resolve(<span class="hljs-number">42</span>);
-});
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);
-    });
-
-<span class="hljs-comment">// =&gt; Next: 42</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<h5 id="using-an-observable-sequence">Using an observable sequence</h5>
+<p><a href="http://jsbin.com/vigitu/1/embed?js,console" target="_blank"></a></p>
+<h5 id="using-a-promise">Using a promise</h5>
+<p><a href="http://jsbin.com/memuf/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location">Location</h3>
 <p>File:</p>
 <ul>

@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.16" data-basepath="..\..\.." data-revision="1405843843322">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.16" data-basepath="..\..\.." data-revision="1405874051572">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,7 +3567,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_4220">
+                    <section class="normal" id="section-gitbook_4401">
                     
                         <h1 id="frompromise">fromPromise</h1>
 <p><code>Rx.Observable.fromPromise(promise)</code>
@@ -3580,48 +3580,10 @@
 <h4 id="returns">Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An Observable sequence which wraps the existing promise success and failure.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js">
-<span class="hljs-comment">// Create a promise which resolves 42</span>
-<span class="hljs-keyword">var</span> promise1 = <span class="hljs-keyword">new</span> RSVP.Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(resolve, reject)</span> {</span>
-    resolve(<span class="hljs-number">42</span>);
-});
-
-<span class="hljs-keyword">var</span> source1 = Rx.Observable.fromPromise(promise);
-
-<span class="hljs-keyword">var</span> subscription1 = source1.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 42</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-
-<span class="hljs-comment">// Create a promise which rejects with an error</span>
-<span class="hljs-keyword">var</span> promise1 = <span class="hljs-keyword">new</span> RSVP.Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(resolve, reject)</span> {</span>
-    reject(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'reason'</span>));
-});
-
-<span class="hljs-keyword">var</span> source1 = Rx.Observable.fromPromise(promise);
-
-<span class="hljs-keyword">var</span> subscription1 = source1.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Error: Error: reject</span>
-</code></pre>
+<h5 id="create-a-promise-which-resolves-42">Create a promise which resolves 42</h5>
+<p><a href="http://jsbin.com/riyar/1/embed?js,console" target="_blank"></a></p>
+<h5 id="create-a-promise-which-rejects-with-an-error">Create a promise which rejects with an error</h5>
+<p><a href="http://jsbin.com/zuyeyi/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location">Location</h3>
 <p>File:</p>
 <ul>

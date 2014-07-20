@@ -5,6 +5,8 @@
 
 Merges the specified observable sequences into one observable sequence by emitting a list with the elements of the observable sequences at corresponding indexes.
 
+![zipArray](https://github.com/Netflix/RxJava/wiki/images/rx-operators/zip.png)
+
 #### Arguments
 1. `args` *(Arguments | Array)*: Observable sources.
 

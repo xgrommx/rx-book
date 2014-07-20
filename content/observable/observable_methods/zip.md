@@ -5,6 +5,8 @@
 
 Merges the specified observable sequences or Promises into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
 
+![zip](https://github.com/Netflix/RxJava/wiki/images/rx-operators/zip.png)
+
 #### Arguments
 1. `args` *(Array|arguments)*: Observable sources.
 

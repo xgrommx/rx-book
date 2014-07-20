@@ -2,7 +2,7 @@
 	"generator": "site",
 	"title": "RxJS - Javascript library for functional reactive programming.",
 	"description": null,
-	"plugins": ["disqus"],
+	"plugins": ["disqus", "jsbin"],
 	"pluginsConfig": {
 		"fontSettings": {
 			"theme": "white",

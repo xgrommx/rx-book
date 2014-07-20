@@ -1,21 +1,23 @@
 {
-    "name": "RxJS",
-    "version": "0.0.1",
-    "description": "",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/xgrommx/rx-book.git"
-    },
-    "author": "Denis Stoyanov <stoyanov.gr@gmail.com>",
-    "license": "Apache 2",
-    "dependencies": {},
-    "devDependencies": {
-        "grunt": "~0.4.1",
-        "grunt-gitbook": "0.4.2",
-        "grunt-gh-pages": "0.9.1",
-        "grunt-contrib-clean": "~0.5.0"
-    },
-    "peerDependencies": {
-        "grunt": "~0.4.1"
-    }
+  "name": "RxJS",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xgrommx/rx-book.git"
+  },
+  "author": "Denis Stoyanov <stoyanov.gr@gmail.com>",
+  "license": "Apache 2",
+  "dependencies": {
+    "gitbook-plugin-jsbin": "0.0.5"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-gitbook": "0.4.2",
+    "grunt-gh-pages": "0.9.1",
+    "grunt-contrib-clean": "~0.5.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  }
 }

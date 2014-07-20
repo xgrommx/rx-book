@@ -15,35 +15,8 @@ Uses selector to determine which source in sources to use.  There is an alias 's
 *(`Observable`)*: An observable sequence which is determined by a case statement. 
 
 #### Example
-```js
-var sources = {
-    'foo': Rx.Observable.return(42),
-    'bar': Rx.Observable.return(56)
-};
 
-var defaultSource = Rx.Observable.empty();
-
-var source = Rx.Observable.case(
-    function () {
-        return 'foo';
-    },
-    sources,
-    defaultSource);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-//=> Next: 42 
-//=> Completed 
-```
+[](http://jsbin.com/wupuz/4/embed?js,console)
 
 ### Location
 

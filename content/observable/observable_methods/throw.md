@@ -6,6 +6,8 @@
 Returns an observable sequence that terminates with an exception, using the specified scheduler to send out the single onError message.
 There is an alias to this method called `throwException` for browsers <IE9.
 
+![throw](https://github.com/Netflix/RxJava/wiki/images/rx-operators/throw.png)
+
 ### Arguments
 1. `dueTime` *(`Any`)*: Absolute (specified as a Date object) or relative time (specified as an integer denoting milliseconds) at which to produce the first value.
 2. `[scheduler=Rx.Scheduler.immediate]` *(`Scheduler`)*: Scheduler to send the exceptional termination call on. If not specified, defaults to the immediate scheduler.

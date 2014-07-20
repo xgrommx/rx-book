@@ -5,6 +5,8 @@
 
 Repeats source as long as condition holds emulating a while loop.  There is an alias for this method called 'whileDo' for browsers <IE9.
 
+![while](https://github.com/Netflix/RxJava/wiki/images/rx-operators/whileDo.png)
+
 ### Arguments
 1. `condition` *(`Function`)*: The condition which determines if the source will be repeated.
 2. `source` *(`Observable`)*: The observable sequence that will be run if the condition function returns true.

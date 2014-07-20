@@ -5,6 +5,8 @@
 
 Converts the function into an asynchronous function. Each invocation of the resulting asynchronous function causes an invocation of the original synchronous function on the specified scheduler.
 
+![toAsync](https://github.com/Netflix/RxJava/wiki/images/rx-operators/toAsync.png)
+
 ### Arguments
 1. `func` *(`Function`)*: Function to convert to an asynchronous function.
 2. `[scheduler=Rx.Scheduler.timeout]` *(`Scheduler`)*: Scheduler to run the function on. If not specified, defaults to Scheduler.timeout.

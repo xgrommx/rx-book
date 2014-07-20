@@ -13,47 +13,12 @@ Propagates the observable sequence or Promise that reacts first.
 *(`Observable`)*: An observable sequence that surfaces any of the given sequences, whichever reacted first.
 
 #### Example
-```js
-/* Using Observable sequences */
-var source = Rx.Observable.amb(
-    Rx.Observable.timer(500).select(function () { return 'foo'; }),
-    Rx.Observable.timer(200).select(function () { return 'bar'; })
-);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    });
+###### Using Observable sequences
+[](http://jsbin.com/wupuz/2/embed?js,console)
 
-// => Next: bar
-// => Completed
-
-/* Using Promises and Observables */
-var source = Rx.Observable.amb(
-    RSVP.Promise.resolve('foo')
-    Rx.Observable.timer(200).select(function () { return 'bar'; })
-);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    });
-
-// => Next: foo
-// => Completed
-```
+###### Using Promises and Observables
+[](http://jsbin.com/wupuz/3/embed?js,console)
 
 ### Location
 

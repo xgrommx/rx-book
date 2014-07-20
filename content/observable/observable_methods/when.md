@@ -5,6 +5,8 @@
 
 A series of plans (specified as an Array of as a series of arguments) created by use of the Then operator on patterns.
 
+![when](https://github.com/Netflix/RxJava/wiki/images/rx-operators/and_then_when.png)
+
 ### Arguments
 1. `args` *(arguments|Array)*: A series of plans (specified as an Array of as a series of arguments) created by use of the then operator on patterns.
 

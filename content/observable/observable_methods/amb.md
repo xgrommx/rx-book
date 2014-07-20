@@ -15,10 +15,10 @@ Propagates the observable sequence or Promise that reacts first.
 #### Example
 
 ###### Using Observable sequences
-[](http://jsbin.com/wupuz/2/embed?js,console)
+[](http://jsbin.com/vanaci/1/embed?js,console)
 
 ###### Using Promises and Observables
-[](http://jsbin.com/wupuz/3/embed?js,console)
+[](http://jsbin.com/bukag/1/embed?js,console)
 
 ### Location
 

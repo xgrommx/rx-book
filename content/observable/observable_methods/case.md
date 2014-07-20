@@ -16,7 +16,7 @@ Uses selector to determine which source in sources to use.  There is an alias 's
 
 #### Example
 
-[](http://jsbin.com/wupuz/4/embed?js,console)
+[](http://jsbin.com/ladamu/1/embed?js,console)
 
 ### Location
 

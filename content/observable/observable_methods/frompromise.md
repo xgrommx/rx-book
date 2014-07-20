@@ -12,49 +12,14 @@ Converts a Promises/A+ spec compliant Promise and/or ES6 compliant Promise to an
 *(`Observable`)*: An Observable sequence which wraps the existing promise success and failure.
 
 #### Example
-```js
 
-// Create a promise which resolves 42
-var promise1 = new RSVP.Promise(function (resolve, reject) {
-    resolve(42);
-});
+##### Create a promise which resolves 42
 
-var source1 = Rx.Observable.fromPromise(promise);
+[](http://jsbin.com/riyar/1/embed?js,console)
 
-var subscription1 = source1.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Create a promise which rejects with an error
 
-// => Next: 42
-// => Completed
-
-// Create a promise which rejects with an error
-var promise1 = new RSVP.Promise(function (resolve, reject) {
-    reject(new Error('reason'));
-});
-
-var source1 = Rx.Observable.fromPromise(promise);
-
-var subscription1 = source1.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Error: Error: reject
-```
+[](http://jsbin.com/zuyeyi/1/embed?js,console)
 
 ### Location
 

@@ -13,22 +13,8 @@ Returns an empty observable sequence, using the specified scheduler to send out 
 *(`Observable`)*: An observable sequence with no elements.
 
 #### Example
-```js
-var source = Rx.Observable.empty();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    });
-
-// => Completed
-```
+[](http://jsbin.com/kizosi/1/embed?js,console)
 
 ### Location
 

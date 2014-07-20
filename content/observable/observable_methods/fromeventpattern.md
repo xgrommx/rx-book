@@ -17,33 +17,7 @@ Creates an observable sequence by using the addHandler and removeHandler functio
 
 Wrapping an event from [jQuery](http://jquery.com)
 
-```js
-var input = $('#input');
-
-var source = Rx.Observable.fromEventPattern(
-    function add (h) {
-        input.bind('click', h);
-    },
-    function remove (h) {
-        input.unbind('click', h);
-    }
-);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: Clicked!');
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-input.trigger('click');
-
-// => Next: Clicked!
-```
+[](http://jsbin.com/wihiw/1/embed?js,console)
 
 Wrapping an event from the [Dojo Toolkit](http://dojotoolkit.org)
 

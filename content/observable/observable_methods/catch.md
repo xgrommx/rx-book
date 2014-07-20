@@ -11,26 +11,8 @@ Continues an observable sequence that is terminated by an exception with the nex
 *(`Observable`)*: An observable sequence containing elements from consecutive source sequences until a source sequence terminates successfully.
 
 #### Example
-```js
-var obs1 = Rx.Observable.throw(new Error('error'));
-var obs2 = Rx.Observable.return(42);
 
-var source = Rx.Observable.catch(obs1, obs2);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42
-// => Completed
-```
+[](http://jsbin.com/qagidu/1/embed?js,console)
 
 ### Location
 

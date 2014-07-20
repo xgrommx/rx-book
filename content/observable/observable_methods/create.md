@@ -13,61 +13,14 @@ Creates an observable sequence from a specified subscribe method implementation.
 *(`Observable`)*: The observable sequence with the specified implementation for the subscribe method.
 
 #### Example
-```js
-/* Using a function */
-var source = Rx.Observable.create(function (observer) {
-    observer.onNext(42);
-    observer.onCompleted();
 
-    // Note that this is optional, you do not have to return this if you require no cleanup
-    return function () {
-        console.log('disposed');
-    };
-});
+##### Using a function
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/luweq/1/embed?js,console)
 
-// => Next: 42
-// => Completed
+##### Using a disposable
 
-subscription.dispose();
-
-// => disposed
-
-/* Using a disposable */
-var source = Rx.Observable.create(function (observer) {
-    observer.onNext(42);
-    observer.onCompleted();
-
-    // Note that this is optional, you do not have to return this if you require no cleanup
-    return function () {
-        console.log('disposed');
-    };
-});
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42
-// => Completed
-```
+[](http://jsbin.com/puveyi/1/embed?js,console)
 
 ### Location
 

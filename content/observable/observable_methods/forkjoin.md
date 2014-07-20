@@ -14,29 +14,8 @@ Runs all observable sequences in parallel and collect their last elements.
 *(`Observable`)*: An observable sequence with an array collecting the last elements of all the input sequences.
 
 #### Example
-```js
-/* Using observables and Promises */
-var source = Rx.Observable.forkJoin(
-    Rx.Observable.return(42),
-    Rx.Observable.range(0, 10),
-    Rx.Observable.fromArray([1,2,3]),
-    RSVP.Promise.resolve(56)
-);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    });
-
-// => Next: [42, 9, 3, 56]
-// => Completed
-```
+[](http://jsbin.com/sudura/1/embed?js,console)
 
 ### Location
 

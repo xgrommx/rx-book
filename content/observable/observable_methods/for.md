@@ -16,57 +16,14 @@ There is an alias for this method called `forIn` for browsers <IE9
 *(`Observable`)*: An observable sequence from the concatenated observable sequences or Promises.
 
 #### Example
-```js
-/* Using Observables */
-var array = [1, 2, 3];
 
-var source = Rx.Observable.for(
-    array,
-    function (x) {
-        return Rx.Observable.returnValue(x);
-    });
+##### Using Observables
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    });
+[](http://jsbin.com/bocec/1/embed?js,console)
 
-// => Next: 1
-// => Next: 2
-// => Next: 3
-// => Completed
+##### Using Promises
 
-/* Using Promises */
-var array = [1, 2, 3];
-
-var source = Rx.Observable.for(
-    array,
-    function (x) {
-        return RSVP.Promise.resolve(x);
-    });
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    });
-
-// => Next: 1
-// => Next: 2
-// => Next: 3
-// => Completed
-```
+[](http://jsbin.com/febuc/1/embed?js,console)
 
 ### Location
 

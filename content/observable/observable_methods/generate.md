@@ -16,30 +16,8 @@ Converts an array to an observable sequence, using an optional scheduler to enum
 *(`Observable`)*: The generated sequence.
 
 #### Example
-```js
-var source = Rx.Observable.generate(
-    0,
-    function (x) { return x < 3; },
-    function (x) { return x + 1; },
-    function (x) { return x; }
-);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0
-// => Next: 1
-// => Next: 2
-// => Completed
-```
+[](http://jsbin.com/vemibe/1/embed?js,console)
 
 ### Location
 

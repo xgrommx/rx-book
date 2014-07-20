@@ -18,26 +18,7 @@ Note that this uses the library approaches for jQuery, Zepto, AngularJS and Embe
 
 Wrapping an event from [jQuery](http://jquery.com)
 
-```js
-var input = $('#input');
-
-var source = Rx.Observable.fromEvent(input, 'click');
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: Clicked!');
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-input.trigger('click');
-
-// => Next: Clicked!
-```
+[](http://jsbin.com/kemudu/1/embed?js,console)
 
 Using in Node.js with using an `EventEmitter` with a selector function (which is not required).
 

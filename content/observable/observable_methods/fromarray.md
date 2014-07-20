@@ -15,27 +15,8 @@ Converts an array to an observable sequence, using an optional scheduler to enum
 *(`Observable`)*: The observable sequence whose elements are pulled from the given enumerable sequence.
 
 #### Example
-```js
-var array = [1,2,3];
 
-var source = Rx.Observable.fromArray(array);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    });
-
-// => Next: 1
-// => Next: 2
-// => Next: 3
-// => Completed
-```
+[](http://jsbin.com/suqat/1/embed?js,console)
 
 ### Location
 

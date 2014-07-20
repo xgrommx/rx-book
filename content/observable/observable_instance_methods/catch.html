@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.12" data-basepath="..\..\.." data-revision="1405874051572">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.12" data-basepath="..\..\.." data-revision="1405892743130">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,7 +3567,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_4282">
+                    <section class="normal" id="section-gitbook_6873">
                     
                         <h1 id="catch--catchexception">catch | catchException</h1>
 <p><code>Rx.Observable.prototype.catch(second | handler)</code>
@@ -3581,44 +3581,10 @@
 <h4 id="returns">Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence containing the first sequence&#39;s elements, followed by the elements of the handler sequence in case an exception occurred.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* Using a second observable */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.throw(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>())
-    .catch(Rx.Observable.return(<span class="hljs-number">42</span>));
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x.toString());
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 42</span>
-<span class="hljs-comment">// =&gt; Completed </span>
-
-<span class="hljs-comment">/* Using a handler function */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.throw(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>())
-    .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span>
-        <span class="hljs-keyword">return</span> Rx.Observable.return(e <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span>);
-    });
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x.toString());
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: true</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<h5 id="using-a-second-observable">Using a second observable</h5>
+<p><a href="http://jsbin.com/paxiz/1/embed?js,console" target="_blank"></a></p>
+<h5 id="using-a-handler-function">Using a handler function</h5>
+<p><a href="http://jsbin.com/nikay/1/embed?js,console" target="_blank"></a></p>
 <h4 id="location">Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>

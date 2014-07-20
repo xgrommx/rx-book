@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.38" data-basepath="..\..\.." data-revision="1405874051572">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.38" data-basepath="..\..\.." data-revision="1405892743130">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,7 +3567,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_4425">
+                    <section class="normal" id="section-gitbook_7013">
                     
                         <h1 id="zip">zip</h1>
 <p><code>Rx.Observable.zip(...args)</code>
@@ -3581,60 +3581,10 @@
 <h4 id="returns">Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence containing the result of combining elements of the sources using the specified result selector function.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* Using arguments */</span>
-<span class="hljs-keyword">var</span> range = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
-
-<span class="hljs-keyword">var</span> source = Observable.zip(
-    range,
-    range.skip(<span class="hljs-number">1</span>), 
-    range.skip(<span class="hljs-number">2</span>), 
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(s1, s2, s3)</span> {</span>
-        <span class="hljs-keyword">return</span> s1 + <span class="hljs-string">':'</span> + s2 + <span class="hljs-string">':'</span> + s3;
-    }
-);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 0:1:2</span>
-<span class="hljs-comment">// =&gt; Next: 1:2:3</span>
-<span class="hljs-comment">// =&gt; Next: 2:3:4</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-
-<span class="hljs-comment">/* Using promises and Observables */</span>
-<span class="hljs-keyword">var</span> range = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
-
-<span class="hljs-keyword">var</span> source = Observable.zip(
-    RSVP.Promise.resolve(<span class="hljs-number">0</span>),
-    RSVP.Promise.resolve(<span class="hljs-number">1</span>),
-    Rx.Observable.return(<span class="hljs-number">2</span>)
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(s1, s2, s3)</span> {</span>
-        <span class="hljs-keyword">return</span> s1 + <span class="hljs-string">':'</span> + s2 + <span class="hljs-string">':'</span> + s3;
-    }
-);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 0:1:2</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<h5 id="using-arguments">Using arguments</h5>
+<p><a href="http://jsbin.com/jaliqo/1/embed?js,console" target="_blank"></a></p>
+<h5 id="using-promises-and-observables-">Using promises and Observables */</h5>
+<p><a href="http://jsbin.com/tuset/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location">Location</h3>
 <p>File:</p>
 <ul>

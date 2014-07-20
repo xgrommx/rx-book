@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.13" data-basepath="..\..\.." data-revision="1405874051572">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.13" data-basepath="..\..\.." data-revision="1405892743130">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,7 +3567,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_4285">
+                    <section class="normal" id="section-gitbook_6874">
                     
                         <h1 id="combinelatest">combineLatest</h1>
 <p><code>Rx.Observable.prototype.combineLatest(...args, resultSelector)</code>
@@ -3581,36 +3581,7 @@
 <h4 id="returns">Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence containing the result of combining elements of the sources using the specified result selector function. </p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* Have staggering intervals */</span>
-<span class="hljs-keyword">var</span> source1 = Rx.Observable.interval(<span class="hljs-number">100</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i)</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'First: '</span> + i; });
-
-<span class="hljs-keyword">var</span> source2 = Rx.Observable.interval(<span class="hljs-number">150</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i)</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'Second: '</span> + i; });
-
-<span class="hljs-comment">// Combine latest of source1 and source2 whenever either gives a value</span>
-<span class="hljs-keyword">var</span> source = source1.combineLatest(
-    source2,
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(s1, s2)</span> {</span> <span class="hljs-keyword">return</span> s1 + <span class="hljs-string">', '</span> + s2; }
-    ).take(<span class="hljs-number">4</span>);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x.toString());
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: First: 0, Second: 0 </span>
-<span class="hljs-comment">// =&gt; Next: First: 1, Second: 0 </span>
-<span class="hljs-comment">// =&gt; Next: First: 1, Second: 1 </span>
-<span class="hljs-comment">// =&gt; Next: First: 2, Second: 1 </span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<p><a href="http://jsbin.com/divopa/1/embed?js,console" target="_blank"></a></p>
 <h4 id="location">Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>

@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.14" data-basepath="..\..\.." data-revision="1405874051572">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.2.14" data-basepath="..\..\.." data-revision="1405892743130">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,7 +3567,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_4287">
+                    <section class="normal" id="section-gitbook_6875">
                     
                         <h1 id="concat">concat</h1>
 <p><code>Rx.Observable.prototype.concat(...args)</code>
@@ -3580,26 +3580,7 @@
 <h4 id="returns">Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that contains the elements of each given sequence, in sequential order. </p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable
-    .return(<span class="hljs-number">42</span>)
-    .concat(Rx.Observable.return(<span class="hljs-number">56</span>), Rx.Observable.return(<span class="hljs-number">72</span>));
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x.toString());
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 42</span>
-<span class="hljs-comment">// =&gt; Next: 56</span>
-<span class="hljs-comment">// =&gt; Next: 72</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<p><a href="http://jsbin.com/coyapo/1/embed?js,console" target="_blank"></a></p>
 <h4 id="location">Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>

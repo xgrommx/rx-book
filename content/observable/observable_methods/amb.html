@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.1" data-basepath="..\..\.." data-revision="1405800923032">
+    <div class="book" data-github="xgrommx/rx-book" data-level="3.1.1" data-basepath="..\..\.." data-revision="1405843843322">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -3567,7 +3567,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_155">
+                    <section class="normal" id="section-gitbook_4223">
                     
                         <h1 id="amb">amb</h1>
 <p><code>Rx.Observable.amb(...args)</code>
@@ -3581,46 +3581,10 @@
 <h4 id="returns">Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that surfaces any of the given sequences, whichever reacted first.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* Using Observable sequences */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.amb(
-    Rx.Observable.timer(<span class="hljs-number">500</span>).select(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'foo'</span>; }),
-    Rx.Observable.timer(<span class="hljs-number">200</span>).select(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'bar'</span>; })
-);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);
-    });
-
-<span class="hljs-comment">// =&gt; Next: bar</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-
-<span class="hljs-comment">/* Using Promises and Observables */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.amb(
-    RSVP.Promise.resolve(<span class="hljs-string">'foo'</span>)
-    Rx.Observable.timer(<span class="hljs-number">200</span>).select(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'bar'</span>; })
-);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">'Next: '</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">'Error: '</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">'Completed'</span>);
-    });
-
-<span class="hljs-comment">// =&gt; Next: foo</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<h6 id="using-observable-sequences">Using Observable sequences</h6>
+<p><a href="http://jsbin.com/wupuz/2/embed?js,console" target="_blank"></a></p>
+<h6 id="using-promises-and-observables">Using Promises and Observables</h6>
+<p><a href="http://jsbin.com/wupuz/3/embed?js,console" target="_blank"></a></p>
 <h3 id="location">Location</h3>
 <p>File:</p>
 <ul>
@@ -3670,6 +3634,10 @@
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-disqus/plugin.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-jsbin/plugin.js"></script>
     
 
     

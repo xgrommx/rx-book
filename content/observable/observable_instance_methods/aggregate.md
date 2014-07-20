@@ -14,45 +14,14 @@
 *(`Observable`)*: An observable sequence containing a single element with the final accumulator value.
 
 #### Example
-```js
-// Using a seed for the accumulate
-var source = Rx.Observable.range(1, 10).aggregate(1, function (acc, x) {
-    return acc * x;
-});
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Using a seed for the accumulate
 
-// => Next: 3628800
-// => Completed 
+[](http://jsbin.com/yukeh/1/embed?js,console)
 
-// Without a seed
-var source = Rx.Observable.range(1, 10).aggregate(function (acc, x) {
-    return acc + x;
-});
+##### Without a seed
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 55
-// => Completed     
-```
+[](http://jsbin.com/malif/1/embed?js,console)
 
 ### Location
 

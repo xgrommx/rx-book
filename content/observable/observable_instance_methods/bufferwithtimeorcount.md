@@ -14,28 +14,9 @@ Projects each element of an observable sequence into a buffer that is completed 
 *(`Observable`)*: An observable sequence of buffers. 
 
 #### Example
-```js
-/* Hitting the count buffer first */
-var source = Rx.Observable.interval(100)
-    .bufferWithTimeOrCount(500, 3)
-    .take(3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/qaxid/1/embed?js,console)
 
-// => Next: 0,1,2 
-// => Next: 3,4,5 
-// => Next: 6,7,8 
-// => Completed 
-```
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).time.js

@@ -12,25 +12,8 @@ Invokes the asynchronous function, surfacing the result through an observable se
 *(`Observable`)*: An observable sequence exposing the function's Promises's value or error.
 
 #### Example
-```js
-var source = Rx.Observable.startAsync(function () { 
-    return RSVP.Promise.resolve(42);
-});
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42 
-// => Completed 
-```
+[](http://jsbin.com/jucoh/1/embed?js,console)
 
 ### Location
 

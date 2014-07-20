@@ -17,32 +17,8 @@ Generates an observable sequence by iterating a state from an initial state unti
 *(`Observable`)*: The generated sequence.
 
 #### Example
-```js
-// Generate a value with an absolute time with an offset of 100ms multipled by value 
-var source = Rx.Observable.generate(
-    1,
-    function (x) { return x < 4; },
-    function (x) { return x + 1; },
-    function (x) { return x; },
-    function (x) { return 100 * x; }
-).timeInterval();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: {value: 1, interval: 100}
-// => Next: {value: 2, interval: 200}
-// => Next: {value: 3, interval: 300}
-// => Completed
-```
+[](http://jsbin.com/jisopo/1/embed?js,console)
 
 ### Location
 

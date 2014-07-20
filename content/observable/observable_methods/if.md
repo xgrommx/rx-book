@@ -14,52 +14,14 @@ Determines whether an observable collection contains values. There is an alias f
 *(`Observable`)*: The generated sequence.
 
 #### Example
-```js
-// This uses and only then source
-var shouldRun = true;
 
-var source = Rx.Observable.if(
-    function () { return shouldRun; },
-    Rx.Observable.return(42)
-);
+##### This uses and only then source
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/pijusu/1/embed?js,console)
 
-// => Next: 42
-// => Completed
+##### The next example uses an elseSource
 
-// The next example uses an elseSource
-var shouldRun = false;
-
-var source = Rx.Observable.if(
-    function () { return shouldRun; },
-    Rx.Observable.return(42),
-    Rx.Observable.return(56)
-);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 56
-// => Completed
-```
+[](http://jsbin.com/fegak/1/embed?js,console)
 
 ### Location
 

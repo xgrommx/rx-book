@@ -13,50 +13,15 @@ Projects each element of an observable sequence into zero or more buffers which 
 *(`Observable`)*: An observable sequence of buffers. 
 
 #### Example
-```js
-/* Without a skip */
-var source = Rx.Observable.range(1, 6)
-    .bufferWithCount(2);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without a skip
 
-// => Next: 1,2 
-// => Next: 3,4 
-// => Next: 5,6 
-// => Completed 
+[](http://jsbin.com/behad/1/embed?js,console)
 
-/* Using a skip */
-var source = Rx.Observable.range(1, 6)
-    .bufferWithCount(2, 1);
+##### Using a skip
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/vewabo/1/embed?js,console)
 
-// => Next: 1,2 
-// => Next: 2,3 
-// => Next: 3,4 
-// => Next: 4,5 
-// => Next: 5,6 
-// => Next: 6 
-// => Completed 
-```
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)

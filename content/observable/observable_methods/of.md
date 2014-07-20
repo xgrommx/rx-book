@@ -12,25 +12,8 @@ Converts arguments to an observable sequence.
 *(`Observable`)*: The observable sequence whose elements are pulled from the given arguments.
 
 #### Example
-```js
-var source = Rx.Observable.of(1,2,3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1
-// => Next: 2
-// => Next: 3
-// => Completed
-```
+[](http://jsbin.com/sibiy/1/embed?js,console)
 
 ### Location
 

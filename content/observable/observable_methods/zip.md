@@ -14,61 +14,14 @@ Merges the specified observable sequences or Promises into one observable sequen
 *(`Observable`)*: An observable sequence containing the result of combining elements of the sources using the specified result selector function.
 
 #### Example
-```js
-/* Using arguments */
-var range = Rx.Observable.range(0, 5);
 
-var source = Observable.zip(
-    range,
-    range.skip(1), 
-    range.skip(2), 
-    function (s1, s2, s3) {
-        return s1 + ':' + s2 + ':' + s3;
-    }
-);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Using arguments
 
-// => Next: 0:1:2
-// => Next: 1:2:3
-// => Next: 2:3:4
-// => Completed
+[](http://jsbin.com/jaliqo/1/embed?js,console)
 
-/* Using promises and Observables */
-var range = Rx.Observable.range(0, 5);
+##### Using promises and Observables */
 
-var source = Observable.zip(
-    RSVP.Promise.resolve(0),
-    RSVP.Promise.resolve(1),
-    Rx.Observable.return(2)
-    function (s1, s2, s3) {
-        return s1 + ':' + s2 + ':' + s3;
-    }
-);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0:1:2
-// => Completed
-```
+[](http://jsbin.com/tuset/1/embed?js,console)
 
 ### Location
 

@@ -13,45 +13,15 @@ Continues an observable sequence that is terminated by an exception with the nex
 *(`Observable`)*: An observable sequence containing the first sequence's elements, followed by the elements of the handler sequence in case an exception occurred.
 
 #### Example
-```js
-/* Using a second observable */
-var source = Rx.Observable.throw(new Error())
-    .catch(Rx.Observable.return(42));
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Using a second observable
 
-// => Next: 42
-// => Completed 
+[](http://jsbin.com/paxiz/1/embed?js,console)
 
-/* Using a handler function */
-var source = Rx.Observable.throw(new Error())
-    .catch(function (e) {
-        return Rx.Observable.return(e instanceof Error);
-    });
+##### Using a handler function
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/nikay/1/embed?js,console)
 
-// => Next: true
-// => Completed     
-```
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)

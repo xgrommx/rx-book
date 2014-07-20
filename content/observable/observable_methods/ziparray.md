@@ -14,31 +14,8 @@ Merges the specified observable sequences into one observable sequence by emitti
 *(`Observable`)*: An observable sequence containing lists of elements at corresponding indexes.
 
 #### Example
-```js
-var range = Rx.Observable.range(0, 5);
 
-var source = Rx.Observable.zipArray(
-    range,
-    range.skip(1), 
-    range.skip(2)
-);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0,1,2 
-// => Next: 1,2,3 
-// => Next: 2,3,4 
-// => Completed 
-```
+[](http://jsbin.com/luhuxo/1/embed?js,console)
 
 ### Location
 

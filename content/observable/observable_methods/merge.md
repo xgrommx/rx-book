@@ -13,37 +13,8 @@ Merges all the observable sequences and Promises into a single observable sequen
 *(`Observable`)*: An observable sequence that produces a value after each period.
 
 #### Example
-```js
-var source1 = Rx.Observable.interval(100)
-    .timeInterval()
-    .pluck('interval');
-var source2 = Rx.Observable.interval(150)
-    .timeInterval()
-    .pluck('interval');
 
-var source = Rx.Observable.merge(
-    source1,
-    source2);
-
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 100
-// => Next: 150
-// => Next: 100
-// => Next: 150
-// => Next: 100 
-// => Completed
-```
+[](http://jsbin.com/yicit/1/embed?js,console)
 
 ### Location
 

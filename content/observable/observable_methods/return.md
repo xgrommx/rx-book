@@ -14,23 +14,8 @@ There is an alias called `returnValue` for browsers <IE9.
 *(`Observable`)*: An observable sequence that repeats the given element the specified number of times.
 
 #### Example
-```js
-var source = Rx.Observable.return(42);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42 
-// => Completed 
-```
+[](http://jsbin.com/yupil/1/embed?js,console)
 
 ### Location
 

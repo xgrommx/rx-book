@@ -16,23 +16,8 @@ There is an alias to this method called `throwException` for browsers <IE9.
 *(`Observable`)*: The observable sequence that terminates exceptionally with the specified exception object.
    
 #### Example
-```js
-var source = Rx.Observable.return(42)
-    .selectMany(Rx.Observable.throw(new Error('error!')));
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Error: Error: error!
-```
+[](http://jsbin.com/luyaho/1/embed?js,console)
 
 ### Location
 

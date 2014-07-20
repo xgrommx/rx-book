@@ -14,49 +14,15 @@ Projects each element of an observable sequence into zero or more buffers which 
 *(`Observable`)*: An observable sequence of buffers. 
 
 #### Example
-```js
-/* Without a skip */
-var source = Rx.Observable.interval(100)
-    .bufferWithTime(500)
-    .take(3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without a skip
 
-// => Next: 0,1,2,3 
-// => Next: 4,5,6,7,8 
-// => Next: 9,10,11,12,13 
-// => Completed 
+[](http://jsbin.com/zokej/1/embed?js,console)
 
-/* Using a skip */
-var source = Rx.Observable.interval(100)
-    .bufferWithTime(500, 100)
-    .take(3);
+##### Using a skip
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/rafay/1/embed?js,console)
 
-// => Next: 0,1,2,3,4 
-// => Next: 0,1,2,3,4,5 
-// => Next: 2,3,4,5,6 
-// => Completed 
-```
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).time.js

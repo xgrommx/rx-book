@@ -17,27 +17,8 @@ relative time is supported.
 *(`Observable`)*: An observable sequence that produces a value after due time has elapsed and then each period.
 
 #### Example
-```js
-var source = Rx.Observable.timer(200, 100)
-    .pluck('interval')
-    .take(3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 200
-// => Next: 100
-// => Next: 100
-// => Completed 
-```
+[](http://jsbin.com/hezadu/1/embed?js,console)
 
 ### Location
 

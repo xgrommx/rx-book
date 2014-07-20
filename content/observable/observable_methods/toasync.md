@@ -16,28 +16,8 @@ Converts the function into an asynchronous function. Each invocation of the resu
 *(`Function`)*: Asynchronous function.
 
 #### Example
-```js
-var func = Rx.Observable.toAsync(function (x, y) {
-    return x + y;
-});
 
-// Execute function with 3 and 4
-var source = func(3, 4);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 7
-// => Completed 
-```
+[](http://jsbin.com/zokawu/1/embed?js,console)
 
 ### Location
 

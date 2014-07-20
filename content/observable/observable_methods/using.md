@@ -15,56 +15,8 @@
 *(`Function`)*: An observable sequence whose lifetime controls the lifetime of the dependent resource object.
 
 #### Example
-```js
-/* Using an AsyncSubject as a resource which supports the .dispose method */
-function DisposableResource(value) {
-    this.value = null;
-    this.disposed = false;
-}
 
-DisposableResource.prototype.getValue = function () {
-    if (this.disposed) {
-        throw new Error('Object is disposed');
-    }
-    return this.value;
-};
-
-DisposableResource.prototype.dispose = function () {
-    if (!this.disposed) {
-        this.disposed = true;
-        this.value = null;
-    }
-    console.log('Disposed');
-};
-
-var source = Rx.Observable.using(
-    function () { return new DisposableResource(42); },
-    function (resource) {
-        var subject = new AsyncSubject();
-        s.onNext(resource.getValue());
-        s.onCompleted();
-        return subject;
-    }
-);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42
-// => Completed 
-
-subscription.dispose();
-
-// => Disposed
-```
+[](http://jsbin.com/yewaf/1/embed?js,console)
 
 ### Location
 

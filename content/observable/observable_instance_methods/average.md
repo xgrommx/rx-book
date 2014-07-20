@@ -12,49 +12,14 @@ Computes the average of an observable sequence of values that are in the sequenc
 *(`Observable`)*: An observable sequence containing a single element with the average of the sequence of values.
 
 #### Example
-```js
-// Without a selector
-var source = Rx.Observable.range(0, 9).average();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without a selector
 
-// => Next: 4
-// => Completed 
+[](http://jsbin.com/larut/1/embed?js,console)
 
-// With a selector
-var arr = [
-    { value: 1 },
-    { value: 2 },
-    { value: 3 }
-];
+##### With a selector
 
-var source = Rx.Observable.fromArray(arr).average(function (x) {
-    return x.value;
-});
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 2
-// => Completed 
-```
+[](http://jsbin.com/zenif/1/embed?js,console)
 
 #### Location
 

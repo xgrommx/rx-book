@@ -14,29 +14,8 @@ A series of plans (specified as an Array of as a series of arguments) created by
 *(`Observable`)*: Observable sequence with the results form matching several patterns. 
 
 #### Example
-```js
-// Fire each plan when both are ready
-var source = Rx.Observable.when(
-  Rx.Observable.timer(100).and(Rx.Observable.timer(500)).then(function (x, y) { return 'first'; }),
-  Rx.Observable.timer(400).and(Rx.Observable.timer(300)).then(function (x, y) { return 'second'; })
-);
 
-var subscription = source.subscribe(
-  function (x) {
-      console.log('Next: ' + x);
-  },
-  function (err) {
-      console.log('Error: ' + err);   
-  },
-  function () {
-      console.log('Completed');   
-  });
-
-
-// => Next: second
-// => Next: first
-// => Completed 
-```
+[](http://jsbin.com/vobuh/1/embed?js,console)
 
 ### Location
 

@@ -13,28 +13,8 @@ Returns an observable sequence that produces a value after each period.
 *(`Observable`)*: An observable sequence that produces a value after each period.
 
 #### Example
-```js
-var source = Rx.Observable
-    .interval(500 /* ms */)
-    .timeInterval()
-    .take(3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: {value: 0, interval: 500}
-// => Next: {value: 1, interval: 500}
-// => Next: {value: 2, interval: 500} 
-// => Completed
-```
+[](http://jsbin.com/lozay/1/embed?js,console)
 
 ### Location
 

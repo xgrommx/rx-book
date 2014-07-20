@@ -14,31 +14,8 @@ Invokes the specified function asynchronously on the specified scheduler, surfac
 *(`Observable`)*: An observable sequence exposing the function's result value, or an exception.
 
 #### Example
-```js
-var context = { value: 42 };
 
-var source = Rx.Observable.start(
-    function () {
-        return this.value; 
-    }, 
-    Rx.Scheduler.timeout, 
-    context
-);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42 
-// => Completed 
-```
+[](http://jsbin.com/xitili/1/embed?js,console)
 
 ### Location
 

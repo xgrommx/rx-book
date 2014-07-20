@@ -14,25 +14,8 @@ Generates an observable sequence of integral numbers within a specified range, u
 *(`Observable`)*: An observable sequence that contains a range of sequential integral numbers. 
 
 #### Example
-```js
-var source = Rx.Observable.range(0, 3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0 
-// => Next: 1
-// => Next: 2 
-// => Completed 
-```
+[](http://jsbin.com/bapay/1/embed?js,console)
 
 ### Location
 

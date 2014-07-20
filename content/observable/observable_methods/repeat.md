@@ -14,25 +14,8 @@ Generates an observable sequence that repeats the given element the specified nu
 *(`Observable`)*: An observable sequence that repeats the given element the specified number of times.
 
 #### Example
-```js
-var source = Rx.Observable.repeat(42, 3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-//=> Next: 42 
-// => Next: 42
-// => Next: 42
-// => Completed 
-```
+[](http://jsbin.com/hezux/1/embed?js,console)
 
 ### Location
 

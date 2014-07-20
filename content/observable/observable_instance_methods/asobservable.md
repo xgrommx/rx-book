@@ -9,31 +9,8 @@ Hides the identity of an observable sequence.
 *(`Observable`)*: An observable sequence that hides the identity of the source sequence.  
 
 #### Example
-```js
-// Create subject
-var subject = new Rx.AsyncSubject();
 
-// Send a value
-subject.onNext(42);
-subject.onCompleted();
-
-// Hide its type
-var source = subject.asObservable();
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42
-// => Completed 
-```
+[](http://jsbin.com/nirudu/1/embed?js,console)
 
 #### Location
 

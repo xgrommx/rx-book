@@ -15,32 +15,8 @@ Repeats source as long as condition holds emulating a while loop.  There is an a
 *(`Observable`)*: An observable sequence which is repeated as long as the condition holds. 
 
 #### Example
-```js
-var i = 0;
 
-// Repeat until condition no longer holds
-var source = Rx.Observable.while(
-    function () { ++i < 3 },
-    Rx.Observable.return(42)
-);
-
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42
-// => Next: 42
-// => Next: 42
-// => Completed 
-```
+[](http://jsbin.com/serat/1/embed?js,console)
 
 ### Location
 

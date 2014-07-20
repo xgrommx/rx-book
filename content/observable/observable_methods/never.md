@@ -9,21 +9,8 @@ Returns a non-terminating observable sequence, which can be used to denote an in
 *(`Observable`)*: An observable sequence whose observers will never get called.
 
 #### Example
-```js
-// This will never produce a value, hence never calling any of the callbacks
-var source = Rx.Observable.never();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-```
+[](http://jsbin.com/nuyawe/1/embed?js,console)
 
 ### Location
 

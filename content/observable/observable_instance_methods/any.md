@@ -13,42 +13,14 @@ Determines whether any element of an observable sequence satisfies a condition i
 *(`Observable`)*: An observable sequence containing a single element determining whether all elements in the source sequence pass the test in the specified predicate. 
 
 #### Example
-```js
-// Without a predicate
-var source = Rx.Observable.empty().any();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without a predicate
 
-// => Next: false
-// => Completed 
+[](http://jsbin.com/xifup/1/embed?js,console)
 
-// With a predicate
-var source = Rx.Observable.fromArray([1,2,3,4,5])
-    .any(function (x) { return x % 2 === 0; });
+##### With a predicate
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: true
-// => Completed 
-```
+[](http://jsbin.com/qaney/1/embed?js,console)
 
 #### Location
 

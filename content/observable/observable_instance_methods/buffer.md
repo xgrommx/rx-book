@@ -25,76 +25,19 @@ Rx.Observable.prototype.buffer(bufferBoundaries);
 *(`Observable`)*: An observable sequence of windows. 
 
 #### Example
-```js
-/* Using buffer boundaries */
-var openings = Rx.Observable.interval(500);
 
-var source = Rx.Observable.interval(100)
-    .buffer(openings)
-    .take(3);
+##### Using buffer boundaries
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/pivik/1/embed?js,console)
 
-// => Next: 0,1,2,3 
-// => Next: 4,5,6,7,8
-// => Next: 9,10,11,12,13
-// => Completed 
+##### Using a buffer closing selector
 
-/* Using a buffer closing selector */
-var win = 0;
+[](http://jsbin.com/xijoba/1/embed?js,console)
 
-var source = Rx.Observable.interval(50)
-    .buffer(function () { return Rx.Observable.timer((win++) * 100); })
-    .take(3);
+##### Using Openings and Closing Selector
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/tomav/1/embed?js,console)
 
-// => Next: 0 
-// => Next: 1,2,3,4
-// => Next: 5,6,7,8,9,10 
-// => Completed 
-
-/* Using Openings and Closing Selector */
-var openings = Rx.Observable.interval(200);
-
-var source = Rx.Observable.interval(50)
-    .buffer(openings, function (x) { return Rx.Observable.timer(x + 100); })
-    .take(3);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 3,4 
-// => Next: 7,8 
-// => Next: 11,12 
-// => Completed 
-```
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).coincidence.js

@@ -14,7 +14,7 @@ Propagates the observable sequence or Promise that reacts first.
 
 #### Example
 
-###### Using Observable sequences
+##### Using Observable sequences
 [](http://jsbin.com/vanaci/1/embed?js,console)
 
 ###### Using Promises and Observables

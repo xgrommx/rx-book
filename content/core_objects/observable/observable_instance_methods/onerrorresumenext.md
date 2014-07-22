@@ -12,24 +12,8 @@ Continues an observable sequence that is terminated normally or by an exception 
 *(`Observable`)*: An observable sequence that concatenates the first and second sequence, even if the first sequence terminates exceptionally.
 
 #### Example
-```js
-var source = Rx.Observable.throw(new Error())
-    .onErrorResumeNext(Rx.Observable.return(42));
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42
-// => Completed   
-```
+[](http://jsbin.com/jutum/1/embed?js,console)
 
 ### Location
 

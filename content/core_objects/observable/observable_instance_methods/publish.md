@@ -14,80 +14,14 @@ This operator is a specialization of `multicast` using a regular `Rx.Subject`.
 *(ConnectableObservable)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.
    
 #### Example
-```js
-/* Without publish */
-var interval = Rx.Observable.interval(1000);
 
-var source = interval
-    .take(2)
-    .do(function (x) { 
-        console.log('Side effect');
-    });
- 
-source.subscribe(createObserver('SourceA'));
-source.subscribe(createObserver('SourceB'));
- 
-function createObserver(tag) {
-    return Rx.Observer.create(
-        function (x) {
-            console.log('Next: ' + tag + x);
-        },
-        function (err) {
-            console.log('Error: ' + err);   
-        },
-        function () {
-            console.log('Completed');   
-        });
-}
+##### Without publish
 
-// => Side effect
-// => Next: SourceA0 
-// => Side effect
-// => Next: SourceB0 
-// => Side effect
-// => Next: SourceA1 
-// => Completed
-// => Side effect
-// => Next: SourceB1 
-// => Completed  
+[](http://jsbin.com/yireha/1/embed?js,console)
 
-/* With publish */
-var interval = Rx.Observable.interval(1000);
+##### With publish
 
-var source = interval
-    .take(2)
-    .doAction(function (x) { 
-        console.log('Side effect');
-    });
- 
-var published = source.publish();
- 
-published.subscribe(createObserver('SourceA'));
-published.subscribe(createObserver('SourceB'));
- 
-var connection = published.connect();
-
-function createObserver(tag) {
-    return Rx.Observer.create(
-        function (x) {
-            console.log('Next: ' + tag + x);
-        },
-        function (err) {
-            console.log('Error: ' + err);   
-        },
-        function () {
-            console.log('Completed');   
-        });
-}
-
-// => Side effect 
-// => Next: SourceA0 
-// => Next: SourceB0 
-// => Side effect 
-// => Next: SourceA1 
-// => Next: SourceB1
-// => Completed    
-```
+[](http://jsbin.com/hotexi/1/embed?js,console)
 
 ### Location
 

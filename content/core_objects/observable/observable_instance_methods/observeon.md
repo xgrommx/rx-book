@@ -14,25 +14,8 @@ This only invokes observer callbacks on a scheduler. In case the subscription an
 *(`Observable`)*: The source sequence whose observations happen on the specified scheduler. 
  
 #### Example
-```js
-/* Change from immediate scheduler to timeout */
-var source = Rx.Observable.return(42, Rx.Scheduler.immediate)
-    .observeOn(Rx.Scheduler.timeout);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42
-// => Completed   
-```
+[](http://jsbin.com/hehov/1/embed?js,console)
 
 ### Location
 

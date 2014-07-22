@@ -12,29 +12,8 @@ Repeats the observable sequence a specified number of times. If the repeat count
 *(`Observable`)*: The observable sequence producing the elements of the given sequence repeatedly.  
 
 #### Example
-```js
-var source = Rx.Observable.range(1, 3)
-    .repeat(2);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1 
-// => Next: 2 
-// => Next: 3 
-// => Next: 1 
-// => Next: 2 
-// => Next: 3 
-// => Completed 
-```
+[](http://jsbin.com/raqico/1/embed?js,console)
 
 ### Location
 

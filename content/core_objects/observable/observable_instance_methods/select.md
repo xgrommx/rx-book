@@ -16,28 +16,8 @@ Projects each element of an observable sequence into a new form by incorporating
 *(`Observable`)*: An observable sequence which results from the comonadic bind operation.
 
 #### Example
-```js
-var source = Rx.Observable.range(1, 3)
-    .select(function (x, idx, obs) {
-        return x * x;
-    });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1
-// => Next: 4
-// => Next: 9
-// => Completed 
-```
+[](http://jsbin.com/ribev/1/embed?js,console)
 
 ### Location
 

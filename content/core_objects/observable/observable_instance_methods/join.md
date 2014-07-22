@@ -17,40 +17,8 @@ Correlates the elements of two sequences based on overlapping durations.
 *(`Observable`)*: An observable sequence that contains result elements computed from source elements that have an overlapping duration.
  
 #### Example
-```js
-var xs = Rx.Observable.interval(100)
-    .map(function (x) { return 'first' + x; });
 
-var ys = Rx.Observable.interval(100)
-    .map(function (x) { return 'second' + x; });
-
-var source = xs
-    .join(
-        ys,
-        function () { return Rx.Observable.timer(0); },
-        function () { return Rx.Observable.timer(0); },
-        function (x, y) { return x + y; }
-    )
-    .take(5);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: first0second0 
-// => Next: first1second1 
-// => Next: first2second2 
-// => Next: first3second3 
-// => Next: first4second4 
-// => Completed  
-```
+[](http://jsbin.com/japur/1/embed?js,console)
 
 #### Location
 

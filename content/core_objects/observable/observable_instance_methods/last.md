@@ -16,62 +16,18 @@ Returns the last element of an observable sequence that satisfies the condition 
 *(`Observable`)*: Sequence containing the last element in the observable sequence that satisfies the condition in the predicate.
 
 #### Example
-```js
-/* No Match */
-var source = Rx.Observable.empty()
-    .last();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### No Match
 
-// => Error: Error: Sequence contains no elements.
+[](http://jsbin.com/mukum/1/embed?js,console)
 
-/* Without predicate */
-var source = Rx.Observable.range(0, 10)
-    .last();
+##### Without predicate
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/zacije/1/embed?js,console)
 
-// => Next: 9
-// => Completed  
+##### With predicate
 
-/* With predicate */
-var source = Rx.Observable.range(0, 10)
-    .last(function (x, idx, obs) {
-        return x % 2 === 0;
-    });
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 8
-// => Completed 
-```
+[](http://jsbin.com/coyam/1/embed?js,console)
 
 #### Location
 

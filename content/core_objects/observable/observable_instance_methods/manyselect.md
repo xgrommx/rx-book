@@ -13,27 +13,8 @@ Comonadic bind operator.
 *(`Observable`)*: An observable sequence which results from the comonadic bind operation.
 
 #### Example
-```js
-var source = Rx.Observable.range(0, 3)
-    .manySelect(function (ys) { return ys.first(); })
-    .mergeAll();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0
-// => Next: 1
-// => Next: 2
-// => Completed 
-```
+[](http://jsbin.com/yaxav/1/embed?js,console)
 
 #### Location
 

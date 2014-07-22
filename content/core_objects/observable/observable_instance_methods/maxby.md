@@ -13,25 +13,8 @@ Returns the maximum value in an observable sequence according to the specified c
 *(`Observable`)*: An observable sequence containing a list of zero or more elements that have a maximum key value.
  
 #### Example
-```js
-/* Without comparer */
-var source = Rx.Observable.fromArray([1,3,5,7,9,2,4,6,8,9])
-    .maxBy(function (x) { return x; });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 9,9
-// => Completed 
-```
+[](http://jsbin.com/zupib/1/embed?js,console)
 
 ### Location
 

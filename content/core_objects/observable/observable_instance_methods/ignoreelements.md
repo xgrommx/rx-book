@@ -9,23 +9,8 @@ Ignores all elements in an observable sequence leaving only the termination mess
 *(`Observable`)*: An empty observable sequence that signals termination, successful or exceptional, of the source sequence.    
 
 #### Example
-```js
-var source = Rx.Observable.range(0, 10)
-    .ignoreElements();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Completed
-```
+[](http://jsbin.com/dekug/1/embed?js,console)
 
 #### Location
 

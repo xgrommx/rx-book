@@ -12,52 +12,14 @@ Returns the minimum element in an observable sequence according to the optional 
 *(`Observable`)*: An observable sequence containing a single element with the minimum element in the source sequence.
  
 #### Example
-```js
-/* Without comparer */
-var source = Rx.Observable.fromArray([1,3,5,7,9,2,4,6,8])
-    .min();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without comparer
 
-// => Next: 1
-// => Completed 
+[](http://jsbin.com/gerap/1/embed?js,console)
 
-/* With a comparer */
-function comparer (x, y) {
-    if (x > y) {
-        return 1;
-    } else if (x < y) {
-        return -1;
-    }
-    return 0;
-}
+#### With a comparer
 
-var source = Rx.Observable.fromArray([1,3,5,7,9,2,4,6,8])
-    .min(comparer);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1
-// => Completed 
-```
+[](http://jsbin.com/cayun/1/embed?js,console)
 
 ### Location
 

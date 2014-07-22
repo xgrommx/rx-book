@@ -18,27 +18,8 @@ This is an alias for the `selectSwitch` method.
 *(`Observable`)*: An observable sequence whose elements are the result of invoking the transform function on each element of source producing an Observable of Observable sequences and that at any point in time produces the elements of the most recent inner observable sequence that has been received.    
 
 #### Example
-```js
-var source = Rx.Observable
-    .range(1, 2)
-    .flatMapLatest(function (x) {
-        return Rx.Observable.range(x, 2);    
-    });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 3 
-// => Completed 
-```
+[](http://jsbin.com/vigofe/1/embed?js,console)
 
 ### Location
 

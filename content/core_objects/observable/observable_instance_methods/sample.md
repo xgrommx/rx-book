@@ -14,47 +14,14 @@ Samples the observable sequence at each interval.
 *(`Observable`)*: Sampled observable sequence.
 
 #### Example
-```js
-/* With an interval time */
-var source = Rx.Observable.interval(1000)
-    .sample(5000)
-    .take(2);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### With an interval time
 
-// => Next: 3
-// => Next: 8
-// => Completed 
+[](http://jsbin.com/makeri/1/embed?js,console)
 
-/* With a sampler */
-var source = Rx.Observable.interval(1000)
-    .sample(Rx.Observable.interval(5000))
-    .take(2);
+##### With a sampler
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 3
-// => Next: 8
-// => Completed
-```
+[](http://jsbin.com/bezex/1/embed?js,console)
 
 ### Location
 

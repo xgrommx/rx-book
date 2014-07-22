@@ -13,25 +13,8 @@ Returns the elements in an observable sequence with the minimum key value accord
 *(`Observable`)*: An observable sequence containing a list of zero or more elements that have a minimum key value.
 
 #### Example
-```js
-/* Without comparer */
-var source = Rx.Observable.fromArray([1,3,5,7,9,2,4,6,8,1])
-    .minBy(function (x) { return x; });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1,1
-// => Completed 
-```
+[](http://jsbin.com/hejov/1/embed?js,console)
 
 ### Location
 

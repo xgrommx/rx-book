@@ -16,38 +16,8 @@ invocation. For specializations with fixed subject types, see `publish`, `share`
 *(`Observable`)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.
  
 #### Example
-```js
-var subject = new Rx.Subject();
-var source = Rx.Observable.range(0, 3)
-    .multicast(subject);
 
-var observer = Rx.Observer.create(    
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    }
-);
-
-var subscription = source.subscribe(observer);
-subject.subscribe(observer);
-
-var connected = source.connect();
-
-subscription.dispose();
-
-// => Next: 0 
-// => Next: 0 
-// => Next: 1 
-// => Next: 1 
-// => Next: 2 
-// => Next: 2 
-// => Completed   
-```
+[](http://jsbin.com/javay/1/embed?js,console)
 
 ### Location
 

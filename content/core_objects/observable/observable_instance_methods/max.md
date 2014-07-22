@@ -12,52 +12,14 @@ Returns the maximum value in an observable sequence according to the specified c
 *(`Observable`)*: An observable sequence containing a single element with the maximum element in the source sequence.
 
 #### Example
-```js
-/* Without comparer */
-var source = Rx.Observable.fromArray([1,3,5,7,9,2,4,6,8])
-    .max();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without comparer
 
-// => Next: 9
-// => Completed 
+[](http://jsbin.com/zages/1/embed?js,console)
 
-/* With a comparer */
-function comparer (x, y) {
-    if (x > y) {
-        return 1;
-    } else if (x < y) {
-        return -1;
-    }
-    return 0;
-}
+##### With a comparer
 
-var source = Rx.Observable.fromArray([1,3,5,7,9,2,4,6,8])
-    .max(comparer);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 9
-// => Completed 
-```
+[](http://jsbin.com/kejay/1/embed?js,console)
 
 ### Location
 

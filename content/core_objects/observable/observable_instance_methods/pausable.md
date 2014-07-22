@@ -12,27 +12,8 @@ Pauses the underlying observable sequence based upon the observable sequence whi
 *(`Observable`)*: The observable sequence which is paused based upon the pauser.
 
 #### Example
-```js
-var pauser = new Rx.Subject();
-var source = Rx.Observable.fromEvent(document, 'mousemove').pausable(pauser);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// To begin the flow
-pauser.onNext(true);
-
-// To pause the flow at any point
-pauser.onNext(false);
-```
+[](http://jsbin.com/cicema/1/embed?js,console)
 
 ### Location
 

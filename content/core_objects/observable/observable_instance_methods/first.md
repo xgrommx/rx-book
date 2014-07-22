@@ -16,60 +16,18 @@ Returns the first element of an observable sequence that satisfies the condition
 *(`Observable`)*: An observable sequence that contains elements from the input sequence that satisfy the condition.  
 
 #### Example
-```js
-/* No Match */
-var source = Rx.Observable.empty()
-    .first();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### No Match
 
-// => Error: Error: Sequence contains no elements.    
+[](http://jsbin.com/begup/1/embed?js,console)
 
-/* Without a predicate */
-var source = Rx.Observable.range(0, 10)
-    .first();
+##### Without a predicate
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/guhob/1/embed?js,console)
 
-// => Next: 0
-// => Completed
+##### With a predicate
 
-/* With a predicate */
-var source = Rx.Observable.range(0, 10)
-    .first(function (x, idx, obs) { return x % 2 === 1; });
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1
-// => Completed  
-```
+[](http://jsbin.com/caceg/1/embed?js,console)
 
 #### Location
 

@@ -17,51 +17,8 @@ This operator is a specialization of `multicast` using a `Rx.ReplaySubject`.
 *(`Observable`)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.
 
 #### Example
-```js
-var interval = Rx.Observable.interval(1000);
 
-var source = interval
-    .take(2)
-    .do(function (x) { 
-        console.log('Side effect');
-    });
- 
-var published = source
-    .replay(function (x) {
-        return x.take(2).repeat(2);    
-    }, 3);
- 
-published.subscribe(createObserver('SourceA'));
-published.subscribe(createObserver('SourceB'));
-
-function createObserver(tag) {
-    return Rx.Observer.create(
-        function (x) {
-            console.log('Next: ' + tag + x);
-        },
-        function (err) {
-            console.log('Error: ' + err);   
-        },
-        function () {
-            console.log('Completed');   
-        });
-}
-
-// => Side effect 
-// => Next: SourceA0 
-// => Side effect 
-// => Next: SourceB0 
-// => Side effect 
-// => Next: SourceA1 
-// => Next: SourceA0 
-// => Next: SourceA1 
-// => Completed 
-// => Side effect 
-// => Next: SourceB1 
-// => Next: SourceB0 
-// => Next: SourceB1 
-// => Completed 
-```
+[](http://jsbin.com/bokamu/1/embed?js,console)
 
 ### Location
 

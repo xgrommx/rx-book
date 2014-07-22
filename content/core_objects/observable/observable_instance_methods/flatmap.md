@@ -33,30 +33,8 @@ source.flatMap(Rx.Observable.fromArray([1,2,3]));
 *(`Observable`)*: An observable sequence whose elements are the result of invoking the one-to-many transform function collectionSelector on each element of the input sequence and then mapping each of those sequence elements and their corresponding source element to a result element.   
 
 #### Example
-```js
-var source = Rx.Observable
-    .range(1, 2)
-    .flatMap(function (x) {
-        return Rx.Observable.range(x, 2);    
-    });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1 
-// => Next: 2 
-// => Next: 2 
-// => Next: 3 
-// => Completed 
-```
+[](http://jsbin.com/besiw/1/embed?js,console)
 
 #### Location
 

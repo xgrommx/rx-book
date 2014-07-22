@@ -14,42 +14,8 @@ This operator is a specialization of `multicast` using a `Rx.AsyncSubject`.
 *(ConnectableObservable)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.
  
 #### Example
-```js
-var interval = Rx.Observable.interval(1000);
 
-var source = interval
-    .take(2)
-    .doAction(function (x) { 
-        console.log('Side effect');
-    });
- 
-var published = source.publishLatest();
- 
-published.subscribe(createObserver('SourceA'));
-published.subscribe(createObserver('SourceB'));
- 
-var connection = published.connect();
-
-function createObserver(tag) {
-    return Rx.Observer.create(
-        function (x) {
-            console.log('Next: ' + tag + x);
-        },
-        function (err) {
-            console.log('Error: ' + err);   
-        },
-        function () {
-            console.log('Completed');   
-        });
-}
-
-// => Side effect
-// => Side effect
-// => Next: SourceA1 
-// => Completed
-// => Next: SourceB1 
-// => Completed    
-```
+[](http://jsbin.com/wapis/1/embed?js,console)
 
 ### Location
 

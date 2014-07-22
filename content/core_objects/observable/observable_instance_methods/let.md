@@ -14,41 +14,8 @@ This operator allows for a fluent style of writing queries that use the same seq
 *(`Observable`)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.
 
 #### Example
-```js
-var obs = Rx.Observable.range(1, 3);
 
-var source = obs.let(function (o) { return o.concat(o); });
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1 
-// => Next: 2 
-// => Next: 3 
-// => Next: 1 
-// => Next: 2 
-// => Next: 3 
-// => Completed 
-```
+[](http://jsbin.com/jetido/1/embed?js,console)
 
 #### Location
 

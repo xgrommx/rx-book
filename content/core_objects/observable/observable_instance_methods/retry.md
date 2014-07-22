@@ -12,33 +12,8 @@ Projects each element of an observable sequence into a new form by incorporating
 *(`Observable`)*: An observable sequence producing the elements of the given sequence repeatedly until it terminates successfully. 
 
 #### Example
-```js
-var count = 0;
 
-var source = Rx.Observable.interval(1000)
-    .selectMany(function () {
-        if (++count < 2) {
-            return Rx.Observable.throw(new Error());
-        }
-        return Rx.Observable.return(42);
-    })
-    .retry(3)
-    .take(1);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42
-// => Completed 
-```
+[](http://jsbin.com/hixenu/1/embed?js,console)
 
 ### Location
 

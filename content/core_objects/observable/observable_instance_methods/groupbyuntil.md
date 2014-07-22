@@ -17,49 +17,8 @@ Groups the elements of an observable sequence according to a specified key selec
 If a group's lifetime expires, a new group with the same key value can be created once an element with such a key value is encoutered.
 
 #### Example
-```js
-var codes = [
-    { keyCode: 38}, // up
-    { keyCode: 38}, // up
-    { keyCode: 40}, // down
-    { keyCode: 40}, // down
-    { keyCode: 37}, // left
-    { keyCode: 39}, // right
-    { keyCode: 37}, // left
-    { keyCode: 39}, // right
-    { keyCode: 66}, // b
-    { keyCode: 65}  // a
-];
 
-var source = Rx.Observable
-    .for(codes, function (x) { return Rx.Observable.return(x).delay(1000); })
-    .groupByUntil(
-        function (x) { return x.keyCode; },
-        function (x) { return x.keyCode; },
-        function (x) { return Rx.Observable.timer(2000); });
-
-var subscription = source.subscribe(
-    function (obs) {
-        // Print the count
-        obs.count().subscribe(function (x) { console.log('Count: ' + x); });
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Count: 2 
-// => Count: 2 
-// => Count: 1 
-// => Count: 1 
-// => Count: 1 
-// => Count: 1 
-// => Count: 1 
-// => Count: 1 
-// => Completed 
-```
+[](http://jsbin.com/fohafa/1/embed?js,console)
 
 #### Location
 

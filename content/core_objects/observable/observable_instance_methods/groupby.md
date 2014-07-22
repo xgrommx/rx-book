@@ -14,47 +14,8 @@ Groups the elements of an observable sequence according to a specified key selec
 *(`Observable`)*: A sequence of observable groups, each of which corresponds to a unique key value, containing all elements that share that same key value.    
 
 #### Example
-```js
-var codes = [
-    { keyCode: 38}, // up
-    { keyCode: 38}, // up
-    { keyCode: 40}, // down
-    { keyCode: 40}, // down
-    { keyCode: 37}, // left
-    { keyCode: 39}, // right
-    { keyCode: 37}, // left
-    { keyCode: 39}, // right
-    { keyCode: 66}, // b
-    { keyCode: 65}  // a
-];
 
-var source = Rx.Observable.fromArray(codes)
-    .groupBy(
-        function (x) { return x.keyCode; },
-        function (x) { return x.keyCode; });
-
-var subscription = source.subscribe(
-    function (obs) {
-        // Print the count
-        obs.count().subscribe(function (x) { 
-            console.log('Count: ' + x); 
-        });
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Count: 2 
-// => Count: 2 
-// => Count: 2 
-// => Count: 2 
-// => Count: 1 
-// => Count: 1 
-// => Completed 
-```
+[](http://jsbin.com/yijuy/1/embed?js,console)
 
 #### Location
 

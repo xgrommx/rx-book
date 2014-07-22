@@ -15,54 +15,14 @@ For aggregation behavior with no intermediate results, see `Rx.Observable.aggreg
 *(`Observable`)*: An observable sequence which results from the comonadic bind operation.
 
 #### Example
-```js
-/* Without a seed */
-var source = Rx.Observable.range(1, 3)
-    .scan(
-        function (acc, x) {
-            return acc + x;
-        });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without a seed
 
-// => Next: 1
-// => Next: 3
-// => Next: 6
-// => Completed 
+[](http://jsbin.com/jupibi/1/embed?js,console)
 
-/* With a seed */
-var source = Rx.Observable.range(1, 3)
-    .scan(
-        1,
-        function (acc, x) {
-            return acc * x;
-        });
+##### With a seed
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1
-// => Next: 2
-// => Next: 6
-// => Completed 
-```
+[](http://jsbin.com/retuh/1/embed?js,console)
 
 ### Location
 

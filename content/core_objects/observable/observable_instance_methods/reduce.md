@@ -15,26 +15,8 @@ For aggregation behavior with incremental intermediate results, see the `scan` m
 *(`Observable`)*: An observable sequence containing a single element with the final accumulator value.
 
 #### Example
-```js
-var source = Rx.Observable.range(1, 3)
-    .reduce(function (acc, x) {
-        return acc * x;
-    }, 1)
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 6
-// => Completed 
-```
+[](http://jsbin.com/jocin/1/embed?js,console)
 
 ### Location
 

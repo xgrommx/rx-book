@@ -9,43 +9,14 @@ Determines whether an observable sequence is empty.
 *(`Observable`)*: An observable sequence containing a single element determining whether the source sequence is empty.
 
 #### Example
-```js
-/* Not empty */
-var source = Rx.Observable.range(0, 5)
-    .isEmpty()
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Not empty
 
-// => Next: false
-// => Completed    
+[](http://jsbin.com/micaw/1/embed?js,console)    
 
-/* Empty */
-var source = Rx.Observable.empty()
-    .isEmpty()
+##### Empty
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: true
-// => Completed  
-```
+[](http://jsbin.com/viqew/1/embed?js,console)
 
 #### Location
 

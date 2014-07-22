@@ -12,31 +12,8 @@ Projects each element of an observable sequence into a new form by incorporating
 *(`Observable`)*: Returns a new Observable sequence of property values.
 
 #### Example
-```js
-var source = Rx.Observable
-    .fromArray([
-        { value: 0 },
-        { value: 1 },
-        { value: 2 }
-    ])
-    .pluck('value');
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0
-// => Next: 1
-// => Next: 2
-// => Completed 
-```
+[](http://jsbin.com/wigiy/1/embed?js,console)
 
 ### Location
 

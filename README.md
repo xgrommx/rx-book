@@ -34,11 +34,11 @@ To put it more concretely, if you know how to program against Arrays using the A
   <center>
     <table>
          <thead>
-           <tr><th style="text-align:center;">Iterable</th></tr>
+           <tr><th style="text-align:center;" colspan="2">Iterable</th></tr>
          </thead>
          <tbody>
            <tr>
-             <td><pre><code>getDataFromLocalMemory()
+             <td colspan="2"><pre><code>getDataFromLocalMemory()
              .filter (function (s) { return s != null; })
              .map( function (s) { return s + 'transformed'; })
              .forEach(function (s) { console.log('next => '' + it); })</code></pre></td>
@@ -49,11 +49,11 @@ To put it more concretely, if you know how to program against Arrays using the A
   <center>
     <table>
       <thead>
-        <tr><th style="text-align:center;">Observable</th></tr>
+        <tr><th style="text-align:center;" colspan="2">Observable</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td><pre><code>getDataFromNetwork()
+          <td colspan="2"><pre><code>getDataFromNetwork()
           .filter (function (s) { return s != null; })
           .map( function (s) { return s + 'transformed'; })
           .subscribe(function (s) { console.log('next => '' + it); })</code></pre></td>

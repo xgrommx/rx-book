@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\..\..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.2.1.2" data-basepath="..\..\..\.." data-revision="1406047411665">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.2.1.2" data-basepath="..\..\..\.." data-revision="1406067254115">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_184">
+                    <section class="normal" id="section-gitbook_9144">
                     
                         <h1 id="fromnotifier"><a name="fromnotifier" class="plugin-anchor" href="#fromnotifier"><span class="fa fa-link"></span></a>fromNotifier</h1>
 <p><code>Rx.Observer.fromNotifier(handler)</code>
@@ -4634,32 +4634,7 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: The observer object that invokes the specified handler using a notification corresponding to each message it receives.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handler</span><span class="hljs-params">(n)</span> {</span>
-    <span class="hljs-comment">// Handle next calls</span>
-    <span class="hljs-keyword">if</span> (n.kind === <span class="hljs-string">&apos;N&apos;</span>) {
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + n.value);
-    }
-
-    <span class="hljs-comment">// Handle error calls</span>
-    <span class="hljs-keyword">if</span> (n.kind === <span class="hljs-string">&apos;E&apos;</span>) {
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + n.exception);
-    }
-
-    <span class="hljs-comment">// Handle completed</span>
-    <span class="hljs-keyword">if</span> (n.kind === <span class="hljs-string">&apos;C&apos;</span>) {
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>)
-    }
-}
-
-Rx.Observer.fromNotifier(handler).onNext(<span class="hljs-number">42</span>);
-<span class="hljs-comment">// =&gt; Next: 42</span>
-
-Rx.Observer.fromNotifier(handler).onError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;error!!!&apos;</span>));
-<span class="hljs-comment">// =&gt; Error: Error: error!!!</span>
-
-Rx.Observer.fromNotifier(handler).onCompleted();
-<span class="hljs-comment">// =&gt; false</span>
-</code></pre>
+<p><a href="http://jsbin.com/difobe/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
@@ -4699,6 +4674,10 @@ Rx.Observer.fromNotifier(handler).onCompleted();
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

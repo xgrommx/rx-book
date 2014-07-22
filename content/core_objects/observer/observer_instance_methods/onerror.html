@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\..\..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.2.2.5" data-basepath="..\..\..\.." data-revision="1406047411665">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.2.2.5" data-basepath="..\..\..\.." data-revision="1406067254115">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_178">
+                    <section class="normal" id="section-gitbook_9146">
                     
                         <h1 id="onerror"><a name="onerror" class="plugin-anchor" href="#onerror"><span class="fa fa-link"></span></a>onError</h1>
 <p><code>Rx.Observer.prototype.onError(error)</code>
@@ -4632,21 +4632,7 @@
 <li><code>error</code> <em>(Any)</em>: The error that has occurred. </li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> observer = Rx.Observer.create(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x)
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-    }
-);
-
-observer.onError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;error!!&apos;</span>));
-<span class="hljs-comment">// =&gt; Error: Error: error!!</span>
-</code></pre>
+<p><a href="http://jsbin.com/nulan/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
@@ -4686,6 +4672,10 @@ observer.onError(<span class="hljs-keyword">new</span> <span class="hljs-built_i
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\..\..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.117" data-basepath="..\..\..\.." data-revision="1406047411665">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.117" data-basepath="..\..\..\.." data-revision="1406067254115">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_130">
+                    <section class="normal" id="section-gitbook_9090">
                     
                         <h1 id="windowwithtime"><a name="windowwithtime" class="plugin-anchor" href="#windowwithtime"><span class="fa fa-link"></span></a>windowWithTime</h1>
 <p><code>Rx.Observable.prototype.windowWithTime(timeSpan, [timeShift | scheduler])</code>
@@ -4636,76 +4636,10 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence of buffers. </p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* Without a skip */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">100</span>)
-    .windowWithTime(<span class="hljs-number">500</span>)
-    .take(<span class="hljs-number">3</span>);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(child)</span> {</span>
-
-        child.toArray().subscribe(
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-                console.log(<span class="hljs-string">&apos;Child Next: &apos;</span> + x.toString());
-            },
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-                console.log(<span class="hljs-string">&apos;Child Error: &apos;</span> + err);   
-            },
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-                console.log(<span class="hljs-string">&apos;Child Completed&apos;</span>);   
-            }
-        );
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Child Next: 0,1,2,3 </span>
-<span class="hljs-comment">// =&gt; Child Completed </span>
-<span class="hljs-comment">// =&gt; Completed </span>
-<span class="hljs-comment">// =&gt; Child Next: 4,5,6,7,8 </span>
-<span class="hljs-comment">// =&gt; Child Completed </span>
-<span class="hljs-comment">// =&gt; Child Next: 9,10,11,12,13 </span>
-<span class="hljs-comment">// =&gt; Child Completed </span>
-
-<span class="hljs-comment">/* Using a skip */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">100</span>)
-    .windowWithTime(<span class="hljs-number">500</span>, <span class="hljs-number">100</span>)
-    .take(<span class="hljs-number">3</span>);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(child)</span> {</span>
-
-        child.toArray().subscribe(
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-                console.log(<span class="hljs-string">&apos;Child Next: &apos;</span> + x.toString());
-            },
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-                console.log(<span class="hljs-string">&apos;Child Error: &apos;</span> + err);   
-            },
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-                console.log(<span class="hljs-string">&apos;Child Completed&apos;</span>);   
-            }
-        );
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Completed </span>
-<span class="hljs-comment">// =&gt; Child Next: 0,1,2,3,4</span>
-<span class="hljs-comment">// =&gt; Child Completed </span>
-<span class="hljs-comment">// =&gt; Child Next: 0,1,2,3,4,5</span>
-<span class="hljs-comment">// =&gt; Child Completed </span>
-<span class="hljs-comment">// =&gt; Child Next: 1,2,3,4,5,6</span>
-<span class="hljs-comment">// =&gt; Child Completed</span>
-</code></pre>
+<h5 id="without-a-skip"><a name="without-a-skip" class="plugin-anchor" href="#without-a-skip"><span class="fa fa-link"></span></a>Without a skip</h5>
+<p><a href="http://jsbin.com/zuyuki/1/embed?js,console" target="_blank"></a></p>
+<h5 id="using-a-skip"><a name="using-a-skip" class="plugin-anchor" href="#using-a-skip"><span class="fa fa-link"></span></a>Using a skip</h5>
+<p><a href="http://jsbin.com/wowin/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
@@ -4766,6 +4700,10 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

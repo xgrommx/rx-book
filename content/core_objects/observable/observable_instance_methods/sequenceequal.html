@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\..\..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.84" data-basepath="..\..\..\.." data-revision="1406047411665">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.84" data-basepath="..\..\..\.." data-revision="1406067254115">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,10 +4621,9 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_97">
+                    <section class="normal" id="section-gitbook_9054">
                     
                         <h1 id="sequenceequal"><a name="sequenceequal" class="plugin-anchor" href="#sequenceequal"><span class="fa fa-link"></span></a>sequenceEqual</h1>
-<h1 id="sharevalue"><a name="sharevalue" class="plugin-anchor" href="#sharevalue"><span class="fa fa-link"></span></a>shareValue</h1>
 <p><code>Rx.Observable.prototype.sequenceEqual(second, [comparer])</code>
 <a href="#rxobservableprototypesequenceequalsecond-comparer">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sequenceequal.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Determines whether two sequences are equal by comparing the elements pairwise using a specified equality comparer.</p>
@@ -4636,25 +4635,7 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that contains a single element which indicates whether both sequences are of equal length and their corresponding elements are equal according to the specified equality comparer.   </p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.return(<span class="hljs-number">42</span>);
-<span class="hljs-keyword">var</span> source2 = Rx.Observable.return(<span class="hljs-number">42</span>);
-
-<span class="hljs-keyword">var</span> source = source1.sequenceEqual(source2);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: true</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<p><a href="http://jsbin.com/feyos/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
@@ -4715,6 +4696,10 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

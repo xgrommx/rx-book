@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\..\..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.104" data-basepath="..\..\..\.." data-revision="1406047411665">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.104" data-basepath="..\..\..\.." data-revision="1406067254115">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_117">
+                    <section class="normal" id="section-gitbook_9078">
                     
                         <h1 id="takeuntil"><a name="takeuntil" class="plugin-anchor" href="#takeuntil"><span class="fa fa-link"></span></a>takeUntil</h1>
 <p><code>Rx.Observable.prototype.takeUntil(other)</code>
@@ -4634,27 +4634,7 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence containing the elements of the source sequence up to the point the other sequence or Promise interrupted further propagation.    </p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.timer(<span class="hljs-number">0</span>, <span class="hljs-number">1000</span>)
-    .takeUntil(Rx.Observable.timer(<span class="hljs-number">5000</span>));
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 0</span>
-<span class="hljs-comment">// =&gt; Next: 1</span>
-<span class="hljs-comment">// =&gt; Next: 2</span>
-<span class="hljs-comment">// =&gt; Next: 3</span>
-<span class="hljs-comment">// =&gt; Next: 4</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<p><a href="http://jsbin.com/zahor/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
@@ -4719,6 +4699,10 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

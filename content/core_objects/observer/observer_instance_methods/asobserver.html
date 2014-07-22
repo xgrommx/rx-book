@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\..\..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.2.2.1" data-basepath="..\..\..\.." data-revision="1406047411665">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.2.2.1" data-basepath="..\..\..\.." data-revision="1406067254115">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_173">
+                    <section class="normal" id="section-gitbook_9136">
                     
                         <h1 id="asobserver"><a name="asobserver" class="plugin-anchor" href="#asobserver"><span class="fa fa-link"></span></a>asObserver</h1>
 <p><code>Rx.Observer.prototype.asObserver()</code>
@@ -4630,47 +4630,7 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: An observer that hides the identity of the specified observer.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SampleObserver</span> <span class="hljs-params">()</span> {</span>
-    Rx.Observer.call(<span class="hljs-keyword">this</span>);
-    <span class="hljs-keyword">this</span>.isStopped = <span class="hljs-literal">false</span>;
-}
-
-SampleObserver.prototype = <span class="hljs-built_in">Object</span>.create(Rx.Observer.prototype);
-SampleObserver.prototype.constructor = SampleObserver;
-
-<span class="hljs-built_in">Object</span>.defineProperties(SampleObserver.prototype, {
-    onNext: {
-        value: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isStopped) {
-                console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-            }
-        }
-    },
-    onError: {
-        value: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isStopped) {
-                <span class="hljs-keyword">this</span>.isStopped = <span class="hljs-literal">true</span>;
-                console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-            }
-        }
-    },
-    onCompleted: {
-        value: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isStopped) {
-                <span class="hljs-keyword">this</span>.isStopped = <span class="hljs-literal">true</span>;
-                console.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-            }
-        }
-    } 
-});
-
-<span class="hljs-keyword">var</span> sampleObserver = <span class="hljs-keyword">new</span> SampleObserver();
-
-<span class="hljs-keyword">var</span> source = sampleObserver.asObserver();
-
-console.log(source === sampleObserver);
-<span class="hljs-comment">// =&gt; false</span>
-</code></pre>
+<p><a href="http://jsbin.com/zivar/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
@@ -4710,6 +4670,10 @@ console.log(source === sampleObserver);
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

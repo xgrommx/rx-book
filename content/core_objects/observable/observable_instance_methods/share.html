@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\..\..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.70" data-basepath="..\..\..\.." data-revision="1406047411665">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.70" data-basepath="..\..\..\.." data-revision="1406067254115">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_95">
+                    <section class="normal" id="section-gitbook_9058">
                     
                         <h1 id="share"><a name="share" class="plugin-anchor" href="#share"><span class="fa fa-link"></span></a>share</h1>
 <p><code>Rx.Observable.prototype.share()</code>
@@ -4631,83 +4631,10 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* Without share */</span>
-<span class="hljs-keyword">var</span> interval = Rx.Observable.interval(<span class="hljs-number">1000</span>);
-
-<span class="hljs-keyword">var</span> source = interval
-    .take(<span class="hljs-number">2</span>)
-    .doAction(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> 
-        console.log(<span class="hljs-string">&apos;Side effect&apos;</span>);
-    });
-
-source.subscribe(createObserver(<span class="hljs-string">&apos;SourceA&apos;</span>));
-source.subscribe(createObserver(<span class="hljs-string">&apos;SourceB&apos;</span>));
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createObserver</span><span class="hljs-params">(tag)</span> {</span>
-    <span class="hljs-keyword">return</span> Rx.Observer.create(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-            console.log(<span class="hljs-string">&apos;Next: &apos;</span> + tag + x);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-            console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-            console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-        });
-}
-
-<span class="hljs-comment">// =&gt; Side effect</span>
-<span class="hljs-comment">// =&gt; Next: SourceA0 </span>
-<span class="hljs-comment">// =&gt; Side effect</span>
-<span class="hljs-comment">// =&gt; Next: SourceB0 </span>
-<span class="hljs-comment">// =&gt; Side effect</span>
-<span class="hljs-comment">// =&gt; Next: SourceA1 </span>
-<span class="hljs-comment">// =&gt; Completed</span>
-<span class="hljs-comment">// =&gt; Side effect</span>
-<span class="hljs-comment">// =&gt; Next: SourceB1 </span>
-<span class="hljs-comment">// =&gt; Completed  </span>
-
-<span class="hljs-comment">/* With share */</span>
-<span class="hljs-keyword">var</span> interval = Rx.Observable.interval(<span class="hljs-number">1000</span>);
-
-<span class="hljs-keyword">var</span> source = interval
-    .take(<span class="hljs-number">2</span>)
-    .do(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> 
-            console.log(<span class="hljs-string">&apos;Side effect&apos;</span>);
-        });
-
-<span class="hljs-keyword">var</span> published = source.share();
-
-<span class="hljs-comment">// When the number of observers subscribed to published observable goes from </span>
-<span class="hljs-comment">// 0 to 1, we connect to the underlying observable sequence.</span>
-published.subscribe(createObserver(<span class="hljs-string">&apos;SourceA&apos;</span>));
-<span class="hljs-comment">// When the second subscriber is added, no additional subscriptions are added to the</span>
-<span class="hljs-comment">// underlying observable sequence. As a result the operations that result in side </span>
-<span class="hljs-comment">// effects are not repeated per subscriber.</span>
-published.subscribe(createObserver(<span class="hljs-string">&apos;SourceB&apos;</span>));
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createObserver</span><span class="hljs-params">(tag)</span> {</span>
-    <span class="hljs-keyword">return</span> Rx.Observer.create(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-            console.log(<span class="hljs-string">&apos;Next: &apos;</span> + tag + x);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-            console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-            console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-        });
-}
-
-<span class="hljs-comment">// =&gt; Side effect </span>
-<span class="hljs-comment">// =&gt; Next: SourceA0 </span>
-<span class="hljs-comment">// =&gt; Next: SourceB0 </span>
-<span class="hljs-comment">// =&gt; Side effect </span>
-<span class="hljs-comment">// =&gt; Next: SourceA1 </span>
-<span class="hljs-comment">// =&gt; Next: SourceB1</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<h5 id="without-share"><a name="without-share" class="plugin-anchor" href="#without-share"><span class="fa fa-link"></span></a>Without share</h5>
+<p><a href="http://jsbin.com/copixu/1/embed?js,console" target="_blank"></a>  </p>
+<h5 id="with-share"><a name="with-share" class="plugin-anchor" href="#with-share"><span class="fa fa-link"></span></a>With share</h5>
+<p><a href="http://jsbin.com/nejiw/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
@@ -4774,6 +4701,10 @@ published.subscribe(createObserver(<span class="hljs-string">&apos;SourceB&apos;
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

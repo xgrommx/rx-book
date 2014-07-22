@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\..\..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.85" data-basepath="..\..\..\.." data-revision="1406047411665">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.85" data-basepath="..\..\..\.." data-revision="1406067254115">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_99">
+                    <section class="normal" id="section-gitbook_9061">
                     
                         <h1 id="single"><a name="single" class="plugin-anchor" href="#single"><span class="fa fa-link"></span></a>single</h1>
 <p><code>Rx.Observable.prototype.single([predicate], [thisArg])</code>
@@ -4640,76 +4640,14 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: Sequence containing the single element in the observable sequence that satisfies the condition in the predicate.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* No Match */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.empty()
-    .single();
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Error: Error: Sequence contains no elements.    </span>
-
-<span class="hljs-comment">/* Without a predicate */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.return(<span class="hljs-number">42</span>)
-    .single();
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 42</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-
-<span class="hljs-comment">/* With a predicate */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
-    .single(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, idx, obs)</span> {</span> <span class="hljs-keyword">return</span> x === <span class="hljs-number">1</span>; });
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 1</span>
-<span class="hljs-comment">// =&gt; Completed  </span>
-
-<span class="hljs-comment">/* More than one match */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
-    .single(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, idx, obs)</span> {</span> <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; });
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Error: Error: Sequence contains more than one element&apos;</span>
-</code></pre>
+<h5 id="no-match"><a name="no-match" class="plugin-anchor" href="#no-match"><span class="fa fa-link"></span></a>No Match</h5>
+<p><a href="http://jsbin.com/jonuso/1/embed?js,console" target="_blank"></a>    </p>
+<h5 id="without-a-predicate"><a name="without-a-predicate" class="plugin-anchor" href="#without-a-predicate"><span class="fa fa-link"></span></a>Without a predicate</h5>
+<p><a href="http://jsbin.com/hoceb/1/embed?js,console" target="_blank"></a></p>
+<h5 id="with-a-predicate"><a name="with-a-predicate" class="plugin-anchor" href="#with-a-predicate"><span class="fa fa-link"></span></a>With a predicate</h5>
+<p><a href="http://jsbin.com/gekak/1/embed?js,console" target="_blank"></a> </p>
+<h5 id="more-than-one-match"><a name="more-than-one-match" class="plugin-anchor" href="#more-than-one-match"><span class="fa fa-link"></span></a>More than one match</h5>
+<p><a href="http://jsbin.com/wuqel/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
@@ -4770,6 +4708,10 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

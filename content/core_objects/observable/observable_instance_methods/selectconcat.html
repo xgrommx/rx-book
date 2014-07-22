@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\..\..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.81" data-basepath="..\..\..\.." data-revision="1406047411665">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.81" data-basepath="..\..\..\.." data-revision="1406067254115">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_92">
+                    <section class="normal" id="section-gitbook_9053">
                     
                         <h1 id="selectconcat"><a name="selectconcat" class="plugin-anchor" href="#selectconcat"><span class="fa fa-link"></span></a>selectConcat</h1>
 <p><code>Rx.Observable.prototype.selectConcat(selector, [resultSelector])</code>
@@ -4647,59 +4647,10 @@ source.selectConcat(Promise.resolve(<span class="hljs-number">42</span>));
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence whose elements are the result of invoking the one-to-many transform function collectionSelector on each element of the input sequence and then mapping each of those sequence elements and their corresponding source element to a result element.   </p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>)
-    .selectConcat(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, i)</span> {</span>
-        <span class="hljs-keyword">return</span> Rx.Observable
-            .interval(<span class="hljs-number">100</span>)
-            .take(x).map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span> <span class="hljs-keyword">return</span> i; }); 
-    });
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 1 </span>
-<span class="hljs-comment">// =&gt; Next: 2 </span>
-<span class="hljs-comment">// =&gt; Next: 2 </span>
-<span class="hljs-comment">// =&gt; Next: 3 </span>
-<span class="hljs-comment">// =&gt; Next: 3 </span>
-<span class="hljs-comment">// =&gt; Next: 3 </span>
-<span class="hljs-comment">// =&gt; Next: 4 </span>
-<span class="hljs-comment">// =&gt; Next: 4 </span>
-<span class="hljs-comment">// =&gt; Next: 4 </span>
-<span class="hljs-comment">// =&gt; Next: 4 </span>
-<span class="hljs-comment">// =&gt; Completed </span>
-
-<span class="hljs-comment">/* Using a promise */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.fromArray([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>])
-    .selectConcat(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, i)</span> {</span>
-        <span class="hljs-keyword">return</span> Promise.resolve(x + i);
-    });
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 4</span>
-<span class="hljs-comment">// =&gt; Next: 4 </span>
-<span class="hljs-comment">// =&gt; Next: 4 </span>
-<span class="hljs-comment">// =&gt; Next: 4 </span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<h5 id="using-without-a-promise"><a name="using-without-a-promise" class="plugin-anchor" href="#using-without-a-promise"><span class="fa fa-link"></span></a>Using without a promise</h5>
+<p><a href="http://jsbin.com/qomiwi/1/embed?js,console" target="_blank"></a></p>
+<h5 id="using-a-promise"><a name="using-a-promise" class="plugin-anchor" href="#using-a-promise"><span class="fa fa-link"></span></a>Using a promise</h5>
+<p><a href="http://jsbin.com/yinibo/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
@@ -4761,6 +4712,10 @@ source.selectConcat(Promise.resolve(<span class="hljs-number">42</span>));
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

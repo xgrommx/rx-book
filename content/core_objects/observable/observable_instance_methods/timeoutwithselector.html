@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" manifest="..\..\..\../manifest.appcache">
+<html lang="en-US" >
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.111" data-basepath="..\..\..\.." data-revision="1406047411665">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.111" data-basepath="..\..\..\.." data-revision="1406067254115">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_124">
+                    <section class="normal" id="section-gitbook_9086">
                     
                         <h1 id="timeoutwithselector"><a name="timeoutwithselector" class="plugin-anchor" href="#timeoutwithselector"><span class="fa fa-link"></span></a>timeoutWithSelector</h1>
 <p><code>Rx.Observable.prototype.timeoutwithselector([firstTimeout], timeoutDurationSelector, [other])</code>
@@ -4636,106 +4636,12 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: The source sequence switching to the other sequence in case of a timeout.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* without a first timeout */</span>
-<span class="hljs-keyword">var</span> array = [
-    <span class="hljs-number">200</span>,
-    <span class="hljs-number">300</span>,
-    <span class="hljs-number">350</span>,
-    <span class="hljs-number">400</span>
-];
-
-<span class="hljs-keyword">var</span> source = Rx.Observable
-    .for(array, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        <span class="hljs-keyword">return</span> Rx.Observable.timer(x);
-    })
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, i)</span> {</span> <span class="hljs-keyword">return</span> i; })
-    .timeoutWithSelector(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> 
-        <span class="hljs-keyword">return</span> Rx.Observable.timer(<span class="hljs-number">400</span>); 
-    });
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 0 </span>
-<span class="hljs-comment">// =&gt; Next: 1 </span>
-<span class="hljs-comment">// =&gt; Next: 2 </span>
-<span class="hljs-comment">// =&gt; Error: Error: Timeout </span>
-
-<span class="hljs-comment">/* With no other */</span>
-<span class="hljs-keyword">var</span> array = [
-    <span class="hljs-number">200</span>,
-    <span class="hljs-number">300</span>,
-    <span class="hljs-number">350</span>,
-    <span class="hljs-number">400</span>
-];
-
-<span class="hljs-keyword">var</span> source = Rx.Observable
-    .for(array, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        <span class="hljs-keyword">return</span> Rx.Observable.timer(x);
-    })
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, i)</span> {</span> <span class="hljs-keyword">return</span> i; })
-    .timeoutWithSelector(Rx.Observable.timer(<span class="hljs-number">250</span>), <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> 
-        <span class="hljs-keyword">return</span> Rx.Observable.timer(<span class="hljs-number">400</span>); 
-    });
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 0 </span>
-<span class="hljs-comment">// =&gt; Next: 1 </span>
-<span class="hljs-comment">// =&gt; Next: 2 </span>
-<span class="hljs-comment">// =&gt; Error: Error: Timeout </span>
-
-<span class="hljs-comment">/* With other */</span>
-<span class="hljs-keyword">var</span> array = [
-    <span class="hljs-number">200</span>,
-    <span class="hljs-number">300</span>,
-    <span class="hljs-number">350</span>,
-    <span class="hljs-number">400</span>
-];
-
-<span class="hljs-keyword">var</span> source = Rx.Observable
-    .for(array, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        <span class="hljs-keyword">return</span> Rx.Observable.timer(x);
-    })
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, i)</span> {</span> <span class="hljs-keyword">return</span> i; })
-    .timeoutWithSelector(Rx.Observable.timer(<span class="hljs-number">250</span>), <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> 
-        <span class="hljs-keyword">return</span> Rx.Observable.timer(<span class="hljs-number">400</span>); 
-    }, Rx.Observable.return(<span class="hljs-number">42</span>));
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 0 </span>
-<span class="hljs-comment">// =&gt; Next: 1 </span>
-<span class="hljs-comment">// =&gt; Next: 2 </span>
-<span class="hljs-comment">// =&gt; Next: 42</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<h5 id="without-a-first-timeout"><a name="without-a-first-timeout" class="plugin-anchor" href="#without-a-first-timeout"><span class="fa fa-link"></span></a>Without a first timeout</h5>
+<p><a href="http://jsbin.com/jayez/1/embed?js,console" target="_blank"></a></p>
+<h5 id="with-no-other"><a name="with-no-other" class="plugin-anchor" href="#with-no-other"><span class="fa fa-link"></span></a>With no other</h5>
+<p><a href="http://jsbin.com/lezet/1/embed?js,console" target="_blank"></a></p>
+<h5 id="with-other"><a name="with-other" class="plugin-anchor" href="#with-other"><span class="fa fa-link"></span></a>With other</h5>
+<p><a href="http://jsbin.com/cuced/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
@@ -4796,6 +4702,10 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

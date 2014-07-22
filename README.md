@@ -31,31 +31,35 @@ To put it more concretely, if you know how to program against Arrays using the A
   <tr><th style="text-align:center;" colspan="2">Example code showing how similar high-order functions can be applied to an Array and an Observable</th></tr>
  </thead>
  <tbody>
-  <table>
+  <center>
+    <table>
+         <thead>
+           <tr><th style="text-align:center;">Iterable</th></tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td><pre><code>getDataFromLocalMemory()
+             .filter (function (s) { return s != null; })
+             .map( function (s) { return s + 'transformed'; })
+             .forEach(function (s) { console.log('next => '' + it); })</code></pre></td>
+           </tr>
+         </tbody>
+    </table>
+  </center> 
+  <center>
+    <table>
       <thead>
-        <tr><th style="text-align:center;">Iterable</th></tr>
+        <tr><th style="text-align:center;">Observable</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td><pre><code>getDataFromLocalMemory()
+          <td><pre><code>getDataFromNetwork()
           .filter (function (s) { return s != null; })
           .map( function (s) { return s + 'transformed'; })
-          .forEach(function (s) { console.log('next => '' + it); })</code></pre></td>
+          .subscribe(function (s) { console.log('next => '' + it); })</code></pre></td>
         </tr>
       </tbody>
-  </table>
-  <table>
-    <thead>
-      <tr><th style="text-align:center;">Observable</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><pre><code>getDataFromNetwork()
-        .filter (function (s) { return s != null; })
-        .map( function (s) { return s + 'transformed'; })
-        .subscribe(function (s) { console.log('next => '' + it); })</code></pre></td>
-      </tr>
-    </tbody>
-  </table>
+    </table>
+  </center>
  </tbody>
 </table></center>

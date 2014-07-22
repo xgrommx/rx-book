@@ -15,42 +15,15 @@ Returns an observable sequence containing a value that represents how many eleme
 *(`Observable`)*: An observable sequence containing a single element with a number that represents how many elements in the input sequence satisfy the condition in the predicate function if provided, else the count of items in the sequence.
 
 #### Example
-```js
-/* Without a predicate */
-var source = Rx.Observable.range(0, 10).count();
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// => Next: 10
-// => Completed 
+##### Without a predicate
 
-/* With a predicate */
-var source = Rx.Observable.range(0, 10)
-    .count(function (x) { return x % 2 === 0; });
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/xubalo/1/embed?js,console)
 
-// => Next: 5
-// => Completed 
-```
+##### With a predicate
+
+[](http://jsbin.com/vedid/1/embed?js,console)
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).aggregates.js

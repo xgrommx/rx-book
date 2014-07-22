@@ -9,28 +9,9 @@ Dematerializes the explicit notification values of an observable sequence as imp
 *(`Observable`)*: An observable sequence exhibiting the behavior corresponding to the source sequence's notification values.
   
 #### Example
-```js
-var source = Rx.Observable
-    .fromArray([
-        Rx.Notification.createOnNext(42),
-        Rx.Notification.createOnError(new Error('woops'))
-    ])
-    .dematerialize();
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// => Next: 42
-// => Error: Error: woops 
-```
+[](http://jsbin.com/yusem/1/embed?js,console)
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)

@@ -13,49 +13,15 @@ Returns an observable sequence that contains only distinct elements according to
 *(`Observable`)*: An observable sequence only containing the distinct elements, based on a computed key value, from the source sequence.
 
 #### Example
-```js
-/* Without key selector */
-var source = Rx.Observable.fromArray([
-        42, 24, 42, 24
-    ])
-    .distinct();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without key selector
 
-// => Next: 42
-// => Next: 24
-// => Completed 
+[](http://jsbin.com/feceye/1/embed?js,console)
 
-/* With key selector */
-var source = Rx.Observable.fromArray([
-        {value: 42}, {value: 24}, {value: 42}, {value: 24}
-    ])
-    .distinct(function (x) { return x.value; });
+##### With key selector
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/ducib/1/embed?js,console)
 
-// => Next: { value: 42 }
-// => Next: { value: 24 }
-// => Completed 
-```
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)

@@ -12,25 +12,9 @@ Attaches a controller to the observable sequence with the ability to queue.
 *(`Observable`)*: An observable sequence which can be used to request values from the sequence.
 
 #### Example
-```js
-var source = Rx.Observable.range(0, 10).controlled();
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-source.request(2);
+[](http://jsbin.com/liraw/1/embed?js,console)
 
-// => Next: 0
-// => Next: 1 
-```
 ### Location
 
 File:

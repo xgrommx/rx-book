@@ -12,41 +12,15 @@ Returns the elements of the specified sequence or the specified value in a singl
 *(`Observable`)*: An observable sequence that contains the specified default value if the source is empty; otherwise, the elements of the source itself. 
   
 #### Example
-```js
-/* Without a default value */
-var source = Rx.Observable.empty().defaultValue();
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// => Next: null
-// => Completed 
+##### Without a default value
 
-/* With a defaultValue */
-var source = Rx.Observable.empty().defaultValue(false);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/woxed/1/embed?js,console)
 
-// => Next: false
-// => Completed 
-```
+##### With a defaultValue
+
+[](http://jsbin.com/yezodu/1/embed?js,console)
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)

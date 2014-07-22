@@ -28,12 +28,12 @@ To put it more concretely, if you know how to program against Arrays using the A
 
 <center><table>
  <thead>
-  <tr><th colspan="2">Example code showing how similar high-order functions can be applied to an Array and an Observable</th></tr>
+  <tr><th style="text-align:center;" colspan="2">Example code showing how similar high-order functions can be applied to an Array and an Observable</th></tr>
  </thead>
  <tbody>
   <table>
       <thead>
-        <tr><th>Iterable</th></tr>
+        <tr><th style="text-align:center;">Iterable</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -46,7 +46,7 @@ To put it more concretely, if you know how to program against Arrays using the A
   </table>
   <table>
     <thead>
-      <tr><th>Observable</th></tr>
+      <tr><th style="text-align:center;">Observable</th></tr>
     </thead>
     <tbody>
       <tr>

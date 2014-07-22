@@ -1,7 +1,5 @@
 # sequenceEqual
 
-# shareValue
-
 `Rx.Observable.prototype.sequenceEqual(second, [comparer])`
 <a href="#rxobservableprototypesequenceequalsecond-comparer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sequenceequal.js "View in source") 
 
@@ -15,26 +13,8 @@ Determines whether two sequences are equal by comparing the elements pairwise us
 *(`Observable`)*: An observable sequence that contains a single element which indicates whether both sequences are of equal length and their corresponding elements are equal according to the specified equality comparer.   
 
 #### Example
-```js
-var source1 = Rx.Observable.return(42);
-var source2 = Rx.Observable.return(42);
 
-var source = source1.sequenceEqual(source2);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: true
-// => Completed 
-```
+[](http://jsbin.com/feyos/1/embed?js,console)
 
 ### Location
 

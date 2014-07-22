@@ -14,25 +14,8 @@ This operator accumulates a queue with a length enough to store the first `count
 *(`Observable`)*: An observable sequence containing the source sequence elements except for the bypassed ones at the end.   
   
 #### Example
-```js
-var source = Rx.Observable.range(0, 5)
-    .skipLast(3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0
-// => Next: 1
-// => Completed 
-```
+[](http://jsbin.com/dawusu/1/embed?js,console)
 
 ### Location
 

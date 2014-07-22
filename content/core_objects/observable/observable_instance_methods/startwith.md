@@ -13,27 +13,8 @@ Prepends a sequence of values to an observable sequence with an optional schedul
 *(`Observable`)*: The source sequence prepended with the specified values.
 
 #### Example
-```js
-var source = Rx.Observable.return(4)
-    .startWith(1, 2, 3)
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1
-// => Next: 2
-// => Next: 3
-// => Next: 4
-// => Completed 
-```
+[](http://jsbin.com/beqot/1/embed?js,console)
 
 ### Location
 

@@ -16,62 +16,8 @@ This operator is a specialization of `replay` that connects to the connectable o
 *(`Observable`)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.
 
 #### Example
-```js
-var interval = Rx.Observable.interval(1000);
 
-var source = interval
-    .take(4)
-    .doAction(function (x) { 
-        console.log('Side effect');
-    });
- 
-var published = source
-    .shareReplay(3);
- 
-published.subscribe(createObserver('SourceA'));
-published.subscribe(createObserver('SourceB'));
-
-// Creating a third subscription after the previous two subscriptions have 
-// completed. Notice that no side effects result from this subscription, 
-// because the notifications are cached and replayed. 
-Rx.Observable
-    .return(true)
-    .delay(6000)
-    .flatMap(published)
-    .subscribe(createObserver('SourceC'));
-    
-function createObserver(tag) {
-    return Rx.Observer.create(
-        function (x) {
-            console.log('Next: ' + tag + x);
-        },
-        function (err) {
-            console.log('Error: ' + err);   
-        },
-        function () {
-            console.log('Completed');   
-        });
-}
-
-// => Side effect
-// => Next: SourceA0
-// => Next: SourceB0
-// => Side effect
-// => Next: SourceA1
-// => Next: SourceB1
-// => Side effect
-// => Next: SourceA2
-// => Next: SourceB2
-// => Side effect
-// => Next: SourceA3
-// => Next: SourceB3
-// => Completed
-// => Completed
-// => Next: SourceC1
-// => Next: SourceC2
-// => Next: SourceC3
-// => Completed 
-```
+[](http://jsbin.com/cihow/1/embed?js,console)
 
 ### Location
 

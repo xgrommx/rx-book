@@ -12,25 +12,8 @@ Bypasses a specified number of elements in an observable sequence and then retur
 *(`Observable`)*: An observable sequence that contains the elements that occur after the specified index in the input sequence.   
 
 #### Example
-```js
-var source = Rx.Observable.range(0, 5)
-    .skip(3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 3
-// => Next: 4
-// => Completed 
-```
+[](http://jsbin.com/povos/1/embed?js,console)
 
 ### Location
 

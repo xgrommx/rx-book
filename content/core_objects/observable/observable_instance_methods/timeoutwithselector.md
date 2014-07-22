@@ -14,107 +14,18 @@ Returns the source observable sequence, switching to the other observable sequen
 *(`Observable`)*: The source sequence switching to the other sequence in case of a timeout.
 
 #### Example
-```js
-/* without a first timeout */
-var array = [
-    200,
-    300,
-    350,
-    400
-];
 
-var source = Rx.Observable
-    .for(array, function (x) {
-        return Rx.Observable.timer(x);
-    })
-    .map(function (x, i) { return i; })
-    .timeoutWithSelector(function (x) { 
-        return Rx.Observable.timer(400); 
-    });
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without a first timeout
 
-// => Next: 0 
-// => Next: 1 
-// => Next: 2 
-// => Error: Error: Timeout 
+[](http://jsbin.com/jayez/1/embed?js,console)
 
-/* With no other */
-var array = [
-    200,
-    300,
-    350,
-    400
-];
+##### With no other
 
-var source = Rx.Observable
-    .for(array, function (x) {
-        return Rx.Observable.timer(x);
-    })
-    .map(function (x, i) { return i; })
-    .timeoutWithSelector(Rx.Observable.timer(250), function (x) { 
-        return Rx.Observable.timer(400); 
-    });
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/lezet/1/embed?js,console)
 
-// => Next: 0 
-// => Next: 1 
-// => Next: 2 
-// => Error: Error: Timeout 
+##### With other
 
-/* With other */
-var array = [
-    200,
-    300,
-    350,
-    400
-];
-
-var source = Rx.Observable
-    .for(array, function (x) {
-        return Rx.Observable.timer(x);
-    })
-    .map(function (x, i) { return i; })
-    .timeoutWithSelector(Rx.Observable.timer(250), function (x) { 
-        return Rx.Observable.timer(400); 
-    }, Rx.Observable.return(42));
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0 
-// => Next: 1 
-// => Next: 2 
-// => Next: 42
-// => Completed
-```
+[](http://jsbin.com/cuced/1/embed?js,console)
 
 ### Location
 

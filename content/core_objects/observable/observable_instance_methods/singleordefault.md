@@ -17,43 +17,14 @@ Returns the first element of an observable sequence that satisfies the condition
 *(`Observable`)*: An observable sequence that contains elements from the input sequence that satisfy the condition.  
 
 #### Example
-```js
-/* Without a predicate but default value */
-var source = Rx.Observable.empty()
-    .singleOrDefault(null, 42);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without a predicate but default value
 
-// => Next: 42
-// => Completed
+[](http://jsbin.com/rebuh/1/embed?js,console)
 
-/* With a predicate */
-var source = Rx.Observable.range(0, 10)
-    .singleOrDefault(function (x, idx, obs) { return x ===  1; }, 0);
+##### With a predicate
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 1
-// => Completed  
-```
+[](http://jsbin.com/giqun/1/embed?js,console)
 
 ### Location
 

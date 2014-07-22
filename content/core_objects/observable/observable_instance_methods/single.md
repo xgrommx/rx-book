@@ -16,77 +16,22 @@ Returns the only element of an observable sequence that satisfies the condition 
 *(`Observable`)*: Sequence containing the single element in the observable sequence that satisfies the condition in the predicate.
 
 #### Example
-```js
-/* No Match */
-var source = Rx.Observable.empty()
-    .single();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### No Match
 
-// => Error: Error: Sequence contains no elements.    
+[](http://jsbin.com/jonuso/1/embed?js,console)    
 
-/* Without a predicate */
-var source = Rx.Observable.return(42)
-    .single();
+##### Without a predicate
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/hoceb/1/embed?js,console)
 
-// => Next: 42
-// => Completed
+##### With a predicate
 
-/* With a predicate */
-var source = Rx.Observable.range(0, 10)
-    .single(function (x, idx, obs) { return x === 1; });
+[](http://jsbin.com/gekak/1/embed?js,console) 
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### More than one match
 
-// => Next: 1
-// => Completed  
-
-/* More than one match */
-var source = Rx.Observable.range(0, 10)
-    .single(function (x, idx, obs) { return x % 2 === 0; });
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Error: Error: Sequence contains more than one element'
-```
+[](http://jsbin.com/wuqel/1/embed?js,console)
 
 ### Location
 

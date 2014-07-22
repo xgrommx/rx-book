@@ -12,30 +12,8 @@ Records the time interval between consecutive values in an observable sequence.
 *(`Observable`)*: An observable sequence with time interval information on values.
 
 #### Example
-```js
-var source = Rx.Observable.timer(0, 1000)
-    .timeInterval()
-    .map(function (x) { return x.value + ':' + x.interval; })
-    .take(5);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// => Next: 0:0
-// => Next: 1:1000
-// => Next: 2:1000
-// => Next: 3:1000
-// => Next: 4:1000
-// => Completed    
-```
+[](http://jsbin.com/ragoq/1/embed?js,console)
 
 ### Location
 

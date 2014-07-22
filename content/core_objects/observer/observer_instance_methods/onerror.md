@@ -9,22 +9,8 @@ Notifies the observer that an exception has occurred.
 1. `error` *(Any)*: The error that has occurred. 
 
 #### Example
-```js
-var observer = Rx.Observer.create(
-    function (x) {
-        console.log('Next: ' + x)
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    }
-);
 
-observer.onError(new Error('error!!'));
-// => Error: Error: error!!
-```
+[](http://jsbin.com/nulan/1/embed?js,console)
 
 ### Location
 

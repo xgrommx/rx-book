@@ -14,39 +14,8 @@ This only performs the side-effects of subscription and unsubscription on the sp
 *(`Observable`)*: The source sequence whose observations happen on the specified scheduler. 
  
 #### Example
-```js
-var observable = Rx.Observable.create(function (observer) {
-    function handler () {
-        observer.onNext(42);
-        observer.onCompleted();
-    }
 
-    // Change scheduler for here
-    var id = setTimeout(handler, 1000);
-
-    return function () {
-        // And change scheduler for here
-        if (id) clearTimeout(id);
-    };
-});
-
-// Change the scheduler to timeout for subscribe/unsubscribe
-var source = observable.subscribeOn(Rx.Scheduler.timeout);
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42
-// => Completed   
-```
+[](http://jsbin.com/socik/1/embed?js,console)
 
 ### Location
 

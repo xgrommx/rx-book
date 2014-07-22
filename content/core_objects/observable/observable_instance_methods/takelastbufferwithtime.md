@@ -15,26 +15,8 @@ This operator accumulates a queue with a length enough to store elements receive
 *(`Observable`)*: An observable sequence containing a single array with the elements taken during the specified duration from the end of the source sequence.
  
 #### Example
-```js
-var source = Rx.Observable
-    .timer(0, 1000)
-    .take(10)
-    .takeLastBufferWithTime(5000);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// => Next: 5,6,7,8,9
-// => Completed 
-```
+[](http://jsbin.com/komepa/1/embed?js,console)
 
 ### Location
 

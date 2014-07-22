@@ -15,55 +15,18 @@ Prepends a sequence of values to an observable sequence with an optional schedul
 *(Disposable)*:  The source sequence whose subscriptions and unsubscriptions happen on the specified scheduler. 
 
 #### Example
-```js
-/* With no arguments */
-var source = Rx.Observable.range(0, 3)
-    .do(function (x) { console.log('Do Next: ' + x); });
 
-var subscription = source.subscribe();
+##### With no arguments
 
-// => Do Next: 0
-// => Do Next: 1
-// => Do Next: 2
+[](http://jsbin.com/zepugu/1/embed?js,console)
 
-/* With an observer */
-var observer = Rx.Observer.create(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### With an observer
 
-var source = Rx.Observable.range(0, 3)
+[](http://jsbin.com/jegup/1/embed?js,console)
 
-var subscription = source.subscribe(observer);
+##### Using functions
 
-// => Next: 0
-// => Next: 1
-// => Next: 2
-
-/* Using functions */
-var source = Rx.Observable.range(0, 3)
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0
-// => Next: 1
-// => Next: 2
-```
+[](http://jsbin.com/kafij/1/embed?js,console)
 
 ### Location
 

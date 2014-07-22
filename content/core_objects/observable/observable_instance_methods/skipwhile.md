@@ -16,27 +16,8 @@ Bypasses elements in an observable sequence as long as a specified condition is 
 *(`Observable`)*: An observable sequence that contains the elements from the input sequence starting at the first element in the linear series that does not pass the test specified by predicate.   
  
 #### Example
-```js
-// With a predicate
-var source = Rx.Observable.range(1, 5)
-    .skipWhile(function (x) { return x < 3; });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 3
-// => Next: 4
-// => Next: 5
-// => Completed 
-```
+[](http://jsbin.com/qalov/1/embed?js,console)
 
 ### Location
 

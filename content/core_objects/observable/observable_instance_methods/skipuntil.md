@@ -12,26 +12,8 @@ Returns the values from the source observable sequence only after the other obse
 *(`Observable`)*: An observable sequence containing the elements of the source sequence starting from the point the other sequence triggered propagation.    
 
 #### Example
-```js
-var source = Rx.Observable.timer(0, 1000)
-    .skipUntil(Rx.Observable.timer(5000));
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 6
-// => Next: 7
-// => Next: 8
-// => Completed 
-```
+[](http://jsbin.com/senon/1/embed?js,console)
 
 ### Location
 

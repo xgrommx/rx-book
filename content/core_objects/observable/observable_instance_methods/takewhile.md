@@ -16,27 +16,8 @@ Returns elements from an observable sequence as long as a specified condition is
 *(`Observable`)*: An observable sequence that contains the elements from the input sequence that occur before the element at which the test no longer passes.  
     
 #### Example
-```js
-// With a predicate
-var source = Rx.Observable.range(1, 5)
-    .takeWhile(function (x) { return x < 3; });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0
-// => Next: 1
-// => Next: 2
-// => Completed 
-```
+[](http://jsbin.com/lopiv/1/embed?js,console)
 
 ### Location
 

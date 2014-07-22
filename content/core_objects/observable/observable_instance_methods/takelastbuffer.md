@@ -12,24 +12,8 @@ Returns an array with the specified number of contiguous elements from the end o
 *(`Observable`)*: An observable sequence containing a single array with the specified number of elements from the end of the source sequence.
      
 #### Example
-```js
-var source = Rx.Observable.range(0, 5)
-    .takeLastBuffer(3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 2,3,4
-// => Completed 
-```
+[](http://jsbin.com/kafiv/1/embed?js,console)
 
 ### Location
 

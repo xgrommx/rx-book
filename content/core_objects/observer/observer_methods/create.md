@@ -14,26 +14,8 @@ Creates an observer from the specified `onNext`, `onError`, and `onCompleted` ac
 *(Observer)*: The observer object implemented using the given actions.
 
 #### Example
-```js
-var source = Rx.Observable.return(42);
 
-var observer = Rx.Observer.create(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    }
-);
-
-var subscription = source.subscribe(observer);
-
-// => Next: 42
-// => Completed
-```
+[](http://jsbin.com/banep/1/embed?js,console)
 
 ### Location
 

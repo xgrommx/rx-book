@@ -12,30 +12,8 @@ Records the timestamp for each value in an observable sequence.
 *(`Observable`)*: An observable sequence with timestamp information on values.
 
 #### Example
-```js
-var source = Rx.Observable.timer(0, 1000)
-    .timestamp()
-    .map(function (x) { return x.value + ':' + x.timestamp; })
-    .take(5);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// => Next: 0:1378690776351
-// => Next: 1:1378690777313
-// => Next: 2:1378690778316
-// => Next: 3:1378690779317
-// => Next: 4:1378690780319
-// => Completed
-```
+[](http://jsbin.com/kadup/1/embed?js,console)
 
 ### Location
 

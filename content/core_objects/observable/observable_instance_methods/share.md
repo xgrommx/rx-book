@@ -11,84 +11,14 @@ This operator is a specialization of `publish` which creates a subscription when
 *(`Observable`)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence.
    
 #### Example
-```js
-/* Without share */
-var interval = Rx.Observable.interval(1000);
 
-var source = interval
-    .take(2)
-    .doAction(function (x) { 
-        console.log('Side effect');
-    });
- 
-source.subscribe(createObserver('SourceA'));
-source.subscribe(createObserver('SourceB'));
- 
-function createObserver(tag) {
-    return Rx.Observer.create(
-        function (x) {
-            console.log('Next: ' + tag + x);
-        },
-        function (err) {
-            console.log('Error: ' + err);   
-        },
-        function () {
-            console.log('Completed');   
-        });
-}
+##### Without share
 
-// => Side effect
-// => Next: SourceA0 
-// => Side effect
-// => Next: SourceB0 
-// => Side effect
-// => Next: SourceA1 
-// => Completed
-// => Side effect
-// => Next: SourceB1 
-// => Completed  
+[](http://jsbin.com/copixu/1/embed?js,console)  
 
-/* With share */
-var interval = Rx.Observable.interval(1000);
-
-var source = interval
-    .take(2)
-    .do(
-        function (x) { 
-            console.log('Side effect');
-        });
- 
-var published = source.share();
- 
-// When the number of observers subscribed to published observable goes from 
-// 0 to 1, we connect to the underlying observable sequence.
-published.subscribe(createObserver('SourceA'));
-// When the second subscriber is added, no additional subscriptions are added to the
-// underlying observable sequence. As a result the operations that result in side 
-// effects are not repeated per subscriber.
-published.subscribe(createObserver('SourceB'));
-
-function createObserver(tag) {
-    return Rx.Observer.create(
-        function (x) {
-            console.log('Next: ' + tag + x);
-        },
-        function (err) {
-            console.log('Error: ' + err);   
-        },
-        function () {
-            console.log('Completed');   
-        });
-}
-
-// => Side effect 
-// => Next: SourceA0 
-// => Next: SourceB0 
-// => Side effect 
-// => Next: SourceA1 
-// => Next: SourceB1
-// => Completed    
-```
+##### With share
+    
+[](http://jsbin.com/nejiw/1/embed?js,console)
 
 ### Location
 

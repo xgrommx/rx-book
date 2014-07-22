@@ -9,25 +9,8 @@ Creates a list from an observable sequence.
 *(`Observable`)*: An observable sequence containing a single element with a list containing all the elements of the source sequence.  
 
 #### Example
-```js
-var source = Rx.Observable.timer(0, 1000)
-    .take(5)
-    .toArray();
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// => Next: [0,1,2,3,4]
-// => Completed
-```
+[](http://jsbin.com/cobaq/1/embed?js,console)
 
 ### Location
 

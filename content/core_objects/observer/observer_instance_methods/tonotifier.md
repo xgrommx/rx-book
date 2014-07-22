@@ -9,29 +9,8 @@ Creates a notification callback from an observer.
 *(Function)*: The function that forwards its input notification to the underlying observer.
 
 #### Example
-```js
-var observer = Rx.Observer.create(
-    function (x) {
-        console.log('Next: ' + x)
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    }
-);
 
-var notifier = observer.toNotifier();
-
-// Invoke with onNext
-notifier(Rx.Notification.createOnNext(42));
-// => Next: 42
-
-// Invoke with onCompleted
-notifier(Rx.Notification.createOnCompleted());
-// => Completed
-```
+[](http://jsbin.com/cugigu/1/embed?js,console)
 
 ### Location
 

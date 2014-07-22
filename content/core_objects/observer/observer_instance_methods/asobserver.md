@@ -9,48 +9,8 @@ Hides the identity of an observer.
 *(Observer)*: An observer that hides the identity of the specified observer.
 
 #### Example
-```js
-function SampleObserver () {
-    Rx.Observer.call(this);
-    this.isStopped = false;
-}
 
-SampleObserver.prototype = Object.create(Rx.Observer.prototype);
-SampleObserver.prototype.constructor = SampleObserver;
-
-Object.defineProperties(SampleObserver.prototype, {
-    onNext: {
-        value: function (x) {
-            if (!this.isStopped) {
-                console.log('Next: ' + x);
-            }
-        }
-    },
-    onError: {
-        value: function (err) {
-            if (!this.isStopped) {
-                this.isStopped = true;
-                console.log('Error: ' + err);
-            }
-        }
-    },
-    onCompleted: {
-        value: function () {
-            if (!this.isStopped) {
-                this.isStopped = true;
-                console.log('Completed');
-            }
-        }
-    } 
-});
-
-var sampleObserver = new SampleObserver();
-
-var source = sampleObserver.asObserver();
-
-console.log(source === sampleObserver);
-// => false
-```
+[](http://jsbin.com/zivar/1/embed?js,console)
 
 ### Location
 

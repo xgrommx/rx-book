@@ -6,22 +6,8 @@
 Notifies the observer of the end of the sequence.
 
 #### Example
-```js
-var observer = Rx.Observer.create(
-    function (x) {
-        console.log('Next: ' + x)
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    }
-);
 
-observer.onCompleted();
-// => Completed
-```
+[](http://jsbin.com/yuqade/1/embed?js,console)
 
 ### Location
 

@@ -14,26 +14,8 @@ This operator accumulates a buffer with a length enough to store elements count 
 *(`Observable`)*: An observable sequence containing the source sequence elements except for the bypassed ones at the end.   
   
 #### Example
-```js
-var source = Rx.Observable.range(0, 5)
-    .takeLast(3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 2
-// => Next: 3
-// => Next: 4
-// => Completed 
-```
+[](http://jsbin.com/pulit/1/embed?js,console)
 
 ### Location
 

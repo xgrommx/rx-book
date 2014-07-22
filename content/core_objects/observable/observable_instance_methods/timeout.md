@@ -14,45 +14,14 @@ Returns the source observable sequence or the other observable sequence if dueTi
 *(`Observable`)*: An observable sequence with time interval information on values.
 
 #### Example
-```js
-/* With no other */
-var source = Rx.Observable
-    .return(42)
-    .delay(5000)
-    .timeout(200);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// => Error: Error: Timeout
+##### With no other
 
-/* With another */
-var source = Rx.Observable
-    .return(42)
-    .delay(5000)
-    .timeout(200, Rx.Observable.empty());
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/vorogi/1/embed?js,console)
 
-// => Completed
-```
+##### With another
+
+[](http://jsbin.com/lobar/1/embed?js,console)
 
 ### Location
 

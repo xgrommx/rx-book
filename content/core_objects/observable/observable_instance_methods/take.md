@@ -13,26 +13,8 @@ Returns a specified number of contiguous elements from the start of an observabl
 *(`Observable`)*: An observable sequence that contains the elements that occur after the specified index in the input sequence.   
 
 #### Example
-```js
-var source = Rx.Observable.range(0, 5)
-    .take(3);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0
-// => Next: 1
-// => Next: 2
-// => Completed 
-```
+[](http://jsbin.com/ticoya/1/embed?js,console)
 
 ### Location
 

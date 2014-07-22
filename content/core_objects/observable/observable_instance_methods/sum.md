@@ -15,52 +15,14 @@ Computes the sum of a sequence of values that are obtained by invoking an option
 *(`Observable`)*: An observable sequence containing a single element with the sum of the values in the source sequence.
  
 #### Example
-```js
-/* Without a selector */
-var source = Rx.Observable.range(1, 10)
-    .sum();
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Without a selector
 
-// => Next: 55
-// => Completed  
+[](http://jsbin.com/cunac/1/embed?js,console)
 
-/* With a selector */
-var array = [
-    { value: 1 },
-    { value: 2 },
-    { value: 3 }
-];
+##### With a selector
 
-var source = Rx.Observable
-    .fromArray(array)
-    .sum(function (x, idx, obs) {
-        return x.value;
-    });
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 6
-// => Completed 
-```
+[](http://jsbin.com/jelice/1/embed?js,console)
 
 ### Location
 

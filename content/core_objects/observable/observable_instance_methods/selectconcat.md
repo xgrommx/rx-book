@@ -34,60 +34,14 @@ source.selectConcat(Promise.resolve(42));
 *(`Observable`)*: An observable sequence whose elements are the result of invoking the one-to-many transform function collectionSelector on each element of the input sequence and then mapping each of those sequence elements and their corresponding source element to a result element.   
 
 #### Example
-```js
-var source = Rx.Observable.range(0, 5)
-    .selectConcat(function (x, i) {
-        return Rx.Observable
-            .interval(100)
-            .take(x).map(function() { return i; }); 
-    });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Using without a promise
 
-// => Next: 1 
-// => Next: 2 
-// => Next: 2 
-// => Next: 3 
-// => Next: 3 
-// => Next: 3 
-// => Next: 4 
-// => Next: 4 
-// => Next: 4 
-// => Next: 4 
-// => Completed 
+[](http://jsbin.com/qomiwi/1/embed?js,console)
 
-/* Using a promise */
-var source = Rx.Observable.fromArray([1,2,3,4])
-    .selectConcat(function (x, i) {
-        return Promise.resolve(x + i);
-    });
+##### Using a promise
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 4
-// => Next: 4 
-// => Next: 4 
-// => Next: 4 
-// => Completed    
-```
+[](http://jsbin.com/yinibo/1/embed?js,console)
 
 ### Location
 

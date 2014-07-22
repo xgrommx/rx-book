@@ -25,80 +25,18 @@ Rx.Observable.prototype.window(windowBoundaries);
 *(`Observable`)*: An observable sequence of windows.
 
 #### Example
-```js
-/* With window boundaries */
-var openings = Rx.Observable.interval(500);
 
-// Convert the window to an array
-var source = Rx.Observable.timer(0, 100)
-    .window(openings)
-    .take(3)
-    .selectMany(function (x) { return x.toArray(); });
+##### With window boundaries
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/kuqake/1/embed?js,console)  
 
-// => Next: 0,1,2,3,4 
-// => Next: 5,6,7,8,9,10 
-// => Next: 11,12,13,14,15 
-// => Completed  
+##### With window opening and window closing selector
 
-/* With window opening and window closing selector */
-var win = 0;
+[](http://jsbin.com/maloda/1/embed?js,console)
 
-var source = Rx.Observable.timer(0, 50)
-    .window(function () { return Rx.Observable.timer((++win) * 100); })
-    .take(3)
-    .selectMany(function (x) { return x.toArray(); });
+##### With openings and closings
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0,1,2 
-// => Next: 3,4,5,6 
-// => Next: 7,8,9,10,11,12 
-// => Completed 
-
-/* With openings and closings */
-var openings = Rx.Observable.timer(0, 200);
-
-var source = Rx.Observable.timer(0, 50)
-    .window(openings, function (x) { return Rx.Observable.timer(x + 100); })
-    .take(3)
-    .selectMany(function (x) { return x.toArray(); });
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x.toString());
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0,1,2 
-// => Next: 4,5 
-// => Next: 8,9 
-// => Completed 
-```
+[](http://jsbin.com/sequx/1/embed?js,console)
 
 ### Location
 

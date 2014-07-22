@@ -14,29 +14,8 @@ Returns elements within the specified duration from the end of the observable so
 *(`Observable`)*: An observable sequence with the elements taken during the specified duration from the end of the source sequence.
     
 #### Example
-```js
-var source = Rx.Observable.timer(0, 1000)
-    .take(10)
-    .takeLastWithTime(5000);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// => Next: 5
-// => Next: 6
-// => Next: 7
-// => Next: 8
-// => Next: 9
-// => Completed 
-```
+[](http://jsbin.com/liwori/1/embed?js,console)
 
 ### Location
 

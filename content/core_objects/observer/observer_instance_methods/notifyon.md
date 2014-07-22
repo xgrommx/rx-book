@@ -12,25 +12,8 @@ Schedules the invocation of observer methods on the given scheduler.
 *(Observer)*: Observer whose messages are scheduled on the given scheduler.
  
 #### Example
-```js
-var observer = Rx.Observer.create(
-    function (x) {
-        console.log('Next: ' + x)
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    }
-);
 
-// Notify on timeout scheduler
-var timeoutObserver = observer.notifyOn(Rx.Scheduler.timeout);
-
-timeoutObserver.onNext(42);
-// => Next: 42
-```
+[](http://jsbin.com/quwavu/1/embed?js,console)
 
 ### Location
 

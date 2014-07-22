@@ -15,60 +15,14 @@ The last element in the arguments must be a function to invoke for each series o
 *(`Observable`)*: An observable sequence containing the result of combining elements of the sources using the specified result selector function. 
 
 #### Example
-```js
-/* Using arguments */
-var range = Rx.Observable.range(0, 5);
 
-var source = range.zip(
-    range.skip(1), 
-    range.skip(2), 
-    function (s1, s2, s3) {
-        return s1 + ':' + s2 + ':' + s3;
-    }
-);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Using arguments
 
-// => Next: 0:1:2
-// => Next: 1:2:3
-// => Next: 2:3:4
-// => Completed
+[](http://jsbin.com/pijaho/1/embed?js,console)
 
-/* Using an array */
-var array = [3, 4, 5];
+##### Using an array
 
-var source = Rx.Observable.range(0, 3)
-    .zip(
-        array,
-        function (s1, s2) {
-            return s1 + ':' + s2;
-        });
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0:3
-// => Next: 1:4
-// => Next: 2:5
-// => Completed
-```
+[](http://jsbin.com/wazuha/1/embed?js,console)
 
 ### Location
 

@@ -11,44 +11,8 @@ This operator is a specialization of `publishValue` which creates a subscription
 *(`Observable`)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence.
  
 #### Example
-```js
-var interval = Rx.Observable.interval(1000);
 
-var source = interval
-    .take(2)
-    .doAction(function (x) { 
-        console.log('Side effect');
-    });
- 
-var published = source.shareValue(42);
- 
-published.subscribe(createObserver('SourceA'));
-published.subscribe(createObserver('SourceB'));
-
-function createObserver(tag) {
-    return Rx.Observer.create(
-        function (x) {
-            console.log('Next: ' + tag + x);
-        },
-        function (err) {
-            console.log('Error: ' + err);   
-        },
-        function () {
-            console.log('Completed');   
-        });
-}
-
-// => Next: SourceA42 
-// => Next: SourceB42 
-// => Side effect
-// => Next: SourceA0 
-// => Next: SourceB0 
-// => Side effect
-// => Next: SourceA1 
-// => Next: SourceB1 
-// => Completed 
-// => Completed     
-```
+[](http://jsbin.com/pebufu/1/embed?js,console)
 
 ### Location
 

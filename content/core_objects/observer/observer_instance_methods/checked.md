@@ -11,30 +11,8 @@ If a violation is detected, an Error is thrown from the offending observer metho
 *(Observer)*: An observer that checks callbacks invocations against the observer grammar and, if the checks pass, forwards those to the specified observer.
  
 #### Example
-```js
-var observer = Rx.Observer.create(
-    function (x) {
-        console.log('Next: ' + x)
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    }
-);
 
-var checked = observer.checked();
-
-checked.onNext(42);
-// => Next: 42
-
-checked.onCompleted();
-// => Completed
-
-// Throws Error('Observer completed')
-checked.onNext(42);
-```
+[](http://jsbin.com/vikam/1/embed?js,console)
 
 ### Location
 

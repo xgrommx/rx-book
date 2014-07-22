@@ -9,22 +9,8 @@ Notifies the observer of a new element in the sequence.
 1. `value` *(Any)*: Next element in the sequence. 
 
 #### Example
-```js
-var observer = Rx.Observer.create(
-    function (x) {
-        console.log('Next: ' + x)
-    },
-    function (err) {
-        console.log('Error: ' + err);
-    },
-    function () {
-        console.log('Completed');
-    }
-);
 
-observer.onNext(42);
-// => Next: 42
-```
+[](http://jsbin.com/navivu/1/embed?js,console)
 
 ### Location
 

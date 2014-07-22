@@ -15,28 +15,8 @@ This operator accumulates a queue with a length enough to store the first `count
 *(`Observable`)*: An observable sequence with the elements skipped during the specified duration from the end of the source sequence.
  
 #### Example
-```js
-var source = Rx.Observable.timer(0, 1000)
-    .take(10)
-    .skipLastWithTime(5000);
-    
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
 
-// => Next: 0
-// => Next: 1
-// => Next: 3
-// => Next: 4
-// => Completed 
-```
+[](http://jsbin.com/tiyedi/1/embed?js,console)
 
 ### Location
 

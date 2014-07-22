@@ -14,77 +14,15 @@ Projects each element of an observable sequence into zero or more buffers which 
 *(`Observable`)*: An observable sequence of buffers. 
 
 #### Example
-```js
-/* Without a skip */
-var source = Rx.Observable.interval(100)
-    .windowWithTime(500)
-    .take(3);
 
-var subscription = source.subscribe(
-    function (child) {
+##### Without a skip
 
-        child.toArray().subscribe(
-            function (x) {
-                console.log('Child Next: ' + x.toString());
-            },
-            function (err) {
-                console.log('Child Error: ' + err);   
-            },
-            function () {
-                console.log('Child Completed');   
-            }
-        );
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/zuyuki/1/embed?js,console)
 
-// => Child Next: 0,1,2,3 
-// => Child Completed 
-// => Completed 
-// => Child Next: 4,5,6,7,8 
-// => Child Completed 
-// => Child Next: 9,10,11,12,13 
-// => Child Completed 
+##### Using a skip
 
-/* Using a skip */
-var source = Rx.Observable.interval(100)
-    .windowWithTime(500, 100)
-    .take(3);
+[](http://jsbin.com/wowin/1/embed?js,console)
 
-var subscription = source.subscribe(
-    function (child) {
-
-        child.toArray().subscribe(
-            function (x) {
-                console.log('Child Next: ' + x.toString());
-            },
-            function (err) {
-                console.log('Child Error: ' + err);   
-            },
-            function () {
-                console.log('Child Completed');   
-            }
-        );
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Completed 
-// => Child Next: 0,1,2,3,4
-// => Child Completed 
-// => Child Next: 0,1,2,3,4,5
-// => Child Completed 
-// => Child Next: 1,2,3,4,5,6
-// => Child Completed 
-```
 ### Location
 
 File:

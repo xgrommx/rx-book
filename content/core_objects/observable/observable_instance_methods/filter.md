@@ -16,28 +16,8 @@ Filters the elements of an observable sequence based on a predicate.  This is an
 *(`Observable`)*: An observable sequence that contains elements from the input sequence that satisfy the condition.  
 
 #### Example
-```js
-var source = Rx.Observable.range(0, 5)
-    .filter(function (x, idx, obs) {
-        return x % 2 === 0;
-    });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0 
-// => Next: 2 
-// => Next: 4 
-// => Completed    
-```
+[](http://jsbin.com/biriy/1/embed?js,console)
 
 #### Location
 

@@ -13,26 +13,8 @@ Determines whether all elements of an observable sequence satisfy a condition.  
 *(`Observable`)*: An observable sequence containing a single element determining whether all elements in the source sequence pass the test in the specified predicate.
 
 #### Example
-```js
-var source = Rx.Observable.fromArray([1,2,3,4,5])
-    .all(function (x) {
-        return x < 6;
-    });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: true
-// => Completed    
-```
+[](http://jsbin.com/kaxifo/1/embed?js,console)
 
 #### Location
 

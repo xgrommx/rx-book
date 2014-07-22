@@ -16,27 +16,8 @@ Invokes a specified action after the source observable sequence terminates grace
 *(`Observable`)*: An observable sequence that contains elements from the input sequence that satisfy the condition.  
 
 #### Example
-```js
-/* Terminated by error still fires function */
-var source = Rx.Observable.throw(new Error())
-    .finally(function () {
-        console.log('Finally');
-    });
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Error: Error
-// => Finally   
-```
+[](http://jsbin.com/woture/1/embed?js,console)
 
 #### Location
 

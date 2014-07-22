@@ -16,51 +16,8 @@ Searches for an element that matches the conditions defined by the specified pre
 *(`Observable`)*: An Observable sequence with the first element that matches the conditions defined by the specified predicate, if found; otherwise, undefined.
 
 #### Example
-```js
-/* Found an element */
-var array = [1,2,3,4];
 
-var source = Rx.Observable.fromArray(array)
-    .findIndex(function (x, i, obs) {
-        return x === 1;
-    });
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 0
-// => Completed  
-
-/* Not found */
-var array = [1,2,3,4];
-
-var source = Rx.Observable.fromArray(array)
-    .findIndex(function (x, i, obs) {
-        return x === 5;
-    });
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: -1
-// => Completed 
-```
+[](http://jsbin.com/nodec/1/embed?js,console)
 
 #### Location
 

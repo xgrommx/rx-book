@@ -13,29 +13,8 @@ Expands an observable sequence by recursively invoking selector.
 *(`Observable`)*: An observable sequence containing a single element determining whether all elements in the source sequence pass the test in the specified predicate.
 
 #### Example
-```js
-var source = Rx.Observable.return(42)
-    .expand(function (x) { return Rx.Observable.return(42 + x); })
-    .take(5);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42 
-// => Next: 84 
-// => Next: 126 
-// => Next: 168 
-// => Next: 210 
-// => Completed    
-```
+[](http://jsbin.com/xeyuf/1/embed?js,console)
 
 #### Location
 

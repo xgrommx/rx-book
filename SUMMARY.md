@@ -99,7 +99,7 @@
           * [delayWithSelector](content/core_objects/observable/observable_instance_methods/delaywithselector.md)
           * [dematerialize](content/core_objects/observable/observable_instance_methods/dematerialize.md)
           * [distinct](content/core_objects/observable/observable_instance_methods/distinct.md)
-          * [distinctUntilChanged](content/core_objects/observable/observable_instance_methods/distinctuntilchanges.md)
+          * [distinctUntilChanged](content/core_objects/observable/observable_instance_methods/distinctuntilchanged.md)
           * [do | doAction](content/core_objects/observable/observable_instance_methods/do.md)
           * [doWhile](content/core_objects/observable/observable_instance_methods/dowhile.md)
           * [elementAt](content/core_objects/observable/observable_instance_methods/elementat.md)

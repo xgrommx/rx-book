@@ -17,66 +17,15 @@ There is an alias to this method `doAction` for browsers <IE9.
 *(`Observable`)*: An observable sequence whose observers trigger an invocation of the given observable factory function.
 
 #### Example
-```js
-/* Using a function */
-var source = Rx.Observable.range(0, 3)
-    .do(
-        function (x) { console.log('Do Next: ' + x; ); },
-        function (err) { console.log('Do Error: ' + x; ); },
-        function () { console.log('Do Completed'); }
-    );
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Using a function
 
-// => Do Next: 0
-// => Next: 0
-// => Do Next: 1
-// => Next: 1
-// => Do Next: 2
-// => Next: 2
-// => Do Completed
-// => Completed 
+[](http://jsbin.com/viquwa/1/embed?js,console)
 
-/* Using an observer */
-var observer = Rx.Observer.create(
-    function (x) { console.log('Do Next: ' + x; ); },
-    function (err) { console.log('Do Error: ' + x; ); },
-    function () { console.log('Do Completed'); }
-);
+##### Using an observer
 
-var source = Rx.Observable.range(0, 3)
-    .do(observer);
+[](http://jsbin.com/votaq/1/embed?js,console)
 
-
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Do Next: 0
-// => Next: 0
-// => Do Next: 1
-// => Next: 1
-// => Do Next: 2
-// => Next: 2
-// => Do Completed
-// => Completed 
-```
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)

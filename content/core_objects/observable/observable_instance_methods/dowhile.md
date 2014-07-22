@@ -13,27 +13,9 @@ Repeats source as long as condition holds emulating a do while loop.
 *(`Observable`)*: An observable sequence whose observers trigger an invocation of the given observable factory function.
 
 #### Example
-```js
-var i = 0;
 
-var source = Rx.Observable.return(42).doWhile(
-    function (x) { return ++i < 2; });
+[](http://jsbin.com/tizad/1/embed?js,console)
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
-
-// => Next: 42
-// => Next: 42
-// => Completed 
-```
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).experimental.js

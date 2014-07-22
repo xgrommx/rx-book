@@ -12,42 +12,15 @@ Returns the element at a specified index in a sequence.
 *(`Observable`)*: An observable sequence that produces the element at the specified position in the source sequence.
 
 #### Example
-```js
-/* Finds an index */
-var source = Rx.Observable.fromArray([1,2,3,4])
-    .elementAt(1);
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+##### Finds an index
 
-// => Next: 2
-// => Completed 
+[](http://jsbin.com/yuviyi/1/embed?js,console)
 
-/* Not found */
-var source = Rx.Observable.fromArray([1,2,3,4])
-    .elementAt(4);
+##### Not found
 
-var subscription = source.subscribe(
-    function (x) {
-        console.log('Next: ' + x);
-    },
-    function (err) {
-        console.log('Error: ' + err);   
-    },
-    function () {
-        console.log('Completed');   
-    });
+[](http://jsbin.com/coces/1/embed?js,console)
 
-// => Error: Error: Argument out of range
-```
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).aggregates.js

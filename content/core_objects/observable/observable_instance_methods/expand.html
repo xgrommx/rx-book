@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.32" data-basepath="..\..\..\.." data-revision="1406038986727">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.32" data-basepath="..\..\..\.." data-revision="1406041542133">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -1772,10 +1772,10 @@
         </li>
     
         
-        <li class="chapter " data-level="6.1.2.26" data-path="content/core_objects/observable/observable_instance_methods/distinctuntilchanges.html">
+        <li class="chapter " data-level="6.1.2.26" data-path="content/core_objects/observable/observable_instance_methods/distinctuntilchanged.html">
             
                 
-                    <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/distinctuntilchanges.html">
+                    <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/distinctuntilchanged.html">
                         <i class="fa fa-check"></i>
                         
                             <b>6.1.2.26.</b>
@@ -4334,7 +4334,7 @@
     
         <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/distinct.html" title="distinct" class="chapter done " data-progress="6.1.2.25" style="left: 41.25%;"></a>
     
-        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/distinctuntilchanges.html" title="distinctUntilChanged" class="chapter done " data-progress="6.1.2.26" style="left: 41.666666666666664%;"></a>
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/distinctuntilchanged.html" title="distinctUntilChanged" class="chapter done " data-progress="6.1.2.26" style="left: 41.666666666666664%;"></a>
     
         <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/do.html" title="do | doAction" class="chapter done " data-progress="6.1.2.27" style="left: 42.083333333333336%;"></a>
     
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_2085">
+                    <section class="normal" id="section-gitbook_2349">
                     
                         <h1 id="expand"><a name="expand" class="plugin-anchor" href="#expand"><span class="fa fa-link"></span></a>expand</h1>
 <p><code>Rx.Observable.prototype.expand(selector, [scheduler])</code>
@@ -4635,28 +4635,7 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence containing a single element determining whether all elements in the source sequence pass the test in the specified predicate.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.return(<span class="hljs-number">42</span>)
-    .expand(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> Rx.Observable.return(<span class="hljs-number">42</span> + x); })
-    .take(<span class="hljs-number">5</span>);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 42 </span>
-<span class="hljs-comment">// =&gt; Next: 84 </span>
-<span class="hljs-comment">// =&gt; Next: 126 </span>
-<span class="hljs-comment">// =&gt; Next: 168 </span>
-<span class="hljs-comment">// =&gt; Next: 210 </span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<p><a href="http://jsbin.com/xeyuf/1/embed?js,console" target="_blank"></a></p>
 <h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>.experimental.js</li>

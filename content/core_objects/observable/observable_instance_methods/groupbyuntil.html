@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" >
+<html lang="en-US" manifest="..\..\..\../manifest.appcache">
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.43" data-basepath="..\..\..\.." data-revision="1406041542133">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.43" data-basepath="..\..\..\.." data-revision="1406047411665">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_2357">
+                    <section class="normal" id="section-gitbook_57">
                     
                         <h1 id="groupbyuntil"><a name="groupbyuntil" class="plugin-anchor" href="#groupbyuntil"><span class="fa fa-link"></span></a>groupByUntil</h1>
 <p><code>Rx.Observable.prototype.groupByUntil(keySelector, [elementSelector], durationSelector, [keySerializer])</code>
@@ -4638,48 +4638,7 @@
 <p><em>(<code>Observable</code>)</em>: A sequence of observable groups, each of which corresponds to a unique key value, containing all elements that share that same key value.  </p>
 <p>If a group&apos;s lifetime expires, a new group with the same key value can be created once an element with such a key value is encoutered.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> codes = [
-    { keyCode: <span class="hljs-number">38</span>}, <span class="hljs-comment">// up</span>
-    { keyCode: <span class="hljs-number">38</span>}, <span class="hljs-comment">// up</span>
-    { keyCode: <span class="hljs-number">40</span>}, <span class="hljs-comment">// down</span>
-    { keyCode: <span class="hljs-number">40</span>}, <span class="hljs-comment">// down</span>
-    { keyCode: <span class="hljs-number">37</span>}, <span class="hljs-comment">// left</span>
-    { keyCode: <span class="hljs-number">39</span>}, <span class="hljs-comment">// right</span>
-    { keyCode: <span class="hljs-number">37</span>}, <span class="hljs-comment">// left</span>
-    { keyCode: <span class="hljs-number">39</span>}, <span class="hljs-comment">// right</span>
-    { keyCode: <span class="hljs-number">66</span>}, <span class="hljs-comment">// b</span>
-    { keyCode: <span class="hljs-number">65</span>}  <span class="hljs-comment">// a</span>
-];
-
-<span class="hljs-keyword">var</span> source = Rx.Observable
-    .for(codes, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> Rx.Observable.return(x).delay(<span class="hljs-number">1000</span>); })
-    .groupByUntil(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x.keyCode; },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> x.keyCode; },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> Rx.Observable.timer(<span class="hljs-number">2000</span>); });
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(obs)</span> {</span>
-        <span class="hljs-comment">// Print the count</span>
-        obs.count().subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> console.log(<span class="hljs-string">&apos;Count: &apos;</span> + x); });
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Count: 2 </span>
-<span class="hljs-comment">// =&gt; Count: 2 </span>
-<span class="hljs-comment">// =&gt; Count: 1 </span>
-<span class="hljs-comment">// =&gt; Count: 1 </span>
-<span class="hljs-comment">// =&gt; Count: 1 </span>
-<span class="hljs-comment">// =&gt; Count: 1 </span>
-<span class="hljs-comment">// =&gt; Count: 1 </span>
-<span class="hljs-comment">// =&gt; Count: 1 </span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<p><a href="http://jsbin.com/fohafa/1/embed?js,console" target="_blank"></a></p>
 <h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
@@ -4719,10 +4678,6 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
-    
-
-    
-    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

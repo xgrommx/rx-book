@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" >
+<html lang="en-US" manifest="..\..\..\../manifest.appcache">
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.44" data-basepath="..\..\..\.." data-revision="1406041542133">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.44" data-basepath="..\..\..\.." data-revision="1406047411665">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_2358">
+                    <section class="normal" id="section-gitbook_61">
                     
                         <h1 id="groupjoin"><a name="groupjoin" class="plugin-anchor" href="#groupjoin"><span class="fa fa-link"></span></a>groupJoin</h1>
 <p><code>Rx.Observable.prototype.groupJoin(right, leftDurationSelector, rightDurationSelector, resultSelector)</code>
@@ -4641,40 +4641,7 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that contains result elements computed from source elements that have an overlapping duration.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> xs = Rx.Observable.interval(<span class="hljs-number">100</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;first&apos;</span> + x; });
-
-<span class="hljs-keyword">var</span> ys = Rx.Observable.interval(<span class="hljs-number">100</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;second&apos;</span> + x; });
-
-<span class="hljs-keyword">var</span> source = xs.groupJoin(
-    ys,
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> <span class="hljs-keyword">return</span> Rx.Observable.timer(<span class="hljs-number">0</span>); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span> <span class="hljs-keyword">return</span> Rx.Observable.timer(<span class="hljs-number">0</span>); },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, yy)</span> {</span> 
-        <span class="hljs-keyword">return</span> yy.select(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(y)</span> {</span> 
-            <span class="hljs-keyword">return</span> x + y; 
-        })
-    }).mergeAll().take(<span class="hljs-number">5</span>);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: first0second0 </span>
-<span class="hljs-comment">// =&gt; Next: first1second1 </span>
-<span class="hljs-comment">// =&gt; Next: first2second2 </span>
-<span class="hljs-comment">// =&gt; Next: first3second3 </span>
-<span class="hljs-comment">// =&gt; Next: first4second4 </span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<p><a href="http://jsbin.com/gebas/1/embed?js,console" target="_blank"></a></p>
 <h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
@@ -4714,10 +4681,6 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
-    
-
-    
-    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

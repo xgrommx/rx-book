@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" >
+<html lang="en-US" manifest="..\..\..\../manifest.appcache">
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.77" data-basepath="..\..\..\.." data-revision="1406041542133">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.77" data-basepath="..\..\..\.." data-revision="1406047411665">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_2395">
+                    <section class="normal" id="section-gitbook_89">
                     
                         <h1 id="retry"><a name="retry" class="plugin-anchor" href="#retry"><span class="fa fa-link"></span></a>retry</h1>
 <p><code>Rx.Observable.prototype.retry([retryCount])</code>
@@ -4634,32 +4634,7 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence producing the elements of the given sequence repeatedly until it terminates successfully. </p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
-
-<span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)
-    .selectMany(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        <span class="hljs-keyword">if</span> (++count &lt; <span class="hljs-number">2</span>) {
-            <span class="hljs-keyword">return</span> Rx.Observable.throw(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>());
-        }
-        <span class="hljs-keyword">return</span> Rx.Observable.return(<span class="hljs-number">42</span>);
-    })
-    .retry(<span class="hljs-number">3</span>)
-    .take(<span class="hljs-number">1</span>);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 42</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<p><a href="http://jsbin.com/hixenu/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
@@ -4724,10 +4699,6 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
-    
-
-    
-    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

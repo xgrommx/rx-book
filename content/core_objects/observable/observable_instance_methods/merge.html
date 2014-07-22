@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US" >
+<html lang="en-US" manifest="..\..\..\../manifest.appcache">
     
     <head>
         
@@ -38,7 +38,7 @@
 
 
         
-    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.55" data-basepath="..\..\..\.." data-revision="1406041542133">
+    <div class="book" data-github="xgrommx/rx-book" data-level="6.1.2.55" data-basepath="..\..\..\.." data-revision="1406047411665">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -4621,7 +4621,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_2371">
+                    <section class="normal" id="section-gitbook_69">
                     
                         <h1 id="merge"><a name="merge" class="plugin-anchor" href="#merge"><span class="fa fa-link"></span></a>merge</h1>
 <p><code>Rx.Observable.prototype.merge(maxConcurrent | other)</code>
@@ -4636,62 +4636,10 @@ Or merges two observable sequences into a single observable sequence.</p>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: The observable sequence that merges the elements of the inner sequences. </p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* Merge two sequences */</span>
-<span class="hljs-keyword">var</span> source1 = Rx.Observable.interval(<span class="hljs-number">100</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;First: &apos;</span> + x; });
-
-<span class="hljs-keyword">var</span> source2 = Rx.Observable.interval(<span class="hljs-number">50</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Second: &apos;</span> + x; });
-
-<span class="hljs-keyword">var</span> source = source1
-    .merge(source2)
-    .take(<span class="hljs-number">5</span>);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: Second: 0 </span>
-<span class="hljs-comment">// =&gt; Next: First: 0 </span>
-<span class="hljs-comment">// =&gt; Next: Second: 1 </span>
-<span class="hljs-comment">// =&gt; Next: Second: 2 </span>
-<span class="hljs-comment">// =&gt; Next: First: 1 </span>
-<span class="hljs-comment">// =&gt; Completed </span>
-
-<span class="hljs-comment">/* Use max concurrency */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span> <span class="hljs-keyword">return</span> Rx.Observable.range(x, <span class="hljs-number">3</span>); })
-    .merge(<span class="hljs-number">1</span>);
-
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> {</span>
-        console.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
-        console.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
-
-<span class="hljs-comment">// =&gt; Next: 0 </span>
-<span class="hljs-comment">// =&gt; Next: 1 </span>
-<span class="hljs-comment">// =&gt; Next: 2 </span>
-<span class="hljs-comment">// =&gt; Next: 1 </span>
-<span class="hljs-comment">// =&gt; Next: 2 </span>
-<span class="hljs-comment">// =&gt; Next: 3 </span>
-<span class="hljs-comment">// =&gt; Next: 2 </span>
-<span class="hljs-comment">// =&gt; Next: 3 </span>
-<span class="hljs-comment">// =&gt; Next: 4 </span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+<h4 id="merge-two-sequences"><a name="merge-two-sequences" class="plugin-anchor" href="#merge-two-sequences"><span class="fa fa-link"></span></a>Merge two sequences</h4>
+<p><a href="http://jsbin.com/pukeb/1/embed?js,console" target="_blank"></a></p>
+<h4 id="use-max-concurrency"><a name="use-max-concurrency" class="plugin-anchor" href="#use-max-concurrency"><span class="fa fa-link"></span></a>Use max concurrency</h4>
+<p><a href="http://jsbin.com/tehod/1/embed?js,console" target="_blank"></a></p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
@@ -4756,10 +4704,6 @@ Or merges two observable sequences into a single observable sequence.</p>
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
-    
-
-    
-    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

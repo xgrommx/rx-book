@@ -41,7 +41,7 @@ To put it more concretely, if you know how to program against Arrays using the A
              <td colspan="2"><pre><code>getDataFromLocalMemory()
              .filter (function (s) { return s != null; })
              .map( function (s) { return s + 'transformed'; })
-             .forEach(function (s) { console.log('next => '' + it); })</code></pre></td>
+             .forEach(function (s) { console.log('next => ' + s); })</code></pre></td>
            </tr>
          </tbody>
     </table>
@@ -56,7 +56,7 @@ To put it more concretely, if you know how to program against Arrays using the A
           <td colspan="2"><pre><code>getDataFromNetwork()
           .filter (function (s) { return s != null; })
           .map( function (s) { return s + 'transformed'; })
-          .subscribe(function (s) { console.log('next => '' + it); })</code></pre></td>
+          .subscribe(function (s) { console.log('next => ' + s); })</code></pre></td>
         </tr>
       </tbody>
     </table>

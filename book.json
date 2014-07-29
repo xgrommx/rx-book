@@ -1,16 +1,19 @@
 {
-	"generator": "site",
-	"title": "RxJS - Javascript library for functional reactive programming.",
-	"description": null,
-	"plugins": ["disqus", "jsbin", "anchors"],
-	"pluginsConfig": {
-		"fontSettings": {
-			"theme": "white",
-			"family": "sans"
-		},
-		"disqus": {
-			"shortName": "rx-book"
-		}
-	}
-
+    "generator": "site",
+    "title": "RxJS - Javascript library for functional reactive programming.",
+    "description": null,
+    "plugins": [
+        "disqus",
+        "jsbin",
+        "anchors"
+    ],
+    "pluginsConfig": {
+        "fontSettings": {
+            "theme": "white",
+            "family": "sans"
+        },
+        "disqus": {
+            "shortName": "rx-book"
+        }
+    }
 }

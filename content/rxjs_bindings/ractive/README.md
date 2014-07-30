@@ -1,5 +1,5 @@
-# Ractive.js
+## [`Ractive.js`](http://www.ractivejs.org)<sup>(plugin [`ractive-adaptors-rxjs`](https://github.com/ractivejs/ractive-adaptors-rxjs))</sup>
 
 ##### Example
 
-[](http://jsbin.com/famije/1/embed?js,output)
+[](http://jsbin.com/gelaz/1/embed?js,output)

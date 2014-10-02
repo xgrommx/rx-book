@@ -22,11 +22,11 @@ This method creates a new Observable sequence from an array-like or iterable obj
 
 ##### Set
 
-[](http://jsbin.com/dapoju/1/embed?js,console)
+[](http://jsbin.com/dapoju/2/embed?js,console)
 
 ##### Map
 
-[](http://jsbin.com/yukiyu/1/embed?js,console)
+[](http://jsbin.com/yukiyu/2/embed?js,console)
 
 ##### String
 

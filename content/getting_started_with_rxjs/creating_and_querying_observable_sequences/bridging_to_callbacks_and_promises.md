@@ -21,7 +21,7 @@ var source = exists('file.txt');
 
 // Get the first argument only which is true/false
 var subscription = source.subscribe(
-	function (x) { console.log('onNext: ' + x[0]); },
+	function (x) { console.log('onNext: ' + x); },
 	function (e) { console.log('onError: ' + e.message); },
 	function () { console.log('onCompleted'); });
 
@@ -40,7 +40,7 @@ var fs = require('fs'),
     Rx = require('rx');
 
 // Wrap fs.rename
-var rename = Rx.Observable.fromCallback(fs.rename);
+var rename = Rx.Observable.fromNodeCallback(fs.rename);
 
 // Rename file which returns no parameters except an error
 var source = rename('file1.txt', 'file2.txt');

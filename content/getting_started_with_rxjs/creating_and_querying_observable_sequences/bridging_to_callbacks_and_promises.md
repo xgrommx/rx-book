@@ -21,7 +21,7 @@ var source = exists('file.txt');
 
 // Get the first argument only which is true/false
 var subscription = source.subscribe(
-	function (x) { console.log('onNext: ' + x[0]); },
+	function (x) { console.log('onNext: ' + x); },
 	function (e) { console.log('onError: ' + e.message); },
 	function () { console.log('onCompleted'); });
 
@@ -40,7 +40,7 @@ var fs = require('fs'),
     Rx = require('rx');
 
 // Wrap fs.rename
-var rename = Rx.Observable.fromCallback(fs.rename);
+var rename = Rx.Observable.fromNodeCallback(fs.rename);
 
 // Rename file which returns no parameters except an error
 var source = rename('file1.txt', 'file2.txt');
@@ -66,7 +66,7 @@ var promise1 = new RSVP.Promise(function (resolve, reject) {
     resolve(42);
 });
 
-var source1 = Rx.Observable.fromPromise(promise);
+var source1 = Rx.Observable.fromPromise(promise1);
 
 var subscription1 = source1.subscribe(
 	function (x) { console.log('onNext: ' + x); },
@@ -81,12 +81,12 @@ var promise2 = new RSVP.Promise(function (resolve, reject) {
     reject(new Error('reason'));
 });
 
-var source2 = Rx.Observable.fromPromise(promise);
+var source2 = Rx.Observable.fromPromise(promise2);
 
 var subscription2 = source2.subscribe(
 	function (x) { console.log('onNext: ' + x); },
 	function (e) { console.log('onError: ' + e.message); },
 	function () { console.log('onCompleted'); });
 
-// => onError: reject
+// => onError: reason
 ```

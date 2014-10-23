@@ -36,6 +36,29 @@ source.flatMap(Rx.Observable.fromArray([1,2,3]));
 
 [](http://jsbin.com/besiw/1/embed?js,console)
 
+##### New features
+
+```js
+Rx.Observable.prototype.flatMap(collection: Observable<T>)
+Rx.Observable.prototype.flatMap(collectionSelector: (T => Observable<U>));
+Rx.Observable.prototype.flatMap(collectionSelector: (T => Observable<U>), resultSelector: ((T, U, Int) => Z));
+
+// With Promises
+Rx.Observable.prototype.flatMap(collection: Promise<T>)
+Rx.Observable.prototype.flatMap(collectionSelector: (T => Promise<U>));
+Rx.Observable.prototype.flatMap(collectionSelector: (T => Promise<U>), resultSelector: ((T, U, Int) => Z));
+
+// With Arrays
+Rx.Observable.prototype.flatMap(collection: Array<T>)
+Rx.Observable.prototype.flatMap(collectionSelector: (T => Array<U>));
+Rx.Observable.prototype.flatMap(collectionSelector: (T => Array<U>), resultSelector: ((T, U, Int) => Z));
+
+// With Iterables
+Rx.Observable.prototype.flatMap(collection: Iterable<T>)
+Rx.Observable.prototype.flatMap(collectionSelector: (T => Iterable<U>));
+Rx.Observable.prototype.flatMap(collectionSelector: (T => Iterable<U>), resultSelector: ((T, U, Int) => Z));
+```
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)

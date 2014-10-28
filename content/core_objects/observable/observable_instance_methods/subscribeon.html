@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
-<html lang="en-US" >
+<html lang="en-US" manifest="..\..\..\../manifest.appcache">
     
     <head>
         
         <meta charset="UTF-8">
-        <title>subscribeOn | RxJS</title>
+        <title>subscribeOn | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.1.1">
@@ -12,9 +12,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
         <link rel="shortcut icon" href="../../../../gitbook/images/favicon.ico" type="image/x-icon">
         
+    
     
     
     <link rel="next" href="..\..\..\../content/core_objects/observable/observable_instance_methods/sum.html" />
@@ -30,20 +30,83 @@
         
 <link rel="stylesheet" href="../../../../gitbook/style.css">
 
+    
+    <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
 
         
-    <div class="book" data-level="9.1.2.103" data-basepath="..\..\..\.." data-revision="1414535386237">
+    <div class="book"  data-level="9.1.2.103" data-basepath="..\..\..\.." data-revision="1414536616447">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="..\..\..\../" >RxJS - Javascript library for functional reactive programming.</a>
+    </h1>
+</div>
+
     
 
 <div class="book-summary">
     <div class="book-search">
-        <input type="text" placeholder="Type to search" class="form-control" />
+        <input type="text" placeholder="Search" class="form-control" />
     </div>
     <ul class="summary">
         
-    	
-    	
-    	
+        
+
+        
+
+        
+
+	
 
         
 
@@ -5256,7 +5319,7 @@
         
         <li class="divider"></li>
         <li>
-            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
         </li>
         
     </ul>
@@ -5264,100 +5327,656 @@
 
     <div class="book-body">
         <div class="body-inner">
-            <div class="book-header">
-    <!-- Actions Left -->
-    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
-    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
-    
-    <a href="..\..\..\../GLOSSARY.html" class="btn pull-left" aria-label="Open Glossary"><i class="fa fa-sort-alpha-asc"></i></a>
-    
-    <div id="font-settings-wrapper" class="dropdown pull-left">
-        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
-        </a>
-        <div class="dropdown-menu font-settings">
-    <div class="dropdown-caret">
-        <span class="caret-outer"></span>
-        <span class="caret-inner"></span>
-    </div>
-
-    <div class="buttons">
-        <button type="button" id="reduce-font-size" class="button size-2">A</button>
-        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
-    </div>
-
-    <div class="buttons font-family-list">
-        <button type="button" data-font="0" class="button">Serif</button>
-        <button type="button" data-font="1" class="button">Sans</button>
-    </div>
-
-    <div class="buttons color-theme-list">
-        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
-        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
-        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
-    </div>
-</div>
-
-    </div>
-
-    <!-- Actions Right -->
-    
-    <div class="dropdown pull-right">
-        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
-        </a>
-        <div class="dropdown-menu font-settings dropdown-left">
-            <div class="dropdown-caret">
-                <span class="caret-outer"></span>
-                <span class="caret-inner"></span>
-            </div>
-            <div class="buttons">
-                <button type="button" data-sharing="twitter" class="button">Twitter</button>
-                <button type="button" data-sharing="google-plus" class="button">Google</button>
-                <button type="button" data-sharing="facebook" class="button">Facebook</button>
-                <button type="button" data-sharing="weibo" class="button">Weibo</button>
-                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
-            </div>
-        </div>
-    </div>
-    
-
-    
-    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
-    
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="..\..\..\../" >RxJS</a>
-    </h1>
-</div>
-
             <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 60.96774193548387%;min-width: 60.645161290322584%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="..\..\..\../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="..\..\..\../WhyRx.html" title="Why RxJs?" class="chapter done new-chapter" data-progress="1" style="left: 0.3225806451612903%;"></a>
+    
+        <a href="..\..\..\../content/summary.html" title="Summary" class="chapter done new-chapter" data-progress="2" style="left: 0.6451612903225806%;"></a>
+    
+        <a href="..\..\..\../content/guidelines/README.html" title="RxJS Design Guidelines" class="chapter done new-chapter" data-progress="3" style="left: 0.967741935483871%;"></a>
+    
+        <a href="..\..\..\../content/guidelines/introduction/README.html" title="Introduction" class="chapter done " data-progress="3.1" style="left: 1.2903225806451613%;"></a>
+    
+        <a href="..\..\..\../content/guidelines/when/README.html" title="When to use RxJS" class="chapter done " data-progress="3.2" style="left: 1.6129032258064515%;"></a>
+    
+        <a href="..\..\..\../content/guidelines/contract/README.html" title="The RxJS contract" class="chapter done " data-progress="3.3" style="left: 1.935483870967742%;"></a>
+    
+        <a href="..\..\..\../content/guidelines/using/README.html" title="Using RxJS" class="chapter done " data-progress="3.4" style="left: 2.2580645161290325%;"></a>
+    
+        <a href="..\..\..\../content/guidelines/implementations/README.html" title="Operator implementations" class="chapter done " data-progress="3.5" style="left: 2.5806451612903225%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/README.html" title="Getting Started With RxJS" class="chapter done new-chapter" data-progress="4" style="left: 2.903225806451613%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html" title="What are the Reactive Extensions?" class="chapter done " data-progress="4.1" style="left: 3.225806451612903%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html" title="Exploring Major Concepts in RxJS" class="chapter done " data-progress="4.2" style="left: 3.5483870967741935%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/README.html" title="Creating and Querying Observable Sequences" class="chapter done " data-progress="4.3" style="left: 3.870967741935484%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html" title="Creating and Subscribing to Simple Observable Sequences" class="chapter done " data-progress="4.3.1" style="left: 4.193548387096774%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/bridging_to_events.html" title="Bridging to Events" class="chapter done " data-progress="4.3.2" style="left: 4.516129032258065%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/bridging_to_callbacks_and_promises.html" title="Bridging to Callbacks and Promises" class="chapter done " data-progress="4.3.3" style="left: 4.838709677419355%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/querying_observable_sequences.html" title="Querying Observable Sequences" class="chapter done " data-progress="4.3.4" style="left: 5.161290322580645%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/transducers.html" title="Transducers with Observable Sequences" class="chapter done " data-progress="4.3.5" style="left: 5.483870967741935%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/operators_by_category.html" title="Operators by Category" class="chapter done " data-progress="4.3.6" style="left: 5.806451612903226%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/subjects.html" title="Subjects" class="chapter done " data-progress="4.4" style="left: 6.129032258064516%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/using_schedulers.html" title="Using Schedulers" class="chapter done " data-progress="4.5" style="left: 6.451612903225806%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/testing_your_rx_application.html" title="Testing your Rx application" class="chapter done " data-progress="4.6" style="left: 6.774193548387097%;"></a>
+    
+        <a href="..\..\..\../content/getting_started_with_rxjs/implementing_your_own_observable_operators.html" title="Implementing Your Own Observable Operators" class="chapter done " data-progress="4.7" style="left: 7.096774193548387%;"></a>
+    
+        <a href="..\..\..\../content/how_do_it/README.html" title="How Do It?" class="chapter done new-chapter" data-progress="5" style="left: 7.419354838709677%;"></a>
+    
+        <a href="..\..\..\../content/how_do_it/existing_api.html" title="How do I wrap an existing API?" class="chapter done " data-progress="5.1" style="left: 7.741935483870968%;"></a>
+    
+        <a href="..\..\..\../content/how_do_it/jquery_with_rxjs.html" title="How do I integrate jQuery with RxJS?" class="chapter done " data-progress="5.2" style="left: 8.064516129032258%;"></a>
+    
+        <a href="..\..\..\../content/how_do_it/angular_with_rxjs.html" title="How do I integrate Angular.js with RxJS?" class="chapter done " data-progress="5.3" style="left: 8.387096774193548%;"></a>
+    
+        <a href="..\..\..\../content/how_do_it/simple_event_emitter.html" title="How do I create a simple event emitter?" class="chapter done " data-progress="5.4" style="left: 8.709677419354838%;"></a>
+    
+        <a href="..\..\..\../content/mappingr_rxjs_from_different_libraries/README.html" title="Mapping RxJS from Different Libraries" class="chapter done new-chapter" data-progress="6" style="left: 9.03225806451613%;"></a>
+    
+        <a href="..\..\..\../content/mappingr_rxjs_from_different_libraries/bacon/README.html" title="For Bacon.js Users" class="chapter done " data-progress="6.1" style="left: 9.35483870967742%;"></a>
+    
+        <a href="..\..\..\../content/mappingr_rxjs_from_different_libraries/async/README.html" title="For Async.js Users" class="chapter done " data-progress="6.2" style="left: 9.67741935483871%;"></a>
+    
+        <a href="..\..\..\../content/config/README.html" title="Rx.config" class="chapter done new-chapter" data-progress="7" style="left: 10%;"></a>
+    
+        <a href="..\..\..\../content/helpers/README.html" title="Rx.helpers" class="chapter done new-chapter" data-progress="8" style="left: 10.32258064516129%;"></a>
+    
+        <a href="..\..\..\../content/helpers/default_comparer.html" title="defaultComparer" class="chapter done " data-progress="8.1" style="left: 10.64516129032258%;"></a>
+    
+        <a href="..\..\..\../content/helpers/default_sub_comparer.html" title="defaultSubComparer" class="chapter done " data-progress="8.2" style="left: 10.96774193548387%;"></a>
+    
+        <a href="..\..\..\../content/helpers/default_error.html" title="defaultError" class="chapter done " data-progress="8.3" style="left: 11.290322580645162%;"></a>
+    
+        <a href="..\..\..\../content/helpers/identity.html" title="identity" class="chapter done " data-progress="8.4" style="left: 11.612903225806452%;"></a>
+    
+        <a href="..\..\..\../content/helpers/just.html" title="just" class="chapter done " data-progress="8.5" style="left: 11.935483870967742%;"></a>
+    
+        <a href="..\..\..\../content/helpers/is_promise.html" title="isPromise" class="chapter done " data-progress="8.6" style="left: 12.258064516129032%;"></a>
+    
+        <a href="..\..\..\../content/helpers/noop.html" title="noop" class="chapter done " data-progress="8.7" style="left: 12.580645161290322%;"></a>
+    
+        <a href="..\..\..\../content/helpers/pluck.html" title="pluck" class="chapter done " data-progress="8.8" style="left: 12.903225806451612%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/README.html" title="Core Objects" class="chapter done new-chapter" data-progress="9" style="left: 13.225806451612904%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/README.html" title="Rx.Observable" class="chapter done " data-progress="9.1" style="left: 13.548387096774194%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/README.html" title="Observable Methods" class="chapter done " data-progress="9.1.1" style="left: 13.870967741935484%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/amb.html" title="amb" class="chapter done " data-progress="9.1.1.1" style="left: 14.193548387096774%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/case.html" title="case" class="chapter done " data-progress="9.1.1.2" style="left: 14.516129032258064%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/catch.html" title="catch" class="chapter done " data-progress="9.1.1.3" style="left: 14.838709677419354%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/combinelatest.html" title="combineLatest" class="chapter done " data-progress="9.1.1.4" style="left: 15.161290322580646%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/concat.html" title="concat" class="chapter done " data-progress="9.1.1.5" style="left: 15.483870967741936%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/create.html" title="create" class="chapter done " data-progress="9.1.1.6" style="left: 15.806451612903226%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/defer.html" title="defer" class="chapter done " data-progress="9.1.1.7" style="left: 16.129032258064516%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/empty.html" title="empty" class="chapter done " data-progress="9.1.1.8" style="left: 16.451612903225808%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/for.html" title="for" class="chapter done " data-progress="9.1.1.9" style="left: 16.774193548387096%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/forkjoin.html" title="forkJoin" class="chapter done " data-progress="9.1.1.10" style="left: 17.096774193548388%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/from.html" title="from" class="chapter done " data-progress="9.1.1.11" style="left: 17.419354838709676%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/fromarray.html" title="fromArray" class="chapter done " data-progress="9.1.1.12" style="left: 17.741935483870968%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/fromcallback.html" title="fromCallback" class="chapter done " data-progress="9.1.1.13" style="left: 18.06451612903226%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/fromevent.html" title="fromEvent" class="chapter done " data-progress="9.1.1.14" style="left: 18.387096774193548%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/fromeventpattern.html" title="fromEventPattern" class="chapter done " data-progress="9.1.1.15" style="left: 18.70967741935484%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/fromiterable.html" title="fromIterable" class="chapter done " data-progress="9.1.1.16" style="left: 19.032258064516128%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/fromnodecallback.html" title="fromNodeCallback" class="chapter done " data-progress="9.1.1.17" style="left: 19.35483870967742%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/frompromise.html" title="fromPromise" class="chapter done " data-progress="9.1.1.18" style="left: 19.677419354838708%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/generate.html" title="generate" class="chapter done " data-progress="9.1.1.19" style="left: 20%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/generatewithabsolutetime.html" title="generateWithAbsoluteTime" class="chapter done " data-progress="9.1.1.20" style="left: 20.322580645161292%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/generatewithrelativetime.html" title="generateWithRelativeTime" class="chapter done " data-progress="9.1.1.21" style="left: 20.64516129032258%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/if.html" title="if | ifThen" class="chapter done " data-progress="9.1.1.22" style="left: 20.967741935483872%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/interval.html" title="interval" class="chapter done " data-progress="9.1.1.23" style="left: 21.29032258064516%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/merge.html" title="merge" class="chapter done " data-progress="9.1.1.24" style="left: 21.612903225806452%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/never.html" title="never" class="chapter done " data-progress="9.1.1.25" style="left: 21.93548387096774%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/of.html" title="of" class="chapter done " data-progress="9.1.1.26" style="left: 22.258064516129032%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/ofwithscheduler.html" title="ofWithScheduler" class="chapter done " data-progress="9.1.1.27" style="left: 22.580645161290324%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/onerrorresumenext.html" title="onErrorResumeNext" class="chapter done " data-progress="9.1.1.28" style="left: 22.903225806451612%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/range.html" title="range" class="chapter done " data-progress="9.1.1.29" style="left: 23.225806451612904%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/repeat.html" title="repeat" class="chapter done " data-progress="9.1.1.30" style="left: 23.548387096774192%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/return.html" title="return | returnValue" class="chapter done " data-progress="9.1.1.31" style="left: 23.870967741935484%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/start.html" title="start" class="chapter done " data-progress="9.1.1.32" style="left: 24.193548387096776%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/startasync.html" title="startAsync" class="chapter done " data-progress="9.1.1.33" style="left: 24.516129032258064%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/spawn.html" title="spawn" class="chapter done " data-progress="9.1.1.34" style="left: 24.838709677419356%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/throw.html" title="throw | throwException" class="chapter done " data-progress="9.1.1.35" style="left: 25.161290322580644%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/timer.html" title="timer" class="chapter done " data-progress="9.1.1.36" style="left: 25.483870967741936%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/toasync.html" title="toAsync" class="chapter done " data-progress="9.1.1.37" style="left: 25.806451612903224%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/using.html" title="using" class="chapter done " data-progress="9.1.1.38" style="left: 26.129032258064516%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/when.html" title="when" class="chapter done " data-progress="9.1.1.39" style="left: 26.451612903225808%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/while.html" title="while | whileDo" class="chapter done " data-progress="9.1.1.40" style="left: 26.774193548387096%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/zip.html" title="zip" class="chapter done " data-progress="9.1.1.41" style="left: 27.096774193548388%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_methods/ziparray.html" title="zipArray" class="chapter done " data-progress="9.1.1.42" style="left: 27.419354838709676%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/README.html" title="Observable Instance Methods" class="chapter done " data-progress="9.1.2" style="left: 27.741935483870968%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/aggregate.html" title="aggregate" class="chapter done " data-progress="9.1.2.1" style="left: 28.06451612903226%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/all.html" title="all" class="chapter done " data-progress="9.1.2.2" style="left: 28.387096774193548%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/amb.html" title="amb" class="chapter done " data-progress="9.1.2.3" style="left: 28.70967741935484%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/and.html" title="and" class="chapter done " data-progress="9.1.2.4" style="left: 29.032258064516128%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/any.html" title="any" class="chapter done " data-progress="9.1.2.5" style="left: 29.35483870967742%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/asobservable.html" title="asObservable" class="chapter done " data-progress="9.1.2.6" style="left: 29.677419354838708%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/average.html" title="average" class="chapter done " data-progress="9.1.2.7" style="left: 30%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/buffer.html" title="buffer" class="chapter done " data-progress="9.1.2.8" style="left: 30.322580645161292%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/bufferwithcount.html" title="bufferWithCount" class="chapter done " data-progress="9.1.2.9" style="left: 30.64516129032258%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/bufferwithtime.html" title="bufferWithTime" class="chapter done " data-progress="9.1.2.10" style="left: 30.967741935483872%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/bufferwithtimeorcount.html" title="bufferWithTimeOrCount" class="chapter done " data-progress="9.1.2.11" style="left: 31.29032258064516%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/catch.html" title="catch | catchException" class="chapter done " data-progress="9.1.2.12" style="left: 31.612903225806452%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/combinelatest.html" title="combineLatest" class="chapter done " data-progress="9.1.2.13" style="left: 31.93548387096774%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/concat.html" title="concat" class="chapter done " data-progress="9.1.2.14" style="left: 32.25806451612903%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/concatall.html" title="concatAll" class="chapter done " data-progress="9.1.2.15" style="left: 32.58064516129032%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/concatmap.html" title="concatMap" class="chapter done " data-progress="9.1.2.16" style="left: 32.903225806451616%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/concatmapobserver.html" title="concatMapObserver" class="chapter done " data-progress="9.1.2.17" style="left: 33.225806451612904%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/connect.html" title="connect" class="chapter done " data-progress="9.1.2.18" style="left: 33.54838709677419%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/contains.html" title="contains" class="chapter done " data-progress="9.1.2.19" style="left: 33.87096774193548%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/controlled.html" title="controlled" class="chapter done " data-progress="9.1.2.20" style="left: 34.193548387096776%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/count.html" title="count" class="chapter done " data-progress="9.1.2.21" style="left: 34.516129032258064%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/defaultifempty.html" title="defaultIfEmpty" class="chapter done " data-progress="9.1.2.22" style="left: 34.83870967741935%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/delay.html" title="delay" class="chapter done " data-progress="9.1.2.23" style="left: 35.16129032258065%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/delaywithselector.html" title="delayWithSelector" class="chapter done " data-progress="9.1.2.24" style="left: 35.483870967741936%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/dematerialize.html" title="dematerialize" class="chapter done " data-progress="9.1.2.25" style="left: 35.806451612903224%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/distinct.html" title="distinct" class="chapter done " data-progress="9.1.2.26" style="left: 36.12903225806452%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/distinctuntilchanged.html" title="distinctUntilChanged" class="chapter done " data-progress="9.1.2.27" style="left: 36.45161290322581%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/do.html" title="do | doAction" class="chapter done " data-progress="9.1.2.28" style="left: 36.774193548387096%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/doonnext.html" title="doOnNext" class="chapter done " data-progress="9.1.2.29" style="left: 37.096774193548384%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/doonerror.html" title="doOnError" class="chapter done " data-progress="9.1.2.30" style="left: 37.41935483870968%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/dooncompleted.html" title="doOnCompleted" class="chapter done " data-progress="9.1.2.31" style="left: 37.74193548387097%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/dowhile.html" title="doWhile" class="chapter done " data-progress="9.1.2.32" style="left: 38.064516129032256%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/elementat.html" title="elementAt" class="chapter done " data-progress="9.1.2.33" style="left: 38.38709677419355%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/elementatordefault.html" title="elementAtOrDefault" class="chapter done " data-progress="9.1.2.34" style="left: 38.70967741935484%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/every.html" title="every" class="chapter done " data-progress="9.1.2.35" style="left: 39.03225806451613%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/expand.html" title="expand" class="chapter done " data-progress="9.1.2.36" style="left: 39.354838709677416%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/filter.html" title="filter" class="chapter done " data-progress="9.1.2.37" style="left: 39.67741935483871%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/finally.html" title="finally | finallyAction" class="chapter done " data-progress="9.1.2.38" style="left: 40%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/find.html" title="find" class="chapter done " data-progress="9.1.2.39" style="left: 40.32258064516129%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/findindex.html" title="findIndex" class="chapter done " data-progress="9.1.2.40" style="left: 40.645161290322584%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/first.html" title="first" class="chapter done " data-progress="9.1.2.41" style="left: 40.96774193548387%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/firstordefault.html" title="firstOrDefault" class="chapter done " data-progress="9.1.2.42" style="left: 41.29032258064516%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/flatmap.html" title="flatMap" class="chapter done " data-progress="9.1.2.43" style="left: 41.61290322580645%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/flatmaplatest.html" title="flatMapLatest" class="chapter done " data-progress="9.1.2.44" style="left: 41.935483870967744%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/forkjoin.html" title="forkJoin" class="chapter done " data-progress="9.1.2.45" style="left: 42.25806451612903%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/groupby.html" title="groupBy" class="chapter done " data-progress="9.1.2.46" style="left: 42.58064516129032%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/groupbyuntil.html" title="groupByUntil" class="chapter done " data-progress="9.1.2.47" style="left: 42.903225806451616%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/groupjoin.html" title="groupJoin" class="chapter done " data-progress="9.1.2.48" style="left: 43.225806451612904%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/ignoreelements.html" title="ignoreElements" class="chapter done " data-progress="9.1.2.49" style="left: 43.54838709677419%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/isempty.html" title="isEmpty" class="chapter done " data-progress="9.1.2.50" style="left: 43.87096774193548%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/join.html" title="join" class="chapter done " data-progress="9.1.2.51" style="left: 44.193548387096776%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/last.html" title="last" class="chapter done " data-progress="9.1.2.52" style="left: 44.516129032258064%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/lastordefault.html" title="lastOrDefault" class="chapter done " data-progress="9.1.2.53" style="left: 44.83870967741935%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/let.html" title="let | letBind" class="chapter done " data-progress="9.1.2.54" style="left: 45.16129032258065%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/manyselect.html" title="manySelect" class="chapter done " data-progress="9.1.2.55" style="left: 45.483870967741936%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/map.html" title="map" class="chapter done " data-progress="9.1.2.56" style="left: 45.806451612903224%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/max.html" title="max" class="chapter done " data-progress="9.1.2.57" style="left: 46.12903225806452%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/maxby.html" title="maxBy" class="chapter done " data-progress="9.1.2.58" style="left: 46.45161290322581%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/merge.html" title="merge" class="chapter done " data-progress="9.1.2.59" style="left: 46.774193548387096%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/mergeall.html" title="mergeAll" class="chapter done " data-progress="9.1.2.60" style="left: 47.096774193548384%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/min.html" title="min" class="chapter done " data-progress="9.1.2.61" style="left: 47.41935483870968%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/minby.html" title="minBy" class="chapter done " data-progress="9.1.2.62" style="left: 47.74193548387097%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/multicast.html" title="multicast" class="chapter done " data-progress="9.1.2.63" style="left: 48.064516129032256%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/observeon.html" title="observeOn" class="chapter done " data-progress="9.1.2.64" style="left: 48.38709677419355%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/onerrorresumenext.html" title="onErrorResumeNext" class="chapter done " data-progress="9.1.2.65" style="left: 48.70967741935484%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/pairwise.html" title="pairwise" class="chapter done " data-progress="9.1.2.66" style="left: 49.03225806451613%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/partition.html" title="partition" class="chapter done " data-progress="9.1.2.67" style="left: 49.354838709677416%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/pausable.html" title="pausable" class="chapter done " data-progress="9.1.2.68" style="left: 49.67741935483871%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/pausablebuffered.html" title="pausableBuffered" class="chapter done " data-progress="9.1.2.69" style="left: 50%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/pluck.html" title="pluck" class="chapter done " data-progress="9.1.2.70" style="left: 50.32258064516129%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/publish.html" title="publish" class="chapter done " data-progress="9.1.2.71" style="left: 50.645161290322584%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/publishlatest.html" title="publishLatest" class="chapter done " data-progress="9.1.2.72" style="left: 50.96774193548387%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/publishvalue.html" title="publishValue" class="chapter done " data-progress="9.1.2.73" style="left: 51.29032258064516%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/share.html" title="share" class="chapter done " data-progress="9.1.2.74" style="left: 51.61290322580645%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/sharereplay.html" title="shareReplay" class="chapter done " data-progress="9.1.2.75" style="left: 51.935483870967744%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/sharevalue.html" title="shareValue" class="chapter done " data-progress="9.1.2.76" style="left: 52.25806451612903%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/refcount.html" title="refCount" class="chapter done " data-progress="9.1.2.77" style="left: 52.58064516129032%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/reduce.html" title="reduce" class="chapter done " data-progress="9.1.2.78" style="left: 52.903225806451616%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/repeat.html" title="repeat" class="chapter done " data-progress="9.1.2.79" style="left: 53.225806451612904%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/replay.html" title="replay" class="chapter done " data-progress="9.1.2.80" style="left: 53.54838709677419%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/retry.html" title="retry" class="chapter done " data-progress="9.1.2.81" style="left: 53.87096774193548%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/sample/md" title="sample" class="chapter done " data-progress="9.1.2.82" style="left: 54.193548387096776%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/scan.html" title="scan" class="chapter done " data-progress="9.1.2.83" style="left: 54.516129032258064%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/select.html" title="select" class="chapter done " data-progress="9.1.2.84" style="left: 54.83870967741935%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/selectconcat.html" title="selectConcat" class="chapter done " data-progress="9.1.2.85" style="left: 55.16129032258065%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/selectmany.html" title="selectMany" class="chapter done " data-progress="9.1.2.86" style="left: 55.483870967741936%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/selectswitch.html" title="selectSwitch" class="chapter done " data-progress="9.1.2.87" style="left: 55.806451612903224%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/sequenceequal.html" title="sequenceEqual" class="chapter done " data-progress="9.1.2.88" style="left: 56.12903225806452%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/single.html" title="single" class="chapter done " data-progress="9.1.2.89" style="left: 56.45161290322581%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/singleordefault.html" title="singleOrDefault" class="chapter done " data-progress="9.1.2.90" style="left: 56.774193548387096%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/skip.html" title="skip" class="chapter done " data-progress="9.1.2.91" style="left: 57.096774193548384%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/skiplast.html" title="skipLast" class="chapter done " data-progress="9.1.2.92" style="left: 57.41935483870968%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/skiplastwithtime.html" title="skipLastWithTime" class="chapter done " data-progress="9.1.2.93" style="left: 57.74193548387097%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/skipuntil.html" title="skipUntil" class="chapter done " data-progress="9.1.2.94" style="left: 58.064516129032256%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/skipuntilwithtime.html" title="skipUntilWithTime" class="chapter done " data-progress="9.1.2.95" style="left: 58.38709677419355%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/skipwhile.html" title="skipWhile" class="chapter done " data-progress="9.1.2.96" style="left: 58.70967741935484%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/some.html" title="some" class="chapter done " data-progress="9.1.2.97" style="left: 59.03225806451613%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/startwith.html" title="startWith" class="chapter done " data-progress="9.1.2.98" style="left: 59.354838709677416%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/subscribe.html" title="subscribe" class="chapter done " data-progress="9.1.2.99" style="left: 59.67741935483871%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/subscribeonnext.html" title="subscribeOnNext" class="chapter done " data-progress="9.1.2.100" style="left: 60%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/subscribeonerror.html" title="subscribeOnError" class="chapter done " data-progress="9.1.2.101" style="left: 60.32258064516129%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/subscribeoncompleted.html" title="subscribeOnCompleted" class="chapter done " data-progress="9.1.2.102" style="left: 60.645161290322584%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/subscribeon.html" title="subscribeOn" class="chapter done " data-progress="9.1.2.103" style="left: 60.96774193548387%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/sum.html" title="sum" class="chapter  " data-progress="9.1.2.104" style="left: 61.29032258064516%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/switch.html" title="switch | switchLatest" class="chapter  " data-progress="9.1.2.105" style="left: 61.61290322580645%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/take.html" title="take" class="chapter  " data-progress="9.1.2.106" style="left: 61.935483870967744%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/takelast.html" title="takeLast" class="chapter  " data-progress="9.1.2.107" style="left: 62.25806451612903%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/takelastbuffer.html" title="takeLastBuffer" class="chapter  " data-progress="9.1.2.108" style="left: 62.58064516129032%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/takelastbufferwithtime.html" title="takeLastBufferWithTime" class="chapter  " data-progress="9.1.2.109" style="left: 62.903225806451616%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/takelastwithtime.html" title="takeLastWithTime" class="chapter  " data-progress="9.1.2.110" style="left: 63.225806451612904%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/takeuntil.html" title="takeUntil" class="chapter  " data-progress="9.1.2.111" style="left: 63.54838709677419%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/takeuntilwithtime.html" title="takeUntilWithTime" class="chapter  " data-progress="9.1.2.112" style="left: 63.87096774193548%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/takewhile.html" title="takeWhile" class="chapter  " data-progress="9.1.2.113" style="left: 64.19354838709677%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/throttle.html" title="throttle" class="chapter  " data-progress="9.1.2.114" style="left: 64.51612903225806%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/throttlewithselector.html" title="throttleWithSelector" class="chapter  " data-progress="9.1.2.115" style="left: 64.83870967741936%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/timeinterval.html" title="timeInterval" class="chapter  " data-progress="9.1.2.116" style="left: 65.16129032258064%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/timeout.html" title="timeout" class="chapter  " data-progress="9.1.2.117" style="left: 65.48387096774194%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/timeoutwithselector.html" title="timeoutWithSelector" class="chapter  " data-progress="9.1.2.118" style="left: 65.80645161290323%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/timestamp.html" title="timestamp" class="chapter  " data-progress="9.1.2.119" style="left: 66.12903225806451%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/tomap.html" title="toMap" class="chapter  " data-progress="9.1.2.120" style="left: 66.45161290322581%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/toset.html" title="toSet" class="chapter  " data-progress="9.1.2.121" style="left: 66.7741935483871%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/toarray.html" title="toArray" class="chapter  " data-progress="9.1.2.122" style="left: 67.09677419354838%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/where.html" title="where" class="chapter  " data-progress="9.1.2.123" style="left: 67.41935483870968%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/window.html" title="window" class="chapter  " data-progress="9.1.2.124" style="left: 67.74193548387096%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/windowwithcount.html" title="windowWithCount" class="chapter  " data-progress="9.1.2.125" style="left: 68.06451612903226%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/windowwithtime.html" title="windowWithTime" class="chapter  " data-progress="9.1.2.126" style="left: 68.38709677419355%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/windowwithtimeorcount.html" title="windowWithTimeOrCount" class="chapter  " data-progress="9.1.2.127" style="left: 68.70967741935483%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observable/observable_instance_methods/zip.html" title="zip" class="chapter  " data-progress="9.1.2.128" style="left: 69.03225806451613%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/README.html" title="Rx.Observer" class="chapter  " data-progress="9.2" style="left: 69.35483870967742%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_methods/README.html" title="Observer methods" class="chapter  " data-progress="9.2.1" style="left: 69.6774193548387%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_methods/create.html" title="create" class="chapter  " data-progress="9.2.1.1" style="left: 70%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_methods/fromnotifier.html" title="fromNotifier" class="chapter  " data-progress="9.2.1.2" style="left: 70.3225806451613%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_instance_methods/README.html" title="Observer instance methods" class="chapter  " data-progress="9.2.2" style="left: 70.64516129032258%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_instance_methods/asobserver.html" title="asObserver" class="chapter  " data-progress="9.2.2.1" style="left: 70.96774193548387%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_instance_methods/checked.html" title="checked" class="chapter  " data-progress="9.2.2.2" style="left: 71.29032258064517%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_instance_methods/notifyon.html" title="notifyOn" class="chapter  " data-progress="9.2.2.3" style="left: 71.61290322580645%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_instance_methods/oncompleted.html" title="onCompleted" class="chapter  " data-progress="9.2.2.4" style="left: 71.93548387096774%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_instance_methods/onerror.html" title="onError" class="chapter  " data-progress="9.2.2.5" style="left: 72.25806451612904%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_instance_methods/onnext.html" title="onNext" class="chapter  " data-progress="9.2.2.6" style="left: 72.58064516129032%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/observer/observer_instance_methods/tonotifier.html" title="toNotifier" class="chapter  " data-progress="9.2.2.7" style="left: 72.90322580645162%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/README.html" title="Rx.Notification" class="chapter  " data-progress="9.3" style="left: 73.2258064516129%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_methods/README.html" title="Notification Methods" class="chapter  " data-progress="9.3.1" style="left: 73.54838709677419%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_methods/createonnext.html" title="createOnNext" class="chapter  " data-progress="9.3.1.1" style="left: 73.87096774193549%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_methods/createonerror.html" title="createOnError" class="chapter  " data-progress="9.3.1.2" style="left: 74.19354838709677%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_methods/createoncompleted.html" title="createOnCompleted" class="chapter  " data-progress="9.3.1.3" style="left: 74.51612903225806%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_instance_methods/README.html" title="Notification Instance Methods" class="chapter  " data-progress="9.3.2" style="left: 74.83870967741936%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_instance_methods/accept.html" title="accept" class="chapter  " data-progress="9.3.2.1" style="left: 75.16129032258064%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_instance_methods/toobservable.html" title="toObservable" class="chapter  " data-progress="9.3.2.2" style="left: 75.48387096774194%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_properties/README.html" title="Notification Properties" class="chapter  " data-progress="9.3.3" style="left: 75.80645161290323%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_properties/exception.html" title="exception" class="chapter  " data-progress="9.3.3.1" style="left: 76.12903225806451%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_properties/hasvalue.html" title="hasValue" class="chapter  " data-progress="9.3.3.2" style="left: 76.45161290322581%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_properties/kind.html" title="kind" class="chapter  " data-progress="9.3.3.3" style="left: 76.7741935483871%;"></a>
+    
+        <a href="..\..\..\../content/core_objects/notification/notification_properties/value.html" title="value" class="chapter  " data-progress="9.3.3.4" style="left: 77.09677419354838%;"></a>
+    
+        <a href="..\..\..\../content/subjects/README.html" title="Subjects" class="chapter  " data-progress="10" style="left: 77.41935483870968%;"></a>
+    
+        <a href="..\..\..\../content/subjects/async_subject/README.html" title="Rx.AsyncSubject" class="chapter  " data-progress="10.1" style="left: 77.74193548387096%;"></a>
+    
+        <a href="..\..\..\../content/subjects/behavior_subject/README.html" title="Rx.BehaviorSubject" class="chapter  " data-progress="10.2" style="left: 78.06451612903226%;"></a>
+    
+        <a href="..\..\..\../content/subjects/replay_subject/README.html" title="Rx.ReplaySubject" class="chapter  " data-progress="10.3" style="left: 78.38709677419355%;"></a>
+    
+        <a href="..\..\..\../content/subjects/subject/README.html" title="Rx.Subject" class="chapter  " data-progress="10.4" style="left: 78.70967741935483%;"></a>
+    
+        <a href="..\..\..\../content/schedulers/README.html" title="Schedulers" class="chapter  " data-progress="11" style="left: 79.03225806451613%;"></a>
+    
+        <a href="..\..\..\../content/schedulers/historical_scheduler/README.html" title="Rx.HistoricalScheduler" class="chapter  " data-progress="11.1" style="left: 79.35483870967742%;"></a>
+    
+        <a href="..\..\..\../content/schedulers/scheduler/README.html" title="Rx.Scheduler" class="chapter  " data-progress="11.2" style="left: 79.6774193548387%;"></a>
+    
+        <a href="..\..\..\../content/schedulers/virtual_scheduler/README.html" title="Rx.VirtualTimeScheduler" class="chapter  " data-progress="11.3" style="left: 80%;"></a>
+    
+        <a href="..\..\..\../content/disposables/README.html" title="Disposables" class="chapter  " data-progress="12" style="left: 80.3225806451613%;"></a>
+    
+        <a href="..\..\..\../content/disposables/composite_disposable/README.html" title="Rx.CompositeDisposable" class="chapter  " data-progress="12.1" style="left: 80.64516129032258%;"></a>
+    
+        <a href="..\..\..\../content/disposables/disposable/README.html" title="Rx.Disposable" class="chapter  " data-progress="12.2" style="left: 80.96774193548387%;"></a>
+    
+        <a href="..\..\..\../content/disposables/ref_count_disposable/README.html" title="Rx.RefCountDisposable" class="chapter  " data-progress="12.3" style="left: 81.29032258064517%;"></a>
+    
+        <a href="..\..\..\../content/disposables/serial_disposable/README.html" title="Rx.SerialDisposable" class="chapter  " data-progress="12.4" style="left: 81.61290322580645%;"></a>
+    
+        <a href="..\..\..\../content/disposables/single_assignment_disposable/README.html" title="Rx.SingleAssignmentDisposable" class="chapter  " data-progress="12.5" style="left: 81.93548387096774%;"></a>
+    
+        <a href="..\..\..\../content/testing/README.html" title="Testing" class="chapter  " data-progress="13" style="left: 82.25806451612904%;"></a>
+    
+        <a href="..\..\..\../content/testing/reactive_test/README.html" title="Rx.ReactiveTest" class="chapter  " data-progress="13.1" style="left: 82.58064516129032%;"></a>
+    
+        <a href="..\..\..\../content/testing/recorder/README.html" title="Rx.Recorded" class="chapter  " data-progress="13.2" style="left: 82.90322580645162%;"></a>
+    
+        <a href="..\..\..\../content/testing/subscription/README.html" title="Rx.Subscription" class="chapter  " data-progress="13.3" style="left: 83.2258064516129%;"></a>
+    
+        <a href="..\..\..\../content/testing/test_scheduler/README.html" title="Rx.TestScheduler" class="chapter  " data-progress="13.4" style="left: 83.54838709677419%;"></a>
+    
+        <a href="..\..\..\../content/node/README.html" title="Node.js" class="chapter  " data-progress="14" style="left: 83.87096774193549%;"></a>
+    
+        <a href="..\..\..\../content/node/callback_handlers/README.html" title="Callback Handlers" class="chapter  " data-progress="14.1" style="left: 84.19354838709677%;"></a>
+    
+        <a href="..\..\..\../content/node/callback_handlers/from_callback.html" title="fromCallback" class="chapter  " data-progress="14.1.1" style="left: 84.51612903225806%;"></a>
+    
+        <a href="..\..\..\../content/node/callback_handlers/from_node_callback.html" title="fromNodeCallback" class="chapter  " data-progress="14.1.2" style="left: 84.83870967741936%;"></a>
+    
+        <a href="..\..\..\../content/node/event_handlers/README.html" title="Event Handlers" class="chapter  " data-progress="14.2" style="left: 85.16129032258064%;"></a>
+    
+        <a href="..\..\..\../content/node/event_handlers/from_event.html" title="fromEvent" class="chapter  " data-progress="14.2.1" style="left: 85.48387096774194%;"></a>
+    
+        <a href="..\..\..\../content/node/event_handlers/to_event_emitter.html" title="toEventEmitter" class="chapter  " data-progress="14.2.2" style="left: 85.80645161290323%;"></a>
+    
+        <a href="..\..\..\../content/node/stream_handlers/README.html" title="Stream Handlers" class="chapter  " data-progress="14.3" style="left: 86.12903225806451%;"></a>
+    
+        <a href="..\..\..\../content/node/stream_handlers/from_stream.html" title="fromStream" class="chapter  " data-progress="14.3.1" style="left: 86.45161290322581%;"></a>
+    
+        <a href="..\..\..\../content/node/stream_handlers/from_readable_stream.html" title="fromReadableStream" class="chapter  " data-progress="14.3.2" style="left: 86.7741935483871%;"></a>
+    
+        <a href="..\..\..\../content/node/stream_handlers/from_writable_stream.html" title="fromWritableStream" class="chapter  " data-progress="14.3.3" style="left: 87.09677419354838%;"></a>
+    
+        <a href="..\..\..\../content/node/stream_handlers/from_transform_stream.html" title="fromTransformStream" class="chapter  " data-progress="14.3.4" style="left: 87.41935483870968%;"></a>
+    
+        <a href="..\..\..\../content/node/stream_handlers/write_to_stream.html" title="writeToStream" class="chapter  " data-progress="14.3.5" style="left: 87.74193548387096%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/README.html" title="RxJS Bindings" class="chapter  " data-progress="15" style="left: 88.06451612903226%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/README.html" title="DOM" class="chapter  " data-progress="15.1" style="left: 88.38709677419355%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/ajax/README.html" title="Ajax" class="chapter  " data-progress="15.1.1" style="left: 88.70967741935483%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/ajax/ajax.html" title="ajax" class="chapter  " data-progress="15.1.1.1" style="left: 89.03225806451613%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/ajax/ajax_cold.html" title="ajaxCold" class="chapter  " data-progress="15.1.1.2" style="left: 89.35483870967742%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/ajax/get.html" title="get" class="chapter  " data-progress="15.1.1.3" style="left: 89.6774193548387%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/ajax/get_json.html" title="get_Json" class="chapter  " data-progress="15.1.1.4" style="left: 90%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/ajax/post.html" title="post" class="chapter  " data-progress="15.1.1.5" style="left: 90.3225806451613%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/jsonp/README.html" title="JSONP" class="chapter  " data-progress="15.1.2" style="left: 90.64516129032258%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/jsonp/jsonp_request.html" title="jsonpRequest" class="chapter  " data-progress="15.1.2.1" style="left: 90.96774193548387%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/jsonp/jsonp_request_cold.html" title="jsonpRequestCold" class="chapter  " data-progress="15.1.2.2" style="left: 91.29032258064517%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/web_sockets/README.html" title="Web Sockets" class="chapter  " data-progress="15.1.3" style="left: 91.61290322580645%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/web_sockets/from_web_socket.html" title="fromWebSocket" class="chapter  " data-progress="15.1.3.1" style="left: 91.93548387096774%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/web_workers/README.html" title="Web Workers" class="chapter  " data-progress="15.1.4" style="left: 92.25806451612904%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/web_workers/from_web_worker.html" title="fromWebWorker" class="chapter  " data-progress="15.1.4.1" style="left: 92.58064516129032%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/mutation_observers/README.html" title="Mutation Observers" class="chapter  " data-progress="15.1.5" style="left: 92.90322580645162%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/mutation_observers/from_mutation_observer.html" title="fromMutationObserver" class="chapter  " data-progress="15.1.5.1" style="left: 93.2258064516129%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/geolocation/README.html" title="Geolocation" class="chapter  " data-progress="15.1.6" style="left: 93.54838709677419%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/geolocation/get_current_position.html" title="getCurrentPosition" class="chapter  " data-progress="15.1.6.1" style="left: 93.87096774193549%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/geolocation/watch_position.html" title="watchPosition" class="chapter  " data-progress="15.1.6.2" style="left: 94.19354838709677%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/schedulers/README.html" title="Schedulers" class="chapter  " data-progress="15.1.7" style="left: 94.51612903225806%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/schedulers/request_animation_frame.html" title="requestAnimationFrame" class="chapter  " data-progress="15.1.7.1" style="left: 94.83870967741936%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/dom/schedulers/mutation_observer.html" title="mutationObserver" class="chapter  " data-progress="15.1.7.2" style="left: 95.16129032258064%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/jquery/README.html" title="jQuery" class="chapter  " data-progress="15.2" style="left: 95.48387096774194%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/angular/README.html" title="AngularJS" class="chapter  " data-progress="15.3" style="left: 95.80645161290323%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/angular/factories/README.html" title="Factories" class="chapter  " data-progress="15.3.1" style="left: 96.12903225806451%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/angular/factories/rx.html" title="rx" class="chapter  " data-progress="15.3.1.1" style="left: 96.45161290322581%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/angular/factories/observe_on_scope.html" title="observeOnScope" class="chapter  " data-progress="15.3.1.2" style="left: 96.7741935483871%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/angular/observable_methods/README.html" title="Observable methods" class="chapter  " data-progress="15.3.2" style="left: 97.09677419354838%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/angular/observable_methods/safe_apply.html" title="safeApply" class="chapter  " data-progress="15.3.2.1" style="left: 97.41935483870968%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/angular/root_scope_methods/README.html" title="$rootScope methods" class="chapter  " data-progress="15.3.3" style="left: 97.74193548387096%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/angular/root_scope_methods/$to_observable.html" title="$toObservable" class="chapter  " data-progress="15.3.3.1" style="left: 98.06451612903226%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/angular/root_scope_methods/$event_to_observable.html" title="$eventToObservable" class="chapter  " data-progress="15.3.3.2" style="left: 98.38709677419355%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/angular/root_scope_methods/$create_observable_function.html" title="$createObservableFunction" class="chapter  " data-progress="15.3.3.3" style="left: 98.70967741935483%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/react/README.html" title="Facebook React" class="chapter  " data-progress="15.4" style="left: 99.03225806451613%;"></a>
+    
+        <a href="..\..\..\../content/rxjs_bindings/ractive/README.html" title="Ractive.js" class="chapter  " data-progress="15.5" style="left: 99.35483870967742%;"></a>
+    
+        <a href="..\..\..\../content/similar_libraries/README.html" title="Similar libraries" class="chapter  " data-progress="16" style="left: 99.6774193548387%;"></a>
+    
+        <a href="..\..\..\../GLOSSARY.html" title="Glossary" class="chapter  " data-progress="17" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
                 <div class="page-inner">
                 
-                
-                    <section class="normal" id="section-gitbook_1051">
+                    <section class="normal" id="section-gitbook_202">
                     
-                        <h1 id="subscribeon">subscribeOn</h1>
+                        <h1 id="subscribeon"><a name="subscribeon" class="plugin-anchor" href="#subscribeon"><span class="fa fa-link"></span></a>subscribeOn</h1>
 <p><code>Rx.Observable.prototype.subscribeOn(scheduler)</code>
 <a href="#rxobservableprototypesubscribeonscheduler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/subscribeon.js" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Wraps the source sequence in order to run its subscription and unsubscription logic on the specified scheduler.</p>
 <p>This only performs the side-effects of subscription and unsubscription on the specified scheduler. In order to invoke observer callbacks on a scheduler, use <code>observeOn</code>.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>scheduler</code> <em>(<code>Scheduler</code>)</em>:  Scheduler to notify observers on.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: The source sequence whose observations happen on the specified scheduler. </p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <p><a href="http://jsbin.com/socik/1/embed?js,console" target="_blank"></a></p>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/subscribeon.js" target="_blank"><code>/src/core/observable/subscribeon.js</code></a></li>
@@ -5387,7 +6006,6 @@
                     
                     </section>
                 
-                
                 </div>
             </div>
         </div>
@@ -5402,7 +6020,12 @@
 </div>
 
         
+<script src="../../../../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
 <script src="../../../../gitbook/app.js"></script>
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-jsbin/plugin.js"></script>
+    
 
     
     <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -5418,7 +6041,7 @@
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    var config = {"fontSettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

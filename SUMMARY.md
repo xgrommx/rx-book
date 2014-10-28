@@ -2,6 +2,12 @@
 
 * [Why RxJs?](WhyRx.md)
 * [Summary](content/summary.md)
+* [RxJS Design Guidelines](content/guidelines/README.md)
+   * [Introduction](content/guidelines/introduction/README.md)
+   * [When to use RxJS](content/guidelines/when/README.md)
+   * [The RxJS contract](content/guidelines/contract/README.md)
+   * [Using RxJS](content/guidelines/using/README.md)
+   * [Operator implementations](content/guidelines/implementations/README.md)
 * [Getting Started With RxJS](content/getting_started_with_rxjs/README.md)
    * [What are the Reactive Extensions?](content/getting_started_with_rxjs/what_are_the_reactive_extensions.md)
    * [Exploring Major Concepts in RxJS](content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.md)
@@ -303,4 +309,4 @@
    * [Facebook React](content/rxjs_bindings/react/README.md)
    * [Ractive.js](content/rxjs_bindings/ractive/README.md)
 * [Similar libraries](content/similar_libraries/README.md)
-
+* [Glossary](GLOSSARY.md)

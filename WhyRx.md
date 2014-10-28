@@ -9,7 +9,7 @@ First, we'll reference the JavaScript files, including jQuery, although RxJS has
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="rx.lite.js"></script>
 ```
-Next, we'll get the user input from an input, listening to the keyup event by using the `Rx.Observable.fromEvent` method.  This will either use the event binding from [jQuery](http://jquery.com), [Zepto](http://zeptojs.com/), [AngularJS](https://angularjs.org/) and [Ember.js](http://emberjs.com/) if available, and if not, falls back to the native event binding.  This gives you consistent ways of thinking of events depending on your framework, so there are no surprises.
+Next, we'll get the user input from an input, listening to the keyup event by using the [`Rx.Observable.fromEvent`](content/core_objects/observable/observable_methods/fromevent.md) method.  This will either use the event binding from [jQuery](http://jquery.com), [Zepto](http://zeptojs.com/), [AngularJS](https://angularjs.org/) and [Ember.js](http://emberjs.com/) if available, and if not, falls back to the native event binding.  This gives you consistent ways of thinking of events depending on your framework, so there are no surprises.
 
 ```js
 var $input = $('#input'),
@@ -33,7 +33,7 @@ var distinct = throttled
     .distinctUntilChanged();
 ```
 
-Now, let's query Wikipedia!  In RxJS, we can instantly bind to any [Promises A+](https://github.com/promises-aplus/promises-spec) implementation through the `Rx.Observable.fromPromise` method or by just directly returning it, and we wrap it for you.
+Now, let's query Wikipedia!  In RxJS, we can instantly bind to any [Promises A+](https://github.com/promises-aplus/promises-spec) implementation through the [`Rx.Observable.fromPromise`](content/core_objects/observable/observable_methods/frompromise.md) method or by just directly returning it, and we wrap it for you.
 
 ```js
 function searchWikipedia (term) {
@@ -49,7 +49,7 @@ function searchWikipedia (term) {
 }
 ```
 
-Once that is created, now we can tie together the distinct throttled input and then query the service.  In this case, we'll call `flatMapLatest` to get the value and ensure that we're not introducing any out of order sequence calls.
+Once that is created, now we can tie together the distinct throttled input and then query the service.  In this case, we'll call [`flatMapLatest`](content/core_objects/observable/observable_instance_methods/flatmaplatest.md) to get the value and ensure that we're not introducing any out of order sequence calls.
 
 ```js
 var suggestions = distinct

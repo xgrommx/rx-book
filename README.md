@@ -45,7 +45,7 @@ To put it more concretely, if you know how to program against Arrays using the A
            </tr>
          </tbody>
     </table>
-  </center> 
+  </center>
   <center>
     <table>
       <thead>

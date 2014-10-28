@@ -8,8 +8,8 @@ Before getting into many operators, let's look at how to create an `Observable` 
 
 First, we need to ensure we reference the core `rx.js` file.
 
-```
-	<script src="rx.js"></script>
+```html
+<script src="rx.js"></script>
 ```
 
 Or if we're using [Node.js](http://node.js), we can reference it as such:
@@ -111,9 +111,9 @@ The following sample uses the [`timer`](https://github.com/Reactive-Extensions/R
 
 First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.
 
-```
-	<script src="rx.js"></script>
-	<script src="rx.time.js"></script>
+```html
+<script src="rx.js"></script>
+<script src="rx.time.js"></script>
 ```
 
 Now on to our example
@@ -175,9 +175,9 @@ Two observers then subscribe to this sequence and print out its values. You will
 
 First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.
 
-```
-	<script src="rx.js"></script>
-	<script src="rx.time.js"></script>
+```html
+<script src="rx.js"></script>
+<script src="rx.time.js"></script>
 ```
 
 And now to the example.
@@ -229,10 +229,10 @@ In the following example, we convert the previous cold observable sequence sourc
 
 First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.
 
-```
-	<script src="rx.js"></script>
-	<script src="rx.binding.js"></script>
-	<script src="rx.time.js"></script>
+```html
+<script src="rx.js"></script>
+<script src="rx.binding.js"></script>
+<script src="rx.time.js"></script>
 ```
 
 Now onto the example!

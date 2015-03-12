@@ -4,12 +4,10 @@ define([
     "core/events",
     "core/state",
     "core/progress",
-    "core/exercise",
-    "core/quiz",
-    "core/loading"
-], function($, URL, events, state, progress, exercises, quiz, loading) {
+    "core/loading",
+    "core/search"
+], function($, URL, events, state, progress, loading, search) {
     var prev, next;
-    var githubCountStars, githubCountWatch;
 
     var usePushState = (typeof history.pushState !== "undefined");
 
@@ -56,16 +54,13 @@ define([
 
             // Update state
             state.update($("html"));
+            // recover search keyword
+            search.recover();
             preparePage();
         })
         .fail(function (e) {
             location.href = relativeUrl;
         }));
-    };
-
-    var updateGitHubCounts = function() {
-        $(".book-header .count-star span").text(githubCountStars);
-        $(".book-header .count-watch span").text(githubCountWatch);
     };
 
     var updateNavigationPosition = function() {
@@ -79,10 +74,6 @@ define([
     var preparePage = function() {
         var $pageWrapper = $(".book-body .page-wrapper");
 
-        // Bind exercises/quiz
-        exercises.init();
-        quiz.init();
-
         // Show progress
         progress.show();
 
@@ -95,21 +86,7 @@ define([
         // Focus on content
         $pageWrapper.focus();
 
-        // Update GitHub count
-        if (state.githubId) {
-            if (githubCountStars) {
-                updateGitHubCounts();
-            } else {
-                $.getJSON("https://api.github.com/repos/"+state.githubId)
-                .done(function(repo) {
-                    githubCountStars = repo.stargazers_count;
-                    githubCountWatch = repo.subscribers_count;
-                    updateGitHubCounts();
-                });
-            }
-        }
-
-        // Send to mixpanel
+        // Notify
         events.trigger("page.change");
     };
 
@@ -167,3 +144,4 @@ define([
         goPrev: goPrev
     };
 });
+

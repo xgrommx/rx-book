@@ -1,17 +1,10 @@
 var path = require("path");
 
 module.exports = function (grunt) {
-    grunt.loadNpmTasks('grunt-gitbook');
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.initConfig({
-        'gitbook': {
-            development: {
-                input: "C:\tmp\rx-book",
-                github: "xgrommx/rx-book"
-            }
-        },
         'gh-pages': {
             options: {
                 base: '_book'

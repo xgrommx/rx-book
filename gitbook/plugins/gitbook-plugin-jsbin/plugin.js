@@ -34,7 +34,6 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 		iframe.style.border = '1px solid #aaa';
 
 		var query = getQuery(link.search);
-
 		iframe.style.width = query.width || '100%';
 		iframe.style.minHeight = query.height || '500px';
 		if (query.height) {
@@ -54,22 +53,11 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 			window.attachEvent('onmessage', onmessage);
 		}
 	}
-
-	function embedAllLink(){
-		$(".book-body a").each(function(index, link){
-			if(link.href && new RegExp(matcher).test(link.href)){
-				embed(link);
-			}
-		});
-	}
-  gitbook.events.bind("start", function(e, config) {
-		config.jsbin = config.jsbin || {};
-		matcher = config.jsbin.url || "jsbin.com\/.+";
-		embedAllLink();
+  gitbook.events.bind("page.change", function(e, config) {		
+			$(".book-body a").each(function(index, link){
+				if(link.href && link.href.match(/jsbin.com\/.*/)){
+					embed(link);
+				}
+			});
   });
-
-	gitbook.events.bind("page.change", function(){
-		if(typeof matcher != 'undefined')
-			embedAllLink();
-	});
 });

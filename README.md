@@ -9,33 +9,33 @@ Reactive Extensions represents all these data sequences as observable sequences.
 RxJS has no dependencies which complements and interoperates smoothly with both synchronous data streams such as iterable objects in JavaScript and single-value asynchronous computations such as Promises as the following diagram shows:
 
 <center>
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th>Single return value</th>
-                <th>Mutiple return values</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <td>Pull/Synchronous/Interactive</td>
-              <td>Object</td>
-              <td>Iterables (Array | Set | Map | Object)</td>
-            </tr>
-            <tr>
-              <td>Push/Asynchronous/Reactive</td>
-              <td>Promise</td>
-              <td>Observable</td>
-            </tr>
-        </tbody>
-    </table>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Single return value</th>
+            <th>Mutiple return values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>Pull/Synchronous/Interactive</td>
+          <td>Object</td>
+          <td>Iterables (Array | Set | Map | Object)</td>
+        </tr>
+        <tr>
+          <td>Push/Asynchronous/Reactive</td>
+          <td>Promise</td>
+          <td>Observable</td>
+        </tr>
+    </tbody>
+</table>
 </center>
 
 To put it more concretely, if you know how to program against Arrays using the Array#extras, then you already know how to use RxJS!
 
 <center>
-    <h3>Example code showing how similar high-order functions can be applied to an Array and an Observable</h3>
+<h3>Example code showing how similar high-order functions can be applied to an Array and an Observable</h3>
 
 <table>
     <thead>

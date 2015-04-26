@@ -9,57 +9,64 @@ Reactive Extensions represents all these data sequences as observable sequences.
 RxJS has no dependencies which complements and interoperates smoothly with both synchronous data streams such as iterable objects in JavaScript and single-value asynchronous computations such as Promises as the following diagram shows:
 
 <center>
-<table>
-   <th></th><th>Single return value</th><th>Mutiple return values</th>
-   <tr>
-      <td>Pull/Synchronous/Interactive</td>
-      <td>Object</td>
-      <td>Iterables (Array | Set | Map | Object)</td>
-   </tr>
-   <tr>
-      <td>Push/Asynchronous/Reactive</td>
-      <td>Promise</td>
-      <td>Observable</td>
-   </tr>
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Single return value</th>
+                <th>Mutiple return values</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>Pull/Synchronous/Interactive</td>
+              <td>Object</td>
+              <td>Iterables (Array | Set | Map | Object)</td>
+            </tr>
+            <tr>
+              <td>Push/Asynchronous/Reactive</td>
+              <td>Promise</td>
+              <td>Observable</td>
+            </tr>
+        </tbody>
+    </table>
 </center>
 
 To put it more concretely, if you know how to program against Arrays using the Array#extras, then you already know how to use RxJS!
 
-<center><table>
- <thead>
-  <tr><th style="text-align:center;" colspan="2">Example code showing how similar high-order functions can be applied to an Array and an Observable</th></tr>
- </thead>
- <tbody>
-  <center>
+<center>
+    <h3>Example code showing how similar high-order functions can be applied to an Array and an Observable</h3>
+
     <table>
-         <thead>
-           <tr><th style="text-align:center;" colspan="2">Iterable</th></tr>
-         </thead>
-         <tbody>
-           <tr>
-             <td colspan="2"><pre><code>getDataFromLocalMemory()
-             .filter (function (s) { return s != null; })
-             .map( function (s) { return s + 'transformed'; })
-             .forEach(function (s) { console.log('next => ' + s); })</code></pre></td>
-           </tr>
-         </tbody>
+        <thead>
+            <tr>
+                <th style="text-align:center;" colspan="2">Iterable</th>
+                <th style="text-align:center;" colspan="2">Observable</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2">
+                    <pre>
+<code>
+getDataFromLocalMemory()
+        .filter (function (s) { return s != null; })
+        .map( function (s) { return s + 'transformed'; })
+        .forEach(function (s) { console.log('next => ' + s); })
+</code>
+                    </pre>
+                </td>
+                <td colspan="2">
+                    <pre>
+<code>
+    getDataFromNetwork()
+        .filter (function (s) { return s != null; })
+        .map( function (s) { return s + 'transformed'; })
+        .subscribe(function (s) { console.log('next => ' + s); })
+</code>
+                    </pre>
+                </td>
+            </tr>
+        </tbody>
     </table>
-  </center>
-  <center>
-    <table>
-      <thead>
-        <tr><th style="text-align:center;" colspan="2">Observable</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td colspan="2"><pre><code>getDataFromNetwork()
-          .filter (function (s) { return s != null; })
-          .map( function (s) { return s + 'transformed'; })
-          .subscribe(function (s) { console.log('next => ' + s); })</code></pre></td>
-        </tr>
-      </tbody>
-    </table>
-  </center>
- </tbody>
-</table></center>
+</center>

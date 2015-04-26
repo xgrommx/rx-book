@@ -37,32 +37,36 @@ To put it more concretely, if you know how to program against Arrays using the A
 <center>
     <h3>Example code showing how similar high-order functions can be applied to an Array and an Observable</h3>
 
-    <table>
-        <thead>
-            <tr>
-                <th style="text-align:center;" colspan="2">Iterable</th>
-                <th style="text-align:center;" colspan="2">Observable</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td colspan="2">
-                    <pre>
-    getDataFromLocalMemory()
-        .filter (function (s) { return s != null; })
-        .map( function (s) { return s + 'transformed'; })
-        .forEach(function (s) { console.log('next => ' + s); })
-                    </pre>
-                </td>
-                <td colspan="2">
-                    <pre>
-    getDataFromNetwork()
-        .filter (function (s) { return s != null; })
-        .map( function (s) { return s + 'transformed'; })
-        .subscribe(function (s) { console.log('next => ' + s); })
-                    </pre>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:center;" colspan="2">Iterable</th>
+            <th style="text-align:center;" colspan="2">Observable</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="2">
+                <pre>
+<code>
+getDataFromLocalMemory()
+    .filter (function (s) { return s != null; })
+    .map( function (s) { return s + 'transformed'; })
+    .forEach(function (s) { console.log('next => ' + s); })
+</code>
+                </pre>
+            </td>
+            <td colspan="2">
+                <pre>
+<code>
+getDataFromNetwork()
+    .filter (function (s) { return s != null; })
+    .map( function (s) { return s + 'transformed'; })
+    .subscribe(function (s) { console.log('next => ' + s); })
+</code>
+                </pre>
+            </td>
+        </tr>
+    </tbody>
+</table>
 </center>

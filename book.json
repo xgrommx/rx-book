@@ -4,7 +4,8 @@
     "description": null,
     "plugins": [
         "jsbin",
-        "anchors"
+        "anchors",
+        "youtube"
     ],
     "theme": "theme",
     "pluginsConfig": {

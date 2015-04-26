@@ -72,7 +72,9 @@ define([
     };
 
     var preparePage = function() {
-        var $pageWrapper = $(".book-body .page-wrapper");
+        var $bookBody = $(".book-body");
+        var $bookInner = $bookBody.find(".body-inner");
+        var $pageWrapper = $bookInner.find(".page-wrapper");
 
         // Show progress
         progress.show();
@@ -80,11 +82,12 @@ define([
         // Update navigation position
         updateNavigationPosition();
 
-        // Reset scroll
-        $pageWrapper.scrollTop(0);
-
         // Focus on content
         $pageWrapper.focus();
+
+        // Reset scroll
+        $bookInner.scrollTop(0);
+        $bookBody.scrollTop(0);
 
         // Notify
         events.trigger("page.change");

@@ -309,4 +309,5 @@
    * [Facebook React](content/rxjs_bindings/react/README.md)
    * [Ractive.js](content/rxjs_bindings/ractive/README.md)
 * [Similar libraries](content/similar_libraries/README.md)
+* [Video](content/video/README.md)
 * [Glossary](GLOSSARY.md)

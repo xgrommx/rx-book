@@ -29,9 +29,21 @@
 * [https://github.com/r3dm/thundercats](https://github.com/r3dm/thundercats)
 * [https://github.com/codesuki/reactive-flux](https://github.com/codesuki/reactive-flux)
 * [https://github.com/cell303/flurx](https://github.com/cell303/flurx)
+* [https://github.com/andreypopp/react-async](https://github.com/andreypopp/react-async)
+* [https://github.com/justinwoo/react-rxjs-flow](https://github.com/justinwoo/react-rxjs-flow)
+* [https://github.com/kmcclosk/reactjs-rxjs-example.git](https://github.com/kmcclosk/reactjs-rxjs-example.git)
+* [https://github.com/fdecampredon/rx-react-example](https://github.com/fdecampredon/rx-react-example)
+* [https://github.com/winsonwq/RR](https://github.com/winsonwq/RR)
+* [https://gist.github.com/zxbodya/20c63681d45a049df3fc](https://gist.github.com/zxbodya/20c63681d45a049df3fc)
 
 #### Ember
 * [https://github.com/blesh/RxEmber](https://github.com/blesh/RxEmber)
+
+#### Can
+* [https://github.com/canjs/can.rx](https://github.com/canjs/can.rx)
+
+#### Cycle
+* [https://github.com/schrepfler/rx-helloworld-cycle](https://github.com/schrepfler/rx-helloworld-cycle)
 
 ## Visualizing streams
 * [https://github.com/staltz/rxmarbles](https://github.com/staltz/rxmarbles)
@@ -45,3 +57,8 @@
 ## Other
 * [https://github.com/trxcllnt/rxjs-easing](https://github.com/trxcllnt/rxjs-easing)
 * [https://github.com/staltz/rxtween](https://github.com/staltz/rxtween)
+* [https://github.com/blesh/RxSocketSubject](https://github.com/blesh/RxSocketSubject)
+* [https://github.com/paulpdaniels/rx.wamp](https://github.com/paulpdaniels/rx.wamp)
+* [https://github.com/jhusain/compositional-functions](https://github.com/jhusain/compositional-functions)
+* [https://gist.github.com/staltz/868e7e9bc2a7b8c1f754](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
+

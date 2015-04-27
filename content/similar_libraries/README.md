@@ -40,6 +40,7 @@
 * [https://github.com/erikschlegel/sails-rx-react-js](https://github.com/erikschlegel/sails-rx-react-js)
 * [https://github.com/hugobessaa/rx-react-pinch](https://github.com/hugobessaa/rx-react-pinch)
 * [https://github.com/ahomu/hn-react-rxjs.git](https://github.com/ahomu/hn-react-rxjs.git)
+* [https://github.com/holsee/ReactiveReact](https://github.com/holsee/ReactiveReact)
 
 #### Ember
 * [https://github.com/blesh/RxEmber](https://github.com/blesh/RxEmber)
@@ -72,4 +73,5 @@
 * [https://github.com/brettshollenberger/rx_maze](https://github.com/brettshollenberger/rx_maze)
 * [http://www.slideshare.net/RyanAnklam/rethink-async-with-rxjs](http://www.slideshare.net/RyanAnklam/rethink-async-with-rxjs)
 * [http://bodil.org/boogaloo](http://bodil.org/boogaloo)
+* [https://github.com/johntron/rxjs-d3-example](https://github.com/johntron/rxjs-d3-example)
 

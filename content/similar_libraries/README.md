@@ -81,4 +81,5 @@
 * [https://github.com/johntron/rxjs-d3-example](https://github.com/johntron/rxjs-d3-example)
 * [https://github.com/kriskowal/gtor](https://github.com/kriskowal/gtor)
 * [https://github.com/radioactive/radioactive](https://github.com/radioactive/radioactive)
+* [https://github.com/bleathem/locationforcelayout](https://github.com/bleathem/locationforcelayout)
 

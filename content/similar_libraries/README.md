@@ -9,6 +9,10 @@
 * [RxJS(ES6)](https://github.com/ReactiveX/RxJS)
 * [RxJS(Modular)](https://github.com/Reactive-Extensions/RxJS-Modular)
 * [Most](https://github.com/cujojs/most)
+* [Reactor.js](https://github.com/fynyky/reactor.js)
+* [Reactive.js](https://github.com/mattbaker/Reactive.js)
+* [Sig](https://github.com/justinvdm/sig)
+* [F](https://github.com/colin-dumitru/F.js)
 
 ## Frameworks
 * [Cycle](https://github.com/staltz/cycle)
@@ -41,6 +45,7 @@
 * [https://github.com/hugobessaa/rx-react-pinch](https://github.com/hugobessaa/rx-react-pinch)
 * [https://github.com/ahomu/hn-react-rxjs.git](https://github.com/ahomu/hn-react-rxjs.git)
 * [https://github.com/holsee/ReactiveReact](https://github.com/holsee/ReactiveReact)
+* [https://github.com/joelhooks/reactive-sandbox](https://github.com/joelhooks/reactive-sandbox)
 
 #### Ember
 * [https://github.com/blesh/RxEmber](https://github.com/blesh/RxEmber)
@@ -74,4 +79,6 @@
 * [http://www.slideshare.net/RyanAnklam/rethink-async-with-rxjs](http://www.slideshare.net/RyanAnklam/rethink-async-with-rxjs)
 * [http://bodil.org/boogaloo](http://bodil.org/boogaloo)
 * [https://github.com/johntron/rxjs-d3-example](https://github.com/johntron/rxjs-d3-example)
+* [https://github.com/kriskowal/gtor](https://github.com/kriskowal/gtor)
+* [https://github.com/radioactive/radioactive](https://github.com/radioactive/radioactive)
 

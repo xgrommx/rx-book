@@ -7,6 +7,8 @@
 * [Flyd](https://github.com/paldepind/flyd)
 * [Asyncplify](https://github.com/danylaporte/asyncplify)
 * [RxJS(ES6)](https://github.com/ReactiveX/RxJS)
+* [RxJS(Modular)](https://github.com/Reactive-Extensions/RxJS-Modular)
+* [Most](https://github.com/cujojs/most)
 
 ## Frameworks
 * [Cycle](https://github.com/staltz/cycle)
@@ -35,6 +37,9 @@
 * [https://github.com/fdecampredon/rx-react-example](https://github.com/fdecampredon/rx-react-example)
 * [https://github.com/winsonwq/RR](https://github.com/winsonwq/RR)
 * [https://gist.github.com/zxbodya/20c63681d45a049df3fc](https://gist.github.com/zxbodya/20c63681d45a049df3fc)
+* [https://github.com/erikschlegel/sails-rx-react-js](https://github.com/erikschlegel/sails-rx-react-js)
+* [https://github.com/hugobessaa/rx-react-pinch](https://github.com/hugobessaa/rx-react-pinch)
+* [https://github.com/ahomu/hn-react-rxjs.git](https://github.com/ahomu/hn-react-rxjs.git)
 
 #### Ember
 * [https://github.com/blesh/RxEmber](https://github.com/blesh/RxEmber)
@@ -61,4 +66,10 @@
 * [https://github.com/paulpdaniels/rx.wamp](https://github.com/paulpdaniels/rx.wamp)
 * [https://github.com/jhusain/compositional-functions](https://github.com/jhusain/compositional-functions)
 * [https://gist.github.com/staltz/868e7e9bc2a7b8c1f754](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
+* [https://github.com/bodil/erx](https://github.com/bodil/erx)
+* [https://github.com/stomita/rxpression](https://github.com/stomita/rxpression)
+* [https://github.com/alekspolitov/ReactAngularRxJs](https://github.com/alekspolitov/ReactAngularRxJs)
+* [https://github.com/brettshollenberger/rx_maze](https://github.com/brettshollenberger/rx_maze)
+* [http://www.slideshare.net/RyanAnklam/rethink-async-with-rxjs](http://www.slideshare.net/RyanAnklam/rethink-async-with-rxjs)
+* [http://bodil.org/boogaloo](http://bodil.org/boogaloo)
 

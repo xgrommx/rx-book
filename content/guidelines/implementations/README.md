@@ -12,7 +12,7 @@ Rx.Observable.prototype.flatMap = function (selector) {
 };
 ```
 
-In this sample, the SelectMany operator uses two existing operators: [`map`](../../core_objects/observable/observable_instance_methods/map.md) and [`mergeAll`](../../core_objects/observable/observable_instance_methods/mergeall.md). The [`map`](../../core_objects/observable/observable_instance_methods/map.md) operator already deals with any issues around the selector function throwing an exception. The [`mergeAll`](../../core_objects/observable/observable_instance_methods/mergeall.md) operator already deals with concurrency issues of multiple observable sequences firing at the same time.
+In this sample, the `flatMap` operator uses two existing operators: [`map`](../../core_objects/observable/observable_instance_methods/map.md) and [`mergeAll`](../../core_objects/observable/observable_instance_methods/mergeall.md). The [`map`](../../core_objects/observable/observable_instance_methods/map.md) operator already deals with any issues around the selector function throwing an exception. The [`mergeAll`](../../core_objects/observable/observable_instance_methods/mergeall.md) operator already deals with concurrency issues of multiple observable sequences firing at the same time.
 
 #### When to ignore this guideline ####
 
@@ -381,7 +381,7 @@ There are currently no known instances where this guideline should be ignored.
 
 ### Operators should not block ###
 
-RxJS is a library for composing asynchronous and event-based programs using observable collections.  
+RxJS is a library for composing asynchronous and event-based programs using observable collections.
 
 By making an operator blocking we lose these asynchronous characteristics. We also potentially lose composability (e.g. by returning a value typed as `T` instead of `Observable<T>`).  This is in contrast to the Array#extras such as `sum`, `reduce`, `some` and `every` which return a single value.
 

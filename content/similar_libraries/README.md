@@ -47,6 +47,8 @@
 * [https://github.com/holsee/ReactiveReact](https://github.com/holsee/ReactiveReact)
 * [https://github.com/joelhooks/reactive-sandbox](https://github.com/joelhooks/reactive-sandbox)
 * [https://github.com/pH200/cycle-react](https://github.com/pH200/cycle-react)
+* [https://github.com/zxbodya/reactive-widgets](https://github.com/zxbodya/reactive-widgets)
+* [https://github.com/justinwoo/react-rxjs-scroll](https://github.com/justinwoo/react-rxjs-scroll)
 
 #### Ember
 * [https://github.com/blesh/RxEmber](https://github.com/blesh/RxEmber)

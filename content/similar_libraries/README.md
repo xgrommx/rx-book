@@ -46,6 +46,7 @@
 * [https://github.com/ahomu/hn-react-rxjs.git](https://github.com/ahomu/hn-react-rxjs.git)
 * [https://github.com/holsee/ReactiveReact](https://github.com/holsee/ReactiveReact)
 * [https://github.com/joelhooks/reactive-sandbox](https://github.com/joelhooks/reactive-sandbox)
+* [https://github.com/pH200/cycle-react](https://github.com/pH200/cycle-react)
 
 #### Ember
 * [https://github.com/blesh/RxEmber](https://github.com/blesh/RxEmber)

@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>aggregate | RxJS - Javascript library for functional reactive programming.</title>
+        <title>aggregate (deprecated) | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.1">
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="9.1.2.1" data-basepath="../../../.." data-revision="Tue Apr 28 2015 01:42:52 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="9.1.2.1" data-basepath="../../../.." data-revision="Fri May 08 2015 06:07:45 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -927,7 +927,7 @@
                         
                             <b>9.1.1.12.</b>
                         
-                        fromArray
+                        fromArray (deprecated)
                     </a>
                 
             
@@ -1413,7 +1413,7 @@
                         
                             <b>9.1.2.1.</b>
                         
-                        aggregate
+                        aggregate (deprecated)
                     </a>
                 
             
@@ -1428,7 +1428,7 @@
                         
                             <b>9.1.2.2.</b>
                         
-                        all
+                        all (deprecated)
                     </a>
                 
             
@@ -1473,7 +1473,7 @@
                         
                             <b>9.1.2.5.</b>
                         
-                        any
+                        any (deprecated)
                     </a>
                 
             
@@ -1818,7 +1818,7 @@
                         
                             <b>9.1.2.28.</b>
                         
-                        do | doAction
+                        do | doAction (deprecated)
                     </a>
                 
             
@@ -5069,8 +5069,9 @@
                         <h1 id="aggregate"><a name="aggregate" class="plugin-anchor" href="#aggregate"><span class="fa fa-link"></span></a>aggregate</h1>
 <p><code>Rx.Observable.prototype.aggregate([seed], accumulator)</code>
 <a href="#rxobservableprototypeaggregateseed-accumulator">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/aggregate.js" title="View in source" target="_blank">&#x24C8;</a> </p>
-<p> Applies an accumulator function over an observable sequence, returning the result of the aggregation as a single element in the result sequence. The specified seed value is used as the initial accumulator value.
- For aggregation behavior with incremental intermediate results, see <code>Rx.Observable.scan</code>.</p>
+<p>Use <code>Rx.Observable.prototype.reduce</code> instead.</p>
+<p>Applies an accumulator function over an observable sequence, returning the result of the aggregation as a single element in the result sequence. The specified seed value is used as the initial accumulator value.</p>
+<p>For aggregation behavior with incremental intermediate results, see <code>Rx.Observable.prototype.scan</code>.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>[seed]</code> <em>(Mixed)</em>: The initial accumulator value.</li>
@@ -5122,7 +5123,7 @@
         <a href="../../../../content/core_objects/observable/observable_instance_methods/index.html" class="navigation navigation-prev " aria-label="Previous page: Observable Instance Methods"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../../../content/core_objects/observable/observable_instance_methods/all.html" class="navigation navigation-next " aria-label="Next page: all"><i class="fa fa-angle-right"></i></a>
+        <a href="../../../../content/core_objects/observable/observable_instance_methods/all.html" class="navigation navigation-next " aria-label="Next page: all (deprecated)"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

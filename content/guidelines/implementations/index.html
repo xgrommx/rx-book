@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="3.5" data-basepath="../../.." data-revision="Tue Apr 28 2015 01:42:52 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.5" data-basepath="../../.." data-revision="Fri May 08 2015 06:07:45 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -927,7 +927,7 @@
                         
                             <b>9.1.1.12.</b>
                         
-                        fromArray
+                        fromArray (deprecated)
                     </a>
                 
             
@@ -1413,7 +1413,7 @@
                         
                             <b>9.1.2.1.</b>
                         
-                        aggregate
+                        aggregate (deprecated)
                     </a>
                 
             
@@ -1428,7 +1428,7 @@
                         
                             <b>9.1.2.2.</b>
                         
-                        all
+                        all (deprecated)
                     </a>
                 
             
@@ -1473,7 +1473,7 @@
                         
                             <b>9.1.2.5.</b>
                         
-                        any
+                        any (deprecated)
                     </a>
                 
             
@@ -1818,7 +1818,7 @@
                         
                             <b>9.1.2.28.</b>
                         
-                        do | doAction
+                        do | doAction (deprecated)
                     </a>
                 
             
@@ -5074,7 +5074,7 @@
   <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.map(selector).mergeAll();
 };
 </code></pre>
-<p>In this sample, the SelectMany operator uses two existing operators: <a href="../../core_objects/observable/observable_instance_methods/map.md"><code>map</code></a> and <a href="../../core_objects/observable/observable_instance_methods/mergeall.md"><code>mergeAll</code></a>. The <a href="../../core_objects/observable/observable_instance_methods/map.md"><code>map</code></a> operator already deals with any issues around the selector function throwing an exception. The <a href="../../core_objects/observable/observable_instance_methods/mergeall.md"><code>mergeAll</code></a> operator already deals with concurrency issues of multiple observable sequences firing at the same time.</p>
+<p>In this sample, the <code>flatMap</code> operator uses two existing operators: <a href="../../core_objects/observable/observable_instance_methods/map.md"><code>map</code></a> and <a href="../../core_objects/observable/observable_instance_methods/mergeall.md"><code>mergeAll</code></a>. The <a href="../../core_objects/observable/observable_instance_methods/map.md"><code>map</code></a> operator already deals with any issues around the selector function throwing an exception. The <a href="../../core_objects/observable/observable_instance_methods/mergeall.md"><code>mergeAll</code></a> operator already deals with concurrency issues of multiple observable sequences firing at the same time.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <ul>
 <li>No appropriate set of base operators is available to implement this operator.</li>
@@ -5384,7 +5384,7 @@
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>There are currently no known instances where this guideline should be ignored.</p>
 <h3 id="operators-should-not-block"><a name="operators-should-not-block" class="plugin-anchor" href="#operators-should-not-block"><span class="fa fa-link"></span></a>Operators should not block</h3>
-<p>RxJS is a library for composing asynchronous and event-based programs using observable collections.  </p>
+<p>RxJS is a library for composing asynchronous and event-based programs using observable collections.</p>
 <p>By making an operator blocking we lose these asynchronous characteristics. We also potentially lose composability (e.g. by returning a value typed as <code>T</code> instead of <code>Observable&lt;T&gt;</code>).  This is in contrast to the Array#extras such as <code>sum</code>, <code>reduce</code>, <code>some</code> and <code>every</code> which return a single value.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
 <pre><code class="lang-js">Rx.Observable.prototype.sum = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{

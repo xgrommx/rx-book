@@ -1,10 +1,10 @@
 # Creating and Subscribing to Simple Observable Sequences #
 
-You do not need to implement the `Observable` class manually to create an observable sequences. Similarly, you do not need to implement `Observer` either to subscribe to a sequence. By installing the Reactive Extension libraries, you can take advantage of the `Observable` type which provides many operators for you to create a simple sequence with zero, one or more elements. In addition, RxJS provides an overloaded `subscribe` method which allows you to pass in `onNext`, `onError` and `onCompleted` function handlers.
+You do not need to implement the `Observable` class manually to create an observable sequence. Similarly, you do not need to implement `Observer` either to subscribe to a sequence. By installing the Reactive Extension libraries, you can take advantage of the `Observable` type which provides many operators for you to create a simple sequence with zero, one or more elements. In addition, RxJS provides an overloaded `subscribe` method which allows you to pass in `onNext`, `onError` and `onCompleted` function handlers.
 
 ## Creating a sequence from scratch ##
 
-Before getting into many operators, let's look at how to create an `Observable` from scratch using the [`Rx.Observable.create`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe) method.
+Before getting into many operators, let's look at how to create an `Observable` from scratch using the [`Rx.Observable.create`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/create.md) method.
 
 First, we need to ensure we reference the core `rx.js` file.
 
@@ -22,20 +22,20 @@ In this example, we will simply yield a single value of 42 and then mark it as c
 
 ```js
 var source = Rx.Observable.create(function (observer) {
-	// Yield a single value and complete
-	observer.onNext(42);
-	observer.onCompleted();
+  // Yield a single value and complete
+  observer.onNext(42);
+  observer.onCompleted();
 
-	// Any cleanup logic might go here
-	return function () {
-		console.log('disposed');
-	}
+  // Any cleanup logic might go here
+  return function () {
+    console.log('disposed');
+  }
 });
 
 var subscription = source.subscribe(
-	function (x) { console.log('onNext: ' + x); },
-	function (e) { console.log('onError: ' + e.message); },
-	function () { console.log('onCompleted'); });
+  function (x) { console.log('onNext: %s', x); },
+  function (e) { console.log('onError: %s', e); },
+  function () { console.log('onCompleted'); });
 
 // => onNext: 42
 // => onCompleted
@@ -48,7 +48,7 @@ For most operations, this is completely overkill, but shows the very basics of h
 
 ## Creating and subscribing to a simple sequence ##
 
-The following sample uses the [`range`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablerangestart-count-scheduler) operator of the `Observable` type to create a simple observable collection of numbers. The observer subscribes to this collection using the Subscribe method of the Observable class, and provides actions that are delegates which handle `onNext`, `onError` and `onCompleted`.  In our example, it creates a sequence of integers that starts with x and produces y sequential numbers afterwards.
+The following sample uses the [`range`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/range.md) operator of the `Observable` type to create a simple observable collection of numbers. The observer subscribes to this collection using the Subscribe method of the Observable class, and provides actions that are delegates which handle `onNext`, `onError` and `onCompleted`.  In our example, it creates a sequence of integers that starts with x and produces y sequential numbers afterwards.
 
 As soon as the subscription happens, the values are sent to the observer. The `onNext` function then prints out the values.
 
@@ -58,9 +58,9 @@ var source = Rx.Observable.range(1, 5);
 
 // Prints out each item
 var subscription = source.subscribe(
-	function (x) { console.log('onNext: ' + x); },
-	function (e) { console.log('onError: ' + e.message); },
-	function () { console.log('onCompleted'); });
+  function (x) { console.log('onNext: %s', x); },
+  function (e) { console.log('onError: %s', e); },
+  function () { console.log('onCompleted'); });
 
 // => onNext: 1
 // => onNext: 2
@@ -72,13 +72,13 @@ var subscription = source.subscribe(
 
 When an observer subscribes to an observable sequence, the `subscribe` method may be using asynchronous behavior behind the scenes depending on the operator. Therefore, the `subscribe` call is asynchronous in that the caller is not blocked until the observation of the sequence completes. This will be covered in more details in the [Using Schedulers](schedulers.md) topic.
 
-Notice that the [`subscribe`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted) method returns a `Disposable`, so that you can unsubscribe to a sequence and dispose of it easily. When you invoke the `dispose` method on the observable sequence, the observer will stop listening to the observable for data.  Normally, you do not need to explicitly call `dispose` unless you need to unsubscribe early, or when the source observable sequence has a longer life span than the observer. Subscriptions in Rx are designed for fire-and-forget scenarios without the usage of a finalizer. Note that the default behavior of the Observable operators is to dispose of the subscription as soon as possible (i.e, when an `onCompleted` or `onError` messages is published). For example, the code will subscribe x to both sequences a and b. If a throws an error, x will immediately be unsubscribed from b.
+Notice that the [`subscribe`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/susbcribe.md) method returns a `Disposable`, so that you can unsubscribe to a sequence and dispose of it easily. When you invoke the `dispose` method on the observable sequence, the observer will stop listening to the observable for data.  Normally, you do not need to explicitly call `dispose` unless you need to unsubscribe early, or when the source observable sequence has a longer life span than the observer. Subscriptions in Rx are designed for fire-and-forget scenarios without the usage of a finalizer. Note that the default behavior of the Observable operators is to dispose of the subscription as soon as possible (i.e, when an `onCompleted` or `onError` messages is published). For example, the code will subscribe x to both sequences a and b. If a throws an error, x will immediately be unsubscribed from b.
 
 ```js
 var x = Rx.Observable.zip(a, b, function (a1, b1) { return a1 + b1; }).subscribe();
 ```
 
-You can also tweak the code sample to use the Create operator of the Observable type, which creates and returns an observer from specified OnNext, OnError, and OnCompleted action delegates. You can then pass this observer to the Subscribe method of the Observable type. The following sample shows how to do this.
+You can also tweak the code sample to use the Create operator of the Observer type, which creates and returns an observer from specified OnNext, OnError, and OnCompleted action delegates. You can then pass this observer to the Subscribe method of the Observable type. The following sample shows how to do this.
 
 ```js
 // Creates an observable sequence of 5 integers, starting from 1
@@ -86,9 +86,9 @@ var source = Rx.Observable.range(1, 5);
 
 // Create observer
 var observer = Rx.Observer.create(
-	function (x) { console.log('onNext: ' + x); },
-	function (e) { console.log('onError: ' + e.message); },
-	function () { console.log('onCompleted'); });
+  function (x) { console.log('onNext: %s', x); },
+  function (e) { console.log('onError: %s', e); },
+  function () { console.log('onCompleted'); });
 
 // Prints out each item
 var subscription = source.subscribe(observer);
@@ -107,7 +107,7 @@ Notice that this topic only shows you a few operators that can create an observa
 
 ## Using a timer ##
 
-The following sample uses the [`timer`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservabletimerduetime-period-scheduler) operator to create a sequence. The sequence will push out the first value after 5 second has elapsed, then it will push out subsequent values every 1 second. For illustration purpose, we chain the [`timestamp`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypetimestampscheduler) operator to the query so that each value pushed out will be appended by the time when it is published. By doing so, when we subscribe to this source sequence, we can receive both its value and timestamp.
+The following sample uses the [`timer`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timer.md) operator to create a sequence. The sequence will push out the first value after 5 second has elapsed, then it will push out subsequent values every 1 second. For illustration purpose, we chain the [`timestamp`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timestamp.md) operator to the query so that each value pushed out will be appended by the time when it is published. By doing so, when we subscribe to this source sequence, we can receive both its value and timestamp.
 
 First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.
 
@@ -122,15 +122,14 @@ Now on to our example
 console.log('Current time: ' + Date.now());
 
 var source = Rx.Observable.timer(
-	5000, /* 5 seconds */
-	1000 /* 1 second */)
+  5000, /* 5 seconds */
+  1000 /* 1 second */)
    .timestamp();
 
 var subscription = source.subscribe(
-	function (x) {
-		console.log(x.value + ': ' + x.timestamp);
-	});
-
+  function (x) {
+    console.log(x.value + ': ' + x.timestamp);
+  });
 
 /* Output may be similar to this */
 // Current time: 1382560697820
@@ -141,26 +140,121 @@ var subscription = source.subscribe(
 
 By using the `timestamp` operator, we have verified that the first item is indeed pushed out 5 seconds after the sequence has started, and each item is published 1 second later.
 
-## Converting an Array to an Observable Sequence ##
+## Converting Arrays and Iterables to an Observable Sequence ##
 
-Using the [`Rx.Observable.fromArray`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromarrayarray-scheduler) operator, you can convert an array to observable sequence.
+Using the [`Rx.Observable.from`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/from.md) operator, you can convert an array to observable sequence.
 
 ```js
 var array = [1,2,3,4,5];
 
 // Converts an array to an observable sequence
-var source = Rx.Observable.fromArray(array);
+var source = Rx.Observable.from(array);
 
 // Prints out each item
 var subscription = source.subscribe(
-	function (x) { console.log('onNext: ' + x); },
-	function (e) { console.log('onError: ' + e.message); },
-	function () { console.log('onCompleted'); });
+  function (x) { console.log('onNext: %s', x); },
+  function (e) { console.log('onError: %s', e); },
+  function () { console.log('onCompleted'); });
 
 // => onNext: 1
 // => onNext: 2
 // => onNext: 3
 // => onNext: 4
+// => onNext: 5
+// => onCompleted
+```
+
+You can also convert array-like objects such as objects with a length property and indexed with numbers.  In this case, we'll simply have an object with a length of 5.
+```js
+var arrayLike = { length: 5 };
+
+// Converts an array to an observable sequence
+var source = Rx.Observable.from(arrayLike, function (v, k) { return k; });
+
+// Prints out each item
+var subscription = source.subscribe(
+  function (x) { console.log('onNext: %s', x); },
+  function (e) { console.log('onError: %s', e); },
+  function () { console.log('onCompleted'); });
+
+// => onNext: 1
+// => onNext: 2
+// => onNext: 3
+// => onNext: 4
+// => onNext: 5
+// => onCompleted
+
+```
+
+
+In addition, we can also use ES6 Iterable objects such as `Map` and `Set` using `from` to an observable sequence.  In this example, we can take a `Set` and convert it to an observable sequence.
+
+```js
+var set = new Set([1,2,3,4,5]);
+
+// Converts a Set to an observable sequence
+var source = Rx.Observable.from(set);
+
+// Prints out each item
+var subscription = source.subscribe(
+  function (x) { console.log('onNext: %s', x); },
+  function (e) { console.log('onError: %s', e); },
+  function () { console.log('onCompleted'); });
+
+// => onNext: 1
+// => onNext: 2
+// => onNext: 3
+// => onNext: 4
+// => onNext: 5
+// => onCompleted
+```
+
+We can also do a `Map` as well by applying the same technique.
+
+```js
+var set = new Map([['key1', 1], ['key2', 2]]);
+
+// Converts a Set to an observable sequence
+var source = Rx.Observable.from(set);
+
+// Prints out each item
+var subscription = source.subscribe(
+  function (x) { console.log('onNext: %s', x); },
+  function (e) { console.log('onError: %s', e); },
+  function () { console.log('onCompleted'); });
+
+// => onNext: key1, 1
+// => onNext: key2, 2
+// => onCompleted
+```
+
+The `from` method can also support ES6 generators which may already be in your browser, or coming to a browser near you.  This allows us to do such things as Fibonacci sequences and so forth and convert them to an observable sequence.
+
+```js
+function* fibonacci () {
+  var fn1 = 1;
+  var fn2 = 1;
+  while (1){
+    var current = fn2;
+    fn2 = fn1;
+    fn1 = fn1 + current;
+    yield current;
+  }
+}
+
+// Converts a generator to an observable sequence
+var source = Rx.Observable.from(fibonacci()).take(5);
+
+// Prints out each item
+var subscription = source.subscribe(
+  function (x) { console.log('onNext: %s', x); },
+  function (e) { console.log('onError: %s', e); },
+  function () { console.log('onCompleted'); });
+
+// => onNext: 1
+// => onNext: 1
+// => onNext: 2
+// => onNext: 3
 // => onNext: 5
 // => onCompleted
 ```
@@ -176,8 +270,7 @@ Two observers then subscribe to this sequence and print out its values. You will
 First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.
 
 ```html
-<script src="rx.js"></script>
-<script src="rx.time.js"></script>
+<script src="rx.lite.js"></script>
 ```
 
 And now to the example.
@@ -186,18 +279,18 @@ And now to the example.
 var source = Rx.Observable.interval(1000);
 
 var subscription1 = source.subscribe(
-	function (x) { console.log('Observer 1: onNext: ' + x); },
-	function (e) { console.log('Observer 1: onError: ' + e.message); },
-	function () { console.log('Observer 1: onCompleted'); });
+  function (x) { console.log('Observer 1: onNext: ' + x); },
+  function (e) { console.log('Observer 1: onError: ' + e.message); },
+  function () { console.log('Observer 1: onCompleted'); });
 
 var subscription2 = source.subscribe(
-	function (x) { console.log('Observer 2: onNext: ' + x); },
-	function (e) { console.log('Observer 2: onError: ' + e.message); },
-	function () { console.log('Observer 2: onCompleted'); });
+  function (x) { console.log('Observer 2: onNext: ' + x); },
+  function (e) { console.log('Observer 2: onError: ' + e.message); },
+  function () { console.log('Observer 2: onCompleted'); });
 
 setTimeout(function () {
-	subscription1.dispose();
-	subscription2.dispose();
+  subscription1.dispose();
+  subscription2.dispose();
 }, 5000);
 
 // => Observer 1: onNext: 0
@@ -210,7 +303,7 @@ setTimeout(function () {
 // => Observer 2: onNext: 3
 ```
 
-In the following example, we convert the previous cold observable sequence source to a hot one using the [`publish`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypepublishselector) operator, which returns an `ConnectableObservable` instance we name hot. The [`publish`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypepublishselector) operator provides a mechanism to share subscriptions by broadcasting a single subscription to multiple subscribers. The hot variable acts as a proxy and subscribes to source, then as it receives values from source, pushes them to its own subscribers. To establish a subscription to the backing source and start receiving values, we use the [`ConnectableObservable.prototype.connect()`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#connectableobservableprototypeconnect) method. Since `ConnectableObservable` inherits `Observable`, we can use `subscribe` to subscribe to this hot sequence even before it starts running. Notice that in the example, the hot sequence has not been started when subscription1 subscribes to it. Therefore, no value is pushed to the subscriber. After calling Connect, values are then pushed to subscription1. After a delay of 3 seconds, subscription2 subscribes to hot and starts receiving the values immediately from the current position (3 in this case) until the end. The output looks like this:
+In the following example, we convert the previous cold observable sequence source to a hot one using the [`publish`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/publish.md) operator, which returns a `ConnectableObservable` instance we name `hot`. The [`publish`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/publish.md) operator provides a mechanism to share subscriptions by broadcasting a single subscription to multiple subscribers. The `hot` variable acts as a proxy by subscribing to `source` and, as it receives values from `source`, pushing them to its own subscribers. To establish a subscription to the backing source and start receiving values, we use the [`ConnectableObservable.prototype.connect`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/connect.md) method. Since `ConnectableObservable` inherits `Observable`, we can use `subscribe` to subscribe to this hot sequence even before it starts running. Notice that in the example, the hot sequence has not been started when `subscription1` subscribes to it. Therefore, no value is pushed to the subscriber. After calling Connect, values are then pushed to `subscription1`. After a delay of 3 seconds, `subscription2` subscribes to `hot` and starts receiving the values immediately from the current position (3 in this case) until the end. The output looks like this:
 
 ```
 // => Current time: 1382562433256
@@ -230,9 +323,7 @@ In the following example, we convert the previous cold observable sequence sourc
 First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.
 
 ```html
-<script src="rx.js"></script>
-<script src="rx.binding.js"></script>
-<script src="rx.time.js"></script>
+<script src="rx.lite.js"></script>
 ```
 
 Now onto the example!
@@ -248,30 +339,40 @@ var hot = source.publish();
 
 // No value is pushed to 1st subscription at this point
 var subscription1 = hot.subscribe(
-	function (x) { console.log('Observer 1: onNext: ' + x); },
-	function (e) { console.log('Observer 1: onError: ' + e.message); },
-	function () { console.log('Observer 1: onCompleted'); });
+  function (x) { console.log('Observer 1: onNext: %s', x); },
+  function (e) { console.log('Observer 1: onError: %s', e); },
+  function () { console.log('Observer 1: onCompleted'); });
 
 console.log('Current Time after 1st subscription: ' + Date.now());
 
 // Idle for 3 seconds
 setTimeout(function () {
 
-	// Hot is connected to source and starts pushing value to subscribers
-	hot.connect();
+  // Hot is connected to source and starts pushing value to subscribers
+  hot.connect();
 
-	console.log('Current Time after connect: ' + Date.now());
+  console.log('Current Time after connect: ' + Date.now());
 
-	// Idle for another 3 seconds
-	setTimeout(function () {
+  // Idle for another 3 seconds
+  setTimeout(function () {
 
-		console.log('Current Time after 2nd subscription: ' + Date.now());
+    console.log('Current Time after 2nd subscription: ' + Date.now());
 
-		var subscription2 = hot.subscribe(
-			function (x) { console.log('Observer 2: onNext: ' + x); },
-			function (e) { console.log('Observer 2: onError: ' + e.message); },
-			function () { console.log('Observer 2: onCompleted'); });
+    var subscription2 = hot.subscribe(
+      function (x) { console.log('Observer 2: onNext: %s', x); },
+      function (e) { console.log('Observer 2: onError: %s', e); },
+      function () { console.log('Observer 2: onCompleted'); });
 
-	}, 3000);
+  }, 3000);
 }, 3000);
 ```
+
+**Analogies** 
+
+It helps to think of cold and hot Observables as movies or performances that one can watch ("subscribe").
+
+- Cold Observables: movies.
+- Hot Observables: live performances.
+- Hot Observables replayed: live performances recorded on video.
+
+Whenever you watch a movie, your run of the movie is independent of anyone else's run, even though all movie watchers see the same effects. On the other hand, a live performance is shared to multiple viewers. If you arrive late to a live performance, you will simply miss some of it. However, if it was recorded on video (in RxJS this would happen with a BehaviorSubject or a ReplaySubject), you can watch a "movie" of the live performance. A [`.publish().refCount()`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/refcount.md) live performance is one where the artists quit playing when no one is watching, and start playing again when there is at least one person in the audience. 

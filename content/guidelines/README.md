@@ -4,16 +4,16 @@
   src="https://raw.githubusercontent.com/Reactive-Extensions/RxJS/master/doc/designguidelines/images/984368.png"
   alt="RxJS Logo">
 
-* [Introduction](introduction/README.md)
-* [When to use RxJS](when/README.md)
-  * [Use RxJS for orchestrating asynchronous and event-based computations](when/README.md#use-rxjs-for-orchestrating-asynchronous-and-event-based-computations)
-  * [Use RxJS to deal with asynchronous sequences of data](when/README.md#use-rxjs-to-deal-with-asynchronous-sequences-of-data)
-* [The RxJS contract](contract/README.md)
-  * [Assume the RxJS Grammar](contract/README.md#assume-the-rxjs-grammar)
-  * [Assume resources are cleaned up after an `onError` or `onCompleted` messages](contract/README.md#assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message)
-  * [Assume a best effort to stop all outstanding work on Unsubscribe](contract/README.md#assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe)
-* [Using RxJS](using/README.md)
-* [Operator implementations](implementations/README.md)
+* [Introduction](introduction/index.html)
+* [When to use RxJS](when/index.html)
+  * [Use RxJS for orchestrating asynchronous and event-based computations](when/index.html#use-rxjs-for-orchestrating-asynchronous-and-event-based-computations)
+  * [Use RxJS to deal with asynchronous sequences of data](when/index.html#use-rxjs-to-deal-with-asynchronous-sequences-of-data)
+* [The RxJS contract](contract/index.html)
+  * [Assume the RxJS Grammar](contract/index.html#assume-the-rxjs-grammar)
+  * [Assume resources are cleaned up after an `onError` or `onCompleted` messages](contract/index.html#assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message)
+  * [Assume a best effort to stop all outstanding work on Unsubscribe](contract/index.html#assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe)
+* [Using RxJS](using/index.html)
+* [Operator implementations](implementations/index.html)
 
 <!-- 1. Introduction
 2. When to use RxJS

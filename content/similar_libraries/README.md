@@ -89,6 +89,8 @@
 * [https://github.com/blesh/multi-target-build-scaffold](https://github.com/blesh/multi-target-build-scaffold)
 * [https://github.com/huang47/rx-event-manager](https://github.com/huang47/rx-event-manager)
 * [https://github.com/trxcllnt/rxjs-extras](https://github.com/trxcllnt/rxjs-extras)
+* [https://medium.com/@andrestaltz/2-minute-introduction-to-rx-24c8ca793877](https://medium.com/@andrestaltz/2-minute-introduction-to-rx-24c8ca793877)
+* [http://jaredly.github.io/2015/03/06/visualizing-reactive-streams-hot-and-cold](http://jaredly.github.io/2015/03/06/visualizing-reactive-streams-hot-and-cold)
 
 ## Other resources for similar libraries
 

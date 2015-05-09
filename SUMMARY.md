@@ -1,7 +1,7 @@
 ## Summary
 
 * [Why RxJs?](WhyRx.md)
-* [Summary](content/summary.md)
+* [Summary](content/summary/README.md)
 * [RxJS Design Guidelines](content/guidelines/README.md)
    * [Introduction](content/guidelines/introduction/README.md)
    * [When to use RxJS](content/guidelines/when/README.md)
@@ -310,4 +310,5 @@
    * [Ractive.js](content/rxjs_bindings/ractive/README.md)
 * [Similar libraries](content/similar_libraries/README.md)
 * [Video](content/video/README.md)
+* [Recipes](content/recipes/README.md)
 * [Glossary](GLOSSARY.md)

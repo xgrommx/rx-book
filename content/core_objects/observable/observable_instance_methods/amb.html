@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="9.1.2.3" data-basepath="../../../.." data-revision="Fri May 08 2015 07:44:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="9.1.2.3" data-basepath="../../../.." data-revision="Sat May 09 2015 18:20:55 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -85,10 +85,10 @@
             
         </li>
     
-        <li class="chapter " data-level="2" data-path="content/summary.html">
+        <li class="chapter " data-level="2" data-path="content/summary/index.html">
             
                 
-                    <a href="../../../../content/summary.html">
+                    <a href="../../../../content/summary/index.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.</b>
@@ -4940,13 +4940,28 @@
             
         </li>
     
-        <li class="chapter " data-level="18" data-path="GLOSSARY.html">
+        <li class="chapter " data-level="18" data-path="content/recipes/index.html">
+            
+                
+                    <a href="../../../../content/recipes/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        Recipes
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="GLOSSARY.html">
             
                 
                     <a href="../../../../GLOSSARY.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>18.</b>
+                            <b>19.</b>
                         
                         Glossary
                     </a>
@@ -5067,20 +5082,42 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="amb"><a name="amb" class="plugin-anchor" href="#amb"><span class="fa fa-link"></span></a><a href="../../../../GLOSSARY.html#amb" class="glossary-term" title="Propagates the observable sequence or Promise that reacts first">amb</a></h1>
-<p><code>Rx.Observable.prototype.amb(rightSource)</code>
-<a href="#rxobservableprototypeambrightsource">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L2996-L3055" title="View in source" target="_blank">&#x24C8;</a> </p>
-<p>Propagates the observable sequence that reacts first.</p>
+<h3 id="-rx-observable-amb-args-x24c8-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-amb-js-view-in-source"><a name="-rx-observable-amb-args-x24c8-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-amb-js-view-in-source" class="plugin-anchor" href="#-rx-observable-amb-args-x24c8-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-amb-js-view-in-source"><span class="fa fa-link"></span></a><code>Rx.Observable.amb(...args)</code> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/amb.js" title="View in source" target="_blank">&#x24C8;</a></h3>
+<p>Propagates the observable sequence or Promise that reacts first. &quot;<a href="../../../../GLOSSARY.html#amb" class="glossary-term" title="Propagates the observable sequence or Promise that reacts first">amb</a>&quot; stands for <a href="http://blogs.msdn.com/b/jeffva/archive/2009/11/18/amb-materialize-and-dematerialize.aspx" target="_blank">ambiguous</a>.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
-<li><code>rightSource</code> <em>(<code>Observable</code>)</em>: Second observable sequence.</li>
+<li><code>args</code> <em>(Array|arguments)</em>: Observable sources or Promises competing to react first either as an array or arguments.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence that surfaces either of the given sequences, whichever reacted first.</p>
+<p><em>(<code>Observable</code>)</em>: An observable sequence that surfaces any of the given sequences, whichever reacted first.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <p><a href="http://jsbin.com/joviwu/1/embed?js,console" target="_blank"></a></p>
 <h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
+<p>File:</p>
 <ul>
-<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/amb.js" target="_blank"><code>/src/core/linq/observable/amb.js</code></a></li>
+</ul>
+<p>Dist:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+</ul>
+<p>Prerequisites:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>NPM Packages:</p>
+<ul>
+<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>
+NuGet Packages:</li>
+<li><a href="http://www.nuget.org/packages/RxJS-Complete/" target="_blank"><code>RxJS-Complete</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
+</ul>
+<p>Unit Tests:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/ambproto.js" target="_blank"><code>/tests/observable/ambproto.js</code></a></li>
 </ul>
 
                     
@@ -5105,6 +5142,10 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-jsbin/plugin.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

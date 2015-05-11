@@ -365,6 +365,19 @@ setTimeout(function () {
 
   }, 3000);
 }, 3000);
+
+// => Current Time after connect: 1431197578426
+// => Observer 1: onNext: 0
+// => Observer 1: onNext: 1
+// => Observer 1: onNext: 2
+// => Current Time after 2nd subscription: 1431197581434
+// => Observer 1: onNext: 3
+// => Observer 2: onNext: 3
+// => Observer 1: onNext: 4
+// => Observer 2: onNext: 4
+// => Observer 1: onNext: 5
+// => Observer 2: onNext: 5
+// => ...
 ```
 
 **Analogies** 

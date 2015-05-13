@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="8.1.2.67" data-basepath="../../../.." data-revision="Sat May 09 2015 22:37:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.2.67" data-basepath="../../../.." data-revision="Wed May 13 2015 07:17:35 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5417,6 +5417,47 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="partition"><a name="partition" class="plugin-anchor" href="#partition"><span class="fa fa-link"></span></a>partition</h1>
+<p><code>Rx.Observable.prototype.partition(predicate, [thisArg])</code>
+<a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/partition.js" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Returns two observables which partition the observations of the source by the given function.  The first will trigger observations for those values for which the predicate returns true. The second will trigger observations for those values where the predicate returns false. The predicate is executed once for each subscribed observer. Both also propagate all error observations arising from the source and each completes when the source completes.</p>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
+<ol>
+<li><code>predicate</code> <em>(<code>Function</code>)</em>: Selector function to invoke for each produced element, resulting in another sequence to which the selector will be invoked recursively again. The callback is called with the following information:<ol>
+<li>the value of the element</li>
+<li>the index of the element</li>
+<li>the Observable object being subscribed</li>
+</ol>
+</li>
+<li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the predicate.</li>
+</ol>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<p><em>(<code>Array</code>)</em>:  An array of observables. The first triggers when the predicate returns true, and the second triggers when the predicate returns false.</p>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<p><a href="http://jsbin.com/kezoye/1/embed?js,output" target="_blank"></a></p>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+<p>File:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/partition.js" target="_blank"><code>/src/core/linq/observable/partition.js</code></a></li>
+</ul>
+<p>Dist:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.coincidence.js" target="_blank"><code>rx.coincidence.js</code></a></li>
+</ul>
+<p>NPM Packages:</p>
+<ul>
+<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
+</ul>
+<p>NuGet Packages:</p>
+<ul>
+<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS-All</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Coincidence/" target="_blank"><code>RxJS-Coincidence</code></a></li>
+</ul>
+<p>Unit Tests:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/partition.js" target="_blank"><code>/tests/observable/partition.js</code></a></li>
+</ul>
 
                     
                     </section>

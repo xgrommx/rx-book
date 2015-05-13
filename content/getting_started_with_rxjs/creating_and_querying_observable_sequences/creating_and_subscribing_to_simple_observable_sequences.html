@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Sat May 09 2015 22:37:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Wed May 13 2015 07:17:35 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5710,6 +5710,19 @@ setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span
 
   }, <span class="hljs-number">3000</span>);
 }, <span class="hljs-number">3000</span>);
+
+<span class="hljs-comment">// =&gt; Current Time after connect: 1431197578426</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 0</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 1</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 2</span>
+<span class="hljs-comment">// =&gt; Current Time after 2nd subscription: 1431197581434</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 3</span>
+<span class="hljs-comment">// =&gt; Observer 2: onNext: 3</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 4</span>
+<span class="hljs-comment">// =&gt; Observer 2: onNext: 4</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 5</span>
+<span class="hljs-comment">// =&gt; Observer 2: onNext: 5</span>
+<span class="hljs-comment">// =&gt; ...</span>
 </code></pre>
 <p><strong>Analogies</strong> </p>
 <p>It helps to think of cold and hot Observables as movies or performances that one can watch (&quot;subscribe&quot;).</p>

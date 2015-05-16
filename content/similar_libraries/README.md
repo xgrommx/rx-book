@@ -23,6 +23,7 @@
 
 #### Angular
 * [https://github.com/Reactive-Extensions/rx.angular.js](https://github.com/Reactive-Extensions/rx.angular.js)
+* [https://github.com/cvuorinen/reactive-life](https://github.com/cvuorinen/reactive-life)
 
 #### React
 * [https://github.com/fdecampredon/react-rxjs-todomvc](https://github.com/fdecampredon/react-rxjs-todomvc)
@@ -50,6 +51,12 @@
 * [https://github.com/zxbodya/reactive-widgets](https://github.com/zxbodya/reactive-widgets)
 * [https://github.com/justinwoo/react-rxjs-scroll](https://github.com/justinwoo/react-rxjs-scroll)
 * [https://github.com/eliseumds/react-autocomplete](https://github.com/eliseumds/react-autocomplete)
+* [https://github.com/doctolib/floux](https://github.com/doctolib/floux)
+* [http://habrahabr.ru/post/251835](http://habrahabr.ru/post/251835)
+* [https://github.com/ahomu/Loxe](https://github.com/ahomu/Loxe)
+* [https://github.com/justinwoo/react-fixed-scroll-element](https://github.com/justinwoo/react-fixed-scroll-element)
+* [https://github.com/hugobessaa/cubactive](https://github.com/hugobessaa/cubactive)
+* [https://github.com/r3dm/r3dm.com](https://github.com/r3dm/r3dm.com)
 
 #### Ember
 * [https://github.com/blesh/RxEmber](https://github.com/blesh/RxEmber)
@@ -59,6 +66,12 @@
 
 #### Cycle
 * [https://github.com/schrepfler/rx-helloworld-cycle](https://github.com/schrepfler/rx-helloworld-cycle)
+* [https://github.com/phadej/graafi](https://github.com/phadej/graafi)
+* [https://github.com/erykpiast/autocompleted-select](https://github.com/erykpiast/autocompleted-select)
+* [https://github.com/erykpiast/cyclejs-examples](https://github.com/erykpiast/cyclejs-examples)
+* [https://github.com/erykpiast/cyclejs-mock](https://github.com/erykpiast/cyclejs-mock)
+* [https://github.com/erykpiast/cyclejs-group](https://github.com/erykpiast/cyclejs-group)
+* [https://github.com/staltz/todomvc-cycle](https://github.com/staltz/todomvc-cycle)
 
 ## Visualizing streams
 * [https://github.com/staltz/rxmarbles](https://github.com/staltz/rxmarbles)
@@ -68,6 +81,10 @@
 
 #### Purescript
 * [https://github.com/anttih/purescript-rx](https://github.com/anttih/purescript-rx)
+
+## Tutorials
+* [https://github.com/jhusain/learnrx](https://github.com/jhusain/learnrx)
+* [https://egghead.io/technologies/rx](https://egghead.io/technologies/rx)
 
 ## Other
 * [https://github.com/trxcllnt/rxjs-easing](https://github.com/trxcllnt/rxjs-easing)
@@ -91,6 +108,16 @@
 * [https://github.com/trxcllnt/rxjs-extras](https://github.com/trxcllnt/rxjs-extras)
 * [https://medium.com/@andrestaltz/2-minute-introduction-to-rx-24c8ca793877](https://medium.com/@andrestaltz/2-minute-introduction-to-rx-24c8ca793877)
 * [http://jaredly.github.io/2015/03/06/visualizing-reactive-streams-hot-and-cold](http://jaredly.github.io/2015/03/06/visualizing-reactive-streams-hot-and-cold)
+* [https://medium.com/@milankinen/good-bye-flux-welcome-bacon-rx-23c71abfb1a7](https://medium.com/@milankinen/good-bye-flux-welcome-bacon-rx-23c71abfb1a7)
+* [https://github.com/ahomu/rx.observable.combinetemplate](https://github.com/ahomu/rx.observable.combinetemplate)
+* [https://github.com/myhau/approximation](https://github.com/myhau/approximation)
+* [https://github.com/cbelden/rx-pagination](https://github.com/cbelden/rx-pagination)
+* [https://speakerdeck.com/staltz/what-if-the-user-was-a-function](https://speakerdeck.com/staltz/what-if-the-user-was-a-function)
+* [http://ahomu.github.io/s/150221-frontrend_conference/index.html](http://ahomu.github.io/s/150221-frontrend_conference/index.html)
+* [http://slides.com/eryknapierala/frp](http://slides.com/eryknapierala/frp)
+* [http://qiita.com/kimagure/items/22cf4bb2a967fcba376e](http://qiita.com/kimagure/items/22cf4bb2a967fcba376e)
+* [https://jaredly.github.io/2015/03/06/visualizing-reactive-streams-hot-and-cold](https://jaredly.github.io/2015/03/06/visualizing-reactive-streams-hot-and-cold)
+* [http://aaronstacy.com/writings/reactive-programming-and-mvc](http://aaronstacy.com/writings/reactive-programming-and-mvc)
 
 ## Other resources for similar libraries
 
@@ -111,6 +138,7 @@
 * [https://github.com/ethagnawl/Hello-FRP](https://github.com/ethagnawl/Hello-FRP)
 * [http://joshbassett.info/2014/reactive-uis-with-react-and-bacon](http://joshbassett.info/2014/reactive-uis-with-react-and-bacon)
 * [https://github.com/idmitriev/hypr](https://github.com/idmitriev/hypr)
+* [https://github.com/milankinen/react-bacon-isomorphic](https://github.com/milankinen/react-bacon-isomorphic)
 
 #### Other
 * [https://github.com/josepot/bacon-snake](https://github.com/josepot/bacon-snake)
@@ -121,6 +149,14 @@
 * [http://blog.hertzen.com/post/102991359167/flux-inspired-reactive-data-flow-using-react-and](http://blog.hertzen.com/post/102991359167/flux-inspired-reactive-data-flow-using-react-and)
 * [https://github.com/josepot/bacon-snake](https://github.com/josepot/bacon-snake)
 * [https://github.com/moredip/reactive-colors](https://github.com/moredip/reactive-colors)
+* [https://github.com/ahomu/Talkie](https://github.com/ahomu/Talkie)
+* [http://joshondesign.com/2013/06/07/eventsfrp](http://joshondesign.com/2013/06/07/eventsfrp)
+* [https://github.com/plemarquand/bacon-unsub](https://github.com/plemarquand/bacon-unsub)
+
+### Most
+
+#### React
+* [https://github.com/roman01la/most-react](https://github.com/roman01la/most-react)
 
 ### Kefir
 

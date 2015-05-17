@@ -16,7 +16,6 @@
 * [http://ahomu.github.io/s/150221-frontrend_conference/index.html](http://ahomu.github.io/s/150221-frontrend_conference/index.html)
 * [https://speakerdeck.com/staltz/what-if-the-user-was-a-function](https://speakerdeck.com/staltz/what-if-the-user-was-a-function)
 * [http://bodil.org/boogaloo](http://bodil.org/boogaloo)
-* [http://habrahabr.ru/post/251835](http://habrahabr.ru/post/251835)
 * [http://slides.com/santiagorodriguezsordo/functional-reactive-programming-spanish](http://slides.com/santiagorodriguezsordo/functional-reactive-programming-spanish)
 * [http://tednaleid.github.io/frp_presentation](http://tednaleid.github.io/frp_presentation)
 * [http://slides.com/noppanitcharassinvichai/functional-reactive-programming](http://slides.com/noppanitcharassinvichai/functional-reactive-programming)

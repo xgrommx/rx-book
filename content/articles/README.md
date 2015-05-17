@@ -19,3 +19,4 @@
 * [https://medium.com/@milankinen/good-bye-flux-welcome-bacon-rx-23c71abfb1a7](https://medium.com/@milankinen/good-bye-flux-welcome-bacon-rx-23c71abfb1a7)
 * [https://medium.com/@andrestaltz/2-minute-introduction-to-rx-24c8ca793877](https://medium.com/@andrestaltz/2-minute-introduction-to-rx-24c8ca793877)
 * [https://medium.com/@garychambers108/functional-reactive-react-js-b04a8d97a540](https://medium.com/@garychambers108/functional-reactive-react-js-b04a8d97a540)
+* [http://habrahabr.ru/post/251835](http://habrahabr.ru/post/251835)

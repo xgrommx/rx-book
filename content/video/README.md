@@ -16,4 +16,6 @@
 14. {% youtube %}https://www.youtube.com/watch?v=XRYN2xt11Ek{% endyoutube %}
 15. {% youtube %}https://www.youtube.com/watch?v=XE692Clb5LU{% endyoutube %}
 16. {% youtube %}https://www.youtube.com/watch?v=5uxSu-F5Kj0{% endyoutube %}
-16. {% youtube %}https://www.youtube.com/watch?v=x8mmAu7ZR9Y{% endyoutube %}
+17. {% youtube %}https://www.youtube.com/watch?v=x8mmAu7ZR9Y{% endyoutube %}
+18. {% youtube %}https://www.youtube.com/watch?v=WKore-AkisY{% endyoutube %}
+19. {% youtube %}https://www.youtube.com/watch?v=Oru-qw-Faac{% endyoutube %}

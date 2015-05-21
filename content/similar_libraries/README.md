@@ -13,6 +13,9 @@
 * [Reactive.js](https://github.com/mattbaker/Reactive.js)
 * [Sig](https://github.com/justinvdm/sig)
 * [F](https://github.com/colin-dumitru/F.js)
+* [Model](https://github.com/curran/model)
+* [Proactjs](https://github.com/proactjs/proactjs)
+* [Axos](https://github.com/pjeby/axos)
 
 ## Frameworks
 * [Cycle](https://github.com/staltz/cycle)
@@ -24,6 +27,7 @@
 #### Angular
 * [https://github.com/Reactive-Extensions/rx.angular.js](https://github.com/Reactive-Extensions/rx.angular.js)
 * [https://github.com/cvuorinen/reactive-life](https://github.com/cvuorinen/reactive-life)
+* [https://github.com/mjw56/ng2-rx](https://github.com/mjw56/ng2-rx) (angular 2)
 
 #### React
 * [https://github.com/fdecampredon/react-rxjs-todomvc](https://github.com/fdecampredon/react-rxjs-todomvc)
@@ -65,6 +69,9 @@
 #### Can
 * [https://github.com/canjs/can.rx](https://github.com/canjs/can.rx)
 
+#### Mercury
+* [https://github.com/pH200/mercury-rx](https://github.com/pH200/mercury-rx)
+
 #### Cycle
 * [https://github.com/schrepfler/rx-helloworld-cycle](https://github.com/schrepfler/rx-helloworld-cycle)
 * [https://github.com/phadej/graafi](https://github.com/phadej/graafi)
@@ -83,6 +90,7 @@
 
 #### Purescript
 * [https://github.com/anttih/purescript-rx](https://github.com/anttih/purescript-rx)
+* [https://github.com/bodil/purescript-signal](https://github.com/bodil/purescript-signal)
 
 ## Tutorials
 * [https://github.com/jhusain/learnrx](https://github.com/jhusain/learnrx)
@@ -115,7 +123,18 @@
 * [https://github.com/trxcllnt/rxjs-gestures](https://github.com/trxcllnt/rxjs-gestures)
 * [https://github.com/jwooley/RxSamples](https://github.com/jwooley/RxSamples)
 
+#### Build tools
+* [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)
+
 ## Other resources for similar libraries
+
+### Flyd
+* [https://github.com/paldepind/noname-functional-frontend-framework](https://github.com/paldepind/noname-functional-frontend-framework)
+
+### Most
+
+##### React
+* [https://github.com/izaakschroeder/afflux](https://github.com/izaakschroeder/afflux)
 
 ### Bacon
 
@@ -123,6 +142,7 @@
 * [https://github.com/lauripiispanen/angular-bacon](https://github.com/lauripiispanen/angular-bacon)
 * [https://github.com/rap1ds/angular-bacon](https://github.com/rap1ds/angular-bacon)
 * [https://github.com/xgrommx/angular-bacon-bridge](https://github.com/xgrommx/angular-bacon-bridge)
+* [https://github.com/javamonn/todo-angular-flux](https://github.com/javamonn/todo-angular-flux)
 
 #### React
 * [https://github.com/jamesmacaulay/react-bacon](https://github.com/jamesmacaulay/react-bacon)
@@ -134,20 +154,22 @@
 * [https://github.com/ethagnawl/Hello-FRP](https://github.com/ethagnawl/Hello-FRP)
 * [https://github.com/idmitriev/hypr](https://github.com/idmitriev/hypr)
 * [https://github.com/milankinen/react-bacon-isomorphic](https://github.com/milankinen/react-bacon-isomorphic)
-* [https://github.com/sdkennedy/bacon-flux](https://github.com/sdkennedy/bacon-flux)
 * [https://github.com/skellyb/fluxstream](https://github.com/skellyb/fluxstream)
 * [https://github.com/milankinen/react-bacon-todomvc](https://github.com/milankinen/react-bacon-todomvc)
+* [https://github.com/sdkennedy/baconflux](https://github.com/sdkennedy/baconflux)
 
 #### Other
 * [https://github.com/josepot/bacon-snake](https://github.com/josepot/bacon-snake)
 * [https://github.com/andrewhao/rxlocation](https://github.com/andrewhao/rxlocation)
-* [https://github.com/josepot/bacon-snake](https://github.com/josepot/bacon-snake)
 * [https://github.com/moredip/reactive-colors](https://github.com/moredip/reactive-colors)
 * [https://github.com/ahomu/Talkie](https://github.com/ahomu/Talkie)
 * [https://github.com/plemarquand/bacon-unsub](https://github.com/plemarquand/bacon-unsub)
 * [https://github.com/eamodeorubio/reactive-baconjs](https://github.com/eamodeorubio/reactive-baconjs)
 * [https://github.com/puppybits/Bacon.CursorProperty.js](https://github.com/puppybits/Bacon.CursorProperty.js)
 * [https://github.com/suominentoni/bacon-ui-examples](https://github.com/suominentoni/bacon-ui-examples)
+
+#### Build tools
+* [https://github.com/sighjs/sigh](https://github.com/sighjs/sigh)
 
 ### Most
 

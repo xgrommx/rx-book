@@ -20,3 +20,5 @@
 * [https://medium.com/@andrestaltz/2-minute-introduction-to-rx-24c8ca793877](https://medium.com/@andrestaltz/2-minute-introduction-to-rx-24c8ca793877)
 * [https://medium.com/@garychambers108/functional-reactive-react-js-b04a8d97a540](https://medium.com/@garychambers108/functional-reactive-react-js-b04a8d97a540)
 * [http://habrahabr.ru/post/251835](http://habrahabr.ru/post/251835)
+* [http://blog.cryptoguru.com/2014/11/frp-using-rxjs-and-firebase.html](http://blog.cryptoguru.com/2014/11/frp-using-rxjs-and-firebase.html)
+* [http://www.sitepoint.com/building-pacman-with-bacon-js](http://www.sitepoint.com/building-pacman-with-bacon-js)

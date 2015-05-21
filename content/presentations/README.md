@@ -20,3 +20,4 @@
 * [http://tednaleid.github.io/frp_presentation](http://tednaleid.github.io/frp_presentation)
 * [http://slides.com/noppanitcharassinvichai/functional-reactive-programming](http://slides.com/noppanitcharassinvichai/functional-reactive-programming)
 * [http://slides.com/trival/functional-reactive-programming-in-javascript](http://slides.com/trival/functional-reactive-programming-in-javascript)
+* [http://www.slideshare.net/benlesh1/rx-js-and-reactive-programming-may-2015](http://www.slideshare.net/benlesh1/rx-js-and-reactive-programming-may-2015)

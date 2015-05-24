@@ -21,3 +21,5 @@
 * [http://slides.com/noppanitcharassinvichai/functional-reactive-programming](http://slides.com/noppanitcharassinvichai/functional-reactive-programming)
 * [http://slides.com/trival/functional-reactive-programming-in-javascript](http://slides.com/trival/functional-reactive-programming-in-javascript)
 * [http://www.slideshare.net/benlesh1/rx-js-and-reactive-programming-may-2015](http://www.slideshare.net/benlesh1/rx-js-and-reactive-programming-may-2015)
+* [http://latentflip.com/bacon-talk-realtimeconfeu](http://latentflip.com/bacon-talk-realtimeconfeu)
+* [http://www.slideshare.net/Geeks_Lab/programming-ui-with-frp-and-bacon-js](http://www.slideshare.net/Geeks_Lab/programming-ui-with-frp-and-bacon-js)

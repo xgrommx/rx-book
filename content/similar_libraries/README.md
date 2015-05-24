@@ -201,3 +201,6 @@
 ## Jnoid
 * [https://github.com/it-vecherka/jnoid](https://github.com/it-vecherka/jnoid)
 
+## Lazychain
+* [https://github.com/falsandtru/lazychain](https://github.com/falsandtru/lazychain)
+

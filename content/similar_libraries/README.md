@@ -143,6 +143,7 @@
 * [https://github.com/rap1ds/angular-bacon](https://github.com/rap1ds/angular-bacon)
 * [https://github.com/xgrommx/angular-bacon-bridge](https://github.com/xgrommx/angular-bacon-bridge)
 * [https://github.com/javamonn/todo-angular-flux](https://github.com/javamonn/todo-angular-flux)
+* [https://github.com/bangjs/bangjs](https://github.com/bangjs/bangjs)
 
 #### React
 * [https://github.com/jamesmacaulay/react-bacon](https://github.com/jamesmacaulay/react-bacon)

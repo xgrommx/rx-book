@@ -8,6 +8,7 @@
 * [https://medium.com/@garychambers108/functional-reactive-react-js-b04a8d97a540](https://medium.com/@garychambers108/functional-reactive-react-js-b04a8d97a540)
 * [http://habrahabr.ru/post/251835](http://habrahabr.ru/post/251835)(ru)
 * [http://blog.cryptoguru.com/2014/11/frp-using-rxjs-and-firebase.html](http://blog.cryptoguru.com/2014/11/frp-using-rxjs-and-firebase.html)
+* [http://blog.bolshchikov.net/post/89367775878/composing-discrete-events-with-rxjs](http://blog.bolshchikov.net/post/89367775878/composing-discrete-events-with-rxjs)
 
 ## Bacon
 * [http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)

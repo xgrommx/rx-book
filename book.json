@@ -5,13 +5,17 @@
     "plugins": [
         "jsbin",
         "anchors",
-        "youtube"
+        "youtube",
+        "ga"
     ],
     "theme": "theme",
     "pluginsConfig": {
         "fontSettings": {
             "theme": "white",
             "family": "sans"
+        },
+        "ga": {
+            "token": "UA-63403975-1"
         }
     }
 }

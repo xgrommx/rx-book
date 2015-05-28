@@ -9,6 +9,8 @@
 * [http://habrahabr.ru/post/251835](http://habrahabr.ru/post/251835)(ru)
 * [http://blog.cryptoguru.com/2014/11/frp-using-rxjs-and-firebase.html](http://blog.cryptoguru.com/2014/11/frp-using-rxjs-and-firebase.html)
 * [http://blog.bolshchikov.net/post/89367775878/composing-discrete-events-with-rxjs](http://blog.bolshchikov.net/post/89367775878/composing-discrete-events-with-rxjs)
+* [https://medium.com/@StanLea/reactive-components-with-rxjs-filter-scan-map-fe2b845ccc1b](https://medium.com/@StanLea/reactive-components-with-rxjs-filter-scan-map-fe2b845ccc1b)
+* [http://tategakibunko.hatenablog.com/entry/2015/05/27/161026](http://tategakibunko.hatenablog.com/entry/2015/05/27/161026)
 
 ## Bacon
 * [http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)
@@ -45,5 +47,4 @@
 * [http://blog.risingstack.com/tag/frp](http://blog.risingstack.com/tag/frp)
 * [http://tech.pro/blog/6888/promises--fp--beautiful-streams](http://tech.pro/blog/6888/promises--fp--beautiful-streams)
 * [http://bytes.inso.cc/2014/01/21/abstracting-away-the-grunt-work-with-plumber](http://bytes.inso.cc/2014/01/21/abstracting-away-the-grunt-work-with-plumber)
-
 

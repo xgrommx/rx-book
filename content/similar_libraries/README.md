@@ -62,6 +62,7 @@
 * [https://github.com/r3dm/r3dm.com](https://github.com/r3dm/r3dm.com)
 * [https://github.com/Mosho1/react-rx](https://github.com/Mosho1/react-rx)
 * [https://gist.github.com/nicolashery/6dec8b7b3c9271ff18c9](https://gist.github.com/nicolashery/6dec8b7b3c9271ff18c9)
+* [https://github.com/Cmdv/React-RxJS](https://github.com/Cmdv/React-RxJS)
 
 #### Ember
 * [https://github.com/blesh/RxEmber](https://github.com/blesh/RxEmber)

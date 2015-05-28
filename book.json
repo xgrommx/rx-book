@@ -5,7 +5,7 @@
     "plugins": [
         "jsbin",
         "anchors",
-        "youtube",
+        "video",
         "ga"
     ],
     "theme": "theme",

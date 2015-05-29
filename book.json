@@ -6,7 +6,8 @@
         "jsbin",
         "anchors",
         "video",
-        "ga"
+        "ga",
+        "toggle-chapters"
     ],
     "theme": "theme",
     "pluginsConfig": {

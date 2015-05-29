@@ -94,7 +94,7 @@
 * [https://github.com/bodil/purescript-signal](https://github.com/bodil/purescript-signal)
 
 ## Tutorials
-* [https://github.com/jhusain/learnrx](https://github.com/jhusain/learnrx)
+* [http://jhusain.github.io/learnrx](http://jhusain.github.io/learnrx)
 * [https://egghead.io/technologies/rx](https://egghead.io/technologies/rx)
 
 ## Other

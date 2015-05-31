@@ -1,5 +1,7 @@
 # sequenceEqual
 
+<rx-marbles key="sequenceEqual"></rx-marbles>
+
 `Rx.Observable.prototype.sequenceEqual(second, [comparer])`
 <a href="#rxobservableprototypesequenceequalsecond-comparer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sequenceequal.js "View in source") 
 

@@ -1,5 +1,7 @@
 # delayWithSelector
 
+<rx-marbles key="delayWithSelector"></rx-marbles>
+
 `Rx.Observable.delayWithSelector.delay([subscriptionDelay], delayDurationSelector)`
 <a href="#rxobservabledelaywithselectordelaysubscriptiondelay-delaydurationselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js#L832-L882 "View in source") 
 

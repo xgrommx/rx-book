@@ -1,5 +1,7 @@
 # average
 
+<rx-marbles key="average"></rx-marbles>
+
 `Rx.Observable.prototype.average([selector])`
 <a href="#rxobservableprototypeaverageselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L313-L327 "View in source") 
 

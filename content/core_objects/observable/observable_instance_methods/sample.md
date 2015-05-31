@@ -1,5 +1,7 @@
 # sample
 
+<rx-marbles key="sample"></rx-marbles>
+
 `Rx.Observable.prototype.sample(interval | sampleObservable)`
 <a href="#rxobservableprototypesampleinterval--sampleobservable">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sample.js "View in source") 
 

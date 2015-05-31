@@ -1,5 +1,7 @@
 # all
 
+<rx-marbles key="every"></rx-marbles>
+
 `Rx.Observable.prototype.all(predicate, [thisArg])`
 <a href="#rxobservableprototypeallpredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/all.js "View in source") 
 

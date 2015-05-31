@@ -1,5 +1,7 @@
 # max
 
+<rx-marbles key="max"></rx-marbles>
+
 `Rx.Observable.prototype.max([comparer])`
 <a href="#rxobservableprototypemaxcomparer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/max.js "View in source") 
 

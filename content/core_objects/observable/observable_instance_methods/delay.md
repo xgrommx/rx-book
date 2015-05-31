@@ -1,5 +1,7 @@
 # delay
 
+<rx-marbles key="delay"></rx-marbles>
+
 `Rx.Observable.prototype.delay(dueTime, [scheduler])`
 <a href="#rxobservableprototypedelayduetime-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4111-L4128 "View in source") 
 

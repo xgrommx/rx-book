@@ -1,5 +1,7 @@
 # skipLast
 
+<rx-marbles key="skipLast"></rx-marbles>
+
 `Rx.Observable.prototype.skipLast(count)`
 <a href="#rxobservableprototypeskiplastcount">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skiplast.js "View in source") 
 

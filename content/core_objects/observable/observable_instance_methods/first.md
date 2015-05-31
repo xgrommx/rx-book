@@ -1,5 +1,7 @@
 # first
 
+<rx-marbles key="first"></rx-marbles>
+
 `Rx.Observable.prototype.first([predicate], [thisArg])`
 <a href="#rxobservableprototypefirstpredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L577-L582 "View in source") 
 

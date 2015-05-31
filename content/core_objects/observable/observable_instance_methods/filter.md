@@ -1,5 +1,7 @@
 # filter
 
+<rx-marbles key="filter"></rx-marbles>
+
 `Rx.Observable.prototype.filter(predicate, [thisArg])`
 <a href="#rxobservableprototypefilterpredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4513-L4530 "View in source") 
 

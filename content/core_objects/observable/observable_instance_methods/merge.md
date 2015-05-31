@@ -1,5 +1,7 @@
 # merge
 
+<rx-marbles key="merge"></rx-marbles>
+
 `Rx.Observable.prototype.merge(maxConcurrent | other)`
 <a href="#rxobservableprototypemergemaxconcurrent--other">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergeproto.js "View in source") 
 

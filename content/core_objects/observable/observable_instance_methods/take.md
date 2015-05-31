@@ -1,5 +1,7 @@
 # take
 
+<rx-marbles key="take"></rx-marbles>
+
 `Rx.Observable.prototype.take(count, [scheduler])`
 <a href="#rxobservableprototypetakecount-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/take.js "View in source") 
 

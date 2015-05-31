@@ -1,5 +1,7 @@
 # skip
 
+<rx-marbles key="skip"></rx-marbles>
+
 `Rx.Observable.prototype.skip(count)`
 <a href="#rxobservableprototypeskipcount">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skip.js "View in source") 
 

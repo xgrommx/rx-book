@@ -1,5 +1,7 @@
 # pausableBuffered
 
+<rx-marbles key="pausableBuffered"></rx-marbles>
+
 `Rx.Observable.prototype.pausableBuffered(pauser)`
 <a href="#rxobservableprototypepausablebufferedpauser">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/backpressure/pausablebuffered.js "View in source") 
 

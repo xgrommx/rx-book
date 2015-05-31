@@ -1,5 +1,7 @@
 # scan
 
+<rx-marbles key="scan"></rx-marbles>
+
 `Rx.Observable.prototype.scan([seed], accumulator)`
 <a href="#rxobservableprototypescanseed-accumulator">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/scan.js "View in source") 
 

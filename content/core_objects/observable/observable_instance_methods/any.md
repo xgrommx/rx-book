@@ -1,5 +1,7 @@
 # any
 
+<rx-marbles key="some"></rx-marbles>
+
 `Rx.Observable.prototype.any([predicate], [thisArg])`
 <a href="#rxobservableprototypeanypredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L144-L157 "View in source") 
 

@@ -1,5 +1,7 @@
 # reduce
 
+<rx-marbles key="reduce"></rx-marbles>
+
 `Rx.Observable.prototype.reduce(accumulator, [seed])`
 <a href="#rxobservableprototypereduceaccumulator-seed">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/reduce.js "View in source") 
 

@@ -1,5 +1,7 @@
 # distinctUntilChanged
 
+<rx-marbles key="distinctUntilChanged"></rx-marbles>
+
 `Rx.Observable.prototype.distinctUntilChanged([keySelector], [comparer])`
 <a href="#rxobservableprototypedistinctuntilchangedkeyselector-comparer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4144-L4171 "View in source") 
 

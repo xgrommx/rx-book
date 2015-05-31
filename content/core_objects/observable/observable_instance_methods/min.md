@@ -1,5 +1,7 @@
 # min
 
+<rx-marbles key="min"></rx-marbles>
+
 `Rx.Observable.prototype.min([comparer])`
 <a href="#rxobservableprototypemincomparer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/min.js "View in source") 
 

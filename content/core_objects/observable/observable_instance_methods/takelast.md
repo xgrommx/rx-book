@@ -1,5 +1,7 @@
 # takeLast
 
+<rx-marbles key="takeLast"></rx-marbles>
+
 `Rx.Observable.prototype.takeLast(count)`
 <a href="#rxobservableprototypetakelastcount">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takelast.js "View in source") 
 

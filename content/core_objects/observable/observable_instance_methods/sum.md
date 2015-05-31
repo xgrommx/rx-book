@@ -1,5 +1,7 @@
 # sum
 
+<rx-marbles key="sum"></rx-marbles>
+
 `Rx.Observable.prototype.sum([keySelector], [thisArg])`
 <a href="#rxobservableprototypesumkeyselector-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sum.js "View in source") 
 

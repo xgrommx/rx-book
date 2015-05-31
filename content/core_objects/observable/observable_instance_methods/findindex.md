@@ -1,5 +1,7 @@
 # findIndex
 
+<rx-marbles key="findIndex"></rx-marbles>
+
 `Rx.Observable.prototype.findIndex(predicate, [thisArg])`
 <a href="#rxobservableprototypefindindexpredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L712-L714 "View in source") 
 

@@ -1,5 +1,7 @@
 # count
 
+<rx-marbles key="count"></rx-marbles>
+
 `Rx.Observable.prototype.count([predicate])`
 <a href="#rxobservableprototypecountpredicate">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L214-L220 "View in source") 
 

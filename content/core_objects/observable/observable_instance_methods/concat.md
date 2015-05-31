@@ -1,5 +1,7 @@
 # concat
 
+<rx-marbles key="concat"></rx-marbles>
+
 `Rx.Observable.prototype.concat(...args)`
 <a href="#rxobservableprototypeconcatargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3223-L3227 "View in source") 
 

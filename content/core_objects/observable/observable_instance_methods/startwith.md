@@ -1,5 +1,7 @@
 # startWith
 
+<rx-marbles key="startWith"></rx-marbles>
+
 `Rx.Observable.prototype.startWith([scheduler] ...args)`
 <a href="#rxobservableprototypestartwithscheduler-args">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/startwith.js "View in source") 
 

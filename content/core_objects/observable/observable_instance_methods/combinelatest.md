@@ -1,5 +1,7 @@
 # combineLatest
 
+<rx-marbles key="combineLatest"></rx-marbles>
+
 `Rx.Observable.prototype.combineLatest(...args, resultSelector)`
 <a href="#rxobservableprototypecombinelatestargs-resultselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3139-L3147 "View in source") 
 

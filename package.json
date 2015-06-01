@@ -9,7 +9,6 @@
   "author": "Denis Stoyanov <stoyanov.gr@gmail.com>",
   "license": "Apache 2",
   "dependencies": {
-    "gitbook-plugin-anchors": "^0.3.0",
     "gitbook-plugin-jsbin": "0.0.5",
     "gitbook-plugin-video": "0.0.2"
   },

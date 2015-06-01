@@ -1,0 +1,5447 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <!-- Start book RxJS - Javascript library for functional reactive programming. -->
+    <head>
+        <!-- head:start -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>windowWithTime | RxJS - Javascript library for functional reactive programming.</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.0.4">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="../../../content/observable/observable_instance_methods/windowwithtimeorcount.html" />
+    
+    
+    <link rel="prev" href="../../../content/observable/observable_instance_methods/windowwithcount.html" />
+    
+
+        <!-- head:end -->
+    </head>
+    <body>
+        <!-- body:start -->
+        
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
+        
+    
+    
+
+        
+    <div class="book" data-level="8.10.136" data-basepath="../../.." data-revision="Mon Jun 01 2015 05:55:22 GMT+0300 (FLE Daylight Time)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="WhyRx.html">
+            
+                
+                    <a href="../../../WhyRx.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Why RxJs?
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="content/guidelines/index.html">
+            
+                
+                    <a href="../../../content/guidelines/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        RxJS Design Guidelines
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3" data-path="content/guidelines/introduction/index.html">
+            
+                
+                    <a href="../../../content/guidelines/introduction/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="content/guidelines/when/index.html">
+            
+                
+                    <a href="../../../content/guidelines/when/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        When to use RxJS
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="content/guidelines/contract/index.html">
+            
+                
+                    <a href="../../../content/guidelines/contract/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        The RxJS contract
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="content/guidelines/using/index.html">
+            
+                
+                    <a href="../../../content/guidelines/using/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Using RxJS
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="content/guidelines/implementations/index.html">
+            
+                
+                    <a href="../../../content/guidelines/implementations/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Operator implementations
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="content/getting_started_with_rxjs/index.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Getting Started With RxJS
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4" data-path="content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/what_are_the_reactive_extensions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        What are the Reactive Extensions?
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Exploring Major Concepts in RxJS
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/index.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        Creating and Querying Observable Sequences
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.7" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.7.</b>
+                        
+                        Creating and Subscribing to Simple Observable Sequences
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.8" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/bridging_to_events.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/bridging_to_events.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.8.</b>
+                        
+                        Bridging to Events
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.9" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/bridging_to_callbacks.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/bridging_to_callbacks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.9.</b>
+                        
+                        Bridging to Callbacks
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.10" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/bridging_to_promises.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/bridging_to_promises.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.10.</b>
+                        
+                        Bridging to Promises
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.11" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/generators_and_observable_sequences.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/generators_and_observable_sequences.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.11.</b>
+                        
+                        Generators and Observable Sequences
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.12" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/querying_observable_sequences.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/querying_observable_sequences.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.12.</b>
+                        
+                        Querying Observable Sequences
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.13" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/error_handling.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/error_handling.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.13.</b>
+                        
+                        Error Handling With Observable Sequences
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.14" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/transducers.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/transducers.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.14.</b>
+                        
+                        Transducers with Observable Sequences
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.15" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/backpressure.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/backpressure.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.15.</b>
+                        
+                        Backpressure with Observable Sequences
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.16" data-path="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/operators_by_category.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/creating_and_querying_observable_sequences/operators_by_category.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.16.</b>
+                        
+                        Operators by Category
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="content/getting_started_with_rxjs/subjects.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/subjects.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        Subjects
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="content/getting_started_with_rxjs/scheduling_and_concurrency.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/scheduling_and_concurrency.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        Scheduling and Concurrency
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="content/getting_started_with_rxjs/testing_and_debugging.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/testing_and_debugging.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        Testing and Debugging
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="content/getting_started_with_rxjs/implementing_your_own_operators.html">
+            
+                
+                    <a href="../../../content/getting_started_with_rxjs/implementing_your_own_operators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        Implementing Your Own Operators
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="content/how_do_it/index.html">
+            
+                
+                    <a href="../../../content/how_do_it/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        How Do It?
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5" data-path="content/how_do_it/existing_api.html">
+            
+                
+                    <a href="../../../content/how_do_it/existing_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        How do I wrap an existing API?
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="content/how_do_it/jquery_with_rxjs.html">
+            
+                
+                    <a href="../../../content/how_do_it/jquery_with_rxjs.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        How do I integrate jQuery with RxJS?
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="content/how_do_it/angular_with_rxjs.html">
+            
+                
+                    <a href="../../../content/how_do_it/angular_with_rxjs.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                        How do I integrate Angular.js with RxJS?
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="content/how_do_it/simple_event_emitter.html">
+            
+                
+                    <a href="../../../content/how_do_it/simple_event_emitter.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.</b>
+                        
+                        How do I create a simple event emitter?
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="content/mappingr_rxjs_from_different_libraries/index.html">
+            
+                
+                    <a href="../../../content/mappingr_rxjs_from_different_libraries/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Mapping RxJS from Different Libraries
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.6" data-path="content/mappingr_rxjs_from_different_libraries/bacon/index.html">
+            
+                
+                    <a href="../../../content/mappingr_rxjs_from_different_libraries/bacon/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        For Bacon.js Users
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="content/mappingr_rxjs_from_different_libraries/async/index.html">
+            
+                
+                    <a href="../../../content/mappingr_rxjs_from_different_libraries/async/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        For Async.js Users
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="content/config/index.html">
+            
+                
+                    <a href="../../../content/config/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Rx.config
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="content/helpers/index.html">
+            
+                
+                    <a href="../../../content/helpers/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Rx.helpers
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.8" data-path="content/helpers/default_comparer.html">
+            
+                
+                    <a href="../../../content/helpers/default_comparer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                        defaultComparer
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.9" data-path="content/helpers/default_sub_comparer.html">
+            
+                
+                    <a href="../../../content/helpers/default_sub_comparer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.9.</b>
+                        
+                        defaultSubComparer
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.10" data-path="content/helpers/default_error.html">
+            
+                
+                    <a href="../../../content/helpers/default_error.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.10.</b>
+                        
+                        defaultError
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.11" data-path="content/helpers/identity.html">
+            
+                
+                    <a href="../../../content/helpers/identity.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.11.</b>
+                        
+                        identity
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.12" data-path="content/helpers/just.html">
+            
+                
+                    <a href="../../../content/helpers/just.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.12.</b>
+                        
+                        just
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.13" data-path="content/helpers/is_promise.html">
+            
+                
+                    <a href="../../../content/helpers/is_promise.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.13.</b>
+                        
+                        isPromise
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.14" data-path="content/helpers/noop.html">
+            
+                
+                    <a href="../../../content/helpers/noop.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.14.</b>
+                        
+                        noop
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.15" data-path="content/helpers/pluck.html">
+            
+                
+                    <a href="../../../content/helpers/pluck.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.15.</b>
+                        
+                        pluck
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="content/observable/index.html">
+            
+                
+                    <a href="../../../content/observable/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Rx.Observable
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.9" data-path="content/observable/observable_methods/index.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        Observable Methods
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.9.10" data-path="content/observable/observable_methods/amb.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/amb.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.10.</b>
+                        
+                        amb
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.11" data-path="content/observable/observable_methods/case.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/case.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.11.</b>
+                        
+                        case
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.12" data-path="content/observable/observable_methods/catch.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/catch.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.12.</b>
+                        
+                        catch
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.13" data-path="content/observable/observable_methods/combinelatest.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/combinelatest.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.13.</b>
+                        
+                        combineLatest
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.14" data-path="content/observable/observable_methods/concat.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/concat.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.14.</b>
+                        
+                        concat
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.15" data-path="content/observable/observable_methods/create.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/create.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.15.</b>
+                        
+                        create
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.16" data-path="content/observable/observable_methods/defer.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/defer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.16.</b>
+                        
+                        defer
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.17" data-path="content/observable/observable_methods/empty.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/empty.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.17.</b>
+                        
+                        empty
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.18" data-path="content/observable/observable_methods/for.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/for.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.18.</b>
+                        
+                        for
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.19" data-path="content/observable/observable_methods/forkjoin.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/forkjoin.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.19.</b>
+                        
+                        forkJoin
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.20" data-path="content/observable/observable_methods/from.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/from.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.20.</b>
+                        
+                        from
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.21" data-path="content/observable/observable_methods/fromarray.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/fromarray.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.21.</b>
+                        
+                        fromArray (deprecated)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.22" data-path="content/observable/observable_methods/fromcallback.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/fromcallback.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.22.</b>
+                        
+                        fromCallback
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.23" data-path="content/observable/observable_methods/fromevent.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/fromevent.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.23.</b>
+                        
+                        fromEvent
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.24" data-path="content/observable/observable_methods/fromeventpattern.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/fromeventpattern.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.24.</b>
+                        
+                        fromEventPattern
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.25" data-path="content/observable/observable_methods/fromiterable.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/fromiterable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.25.</b>
+                        
+                        fromIterable
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.26" data-path="content/observable/observable_methods/fromnodecallback.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/fromnodecallback.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.26.</b>
+                        
+                        fromNodeCallback
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.27" data-path="content/observable/observable_methods/frompromise.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/frompromise.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.27.</b>
+                        
+                        fromPromise
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.28" data-path="content/observable/observable_methods/generate.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/generate.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.28.</b>
+                        
+                        generate
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.29" data-path="content/observable/observable_methods/generatewithabsolutetime.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/generatewithabsolutetime.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.29.</b>
+                        
+                        generateWithAbsoluteTime
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.30" data-path="content/observable/observable_methods/generatewithrelativetime.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/generatewithrelativetime.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.30.</b>
+                        
+                        generateWithRelativeTime
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.31" data-path="content/observable/observable_methods/if.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/if.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.31.</b>
+                        
+                        if | ifThen
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.32" data-path="content/observable/observable_methods/interval.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/interval.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.32.</b>
+                        
+                        interval
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.33" data-path="content/observable/observable_methods/merge.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/merge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.33.</b>
+                        
+                        merge
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.34" data-path="content/observable/observable_methods/never.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/never.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.34.</b>
+                        
+                        never
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.35" data-path="content/observable/observable_methods/of.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/of.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.35.</b>
+                        
+                        of
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.36" data-path="content/observable/observable_methods/ofwithscheduler.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/ofwithscheduler.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.36.</b>
+                        
+                        ofWithScheduler
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.37" data-path="content/observable/observable_methods/onerrorresumenext.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/onerrorresumenext.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.37.</b>
+                        
+                        onErrorResumeNext
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.38" data-path="content/observable/observable_methods/range.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/range.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.38.</b>
+                        
+                        range
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.39" data-path="content/observable/observable_methods/repeat.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/repeat.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.39.</b>
+                        
+                        repeat
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.40" data-path="content/observable/observable_methods/return.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/return.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.40.</b>
+                        
+                        return | returnValue
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.41" data-path="content/observable/observable_methods/start.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/start.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.41.</b>
+                        
+                        start
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.42" data-path="content/observable/observable_methods/startasync.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/startasync.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.42.</b>
+                        
+                        startAsync
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.43" data-path="content/observable/observable_methods/spawn.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/spawn.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.43.</b>
+                        
+                        spawn
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.44" data-path="content/observable/observable_methods/throw.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/throw.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.44.</b>
+                        
+                        throw | throwException
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.45" data-path="content/observable/observable_methods/timer.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/timer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.45.</b>
+                        
+                        timer
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.46" data-path="content/observable/observable_methods/toasync.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/toasync.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.46.</b>
+                        
+                        toAsync
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.47" data-path="content/observable/observable_methods/using.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/using.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.47.</b>
+                        
+                        using
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.48" data-path="content/observable/observable_methods/when.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/when.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.48.</b>
+                        
+                        when
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.49" data-path="content/observable/observable_methods/while.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/while.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.49.</b>
+                        
+                        while | whileDo
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.50" data-path="content/observable/observable_methods/zip.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/zip.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.50.</b>
+                        
+                        zip
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9.51" data-path="content/observable/observable_methods/ziparray.html">
+            
+                
+                    <a href="../../../content/observable/observable_methods/ziparray.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.51.</b>
+                        
+                        zipArray
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="content/observable/observable_instance_methods/index.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.</b>
+                        
+                        Observable Instance Methods
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.10.11" data-path="content/observable/observable_instance_methods/aggregate.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/aggregate.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.11.</b>
+                        
+                        aggregate (deprecated)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.12" data-path="content/observable/observable_instance_methods/all.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/all.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.12.</b>
+                        
+                        all (deprecated)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.13" data-path="content/observable/observable_instance_methods/amb.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/amb.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.13.</b>
+                        
+                        amb
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.14" data-path="content/observable/observable_instance_methods/and.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/and.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.14.</b>
+                        
+                        and
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.15" data-path="content/observable/observable_instance_methods/any.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/any.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.15.</b>
+                        
+                        any (deprecated)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.16" data-path="content/observable/observable_instance_methods/asobservable.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/asobservable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.16.</b>
+                        
+                        asObservable
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.17" data-path="content/observable/observable_instance_methods/average.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/average.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.17.</b>
+                        
+                        average
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.18" data-path="content/observable/observable_instance_methods/buffer.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/buffer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.18.</b>
+                        
+                        buffer
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.19" data-path="content/observable/observable_instance_methods/bufferwithcount.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/bufferwithcount.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.19.</b>
+                        
+                        bufferWithCount
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.20" data-path="content/observable/observable_instance_methods/bufferwithtime.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/bufferwithtime.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.20.</b>
+                        
+                        bufferWithTime
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.21" data-path="content/observable/observable_instance_methods/bufferwithtimeorcount.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/bufferwithtimeorcount.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.21.</b>
+                        
+                        bufferWithTimeOrCount
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.22" data-path="content/observable/observable_instance_methods/catch.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/catch.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.22.</b>
+                        
+                        catch | catchException
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.23" data-path="content/observable/observable_instance_methods/combinelatest.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/combinelatest.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.23.</b>
+                        
+                        combineLatest
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.24" data-path="content/observable/observable_instance_methods/concat.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/concat.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.24.</b>
+                        
+                        concat
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.25" data-path="content/observable/observable_instance_methods/concatall.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/concatall.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.25.</b>
+                        
+                        concatAll
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.26" data-path="content/observable/observable_instance_methods/concatmap.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/concatmap.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.26.</b>
+                        
+                        concatMap
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.27" data-path="content/observable/observable_instance_methods/concatmapobserver.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/concatmapobserver.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.27.</b>
+                        
+                        concatMapObserver
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.28" data-path="content/observable/observable_instance_methods/connect.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/connect.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.28.</b>
+                        
+                        connect
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.29" data-path="content/observable/observable_instance_methods/contains.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/contains.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.29.</b>
+                        
+                        contains
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.30" data-path="content/observable/observable_instance_methods/controlled.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/controlled.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.30.</b>
+                        
+                        controlled
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.31" data-path="content/observable/observable_instance_methods/count.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/count.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.31.</b>
+                        
+                        count
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.32" data-path="content/observable/observable_instance_methods/defaultifempty.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/defaultifempty.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.32.</b>
+                        
+                        defaultIfEmpty
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.33" data-path="content/observable/observable_instance_methods/delay.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/delay.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.33.</b>
+                        
+                        delay
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.34" data-path="content/observable/observable_instance_methods/delaywithselector.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/delaywithselector.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.34.</b>
+                        
+                        delayWithSelector
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.35" data-path="content/observable/observable_instance_methods/dematerialize.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/dematerialize.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.35.</b>
+                        
+                        dematerialize
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.36" data-path="content/observable/observable_instance_methods/distinct.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/distinct.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.36.</b>
+                        
+                        distinct
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.37" data-path="content/observable/observable_instance_methods/distinctuntilchanged.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/distinctuntilchanged.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.37.</b>
+                        
+                        distinctUntilChanged
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.38" data-path="content/observable/observable_instance_methods/do.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/do.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.38.</b>
+                        
+                        do | doAction (deprecated)
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.39" data-path="content/observable/observable_instance_methods/doonnext.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/doonnext.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.39.</b>
+                        
+                        doOnNext
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.40" data-path="content/observable/observable_instance_methods/doonerror.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/doonerror.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.40.</b>
+                        
+                        doOnError
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.41" data-path="content/observable/observable_instance_methods/dooncompleted.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/dooncompleted.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.41.</b>
+                        
+                        doOnCompleted
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.42" data-path="content/observable/observable_instance_methods/dowhile.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/dowhile.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.42.</b>
+                        
+                        doWhile
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.43" data-path="content/observable/observable_instance_methods/elementat.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/elementat.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.43.</b>
+                        
+                        elementAt
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.44" data-path="content/observable/observable_instance_methods/elementatordefault.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/elementatordefault.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.44.</b>
+                        
+                        elementAtOrDefault
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.45" data-path="content/observable/observable_instance_methods/every.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/every.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.45.</b>
+                        
+                        every
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.46" data-path="content/observable/observable_instance_methods/expand.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/expand.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.46.</b>
+                        
+                        expand
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.47" data-path="content/observable/observable_instance_methods/filter.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/filter.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.47.</b>
+                        
+                        filter
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.48" data-path="content/observable/observable_instance_methods/finally.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/finally.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.48.</b>
+                        
+                        finally | finallyAction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.49" data-path="content/observable/observable_instance_methods/find.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/find.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.49.</b>
+                        
+                        find
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.50" data-path="content/observable/observable_instance_methods/findindex.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/findindex.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.50.</b>
+                        
+                        findIndex
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.51" data-path="content/observable/observable_instance_methods/first.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/first.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.51.</b>
+                        
+                        first
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.52" data-path="content/observable/observable_instance_methods/firstordefault.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/firstordefault.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.52.</b>
+                        
+                        firstOrDefault
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.53" data-path="content/observable/observable_instance_methods/flatmap.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/flatmap.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.53.</b>
+                        
+                        flatMap
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.54" data-path="content/observable/observable_instance_methods/flatmaplatest.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/flatmaplatest.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.54.</b>
+                        
+                        flatMapLatest
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.55" data-path="content/observable/observable_instance_methods/forkjoin.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/forkjoin.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.55.</b>
+                        
+                        forkJoin
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.56" data-path="content/observable/observable_instance_methods/groupby.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/groupby.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.56.</b>
+                        
+                        groupBy
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.57" data-path="content/observable/observable_instance_methods/groupbyuntil.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/groupbyuntil.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.57.</b>
+                        
+                        groupByUntil
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.58" data-path="content/observable/observable_instance_methods/groupjoin.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/groupjoin.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.58.</b>
+                        
+                        groupJoin
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.59" data-path="content/observable/observable_instance_methods/ignoreelements.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/ignoreelements.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.59.</b>
+                        
+                        ignoreElements
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.60" data-path="content/observable/observable_instance_methods/isempty.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/isempty.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.60.</b>
+                        
+                        isEmpty
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.61" data-path="content/observable/observable_instance_methods/join.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/join.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.61.</b>
+                        
+                        join
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.62" data-path="content/observable/observable_instance_methods/last.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/last.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.62.</b>
+                        
+                        last
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.63" data-path="content/observable/observable_instance_methods/lastordefault.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/lastordefault.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.63.</b>
+                        
+                        lastOrDefault
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.64" data-path="content/observable/observable_instance_methods/let.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/let.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.64.</b>
+                        
+                        let | letBind
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.65" data-path="content/observable/observable_instance_methods/manyselect.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/manyselect.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.65.</b>
+                        
+                        manySelect
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.66" data-path="content/observable/observable_instance_methods/map.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/map.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.66.</b>
+                        
+                        map
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.67" data-path="content/observable/observable_instance_methods/max.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/max.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.67.</b>
+                        
+                        max
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.68" data-path="content/observable/observable_instance_methods/maxby.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/maxby.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.68.</b>
+                        
+                        maxBy
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.69" data-path="content/observable/observable_instance_methods/merge.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/merge.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.69.</b>
+                        
+                        merge
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.70" data-path="content/observable/observable_instance_methods/mergeall.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/mergeall.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.70.</b>
+                        
+                        mergeAll
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.71" data-path="content/observable/observable_instance_methods/min.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/min.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.71.</b>
+                        
+                        min
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.72" data-path="content/observable/observable_instance_methods/minby.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/minby.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.72.</b>
+                        
+                        minBy
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.73" data-path="content/observable/observable_instance_methods/multicast.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/multicast.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.73.</b>
+                        
+                        multicast
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.74" data-path="content/observable/observable_instance_methods/observeon.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/observeon.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.74.</b>
+                        
+                        observeOn
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.75" data-path="content/observable/observable_instance_methods/onerrorresumenext.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/onerrorresumenext.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.75.</b>
+                        
+                        onErrorResumeNext
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.76" data-path="content/observable/observable_instance_methods/pairwise.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/pairwise.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.76.</b>
+                        
+                        pairwise
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.77" data-path="content/observable/observable_instance_methods/partition.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/partition.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.77.</b>
+                        
+                        partition
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.78" data-path="content/observable/observable_instance_methods/pausable.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/pausable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.78.</b>
+                        
+                        pausable
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.79" data-path="content/observable/observable_instance_methods/pausablebuffered.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/pausablebuffered.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.79.</b>
+                        
+                        pausableBuffered
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.80" data-path="content/observable/observable_instance_methods/pluck.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/pluck.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.80.</b>
+                        
+                        pluck
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.81" data-path="content/observable/observable_instance_methods/publish.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/publish.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.81.</b>
+                        
+                        publish
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.82" data-path="content/observable/observable_instance_methods/publishlatest.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/publishlatest.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.82.</b>
+                        
+                        publishLatest
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.83" data-path="content/observable/observable_instance_methods/publishvalue.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/publishvalue.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.83.</b>
+                        
+                        publishValue
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.84" data-path="content/observable/observable_instance_methods/share.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/share.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.84.</b>
+                        
+                        share
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.85" data-path="content/observable/observable_instance_methods/sharereplay.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/sharereplay.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.85.</b>
+                        
+                        shareReplay
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.86" data-path="content/observable/observable_instance_methods/sharevalue.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/sharevalue.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.86.</b>
+                        
+                        shareValue
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.87" data-path="content/observable/observable_instance_methods/refcount.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/refcount.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.87.</b>
+                        
+                        refCount
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.88" data-path="content/observable/observable_instance_methods/reduce.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/reduce.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.88.</b>
+                        
+                        reduce
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.89" data-path="content/observable/observable_instance_methods/repeat.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/repeat.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.89.</b>
+                        
+                        repeat
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.90" data-path="content/observable/observable_instance_methods/replay.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/replay.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.90.</b>
+                        
+                        replay
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.91" data-path="content/observable/observable_instance_methods/retry.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/retry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.91.</b>
+                        
+                        retry
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.92" data-path="content/observable/observable_instance_methods/sample.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/sample.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.92.</b>
+                        
+                        sample
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.93" data-path="content/observable/observable_instance_methods/scan.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/scan.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.93.</b>
+                        
+                        scan
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.94" data-path="content/observable/observable_instance_methods/select.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/select.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.94.</b>
+                        
+                        select
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.95" data-path="content/observable/observable_instance_methods/selectconcat.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/selectconcat.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.95.</b>
+                        
+                        selectConcat
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.96" data-path="content/observable/observable_instance_methods/selectmany.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/selectmany.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.96.</b>
+                        
+                        selectMany
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.97" data-path="content/observable/observable_instance_methods/selectswitch.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/selectswitch.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.97.</b>
+                        
+                        selectSwitch
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.98" data-path="content/observable/observable_instance_methods/sequenceequal.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/sequenceequal.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.98.</b>
+                        
+                        sequenceEqual
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.99" data-path="content/observable/observable_instance_methods/single.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/single.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.99.</b>
+                        
+                        single
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.100" data-path="content/observable/observable_instance_methods/singleordefault.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/singleordefault.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.100.</b>
+                        
+                        singleOrDefault
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.101" data-path="content/observable/observable_instance_methods/skip.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/skip.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.101.</b>
+                        
+                        skip
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.102" data-path="content/observable/observable_instance_methods/skiplast.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/skiplast.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.102.</b>
+                        
+                        skipLast
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.103" data-path="content/observable/observable_instance_methods/skiplastwithtime.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/skiplastwithtime.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.103.</b>
+                        
+                        skipLastWithTime
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.104" data-path="content/observable/observable_instance_methods/skipuntil.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/skipuntil.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.104.</b>
+                        
+                        skipUntil
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.105" data-path="content/observable/observable_instance_methods/skipuntilwithtime.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/skipuntilwithtime.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.105.</b>
+                        
+                        skipUntilWithTime
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.106" data-path="content/observable/observable_instance_methods/skipwhile.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/skipwhile.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.106.</b>
+                        
+                        skipWhile
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.107" data-path="content/observable/observable_instance_methods/some.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/some.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.107.</b>
+                        
+                        some
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.108" data-path="content/observable/observable_instance_methods/startwith.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/startwith.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.108.</b>
+                        
+                        startWith
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.109" data-path="content/observable/observable_instance_methods/subscribe.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/subscribe.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.109.</b>
+                        
+                        subscribe
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.110" data-path="content/observable/observable_instance_methods/subscribeonnext.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/subscribeonnext.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.110.</b>
+                        
+                        subscribeOnNext
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.111" data-path="content/observable/observable_instance_methods/subscribeonerror.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/subscribeonerror.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.111.</b>
+                        
+                        subscribeOnError
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.112" data-path="content/observable/observable_instance_methods/subscribeoncompleted.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/subscribeoncompleted.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.112.</b>
+                        
+                        subscribeOnCompleted
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.113" data-path="content/observable/observable_instance_methods/subscribeon.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/subscribeon.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.113.</b>
+                        
+                        subscribeOn
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.114" data-path="content/observable/observable_instance_methods/sum.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/sum.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.114.</b>
+                        
+                        sum
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.115" data-path="content/observable/observable_instance_methods/switch.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/switch.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.115.</b>
+                        
+                        switch | switchLatest
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.116" data-path="content/observable/observable_instance_methods/take.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/take.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.116.</b>
+                        
+                        take
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.117" data-path="content/observable/observable_instance_methods/takelast.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/takelast.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.117.</b>
+                        
+                        takeLast
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.118" data-path="content/observable/observable_instance_methods/takelastbuffer.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/takelastbuffer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.118.</b>
+                        
+                        takeLastBuffer
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.119" data-path="content/observable/observable_instance_methods/takelastbufferwithtime.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/takelastbufferwithtime.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.119.</b>
+                        
+                        takeLastBufferWithTime
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.120" data-path="content/observable/observable_instance_methods/takelastwithtime.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/takelastwithtime.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.120.</b>
+                        
+                        takeLastWithTime
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.121" data-path="content/observable/observable_instance_methods/takeuntil.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/takeuntil.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.121.</b>
+                        
+                        takeUntil
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.122" data-path="content/observable/observable_instance_methods/takeuntilwithtime.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/takeuntilwithtime.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.122.</b>
+                        
+                        takeUntilWithTime
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.123" data-path="content/observable/observable_instance_methods/takewhile.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/takewhile.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.123.</b>
+                        
+                        takeWhile
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.124" data-path="content/observable/observable_instance_methods/throttle.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/throttle.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.124.</b>
+                        
+                        throttle
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.125" data-path="content/observable/observable_instance_methods/throttlewithselector.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/throttlewithselector.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.125.</b>
+                        
+                        throttleWithSelector
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.126" data-path="content/observable/observable_instance_methods/timeinterval.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/timeinterval.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.126.</b>
+                        
+                        timeInterval
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.127" data-path="content/observable/observable_instance_methods/timeout.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/timeout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.127.</b>
+                        
+                        timeout
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.128" data-path="content/observable/observable_instance_methods/timeoutwithselector.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/timeoutwithselector.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.128.</b>
+                        
+                        timeoutWithSelector
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.129" data-path="content/observable/observable_instance_methods/timestamp.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/timestamp.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.129.</b>
+                        
+                        timestamp
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.130" data-path="content/observable/observable_instance_methods/tomap.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/tomap.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.130.</b>
+                        
+                        toMap
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.131" data-path="content/observable/observable_instance_methods/toset.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/toset.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.131.</b>
+                        
+                        toSet
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.132" data-path="content/observable/observable_instance_methods/toarray.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/toarray.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.132.</b>
+                        
+                        toArray
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.133" data-path="content/observable/observable_instance_methods/where.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/where.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.133.</b>
+                        
+                        where
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.134" data-path="content/observable/observable_instance_methods/window.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/window.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.134.</b>
+                        
+                        window
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.135" data-path="content/observable/observable_instance_methods/windowwithcount.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/windowwithcount.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.135.</b>
+                        
+                        windowWithCount
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="8.10.136" data-path="content/observable/observable_instance_methods/windowwithtime.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/windowwithtime.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.136.</b>
+                        
+                        windowWithTime
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.137" data-path="content/observable/observable_instance_methods/windowwithtimeorcount.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/windowwithtimeorcount.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.137.</b>
+                        
+                        windowWithTimeOrCount
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10.138" data-path="content/observable/observable_instance_methods/zip.html">
+            
+                
+                    <a href="../../../content/observable/observable_instance_methods/zip.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.138.</b>
+                        
+                        zip
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="content/observer/index.html">
+            
+                
+                    <a href="../../../content/observer/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        Rx.Observer
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.10" data-path="content/observer/observer_methods/index.html">
+            
+                
+                    <a href="../../../content/observer/observer_methods/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.10.</b>
+                        
+                        Observer methods
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.10.11" data-path="content/observer/observer_methods/create.html">
+            
+                
+                    <a href="../../../content/observer/observer_methods/create.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.10.11.</b>
+                        
+                        create
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.10.12" data-path="content/observer/observer_methods/fromnotifier.html">
+            
+                
+                    <a href="../../../content/observer/observer_methods/fromnotifier.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.10.12.</b>
+                        
+                        fromNotifier
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9.11" data-path="content/observer/observer_instance_methods/index.html">
+            
+                
+                    <a href="../../../content/observer/observer_instance_methods/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.11.</b>
+                        
+                        Observer instance methods
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.11.12" data-path="content/observer/observer_instance_methods/asobserver.html">
+            
+                
+                    <a href="../../../content/observer/observer_instance_methods/asobserver.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.11.12.</b>
+                        
+                        asObserver
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.11.13" data-path="content/observer/observer_instance_methods/checked.html">
+            
+                
+                    <a href="../../../content/observer/observer_instance_methods/checked.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.11.13.</b>
+                        
+                        checked
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.11.14" data-path="content/observer/observer_instance_methods/notifyon.html">
+            
+                
+                    <a href="../../../content/observer/observer_instance_methods/notifyon.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.11.14.</b>
+                        
+                        notifyOn
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.11.15" data-path="content/observer/observer_instance_methods/oncompleted.html">
+            
+                
+                    <a href="../../../content/observer/observer_instance_methods/oncompleted.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.11.15.</b>
+                        
+                        onCompleted
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.11.16" data-path="content/observer/observer_instance_methods/onerror.html">
+            
+                
+                    <a href="../../../content/observer/observer_instance_methods/onerror.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.11.16.</b>
+                        
+                        onError
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.11.17" data-path="content/observer/observer_instance_methods/onnext.html">
+            
+                
+                    <a href="../../../content/observer/observer_instance_methods/onnext.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.11.17.</b>
+                        
+                        onNext
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.11.18" data-path="content/observer/observer_instance_methods/tonotifier.html">
+            
+                
+                    <a href="../../../content/observer/observer_instance_methods/tonotifier.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.11.18.</b>
+                        
+                        toNotifier
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="content/notification/index.html">
+            
+                
+                    <a href="../../../content/notification/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Rx.Notification
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.11" data-path="content/notification/notification_methods/index.html">
+            
+                
+                    <a href="../../../content/notification/notification_methods/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.11.</b>
+                        
+                        Notification Methods
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.11.12" data-path="content/notification/notification_methods/createonnext.html">
+            
+                
+                    <a href="../../../content/notification/notification_methods/createonnext.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.11.12.</b>
+                        
+                        createOnNext
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.11.13" data-path="content/notification/notification_methods/createonerror.html">
+            
+                
+                    <a href="../../../content/notification/notification_methods/createonerror.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.11.13.</b>
+                        
+                        createOnError
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.11.14" data-path="content/notification/notification_methods/createoncompleted.html">
+            
+                
+                    <a href="../../../content/notification/notification_methods/createoncompleted.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.11.14.</b>
+                        
+                        createOnCompleted
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10.12" data-path="content/notification/notification_instance_methods/index.html">
+            
+                
+                    <a href="../../../content/notification/notification_instance_methods/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.12.</b>
+                        
+                        Notification Instance Methods
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.12.13" data-path="content/notification/notification_instance_methods/accept.html">
+            
+                
+                    <a href="../../../content/notification/notification_instance_methods/accept.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.12.13.</b>
+                        
+                        accept
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.12.14" data-path="content/notification/notification_instance_methods/toobservable.html">
+            
+                
+                    <a href="../../../content/notification/notification_instance_methods/toobservable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.12.14.</b>
+                        
+                        toObservable
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10.13" data-path="content/notification/notification_properties/index.html">
+            
+                
+                    <a href="../../../content/notification/notification_properties/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.13.</b>
+                        
+                        Notification Properties
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.13.14" data-path="content/notification/notification_properties/exception.html">
+            
+                
+                    <a href="../../../content/notification/notification_properties/exception.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.13.14.</b>
+                        
+                        exception
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.13.15" data-path="content/notification/notification_properties/hasvalue.html">
+            
+                
+                    <a href="../../../content/notification/notification_properties/hasvalue.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.13.15.</b>
+                        
+                        hasValue
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.13.16" data-path="content/notification/notification_properties/kind.html">
+            
+                
+                    <a href="../../../content/notification/notification_properties/kind.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.13.16.</b>
+                        
+                        kind
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.13.17" data-path="content/notification/notification_properties/value.html">
+            
+                
+                    <a href="../../../content/notification/notification_properties/value.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.13.17.</b>
+                        
+                        value
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="content/subjects/index.html">
+            
+                
+                    <a href="../../../content/subjects/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        Subjects
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.12" data-path="content/subjects/async_subject/index.html">
+            
+                
+                    <a href="../../../content/subjects/async_subject/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.12.</b>
+                        
+                        Rx.AsyncSubject
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.13" data-path="content/subjects/behavior_subject/index.html">
+            
+                
+                    <a href="../../../content/subjects/behavior_subject/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.13.</b>
+                        
+                        Rx.BehaviorSubject
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.14" data-path="content/subjects/replay_subject/index.html">
+            
+                
+                    <a href="../../../content/subjects/replay_subject/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.14.</b>
+                        
+                        Rx.ReplaySubject
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11.15" data-path="content/subjects/subject/index.html">
+            
+                
+                    <a href="../../../content/subjects/subject/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.15.</b>
+                        
+                        Rx.Subject
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="content/schedulers/index.html">
+            
+                
+                    <a href="../../../content/schedulers/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        Schedulers
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.13" data-path="content/schedulers/historical_scheduler/index.html">
+            
+                
+                    <a href="../../../content/schedulers/historical_scheduler/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.13.</b>
+                        
+                        Rx.HistoricalScheduler
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12.14" data-path="content/schedulers/scheduler/index.html">
+            
+                
+                    <a href="../../../content/schedulers/scheduler/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.14.</b>
+                        
+                        Rx.Scheduler
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12.15" data-path="content/schedulers/virtual_scheduler/index.html">
+            
+                
+                    <a href="../../../content/schedulers/virtual_scheduler/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.15.</b>
+                        
+                        Rx.VirtualTimeScheduler
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="content/disposables/index.html">
+            
+                
+                    <a href="../../../content/disposables/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        Disposables
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="13.14" data-path="content/disposables/composite_disposable/index.html">
+            
+                
+                    <a href="../../../content/disposables/composite_disposable/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.14.</b>
+                        
+                        Rx.CompositeDisposable
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13.15" data-path="content/disposables/disposable/index.html">
+            
+                
+                    <a href="../../../content/disposables/disposable/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.15.</b>
+                        
+                        Rx.Disposable
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13.16" data-path="content/disposables/ref_count_disposable/index.html">
+            
+                
+                    <a href="../../../content/disposables/ref_count_disposable/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.16.</b>
+                        
+                        Rx.RefCountDisposable
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13.17" data-path="content/disposables/serial_disposable/index.html">
+            
+                
+                    <a href="../../../content/disposables/serial_disposable/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.17.</b>
+                        
+                        Rx.SerialDisposable
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13.18" data-path="content/disposables/single_assignment_disposable/index.html">
+            
+                
+                    <a href="../../../content/disposables/single_assignment_disposable/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.18.</b>
+                        
+                        Rx.SingleAssignmentDisposable
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="content/testing/index.html">
+            
+                
+                    <a href="../../../content/testing/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                        Testing
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="14.15" data-path="content/testing/reactive_test/index.html">
+            
+                
+                    <a href="../../../content/testing/reactive_test/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.15.</b>
+                        
+                        Rx.ReactiveTest
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14.16" data-path="content/testing/recorder/index.html">
+            
+                
+                    <a href="../../../content/testing/recorder/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.16.</b>
+                        
+                        Rx.Recorded
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14.17" data-path="content/testing/subscription/index.html">
+            
+                
+                    <a href="../../../content/testing/subscription/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.17.</b>
+                        
+                        Rx.Subscription
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14.18" data-path="content/testing/test_scheduler/index.html">
+            
+                
+                    <a href="../../../content/testing/test_scheduler/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.18.</b>
+                        
+                        Rx.TestScheduler
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="content/node/index.html">
+            
+                
+                    <a href="../../../content/node/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                        Node.js
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="15.16" data-path="content/node/callback_handlers/index.html">
+            
+                
+                    <a href="../../../content/node/callback_handlers/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.16.</b>
+                        
+                        Callback Handlers
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="15.16.17" data-path="content/node/callback_handlers/from_callback.html">
+            
+                
+                    <a href="../../../content/node/callback_handlers/from_callback.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.16.17.</b>
+                        
+                        fromCallback
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.16.18" data-path="content/node/callback_handlers/from_node_callback.html">
+            
+                
+                    <a href="../../../content/node/callback_handlers/from_node_callback.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.16.18.</b>
+                        
+                        fromNodeCallback
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="15.17" data-path="content/node/event_handlers/index.html">
+            
+                
+                    <a href="../../../content/node/event_handlers/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.17.</b>
+                        
+                        Event Handlers
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="15.17.18" data-path="content/node/event_handlers/from_event.html">
+            
+                
+                    <a href="../../../content/node/event_handlers/from_event.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.17.18.</b>
+                        
+                        fromEvent
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.17.19" data-path="content/node/event_handlers/to_event_emitter.html">
+            
+                
+                    <a href="../../../content/node/event_handlers/to_event_emitter.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.17.19.</b>
+                        
+                        toEventEmitter
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="15.18" data-path="content/node/stream_handlers/index.html">
+            
+                
+                    <a href="../../../content/node/stream_handlers/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.18.</b>
+                        
+                        Stream Handlers
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="15.18.19" data-path="content/node/stream_handlers/from_stream.html">
+            
+                
+                    <a href="../../../content/node/stream_handlers/from_stream.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.18.19.</b>
+                        
+                        fromStream
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.18.20" data-path="content/node/stream_handlers/from_readable_stream.html">
+            
+                
+                    <a href="../../../content/node/stream_handlers/from_readable_stream.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.18.20.</b>
+                        
+                        fromReadableStream
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.18.21" data-path="content/node/stream_handlers/from_writable_stream.html">
+            
+                
+                    <a href="../../../content/node/stream_handlers/from_writable_stream.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.18.21.</b>
+                        
+                        fromWritableStream
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.18.22" data-path="content/node/stream_handlers/from_transform_stream.html">
+            
+                
+                    <a href="../../../content/node/stream_handlers/from_transform_stream.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.18.22.</b>
+                        
+                        fromTransformStream
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="15.18.23" data-path="content/node/stream_handlers/write_to_stream.html">
+            
+                
+                    <a href="../../../content/node/stream_handlers/write_to_stream.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.18.23.</b>
+                        
+                        writeToStream
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16" data-path="content/rxjs_bindings/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                        RxJS Bindings
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.17" data-path="content/rxjs_bindings/dom/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.</b>
+                        
+                        DOM
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.17.18" data-path="content/rxjs_bindings/dom/ajax/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/ajax/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.18.</b>
+                        
+                        Ajax
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.17.18.19" data-path="content/rxjs_bindings/dom/ajax/ajax.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/ajax/ajax.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.18.19.</b>
+                        
+                        ajax
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.18.20" data-path="content/rxjs_bindings/dom/ajax/ajax_cold.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/ajax/ajax_cold.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.18.20.</b>
+                        
+                        ajaxCold
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.18.21" data-path="content/rxjs_bindings/dom/ajax/get.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/ajax/get.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.18.21.</b>
+                        
+                        get
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.18.22" data-path="content/rxjs_bindings/dom/ajax/get_json.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/ajax/get_json.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.18.22.</b>
+                        
+                        get_Json
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.18.23" data-path="content/rxjs_bindings/dom/ajax/post.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/ajax/post.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.18.23.</b>
+                        
+                        post
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.19" data-path="content/rxjs_bindings/dom/jsonp/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/jsonp/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.19.</b>
+                        
+                        JSONP
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.17.19.20" data-path="content/rxjs_bindings/dom/jsonp/jsonp_request.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/jsonp/jsonp_request.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.19.20.</b>
+                        
+                        jsonpRequest
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.19.21" data-path="content/rxjs_bindings/dom/jsonp/jsonp_request_cold.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/jsonp/jsonp_request_cold.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.19.21.</b>
+                        
+                        jsonpRequestCold
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.20" data-path="content/rxjs_bindings/dom/web_sockets/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/web_sockets/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.20.</b>
+                        
+                        Web Sockets
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.17.20.21" data-path="content/rxjs_bindings/dom/web_sockets/from_web_socket.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/web_sockets/from_web_socket.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.20.21.</b>
+                        
+                        fromWebSocket
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.21" data-path="content/rxjs_bindings/dom/web_workers/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/web_workers/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.21.</b>
+                        
+                        Web Workers
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.17.21.22" data-path="content/rxjs_bindings/dom/web_workers/from_web_worker.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/web_workers/from_web_worker.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.21.22.</b>
+                        
+                        fromWebWorker
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.22" data-path="content/rxjs_bindings/dom/mutation_observers/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/mutation_observers/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.22.</b>
+                        
+                        Mutation Observers
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.17.22.23" data-path="content/rxjs_bindings/dom/mutation_observers/from_mutation_observer.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/mutation_observers/from_mutation_observer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.22.23.</b>
+                        
+                        fromMutationObserver
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.23" data-path="content/rxjs_bindings/dom/geolocation/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/geolocation/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.23.</b>
+                        
+                        Geolocation
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.17.23.24" data-path="content/rxjs_bindings/dom/geolocation/get_current_position.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/geolocation/get_current_position.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.23.24.</b>
+                        
+                        getCurrentPosition
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.23.25" data-path="content/rxjs_bindings/dom/geolocation/watch_position.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/geolocation/watch_position.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.23.25.</b>
+                        
+                        watchPosition
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.24" data-path="content/rxjs_bindings/dom/schedulers/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/schedulers/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.24.</b>
+                        
+                        Schedulers
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.17.24.25" data-path="content/rxjs_bindings/dom/schedulers/request_animation_frame.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/schedulers/request_animation_frame.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.24.25.</b>
+                        
+                        requestAnimationFrame
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.17.24.26" data-path="content/rxjs_bindings/dom/schedulers/mutation_observer.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/dom/schedulers/mutation_observer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.17.24.26.</b>
+                        
+                        mutationObserver
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16.18" data-path="content/rxjs_bindings/jquery/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/jquery/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.18.</b>
+                        
+                        jQuery
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.19" data-path="content/rxjs_bindings/angular/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/angular/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.19.</b>
+                        
+                        AngularJS
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.19.20" data-path="content/rxjs_bindings/angular/factories/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/angular/factories/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.19.20.</b>
+                        
+                        Factories
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.19.20.21" data-path="content/rxjs_bindings/angular/factories/rx.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/angular/factories/rx.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.19.20.21.</b>
+                        
+                        rx
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.19.20.22" data-path="content/rxjs_bindings/angular/factories/observe_on_scope.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/angular/factories/observe_on_scope.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.19.20.22.</b>
+                        
+                        observeOnScope
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16.19.21" data-path="content/rxjs_bindings/angular/observable_methods/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/angular/observable_methods/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.19.21.</b>
+                        
+                        Observable methods
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.19.21.22" data-path="content/rxjs_bindings/angular/observable_methods/safe_apply.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/angular/observable_methods/safe_apply.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.19.21.22.</b>
+                        
+                        safeApply
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16.19.22" data-path="content/rxjs_bindings/angular/root_scope_methods/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/angular/root_scope_methods/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.19.22.</b>
+                        
+                        $rootScope methods
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="16.19.22.23" data-path="content/rxjs_bindings/angular/root_scope_methods/$to_observable.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/angular/root_scope_methods/$to_observable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.19.22.23.</b>
+                        
+                        $toObservable
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.19.22.24" data-path="content/rxjs_bindings/angular/root_scope_methods/$event_to_observable.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/angular/root_scope_methods/$event_to_observable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.19.22.24.</b>
+                        
+                        $eventToObservable
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.19.22.25" data-path="content/rxjs_bindings/angular/root_scope_methods/$create_observable_function.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/angular/root_scope_methods/$create_observable_function.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.19.22.25.</b>
+                        
+                        $createObservableFunction
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="16.20" data-path="content/rxjs_bindings/react/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/react/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.20.</b>
+                        
+                        Facebook React
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="16.21" data-path="content/rxjs_bindings/ractive/index.html">
+            
+                
+                    <a href="../../../content/rxjs_bindings/ractive/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.21.</b>
+                        
+                        Ractive.js
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="17" data-path="content/recipes/index.html">
+            
+                
+                    <a href="../../../content/recipes/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                        Recipes
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18" data-path="content/methods_by_libraries/index.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                        Methods by libraries
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="18.19" data-path="content/methods_by_libraries/rx.aggregates.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.aggregates.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.19.</b>
+                        
+                        rx.aggregates
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.20" data-path="content/methods_by_libraries/rx.async.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.async.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.20.</b>
+                        
+                        rx.async
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.21" data-path="content/methods_by_libraries/rx.backpressure.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.backpressure.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.21.</b>
+                        
+                        rx.backpressure
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.22" data-path="content/methods_by_libraries/rx.binding.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.binding.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.22.</b>
+                        
+                        rx.binding
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.23" data-path="content/methods_by_libraries/rx.coincidence.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.coincidence.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.23.</b>
+                        
+                        rx.coincidence
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.24" data-path="content/methods_by_libraries/rx.complete.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.complete.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.24.</b>
+                        
+                        rx.complete
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.25" data-path="content/methods_by_libraries/rx.experimental.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.experimental.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.25.</b>
+                        
+                        rx.experimental
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.26" data-path="content/methods_by_libraries/rx.joinpatterns.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.joinpatterns.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.26.</b>
+                        
+                        rx.joinpatterns
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.27" data-path="content/methods_by_libraries/rx.lite.extras.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.lite.extras.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.27.</b>
+                        
+                        rx.lite.extras
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.28" data-path="content/methods_by_libraries/rx.lite.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.lite.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.28.</b>
+                        
+                        rx.lite
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.29" data-path="content/methods_by_libraries/rx.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.29.</b>
+                        
+                        rx
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.30" data-path="content/methods_by_libraries/rx.testing.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.testing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.30.</b>
+                        
+                        rx.testing
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.31" data-path="content/methods_by_libraries/rx.time.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.time.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.31.</b>
+                        
+                        rx.time
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="18.32" data-path="content/methods_by_libraries/rx.virtualtime.html">
+            
+                
+                    <a href="../../../content/methods_by_libraries/rx.virtualtime.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.32.</b>
+                        
+                        rx.virtualtime
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="19" data-path="content/which_operator_do_i_use/index.html">
+            
+                
+                    <a href="../../../content/which_operator_do_i_use/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                        Which Operator do I use?
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="19.20" data-path="content/which_operator_do_i_use/creation_operators.html">
+            
+                
+                    <a href="../../../content/which_operator_do_i_use/creation_operators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.20.</b>
+                        
+                        Creation Operators
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="19.21" data-path="content/which_operator_do_i_use/instance_operators.html">
+            
+                
+                    <a href="../../../content/which_operator_do_i_use/instance_operators.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.21.</b>
+                        
+                        Instance Operators
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+    <!--<div style="margin-top: 15px" class="pull-left">-->
+        <!--<iframe src="http://ghbtns.com/github-btn.html?user=xgrommx&repo=rx-book&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>-->
+    <!--</div>-->
+    <!--<div style="margin-top: 15px" class="pull-left">-->
+        <!--<iframe src="http://ghbtns.com/github-btn.html?user=xgrommx&repo=rx-book&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>-->
+    <!--</div>-->
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../" >RxJS - Javascript library for functional reactive programming.</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="windowwithtime"><a name="windowwithtime" class="plugin-anchor" href="#windowwithtime"><span class="fa fa-link"></span></a>windowWithTime</h1>
+<p><code>Rx.Observable.prototype.windowWithTime(timeSpan, [timeShift | scheduler])</code>
+<a href="#rxobservableprototypewindowwithtimetimespan-timeshift--scheduler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/windowwithtime.js" title="View in source" target="_blank">&#x24C8;</a> </p>
+<p>Projects each element of an observable sequence into zero or more buffers which are produced based on timing information.</p>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
+<ol>
+<li><code>timeSpan</code> <em>(<code>Number</code>)</em>: Length of each buffer (specified as an integer denoting milliseconds).</li>
+<li><code>[timeShift]</code> <em>(<code>Number</code>)</em>: Interval between creation of consecutive buffers (specified as an integer denoting milliseconds).</li>
+<li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run buffer timers on. If not specified, the timeout scheduler is used.</li>
+</ol>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<p><em>(<code>Observable</code>)</em>: An observable sequence of buffers. </p>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<h5 id="without-a-skip"><a name="without-a-skip" class="plugin-anchor" href="#without-a-skip"><span class="fa fa-link"></span></a>Without a skip</h5>
+<p><a href="http://jsbin.com/zuyuki/1/embed?js,console" target="_blank"></a></p>
+<h5 id="using-a-skip"><a name="using-a-skip" class="plugin-anchor" href="#using-a-skip"><span class="fa fa-link"></span></a>Using a skip</h5>
+<p><a href="http://jsbin.com/wowin/1/embed?js,console" target="_blank"></a></p>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+<p>File:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/windowwithtime.js" target="_blank"><code>/src/core/observable/windowwithtime.js</code></a></li>
+</ul>
+<p>Dist:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js" target="_blank"><code>rx.time.js</code></a></li>
+</ul>
+<p>Prerequisites:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+</ul>
+<p>NPM Packages:</p>
+<ul>
+<li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
+</ul>
+<p>NuGet Packages:</p>
+<ul>
+<li><a href="http://www.nuget.org/packages/RxJS-Time/" target="_blank"><code>RxJS-Time</code></a></li>
+</ul>
+<p>Unit Tests:</p>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/windowwithtime.js" target="_blank"><code>/tests/observable/windowwithtime.js</code></a></li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../../content/observable/observable_instance_methods/windowwithcount.html" class="navigation navigation-prev " aria-label="Previous page: windowWithCount"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../../content/observable/observable_instance_methods/windowwithtimeorcount.html" class="navigation navigation-next " aria-label="Next page: windowWithTimeOrCount"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../../gitbook/CustomElements.js"></script>
+<script src="../../../gitbook/element.js"></script>
+<script src="../../../gitbook/app.js"></script>
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-jsbin/plugin.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"sans","size":2},"ga":{"token":"UA-63403975-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-63403975-1', 'auto');ga('send', 'pageview');</script>
+<!-- body:end -->
+    </body>
+    <!-- End of book RxJS - Javascript library for functional reactive programming. -->
+</html>

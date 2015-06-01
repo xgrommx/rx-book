@@ -7,9 +7,7 @@ Represents a disposable resource that only disposes its underlying disposable re
 The follow example shows the basic usage of an `Rx.RefCountDisposable`.
 
 ```js
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 var refCountDisposable = new Rx.RefCountDisposable(disposable);
 
@@ -56,9 +54,7 @@ Initializes a new instance of the `Rx.RefCountDisposable` class with the specifi
 
 #### Example
 ```js
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 var refCountDisposable = new Rx.RefCountDisposable(disposable);
 
@@ -82,9 +78,7 @@ Disposes the underlying disposable only when all dependent disposables have been
 #### Example
 
 ```js
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 var refCountDisposable = new Rx.RefCountDisposable(disposable);
 
@@ -122,9 +116,7 @@ Returns a dependent disposable that when disposed decreases the refcount on the 
 #### Example
 
 ```js
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 var refCountDisposable = new Rx.RefCountDisposable(disposable);
 
@@ -159,9 +151,7 @@ Gets a value that indicates whether the object is disposed.
 
 #### Example
 ```js
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 var refCountDisposable = new Rx.RefCountDisposable(disposable);
 

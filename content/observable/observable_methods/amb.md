@@ -1,10 +1,18 @@
 # amb
+
+{% if book.isPdf %}
+
+![amb](../../images/amb.png)
+
+{% else %}
+
+<rx-marbles key="amb"></rx-marbles>
+
+{% endif %}
 `Rx.Observable.amb(...args)`
 <a href="#rxobservableambargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/amb.js "View in source")
 
 Propagates the observable sequence or Promise that reacts first.
-
-![amb](https://github.com/Netflix/RxJava/wiki/images/rx-operators/amb.png)
 
 #### Arguments
 1. `args` *(Array|arguments)*: Observable sources or Promises competing to react first either as an array or arguments.
@@ -15,10 +23,56 @@ Propagates the observable sequence or Promise that reacts first.
 #### Example
 
 ##### Using Observable sequences
-[](http://jsbin.com/vanaci/1/embed?js,console)
 
-###### Using Promises and Observables
-[](http://jsbin.com/bukag/1/embed?js,console)
+{% if book.isPdf %}
+
+```js
+/* Using Observable sequences */
+var source = Rx.Observable.amb(
+    Rx.Observable.timer(500).select(() => 'foo'),
+    Rx.Observable.timer(200).select(() => 'bar')
+);
+
+var subscription = source.subscribe(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+// => onNext: bar
+// => onCompleted 
+```
+
+{% else %}
+
+[](http://jsbin.com/vanaci/2/embed?js,console)
+
+{% endif %}
+
+##### Using Promises and Observables
+
+{% if book.isPdf %}
+
+```js
+/* Using Promises and Observables */
+var source = Rx.Observable.amb(
+    RSVP.Promise.resolve('foo'),
+    Rx.Observable.timer(200).select(() => 'bar')
+);
+
+var subscription = source.subscribe(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+// => onNext: foo
+// => onCompleted
+```
+
+{% else %}
+
+[](http://jsbin.com/bukag/2/embed?js,console)
+
+{% endif %}
 
 ### Location
 

@@ -19,7 +19,7 @@ function createMessage(actual, expected) {
 
 // Using QUnit testing for assertions
 var collectionAssert = {
-    assertEqual: function (expected, actual) {
+    assertEqual: (expected, actual) => {
         var comparer = Rx.internals.isEqual,
             isOk = true;
 
@@ -43,7 +43,7 @@ var onNext = Rx.ReactiveTest.onNext,
     onCompleted = Rx.ReactiveTest.onCompleted,
     subscribe = Rx.ReactiveTest.subscribe;
 
-test('buffer should join strings', function () {
+test('buffer should join strings', () => {
 
     var scheduler = new Rx.TestScheduler();
 
@@ -58,12 +58,8 @@ test('buffer should join strings', function () {
 
     var results = scheduler.startWithTiming(
         function () {
-            return input.buffer(function () {
-                return input.debounce(100, scheduler);
-            })
-            .map(function (b) {
-                return b.join(',');
-            });
+            return input.buffer(() => input.debounce(100, scheduler))
+            .map(b => b.join(','));
         },
         50,  // created
         150, // subscribed
@@ -92,10 +88,10 @@ In the following example, we are going to reuse the Buffer example which generat
 
 ```js
 var seq1 = Rx.Observable.interval(1000)
-   .do(function (x) { console.log(x); })
+   .do(console.log.bind(console))
    .bufferWithCount(5)
-   .do(function (x) { console.log('buffer is full'); })
-   .subscribe(function (x) { console.log('Sum of the buffer is ' + x.reduce(function (acc, x) { return acc + x; }, 0)); });
+   .do(x => console.log('buffer is full'))
+   .subscribe(x => console.log('Sum of the buffer is ' + x.reduce((acc, x) => acc + x, 0)));
 
 // => 0
 // => 1
@@ -117,9 +113,7 @@ console.log('Current time: ' + Date.now());
 var source = Rx.Observable.timer(5000, 1000)
     .timestamp();
 
-var subscription = source.subscribe(function (x) {
-    console.log(x.value + ': ' + x.timestamp);
-});
+var subscription = source.subscribe(x => console.log(x.value + ': ' + x.timestamp));
 
 /* Output will look similar to this */
 // => Current time: 1382646947400
@@ -146,15 +140,12 @@ var Rx = require('rx');
 
 var source = Rx.Observable.range(0, 100)
   .timestamp()
-  .map(function (x) {
+  .map((x) => {
     if (x.value > 98) throw new Error();
     return x;
   });
 
-source.subscribeOnError(
-  function (err) {
-    console.log(err.stack);
-  });
+source.subscribeOnError(err => console.log(err.stack));
 ```
 The error stack easily becomes unreadable and hard to find where the error actually occurred:
 ```bash

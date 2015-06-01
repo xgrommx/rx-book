@@ -13,9 +13,7 @@ The following sample creates a simple DOM event handler for the mouse move event
 ```js
 var result = document.getElementById('result');
 
-document.addEventListener('mousemove', function (e) {
-  result.innerHTML = e.clientX + ', ' + e.clientY;
-}, false);
+document.addEventListener('mousemove', e => result.innerHTML = e.clientX + ', ' + e.clientY, false);
 ```
 
 To import an event into RxJS, you can use the [`fromEvent`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromevent.md) operator, and provide the event arguments that will be raised by the event being bridged. It then converts the given event into an observable sequence.
@@ -27,9 +25,7 @@ var result = document.getElementById('result');
 
 var source = Rx.Observable.fromEvent(document, 'mousemove');
 
-var subscription = source.subscribe(function (e) {
-  result.innerHTML = e.clientX + ', ' + e.clientY;
-});
+var subscription = source.subscribe(e => result.innerHTML = e.clientX + ', ' + e.clientY);
 ```
 
 Notice that in this sample, move becomes an observable sequence in which we can manipulate further. The [Querying Observable Sequences](querying.md) topic will show you how you can project this sequence into a collection of Points type and filter its content, so that your application will only receive values that satisfy a certain criteria.
@@ -44,9 +40,7 @@ var sources = document.querySelectorAll('div');
 
 var source = Rx.Observable.fromEvent(sources, 'click');
 
-var subscription = source.subscribe(function (e) {
-  result.innerHTML = e.clientX + ', ' + e.clientY;
-});
+var subscription = source.subscribe(e => result.innerHTML = e.clientX + ', ' + e.clientY);
 ```
 
 In addition, `fromEvent` also supports libraries such as [jQuery](http://jquery.com/), [Zepto.js](http://zeptojs.com/), [AngularJS](https://angularjs.org/), [Ember.js](http://emberjs.com/) and [Backbone.js](http://backbonejs.org):
@@ -57,9 +51,7 @@ var $sources = $('div');
 
 var source = Rx.Observable.fromEvent($sources, 'click');
 
-var subscription = source.subscribe(function (e) {
-  $result.html(e.clientX + ', ' + e.clientY);
-});
+var subscription = source.subscribe(e => $result.html(e.clientX + ', ' + e.clientY));
 ```
 
 If this behavior is not desired, you can override it by setting the `Rx.config.useNativeEvents` to `true` which will disregard any library for which we support events.
@@ -73,9 +65,7 @@ var result = document.getElementById('result');
 
 var source = Rx.Observable.fromEvent(document, 'mousemove');
 
-var subscription = source.subscribe(function (e) {
-  result.innerHTML = e.clientX + ', ' + e.clientY;
-});
+var subscription = source.subscribe(e => result.innerHTML = e.clientX + ', ' + e.clientY);
 ```
 
 In addition, you could easily add many shortcuts into the event system for events such as `mousemove`, and even extending to [Pointer](http://www.w3.org/TR/pointerevents/) and [Touch](http://www.w3.org/TR/touch-events/) Events.
@@ -95,10 +85,8 @@ if (root.TouchEvent) {
   events += " touchstart touchend touchmove touchcancel";
 }
 
-events.split(' ').forEach(function (e) {
-  Rx.dom[e] = function (element, selector) {
-    return Rx.Observable.fromEvent(element, e, selector);
-  };
+events.split(' ').forEach(e => {
+  Rx.dom[e] = (element, selector) => Rx.Observable.fromEvent(element, e, selector)
 });
 ```
 
@@ -106,15 +94,13 @@ Now we can rewrite a simple mouse drag as the following:
 ```js
 var draggable = document.getElementById('draggable');
 
-var mousedrag = Rx.dom.mousedown(draggable).flatMap(function (md) {
+var mousedrag = Rx.dom.mousedown(draggable).flatMap(md => {
   md.preventDefault();
 
   var start = getLocation(md);
 
   return Rx.dom.mousemove(document)
-    .map(function (mm) {
-      return getDelta(start, mm);
-    })
+    .map(mm => getDelta(start, mm))
     .takeUntil(Rx.dom.mouseup(draggable));
 });
 ```
@@ -133,9 +119,7 @@ var eventEmitter = new EventEmitter();
 
 var source = Rx.Observable.fromEvent(eventEmitter, 'data')
 
-var subscription = source.subscribe(function (data) {
-  console.log('data: ' + data);
-});
+var subscription = source.subscribe(data => console.log('data: ' + data));
 
 eventEmitter.emit('data', 'foo');
 // => data: foo
@@ -148,9 +132,7 @@ There may be instances dealing with libraries which have different ways of subsc
 For example, you might want to bridge to using jQuery [`on`](http://api.jquery.com/on/) method.  We can convert the following code which alerts based upon the click of a table row.
 
 ```js
-$( "#dataTable tbody" ).on('click', 'tr', function() {
-  alert( $( this ).text() );
-});
+$( "#dataTable tbody" ).on('click', 'tr', () => alert($( this ).text()));
 ```
 
 The converted code looks like this while using the `fromEventPattern` method.  Each function passes in the handler function which allows you to call the `on` and `off` methods to properly handle disposal of events.
@@ -162,15 +144,13 @@ var source = Rx.Observable.fromEventPattern(
   function addHandler (h) { $tbody.on('click', 'tr', h); },
   function delHandler (h) { $tbody.off('click', 'tr', h); });
 
-var subscription = source.subscribe(function (e) {
-  alert( $(e.target).text() );
-});
+var subscription = source.subscribe(e => alert($( this ).text()));
 ```
 
 In addition to this normal support, we also support if the `addHandler` returns an object, it can be passed to the `removeHandler` to properly unsubscribe.  In this example, we'll use the [Dojo Toolkit](http://dojotoolkit.org) and the [`on`](http://dojotoolkit.org/api/1.9/dojo/on.html) module.
 
 ```js
-require(['dojo/on', 'dojo/dom', 'rx', 'rx.async', 'rx.binding'], function (on, dom, rx) {
+require(['dojo/on', 'dojo/dom', 'rx', 'rx.async', 'rx.binding'], (on, dom, rx) => {
 
     var input = dom.byId('input');
 
@@ -184,15 +164,9 @@ require(['dojo/on', 'dojo/dom', 'rx', 'rx.async', 'rx.binding'], function (on, d
     );
 
     var subscription = source.subscribe(
-        function (x) {
-            console.log('Next: Clicked!');
-        },
-        function (err) {
-            console.log('Error: ' + err);
-        },
-        function () {
-            console.log('Completed');
-        });
+        x => console.log('Next: Clicked!'),
+        err => console.log('Error: ' + err),
+        () => console.log('Completed'));
 
     on.emit(input, 'click');
     // => Next: Clicked!

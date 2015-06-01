@@ -7,13 +7,9 @@ Represents a group of disposable resources that are disposed together.
 The follow example shows the basic usage of an Rx.CompositeDisposable.
 
 ```js
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
-var d2 = Rx.Disposable.create(function () {
-     console.log('two');
-});
+var d2 = Rx.Disposable.create(() => console.log('two'));
 
 // Initialize with two disposables
 var disposables = new Rx.CompositeDisposable(d1, d2);
@@ -54,13 +50,9 @@ Initializes a new instance of the `Rx.CompositeDisposable` class from a group of
 
 #### Example
 ```js
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
-var d2 = Rx.Disposable.create(function () {
-     console.log('two');
-});
+var d2 = Rx.Disposable.create(() => console.log('two'));
 
 // Initialize with two disposables
 var disposables = new Rx.CompositeDisposable(d1, d2);
@@ -91,9 +83,7 @@ Adds a disposable to the CompositeDisposable or disposes the disposable if the C
 ```js
 var disposables = new Rx.CompositeDisposable();
 
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
 disposables.add(d1);
 
@@ -115,9 +105,7 @@ Removes and disposes all disposables from the CompositeDisposable, but does not 
 #### Example
 
 ```js
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
 var disposables = new Rx.CompositeDisposable(d1);
 
@@ -153,9 +141,7 @@ Determines whether the CompositeDisposable contains a specific disposable.
 ```js
 var disposables = new Rx.CompositeDisposable();
 
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
 disposables.add(d1);
 
@@ -177,13 +163,9 @@ Disposes all disposables in the group and removes them from the group.
 #### Example
 
 ```js
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
-var d2 = Rx.Disposable.create(function () {
-     console.log('two');
-});
+var d2 = Rx.Disposable.create(() => console.log('two'));
 
 var disposables = new Rx.CompositeDisposable(d1, d2);
 
@@ -217,9 +199,7 @@ Removes and disposes the first occurrence of a disposable from the CompositeDisp
 ```js
 var disposables = new Rx.CompositeDisposable();
 
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
 disposables.add(d1);
 
@@ -244,13 +224,9 @@ Converts the existing CompositeDisposable to an array of disposables
 #### Example
 
 ```js
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
-var d2 = Rx.Disposable.create(function () {
-     console.log('two');
-});
+var d2 = Rx.Disposable.create(() => console.log('two'));
 
 var disposables = new Rx.CompositeDisposable(d1, d2);
 
@@ -277,9 +253,7 @@ Gets a value that indicates whether the object is disposed.
 ```js
 var disposables = new Rx.CompositeDisposable();
 
-var d1 = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var d1 = Rx.Disposable.create(() => console.log('disposed'));
 
 disposables.add(d1);
 
@@ -308,9 +282,7 @@ Gets the number of disposables in the CompositeDisposable.
 ```js
 var disposables = new Rx.CompositeDisposable();
 
-var d1 = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var d1 = Rx.Disposable.create(() => console.log('disposed'));
 
 disposables.add(d1);
 

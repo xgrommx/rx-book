@@ -6,8 +6,7 @@ The word `transduce` is just a combination of `transform` and `reduce`. The redu
 ```js
 var arr = [1, 2, 3, 4];
 
-arr.reduce(
-  function(result, x) { return result.concat(x + 1); }, []);
+arr.reduce((result, x) => result.concat(x + 1), []);
 
 // => [ 2, 3, 4, 5 ]
 ```
@@ -67,9 +66,9 @@ function isEven(x) { return x % 2 === 0; }
 var transduced = source.transduce(t.comp(t.map(increment), t.filter(isEven)));
 
 transduced.subscribe(
-  function (x) { console.log('Next: %s', x); },
-  function (e) { console.log('Error: %s', e); },
-  function ()  { console.log('Completed'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => Next: 2
 // => Next: 4
@@ -87,9 +86,9 @@ function isEven(x) { return x % 2 === 0; }
 var transduced = source.map(increment).filter(isEven);
 
 transduced.subscribe(
-  function (x) { console.log('Next: %s', x); },
-  function (e) { console.log('Error: %s', e); },
-  function ()  { console.log('Completed'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => Next: 2
 // => Next: 4

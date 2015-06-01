@@ -48,7 +48,7 @@ var source = Rx.Observable.catch(
 );
 
 var subscription = source.subscribe(
-  function (data) {
+  data => {
     // Display the data as it comes in
   }
 );
@@ -60,7 +60,7 @@ We also have an instance version of `catch` which can be used two ways.  The fir
 var source = get('url1').catch(getCachedVersion());
 
 var subscription = source.subscribe(
-  function (data) {
+  data => {
     // Display the data as it comes in
   }
 );
@@ -69,7 +69,7 @@ var subscription = source.subscribe(
 The other overload of `catch` allows us to inspect the error as it comes in so we can decide which route to take.  For example, if an error status code of 500 comes back from our web server, we can assume it is down and then use a cached version.
 
 ```js
-var source = get('url1').catch(function (e) {
+var source = get('url1').catch(e => {
   if (e.status === 500) {
     return cachedVersion();
   } else {
@@ -78,7 +78,7 @@ var source = get('url1').catch(function (e) {
 });
 
 var subscription = source.subscribe(
-  function (data) {
+  data => {
     // Display the data as it comes in
   }
 );
@@ -102,9 +102,7 @@ var source = Rx.Observable.onErrorResumeNext(
 );
 
 var subscription = source.subscribe(
-  function (data) {
-    console.log(data);
-  }
+  data => console.log(data)
 );
 // => 42
 // => 56
@@ -124,12 +122,8 @@ Let's take a look at a simple example of trying to get some data from a URL and 
 var source = get('url').retry(3);
 
 var subscription = source.subscribe(
-  function (data) {
-    console.log(data);
-  },
-  function (err) {
-    console.log(err);
-  }
+  data => console.log(data),
+  err => console.log(err)
 );
 ```
 
@@ -140,7 +134,7 @@ In the above example, it will give up after three tries and thus call `onError` 
 var source = get('url').retry(3).catch(cachedVersion());
 
 var subscription = source.subscribe(
-  function (data) {
+  data => {
     // Displays the data from the URL or cached data
     console.log(data);
   }
@@ -151,18 +145,17 @@ The above case retries immediately upon failure.  But what if you want to contro
 
 ```js
 var source = get('url').retryWhen(
-  function (attempts) {
-    return attempts
-      .zip(Observable.range(1, 3), function (_, i) { return i })
-      .flatMap(function (i)) {
+   attempts =>
+    attempts
+      .zip(Observable.range(1, 3), (_, i) => i)
+      .flatMap(i => {
         console.log('delay retry by ' + i + ' second(s)');
         return Rx.Observable.timer(i * 1000);
       });
-  }
 );
 
 var subscription = source.subscribe(
-  function (data) {
+  data => {
     // Displays the data from the URL or cached data
     console.log(data);
   }
@@ -182,10 +175,10 @@ In this example, we can ensure that our `WebSocket` will indeed be closed once t
 var socket = new WebSocket('ws://someurl', 'xmpp');
 
 var source = Rx.Observable.from(data)
-  .finally(function () { socket.close(); });
+  .finally(() => socket.close());
 
 var subscription = source.subscribe(
-  function (data) {
+  data => {
     socket.send(data);
   }
 );
@@ -201,9 +194,7 @@ function DisposableWebSocket(url, protocol) {
   var socket = new WebSocket(url, protocol);
 
   // Create a way to close the WebSocket upon completion
-  var d = Rx.Disposable.create(function () {
-    socket.close();
-  });
+  var d = Rx.Disposable.create(() => socket.close());
 
   d.socket = socket;
 
@@ -211,10 +202,10 @@ function DisposableWebSocket(url, protocol) {
 }
 
 var source = Rx.Observable.using(
-  function () { return new DisposableWebSocket('ws://someurl', 'xmpp'); },
-  function (d) {
-    return Rx.Observable.from(data)
-      .tap(function (data) { d.socket.send(data); });
+  () => new DisposableWebSocket('ws://someurl', 'xmpp'),
+  d => 
+    Rx.Observable.from(data)
+      .tap(data => d.socket.send(data));
   }
 );
 
@@ -234,15 +225,9 @@ var source3 = Rx.Observable.of(4,5,6);
 var source = Rx.Observable.mergeDelayError(source1, source2, source3);
 
 var subscription = source.subscribe(
-  function (x) {
-    console.log('Next: %s', x);
-  },
-  function (err) {
-    console.log('Error: %s', err);
-  },
-  function () {
-    console.log('Completed');
-  });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => 1
 // => 2

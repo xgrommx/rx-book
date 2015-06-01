@@ -13,9 +13,7 @@ printNumberOfTime('Hello world', 1);
 // => Hello world
 
 // Asynchronous
-setTimeout(function () {
-  console.log('Hello from setTimeout after one second');
-}, 1000); 
+setTimeout(() => console.log('Hello from setTimeout after one second'), 1000); 
 // => Hello from setTimeout after one second
 ```
 
@@ -94,9 +92,7 @@ function* fibonacci(){
 
 Rx.Observable.from(fibonacci())
   .take(10)
-  .subscribe(function (x) {
-    console.log('Value: %s', x);
-  });
+  .subscribe(x => console.log('Value: %s', x));
 
 //=> Value: 1
 //=> Value: 1
@@ -115,20 +111,14 @@ That's just the beginning, as there are several operators such as [`concatMap`](
 ```js
 var source = Rx.Observable.of(1,2,3)
   .flatMap(
-    function (x, i) { return function* () { yield x; yield i; }(); },
-    function (x, y, i1, i2) { return x + y + i1 + i2; }
+    (x, i) => function* () { yield x; yield i; }(),
+    (x, y, i1, i2) => x + y + i1 + i2
   );
 
 var subscription = source.subscribe(
-  function (x) {
-    console.log('Next: %s', x);
-  },
-  function (err) {
-    console.log('Error: %s', err);
-  },
-  function () {
-    console.log('Completed');
-  });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => Next: 2
 // => Next: 2

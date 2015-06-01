@@ -21,21 +21,19 @@ var Rx = require('rx');
 In this example, we will simply yield a single value of 42 and then mark it as completed.  The return value is completely optional if no cleanup is required.
 
 ```js
-var source = Rx.Observable.create(function (observer) {
+var source = Rx.Observable.create(observer => {
   // Yield a single value and complete
   observer.onNext(42);
   observer.onCompleted();
 
   // Any cleanup logic might go here
-  return function () {
-    console.log('disposed');
-  }
+  return () => console.log('disposed')
 });
 
 var subscription = source.subscribe(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => onNext: 42
 // => onCompleted
@@ -58,9 +56,9 @@ var source = Rx.Observable.range(1, 5);
 
 // Prints out each item
 var subscription = source.subscribe(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => onNext: 1
 // => onNext: 2
@@ -75,7 +73,7 @@ When an observer subscribes to an observable sequence, the `subscribe` method ma
 Notice that the [`subscribe`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/susbcribe.md) method returns a `Disposable`, so that you can unsubscribe to a sequence and dispose of it easily. When you invoke the `dispose` method on the observable sequence, the observer will stop listening to the observable for data.  Normally, you do not need to explicitly call `dispose` unless you need to unsubscribe early, or when the source observable sequence has a longer life span than the observer. Subscriptions in Rx are designed for fire-and-forget scenarios without the usage of a finalizer. Note that the default behavior of the Observable operators is to dispose of the subscription as soon as possible (i.e, when an `onCompleted` or `onError` messages is published). For example, the code will subscribe x to both sequences a and b. If a throws an error, x will immediately be unsubscribed from b.
 
 ```js
-var x = Rx.Observable.zip(a, b, function (a1, b1) { return a1 + b1; }).subscribe();
+var x = Rx.Observable.zip(a, b, (a1, b1) => a1 + b1).subscribe();
 ```
 
 You can also tweak the code sample to use the Create operator of the Observer type, which creates and returns an observer from specified OnNext, OnError, and OnCompleted action delegates. You can then pass this observer to the Subscribe method of the Observable type. The following sample shows how to do this.
@@ -86,9 +84,9 @@ var source = Rx.Observable.range(1, 5);
 
 // Create observer
 var observer = Rx.Observer.create(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // Prints out each item
 var subscription = source.subscribe(observer);
@@ -127,9 +125,7 @@ var source = Rx.Observable.timer(
    .timestamp();
 
 var subscription = source.subscribe(
-  function (x) {
-    console.log(x.value + ': ' + x.timestamp);
-  });
+  x => console.log(x.value + ': ' + x.timestamp));
 
 /* Output may be similar to this */
 // Current time: 1382560697820
@@ -152,9 +148,9 @@ var source = Rx.Observable.from(array);
 
 // Prints out each item
 var subscription = source.subscribe(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => onNext: 1
 // => onNext: 2
@@ -169,13 +165,13 @@ You can also convert array-like objects such as objects with a length property a
 var arrayLike = { length: 5 };
 
 // Converts an array to an observable sequence
-var source = Rx.Observable.from(arrayLike, function (v, k) { return k; });
+var source = Rx.Observable.from(arrayLike, (v, k) => k);
 
 // Prints out each item
 var subscription = source.subscribe(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => onNext: 1
 // => onNext: 2
@@ -197,9 +193,9 @@ var source = Rx.Observable.from(set);
 
 // Prints out each item
 var subscription = source.subscribe(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => onNext: 1
 // => onNext: 2
@@ -219,9 +215,9 @@ var source = Rx.Observable.from(set);
 
 // Prints out each item
 var subscription = source.subscribe(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => onNext: key1, 1
 // => onNext: key2, 2
@@ -247,9 +243,9 @@ var source = Rx.Observable.from(fibonacci()).take(5);
 
 // Prints out each item
 var subscription = source.subscribe(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => onNext: 1
 // => onNext: 1
@@ -279,16 +275,16 @@ And now to the example.
 var source = Rx.Observable.interval(1000);
 
 var subscription1 = source.subscribe(
-  function (x) { console.log('Observer 1: onNext: ' + x); },
-  function (e) { console.log('Observer 1: onError: ' + e.message); },
-  function () { console.log('Observer 1: onCompleted'); });
+  x => console.log('Observer 1: onNext: ' + x),
+  e => console.log('Observer 1: onError: ' + e.message),
+  () => console.log('Observer 1: onCompleted'));
 
 var subscription2 = source.subscribe(
-  function (x) { console.log('Observer 2: onNext: ' + x); },
-  function (e) { console.log('Observer 2: onError: ' + e.message); },
-  function () { console.log('Observer 2: onCompleted'); });
+  x => console.log('Observer 2: onNext: ' + x),
+  e => console.log('Observer 2: onError: ' + e.message),
+  () => console.log('Observer 2: onCompleted'));
 
-setTimeout(function () {
+setTimeout(() => {
   subscription1.dispose();
   subscription2.dispose();
 }, 5000);
@@ -339,14 +335,14 @@ var hot = source.publish();
 
 // No value is pushed to 1st subscription at this point
 var subscription1 = hot.subscribe(
-  function (x) { console.log('Observer 1: onNext: %s', x); },
-  function (e) { console.log('Observer 1: onError: %s', e); },
-  function () { console.log('Observer 1: onCompleted'); });
+  x => console.log('Observer 1: onNext: %s', x),
+  e => console.log('Observer 1: onError: %s', e),
+  () => console.log('Observer 1: onCompleted'));
 
 console.log('Current Time after 1st subscription: ' + Date.now());
 
 // Idle for 3 seconds
-setTimeout(function () {
+setTimeout(() => {
 
   // Hot is connected to source and starts pushing value to subscribers
   hot.connect();
@@ -354,14 +350,14 @@ setTimeout(function () {
   console.log('Current Time after connect: ' + Date.now());
 
   // Idle for another 3 seconds
-  setTimeout(function () {
+  setTimeout(() => {
 
     console.log('Current Time after 2nd subscription: ' + Date.now());
 
     var subscription2 = hot.subscribe(
-      function (x) { console.log('Observer 2: onNext: %s', x); },
-      function (e) { console.log('Observer 2: onError: %s', e); },
-      function () { console.log('Observer 2: onCompleted'); });
+      x => console.log('Observer 2: onNext: %s', x),
+      e => console.log('Observer 2: onError: %s', e),
+      () => console.log('Observer 2: onCompleted'));
 
   }, 3000);
 }, 3000);

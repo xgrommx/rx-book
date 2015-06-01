@@ -9,14 +9,14 @@ RxJS offers a full set of operators that cover most of the possible operations o
 For example, let's see how we might implement the [_.where](http://lodash.com/docs#where) method from [Lo-Dash](http://lodash.com/) or [Underscore](http://underscorejs.org/), which takes a set of attributes and does a deep comparison for equality.  We might try implementing this from scratch using the `Rx.Observable.createWithDisposable` method such as the following code.
 
 ```js
-Rx.Observable.prototype.whereProperties = function (properties) {
+Rx.Observable.prototype.whereProperties = properties => {
 	var source = this,
 		comparer = Rx.internals.isEqual;
 
-	return Rx.Observable.filterByProperties(function (observer) {
+	return Rx.Observable.filterByProperties(observer => {
 		// Our disposable is the subscription from the parent
 		return source.subscribe(
-			function (data) {
+			data => {
 
 				try {
 					var shouldRun = true;
@@ -46,18 +46,16 @@ Rx.Observable.prototype.whereProperties = function (properties) {
 Many existing operators, such as this, instead could be built using other basic operators for example in this case, `filter` or `where`.  In fact, many existing operators are built using other basic operators. For example, the `flatMap` or `selectMany` operator is built by composing the `map` or `select` and `mergeObservable` operators, as the following code shows.
 
 ```js
-Rx.Observable.prototype.flatMap = function (selector) {
-	return this.map(selector).mergeObservable();
-};
+Rx.Observable.prototype.flatMap = selector => this.map(selector).mergeObservable();
 ```
 
 We could rewrite it as the following to take advantage of already built in operators.
 
 ```js
-Rx.Observable.prototype.filterByProperties = function (properties) {
+Rx.Observable.prototype.filterByProperties = properties => {
 	var comparer = Rx.internals.isEqual;
 
-	return this.filter(function (data) {
+	return this.filter(data => {
 
 		// Iterate the properties for deep equality
 		for (var prop in properties) {
@@ -82,7 +80,7 @@ var onNext = Rx.ReactiveTest.onNext,
     onCompleted = Rx.ReactiveTest.onCompleted,
     subscribe = Rx.ReactiveTest.subscribe;
 
-test('filterProperties should yield with match', function () {
+test('filterProperties should yield with match', () => {
 
     var scheduler = new Rx.TestScheduler();
 
@@ -93,9 +91,7 @@ test('filterProperties should yield with match', function () {
     );
 
     var results = scheduler.startWithCreate(
-        function () {
-            return input.filterByProperties({ 'age': 40 });
-        }
+        () => input.filterByProperties({ 'age': 40 })
     );
 
     collectionAssert.assertEqual(results.messages, [

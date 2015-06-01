@@ -16,7 +16,34 @@ Determines whether all elements of an observable sequence satisfy a condition.  
 
 #### Example
 
+{% if book.isPdf %}
+
+```js
+var source = Rx.Observable.fromArray([1,2,3,4,5])
+    .all(function (x) {
+        return x < 6;
+    });
+
+var subscription = source.subscribe(
+    function (x) {
+        console.log('Next: ' + x);
+    },
+    function (err) {
+        console.log('Error: ' + err);   
+    },
+    function () {
+        console.log('Completed');   
+    });
+
+// => Next: true
+// => Completed  
+```
+
+{% else %}
+
 [](http://jsbin.com/vabol/1/embed?js,console)
+
+{% endif %}
 
 ### Location
 

@@ -9,9 +9,7 @@ The follow example shows the basic usage of an Rx.SingleAssignmentDisposable.
 ```js
 var singleDisposable = new Rx.SingleAssignmentDisposable();
 
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 singleDisposable.setDisposable(disposable);
 
@@ -67,9 +65,7 @@ Disposes the underlying disposable.
 ```js
 var singleDisposable = new Rx.SingleAssignmentDisposable();
 
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 singleDisposable.setDisposable(disposable);
 
@@ -102,9 +98,7 @@ Gets the underlying disposable. After disposal, the result of getting this metho
 ```js
 var singleDisposable = new Rx.SingleAssignmentDisposable();
 
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 singleDisposable.setDisposable(disposable);
 
@@ -132,15 +126,11 @@ Sets the underlying disposable.
 ```js
 var singleDisposable = new Rx.SingleAssignmentDisposable();
 
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
 singleDisposable.setDisposable(d1);
 
-var d2 = Rx.Disposable.create(function () {
-     console.log('two');
-});
+var d2 = Rx.Disposable.create(() => console.log('two'));
 
 try {
     singleDisposable.setDisposable(d2);
@@ -168,9 +158,7 @@ Gets a value that indicates whether the object is disposed.
 ```js
 var singleDisposable = new Rx.SingleAssignmentDisposable();
 
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 singleDisposable.setDisposable(disposable);
 

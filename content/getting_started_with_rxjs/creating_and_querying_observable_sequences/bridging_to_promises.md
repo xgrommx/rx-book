@@ -38,12 +38,12 @@ Because of this, we can now do a number of very interesting things such as combi
 
 ```js
 var source = Rx.Observable.range(0, 3)
-  .flatMap(function (x) { return Promise.resolve(x * x); });
+  .flatMap(x => Promise.resolve(x * x));
 
 var subscription = source.subscribe(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => onNext: 0
 // => onNext: 1
@@ -61,31 +61,27 @@ In the following example, we create promise objects using [RSVP](https://github.
 
 ```js
 // Create a promise which resolves 42
-var promise1 = new RSVP.Promise(function (resolve, reject) {
-    resolve(42);
-});
+var promise1 = new RSVP.Promise((resolve, reject) => resolve(42));
 
 var source1 = Rx.Observable.fromPromise(promise1);
 
 var subscription1 = source1.subscribe(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => onNext: 42
 // => onCompleted
 
 // Create a promise which rejects with an error
-var promise2 = new RSVP.Promise(function (resolve, reject) {
-    reject(new Error('reason'));
-});
+var promise2 = new RSVP.Promise((resolve, reject) => reject(new Error('reason')));
 
 var source2 = Rx.Observable.fromPromise(promise2);
 
 var subscription2 = source2.subscribe(
-  function (x) { console.log('onNext: %s', x); },
-  function (e) { console.log('onError: %s', e); },
-  function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e),
+  () => console.log('onCompleted'));
 
 // => onError: reject
 ```
@@ -97,9 +93,7 @@ Notice that in this sample, these promises becomes an observable sequences in wh
 Just as you can convert a Promise to an Observable sequence, you can also convert an Observable sequence to a Promise.  This either requires native support for Promises, or a Promise library you can add yourself, such as [Q](https://github.com/kriskowal/q), [RSVP](https://github.com/tildeio/rsvp.js), [when.js](https://github.com/cujojs/when) among others.  These libraries must conform to the ES6 standard for construction where it provides two functions to resolve or reject the promise.
 
 ```js
-var p = new Promise(function (resolve, reject) {
-  resolve(42);
-});
+var p = new Promise((resolve, reject) => resolve(42));
 ```
 
 We can use the [`toPromise`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/frompromise.md) method which allows you to convert an Observable sequence to a Promise.  This method accepts a Promise constructor, and if not provided, will default to a default implementation.  In this first example, we will use [RSVP](https://github.com/tildeio/rsvp.js) to construct our Promise objects.
@@ -109,12 +103,8 @@ We can use the [`toPromise`](https://github.com/Reactive-Extensions/RxJS/tree/ma
 var source1 = Rx.Observable.just(1).toPromise(RSVP.Promise);
 
 source1.then(
-  function (value) {
-    console.log('Resolved value: %s', value);
-  },
-  function (reason) {
-    console.log('Rejected reason: %s', reason);
-  });
+  value => console.log('Resolved value: %s', value),
+  reason => console.log('Rejected reason: %s', reason));
 
 // => Resolved value: 1
 
@@ -122,12 +112,8 @@ source1.then(
 var source2 = Rx.Observable.throwError(new Error('reason')).toPromise(RSVP.Promise);
 
 source2.then(
-  function (value) {
-    console.log('Resolved value: %s', value);
-  },
-  function (reason) {
-    console.log('Rejected reason: %s', reason);
-  });
+  value => console.log('Resolved value: %s', value),
+  reason => console.log('Rejected reason: %s', reason));
 
 // => Rejected reason: Error: reason
 ```
@@ -140,12 +126,8 @@ Rx.config.Promise = RSVP.Promise;
 var source1 = Rx.Observable.just(1).toPromise();
 
 source1.then(
-  function (value) {
-    console.log('Resolved value: %s', value);
-  },
-  function (reason) {
-    console.log('Rejected reason: %s', reason);
-  });
+  value => console.log('Resolved value: %s', value),
+  reason => console.log('Rejected reason: %s', reason));
 
 // => Resolved value: 1
 ```
@@ -155,12 +137,8 @@ If you are in a pure ES6 environment, this should just work without any settings
 var source1 = Rx.Observable.just(1).toPromise();
 
 source1.then(
-  function (value) {
-    console.log('Resolved value: %s', value);
-  },
-  function (reason) {
-    console.log('Rejected reason: %s', reason);
-  });
+  value => console.log('Resolved value: %s', value),
+  reason => console.log('Rejected reason: %s', reason));
 
 // => Resolved value: 1
 ```

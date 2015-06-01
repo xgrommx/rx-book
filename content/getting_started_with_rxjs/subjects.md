@@ -14,9 +14,9 @@ In addition to taking an `Observer`, the [`subscribe`](https://github.com/Reacti
 var subject = new Rx.Subject();
 
 var subscription = subject.subscribe(
-	function (x) { console.log('onNext: ' + x); },
-	function (e) { console.log('onError: ' + e.message); },
-	function () { console.log('onCompleted'); });
+	x => console.log('onNext: ' + x),
+	e => console.log('onError: ' + e.message),
+	() => console.log('onCompleted'));
 
 subject.onNext(1);
 // => onNext: 1
@@ -42,16 +42,16 @@ var subject = new Rx.Subject();
 var subSource = source.subscribe(subject);
 
 var subSubject1 = subject.subscribe(
-	function (x) { console.log('Value published to observer #1: ' + x); },
-	function (e) { console.log('onError: ' + e.message); },
-	function () { console.log('onCompleted'); });
+	x => console.log('Value published to observer #1: ' + x),
+	e => console.log('onError: ' + e.message),
+	() => console.log('onCompleted'));
 
 var subSubject2 = subject.subscribe(
-	function (x) { console.log('Value published to observer #2: ' + x); },
-	function (e) { console.log('onError: ' + e.message); },
-	function () { console.log('onCompleted'); });
+	x => console.log('Value published to observer #2: ' + x),
+	e => console.log('onError: ' + e.message),
+	() => console.log('onCompleted'));
 
-setTimeout(function () {
+setTimeout(() => {
 	// Clean up
 	subject.onCompleted();
 	subSubject1.dispose();

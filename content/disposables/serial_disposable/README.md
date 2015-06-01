@@ -9,15 +9,11 @@ The follow example shows the basic usage of an Rx.SerialDisposable.
 ```js
 var serialDisposable = new Rx.SerialDisposable();
 
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
 serialDisposable.setDisposable(d1);
 
-var d2 = Rx.Disposable.create(function () {
-     console.log('two');
-});
+var d2 = Rx.Disposable.create(() => console.log('two'));
 
 serialDisposable.setDisposable(d2);
 // => one
@@ -74,18 +70,14 @@ Disposes the underlying disposable as well as all future replacements.
 ```js
 var serialDisposable = new Rx.SerialDisposable();
 
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
 serialDisposable.setDisposable(disposable);
 
 serialDisposable.dispose();
 // => one
 
-var d2 = Rx.Disposable.create(function () {
-     console.log('two');
-});
+var d2 = Rx.Disposable.create(() => console.log('two'));
 
 // => two
 ```
@@ -109,9 +101,7 @@ Gets the underlying disposable.
 ```js
 var serialDisposable = new Rx.SerialDisposable();
 
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 serialDisposable.setDisposable(disposable);
 
@@ -139,18 +129,14 @@ Sets the underlying disposable.
 ```js
 var serialDisposable = new Rx.SerialDisposable();
 
-var d1 = Rx.Disposable.create(function () {
-     console.log('one');
-});
+var d1 = Rx.Disposable.create(() => console.log('one'));
 
 serialDisposable.setDisposable(d1);
 
 serialDisposable.dispose();
 // => one
 
-var d2 = Rx.Disposable.create(function () {
-     console.log('two');
-});
+var d2 = Rx.Disposable.create(() => console.log('two'));
 
 serialDisposable.setDisposable(d2);
 // => two
@@ -173,9 +159,7 @@ Gets a value that indicates whether the object is disposed.
 ```js
 var serialDisposable = new Rx.SerialDisposable();
 
-var disposable = Rx.Disposable.create(function () {
-     console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 serialDisposable.setDisposable(disposable);
 

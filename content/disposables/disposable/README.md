@@ -7,9 +7,7 @@ Provides a set of static methods for creating Disposables, which defines a metho
 The follow example shows the basic usage of an `Rx.Disposable`.
 
 ```js
-var disposable = Rx.Disposable.create(function () {
-    console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 disposable.dispose();
 // => disposed
@@ -43,9 +41,7 @@ Creates a disposable object that invokes the specified action when disposed.
 
 #### Example
 ```js
-var disposable = Rx.Disposable.create(function () {
-    console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 disposable.dispose();
 // => disposed
@@ -91,9 +87,7 @@ Performs the task of cleaning up resources.
 #### Example
 
 ```js
-var disposable = Rx.Disposable.create(function () {
-    console.log('disposed');
-});
+var disposable = Rx.Disposable.create(() => console.log('disposed'));
 
 disposable.dispose();
 // => disposed

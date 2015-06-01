@@ -19,9 +19,9 @@ In the following example, the source observable sequence is producing values at 
 ```js
 var obs = Rx.Observable.generate(
 	0,
-	function () { return true; },
-	function (x) { return x + 1; },
-	function (x) { return x; });
+	() => true,
+	x => x + 1,
+	x => x);
 ```
 
 This will queue up on the observer quickly. We can improve this code by using the observeOn operator, which allows you to specify the context that you want to use to send pushed notifications (onNext) to observers. By default, the [`observeOn`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/observeon.md) operator ensures that `onNext` will be called as many times as possible on the current thread. You can use its overloads and redirect the `onNext` outputs to a different context. In addition, you can use the [`subscribeOn`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/subscribeon.md) operator to return a proxy observable that delegates actions to a specific scheduler. For example, for a UI-intensive application, you can delegate all background operations to be performed on a scheduler running in the background by using `subscribeOn` and passing to it the `DefaultScheduler`.
@@ -31,9 +31,9 @@ The following example will schedule any onNext notifications on the current Disp
 ```js
 Rx.Observable.generate(
 	0,
-	function () { return true; },
-	function (x) { return x + 1; },
-	function (x) { return x; }
+	() => true,
+	x => x + 1,
+    x => x
 	)
 	.observeOn(Rx.Scheduler.default)
 	.subscribe(...);
@@ -44,9 +44,9 @@ Instead of using the `observeOn` operator to change the execution context on whi
 ```js
 Rx.Observable.generate(
 	0,
-	function () { return true; },
-	function (x) { return x + 1; },
-	function (x) { return x; },
+	() => true,
+	x => x + 1,
+    x => x,
 	Rx.Scheduler.default)
 	.subscribe(...);
 ```
@@ -57,8 +57,8 @@ Another advantage of specifying a scheduler type explicitly is that you can intr
 
 ```js
 seq.groupBy(...)
-  .map(function (x) { return x.observeOn(Rx.Scheduler.default); })
-  .map(function (x)  { return expensive(x); })  // perform operations that are expensive on resources
+  .map(x => x.observeOn(Rx.Scheduler.default))
+  .map(x => expensive(x))  // perform operations that are expensive on resources
 ```
 
 ## When to Use Which Scheduler ##

@@ -24,12 +24,10 @@ The first technique for lossy backpressure is called [`debounce`](https://github
 
 ```js
 var debounced = Rx.Observable.fromEvent(input, 'keyup')
-  .map(function (e) { return e.target.value; })
+  .map(e => e.target.value)
   .debounce(500 /* ms */);
 
-debounced.subscribeOnNext(function (value) {
-  console.log('Input value: %s', value);
-});
+debounced.subscribeOnNext(value => console.log('Input value: %s', value));
 ```
 
 ### Throttling ###
@@ -40,7 +38,7 @@ Another technique to deal with an observable sequence which is producing too muc
 var throttled = Rx.Observable.fromEvent(window, 'resize')
   .throttleFirst(250 /* ms */);
 
-throttled.subscribeOnNext(function (e) {
+throttled.subscribeOnNext(e => {
   console.log('Window inner height: %d', window.innerHeight);
   console.log('Window inner width: %d', window.innerWidth);
 });
@@ -54,9 +52,7 @@ You can also at certain intervals extract values from the observable sequence us
 var sampled = getStockData()
   .sample(5000 /* ms */);
 
-sampled.subscribeOnNext(function (data) {
-  console.log('Stock data: %o', data);
-});
+sampled.subscribeOnNext(data => console.log('Stock data: %o', data));
 ```
 
 ### Pausable Observables ###
@@ -67,16 +63,12 @@ The ability to pause and resume is also a powerful concept which is offered in R
 var pausable = getSomeObservableSource()
   .pausable();
 
-pausable.subscribeOnNext(function (data) {
-  console.log('Data: %o', data);
-});
+pausable.subscribeOnNext(data => console.log('Data: %o', data));
 
 pausable.pause();
 
 // Resume in five seconds
-setTimeout(function () {
-  pausable.resume();
-}, 5000);
+setTimeout(() => pausable.resume(), 5000);
 ```
 
 ## Loss-less Backpressure ##
@@ -108,12 +100,10 @@ function isKonamiCode(buffer) {
 }
 
 var keys = Rx.Observable.fromEvent(document, 'keyup')
-  .map(function (e) { return e.keyCode; })
+  .map(e => e.keyCode)
   .bufferWithCount(10, 1)
   .filter(isKonamiCode)
-  .subscribeOnNext(function () {
-    console.log('KONAMI!');
-  });
+  .subscribeOnNext(() => console.log('KONAMI!'));
 ```
 
 On the other hand, you can also get the data within a buffer for a given amount of time with the [`bufferWithTime`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/bufferwithtime.md).  This is useful for example if you are tracking volume of data that is coming across the network, which can then be handled uniformly.
@@ -121,11 +111,7 @@ On the other hand, you can also get the data within a buffer for a given amount 
 ```js
 var source = getStockData()
   .bufferWithTime(5000, 1000) // time in milliseconds
-  .subscribeOnNext(function (data) {
-    data.forEach(function (d) {
-      console.log('Stock: %o', d);
-    });
-  });
+  .subscribeOnNext(data => data.forEach(d => console.log('Stock: %o', d)));
 ```
 
 In order to keep buffers from filling too quickly, there is a method to cap the buffer by specifying ceilings for count and timespan, whichever occurs first.  For example, the network could be particularly quick with the data for the specified time, and other times not, so to keep the data levels even, you can specify this threshold via the [`bufferWithTimeOrCount`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/bufferwithtimeorcount.md) method
@@ -133,13 +119,7 @@ In order to keep buffers from filling too quickly, there is a method to cap the 
 ```js
 var source = getStockData()
   .bufferWithTimeOrCount(5000 /* ms */, 100 /* items */)
-  .subscribeOnNext(function (data) {
-
-    data.forEach(function (d) {
-      console.log('Stock: %o', d);
-    });
-
-  });
+  .subscribeOnNext(data => data.forEach(d => console.log('Stock: %o', d)));
 ```
 
 ### Pausable Buffers ###
@@ -150,14 +130,12 @@ The [`pausable`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api
 var source = getStockData()
   .pausableBuffered();
 
-source.subscribeOnNext(function (stock) {
-  console.log('Stock data: %o', stock);
-});
+source.subscribeOnNext(stock => console.log('Stock data: %o', stock));
 
 source.pause();
 
 // Resume after five seconds
-setTimeout(function () {
+setTimeout(() => {
   // Drains the buffer and subscribeOnNext is called with the data
   source.resume();
 }, 5000);
@@ -171,16 +149,12 @@ In more advanced scenarios, you may want to control the absolute number of items
 var source = getStockData()
   .controlled();
 
-source.subscribeOnNext(function (stock) {
-  console.log('Stock data: %o', stock);
-});
+source.subscribeOnNext(stock => console.log('Stock data: %o', stock));
 
 source.request(2);
 
 // Keep getting more after 5 seconds
-setInterval(function () {
-  source.request(2);
-}, 5000);
+setInterval(=> source.request(2), 5000);
 ```
 
 ### Future Work ###

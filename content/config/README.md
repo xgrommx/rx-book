@@ -20,7 +20,7 @@ Sets the default Promise type to be used when the [`toPromise`](https://github.c
 Rx.config.Promise = RSVP.Promise;
 
 var p = Rx.Observable.just(1).toPromise()
-  .then(function (value) { console.log('Value: %s', s); });
+  .then(value => console.log('Value: %s', s));
 // => Value: 1
 ```
 * * *
@@ -45,8 +45,6 @@ We can do this by setting the `Rx.config.useNativeEvents` flag to `true`.
 Rx.config.useNativeEvents = true;
 
 Rx.Observable.fromEvent(document, 'mousemove')
-  .subscribe(e) {
-    console.log('ClientX: %d, ClientY: %d', e.clientX, e.clientY);
-  }
+  .subscribe(e => console.log('ClientX: %d, ClientY: %d', e.clientX, e.clientY));
 ```
 * * *

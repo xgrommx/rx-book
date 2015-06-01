@@ -25,7 +25,7 @@ function Disposable() { }
 /**
  * Performs application-defined tasks associated with freeing, releasing, or resetting resources.
  */
-Disposable.prototype.dispose = function () { ... }
+Disposable.prototype.dispose =  () => { ... }
 
 /**
  * Defines a provider for push-based notification.
@@ -38,7 +38,7 @@ function Observable() { }
  * @param {Observer} observer The object that is to receive notifications.
  * @returns {Disposable} A reference to disposable that allows observers to stop receiving notifications before the provider has finished sending them.
  */
-Observable.prototype.subscribe = function (observer) { ... }
+Observable.prototype.subscribe =  observer => { ... }
 
 /**
  * Provides a mechanism for receiving push-based notifications.
@@ -50,19 +50,19 @@ function Observer() { }
  *
  * @param {Any} value The current notification information.
  */
-Observer.prototype.onNext = function (value) { ... };
+Observer.prototype.onNext = value => { ... };
 
 /**
  * Notifies the observer that the provider has experienced an error condition.
  *
  * @param {Error} error An object that provides additional information about the error.
  */
-Observer.prototype.onError = function (error) { ... };
+Observer.prototype.onError = error => { ... };
 
 /**
  * Notifies the observer that the provider has finished sending push-based notifications.
  */
-Observer.prototype.onCompleted = function () { ... };
+Observer.prototype.onCompleted = () => { ... };
 ```
 
 RxJS also provides `subscribe` capabilities so that you can avoid implementing the `Observer` object yourself. For each publication event (`onNext`, `onError`, `onCompleted`) of an observable sequence, you can specify a function that will be invoked, as shown in the following example. If you do not specify an action for an event, the default behavior will occur.
@@ -73,9 +73,9 @@ var source = Rx.Observable.range(1, 5);
 
 // Prints out each item
 var subscription = source.subscribe(
-	function (x) { console.log('onNext: ' + x); },
-	function (e) { console.log('onError: ' + e.message); },
-	function () { console.log('onCompleted'); });
+	x => console.log('onNext: ' + x),
+	e => console.log('onError: ' + e.message),
+	() => console.log('onCompleted'));
 
 // => onNext: 1
 // => onNext: 2

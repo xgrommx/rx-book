@@ -19,9 +19,9 @@ var source = exists('file.txt');
 
 // Get the first argument only which is true/false
 var subscription = source.subscribe(
-	function (x) { console.log('onNext: %s', x); },
-	function (e) { console.log('onError: %s', e); },
-	function ()  { console.log('onCompleted'); });
+	x => console.log('onNext: %s', x),
+	e => console.log('onError: %s', e),
+	() => console.log('onCompleted'));
 
 // => onNext: true
 // => onCompleted
@@ -44,9 +44,9 @@ var rename = Rx.Observable.fromNodeCallback(fs.rename);
 var source = rename('file1.txt', 'file2.txt');
 
 var subscription = source.subscribe(
-	function (x) { console.log('onNext: success!'); },
-	function (e) { console.log('onError: %s', e); },
-	function ()  { console.log('onCompleted'); });
+	x => console.log('onNext: success!'),
+	e => console.log('onError: %s', e),
+	() => console.log('onCompleted'));
 
 // => onNext: success!
 // => onCompleted
@@ -57,14 +57,14 @@ var subscription = source.subscribe(
 We can easily go in another direction and convert an observable sequence to a callback.  This of course requires the observable sequence to yield only one value for this to make sense.  Let's convert using the [`timer`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timer.md) method to wait for a certain amount of time.  The implementation of `toCallback` could look like the following.  Note that it is not included in RxJS but you can easily add it if needed.
 
 ```js
-Rx.Observable.prototype.toCallback = function (cb) {
+Rx.Observable.prototype.toCallback = cb => {
   var source = this;
-  return function () {
+  return () => {
     var val, hasVal = false;
     source.subscribe(
-      function (x) { hasVal = true; val = x; },
-      function (e) { throw e; }, // Default error handling
-      function ()  { hasVal && cb(val); }
+      x=> { hasVal = true; val = x; },
+      e => throw e, // Default error handling
+      () => hasVal && cb(val)}
     );
   };
 };
@@ -86,14 +86,14 @@ setTimeout(
 The same could also apply to Node.js style callbacks should you desire that behavior.  Once again the same restrictions apply with regards to having a single value and an end much like above.  The implementation of `toNodeCallback` could look like the following.  Note that it is not included in RxJS but you can easily add it if needed.
 
 ```js
-Rx.Observable.prototype.toNodeCallback = function (cb) {
+Rx.Observable.prototype.toNodeCallback = cb => {
   var source = this;
-  return function () {
+  return () => {
     var val, hasVal = false;
     source.subscribe(
-      function (x) { hasVal = true; val = x; },
-      function (e) { cb(e); },
-      function ()  { hasVal && cb(null, val); }
+      x => { hasVal = true; val = x; },
+      e => cb(e),
+      () => hasVal && cb(null, val)}
     );
   };
 };
@@ -102,7 +102,7 @@ Rx.Observable.prototype.toNodeCallback = function (cb) {
 We could then take this and for example if we had an observable sequence which gets a value from a REST call and then convert it to Node.js style.
 
 ```
-getData().toNodeCallback(function (err, data) {
+getData().toNodeCallback((err, data) => {
 	if (err) { throw err; }
 	// Do something with the data
 });

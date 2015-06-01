@@ -18,5 +18,8 @@
         "ga": {
             "token": "UA-63403975-1"
         }
+    },
+    "variables": {
+        "isPdf": true
     }
 }

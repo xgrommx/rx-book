@@ -16,7 +16,7 @@ var source1 = Rx.Observable.range(1, 3);
 var source2 = Rx.Observable.range(1, 3);
 
 source1.concat(source2)
-   .subscribe(function (x) { console.log(x); });
+   .subscribe(console.log.bind(console));
 
 // => 1
 // => 2
@@ -35,7 +35,7 @@ var source1 = Rx.Observable.range(1, 3);
 var source2 = Rx.Observable.range(1, 3);
 
 source1.merge(source2)
-   .subscribe(function (x) { console.log(x); });
+   .subscribe(console.log.bind(console));
 
 // => 1
 // => 1
@@ -52,7 +52,7 @@ var source1 = Rx.Observable.range(1, 3);
 var source2 = Rx.Observable.range(4, 3);
 
 source1.catch(source2)
-   .subscribe(function (x) { console.log(x); });
+   .subscribe(console.log.bind(console));
 
 // => 1
 // => 2
@@ -66,7 +66,7 @@ var source1 = Rx.Observable.throw(new Error('An error has occurred.'));
 var source2 = Rx.Observable.range(1, 3);
 
 source1.onErrorResumeNext(source2)
-   .subscribe(function (x) { console.log(x); });
+   .subscribe(console.log.bind(console));
 
 // => 1
 // => 2
@@ -84,10 +84,10 @@ var array = ['Reactive', 'Extensions', 'RxJS'];
 
 var seqString = Rx.Observable.from(array);
 
-var seqNum = seqString.map(function (x) { return x.length; });
+var seqNum = seqString.map(x =>x.length);
 
 seqNum
-   .subscribe(function (x) { console.log(x); });
+   .subscribe(console.log.bind(console));
 
 // => 8
 // => 10
@@ -99,14 +99,10 @@ In the following sample, which is an extension of the event conversion example w
 ```js
 var move = Rx.Observable.fromEvent(document, 'mousemove');
 
-var points = move.map(function (e) {
-	return { x: e.clientX, y: e.clientY };
-});
+var points = move.map(e => ({x: e.clientX, y: e.clientY }));
 
 points.subscribe(
-	function (pos) {
-		console.log('Mouse at point ' + pos.x + ', ' + pos.y);
-	});
+	pos => console.log('Mouse at point ' + pos.x + ', ' + pos.y));
 ```
 
 Finally, let’s look at the [`selectMany`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypeselectmanyselector-resultselector) or [`flatMap`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypeflatmapselector-resultselector) operator. The `selectMany` or `flatMap` operator has many overloads, one of which takes a selector function argument. This selector function is invoked on every value pushed out by the source observable. For each of these values, the selector projects it into a mini observable sequence. At the end, the `selectMany` or `flatMap` operator flattens all of these mini sequences into a single resultant sequence, which is then pushed to the subscriber.
@@ -121,9 +117,9 @@ var proj = Rx.Observable.range(100, 3);
 var resultSeq = source1.flatMap(proj);
 
 var subscription = resultSeq.subscribe(
-	function (x) { console.log('onNext: ' + x); },
-	function (e) { console.log('onError: ' + e.message); },
-	function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e.message),
+  () => console.log('onCompleted'));
 
 // => onNext: 100
 // => onNext: 101
@@ -141,16 +137,16 @@ In the following example, we use the [`generate`](https://github.com/Reactive-Ex
 ```js
 var seq = Rx.Observable.generate(
 	0,
-	function (i) { return i < 10; },
-	function (i) { return i + 1; },
-	function (i) { return i * i; });
+	i => i < 10,
+	i => i + 1,
+	i => i * i);
 
-var source = seq.filter(function (n) { return n < 5; });
+var source = seq.filter(n => n < 5);
 
 var subscription = source.subscribe(
-	function (x) { console.log('onNext: ' + x); },
-	function (e) { console.log('onError: ' + e.message); },
-	function () { console.log('onCompleted'); });
+  x => console.log('onNext: %s', x),
+  e => console.log('onError: %s', e.message),
+  () => console.log('onCompleted'));
 
 // => onNext: 0
 // => onNext: 1
@@ -163,15 +159,11 @@ The following example is an extension of the projection example you have seen ea
 ```js
 var move = Rx.Observable.fromEvent(document, 'mousemove');
 
-var points = move.map(function (e) {
-	return { x: e.clientX, y: e.clientY };
-});
+var points = move.map(e => ({ x: e.clientX, y: e.clientY }));
 
-var overfirstbisector = points.filter(function (pos) {
-	return pos.x === pos.y;
-});
+var overfirstbisector = points.filter(pos => pos.x === pos.y);
 
-var movesub = overfirstbisector.subscribe(function (pos) { console.log('mouse at ' + pos.x + ', ' pos.y); });
+var movesub = overfirstbisector.subscribe(pos => console.log('mouse at ' + pos.x + ', ' pos.y));
 ```
 
 ## Time-based Operation ##
@@ -188,8 +180,8 @@ var seq = Rx.Observable.interval(1000);
 var bufSeq = seq.bufferWithCount(5);
 
 bufSeq
-	.map(function (arr) { return arr.reduce(function (acc, x) { return acc + x; }, 0); })
-	.subscribe(function (sum) { console.log(sum); });
+	.map(arr => arr.reduce((acc, x) => acc + x, 0))
+	.subscribe(console.log.bind(console));
 
 // => 10
 // => 35
@@ -205,8 +197,8 @@ var seq = Rx.Observable.interval(1000);
 var bufSeq = seq.bufferWithTime(3000);
 
 bufSeq
-	.map(function (arr) { return arr.reduce(function (acc, x) { return acc + x; }, 0); })
-	.subscribe(function (sum) { console.log(sum); });
+	.map(arr => arr.reduce((acc, x) => acc + x, 0))
+	.subscribe(console.log.bind(console));
 ```
 
 Note that if you are using any of the `buffer*` or `window*` operators, you have to make sure that the sequence is not empty before filtering on it.

@@ -10,4 +10,3 @@
 * [Transducers with Observable Sequences](transducers.html)
 * [Backpressure with Observable Sequences](backpressure.html)
 * [Operators by Category](operators_by_category.html)
-* [Which Operator do I use?](which_operator_do_i_use/index.html)

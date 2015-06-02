@@ -8,7 +8,7 @@
         <title>For Bacon.js Users | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.1.0">
+        <meta name="generator" content="GitBook 2.0.1">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="5.1" data-basepath="../../.." data-revision="Wed Jun 03 2015 01:27:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="5.1" data-basepath="../../.." data-revision="Wed Jun 03 2015 02:51:04 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5709,20 +5709,14 @@
 <p>For example we can get the clickable element, listen to the <code>click</code> event, and then we can subscribe via the <code>onValue</code> method to capture the clicks.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> clickable = $(<span class="hljs-string">&apos;#clickable&apos;</span>).asEventStream(<span class="hljs-string">&apos;click&apos;</span>);
 
-clickable.onValue(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;clicked!&apos;</span>);
-});
+clickable.onValue(e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;clicked!&apos;</span>));
 </code></pre>
 <p>The support goes above just standard support, but also selectors and an optional argument selector which transforms the arguments of the event to a single object.</p>
 <pre><code class="lang-js">$(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;.more-specific-selector&quot;</span>)
 
-$(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;.more-specific-selector&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event, args)</span> </span>{ 
-    <span class="hljs-keyword">return</span> args[<span class="hljs-number">0</span>]; 
-});
+$(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;.more-specific-selector&quot;</span>, (event, args) =&gt; args[<span class="hljs-number">0</span>]);
 
-$(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event, args)</span> </span>{ 
-    <span class="hljs-keyword">return</span> args[<span class="hljs-number">0</span>] 
-});
+$(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>, (event, args) =&gt; args[<span class="hljs-number">0</span>]);
 </code></pre>
 <h4 id="rxjs">RxJS</h4>
 <p>It&apos;s very similar in RxJS core.  Until recently, this feature was reserved for external libraries such as <a href="https://github.com/Reactive-Extensions/RxJS-jQuery" target="_blank">RxJS-jQuery</a>, <a href="https://github.com/Reactive-Extensions/RxJS-DOM" target="_blank">RxJS-DOM</a>, <a href="https://github.com/Reactive-Extensions/RxJS-Dojo" target="_blank">RxJS-Dojo</a> and <a href="https://github.com/Reactive-Extensions/RxJS-MooTools" target="_blank">RxJS-MooTools</a>.  RxJS 2.2 introduced two ways to bind to events with <code>fromEvent</code> and <code>fromEventPattern</code> so that bridge libraries are strictly not as necessary as they used to be.  </p>
@@ -5730,7 +5724,7 @@ $(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span clas
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> clickable = $(<span class="hljs-string">&apos;#clickable&apos;</span>);
 
 <span class="hljs-keyword">var</span> clickableObservable = Rx.Observable.fromEvent(clickable, <span class="hljs-string">&apos;click&apos;</span>)
-    .subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;clicked!&apos;</span>); });
+    .subscribe(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;clicked!&apos;</span>));
 </code></pre>
 <p>In addition, RxJS also supports for event argument transformers for additional data.  For example, if a Node.js <code>EventEmitter</code> emits more than one piece of data at a time, you can still capture it.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
@@ -5738,13 +5732,8 @@ $(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span clas
 
 <span class="hljs-keyword">var</span> e = <span class="hljs-keyword">new</span> EventEmitter();
 
-Rx.Observable.fromEvent(e, <span class="hljs-string">&apos;data&apos;</span>, 
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(args)</span> </span>{
-        <span class="hljs-keyword">return</span> { first: args[<span class="hljs-number">0</span>], second: args[<span class="hljs-number">1</span>] };
-    })
-    .subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
-        <span class="hljs-built_in">console</span>.log(data.first + <span class="hljs-string">&apos;,&apos;</span> + data.second);
-    });
+Rx.Observable.fromEvent(e, <span class="hljs-string">&apos;data&apos;</span>, args =&gt; ({ first: args[<span class="hljs-number">0</span>], second: args[<span class="hljs-number">1</span>] }))
+    .subscribe(data =&gt; <span class="hljs-built_in">console</span>.log(`${data.first}, ${data.second}`));
 
 e.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-string">&apos;foo&apos;</span>, <span class="hljs-string">&apos;bar&apos;</span>);
 <span class="hljs-comment">// =&gt; foo,bar</span>
@@ -5757,7 +5746,7 @@ e.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-stri
 <span class="hljs-comment">// Combine both into one</span>
 <span class="hljs-keyword">var</span> both = plus.merge(minus);
 
-both.onValue (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-comment">/* returns 1 or -1 */</span> });
+both.onValue (x =&gt; { <span class="hljs-comment">/* returns 1 or -1 */</span> });
 </code></pre>
 
                     
@@ -5792,6 +5781,10 @@ both.onValue (<span class="hljs-function"><span class="hljs-keyword">function</s
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

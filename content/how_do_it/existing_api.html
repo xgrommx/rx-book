@@ -8,7 +8,7 @@
         <title>How do I wrap an existing API? | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.1.0">
+        <meta name="generator" content="GitBook 2.0.1">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="4.1" data-basepath="../.." data-revision="Wed Jun 03 2015 01:27:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="4.1" data-basepath="../.." data-revision="Wed Jun 03 2015 02:51:04 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5719,7 +5719,7 @@ stopWatching.addEventListener(<span class="hljs-string">&apos;click&apos;</span>
 </code></pre>
 <p>In order to wrap this, we&apos;ll need to use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe" target="_blank"><code>Rx.Observable.create</code></a> method.  From this, we can yield values to the observer or handle the errors.  Let&apos;s see how the code might look, creating a watchPosition method which takes geolocation options.</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">watchPosition</span><span class="hljs-params">(geolocationOptions)</span> </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+    <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
         <span class="hljs-keyword">var</span> watchId = <span class="hljs-built_in">window</span>.navigator.geolocation.watchPosition(
             <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">successHandler</span> <span class="hljs-params">(loc)</span> </span>{
                 observer.onNext(loc);
@@ -5729,7 +5729,7 @@ stopWatching.addEventListener(<span class="hljs-string">&apos;click&apos;</span>
             }, 
             geolocationOptions);
 
-        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> () =&gt; {
             <span class="hljs-built_in">window</span>.navigator.geolocation.clearWatch(watchId);
         };
     });
@@ -5738,7 +5738,7 @@ stopWatching.addEventListener(<span class="hljs-string">&apos;click&apos;</span>
 <p>We need to also be aware of ensuring we&apos;re not adding too many watchPosition calls as we compose it together with other observable sequences.  To do that, we&apos;ll need to utilize the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypepublishselector" target="_blank"><code>publish</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#connectableobservableprototyperefcount" target="_blank"><code>refCount</code></a> methods from rx.binding.js.  </p>
 <p>Our final result should look like the following:</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">watchPosition</span><span class="hljs-params">(geolocationOptions)</span> </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+    <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
         <span class="hljs-keyword">var</span> watchId = <span class="hljs-built_in">window</span>.navigator.geolocation.watchPosition(
             <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">successHandler</span> <span class="hljs-params">(loc)</span> </span>{
                 observer.onNext(loc);
@@ -5748,7 +5748,7 @@ stopWatching.addEventListener(<span class="hljs-string">&apos;click&apos;</span>
             }, 
             geolocationOptions);
 
-        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> () =&gt; {
             <span class="hljs-built_in">window</span>.navigator.geolocation.clearWatch(watchId);
         };
     }).publish().refCount();
@@ -5758,10 +5758,8 @@ stopWatching.addEventListener(<span class="hljs-string">&apos;click&apos;</span>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = watchPosition();
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(pos)</span> </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next:&apos;</span> + position.coords.latitude + <span class="hljs-string">&apos;,&apos;</span> + position.coords.longitude);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+    position =&gt; <span class="hljs-built_in">console</span>.log(`Next: ${position.coords.latitude}, ${position.coords.longitude}`),
+    err =&gt; {
         <span class="hljs-keyword">var</span> message = <span class="hljs-string">&apos;&apos;</span>;
         <span class="hljs-keyword">switch</span> (err.code) {
             <span class="hljs-keyword">case</span> err.PERMISSION_DENIED:
@@ -5776,12 +5774,11 @@ stopWatching.addEventListener(<span class="hljs-string">&apos;click&apos;</span>
         }
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + message);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-    });
+    () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>)
+);
 </code></pre>
 <h5 id="together">Together</h5>
-<p><a href="http://jsbin.com/raqep/1/embed?js,console" target="_blank"></a></p>
+<p><a href="http://jsbin.com/raqep/3/embed?js,console" target="_blank"></a></p>
 
                     
                     </section>
@@ -5815,6 +5812,10 @@ stopWatching.addEventListener(<span class="hljs-string">&apos;click&apos;</span>
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

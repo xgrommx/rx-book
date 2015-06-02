@@ -8,7 +8,7 @@
         <title>For Async.js Users | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.1.0">
+        <meta name="generator" content="GitBook 2.0.1">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="5.2" data-basepath="../../.." data-revision="Wed Jun 03 2015 01:27:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="5.2" data-basepath="../../.." data-revision="Wed Jun 03 2015 02:51:04 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5706,9 +5706,10 @@
 <li><a href="#asyncdetect"><code>async.detect</code></a></li>
 <li><a href="#asyncsome"><code>async.some</code></a></li>
 <li><a href="#asyncevery"><code>async.every</code></a></li>
-<li><p><a href="#asynconcat"><code>async.concat</code></a></p>
+<li><a href="#asynconcat"><code>async.concat</code></a></li>
+</ul>
 <h2 id="control-flow">Control Flow</h2>
-</li>
+<ul>
 <li><a href="#asyncseries"><code>async.series</code></a></li>
 <li><a href="#asyncparallel"><code>async.parallel</code></a></li>
 <li><a href="#asyncwhilst"><code>async.whilst</code></a></li>
@@ -5727,12 +5728,10 @@
 <span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">saveFile</span> <span class="hljs-params">(file, cb)</span> </span>{
-    fs.writeFile(file, <span class="hljs-string">&apos;Hello Node&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-        cb(err);
-    });
+    fs.writeFile(file, <span class="hljs-string">&apos;Hello Node&apos;</span>, err =&gt; cb(err));
 }
 
-async.each(files, saveFile, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+async.each(files, saveFile, err =&gt; {
     <span class="hljs-comment">// if any of the saves produced an error, err would equal that error</span>
 });
 </code></pre>
@@ -5747,19 +5746,11 @@ async.each(files, saveFile, <span class="hljs-function"><span class="hljs-keywor
 <span class="hljs-keyword">var</span> writeFile = Rx.Observable.fromNodeCallback(fs.writeFile);
 
 Rx.Observable
-    .for(files, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(file)</span> </span>{
-        <span class="hljs-keyword">return</span> writeFile(file, <span class="hljs-string">&apos;Hello Node&apos;</span>)
-    })
+    .for(files, file =&gt; writeFile(file, <span class="hljs-string">&apos;Hello Node&apos;</span>))
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;file written!&apos;</span>);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;err &apos;</span> + err);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;completed!&apos;</span>)
-        }
+        () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;file written!&apos;</span>),
+        err =&gt; <span class="hljs-built_in">console</span>.log(`err ${err}`),
+        () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;completed!&apos;</span>)
     );
 </code></pre>
 <hr>
@@ -5772,11 +5763,7 @@ Rx.Observable
 
 <span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
 
-async.map(files, fs.stat, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err, results)</span> </span>{
-    results.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(result)</span> </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;is file: &apos;</span> + result.isFile());
-    });
-});
+async.map(files, fs.stat, (err, results) =&gt; results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(`is file: ${result.isFile()}`)));
 </code></pre>
 <h4 id="rxjs-version">RxJS version</h4>
 <p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.stat</code> method again using our <code>Rx.Observable.fromNodeCallback</code>, then iterate using the <code>Rx.Observable.for</code> method, and finally, calling <code>.toArray()</code> to get our results as an entire array.</p>
@@ -5791,14 +5778,9 @@ Rx.Observable
     .for(files, stat)
     .toArray()
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
-            results.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(result)</span> </span>{
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;is file: &apos;</span> + result.isFile());
-            });
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;err &apos;</span> + err);
-        }
+        results =&gt;
+            results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(`is file: ${result.isFile()}`)),
+        err =&gt; <span class="hljs-built_in">console</span>.log(`err: ${err}`)
     );
 </code></pre>
 <hr>
@@ -5811,10 +5793,8 @@ Rx.Observable
 
 <span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
 
-async.filter(files, fs.exists, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err, results)</span> </span>{
-    results.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(result)</span> </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;exists: &apos;</span> + result);
-    });
+async.filter(files, fs.exists, (err, results) =&gt; {
+    results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(`exists: ${result}`));
 });
 </code></pre>
 <h4 id="rxjs-version">RxJS version</h4>
@@ -5826,14 +5806,11 @@ async.filter(files, fs.exists, <span class="hljs-function"><span class="hljs-key
 
 Rx.Observable
     .for(files, exists)
-    .where(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x; })
+    .where(x =&gt; x)
     .toArray()
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
-            results.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(result)</span> </span>{
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;exists: &apos;</span> + result);
-            });
-        }
+        results =&gt;
+            results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(`exists: ${result}`));
     );
 </code></pre>
 <hr>
@@ -5846,10 +5823,8 @@ Rx.Observable
 
 <span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
 
-async.reject(files, fs.exists, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err, results)</span> </span>{
-    results.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(result)</span> </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;exists: &apos;</span> + result);
-    });
+async.reject(files, fs.exists, (err, results) =&gt; {
+    results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(`exists: ${result}`));
 });
 </code></pre>
 <h4 id="rxjs-version">RxJS version</h4>
@@ -5861,13 +5836,11 @@ async.reject(files, fs.exists, <span class="hljs-function"><span class="hljs-key
 
 Rx.Observable
     .for(files, exists)
-    .where(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> !x; })
+    .where(x =&gt; !x)
     .toArray()
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
-            results.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(result)</span> </span>{
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;exists: &apos;</span> + result);
-            });
+        results =&gt; 
+            results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(`exists: ${result}`));
         }
     );
 </code></pre>
@@ -5880,14 +5853,10 @@ Rx.Observable
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduction</span> <span class="hljs-params">(acc, x, cb)</span> </span>{
-    process.nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-        cb(<span class="hljs-literal">null</span>, acc + x);
-    });
+    process.nextTick(() =&gt; cb(<span class="hljs-literal">null</span>, acc + x));
 }
 
-async.reduce([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], <span class="hljs-number">0</span>, fs.reduction, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err, results)</span> </span>{
-    <span class="hljs-built_in">console</span>.log(results);
-});
+async.reduce([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], <span class="hljs-number">0</span>, fs.reduction, (err, results) =&gt; <span class="hljs-built_in">console</span>.log(results));
 
 <span class="hljs-comment">// =&gt; 6</span>
 </code></pre>
@@ -5898,11 +5867,8 @@ async.reduce([<span class="hljs-number">1</span>,<span class="hljs-number">2</sp
 
 Rx.Observable
     .fromArray([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], Rx.Scheduler.timeout)
-    .reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(acc, x)</span> </span>{ <span class="hljs-keyword">return</span> acc + x; }, <span class="hljs-number">0</span>)
-    .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(results);
-        });
+    .reduce((acc, x) =&gt; acc + x, <span class="hljs-number">0</span>)
+    .subscribe(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));
 <span class="hljs-comment">// =&gt; 6</span>
 </code></pre>
 <hr>
@@ -5915,7 +5881,7 @@ Rx.Observable
 
 <span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1&apos;</span>,<span class="hljs-string">&apos;file2&apos;</span>,<span class="hljs-string">&apos;file3&apos;</span>];
 
-async.detect(files, fs.exists, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(result)</span></span>{
+async.detect(files, fs.exists, result =&gt; {
     <span class="hljs-comment">// result now equals the first file in the list that exists</span>
 });
 </code></pre>
@@ -5929,12 +5895,10 @@ async.detect(files, fs.exists, <span class="hljs-function"><span class="hljs-key
 <span class="hljs-keyword">var</span> exists = Rx.Observable.fromCallback(fs.exists);
 
 Rx.Observable
-    .for(files, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(file)</span> </span>{
-        <span class="hljs-keyword">return</span> { file: file, exists: exists(file) };
-    })
-    .first(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x.exists; })
+    .for(files, file =&gt; ({ file: file, exists: exists(file) }))
+    .first(x =&gt; x.exists)
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(result)</span> </span>{
+        result =&gt; {
             <span class="hljs-comment">// result now equals the first file in the list that exists</span>
         });
 </code></pre>
@@ -5948,7 +5912,7 @@ Rx.Observable
 
 <span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
 
-async.some(files, fs.exists, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(result)</span></span>{
+async.some(files, fs.exists, result =&gt; {
     <span class="hljs-comment">// if result is true then at least one of the files exists</span>
 });
 </code></pre>
@@ -5963,7 +5927,7 @@ Rx.Observable
     .for(files, exists)
     .some()
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
+        results =&gt; {
             <span class="hljs-comment">// if result is true then at least one of the files exists</span>
         });
 </code></pre>
@@ -5977,7 +5941,7 @@ Rx.Observable
 
 <span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
 
-async.every(files, fs.exists, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(result)</span> </span>{
+async.every(files, fs.exists, result =&gt; {
     <span class="hljs-comment">// if result is true then every file exists</span>
 });
 </code></pre>
@@ -5994,7 +5958,7 @@ Rx.Observable
     .for(files, exists)
     .every()
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
+        results =&gt; {
             <span class="hljs-comment">// if result is true then every file exists</span>
         });
 </code></pre>
@@ -6008,7 +5972,7 @@ Rx.Observable
 
 <span class="hljs-keyword">var</span> directories = [<span class="hljs-string">&apos;dir1&apos;</span>, <span class="hljs-string">&apos;dir2&apos;</span>, <span class="hljs-string">&apos;dir3&apos;</span>];
 
-async.concat(files, fs.readdir, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err, files)</span> </span>{
+async.concat(files, fs.readdir, (err, files) =&gt; {
     <span class="hljs-comment">// files is now a list of filenames that exist in the 3 directories</span>
 });
 </code></pre>
@@ -6021,12 +5985,12 @@ async.concat(files, fs.readdir, <span class="hljs-function"><span class="hljs-ke
 
 Rx.Observable
     .for(files, readdir)
-    .reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(acc, x)</span> </span>{ acc.push(x); <span class="hljs-keyword">return</span> acc; }, [])
+    .reduce((acc, x) =&gt; { acc.push(x); <span class="hljs-keyword">return</span> acc; }, [])
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(files)</span> </span>{
+        files =&gt; {
             <span class="hljs-comment">// files is now a list of filenames that exist in the 3 directories</span>
         },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+        err =&gt; {
             <span class="hljs-comment">// handle error</span>
         });
 </code></pre>
@@ -6039,35 +6003,21 @@ Rx.Observable
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> async = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
 
 async.series([
-    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(callback)</span></span>{
-        <span class="hljs-comment">// do some stuff ...</span>
-        callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;one&apos;</span>);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(callback)</span></span>{
-        <span class="hljs-comment">// do some more stuff ...</span>
-        callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;two&apos;</span>);
-    }
+    callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;one&apos;</span>), <span class="hljs-number">200</span>),
+    callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;two&apos;</span>), <span class="hljs-number">100</span>)
 ],
 <span class="hljs-comment">// optional callback</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, results)</span></span>{
+(err, results) =&gt; {
     <span class="hljs-comment">// results is now equal to [&apos;one&apos;, &apos;two&apos;]</span>
 });
 
 
 <span class="hljs-comment">// an example using an object instead of an array</span>
 async.series({
-    one: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(callback)</span></span>{
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-            callback(<span class="hljs-literal">null</span>, <span class="hljs-number">1</span>);
-        }, <span class="hljs-number">200</span>);
-    },
-    two: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(callback)</span></span>{
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-            callback(<span class="hljs-literal">null</span>, <span class="hljs-number">2</span>);
-        }, <span class="hljs-number">100</span>);
-    }
+    one: callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-number">1</span>), <span class="hljs-number">200</span>),
+    two: callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-number">2</span>), <span class="hljs-number">100</span>)
 },
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, results)</span> </span>{
+(err, results) =&gt; {
     <span class="hljs-comment">// results is now equal to: {one: 1, two: 2}</span>
 });
 </code></pre>
@@ -6078,8 +6028,8 @@ async.series({
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrapArray</span> <span class="hljs-params">(items)</span> </span>{
     <span class="hljs-keyword">return</span> Rx.Observable
         .fromArray(items)
-        .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x; })
-        .reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(acc, x)</span> </span>{
+        .flatMap(x =&gt; x)
+        .reduce((acc, x) =&gt; {
             <span class="hljs-keyword">var</span> arr = acc.slice(<span class="hljs-number">0</span>);
             arr.push(x);
             <span class="hljs-keyword">return</span> arr;
@@ -6091,12 +6041,8 @@ wrapArray([
         Rx.Observable.return(<span class="hljs-string">&apos;two&apos;</span>)
     ])
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(results);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-        }
+        <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>),
+        err =&gt; <span class="hljs-built_in">console</span>.log(`<span class="hljs-built_in">Error</span>: ${err}`)
     );
 
 <span class="hljs-comment">// =&gt; [&apos;one&apos;, &apos;two&apos;]</span>
@@ -6110,15 +6056,15 @@ wrapArray([
 
     <span class="hljs-keyword">return</span> Rx.Observable
         .fromArray(keys)
-        .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(key)</span> </span>{
+        .flatMap(key =&gt; {
 
-            <span class="hljs-keyword">return</span> obj[key].map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+            <span class="hljs-keyword">return</span> obj[key].map(x =&gt; {
                 <span class="hljs-keyword">var</span> newObj = {};
                 newObj[key] = x;
                 <span class="hljs-keyword">return</span> newObj;
             });
         })
-        .reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(acc, x)</span> </span>{
+        .reduce((acc, x) =&gt; {
             <span class="hljs-keyword">var</span> newObj = {};
             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> acc) {
                 <span class="hljs-keyword">if</span>(!hasOwnProperty.call(acc)) {
@@ -6138,12 +6084,8 @@ wrapObject({
         two: Rx.Observable.return(<span class="hljs-number">2</span>)
     })
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(results);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-        }
+        <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>),
+        err =&gt; <span class="hljs-built_in">console</span>.log(`<span class="hljs-built_in">Error</span>: ${err}`)
     );
 
 <span class="hljs-comment">// =&gt; { one: 1, two: 2 }</span>
@@ -6157,20 +6099,12 @@ wrapObject({
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> async = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
 
 async.parallel([
-    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(callback)</span></span>{
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-            callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;one&apos;</span>);
-        }, <span class="hljs-number">200</span>);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(callback)</span></span>{
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-            callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;two&apos;</span>);
-        }, <span class="hljs-number">100</span>);
-    }
+    callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;one&apos;</span>), <span class="hljs-number">200</span>),
+    callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;two&apos;</span>), <span class="hljs-number">100</span>)
 ],
 
 <span class="hljs-comment">// optional callback</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, results)</span></span>{
+(err, results) =&gt; {
     <span class="hljs-comment">// the results array will equal [&apos;one&apos;,&apos;two&apos;] even though</span>
     <span class="hljs-comment">// the second function had a shorter timeout.</span>
 });
@@ -6179,18 +6113,10 @@ async.parallel([
 
 <span class="hljs-comment">// an example using an object instead of an array</span>
 async.parallel({
-    one: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(callback)</span></span>{
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-            callback(<span class="hljs-literal">null</span>, <span class="hljs-number">1</span>);
-        }, <span class="hljs-number">200</span>);
-    },
-    two: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(callback)</span></span>{
-        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
-            callback(<span class="hljs-literal">null</span>, <span class="hljs-number">2</span>);
-        }, <span class="hljs-number">100</span>);
-    }
+    one: callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-number">1</span>), <span class="hljs-number">200</span>),
+    two: callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-number">2</span>), <span class="hljs-number">100</span>)
 },
-<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, results)</span> </span>{
+(err, results) =&gt; {
     <span class="hljs-comment">// results is now equals to: {one: 1, two: 2}</span>
 });
 </code></pre>
@@ -6207,12 +6133,8 @@ wrapArrayParallel([
         Rx.Observable.return(<span class="hljs-string">&apos;two&apos;</span>)
     ])
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(results);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-        }
+        <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>),
+        err =&gt; <span class="hljs-built_in">console</span>.log(`<span class="hljs-built_in">Error</span>: ${err}`)
     );
 
 <span class="hljs-comment">// =&gt; [&apos;one&apos;, &apos;two&apos;]</span>
@@ -6222,14 +6144,12 @@ wrapArrayParallel([
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrapObjectParallel</span> <span class="hljs-params">(obj)</span> </span>{
     <span class="hljs-keyword">var</span> keys = <span class="hljs-built_in">Object</span>.keys(obj);
-    <span class="hljs-keyword">var</span> mapped = keys.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(key)</span> </span>{
-        <span class="hljs-keyword">return</span> obj[key];
-    });
+    <span class="hljs-keyword">var</span> mapped = keys.map(key =&gt; obj[key]);
 
     <span class="hljs-keyword">return</span> Rx.Observable.forkJoin.apply(<span class="hljs-literal">null</span>, mapped)
-        .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arr)</span> </span>{
+        .map(arr =&gt; {
             <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
-            <span class="hljs-keyword">return</span> arr.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(acc, x)</span> </span>{
+            <span class="hljs-keyword">return</span> arr.reduce((acc, x) =&gt; {
                 <span class="hljs-keyword">var</span> key = keys[idx++];
 
                 <span class="hljs-keyword">var</span> newObj = {};
@@ -6251,12 +6171,8 @@ wrapObjectParallel({
         two: Rx.Observable.return(<span class="hljs-number">2</span>)
     })
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(results);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-        }
+        <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>),
+        err =&gt; <span class="hljs-built_in">console</span>.log(`<span class="hljs-built_in">Error</span>: ${err}`)
     );
 
 <span class="hljs-comment">// =&gt; { one: 1, two: 2 }</span>
@@ -6271,12 +6187,12 @@ wrapObjectParallel({
 <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
 
 async.whilst(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> count &lt; <span class="hljs-number">5</span>; },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(callback)</span> </span>{
+    () =&gt; count &lt; <span class="hljs-number">5</span>,
+    callback =&gt; {
         count++;
         setTimeout(callback, <span class="hljs-number">1000</span>);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+    err =&gt; {
         <span class="hljs-comment">// 5 seconds have passed</span>
     }
 );
@@ -6288,17 +6204,15 @@ async.whilst(
 <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
 
 Rx.Observable.while(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> count &lt; <span class="hljs-number">5</span>; },
+        () =&gt; count &lt; <span class="hljs-number">5</span>,
         Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(obs)</span> </span>{
-            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-                observer.onNext(count++);
-            }, <span class="hljs-number">1000</span>)
+            setTimeout(() =&gt; observer.onNext(count++), <span class="hljs-number">1000</span>)
         }
     )
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-comment">/* do something with each value */</span> },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{ <span class="hljs-comment">/* handle errors */</span> },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-comment">/* 5 seconds have passed */</span> }
+        x =&gt; { <span class="hljs-comment">/* do something with each value */</span> },
+        err =&gt; { <span class="hljs-comment">/* handle errors */</span> },
+        () =&gt; { <span class="hljs-comment">/* 5 seconds have passed */</span> }
     );
 </code></pre>
 <hr>
@@ -6311,12 +6225,12 @@ Rx.Observable.while(
 <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
 
 async.dowWilst(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> count &lt; <span class="hljs-number">5</span>; },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(callback)</span> </span>{
+    () =&gt; count &lt; <span class="hljs-number">5</span>,
+    callback =&gt; {
         count++;
         setTimeout(callback, <span class="hljs-number">1000</span>);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+    err =&gt; {
         <span class="hljs-comment">// 5 seconds have passed</span>
     }
 );
@@ -6328,11 +6242,11 @@ async.dowWilst(
 <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.return(<span class="hljs-number">42</span>).doWhile(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> ++i &lt; <span class="hljs-number">2</span>; })
+    () =&gt; ++i &lt; <span class="hljs-number">2</span>)
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-built_in">console</span>.log(x); },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{ <span class="hljs-comment">/* handle errors */</span> },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;done&apos;</span>); }
+        consoel.log.bind(<span class="hljs-built_in">console</span>),
+        err =&gt; { <span class="hljs-comment">/* handle errors */</span> },
+        () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;done&apos;</span>)
     );
 </code></pre>
 <hr>
@@ -6344,7 +6258,7 @@ async.dowWilst(
 
 <span class="hljs-keyword">var</span> call_order = [];
 
-async.nextTick( <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+async.nextTick(() =&gt; {
     call_order.push(<span class="hljs-string">&apos;two&apos;</span>);
     <span class="hljs-comment">// call_order now equals [&apos;one&apos;,&apos;two&apos;]</span>
 });
@@ -6357,7 +6271,7 @@ call_order.push(<span class="hljs-string">&apos;one&apos;</span>);
 
 <span class="hljs-keyword">var</span> call_order = [];
 
-Rx.Scheduler.timeout.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+Rx.Scheduler.timeout.schedule(() =&gt; {
     call_order.push(<span class="hljs-string">&apos;two&apos;</span>);
     <span class="hljs-comment">// call_order now equals [&apos;one&apos;,&apos;two&apos;]</span>
 });
@@ -6378,8 +6292,8 @@ call_order.push(<span class="hljs-string">&apos;one&apos;</span>);
     dest = path.join(__dirname, <span class="hljs-string">&apos;file1.txt&apos;</span>);
 
 async.waterfall([
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(callback)</span> </span>{
-        fs.exists(file, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(flag)</span> </span>{
+    callback =&gt; {
+        fs.exists(file, flag =&gt; {
             <span class="hljs-keyword">if</span> (flag) {
                 callback(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;File does not exist.&apos;</span>))
             } <span class="hljs-keyword">else</span> {
@@ -6387,17 +6301,13 @@ async.waterfall([
             }
         });
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(callback)</span> </span>{
-        fs.rename(file, dest, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-            callback(err);
-        });
+    callback =&gt; {
+        fs.rename(file, dest, err =&gt; callback(err));
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(callback)</span> </span>{
-        fs.stat(dest, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err, fsStat)</span> </span>{
-            callback(err, fsStat);
-        });
+    callback =&gt; {
+        fs.stat(dest, (err, fsStat) =&gt; callback(err, fsStat));
     }
-], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err, fsStat)</span> </span>{
+], (err, fsStat) =&gt; {
     <span class="hljs-keyword">if</span> (err) {
         <span class="hljs-built_in">console</span>.log(err);
     } <span class="hljs-keyword">else</span> {
@@ -6410,8 +6320,8 @@ async.waterfall([
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
 <span class="hljs-keyword">var</span> async = {
-    waterfall: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(series)</span> </span>{
-        <span class="hljs-keyword">return</span> Rx.Observable.defer(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    waterfall: series =&gt; {
+        <span class="hljs-keyword">return</span> Rx.Observable.defer(() =&gt; {
             <span class="hljs-keyword">var</span> acc = series[<span class="hljs-number">0</span>]();
             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>, len = series.length; i &lt; len; i++) {
 
@@ -6419,9 +6329,7 @@ async.waterfall([
                 (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(func)</span> </span>{
 
                     <span class="hljs-comment">// Call flatMapLatest on each function</span>
-                    acc = acc.flatMapLatest(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
-                        <span class="hljs-keyword">return</span> func(x);
-                    });
+                    acc = acc.flatMapLatest(x =&gt; func(x));
                 }(series[i]));
             }
 
@@ -6442,28 +6350,20 @@ async.waterfall([
     stat = Rx.Observable.fromNodeCallback(fs.stat);
 
 <span class="hljs-keyword">var</span> obs = async.waterfall([
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> exists(file);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(flag)</span> </span>{
+    () =&gt; exists(file),
+    (flag) =&gt; {
         <span class="hljs-comment">// Rename or throw computation</span>
         <span class="hljs-keyword">return</span> flag ?
             rename(file, dest) :
             Rx.Observable.throw(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;File does not exist.&apos;</span>));
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> stat(dest);
-    }
+    () =&gt; stat(dest)
 ]);
 
 <span class="hljs-comment">// Now subscribe to get the results or error</span>
 obs.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fsStat)</span> </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(fsStat));
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-        <span class="hljs-built_in">console</span>.log(err);
-    }
+    fsStat =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(fsStat)),
+    <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>)
 );
 </code></pre>
 <hr>
@@ -6475,22 +6375,16 @@ obs.subscribe(
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> async = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add1</span><span class="hljs-params">(n, callback)</span> </span>{
-    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-        callback(<span class="hljs-literal">null</span>, n + <span class="hljs-number">1</span>);
-    }, <span class="hljs-number">10</span>);
+    setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, n + <span class="hljs-number">1</span>), <span class="hljs-number">10</span>);
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul3</span><span class="hljs-params">(n, callback)</span> </span>{
-    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-        callback(<span class="hljs-literal">null</span>, n * <span class="hljs-number">3</span>);
-    }, <span class="hljs-number">10</span>);
+    setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, n * <span class="hljs-number">3</span>), <span class="hljs-number">10</span>);
 }
 
 <span class="hljs-keyword">var</span> add1mul3 = async.compose(mul3, add1);
 
-add1mul3(<span class="hljs-number">4</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err, result)</span> </span>{
-   <span class="hljs-built_in">console</span>.log(result);
-});
+add1mul3(<span class="hljs-number">4</span>, (err, result) =&gt; <span class="hljs-built_in">console</span>.log(result));
 
 <span class="hljs-comment">// =&gt; 15</span>
 </code></pre>
@@ -6499,38 +6393,33 @@ add1mul3(<span class="hljs-number">4</span>, <span class="hljs-function"><span c
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrapTimeout</span> <span class="hljs-params">(fn, arg)</span> </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(obs)</span> </span>{
+    <span class="hljs-keyword">return</span> Rx.Observable.create(obs =&gt; {
 
         <span class="hljs-comment">// Ensure the composition of the this argument</span>
-        <span class="hljs-keyword">var</span> id = setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">var</span> id = setTimeout(() =&gt; {
             obs.onNext(fn.call(fn, arg));
             obs.onCompleted();
         }, <span class="hljs-number">10</span>);
 
         <span class="hljs-comment">// Handle cleanup/early disposal</span>
-        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-            clearTimeout(id);
-        };
+        <span class="hljs-keyword">return</span> () =&gt; clearTimeout(id)
     });
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add1</span> <span class="hljs-params">(n)</span> </span>{
-    <span class="hljs-keyword">return</span> wrapTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; }, n);
+    <span class="hljs-keyword">return</span> wrapTimeout(x =&gt; x + <span class="hljs-number">1</span>, n);
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul3</span> <span class="hljs-params">(n)</span> </span>{
-    <span class="hljs-keyword">return</span> wrapTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x * <span class="hljs-number">3</span>; }, n);
+    <span class="hljs-keyword">return</span> wrapTimeout(x =&gt; x * <span class="hljs-number">3</span>, n);
 }
 
 add1(<span class="hljs-number">4</span>)
     .flatMap(mul3)
     .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(x);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + e);
-        });
+        <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>),
+        err =&gt; <span class="hljs-built_in">console</span>.log(`<span class="hljs-built_in">Error</span>: ${e}`)
+    );
 <span class="hljs-comment">// =&gt; 15</span>
 </code></pre>
 <hr>
@@ -6567,6 +6456,10 @@ add1(<span class="hljs-number">4</span>)
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

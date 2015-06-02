@@ -8,7 +8,7 @@
         <title>How do I integrate jQuery with RxJS? | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.1.0">
+        <meta name="generator" content="GitBook 2.0.1">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="4.2" data-basepath="../.." data-revision="Wed Jun 03 2015 01:27:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="4.2" data-basepath="../.." data-revision="Wed Jun 03 2015 02:51:04 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5704,7 +5704,7 @@
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.jquery.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>Now we can start using the bindings!  For example, we can listen to a <code>click</code> event and then by using <code>flatMap</code> or <code>selectMap</code> we can animate by calling <code>animateAsObservable</code>.  Finally, we can subscribe to cause the side effect and nothing more.</p>
-<pre><code class="lang-js">$( <span class="hljs-string">&quot;#go&quot;</span> ).clickAsObservable().flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+<pre><code class="lang-js">$( <span class="hljs-string">&quot;#go&quot;</span> ).clickAsObservable().flatMap(() =&gt; {
 
     <span class="hljs-keyword">return</span> $( <span class="hljs-string">&quot;#block&quot;</span> ).animateAsObservable({
         width: <span class="hljs-string">&quot;70%&quot;</span>,
@@ -5730,9 +5730,7 @@
     $(<span class="hljs-built_in">document</span>),
     <span class="hljs-string">&apos;mousemove&apos;</span>);
 
-<span class="hljs-keyword">var</span> subscription = observable.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>{
-    $(<span class="hljs-string">&apos;#results&apos;</span>).text(e.clientX + <span class="hljs-string">&apos;,&apos;</span> + e.clientY);
-});
+<span class="hljs-keyword">var</span> subscription = observable.subscribe(e =&gt; $(<span class="hljs-string">&apos;#results&apos;</span>).text(e.clientX + <span class="hljs-string">&apos;,&apos;</span> + e.clientY));
 </code></pre>
 <p>We could go a step further and create our own jQuery plugin which handles events with ease.</p>
 <pre><code class="lang-js"><span class="hljs-comment">/**
@@ -5749,9 +5747,7 @@ jQuery.fn.toObservable = <span class="hljs-function"><span class="hljs-keyword">
 <p>Now we could rewrite our above example such as this.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> observable = $(<span class="hljs-built_in">document</span>).toObservable(<span class="hljs-string">&apos;mousemove&apos;</span>);
 
-<span class="hljs-keyword">var</span> subscription = observable.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>{
-    $(<span class="hljs-string">&apos;#results&apos;</span>).text(e.clientX + <span class="hljs-string">&apos;,&apos;</span> + e.clientY);
-});
+<span class="hljs-keyword">var</span> subscription = observable.subscribe(e =&gt; $(<span class="hljs-string">&apos;#results&apos;</span>).text(e.clientX + <span class="hljs-string">&apos;,&apos;</span> + e.clientY));
 </code></pre>
 <h3 id="using-rxjs-with-ajax-calls">Using RxJS with Ajax calls</h3>
 <p>Bridging to jQuery Ajax calls using <a href="http://api.jquery.com/jQuery.ajax/" target="_blank"><code>$.ajax</code></a> is easy as well with the built-in <a href="https://github.com/promises-aplus/promises-spec" target="_blank">Promises A+</a> support.  Since jQuery 1.5, the <code>$.ajax</code> method has implemented a promise interface (even if not 100% pure) which allows us to bridge to an observable sequence via the <code>Rx.Observable.fromPromise</code> method.</p>
@@ -5771,13 +5767,13 @@ jQuery.fn.toObservable = <span class="hljs-function"><span class="hljs-keyword">
 </code></pre>
 <p>Once we created the wrapper, we can query the service by getting the text and then using <code>flatMapLatest</code> to ensure we have no out of order results.</p>
 <pre><code class="lang-js">$(<span class="hljs-string">&apos;#input&apos;</span>).toObservable(<span class="hljs-string">&apos;keyup&apos;</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>{ <span class="hljs-keyword">return</span> e.target.value; })
+    .map(e =&gt; e.target.value;)
     .flatMapLatest(searchWikipedia)
-    .subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
+    .subscribe(data =&gt; {
 
         <span class="hljs-keyword">var</span> results = data[<span class="hljs-number">1</span>];
 
-        $.each(results, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(_, result)</span> </span>{
+        $.each(results, (_, result) =&gt; {
             <span class="hljs-comment">// Do something with each result</span>
         });
 
@@ -5797,7 +5793,7 @@ jQuery.fn.toObservable = <span class="hljs-function"><span class="hljs-keyword">
 <p>When viewed in its entirety, it will look like this where we call <code>flatMap</code> or <code>selectMany</code> to compose together two observable sequences.  We then bind to the <code>animate</code> function through <code>Rx.Observable.fromCallback</code> and then return the observable which results from the function execution.  Our <code>subscribe</code> does nothing in this case as there is nothing to print or do, and is simply a side effect.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> block = $(<span class="hljs-string">&apos;#block&apos;</span>);
 
-$(<span class="hljs-string">&apos;#go&apos;</span>).toObservable(<span class="hljs-string">&apos;click&apos;</span>).flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+$(<span class="hljs-string">&apos;#go&apos;</span>).toObservable(<span class="hljs-string">&apos;click&apos;</span>).flatMap(() =&gt; {
     <span class="hljs-keyword">var</span> animate = Rx.Observable.fromCallback(block.animate.bind(block));
 
     <span class="hljs-keyword">return</span> animate({
@@ -5842,6 +5838,10 @@ $(<span class="hljs-string">&apos;#go&apos;</span>).toObservable(<span class="hl
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

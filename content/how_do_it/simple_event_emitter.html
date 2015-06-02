@@ -8,7 +8,7 @@
         <title>How do I create a simple event emitter? | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.1.0">
+        <meta name="generator" content="GitBook 2.0.1">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="4.4" data-basepath="../.." data-revision="Wed Jun 03 2015 01:27:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="4.4" data-basepath="../.." data-revision="Wed Jun 03 2015 02:51:04 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5712,9 +5712,7 @@ emitter.off(<span class="hljs-string">&apos;data&apos;</span>, logData);
 <p>How might one implement this using the Reactive Extensions for JavaScript?  Using an <code>Rx.Subject</code> will solve this problem easily.  As you may remember, an <code>Rx.Subject</code> is both an Observer and Observable, so it handles both publish and subscribe.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
 
-<span class="hljs-keyword">var</span> subscription = subject.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;data: &apos;</span> + data);
-});
+<span class="hljs-keyword">var</span> subscription = subject.subscribe(data =&gt; <span class="hljs-built_in">console</span>.log(`data: ${data}`));
 
 subject.onNext(<span class="hljs-string">&apos;foo&apos;</span>);
 <span class="hljs-comment">// =&gt; data: foo</span>
@@ -5723,26 +5721,26 @@ subject.onNext(<span class="hljs-string">&apos;foo&apos;</span>);
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> hasOwnProp = {}.hasOwnProperty;
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createName</span> <span class="hljs-params">(name)</span> </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;$&apos;</span> + name;
+    <span class="hljs-keyword">return</span> `$ ${name}`;
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Emitter</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">this</span>.subjects = {};
 }
 
-Emitter.prototype.emit = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(name, data)</span> </span>{
+Emitter.prototype.emit = (name, data) =&gt; {
     <span class="hljs-keyword">var</span> fnName = createName(name);
     <span class="hljs-keyword">this</span>.subjects[fnName] || (<span class="hljs-keyword">this</span>.subjects[fnName] = <span class="hljs-keyword">new</span> Rx.Subject());
     <span class="hljs-keyword">this</span>.subjects[fnName].onNext(data);
 };
 
-Emitter.prototype.on = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(name, handler)</span> </span>{
+Emitter.prototype.on = (name, handler) =&gt; {
     <span class="hljs-keyword">var</span> fnName = createName(name);
     <span class="hljs-keyword">this</span>.subjects[fnName] || (<span class="hljs-keyword">this</span>.subjects[fnName] = <span class="hljs-keyword">new</span> Rx.Subject());
     <span class="hljs-keyword">this</span>.subjects[fName].subscribe(handler);
 };
 
-Emitter.prototype.off = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(name, handler)</span> </span>{
+Emitter.prototype.off = (name, handler) =&gt; {
     <span class="hljs-keyword">var</span> fnName = createName(name);
     <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.subjects[fnName]) {
         <span class="hljs-keyword">this</span>.subjects[fName].dispose();
@@ -5750,7 +5748,7 @@ Emitter.prototype.off = <span class="hljs-function"><span class="hljs-keyword">f
     }
 };
 
-Emitter.prototype.dispose = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+Emitter.prototype.dispose = () =&gt; {
     <span class="hljs-keyword">var</span> subjects = <span class="hljs-keyword">this</span>.subjects;
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> subjects) {    
         <span class="hljs-keyword">if</span> (hasOwnProp.call(subjects, prop)) {
@@ -5765,26 +5763,26 @@ Emitter.prototype.dispose = <span class="hljs-function"><span class="hljs-keywor
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> hasOwnProp = {}.hasOwnProperty;
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createName</span> <span class="hljs-params">(name)</span> </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;$&apos;</span> + name;
+    <span class="hljs-keyword">return</span> `$ ${name}`;
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Emitter</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">this</span>.subjects = {};
 }
 
-Emitter.prototype.emit = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(name, data)</span> </span>{
+Emitter.prototype.emit = (name, data) =&gt; {
     <span class="hljs-keyword">var</span> fnName = createName(name);
     <span class="hljs-keyword">this</span>.subjects[fnName] || (<span class="hljs-keyword">this</span>.subjects[fnName] = <span class="hljs-keyword">new</span> Rx.Subject());
     <span class="hljs-keyword">this</span>.subjects[fnName].onNext(data);
 };
 
-Emitter.prototype.listen = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(name, handler)</span> </span>{
+Emitter.prototype.listen = (name, handler) =&gt; {
     <span class="hljs-keyword">var</span> fnName = createName(name);
     <span class="hljs-keyword">this</span>.subjects[fnName] || (<span class="hljs-keyword">this</span>.subjects[fnName] = <span class="hljs-keyword">new</span> Rx.Subject());
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.subjects[fName].subscribe(handler);
 };
 
-Emitter.prototype.dispose = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+Emitter.prototype.dispose = () =&gt; {
     <span class="hljs-keyword">var</span> subjects = <span class="hljs-keyword">this</span>.subjects;
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> subjects) {    
         <span class="hljs-keyword">if</span> (hasOwnProp.call(subjects, prop)) {
@@ -5798,9 +5796,7 @@ Emitter.prototype.dispose = <span class="hljs-function"><span class="hljs-keywor
 <p>Now we can use this to rewrite our example such as the following:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> emitter = <span class="hljs-keyword">new</span> Emitter();
 
-<span class="hljs-keyword">var</span> subcription = emitter.listen(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;data: &apos;</span> + data);
-});
+<span class="hljs-keyword">var</span> subcription = emitter.listen(<span class="hljs-string">&apos;data&apos;</span>, data =&gt; <span class="hljs-built_in">console</span>.log(`data: ${data}`);
 
 emitter.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-string">&apos;foo&apos;</span>);
 <span class="hljs-comment">// =&gt; data: foo</span>
@@ -5841,6 +5837,10 @@ subscription.dispose();
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

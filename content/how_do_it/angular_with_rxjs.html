@@ -8,7 +8,7 @@
         <title>How do I integrate Angular.js with RxJS? | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.1.0">
+        <meta name="generator" content="GitBook 2.0.1">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="4.3" data-basepath="../.." data-revision="Wed Jun 03 2015 01:27:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="4.3" data-basepath="../.." data-revision="Wed Jun 03 2015 02:51:04 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5703,7 +5703,7 @@
 scope.name = <span class="hljs-string">&apos;Reactive Extensions&apos;</span>;
 scope.counter = <span class="hljs-number">0</span>;
 
-scope.$watch(<span class="hljs-string">&apos;name&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(newValue, oldValue)</span> </span>{
+scope.$watch(<span class="hljs-string">&apos;name&apos;</span>, (newValue, oldValue) =&gt; {
   scope.counter = scope.counter + <span class="hljs-number">1</span>;
   scope.oldValue = oldValue;
   scope.newValue = newValue;
@@ -5719,8 +5719,8 @@ scope.$digest();
 <span class="hljs-comment">// =&gt; 1</span>
 </code></pre>
 <p>Using the Reactive Extensions for JavaScript, we&apos;re able to easily bind to this by wrapping the <code>$watch</code> as an observable.  To do this, we&apos;ll create an observable sequence using <code>Rx.Observable.create</code> which gives us an observer to yield to.  In this case, we&apos;ll capture both the old and new values through our listener function.  The <code>$watch</code> function returns a function, which when called, ceases the watch expression.</p>
-<pre><code class="lang-js">Rx.Observable.$watch = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(scope, watchExpression, objectEquality)</span> </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.$watch = (scope, watchExpression, objectEquality) =&gt; {
+    <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
         <span class="hljs-comment">// Create function to handle old and new Value</span>
         <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">listener</span> <span class="hljs-params">(newValue, oldValue)</span> </span>{
             observer.onNext({ oldValue: oldValue, newValue: newValue });
@@ -5741,16 +5741,14 @@ scope.data = [];
 <span class="hljs-comment">// Watch for name change and throttle it for 1 second and then query a service</span>
 Rx.Observable.$watch(scope, <span class="hljs-string">&apos;name&apos;</span>)
     .throttle(<span class="hljs-number">1000</span>) 
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>{
-        <span class="hljs-keyword">return</span> e.newValue;
-    })
-    .do(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ 
+    .map(e =&gt; e.newValue)
+    .do(() =&gt; { 
         <span class="hljs-comment">// Set loading and reset data</span>
         scope.isLoading = <span class="hljs-literal">true</span>;
         scope.data = [];
     })
     .flatMapLatest(querySomeService)
-    .subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
+    .subscribe(data =&gt; {
 
         <span class="hljs-comment">// Set the data</span>
         scope.isLoading = <span class="hljs-literal">false</span>;
@@ -5774,12 +5772,8 @@ Rx.Observable.$watch(scope, <span class="hljs-string">&apos;name&apos;</span>)
 
 <span class="hljs-comment">// Subscribe to data and update UI</span>
 observable.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
-        $scope.data = data;
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-        $scope.error = err.message;
-    }
+    data =&gt; $scope.data = data,
+    err =&gt; $scope.error = err.message
 );
 </code></pre>
 <p>These are just only the beginnings of what you can do with the Reactive Extensions for JavaScript and AngularJS.</p>
@@ -5816,6 +5810,10 @@ observable.subscribe(
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

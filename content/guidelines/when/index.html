@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="2.2" data-basepath="../../.." data-revision="Wed Jun 03 2015 02:51:04 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.2" data-basepath="../../.." data-revision="Wed Jun 03 2015 03:37:27 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5700,28 +5700,26 @@
 <h4 id="sample">Sample</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> input = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;input&apos;</span>);
 <span class="hljs-keyword">var</span> dictionarySuggest = Rx.Observable.fromEvent(input, <span class="hljs-string">&apos;keyup&apos;</span>)
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> input.value; })
-  .filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(text)</span> </span>{ <span class="hljs-keyword">return</span> !!text; })
+  .map(() =&gt; input.value)
+  .filter(text =&gt; !!text)
   .distinctUntilChanged()
   .throttle(<span class="hljs-number">250</span>)
   .flatMapLatest(searchWikipedia)
   .subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(results)</span> </span>{
+    results =&gt; {
       list = [];
       list.concat(results.map(createItem));
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
-      logError(err);
-    }
+    err =&gt; logError(err)
   );
 </code></pre>
 <p>This sample models a common UI paradigm of receiving completion suggestions while the user is typing input.</p>
 <p>RxJS creates an observable sequence that models an existing <code>keyup</code> event on the input.</p>
 <p>It then places several filters and projections on top of the event to make the event only fire if a unique value has come through. (The <code>keyup</code> event fires for every key stroke, so also if the user presses left or right arrow, moving the cursor but not changing the input text).</p>
-<p>Next it makes sure the event only gets fired after 250 milliseconds of activity by using the <a href="../../core_objects/observable/observable_instance_methods/throttle.md"><code>throttle</code></a> operator. (If the user is still typing characters, this saves a potentially expensive lookup that will be ignored immediately).</p>
+<p>Next it makes sure the event only gets fired after 250 milliseconds of activity by using the <a href="../../observable/observable_instance_methods/throttle.html"><code>throttle</code></a> operator. (If the user is still typing characters, this saves a potentially expensive lookup that will be ignored immediately).</p>
 <p>In traditionally written programs, this throttling would introduce separate callbacks through a timer. This timer could potentially throw exceptions (certain timers have a maximum amount of operations in flight).</p>
 <p>Once the user input has been filtered down it is time to perform the dictionary lookup. As this is usually an expensive operation (e.g. a request to a server on the other side of the world), this operation is itself asynchronous as well.</p>
-<p>The <a href="../../core_objects/observable/observable_instance_methods/flatmap.md"><code>flatMap</code>/<code>selectMany</code></a> operator allows for easy combining of multiple asynchronous operations. It doesn&#x2019;t only combine success values; it also tracks any exceptions that happen in each individual operation.</p>
+<p>The <a href="../../observable/observable_instance_methods/flatmap.html"><code>flatMap</code>/<code>selectMany</code></a> operator allows for easy combining of multiple asynchronous operations. It doesn&#x2019;t only combine success values; it also tracks any exceptions that happen in each individual operation.</p>
 <p>In traditionally written programs, this would introduce separate callbacks and a place for exceptions occurring.</p>
 <p>If the user types a new character while the dictionary operation is still in progress, we do not want to see the results of that operation anymore. The user has typed more characters leading to a more specific word, seeing old results would be confusing.</p>
 <p>The <code>flatMapLatest</code> operation makes sure that the dictionary operation is ignored once a new <code>keyup</code> has been detected.</p>
@@ -5749,17 +5747,15 @@
 
 readAsync(inFile, <span class="hljs-number">2</span> &lt;&lt; <span class="hljs-number">15</span>)
   .map(encrypt)
-  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
-    <span class="hljs-keyword">return</span> appendAsync(outFile, data);
-  })
+  .flatMap(data =&gt; appendAsync(outFile, data))
   .subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+    () =&gt; {},
+    err =&gt; {
       <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;An error occurred while encrypting the file: %s&apos;</span>, err.message);
       fs.closeSync(inFile);
       fs.closeSync(outFile);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    () =&gt; {
       <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Successfully encrypted the file.&apos;</span>);
       fs.closeSync(inFile);
       fs.closeSync(outFile);

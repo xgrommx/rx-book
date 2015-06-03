@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="2.5" data-basepath="../../.." data-revision="Wed Jun 03 2015 02:51:04 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.5" data-basepath="../../.." data-revision="Wed Jun 03 2015 03:37:27 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5697,29 +5697,27 @@
 <h3 id="implement-new-operators-by-composing-existing-operators">Implement new operators by composing existing operators</h3>
 <p>Many operations can be composed from existing operators. This will lead to smaller, easier to maintain code. The Rx team has put a lot of effort in dealing with all corner cases in the base operators. By reusing these operators you&#x2019;ll get all that work for free in your operator.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.flatMap = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector)</span> </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.map(selector).mergeAll();
-};
+<pre><code class="lang-js">Rx.Observable.prototype.flatMap = selector =&gt; <span class="hljs-keyword">this</span>.map(selector).mergeAll();
 </code></pre>
-<p>In this sample, the <code>flatMap</code> operator uses two existing operators: <a href="../../core_objects/observable/observable_instance_methods/map.md"><code>map</code></a> and <a href="../../core_objects/observable/observable_instance_methods/mergeall.md"><code>mergeAll</code></a>. The <a href="../../core_objects/observable/observable_instance_methods/map.md"><code>map</code></a> operator already deals with any issues around the selector function throwing an exception. The <a href="../../core_objects/observable/observable_instance_methods/mergeall.md"><code>mergeAll</code></a> operator already deals with concurrency issues of multiple observable sequences firing at the same time.</p>
+<p>In this sample, the <code>flatMap</code> operator uses two existing operators: <a href="../../observable/observable_instance_methods/map.html"><code>map</code></a> and <a href="../../observable/observable_instance_methods/mergeall.html"><code>mergeAll</code></a>. The <a href="../../observable/observable_instance_methods/map.html"><code>map</code></a> operator already deals with any issues around the selector function throwing an exception. The <a href="../../observable/observable_instance_methods/mergeall.html"><code>mergeAll</code></a> operator already deals with concurrency issues of multiple observable sequences firing at the same time.</p>
 <h4 id="when-to-ignore-this-guideline">When to ignore this guideline</h4>
 <ul>
 <li>No appropriate set of base operators is available to implement this operator.</li>
-<li>Performance analysis proves that the implementation using existing operators has performance issues.  Such can be caused by <a href="../../core_objects/observable/observable_instance_methods/materialize.md"><code>materialize</code></a>.</li>
+<li>Performance analysis proves that the implementation using existing operators has performance issues.  Such can be caused by <a href="../../observable/observable_instance_methods/materialize.html"><code>materialize</code></a>.</li>
 </ul>
-<h3 id="implement-custom-operators-using-observable-create-core-objects-observable-observable-methods-create-md">Implement custom operators using <a href="../../core_objects/observable/observable_methods/create.md"><code>Observable.create</code></a></h3>
+<h3 id="implement-custom-operators-using-observable-create-observable-observable-methods-create-html">Implement custom operators using <a href="../../observable/observable_methods/create.html"><code>Observable.create</code></a></h3>
 <p>When it is not possible to follow guideline 5.1, use the Observable.Create(WithDisposable) method to create an observable sequence as it provides several protections make the observable sequence follow the RxJS contract.</p>
 <ul>
-<li>When the observable sequence has finished (either by firing <a href="../../core_objects/observer/observer_instance_methods/onerror.md"><code>onError</code></a> or <a href="../../core_objects/observer/observer_instance_methods/oncompleted.md"><code>onCompleted</code></a>), any subscription will automatically be unsubscribed.</li>
+<li>When the observable sequence has finished (either by firing <a href="../..observer/observer_instance_methods/onerror.html"><code>onError</code></a> or <a href="../../observer/observer_instance_methods/oncompleted.html"><code>onCompleted</code></a>), any subscription will automatically be unsubscribed.</li>
 <li>Any subscribed observer instance will only see a single OnError or OnCompleted message. No more messages are sent through. This ensures the Rx grammar of onNext* (onError|onCompleted)?</li>
 </ul>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector, thisArg)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
   <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">return</span> source.subscribe(
-      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+      x =&gt; {
         <span class="hljs-keyword">var</span> result;
         <span class="hljs-keyword">try</span> {
           result = selector.call(thisArg, x, idx++, source);
@@ -5751,12 +5749,12 @@
 </ul>
 <p><strong>Note:</strong> calls to <code>Scheduler</code> implementations are not considered for this guideline. The reason for this is that only a small set of issues would be caught as most schedulers deal with asynchronous calls. Instead, protect the arguments passed to schedulers inside each scheduler implementation.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector, thisArg)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt;{
   <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">return</span> source.subscribe(
-      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+      x =&gt; {
         <span class="hljs-keyword">var</span> result;
         <span class="hljs-keyword">try</span> {
           result = selector.call(thisArg, x, idx++, source);
@@ -5783,7 +5781,7 @@
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> CLOSED = <span class="hljs-number">3</span>;
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readWebSocket</span><span class="hljs-params">(socket)</span> </span>{
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">if</span> (socket.readyState === CLOSED) {
       observer.onError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;The websocket is no longer open.&apos;</span>));
       <span class="hljs-keyword">return</span>;
@@ -5798,13 +5796,13 @@
 <h3 id="-onerror-messages-should-have-abort-semantics"><code>onError</code> messages should have abort semantics</h3>
 <p>As normal control flow in JavaScript uses abort semantics for exceptions (the stack is unwound, current code path is interrupted), RxJS mimics this behavior. To ensure this behavior, no messages should be sent out by an operator once one of it sources has an error message or an exception is thrown within the operator.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.minimumBuffer = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(bufferSize)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.prototype.minimumBuffer = bufferSize =&gt; {
   <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">var</span> data = [];
 
     <span class="hljs-keyword">return</span> source.subscribe(
-      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+      value =&gt; {
         data = data.concat(value);
         <span class="hljs-keyword">if</span> (data.length &gt; bufferSize) {
           observer.onNext(data.slice(<span class="hljs-number">0</span>));
@@ -5812,7 +5810,7 @@
         }
       },
       observer.onError.bind(observer),
-      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+      () =&gt; {
         <span class="hljs-keyword">if</span> (data.length &gt; <span class="hljs-number">0</span>) {
           observer.onNext(data.slice(<span class="hljs-number">0</span>));
         }
@@ -5828,9 +5826,9 @@
 <h3 id="parameterize-concurrency-by-providing-a-scheduler-argument">Parameterize concurrency by providing a scheduler argument</h3>
 <p>As there are many different notions of concurrency, and no scenario fits all, it is best to parameterize the concurrency an operator introduces. The notion of parameterizing concurrency in RxJS is abstracted through the <code>Scheduler</code> class.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.just = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value, scheduler)</span> </span>{
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
-    <span class="hljs-keyword">return</span> scheduler.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+<pre><code class="lang-js">Rx.Observable.just = (value, scheduler) =&gt; {
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
+    <span class="hljs-keyword">return</span> scheduler.schedule(() =&gt; {
       observer.onNext(value);
       observer.onCompleted();
     });
@@ -5847,12 +5845,12 @@
 <p>In most cases there is a good default that can be chosen for an operator that has parameterized concurrency through guideline 5.6. This will make the code that uses this operator more succinct.</p>
 <p><strong>Note:</strong> Follow guideline 5.9 when choosing the default scheduler, using the immediate scheduler where possible, only choosing a scheduler with more concurrency when needed.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.just = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value, scheduler)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.just = (value, scheduler) =&gt; {
   <span class="hljs-comment">// Pick a default scheduler, in this case, immediately</span>
   Rx.helpers.isScheduler(scheduler) || (scheduler = Rx.Scheduler.immediate);
 
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
-    <span class="hljs-keyword">return</span> scheduler.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
+    <span class="hljs-keyword">return</span> scheduler.schedule(() =&gt; {
       observer.onNext(value);
       observer.onCompleted();
     });
@@ -5865,12 +5863,12 @@
 <h3 id="the-scheduler-should-be-the-last-argument-to-the-operator">The scheduler should be the last argument to the operator</h3>
 <p>Adding the scheduler as the last argument is a must for all operators introducing concurrency.  This is to ensure that the schedulers are optional, and a default one can be chosen.  This also makes the programming experience much more predictable.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.just = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value, scheduler)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.just = (value, scheduler) =&gt; {
   <span class="hljs-comment">// Pick a default scheduler, in this case, immediately</span>
   Rx.helpers.isScheduler(scheduler) || (scheduler = Rx.Scheduler.immediate);
 
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
-    <span class="hljs-keyword">return</span> scheduler.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
+    <span class="hljs-keyword">return</span> scheduler.schedule(() =&gt; {
       observer.onNext(value);
       observer.onCompleted();
     });
@@ -5883,12 +5881,12 @@
 <h3 id="avoid-introducing-concurrency">Avoid introducing concurrency</h3>
 <p>By adding concurrency, we change the timeliness of an observable sequence. Messages will be scheduled to arrive later. The time it takes to deliver a message is data itself, by adding concurrency we skew that data.  This includes not using such mechanisms as <code>setTimeout</code>, <code>setImmediate</code>, <code>requestAnimationFrame</code>, <code>process.nextTick</code>, etc which should be avoided directly in your code, and instead be wrapped by a <code>Scheduler</code> class.</p>
 <h4 id="sample-1">Sample 1</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector, thisArg)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
   <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">return</span> source.subscribe(
-      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+      x =&gt; {
         <span class="hljs-keyword">var</span> result;
         <span class="hljs-keyword">try</span> {
           result = selector.call(thisArg, x, idx++, source);
@@ -5907,12 +5905,12 @@
 </code></pre>
 <p>In this sample, the select operator does not use a scheduler to send out the <code>onNext</code> message. Instead it uses the source observable sequence call to <code>onNext</code> to process the message, hence staying in the same time-window.</p>
 <h4 id="sample-2">Sample 2</h4>
-<pre><code class="lang-js">Rx.Observable.just = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value, scheduler)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.just = (value, scheduler) =&gt; {
   <span class="hljs-comment">// Pick a default scheduler, in this case, immediately</span>
   Rx.helpers.isScheduler(scheduler) || (scheduler = Rx.Scheduler.immediate);
 
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
-    <span class="hljs-keyword">return</span> scheduler.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
+    <span class="hljs-keyword">return</span> scheduler.schedule(() =&gt; {
       observer.onNext(value);
       observer.onCompleted();
     });
@@ -5954,49 +5952,49 @@
 </tbody>
 </table>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Observable.prototype.zip = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+<pre><code class="lang-js">Observable.prototype.zip = () =&gt; {
   <span class="hljs-keyword">var</span> parent = <span class="hljs-keyword">this</span>,
       sources = slice.call(<span class="hljs-built_in">arguments</span>),
       resultSelector = sources.pop();
 
   sources.unshift(parent);
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AnonymousObservable(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AnonymousObservable(observer =&gt; {
     <span class="hljs-keyword">var</span> n = sources.length,
-      queues = arrayInitialize(n, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> []; }),
-      isDone = arrayInitialize(n, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; });
+      queues = arrayInitialize(n, () =&gt; []),
+      isDone = arrayInitialize(n, () =&gt; <span class="hljs-literal">false</span>);
 
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span><span class="hljs-params">(i)</span> </span>{
       <span class="hljs-keyword">var</span> res, queuedValues;
-      <span class="hljs-keyword">if</span> (queues.every(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x.length &gt; <span class="hljs-number">0</span>; })) {
+      <span class="hljs-keyword">if</span> (queues.every(x =&gt; x.length &gt; <span class="hljs-number">0</span>)) {
         <span class="hljs-keyword">try</span> {
-          queuedValues = queues.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x.shift(); });
+          queuedValues = queues.map(x =&gt; x.shift());
           res = resultSelector.apply(parent, queuedValues);
         } <span class="hljs-keyword">catch</span> (ex) {
           observer.onError(ex);
           <span class="hljs-keyword">return</span>;
         }
         observer.onNext(res);
-      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isDone.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, j)</span> </span>{ <span class="hljs-keyword">return</span> j !== i; }).every(identity)) {
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isDone.filter((x, j) =&gt; j !== i).every(identity)) {
         observer.onCompleted();
       }
     };
 
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">done</span><span class="hljs-params">(i)</span> </span>{
       isDone[i] = <span class="hljs-literal">true</span>;
-      <span class="hljs-keyword">if</span> (isDone.every(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x; })) {
+      <span class="hljs-keyword">if</span> (isDone.every(x =&gt; x)) {
         observer.onCompleted();
       }
     }
 
     <span class="hljs-keyword">var</span> subscriptions = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(n);
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>; idx &lt; n; idx++) {
-      (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i)</span> </span>{
+      (i =&gt; {
         <span class="hljs-keyword">var</span> source = sources[i], sad = <span class="hljs-keyword">new</span> SingleAssignmentDisposable();
         Rx.helpers.isPromise(source) &amp;&amp; (source = Rx.Observable.fromPromise(source));
-        sad.setDisposable(source.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+        sad.setDisposable(source.subscribe(x =&gt; {
           queues[i].push(x);
           next(i);
-        }, observer.onError.bind(observer), <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        }, observer.onError.bind(observer), () =&gt; {
           done(i);
         }));
         subscriptions[i] = sad;
@@ -6014,9 +6012,7 @@
 <p>RxJS is a library for composing asynchronous and event-based programs using observable collections.</p>
 <p>By making an operator blocking we lose these asynchronous characteristics. We also potentially lose composability (e.g. by returning a value typed as <code>T</code> instead of <code>Observable&lt;T&gt;</code>).  This is in contrast to the Array#extras such as <code>sum</code>, <code>reduce</code>, <code>some</code> and <code>every</code> which return a single value.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.sum = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(acc, x)</span> </span>{ <span class="hljs-keyword">return</span> acc + x; }, <span class="hljs-number">0</span>);
-};
+<pre><code class="lang-js">Rx.Observable.prototype.sum = () =&gt; <span class="hljs-keyword">this</span>.reduce((acc, x) =&gt; acc + x, <span class="hljs-number">0</span>);
 </code></pre>
 <p>In this sample, the <code>sum</code> operator has a return type of <code>Observable&lt;Number&gt;</code> instead of <code>Number</code>. By doing this, the operator does not block. It also allows the result value to be used in further composition.</p>
 <h4 id="when-to-ignore-this-guideline">When to ignore this guideline</h4>
@@ -6029,9 +6025,9 @@
 <li>Implement an infinite looping generator using the yield iterator pattern, convert it to an observable sequence using the <code>from</code> operator.</li>
 </ul>
 <h4 id="sample-1">Sample 1</h4>
-<pre><code class="lang-js">Rx.Observable.repeat = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value, scheduler)</span> </span>{
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
-    <span class="hljs-keyword">return</span> scheduler.scheduleRecursive(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(self)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.repeat = (value, scheduler) =&gt; {
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
+    <span class="hljs-keyword">return</span> scheduler.scheduleRecursive(self =&gt; {
       observer.onNext(value);
       self();
     });
@@ -6040,7 +6036,7 @@
 </code></pre>
 <p>In this sample, the recursive <code>scheduleRecursive</code> method is used to allow the scheduler to schedule the next iteration of the recursive function. Schedulers such as the current thread scheduler do not rely on stack semantics. Using such a scheduler with this pattern will avoid stack overflow issues.</p>
 <h4 id="sample-2">Sample 2</h4>
-<pre><code class="lang-js">Rx.Observable.repeat = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.repeat = value =&gt; {
   <span class="hljs-keyword">return</span> Rx.Observable.from(
     <span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-params">()</span> </span>{
       <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) { <span class="hljs-keyword">yield</span> value; }
@@ -6053,21 +6049,19 @@
 <h3 id="argument-validation-should-occur-outside-observable-create">Argument validation should occur outside <code>Observable.create</code></h3>
 <p>As guideline 5.3 specifies that the <code>Observable.create</code> operator should not throw, any argument validation that potentially throws exceptions should be done outside the <code>Observable.create</code> operator.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector, thisArg)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span> == <span class="hljs-literal">null</span>) {
     <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&apos;Must be an instance of an Observable&apos;</span>);
   }
   <span class="hljs-keyword">if</span> (selector == <span class="hljs-literal">null</span>) {
     <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&apos;selector cannot be null/undefined&apos;</span>);
   }
-  <span class="hljs-keyword">var</span> selectorFn = <span class="hljs-keyword">typeof</span> selector !== <span class="hljs-string">&apos;function&apos;</span> ?
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> selector; } :
-    selector;
+  <span class="hljs-keyword">var</span> selectorFn = <span class="hljs-keyword">typeof</span> selector !== <span class="hljs-string">&apos;function&apos;</span> ? () =&gt; selector : selector;
   <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">return</span> source.subscribe(
-      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+      x =&gt; {
         <span class="hljs-keyword">var</span> result;
         <span class="hljs-keyword">try</span> {
           result = selectorFn.call(thisArg, x, idx++, source);
@@ -6090,7 +6084,7 @@
 <h3 id="unsubscription-should-be-idempotent">Unsubscription should be idempotent</h3>
 <p>The observable <code>subscribe</code> method returns a <code>Disposable</code> instance that can be used to clean up the subscription. The <code>Disposable</code> instance doesn&#x2019;t give any information about what the state of the subscription is. As consumers do not know the state of the subscription, calling the <code>dispose</code> method multiple times should be allowed. Only the first call the side-effect of cleaning up the subscription should occur.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subscription = xs.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-built_in">console</span>.log(x); });
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> subscription = xs.subscribe(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));
 subscription.dispose();
 subscription.dispose();
 </code></pre>

@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="2.4" data-basepath="../../.." data-revision="Wed Jun 03 2015 02:51:04 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.4" data-basepath="../../.." data-revision="Wed Jun 03 2015 03:37:27 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5700,9 +5700,7 @@
 <p><img src="https://raw.githubusercontent.com/Reactive-Extensions/RxJS/master/doc/designguidelines/images/throttleWithTimeout.png" alt="throttleWithSelector"></p>
 <p>By drawing the diagram we can see that we will need some kind of delay after the user input, before firing of another asynchronous call. The delay in this sample maps to the <code>throttle</code> operator. To create another observable sequence from an observable sequence we will use the <code>flatMap</code> or <code>selectMany</code> operator. This
 will lead to the following code:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> dictionarySuggest = userInput
-  .throttle(<span class="hljs-number">250</span>)
-  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(input)</span> </span>{ <span class="hljs-keyword">return</span> serverCall(input); });
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> dictionarySuggest = userInput.throttle(<span class="hljs-number">250</span>).flatMap(input =&gt; serverCall(input));
 </code></pre>
 <h4 id="when-to-ignore-this-guideline">When to ignore this guideline</h4>
 <p>This guideline can be ignored if you feel comfortable enough with the observable sequence you want to write. However, even the Rx team members will still grab the whiteboard to draw a marble-diagram once in a while.</p>
@@ -5728,8 +5726,7 @@ will lead to the following code:</p>
 <h3 id="consider-passing-a-specific-scheduler-to-concurrency-introducing-operators">Consider passing a specific scheduler to concurrency introducing operators</h3>
 <p>Rather than using the <code>observeOn</code> operator to change the execution context on which the observable sequence produces messages, it is better to create concurrency in the right place to begin with. As operators parameterize introduction of concurrency by providing a scheduler argument overload, passing the right scheduler will lead to fewer places where the ObserveOn operator has to be used.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">90000</span>, Rx.Scheduler.requestAnimationFrame)
-  .subscribe(draw);
+<pre><code class="lang-js">Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">90000</span>, Rx.Scheduler.requestAnimationFrame).subscribe(draw);
 </code></pre>
 <p>In this sample, callbacks from the <code>range</code> operator will arrive by calling <code>window.requestAnimationFrame</code>.  The default overload of <code>range</code> would place the <code>onNext</code> call on the <code>Rx.Scheduler.currentThread</code> which is used when recursive scheduling is required immediately.  By providing the <code>Rx.Scheduler.requestAnimationFrame</code> scheduler, all messages from this observable sequence will originiate on the <code>window.requestAnimationFrame</code> callback.</p>
 <h4 id="when-to-ignore-this-guideline">When to ignore this guideline</h4>
@@ -5738,11 +5735,9 @@ will lead to the following code:</p>
 <p>By using the <code>observeOn</code> operator, an action is scheduled for each message that comes through the original observable sequence. This potentially changes timing information as well as puts additional stress on the system. Placing this operator later in the query will reduce both concerns.</p>
 <h4 id="sample">Sample</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> result = xs.throttle(<span class="hljs-number">1000</span>)
-  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
-    <span class="hljs-keyword">return</span> ys.takeUntil(zs).sample(<span class="hljs-number">250</span>).map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(y)</span> </span>{ <span class="hljs-keyword">return</span> x + y });
-  })
+  .flatMap(x =&gt; ys.takeUntil(zs).sample(<span class="hljs-number">250</span>).map(y =&gt; x + y))
   .merge(ws)
-  .filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x &lt; <span class="hljs-number">10</span>; })
+  .filter(x =&gt; x &lt; <span class="hljs-number">10</span>)
   .observeOn(Rx.Scheduler.requestAnimationFrame);
 </code></pre>
 <p>This sample combines many observable sequences running on many different execution contexts. The query filters out a lot of messages. Placing the <code>observeOn</code> operator earlier in the query would do extra work on messages that would be filtered out anyway. Calling the <code>observeOn</code> operator at the end of the query will create the least performance impact.</p>
@@ -5762,9 +5757,7 @@ will lead to the following code:</p>
 <p>If this behavior is the desired behavior, it is best to make this explicit by putting the side-effecting code
 in a <code>do</code>/<code>tap</code> operator.  There are overloads to this method which call the specified method only, for example <code>doOnNext</code>/<code>tapOnNext</code>, <code>doOnError</code>/<code>tapOnError</code>,<code>doOnCompleted</code>/<code>tapOnCompleted</code></p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> result = xs
-  .filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x.failed; })
-  .tap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ log(x); });
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> result = xs.filter(x =&gt; x.failed).tap(x =&gt; log(x));
 </code></pre>
 <p>In this sample, messages are filtered for failure. The messages are logged before handing them out to the code subscribed to this observable sequence. The logging is a side-effect (e.g. placing the messages in the computer&#x2019;s event log) and is explicitly done via a call to the <code>do</code>/<code>tap</code> operator.</p>
 <h3 id="assume-messages-can-come-through-until-unsubscribe-has-completed">Assume messages can come through until unsubscribe has completed</h3>
@@ -5776,13 +5769,13 @@ in a <code>do</code>/<code>tap</code> operator.  There are overloads to this met
 separate set of side-effects. Certain situations require that these side-effects occur only once. The <code>publish</code> operator provides a mechanism to share subscriptions by broadcasting a single subscription to multiple subscribers.</p>
 <p>There are several overloads of the <code>publish</code> operator. The most convenient overloads are the ones that provide a function with a wrapped observable sequence argument that shares the side-effects.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> xs = Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> xs = Rx.Observable.create(observer =&gt; {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Side effect&apos;</span>);
   observer.onNext(<span class="hljs-string">&apos;hi!&apos;</span>);
   observer.onCompleted();
 });
 
-xs.publish(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(sharedXs)</span> </span>{
+xs.publish(sharedXs =&gt; {
   sharedXs.subscribe(<span class="hljs-built_in">console</span>.log);
   sharedXs.subscribe(<span class="hljs-built_in">console</span>.log);
   <span class="hljs-keyword">return</span> sharedXs;

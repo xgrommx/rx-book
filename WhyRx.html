@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="1" data-basepath="." data-revision="Wed Jun 03 2015 02:51:04 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="1" data-basepath="." data-revision="Wed Jun 03 2015 03:37:27 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5694,34 +5694,28 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="why-rxjs">Why RxJS?</h2>
-<p>One question you may ask yourself, is why RxJS?  What about Promises?  Promises are good for solving asynchronous operations such as querying a service with an XMLHttpRequest, where the expected behavior is one value and then completion.  The Reactive Extensions for JavaScript unifies both the world of Promises, callbacks as well as evented data such as DOM Input, Web Workers, Web Sockets.  Once we have unified these concepts, this enables rich composition.</p>
+<p>One question you may ask yourself, is why RxJS?  What about Promises?  Promises are good for solving asynchronous operations such as querying a service with an <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest</a>, where the expected behavior is one value and then completion.  The Reactive Extensions for JavaScript unifies both the world of Promises, callbacks as well as evented data such as DOM Input, Web Workers, Web Sockets.  Once we have unified these concepts, this enables rich composition.</p>
 <p>To give you an idea about rich composition, we can create an autocompletion service which takes the user input from a text input and then query a service, making sure not to flood the service with calls for every key stroke, but instead allow to go at a more natural pace.</p>
 <p>First, we&apos;ll reference the JavaScript files, including jQuery, although RxJS has no dependencies on jQuery...</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://code.jquery.com/jquery.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<p>Next, we&apos;ll get the user input from an input, listening to the keyup event by using the <a href="content/core_objects/observable/observable_methods/fromevent.md"><code>Rx.Observable.fromEvent</code></a> method.  This will either use the event binding from <a href="http://jquery.com" target="_blank">jQuery</a>, <a href="http://zeptojs.com/" target="_blank">Zepto</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a> and <a href="http://emberjs.com/" target="_blank">Ember.js</a> if available, and if not, falls back to the native event binding.  This gives you consistent ways of thinking of events depending on your framework, so there are no surprises.</p>
+<p>Next, we&apos;ll get the user input from an input, listening to the keyup event by using the <a href="content/observable/observable_methods/fromevent.html"><code>Rx.Observable.fromEvent</code></a> method.  This will either use the event binding from <a href="http://jquery.com" target="_blank">jQuery</a>, <a href="http://zeptojs.com/" target="_blank">Zepto</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a> and <a href="http://emberjs.com/" target="_blank">Ember.js</a> if available, and if not, falls back to the native event binding.  This gives you consistent ways of thinking of events depending on your framework, so there are no surprises.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> $input = $(<span class="hljs-string">&apos;#input&apos;</span>),
     $results = $(<span class="hljs-string">&apos;#results&apos;</span>);
 
 <span class="hljs-comment">/* Only get the value from each key up */</span>
 <span class="hljs-keyword">var</span> keyups = Rx.Observable.fromEvent($input, <span class="hljs-string">&apos;keyup&apos;</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>{
-        <span class="hljs-keyword">return</span> e.target.value;
-    })
-    .filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(text)</span> </span>{
-        <span class="hljs-keyword">return</span> text.length &gt; <span class="hljs-number">2</span>;
-    });
+    .map(e =&gt; e.target.value)
+    .filter(text =&gt; text.length &gt; <span class="hljs-number">2</span>);
 
 <span class="hljs-comment">/* Now throttle/debounce the input for 500ms */</span>
-<span class="hljs-keyword">var</span> throttled = keyups
-    .throttle(<span class="hljs-number">500</span> <span class="hljs-comment">/* ms */</span>);
+<span class="hljs-keyword">var</span> throttled = keyups.throttle(<span class="hljs-number">500</span> <span class="hljs-comment">/* ms */</span>);
 
 <span class="hljs-comment">/* Now get only distinct values, so we eliminate the arrows and other control characters */</span>
-<span class="hljs-keyword">var</span> distinct = throttled
-    .distinctUntilChanged();
+<span class="hljs-keyword">var</span> distinct = throttled.distinctUntilChanged();
 </code></pre>
-<p>Now, let&apos;s query Wikipedia!  In RxJS, we can instantly bind to any <a href="https://github.com/promises-aplus/promises-spec" target="_blank">Promises A+</a> implementation through the <a href="content/core_objects/observable/observable_methods/frompromise.md"><code>Rx.Observable.fromPromise</code></a> method or by just directly returning it, and we wrap it for you.</p>
+<p>Now, let&apos;s query Wikipedia!  In RxJS, we can instantly bind to any <a href="https://github.com/promises-aplus/promises-spec" target="_blank">Promises A+</a> implementation through the <a href="content/observable/observable_methods/frompromise.html"><code>Rx.Observable.fromPromise</code></a> method or by just directly returning it, and we wrap it for you.</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">searchWikipedia</span> <span class="hljs-params">(term)</span> </span>{
     <span class="hljs-keyword">return</span> $.ajax({
         url: <span class="hljs-string">&apos;http://en.wikipedia.org/w/api.php&apos;</span>,
@@ -5734,21 +5728,18 @@
     }).promise();
 }
 </code></pre>
-<p>Once that is created, now we can tie together the distinct throttled input and then query the service.  In this case, we&apos;ll call <a href="content/core_objects/observable/observable_instance_methods/flatmaplatest.md"><code>flatMapLatest</code></a> to get the value and ensure that we&apos;re not introducing any out of order sequence calls.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> suggestions = distinct
-    .flatMapLatest(searchWikipedia);
+<p>Once that is created, now we can tie together the distinct throttled input and then query the service.  In this case, we&apos;ll call <a href="content/observable/observable_instance_methods/flatmaplatest.html"><code>flatMapLatest</code></a> to get the value and ensure that we&apos;re not introducing any out of order sequence calls.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> suggestions = distinct.flatMapLatest(searchWikipedia);
 </code></pre>
 <p>Finally, we call the subscribe method on our observable sequence to start pulling data.</p>
-<pre><code class="lang-js">suggestions.subscribe( <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(data)</span> </span>{
+<pre><code class="lang-js">suggestions.subscribe(data =&gt; {
     <span class="hljs-keyword">var</span> res = data[<span class="hljs-number">1</span>];
 
     <span class="hljs-comment">/* Do something with the data like binding */</span>
     $results.empty();
 
-    $.each(res, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(_, value)</span> </span>{
-        $(<span class="hljs-string">&apos;&lt;li&gt;&apos;</span> + value + <span class="hljs-string">&apos;&lt;/li&gt;&apos;</span>).appendTo($results);
-    });
-}, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(error)</span> </span>{
+    $.each(res, (_, value) =&gt; $(<span class="hljs-string">&apos;&lt;li&gt;&apos;</span> + value + <span class="hljs-string">&apos;&lt;/li&gt;&apos;</span>).appendTo($results));
+}, error =&gt; {
     <span class="hljs-comment">/* handle any errors */</span>
     $results.empty();
 

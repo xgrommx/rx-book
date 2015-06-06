@@ -20,7 +20,7 @@
         
     
     
-    <link rel="next" href="../../content/helpers/index.html" />
+    <link rel="next" href="../../content/config/promise.html" />
     
     
     <link rel="prev" href="../../content/mappingr_rxjs_from_different_libraries/async/index.html" />
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="6" data-basepath="../.." data-revision="Wed Jun 03 2015 03:37:27 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="6" data-basepath="../.." data-revision="Sat Jun 06 2015 19:20:15 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -607,6 +607,42 @@
                     </a>
                 
             
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="content/config/promise.html">
+            
+                
+                    <a href="../../content/config/promise.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        Promise
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="content/config/usenativeevents.html">
+            
+                
+                    <a href="../../content/config/usenativeevents.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        useNativeEvents
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -5697,36 +5733,9 @@
 <p>Configuration information for the Reactive Extensions for JavaScript</p>
 <h2 id="documentation">Documentation</h2>
 <ul>
-<li><a href="#rxconfigpromise"><code>Rx.config.Promise</code></a></li>
-<li><a href="#rxconfigusenativeevents"><code>Rx.config.useNativeEvents</code></a></li>
+<li><a href="promise.html"><code>Rx.config.Promise</code></a></li>
+<li><a href="usenativeevents.html"><code>Rx.config.useNativeEvents</code></a></li>
 </ul>
-<hr>
-<h3 id="-a-id-rxconfigpromise-a-rx-config-promise"><a id="rxconfigpromise"></a><code>Rx.config.Promise</code></h3>
-<p><a href="#rxconfigpromise">#</a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/basicheader.js" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
-<p>Sets the default Promise type to be used when the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/topromise.md" target="_blank"><code>toPromise</code></a> method is called.  Note that the Promise implementation must conform to the ES6 specification.  Some of those supported libraries are <a href="https://github.com/kriskowal/q" target="_blank">Q</a>, <a href="https://github.com/tildeio/rsvp.js" target="_blank">RSVP</a>, <a href="https://github.com/cujojs/when" target="_blank">when.js</a> among others.  If not specified, this defaults to the native ES6 Promise, if available, else will throw an error.</p>
-<h4 id="example">Example</h4>
-<pre><code class="lang-js">Rx.config.Promise = RSVP.Promise;
-
-<span class="hljs-keyword">var</span> p = Rx.Observable.just(<span class="hljs-number">1</span>).toPromise()
-  .then(value =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Value: %s&apos;</span>, s));
-<span class="hljs-comment">// =&gt; Value: 1</span>
-</code></pre>
-<hr>
-<h3 id="-a-id-rxconfigusenativeevents-a-rx-config-usenativeevents"><a id="rxconfigusenativeevents"></a><code>Rx.config.useNativeEvents</code></h3>
-<p><a href="#rxconfigusenativeevents">#</a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromevent.js" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
-<p>Determines whether the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromevent.md" target="_blank"><code>fromEvent</code></a> method uses native DOM events only and disregards the referenced supported libraries such as <a href="http://jquery.com/" target="_blank">jQuery</a>, <a href="http://zeptojs.com/" target="_blank">Zepto.js</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a>, <a href="http://emberjs.com/" target="_blank">Ember.js</a> and <a href="http://backbonejs.org" target="_blank">Backbone.js</a></p>
-<h4 id="example">Example</h4>
-<p>For example, we could have jQuery referenced as part of our project, however, we only want native DOM events.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;jquery.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</code></pre>
-<p>We can do this by setting the <code>Rx.config.useNativeEvents</code> flag to <code>true</code>.</p>
-<pre><code class="lang-js">Rx.config.useNativeEvents = <span class="hljs-literal">true</span>;
-
-Rx.Observable.fromEvent(<span class="hljs-built_in">document</span>, <span class="hljs-string">&apos;mousemove&apos;</span>)
-  .subscribe(e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;ClientX: %d, ClientY: %d&apos;</span>, e.clientX, e.clientY));
-</code></pre>
-<hr>
 
                     
                     </section>
@@ -5740,7 +5749,7 @@ Rx.Observable.fromEvent(<span class="hljs-built_in">document</span>, <span class
         <a href="../../content/mappingr_rxjs_from_different_libraries/async/index.html" class="navigation navigation-prev " aria-label="Previous page: For Async.js Users"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../content/helpers/index.html" class="navigation navigation-next " aria-label="Next page: Rx.helpers"><i class="fa fa-angle-right"></i></a>
+        <a href="../../content/config/promise.html" class="navigation navigation-next " aria-label="Next page: Promise"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
@@ -5760,10 +5769,6 @@ Rx.Observable.fromEvent(<span class="hljs-built_in">document</span>, <span class
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="7.6" data-basepath="../.." data-revision="Wed Jun 03 2015 03:37:27 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="7.6" data-basepath="../.." data-revision="Sat Jun 06 2015 19:20:15 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -607,6 +607,42 @@
                     </a>
                 
             
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="content/config/promise.html">
+            
+                
+                    <a href="../../content/config/promise.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        Promise
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="content/config/usenativeevents.html">
+            
+                
+                    <a href="../../content/config/usenativeevents.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        useNativeEvents
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -5693,9 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="ispromise">isPromise</h1>
-<h3 id="-a-id-rxhelpersispromisep-a-rx-helpers-ispromise-p"><a id="rxhelpersispromisep"></a><code>Rx.helpers.isPromise(p)</code></h3>
-<p><a href="#rxhelpersispromisep">#</a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/basicheader.js" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
+                        <h2 id="-rx-helpers-ispromise-p-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l12"><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L12" target="_blank"><code>Rx.helpers.isPromise(p)</code></a></h2>
 <p>A function which determines whether the object is a <code>Promise</code>.</p>
 <h4 id="arguments">Arguments</h4>
 <ol>
@@ -5706,7 +5740,7 @@
 <h4 id="example">Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> isPromise = Rx.helpers.isPromise;
 
-<span class="hljs-keyword">var</span> p = RSVP.Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(res)</span> </span>{ res(<span class="hljs-number">42</span>); });
+<span class="hljs-keyword">var</span> p = RSVP.Promise(res =&gt; res(<span class="hljs-number">42</span>));
 
 <span class="hljs-built_in">console</span>.log(isPromise(p));
 <span class="hljs-comment">// =&gt; true</span>
@@ -5744,10 +5778,6 @@
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
-    
-
-    
-    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="2.5" data-basepath="../../.." data-revision="Wed Jun 03 2015 03:37:27 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.5" data-basepath="../../.." data-revision="Sat Jun 06 2015 19:20:15 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -607,6 +607,42 @@
                     </a>
                 
             
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="content/config/promise.html">
+            
+                
+                    <a href="../../../content/config/promise.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        Promise
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="content/config/usenativeevents.html">
+            
+                
+                    <a href="../../../content/config/usenativeevents.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        useNativeEvents
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -5749,7 +5785,7 @@
 </ul>
 <p><strong>Note:</strong> calls to <code>Scheduler</code> implementations are not considered for this guideline. The reason for this is that only a small set of issues would be caught as most schedulers deal with asynchronous calls. Instead, protect the arguments passed to schedulers inside each scheduler implementation.</p>
 <h4 id="sample">Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt;{
+<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
   <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
   <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
@@ -6134,10 +6170,6 @@ subscription.dispose();
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
-    
-
-    
-    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

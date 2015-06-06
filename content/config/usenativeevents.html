@@ -5,7 +5,7 @@
         <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Implementing Your Own Operators | RxJS - Javascript library for functional reactive programming.</title>
+        <title>useNativeEvents | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.0.1">
@@ -20,10 +20,10 @@
         
     
     
-    <link rel="next" href="../../content/how_do_it/index.html" />
+    <link rel="next" href="../../content/helpers/index.html" />
     
     
-    <link rel="prev" href="../../content/getting_started_with_rxjs/testing_and_debugging.html" />
+    <link rel="prev" href="../../content/config/promise.html" />
     
 
         <!-- head:end -->
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="3.7" data-basepath="../.." data-revision="Sat Jun 06 2015 19:20:15 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="6.2" data-basepath="../.." data-revision="Sat Jun 06 2015 19:20:15 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -443,7 +443,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.7" data-path="content/getting_started_with_rxjs/implementing_your_own_operators.html">
+        <li class="chapter " data-level="3.7" data-path="content/getting_started_with_rxjs/implementing_your_own_operators.html">
             
                 
                     <a href="../../content/getting_started_with_rxjs/implementing_your_own_operators.html">
@@ -626,7 +626,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="content/config/usenativeevents.html">
+        <li class="chapter active" data-level="6.2" data-path="content/config/usenativeevents.html">
             
                 
                     <a href="../../content/config/usenativeevents.html">
@@ -5729,101 +5729,19 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="implementing-your-own-observable-operators">Implementing Your Own Observable Operators</h1>
-<p>You can extend RxJS by adding new operators for operations that are not provided by the base library, or by creating your own implementation of standard query operators to improve readability and performance. Writing a customized version of a standard operator is useful when you want to operate with in-memory objects and when the intended customization does not require a comprehensive view of the query.</p>
-<h2 id="creating-new-operators">Creating New Operators</h2>
-<p>RxJS offers a full set of operators that cover most of the possible operations on a set of entities. However, you might need an operator to add a particular semantic meaning to your query&#xFFFD;especially if you can reuse that same operator several times in your code.  Adding new operators to RxJS is a way to extend its capabilities. However, you can also improve code readability by wrapping existing operators into more specialized and meaningful ones.</p>
-<p>For example, let&apos;s see how we might implement the <a href="http://lodash.com/docs#where" target="_blank">_.where</a> method from <a href="http://lodash.com/" target="_blank">Lo-Dash</a> or <a href="http://underscorejs.org/" target="_blank">Underscore</a>, which takes a set of attributes and does a deep comparison for equality.  We might try implementing this from scratch using the <code>Rx.Observable.createWithDisposable</code> method such as the following code.</p>
-<pre><code class="lang-js">Rx.Observable.prototype.whereProperties = properties =&gt; {
-    <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>,
-        comparer = Rx.internals.isEqual;
-
-    <span class="hljs-keyword">return</span> Rx.Observable.filterByProperties(observer =&gt; {
-        <span class="hljs-comment">// Our disposable is the subscription from the parent</span>
-        <span class="hljs-keyword">return</span> source.subscribe(
-            data =&gt; {
-
-                <span class="hljs-keyword">try</span> {
-                    <span class="hljs-keyword">var</span> shouldRun = <span class="hljs-literal">true</span>;
-
-                    <span class="hljs-comment">// Iterate the properties for deep equality</span>
-                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> properties) {
-                        <span class="hljs-keyword">if</span> (!comparer(properties[prop], data[prop])) {
-                            shouldRun = <span class="hljs-literal">false</span>;
-                            <span class="hljs-keyword">break</span>;
-                        }
-                    }
-                } <span class="hljs-keyword">catch</span> (e) {
-                    observer.onError(e);
-                }
-
-                <span class="hljs-keyword">if</span> (shouldRun) {
-                    observer.onNext(data);
-                }
-            },
-            observer.onError.bind(observer),
-            observer.onCompleted.bind(observer)
-        );
-    });
-};
+                        <h2 id="-rx-config-usenativeevents"><a href=""><code>Rx.config.useNativeEvents</code></a></h2>
+<p>Determines whether the <a href="../observable/observable_methods/fromevent.html"><code>fromEvent</code></a> method uses native DOM events only and disregards the referenced supported libraries such as <a href="http://jquery.com/" target="_blank">jQuery</a>, <a href="http://zeptojs.com/" target="_blank">Zepto.js</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a>, <a href="http://emberjs.com/" target="_blank">Ember.js</a> and <a href="http://backbonejs.org" target="_blank">Backbone.js</a></p>
+<h4 id="example">Example</h4>
+<p>For example, we could have jQuery referenced as part of our project, however, we only want native DOM events.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;jquery.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<p>Many existing operators, such as this, instead could be built using other basic operators for example in this case, <code>filter</code> or <code>where</code>.  In fact, many existing operators are built using other basic operators. For example, the <code>flatMap</code> or <code>selectMany</code> operator is built by composing the <code>map</code> or <code>select</code> and <code>mergeObservable</code> operators, as the following code shows.</p>
-<pre><code class="lang-js">Rx.Observable.prototype.flatMap = selector =&gt; <span class="hljs-keyword">this</span>.map(selector).mergeObservable();
+<p>We can do this by setting the <code>Rx.config.useNativeEvents</code> flag to <code>true</code>.</p>
+<pre><code class="lang-js">Rx.config.useNativeEvents = <span class="hljs-literal">true</span>;
+
+Rx.Observable.fromEvent(<span class="hljs-built_in">document</span>, <span class="hljs-string">&apos;mousemove&apos;</span>)
+  .subscribe(e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;ClientX: %d, ClientY: %d&apos;</span>, e.clientX, e.clientY));
 </code></pre>
-<p>We could rewrite it as the following to take advantage of already built in operators.</p>
-<pre><code class="lang-js">Rx.Observable.prototype.filterByProperties = properties =&gt; {
-    <span class="hljs-keyword">var</span> comparer = Rx.internals.isEqual;
-
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.filter(data =&gt; {
-
-        <span class="hljs-comment">// Iterate the properties for deep equality</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> properties) {
-            <span class="hljs-keyword">if</span> (!comparer(properties[prop], data[prop])) {
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-            }
-        }
-
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-    });
-};
-</code></pre>
-<p>By reusing existing operators when you build a new one, you can take advantage of the existing performance or exception handling capabilities implemented in the RxJS libraries.  When writing a custom operator, it is good practice not to leave any disposables unused; otherwise, you may find that resources could actually be leaked and cancellation may not work correctly.</p>
-<h2 id="testing-your-new-operator">Testing Your New Operator</h2>
-<p>Just because you have implemented a new operator doesn&apos;t mean you are finished.  Now, let&apos;s write a test to verify its behavior from what we learned in the <a href="testing.md">Testing and Debugging</a> topic.  We&apos;ll reuse the <code>collectionAssert.assertEqual</code> from the previous topic so it is not repeated here.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
-    onCompleted = Rx.ReactiveTest.onCompleted,
-    subscribe = Rx.ReactiveTest.subscribe;
-
-test(<span class="hljs-string">&apos;filterProperties should yield with match&apos;</span>, () =&gt; {
-
-    <span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
-
-    <span class="hljs-keyword">var</span> input = scheduler.createHotObservable(
-        onNext(<span class="hljs-number">210</span>, { <span class="hljs-string">&apos;name&apos;</span>: <span class="hljs-string">&apos;curly&apos;</span>, <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">30</span>, <span class="hljs-string">&apos;quotes&apos;</span>: [<span class="hljs-string">&apos;Oh, a wise guy, eh?&apos;</span>, <span class="hljs-string">&apos;Poifect!&apos;</span>] }),
-        onNext(<span class="hljs-number">220</span>, { <span class="hljs-string">&apos;name&apos;</span>: <span class="hljs-string">&apos;moe&apos;</span>, <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">40</span>, <span class="hljs-string">&apos;quotes&apos;</span>: [<span class="hljs-string">&apos;Spread out!&apos;</span>, <span class="hljs-string">&apos;You knucklehead!&apos;</span>] }),
-        onCompleted(<span class="hljs-number">230</span>)
-    );
-
-    <span class="hljs-keyword">var</span> results = scheduler.startWithCreate(
-        () =&gt; input.filterByProperties({ <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">40</span> })
-    );
-
-    collectionAssert.assertEqual(results.messages, [
-        onNext(<span class="hljs-number">220</span>, { <span class="hljs-string">&apos;name&apos;</span>: <span class="hljs-string">&apos;moe&apos;</span>, <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">40</span>, <span class="hljs-string">&apos;quotes&apos;</span>: [<span class="hljs-string">&apos;Spread out!&apos;</span>, <span class="hljs-string">&apos;You knucklehead!&apos;</span>] }),
-        onCompleted(<span class="hljs-number">230</span>)
-    ]);
-
-    collectionAssert.assertEqual(input.subscriptions, [
-        subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">230</span>)
-    ]);
-});
-</code></pre>
-<p>In order for this to be successfully tested, we should check for when there is no data, empty, single matches, multiple matches and so forth.</p>
-<h2 id="see-also">See Also</h2>
-<p><strong>Resources</strong></p>
-<ul>
-<li><a href="testing.md">Testing and Debugging</a></li>
-</ul>
 
                     
                     </section>
@@ -5834,10 +5752,10 @@ test(<span class="hljs-string">&apos;filterProperties should yield with match&ap
         </div>
 
         
-        <a href="../../content/getting_started_with_rxjs/testing_and_debugging.html" class="navigation navigation-prev " aria-label="Previous page: Testing and Debugging"><i class="fa fa-angle-left"></i></a>
+        <a href="../../content/config/promise.html" class="navigation navigation-prev " aria-label="Previous page: Promise"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../content/how_do_it/index.html" class="navigation navigation-next " aria-label="Next page: How Do It?"><i class="fa fa-angle-right"></i></a>
+        <a href="../../content/helpers/index.html" class="navigation navigation-next " aria-label="Next page: Rx.helpers"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

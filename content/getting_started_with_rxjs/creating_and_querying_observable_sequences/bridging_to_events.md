@@ -23,7 +23,7 @@ In the following example, we convert the mousemove event stream of the DOM into 
 ```js
 var result = document.getElementById('result');
 
-var source = Rx.Observable.fromEvent(document, 'mousemove');
+var source = Rx.Observable.fromEvent(result, 'mousemove');
 
 var subscription = source.subscribe(e => result.innerHTML = e.clientX + ', ' + e.clientY);
 ```

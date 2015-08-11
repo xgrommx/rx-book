@@ -8,7 +8,7 @@
         <title>Rx.ReactiveTest | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="14.1" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="14.1" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5767,8 +5767,8 @@
     onCompleted(<span class="hljs-number">260</span>)
 );
 
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x; });
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x; });
 });
 
 <span class="hljs-comment">// Write custom assertion</span>
@@ -5802,15 +5802,15 @@ collectionAssert(res, [
     onError(<span class="hljs-number">201</span>, ex)
 );
 
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x; });
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x; });
 });
 
 <span class="hljs-comment">// Write custom assertion</span>
 collectionAssert(res, [
 
     <span class="hljs-comment">// Using a predicate</span>
-    onError(<span class="hljs-number">201</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>{ <span class="hljs-keyword">return</span> e.message === <span class="hljs-string">&apos;woops&apos;</span>; })
+    onError(<span class="hljs-number">201</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{ <span class="hljs-keyword">return</span> e.message === <span class="hljs-string">&apos;woops&apos;</span>; })
 ]);
 </code></pre>
 <h3 id="location">Location</h3>
@@ -5839,15 +5839,15 @@ collectionAssert(res, [
     onNext(<span class="hljs-number">201</span>, <span class="hljs-number">42</span>)
 );
 
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x; });
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x; });
 });
 
 <span class="hljs-comment">// Write custom assertion</span>
 collectionAssert(res, [
 
     <span class="hljs-comment">// Using a predicate</span>
-    onNext(<span class="hljs-number">201</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x === <span class="hljs-number">42</span>; })
+    onNext(<span class="hljs-number">201</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x === <span class="hljs-number">42</span>; })
 ]);
 </code></pre>
 <h3 id="location">Location</h3>
@@ -5869,7 +5869,7 @@ collectionAssert(res, [
 );
 
 <span class="hljs-keyword">var</span> res = scheduler.startWithTiming(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> xs.map(funxtion (x) { <span class="hljs-keyword">return</span> x; })},
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> xs.map(funxtion (x) { <span class="hljs-keyword">return</span> x; })},
     Rx.ReactiveTest.created,
     Rx.ReactiveTest.subscribed,
     Rx.ReactiveTest.disposed
@@ -5893,7 +5893,7 @@ collectionAssert(res, [
 );
 
 <span class="hljs-keyword">var</span> res = scheduler.startWithTiming(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> xs.map(funxtion (x) { <span class="hljs-keyword">return</span> x; })},
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> xs.map(funxtion (x) { <span class="hljs-keyword">return</span> x; })},
     Rx.ReactiveTest.created,
     Rx.ReactiveTest.subscribed,
     Rx.ReactiveTest.disposed
@@ -5917,7 +5917,7 @@ collectionAssert(res, [
 );
 
 <span class="hljs-keyword">var</span> res = scheduler.startWithTiming(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> xs.map(funxtion (x) { <span class="hljs-keyword">return</span> x; })},
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> xs.map(funxtion (x) { <span class="hljs-keyword">return</span> x; })},
     Rx.ReactiveTest.created,
     Rx.ReactiveTest.subscribed,
     Rx.ReactiveTest.disposed

@@ -8,7 +8,7 @@
         <title>Rx.TestScheduler | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="14.4" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="14.4" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,13 +5733,13 @@
 <p>Virtual time scheduler used for testing applications and libraries built using Reactive Extensions.  This inherits from the <code>Rx.TestScheduler</code> class.</p>
 <h2 id="usage">Usage</h2>
 <p>The following shows an example of using the <code>Rx.TestScheduler</code>.  In order to make the end comparisons work, you must implement a collection assert, for example here using QUnit.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createMessage</span><span class="hljs-params">(actual, expected)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createMessage</span>(<span class="hljs-params">actual, expected</span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Expected: [&apos;</span> + expected.toString() + <span class="hljs-string">&apos;]\r\nActual: [&apos;</span> + actual.toString() + <span class="hljs-string">&apos;]&apos;</span>;
 }
 
 <span class="hljs-comment">// Using QUnit testing for assertions</span>
 <span class="hljs-keyword">var</span> collectionAssert = {
-    assertEqual: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(expected, actual)</span> </span>{
+    assertEqual: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">expected, actual</span>) </span>{
         <span class="hljs-keyword">var</span> comparer = Rx.Internals.isEqual,
             isOk = <span class="hljs-literal">true</span>;
 
@@ -5773,9 +5773,9 @@
     onCompleted(<span class="hljs-number">230</span>)
 );
 
-<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x * x });
+<span class="hljs-comment">// <span class="hljs-doctag">Note</span> we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x });
 });
 
 <span class="hljs-comment">// Implement collection assertion</span>
@@ -5829,9 +5829,9 @@ collectionAssert.assertEqual(xs.subscriptions, [
     onCompleted(<span class="hljs-number">230</span>)
 );
 
-<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x * x });
+<span class="hljs-comment">// <span class="hljs-doctag">Note</span> we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x });
 });
 
 <span class="hljs-comment">// Implement collection assertion</span>
@@ -5875,9 +5875,9 @@ collectionAssert.assertEqual(xs.subscriptions, [
     onCompleted(<span class="hljs-number">300</span>)
 );
 
-<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe</span>
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> xs.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; });
+<span class="hljs-comment">// <span class="hljs-doctag">Note</span> we&apos;ll start at 200 for subscribe</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; });
 });
 
 <span class="hljs-comment">// Implement collection assertion</span>
@@ -5919,9 +5919,9 @@ collectionAssert.assertEqual(xs.subscriptions, [
     onCompleted(<span class="hljs-number">230</span>)
 );
 
-<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x * x });
+<span class="hljs-comment">// <span class="hljs-doctag">Note</span> we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x });
 });
 
 <span class="hljs-comment">// Implement collection assertion</span>
@@ -5957,9 +5957,9 @@ collectionAssert.assertEqual(xs.subscriptions, [
 
 <span class="hljs-keyword">var</span> res = scheduler.createObserver();
 
-scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     d.setDisposable(xs.subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
             d.dispose();
             res.onNext(x);
         },
@@ -6002,9 +6002,9 @@ collectionAssert.assertEqual(res.messages, [
     onCompleted(<span class="hljs-number">300</span>)
 );
 
-<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe</span>
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> xs.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; });
+<span class="hljs-comment">// <span class="hljs-doctag">Note</span> we&apos;ll start at 200 for subscribe</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; });
 });
 
 <span class="hljs-comment">// Implement collection assertion</span>
@@ -6048,10 +6048,10 @@ Default virtual times are used for factory invocation and sequence subscription.
     onCompleted(<span class="hljs-number">230</span>)
 );
 
-<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
+<span class="hljs-comment">// <span class="hljs-doctag">Note</span> we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
 <span class="hljs-keyword">var</span> res = scheduler.startWithDispose(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x * x });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x });
     },
     <span class="hljs-number">215</span> <span class="hljs-comment">/* Dispose at 215 */</span>
 );
@@ -6099,10 +6099,10 @@ collectionAssert.assertEqual(xs.subscriptions, [
     onCompleted(<span class="hljs-number">360</span>)
 );
 
-<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
+<span class="hljs-comment">// <span class="hljs-doctag">Note</span> we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
 <span class="hljs-keyword">var</span> res = scheduler.startWithTiming(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x * x });
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x });
     },
     <span class="hljs-number">100</span>, <span class="hljs-comment">/* Create at 100    */</span>
     <span class="hljs-number">200</span>, <span class="hljs-comment">/* Subscribe at 200 */</span>

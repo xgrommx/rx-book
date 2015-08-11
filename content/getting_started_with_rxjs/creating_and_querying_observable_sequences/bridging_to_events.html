@@ -8,7 +8,7 @@
         <title>Bridging to Events | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="3.3.2" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.2" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5832,8 +5832,8 @@ eventEmitter.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> $tbody = $(<span class="hljs-string">&apos;#dataTable tbody&apos;</span>);
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.fromEventPattern(
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addHandler</span> <span class="hljs-params">(h)</span> </span>{ $tbody.on(<span class="hljs-string">&apos;click&apos;</span>, <span class="hljs-string">&apos;tr&apos;</span>, h); },
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delHandler</span> <span class="hljs-params">(h)</span> </span>{ $tbody.off(<span class="hljs-string">&apos;click&apos;</span>, <span class="hljs-string">&apos;tr&apos;</span>, h); });
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addHandler</span> (<span class="hljs-params">h</span>) </span>{ $tbody.on(<span class="hljs-string">&apos;click&apos;</span>, <span class="hljs-string">&apos;tr&apos;</span>, h); },
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delHandler</span> (<span class="hljs-params">h</span>) </span>{ $tbody.off(<span class="hljs-string">&apos;click&apos;</span>, <span class="hljs-string">&apos;tr&apos;</span>, h); });
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(e =&gt; alert($( <span class="hljs-keyword">this</span> ).text()));
 </code></pre>
@@ -5843,10 +5843,10 @@ eventEmitter.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class
     <span class="hljs-keyword">var</span> input = dom.byId(<span class="hljs-string">&apos;input&apos;</span>);
 
     <span class="hljs-keyword">var</span> source = Rx.Observable.fromEventPattern(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addHandler</span> <span class="hljs-params">(h)</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addHandler</span> (<span class="hljs-params">h</span>) </span>{
             <span class="hljs-keyword">return</span> on(input, <span class="hljs-string">&apos;click&apos;</span>, h);
         },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delHandler</span> <span class="hljs-params">(_, signal)</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delHandler</span> (<span class="hljs-params">_, signal</span>) </span>{
             signal.remove();
         }
     );

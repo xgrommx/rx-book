@@ -8,7 +8,7 @@
         <title>Creating and Subscribing to Simple Observable Sequences | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5734,7 +5734,7 @@
 <h2 id="creating-a-sequence-from-scratch">Creating a sequence from scratch</h2>
 <p>Before getting into many operators, let&apos;s look at how to create an <code>Observable</code> from scratch using the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/create.md" target="_blank"><code>Rx.Observable.create</code></a> method.</p>
 <p>First, we need to ensure we reference the core <code>rx.js</code> file.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>Or if we&apos;re using <a href="http://node.js" target="_blank">Node.js</a>, we can reference it as such:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
@@ -5809,8 +5809,8 @@ subscription.dispose();
 <h2 id="using-a-timer">Using a timer</h2>
 <p>The following sample uses the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timer.md" target="_blank"><code>timer</code></a> operator to create a sequence. The sequence will push out the first value after 5 second has elapsed, then it will push out subsequent values every 1 second. For illustration purpose, we chain the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timestamp.md" target="_blank"><code>timestamp</code></a> operator to the query so that each value pushed out will be appended by the time when it is published. By doing so, when we subscribe to this source sequence, we can receive both its value and timestamp.</p>
 <p>First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.time.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.time.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>Now on to our example</p>
 <pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Current time: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
@@ -5870,7 +5870,7 @@ subscription.dispose();
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>In addition, we can also use ES6 Iterable objects such as <code>Map</code> and <code>Set</code> using <code>from</code> to an observable sequence.  In this example, we can take a <code>Set</code> and convert it to an observable sequence.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> Set([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]);
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]);
 
 <span class="hljs-comment">// Converts a Set to an observable sequence</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.from(set);
@@ -5889,7 +5889,7 @@ subscription.dispose();
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>We can also do a <code>Map</code> as well by applying the same technique.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> Map([[<span class="hljs-string">&apos;key1&apos;</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">&apos;key2&apos;</span>, <span class="hljs-number">2</span>]]);
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([[<span class="hljs-string">&apos;key1&apos;</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">&apos;key2&apos;</span>, <span class="hljs-number">2</span>]]);
 
 <span class="hljs-comment">// Converts a Set to an observable sequence</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.from(set);
@@ -5905,7 +5905,7 @@ subscription.dispose();
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>The <code>from</code> method can also support ES6 generators which may already be in your browser, or coming to a browser near you.  This allows us to do such things as Fibonacci sequences and so forth and convert them to an observable sequence.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fibonacci</span> <span class="hljs-params">()</span> </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fibonacci</span> (<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">var</span> fn1 = <span class="hljs-number">1</span>;
   <span class="hljs-keyword">var</span> fn2 = <span class="hljs-number">1</span>;
   <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>){
@@ -5937,7 +5937,7 @@ subscription.dispose();
 <p>The following example demonstrates a cold observable sequence. In this example, we use the Interval operator to create a simple observable sequence of numbers pumped out at specific intervals, in this case, every 1 second.</p>
 <p>Two observers then subscribe to this sequence and print out its values. You will notice that the sequence is reset for each subscriber, in which the second subscription will restart the sequence from the first value.</p>
 <p>First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>And now to the example.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>);
@@ -5980,7 +5980,7 @@ setTimeout(() =&gt; {
 // =&gt; Observer 1: onNext: 4
 // =&gt; Observer 2: onNext: 4
 </code></pre><p>First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>Now onto the example!</p>
 <pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Current time: &apos;</span> + <span class="hljs-built_in">Date</span>.now());

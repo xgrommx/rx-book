@@ -8,7 +8,7 @@
         <title>Why RxJs? | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="1" data-basepath="." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="1" data-basepath="." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,8 +5733,8 @@
 <p>One question you may ask yourself, is why RxJS?  What about Promises?  Promises are good for solving asynchronous operations such as querying a service with an <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest</a>, where the expected behavior is one value and then completion.  The Reactive Extensions for JavaScript unifies both the world of Promises, callbacks as well as evented data such as DOM Input, Web Workers, Web Sockets.  Once we have unified these concepts, this enables rich composition.</p>
 <p>To give you an idea about rich composition, we can create an autocompletion service which takes the user input from a text input and then query a service, making sure not to flood the service with calls for every key stroke, but instead allow to go at a more natural pace.</p>
 <p>First, we&apos;ll reference the JavaScript files, including jQuery, although RxJS has no dependencies on jQuery...</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://code.jquery.com/jquery.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://code.jquery.com/jquery.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>Next, we&apos;ll get the user input from an input, listening to the keyup event by using the <a href="content/observable/observable_methods/fromevent.html"><code>Rx.Observable.fromEvent</code></a> method.  This will either use the event binding from <a href="http://jquery.com" target="_blank">jQuery</a>, <a href="http://zeptojs.com/" target="_blank">Zepto</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a> and <a href="http://emberjs.com/" target="_blank">Ember.js</a> if available, and if not, falls back to the native event binding.  This gives you consistent ways of thinking of events depending on your framework, so there are no surprises.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> $input = $(<span class="hljs-string">&apos;#input&apos;</span>),
@@ -5752,7 +5752,7 @@
 <span class="hljs-keyword">var</span> distinct = throttled.distinctUntilChanged();
 </code></pre>
 <p>Now, let&apos;s query Wikipedia!  In RxJS, we can instantly bind to any <a href="https://github.com/promises-aplus/promises-spec" target="_blank">Promises A+</a> implementation through the <a href="content/observable/observable_methods/frompromise.html"><code>Rx.Observable.fromPromise</code></a> method or by just directly returning it, and we wrap it for you.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">searchWikipedia</span> <span class="hljs-params">(term)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">searchWikipedia</span> (<span class="hljs-params">term</span>) </span>{
     <span class="hljs-keyword">return</span> $.ajax({
         url: <span class="hljs-string">&apos;http://en.wikipedia.org/w/api.php&apos;</span>,
         dataType: <span class="hljs-string">&apos;jsonp&apos;</span>,

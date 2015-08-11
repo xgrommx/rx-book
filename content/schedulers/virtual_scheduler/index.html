@@ -8,7 +8,7 @@
         <title>Rx.VirtualTimeScheduler | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="12.3" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="12.3" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5734,7 +5734,7 @@
 <h2 id="usage">Usage</h2>
 <p>The following shows an example of using the <code>Rx.VirtualTimeScheduler</code>. In order for this to work, you must implement the <code>add</code>, <code>toDateTimeOffset</code> and <code>toRelative</code> methods as described below.</p>
 <pre><code class="lang-js"><span class="hljs-comment">/* Comparer required for scheduling priority */</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> <span class="hljs-params">(x, y)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> (<span class="hljs-params">x, y</span>) </span>{
     <span class="hljs-keyword">if</span> (x &gt; y) { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
     <span class="hljs-keyword">if</span> (x &lt; y) { <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>; }
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
@@ -5748,7 +5748,7 @@
  * @param {Any} relative Relative virtual time value to add.
  * @return {Any} Resulting absolute virtual time sum value.
  */</span>
-scheduler.add = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(absolute, relative)</span> </span>{
+scheduler.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">absolute, relative</span>) </span>{
     <span class="hljs-keyword">return</span> absolute + relative;
 };
 
@@ -5757,7 +5757,7 @@ scheduler.add = <span class="hljs-function"><span class="hljs-keyword">function<
  * @param {Number} The absolute time in ms
  * @returns {Number} The absolute time in ms
  */</span>
-scheduler.toDateTimeOffset = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(absolute)</span> </span>{
+scheduler.toDateTimeOffset = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">absolute</span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(absolute).getTime();
 };
 
@@ -5766,14 +5766,14 @@ scheduler.toDateTimeOffset = <span class="hljs-function"><span class="hljs-keywo
  * @param {Number} timeSpan TimeSpan value to convert.
  * @return {Number} Corresponding relative virtual time value.
  */</span>
-scheduler.toRelative = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(timeSpan)</span> </span>{
+scheduler.toRelative = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">timeSpan</span>) </span>{
     <span class="hljs-keyword">return</span> timeSpan;
 };
 
 <span class="hljs-comment">// Schedule some time</span>
-scheduler.scheduleAbsolute(<span class="hljs-number">1</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;foo&apos;</span>); });
-scheduler.scheduleAbsolute(<span class="hljs-number">2</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;bar&apos;</span>); });
-scheduler.scheduleAbsolute(<span class="hljs-number">3</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ scheduler.stop(); });
+scheduler.scheduleAbsolute(<span class="hljs-number">1</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;foo&apos;</span>); });
+scheduler.scheduleAbsolute(<span class="hljs-number">2</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;bar&apos;</span>); });
+scheduler.scheduleAbsolute(<span class="hljs-number">3</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ scheduler.stop(); });
 
 <span class="hljs-comment">// Start the scheduler</span>
 scheduler.start();
@@ -5836,7 +5836,7 @@ scheduler.start();
 <li><code>comparer</code> <em>(Function)</em>: Comparer to determine causality of events based on absolute time.</li>
 </ol>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> <span class="hljs-params">(x, y)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> (<span class="hljs-params">x, y</span>) </span>{
     <span class="hljs-keyword">if</span> (x &gt; y) { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
     <span class="hljs-keyword">if</span> (x &lt; y) { <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>; }
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
@@ -5865,7 +5865,7 @@ scheduler.start();
     <span class="hljs-number">200</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleAbsolute(<span class="hljs-number">250</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleAbsolute(<span class="hljs-number">250</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
 
@@ -5892,11 +5892,11 @@ scheduler.advanceBy(<span class="hljs-number">300</span>);
     <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
 
-scheduler.scheduleAbsolute(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleAbsolute(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;world&apos;</span>);
 });
 
@@ -5927,11 +5927,11 @@ scheduler.advanceBy(<span class="hljs-number">300</span>);
     <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
 
-scheduler.scheduleAbsolute(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleAbsolute(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;world&apos;</span>);
 });
 
@@ -5963,11 +5963,11 @@ scheduler.advanceBy(<span class="hljs-number">300</span>);
     <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleAbsoluteWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+scheduler.scheduleAbsoluteWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
 });
 
-scheduler.scheduleAbsoluteWithState(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleAbsoluteWithState(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;goodnight &apos;</span> + x);
 }, <span class="hljs-string">&apos;moon&apos;</span>);
 
@@ -5998,11 +5998,11 @@ scheduler.start();
     <span class="hljs-number">100</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
 
-scheduler.scheduleRelative(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleRelative(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;world&apos;</span>);
 });
 
@@ -6034,11 +6034,11 @@ scheduler.start();
     <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
 });
 
-scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;moon&apos;</span>, <span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;moon&apos;</span>, <span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;goodnight &apos;</span> + x);
 });
 
@@ -6084,11 +6084,11 @@ scheduler.sleep(<span class="hljs-number">400</span>);
     <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
 });
 
-scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;moon&apos;</span>, <span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;moon&apos;</span>, <span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;goodnight &apos;</span> + x);
 });
 
@@ -6112,15 +6112,15 @@ scheduler.start();
     <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello world&apos;</span>);
 });
 
-scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     scheduler.stop();
 });
 
-scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello world&apos;</span>);
 });
 
@@ -6145,7 +6145,7 @@ scheduler.start();
 <p><em>(Any)</em>: Resulting absolute virtual time sum value.</p>
 <h4 id="example">Example</h4>
 <p>One possible implementation could be as simple as the following:</p>
-<pre><code class="lang-js">scheduler.add = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(absolute, relative)</span> </span>{
+<pre><code class="lang-js">scheduler.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">absolute, relative</span>) </span>{
     <span class="hljs-keyword">return</span> absolute + relative;
 };
 </code></pre>
@@ -6166,7 +6166,7 @@ scheduler.start();
 <h4 id="example">Example</h4>
 <p>One possible implementation could be as simple as the following:</p>
 <pre><code class="lang-js"><span class="hljs-comment">// String -&gt; Number</span>
-scheduler.toDateTimeOffset = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(absolute)</span> </span>{
+scheduler.toDateTimeOffset = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">absolute</span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">return</span> absolute.length;
 };
 </code></pre>
@@ -6187,7 +6187,7 @@ scheduler.toDateTimeOffset = <span class="hljs-function"><span class="hljs-keywo
 <h4 id="example">Example</h4>
 <p>One possible implementation could be as simple as the following:</p>
 <pre><code class="lang-js"><span class="hljs-comment">// Number -&gt; Number</span>
-scheduler.toRelative = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(timeSpan)</span> </span>{
+scheduler.toRelative = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">timeSpan</span>) </span>{
     <span class="hljs-keyword">return</span> timeSpan;
 };
 </code></pre>

@@ -8,7 +8,7 @@
         <title>How do I integrate jQuery with RxJS? | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="4.2" data-basepath="../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="4.2" data-basepath="../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5734,10 +5734,10 @@
 <h2 id="using-rxjs-with-rx-jquery">Using RxJS with Rx-jQuery</h2>
 <p>Getting started with the bindings is easy.  Each method is enumerated on the main page from the jQuery method to its RxJS counterpart.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;results&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://code.jquery.com/jquery-1.9.1.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.binding.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.jquery.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://code.jquery.com/jquery-1.9.1.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.binding.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.jquery.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>Now we can start using the bindings!  For example, we can listen to a <code>click</code> event and then by using <code>flatMap</code> or <code>selectMap</code> we can animate by calling <code>animateAsObservable</code>.  Finally, we can subscribe to cause the side effect and nothing more.</p>
 <pre><code class="lang-js">$( <span class="hljs-string">&quot;#go&quot;</span> ).clickAsObservable().flatMap(() =&gt; {
@@ -5757,10 +5757,10 @@
 <p>Using RxJS with jQuery to bind to an event using plain old RxJS is easy.  For example, we could bind to the <code>mousemove</code> event from the DOM document easily.</p>
 <p>First, we&apos;ll reference the files we need.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;results&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://code.jquery.com/jquery-1.9.1.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.async.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.binding.js&quot;</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://code.jquery.com/jquery-1.9.1.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.async.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.binding.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> observable = Rx.Observable.fromEvent(
     $(<span class="hljs-built_in">document</span>),
@@ -5776,7 +5776,7 @@
  * @param {Function} [selector] A selector which takes the arguments from the event handler to produce a single item to yield on next.
  * @returns {Observable} An observable sequence of events from the specified element and the specified event.
  */</span>
-jQuery.fn.toObservable = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(eventName, selector)</span> </span>{
+jQuery.fn.toObservable = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">eventName, selector</span>) </span>{
     <span class="hljs-keyword">return</span> Rx.Observable.fromEvent(<span class="hljs-keyword">this</span>, eventName, selector);    
 };
 </code></pre>
@@ -5788,7 +5788,7 @@ jQuery.fn.toObservable = <span class="hljs-function"><span class="hljs-keyword">
 <h3 id="using-rxjs-with-ajax-calls">Using RxJS with Ajax calls</h3>
 <p>Bridging to jQuery Ajax calls using <a href="http://api.jquery.com/jQuery.ajax/" target="_blank"><code>$.ajax</code></a> is easy as well with the built-in <a href="https://github.com/promises-aplus/promises-spec" target="_blank">Promises A+</a> support.  Since jQuery 1.5, the <code>$.ajax</code> method has implemented a promise interface (even if not 100% pure) which allows us to bridge to an observable sequence via the <code>Rx.Observable.fromPromise</code> method.</p>
 <p>For example, we could query Wikipedia by calling the <code>$.ajax</code> method and then calling the <a href="http://api.jquery.com/deferred.promise/" target="_blank"><code>promise</code></a> method which then exposes the minimum promise interface needed.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">searchWikipedia</span> <span class="hljs-params">(term)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">searchWikipedia</span> (<span class="hljs-params">term</span>) </span>{
     <span class="hljs-keyword">var</span> promise = $.ajax({
         url: <span class="hljs-string">&apos;http://en.wikipedia.org/w/api.php&apos;</span>,
         dataType: <span class="hljs-string">&apos;jsonp&apos;</span>,

@@ -8,7 +8,7 @@
         <title>Bridging to Promises | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="3.3.4" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.4" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5765,7 +5765,7 @@
 </ul>
 <p>Because of this, we can now do a number of very interesting things such as combining Promises and Observable sequences.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
-  .flatMap(x =&gt; Promise.resolve(x * x));
+  .flatMap(x =&gt; <span class="hljs-built_in">Promise</span>.resolve(x * x));
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
   x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
@@ -5809,7 +5809,7 @@
 <p>Notice that in this sample, these promises becomes an observable sequences in which we can manipulate further. The <a href="querying.md">Querying Observable Sequences</a> topic will show you how you can project this sequence into another, filter its content, so that your application will only receive values that satisfy a certain criteria.</p>
 <h2 id="converting-observable-sequences-to-promises">Converting Observable Sequences to Promises</h2>
 <p>Just as you can convert a Promise to an Observable sequence, you can also convert an Observable sequence to a Promise.  This either requires native support for Promises, or a Promise library you can add yourself, such as <a href="https://github.com/kriskowal/q" target="_blank">Q</a>, <a href="https://github.com/tildeio/rsvp.js" target="_blank">RSVP</a>, <a href="https://github.com/cujojs/when" target="_blank">when.js</a> among others.  These libraries must conform to the ES6 standard for construction where it provides two functions to resolve or reject the promise.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> Promise((resolve, reject) =&gt; resolve(<span class="hljs-number">42</span>));
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; resolve(<span class="hljs-number">42</span>));
 </code></pre>
 <p>We can use the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/frompromise.md" target="_blank"><code>toPromise</code></a> method which allows you to convert an Observable sequence to a Promise.  This method accepts a Promise constructor, and if not provided, will default to a default implementation.  In this first example, we will use <a href="https://github.com/tildeio/rsvp.js" target="_blank">RSVP</a> to construct our Promise objects.</p>
 <pre><code class="lang-js"><span class="hljs-comment">// Return a single value</span>

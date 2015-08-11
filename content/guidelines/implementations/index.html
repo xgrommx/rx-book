@@ -8,7 +8,7 @@
         <title>Operator implementations | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="2.5" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.5" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5816,7 +5816,7 @@
 <h4 id="sample">Sample</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> CLOSED = <span class="hljs-number">3</span>;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readWebSocket</span><span class="hljs-params">(socket)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readWebSocket</span>(<span class="hljs-params">socket</span>) </span>{
   <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">if</span> (socket.readyState === CLOSED) {
       observer.onError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;The websocket is no longer open.&apos;</span>));
@@ -5999,7 +5999,7 @@
       queues = arrayInitialize(n, () =&gt; []),
       isDone = arrayInitialize(n, () =&gt; <span class="hljs-literal">false</span>);
 
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span><span class="hljs-params">(i)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span>(<span class="hljs-params">i</span>) </span>{
       <span class="hljs-keyword">var</span> res, queuedValues;
       <span class="hljs-keyword">if</span> (queues.every(x =&gt; x.length &gt; <span class="hljs-number">0</span>)) {
         <span class="hljs-keyword">try</span> {
@@ -6015,7 +6015,7 @@
       }
     };
 
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">done</span><span class="hljs-params">(i)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">done</span>(<span class="hljs-params">i</span>) </span>{
       isDone[i] = <span class="hljs-literal">true</span>;
       <span class="hljs-keyword">if</span> (isDone.every(x =&gt; x)) {
         observer.onCompleted();
@@ -6074,7 +6074,7 @@
 <h4 id="sample-2">Sample 2</h4>
 <pre><code class="lang-js">Rx.Observable.repeat = value =&gt; {
   <span class="hljs-keyword">return</span> Rx.Observable.from(
-    <span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-params">()</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
       <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) { <span class="hljs-keyword">yield</span> value; }
     }());
 };

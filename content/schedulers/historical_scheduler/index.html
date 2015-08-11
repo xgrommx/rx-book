@@ -8,7 +8,7 @@
         <title>Rx.HistoricalScheduler | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="12.1" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="12.1" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5742,16 +5742,16 @@
 <span class="hljs-keyword">var</span> s = <span class="hljs-keyword">new</span> Rx.Subject();
 
 <span class="hljs-comment">// Some random data</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getData</span><span class="hljs-params">(time)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getData</span>(<span class="hljs-params">time</span>) </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * (time + <span class="hljs-number">1</span>));
 }
 
 <span class="hljs-comment">// Enqueue 1 minute&apos;s worth of data</span>
 <span class="hljs-keyword">while</span> (initialDate &lt;= <span class="hljs-number">60000</span>) {
 
-  (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i)</span> </span>{
+  (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{
 
-    scheduler.scheduleWithAbsolute(i, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    scheduler.scheduleWithAbsolute(i, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
       s.onNext({ value: getData(i), date: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(i) });
     });
 
@@ -5761,7 +5761,7 @@
 }
 
 <span class="hljs-comment">// Subscription set</span>
-s.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+s.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;value: &apos;</span>, x.value);
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;date: &apos;</span>, x.date.toGMTString());
 });
@@ -5826,7 +5826,7 @@ scheduler.start();
 <li>[<code>comparer</code>] <em>(Function)</em>: Comparer to determine causality of events based on absolute time.</li>
 </ol>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> <span class="hljs-params">(x, y)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> (<span class="hljs-params">x, y</span>) </span>{
   <span class="hljs-keyword">if</span> (x &gt; y) { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
   <span class="hljs-keyword">if</span> (x &lt; y) { <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>; }
   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;

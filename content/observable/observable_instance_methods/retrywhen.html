@@ -8,7 +8,7 @@
         <title>retryWhen | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="8.2.92" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.92" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5742,25 +5742,25 @@ and observable that either continues, completes or errors. This behavior is then
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span> </span>{
+    .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>{
         <span class="hljs-keyword">if</span>(n === <span class="hljs-number">2</span>) {
             <span class="hljs-keyword">throw</span> <span class="hljs-string">&apos;ex&apos;</span>;
         }
         <span class="hljs-keyword">return</span> n;
     })
-    .retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(errors)</span> </span>{
+    .retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errors</span>) </span>{
         <span class="hljs-keyword">return</span> errors.delay(<span class="hljs-number">200</span>);
     })
     .take(<span class="hljs-number">6</span>);
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
     });
 
@@ -5778,14 +5778,14 @@ and observable that either continues, completes or errors. This behavior is then
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span> </span>{
+    .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>{
         <span class="hljs-keyword">if</span>(n === <span class="hljs-number">2</span>) {
             <span class="hljs-keyword">throw</span> <span class="hljs-string">&apos;ex&apos;</span>;
         }
         <span class="hljs-keyword">return</span> n;
     })
-    .retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(errors)</span> </span>{
-        <span class="hljs-keyword">return</span> errors.scan(<span class="hljs-number">0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(errorCount, err)</span> </span>{
+    .retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errors</span>) </span>{
+        <span class="hljs-keyword">return</span> errors.scan(<span class="hljs-number">0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errorCount, err</span>) </span>{
             <span class="hljs-keyword">if</span>(errorCount &gt;= <span class="hljs-number">2</span>) {
                 <span class="hljs-keyword">throw</span> err;
             }
@@ -5794,13 +5794,13 @@ and observable that either continues, completes or errors. This behavior is then
     });
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
     });
 
@@ -5814,28 +5814,28 @@ and observable that either continues, completes or errors. This behavior is then
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span> </span>{
+    .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>{
         <span class="hljs-keyword">if</span>(n === <span class="hljs-number">2</span>) {
             <span class="hljs-keyword">throw</span> <span class="hljs-string">&apos;ex&apos;</span>;
         }
         <span class="hljs-keyword">return</span> n;
     })
-    .retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(errors)</span> </span>{
-        <span class="hljs-keyword">return</span> errors.scan(<span class="hljs-number">0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(errorCount, err)</span> </span>{
+    .retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errors</span>) </span>{
+        <span class="hljs-keyword">return</span> errors.scan(<span class="hljs-number">0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errorCount, err</span>) </span>{
             <span class="hljs-keyword">return</span> errorCount + <span class="hljs-number">1</span>;
-        }).takeWhile(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(errorCount)</span> </span>{
+        }).takeWhile(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errorCount</span>) </span>{
             <span class="hljs-keyword">return</span> errorCount &lt; <span class="hljs-number">2</span>;
         });
     });
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
     });
 
@@ -5846,11 +5846,11 @@ and observable that either continues, completes or errors. This behavior is then
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
 <p>An incrememntal back-off strategy for handling errors:</p>
-<pre><code class="lang-js">Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(o)</span> </span>{
+<pre><code class="lang-js">Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">o</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;subscribing&quot;</span>);
     o.onError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;always fails&quot;</span>));
-  }).retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(attempts)</span> </span>{
-      <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>).zip(attempts, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i)</span> </span>{ <span class="hljs-keyword">return</span> i; }).flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i)</span> </span>{
+  }).retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">attempts</span>) </span>{
+      <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>).zip(attempts, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{ <span class="hljs-keyword">return</span> i; }).flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;delay retry by &quot;</span> + i + <span class="hljs-string">&quot; second(s)&quot;</span>);
         <span class="hljs-keyword">return</span> Rx.Observable.timer(i * <span class="hljs-number">1000</span>);
       });

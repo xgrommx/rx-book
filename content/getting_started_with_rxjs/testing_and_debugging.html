@@ -8,7 +8,7 @@
         <title>Testing and Debugging | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="3.6" data-basepath="../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.6" data-basepath="../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5736,7 +5736,7 @@
 <p>The following example creates a hot observable sequence with specified <code>onNext</code> notifications. It then starts the test scheduler and specifies when to subscribe to and dispose of the hot observable sequence. The Start method returns an instance of an <code>Observer</code>, which contains a <code>messages</code> property that records all notifications in a list.</p>
 <p>After the sequence has completed, we use can define method such as <code>collectionAssert.assertEqual</code> to compare the <code>messages</code> property, together with a list of expected values to see if both are identical (with the same number of items, and items are equal and in the same order). By doing so, we can confirm that we have indeed received the notifications that we expect. In our example, since we only start subscribing at 150, we will miss out the value &apos;abc&apos;. However, when we compare the values we have received so far at 400, we notice that we have in fact received all the published values after we subscribed to the sequence. And we also verify that the OnCompleted notification was fired at the right time at 500. In addition, subscription information is also captured by the <code>Observable</code> type returned by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypecreatehotobservableargs" target="_blank"><code>createHotObservable</code></a> method.</p>
 <p>In the same way, you can use that same defined method such as our <code>collectionAssert.assertEqual</code> below to confirm that subscriptions indeed happened at expected times.  It is easy to wrap this for your favorite unit testing framework whether it is QUnit, Mocha, Jasmine, etc.  In this example, we&apos;ll write a quick wrapper for QUnit.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createMessage</span><span class="hljs-params">(actual, expected)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createMessage</span>(<span class="hljs-params">actual, expected</span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Expected: [&apos;</span> + expected.toString() + <span class="hljs-string">&apos;]\r\nActual: [&apos;</span> + actual.toString() + <span class="hljs-string">&apos;]&apos;</span>;
 }
 
@@ -5780,7 +5780,7 @@ test(<span class="hljs-string">&apos;buffer should join strings&apos;</span>, ()
     );
 
     <span class="hljs-keyword">var</span> results = scheduler.startWithTiming(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
             <span class="hljs-keyword">return</span> input.buffer(() =&gt; input.debounce(<span class="hljs-number">100</span>, scheduler))
             .map(b =&gt; b.join(<span class="hljs-string">&apos;,&apos;</span>));
         },

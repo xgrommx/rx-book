@@ -8,7 +8,7 @@
         <title>Generators and Observable Sequences | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="3.3.5" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.5" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5731,7 +5731,7 @@
                     
                         <h1 id="generators-and-observable-sequences">Generators and Observable Sequences</h1>
 <p>One of the more exciting features of ES6 is a new function type called generators.  They have been in Firefox for years, although they have now been finally standardized in ES6, and will be shipping in a browser or runtime near you. How generators differ from normal functions is that a normal function such as the following will run to completion, regardless of whether it is asynchronous or not.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printNumberOfTimes</span><span class="hljs-params">(msg, n)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printNumberOfTimes</span>(<span class="hljs-params">msg, n</span>) </span>{
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
     <span class="hljs-built_in">console</span>.log(msg);
   }
@@ -5746,7 +5746,7 @@ setTimeout(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="
 </code></pre>
 <p>Instead of running to completion, generators allow us to interrupt the flow of the function by introducing the <code>yield</code> keyword which pauses the function.  The function cannot resume on its own without the external consumer saying that they need the next value.  </p>
 <p>To create a generator function, you must use the <code>function*</code> syntax which then becomes a generator.  In this particular example, we will yield a single value, the meaning of life.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">theMeaningOfLife</span><span class="hljs-params">()</span> </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">theMeaningOfLife</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">yield</span> <span class="hljs-number">42</span>;
 }
 </code></pre>
@@ -5760,7 +5760,7 @@ it.next();
 <span class="hljs-comment">// =&gt; { done: true, value: undefined }</span>
 </code></pre>
 <p>We can also use some ES6 shorthand for getting values from a generator such as the <code>for..of</code>.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> v of theMeaningOfLife()) {
+<pre><code class="lang-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> v <span class="hljs-keyword">of</span> theMeaningOfLife()) {
   <span class="hljs-built_in">console</span>.log(v);
 }
 <span class="hljs-comment">// =&gt; 42</span>
@@ -5774,7 +5774,7 @@ it.next();
 <span class="hljs-keyword">var</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;request&apos;</span>);
 <span class="hljs-keyword">var</span> get = Rx.Observable.fromNodeCallback(request);
 
-Rx.spawn(<span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-params">()</span> </span>{
+Rx.spawn(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">var</span> data;
   <span class="hljs-keyword">try</span> {
     data = <span class="hljs-keyword">yield</span> get(<span class="hljs-string">&apos;http://bing.com&apos;</span>).timeout(<span class="hljs-number">5000</span> <span class="hljs-comment">/*ms*/</span>);
@@ -5787,7 +5787,7 @@ Rx.spawn(<span class="hljs-function"><span class="hljs-keyword">function</span>*
 </code></pre>
 <h2 id="mixing-operators-with-generators">Mixing Operators with Generators</h2>
 <p>Many of the operators inside RxJS also support generators.  For example, we could use the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/from.md" target="_blank"><code>Rx.Observable.from</code></a> method to take a generator function, in this case, a Fibonacci sequence, take 10 of them and display it.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fibonacci</span><span class="hljs-params">()</span></span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fibonacci</span>(<span class="hljs-params"></span>)</span>{
   <span class="hljs-keyword">var</span> fn1 = <span class="hljs-number">1</span>;
   <span class="hljs-keyword">var</span> fn2 = <span class="hljs-number">1</span>;
   <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
@@ -5816,7 +5816,7 @@ Rx.Observable.from(fibonacci())
 <p>That&apos;s just the beginning, as there are several operators such as <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatmap.md" target="_blank"><code>concatMap</code></a>/<a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatmap.md" target="_blank"><code>selectConcat</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/selectmany.md" target="_blank"><code>flatMap</code></a>/<a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatmap.md" target="_blank"><code>selectMany</code></a> which take iterables as an argument so that we can further enable composition.  For example, we could project using generators from a <code>flatMap</code> operation.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.of(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
   .flatMap(
-    (x, i) =&gt; <span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">yield</span> x; <span class="hljs-keyword">yield</span> i; }(),
+    (x, i) =&gt; <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">yield</span> x; <span class="hljs-keyword">yield</span> i; }(),
     (x, y, i1, i2) =&gt; x + y + i1 + i2
   );
 

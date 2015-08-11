@@ -8,7 +8,7 @@
         <title>flatMap | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="8.2.48" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.48" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,10 +5733,10 @@
 <p>This is an alias for the <code>selectMany</code> method.</p>
 <p>One of the following:</p>
 <p>Projects each element of an observable sequence to an observable sequence and merges the resulting observable sequences into one observable sequence.</p>
-<pre><code class="lang-js">source.flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">0</span>, x); });
+<pre><code class="lang-js">source.flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">0</span>, x); });
 </code></pre>
 <p>Projects each element of an observable sequence to an observable sequence, invokes the result selector for the source element and each of the corresponding inner sequence&apos;s elements, and merges the results into one observable sequence.</p>
-<pre><code class="lang-js">source.flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">0</span>, x); }, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, y)</span> </span>{ <span class="hljs-keyword">return</span> x + y; });
+<pre><code class="lang-js">source.flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">0</span>, x); }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y</span>) </span>{ <span class="hljs-keyword">return</span> x + y; });
 </code></pre>
 <p>Projects each element of the source observable sequence to the other observable sequence and merges the resulting observable sequences into one observable sequence.</p>
 <pre><code class="lang-js">source.flatMap(Rx.Observable.fromArray([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]));
@@ -5756,9 +5756,9 @@ Rx.Observable.prototype.flatMap(collectionSelector: (T =&gt; Observable&lt;U&gt;
 Rx.Observable.prototype.flatMap(collectionSelector: (T =&gt; Observable&lt;U&gt;), resultSelector: ((T, U, Int) =&gt; Z));
 
 <span class="hljs-comment">// With Promises</span>
-Rx.Observable.prototype.flatMap(collection: Promise&lt;T&gt;)
-Rx.Observable.prototype.flatMap(collectionSelector: (T =&gt; Promise&lt;U&gt;));
-Rx.Observable.prototype.flatMap(collectionSelector: (T =&gt; Promise&lt;U&gt;), resultSelector: ((T, U, Int) =&gt; Z));
+Rx.Observable.prototype.flatMap(collection: <span class="hljs-built_in">Promise</span>&lt;T&gt;)
+Rx.Observable.prototype.flatMap(collectionSelector: (T =&gt; <span class="hljs-built_in">Promise</span>&lt;U&gt;));
+Rx.Observable.prototype.flatMap(collectionSelector: (T =&gt; <span class="hljs-built_in">Promise</span>&lt;U&gt;), resultSelector: ((T, U, Int) =&gt; Z));
 
 <span class="hljs-comment">// With Arrays</span>
 Rx.Observable.prototype.flatMap(collection: <span class="hljs-built_in">Array</span>&lt;T&gt;)

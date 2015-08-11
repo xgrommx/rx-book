@@ -8,7 +8,7 @@
         <title>fromEventPattern | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="8.1.15" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.15" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5743,27 +5743,27 @@
 <p>Wrapping an event from <a href="http://jquery.com" target="_blank">jQuery</a></p>
 <p><a href="http://jsbin.com/wihiw/1/embed?js,console" target="_blank"></a></p>
 <p>Wrapping an event from the <a href="http://dojotoolkit.org" target="_blank">Dojo Toolkit</a></p>
-<pre><code class="lang-js"><span class="hljs-built_in">require</span>([<span class="hljs-string">&apos;dojo/on&apos;</span>, <span class="hljs-string">&apos;dojo/dom&apos;</span>, <span class="hljs-string">&apos;rx&apos;</span>, <span class="hljs-string">&apos;rx.async&apos;</span>, <span class="hljs-string">&apos;rx.binding&apos;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(on, dom, rx)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-built_in">require</span>([<span class="hljs-string">&apos;dojo/on&apos;</span>, <span class="hljs-string">&apos;dojo/dom&apos;</span>, <span class="hljs-string">&apos;rx&apos;</span>, <span class="hljs-string">&apos;rx.async&apos;</span>, <span class="hljs-string">&apos;rx.binding&apos;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">on, dom, rx</span>) </span>{
 
     <span class="hljs-keyword">var</span> input = dom.byId(<span class="hljs-string">&apos;input&apos;</span>);
 
     <span class="hljs-keyword">var</span> source = Rx.Observable.fromEventPattern(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span> <span class="hljs-params">(h)</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span> (<span class="hljs-params">h</span>) </span>{
             <span class="hljs-keyword">return</span> on(input, <span class="hljs-string">&apos;click&apos;</span>, h);
         },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remove</span> <span class="hljs-params">(_, signal)</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remove</span> (<span class="hljs-params">_, signal</span>) </span>{
             signal.remove();
         }
     );
 
     <span class="hljs-keyword">var</span> subscription = source.subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
             <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: Clicked!&apos;</span>);
         },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
             <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
         },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
             <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
         });
 
@@ -5779,25 +5779,25 @@
 
 <span class="hljs-comment">// Wrap EventEmitter</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.fromEventPattern(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span> <span class="hljs-params">(h)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span> (<span class="hljs-params">h</span>) </span>{
         e.addListener(<span class="hljs-string">&apos;data&apos;</span>, h);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remove</span> <span class="hljs-params">(h)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remove</span> (<span class="hljs-params">h</span>) </span>{
         e.removeListener(<span class="hljs-string">&apos;data&apos;</span>, h);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(arr)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">arr</span>) </span>{
         <span class="hljs-keyword">return</span> arr[<span class="hljs-number">0</span>] + <span class="hljs-string">&apos;,&apos;</span> + arr[<span class="hljs-number">1</span>];
     }
 );
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + result);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
     });
 

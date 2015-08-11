@@ -8,7 +8,7 @@
         <title>observeOnScope | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="16.3.1.2" data-basepath="../../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="16.3.1.2" data-basepath="../../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5746,9 +5746,9 @@
 <p><em>(Rx)</em>: The root of RxJS</p>
 <h4 id="example">Example</h4>
 <pre><code class="lang-js">angular.module(<span class="hljs-string">&apos;observeOnScopeApp&apos;</span>, [<span class="hljs-string">&apos;rx&apos;</span>])
-    .controller(<span class="hljs-string">&apos;AppCtrl&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($scope, observeOnScope)</span> </span>{
+    .controller(<span class="hljs-string">&apos;AppCtrl&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$scope, observeOnScope</span>) </span>{
 
-        observeOnScope($scope, <span class="hljs-string">&apos;name&apos;</span>).subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(change)</span> </span>{
+        observeOnScope($scope, <span class="hljs-string">&apos;name&apos;</span>).subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">change</span>) </span>{
             $scope.observedChange = change;
             $scope.newValue = change.newValue;
             $scope.oldValue = change.oldValue;

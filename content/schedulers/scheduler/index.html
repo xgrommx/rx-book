@@ -8,7 +8,7 @@
         <title>Rx.Scheduler | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="12.2" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="12.2" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5735,7 +5735,7 @@
 <p>The follow example shows the basic usage of an <code>Rx.Scheduler</code>.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleWithState(
      <span class="hljs-string">&apos;world&apos;</span>,
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
           <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
      }
 );
@@ -5801,23 +5801,23 @@
 </ol>
 <h4 id="example">Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">// Used for scheduling immediately</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">schedule</span><span class="hljs-params">(state, action)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">schedule</span>(<span class="hljs-params">state, action</span>) </span>{
      <span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">this</span>,
           disposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
 
-     <span class="hljs-keyword">var</span> id = setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">var</span> id = setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
           <span class="hljs-keyword">if</span> (!disposable.isDisposed) {
                disposable.setDisposable(action(scheduler, state));
           }
      }, <span class="hljs-number">0</span>);
 
-     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CompositeDisposable(disposable, disposableCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CompositeDisposable(disposable, disposableCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
           clearMethod(id);
      }));
 }
 
 <span class="hljs-comment">// Used for scheduling relative to now</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scheduleRelative</span><span class="hljs-params">(state, dueTime, action)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scheduleRelative</span>(<span class="hljs-params">state, dueTime, action</span>) </span>{
      <span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">this</span>,
           dt = Scheduler.normalize(dueTime);
 
@@ -5827,19 +5827,19 @@
      }
 
      <span class="hljs-keyword">var</span> disposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
-     <span class="hljs-keyword">var</span> id = <span class="hljs-built_in">window</span>.setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">var</span> id = <span class="hljs-built_in">window</span>.setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
           <span class="hljs-keyword">if</span> (!disposable.isDisposed) {
                disposable.setDisposable(action(scheduler, state));
           }
      }, dt);
 
-     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CompositeDisposable(disposable, disposableCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CompositeDisposable(disposable, disposableCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
           <span class="hljs-built_in">window</span>.clearTimeout(id);
      }));
 }
 
 <span class="hljs-comment">// Used for scheduling in absolute time</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scheduleAbsolute</span><span class="hljs-params">(state, dueTime, action)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scheduleAbsolute</span>(<span class="hljs-params">state, dueTime, action</span>) </span>{
      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.scheduleWithRelativeAndState(state, dueTime - <span class="hljs-keyword">this</span>.now(), action);
 }
 
@@ -5850,7 +5850,7 @@
      scheduleAbsolute
 );
 
-<span class="hljs-keyword">var</span> handle = timeoutScheduler.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+<span class="hljs-keyword">var</span> handle = timeoutScheduler.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
 
@@ -5872,7 +5872,7 @@
 <h4 id="returns">Returns</h4>
 <p><em>(Scheduler)</em>: Wrapper around the original scheduler, enforcing exception handling.</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inherits</span> <span class="hljs-params">(ctor, superCtor)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inherits</span> (<span class="hljs-params">ctor, superCtor</span>) </span>{
     ctor.super_ = superCtor;
     ctor.prototype = <span class="hljs-built_in">Object</span>.create(superCtor.prototype, {
         constructor: {
@@ -5886,21 +5886,21 @@
 
 inherits (SchedulerError, <span class="hljs-built_in">Error</span>);
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SchedulerError</span><span class="hljs-params">(message)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SchedulerError</span>(<span class="hljs-params">message</span>) </span>{
     <span class="hljs-built_in">Error</span>.call(<span class="hljs-keyword">this</span>, message);
 }
 
 <span class="hljs-keyword">var</span> scheduler = Rx.Scheduler.timeout;
-<span class="hljs-keyword">var</span> catchScheduler = scheduler.catchException(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>{
+<span class="hljs-keyword">var</span> catchScheduler = scheduler.catchException(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
     <span class="hljs-keyword">return</span> e <span class="hljs-keyword">instanceof</span> SchedulerError;
 });
 
 <span class="hljs-comment">// Throws no exception</span>
-<span class="hljs-keyword">var</span> d1 = catchScheduler.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+<span class="hljs-keyword">var</span> d1 = catchScheduler.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> SchedulerError(<span class="hljs-string">&apos;woops&apos;</span>);
 });
 
-<span class="hljs-keyword">var</span> d2 = catchScheduler.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+<span class="hljs-keyword">var</span> d2 = catchScheduler.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;woops&apos;</span>);
 });
 
@@ -5938,7 +5938,7 @@ inherits (SchedulerError, <span class="hljs-built_in">Error</span>);
 <h4 id="returns">Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.immediate.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.immediate.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
 
@@ -5963,7 +5963,7 @@ disposable.dispose();
 <h4 id="returns">Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
 <h4 id="example">Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.immediate.scheduleWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.immediate.scheduleWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
 });
 
@@ -5990,7 +5990,7 @@ disposable.dispose();
 <h4 id="example">Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleWithAbsolute(
      <span class="hljs-built_in">Date</span>.now() + <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
           <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
      }
 );
@@ -6017,7 +6017,7 @@ disposable.dispose();
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleWithAbsolute(
      <span class="hljs-string">&apos;world&apos;</span>,
      <span class="hljs-built_in">Date</span>.now() + <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
           <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
      }
 );
@@ -6042,7 +6042,7 @@ disposable.dispose();
 <h4 id="example">Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleWithRelative(
      <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
           <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
      }
 );
@@ -6069,7 +6069,7 @@ disposable.dispose();
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleWithAbsolute(
      <span class="hljs-string">&apos;world&apos;</span>,
      <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
           <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
      }
 );
@@ -6095,7 +6095,7 @@ disposable.dispose();
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> disposable = Rx.Scheduler.immediate.scheduleRecursive(
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(self)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">self</span>) </span>{
           <span class="hljs-built_in">console</span>.log(i);
           <span class="hljs-keyword">if</span> (++i &lt; <span class="hljs-number">3</span>) {
                self(i);
@@ -6125,7 +6125,7 @@ disposable.dispose();
 <h4 id="example">Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.immediate.scheduleRecursiveWithState(
      <span class="hljs-number">0</span>,
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, self)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i, self</span>) </span>{
           <span class="hljs-built_in">console</span>.log(i);
           <span class="hljs-keyword">if</span> (++i &lt; <span class="hljs-number">3</span>) {
                self(i);
@@ -6157,7 +6157,7 @@ disposable.dispose();
 
 <span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleRecursiveWithAbsolute(
      <span class="hljs-built_in">Date</span>.now() + <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(self)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">self</span>) </span>{
           <span class="hljs-built_in">console</span>.log(i);
           <span class="hljs-keyword">if</span> (++i &lt; <span class="hljs-number">3</span>) {
                <span class="hljs-comment">// Schedule mutliplied by a second by position</span>
@@ -6190,7 +6190,7 @@ disposable.dispose();
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleRecursiveWithAbsoluteAndState(
      <span class="hljs-number">0</span>,
      <span class="hljs-built_in">Date</span>.now() + <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, self)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i, self</span>) </span>{
           <span class="hljs-built_in">console</span>.log(i);
           <span class="hljs-keyword">if</span> (++i &lt; <span class="hljs-number">3</span>) {
                <span class="hljs-comment">// Schedule mutliplied by a second by position</span>
@@ -6223,7 +6223,7 @@ disposable.dispose();
 
 <span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleRecursiveWithRelative(
      <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(self)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">self</span>) </span>{
           <span class="hljs-built_in">console</span>.log(i);
           <span class="hljs-keyword">if</span> (++i &lt; <span class="hljs-number">3</span>) {
                <span class="hljs-comment">// Schedule mutliplied by a second by position</span>
@@ -6256,7 +6256,7 @@ disposable.dispose();
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleRecursiveWithRelativeAndState(
      <span class="hljs-number">0</span>,
      <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i, self)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i, self</span>) </span>{
           <span class="hljs-built_in">console</span>.log(i);
           <span class="hljs-keyword">if</span> (++i &lt; <span class="hljs-number">3</span>) {
                <span class="hljs-comment">// Schedule mutliplied by a second by position</span>
@@ -6290,7 +6290,7 @@ disposable.dispose();
 
 <span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.schedulePeriodic(
      <span class="hljs-number">1000</span>, <span class="hljs-comment">/* 1 second */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
           <span class="hljs-built_in">console</span>.log(i);
 
           <span class="hljs-comment">// After three times, dispose</span>
@@ -6324,7 +6324,7 @@ disposable.dispose();
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.schedulePeriodicWithState(
      <span class="hljs-number">0</span>,
      <span class="hljs-number">1000</span>, <span class="hljs-comment">/* 1 second */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(i)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{
           <span class="hljs-built_in">console</span>.log(i);
 
           <span class="hljs-comment">// After three times, dispose</span>
@@ -6378,7 +6378,7 @@ disposable.dispose();
 
 <span class="hljs-keyword">var</span> disposable = scheduler.scheduleWithState(
      <span class="hljs-string">&apos;world&apos;</span>,
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
           <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
      });
 
@@ -6397,7 +6397,7 @@ disposable.dispose();
 
 <span class="hljs-keyword">var</span> disposable = scheduler.scheduleRecursiveWithState(
      <span class="hljs-number">0</span>,
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x, self)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, self</span>) </span>{
           <span class="hljs-built_in">console</span>.log(x);
           <span class="hljs-keyword">if</span> (++x &lt; <span class="hljs-number">3</span>) {
                self(x);
@@ -6428,7 +6428,7 @@ disposable.dispose();
 
 <span class="hljs-keyword">var</span> disposable = scheduler.scheduleWithState(
      <span class="hljs-number">0</span>,
-     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
           <span class="hljs-built_in">console</span>.log(x);
      }
 );

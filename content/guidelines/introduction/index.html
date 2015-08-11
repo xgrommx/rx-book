@@ -8,7 +8,7 @@
         <title>Introduction | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="2.1" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.1" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5808,24 +5808,24 @@ Where a is the string &apos;https://api.github.com/users&apos;
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = Rx.Observable.just(<span class="hljs-string">&apos;https://api.github.com/users&apos;</span>);
 </code></pre>
 <p>But now, that is just a stream of strings, doing no other operation, so we need to somehow make something happen when that value is emitted. That&apos;s done by <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted" target="_blank">subscribing</a> to the stream.</p>
-<pre><code class="lang-javascript">requestStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(requestUrl)</span> </span>{
+<pre><code class="lang-javascript">requestStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">requestUrl</span>) </span>{
   <span class="hljs-comment">// execute the request</span>
-  jQuery.getJSON(requestUrl, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(responseData)</span> </span>{
+  jQuery.getJSON(requestUrl, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">responseData</span>) </span>{
     <span class="hljs-comment">// ...</span>
   });
 }
 </code></pre>
 <p>Notice we are using a jQuery Ajax callback (which we assume you <a href="http://devdocs.io/jquery/jquery.getjson" target="_blank">should know already</a>) to handle the asynchronicity of the request operation. But wait a moment, Rx is for dealing with <strong>asynchronous</strong> data streams. Couldn&apos;t the response for that request be a stream containing the data arriving at some time in the future? Well, at a conceptual level, it sure looks like it, so let&apos;s try that.</p>
-<pre><code class="lang-javascript">requestStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(requestUrl)</span> </span>{
+<pre><code class="lang-javascript">requestStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">requestUrl</span>) </span>{
   <span class="hljs-comment">// execute the request</span>
-  <span class="hljs-keyword">var</span> responseStream = Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(observer)</span> </span>{
+  <span class="hljs-keyword">var</span> responseStream = Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">observer</span>) </span>{
     jQuery.getJSON(requestUrl)
-    .done(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(response)</span> </span>{ observer.onNext(response); })
-    .fail(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(jqXHR, status, error)</span> </span>{ observer.onError(error); })
-    .always(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ observer.onCompleted(); });
+    .done(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{ observer.onNext(response); })
+    .fail(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jqXHR, status, error</span>) </span>{ observer.onError(error); })
+    .always(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ observer.onCompleted(); });
   });
 
-  responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(response)</span> </span>{
+  responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
     <span class="hljs-comment">// do something with the response</span>
   });
 }
@@ -5843,7 +5843,7 @@ Where a is the string &apos;https://api.github.com/users&apos;
 <p>Now back to our example, if you were quick to notice, we have one <code>subscribe()</code> call inside another, which is somewhat akin to callback hell. Also, the creation of <code>responseStream</code> is dependent on <code>requestStream</code>. As you heard before, in Rx there are simple mechanisms for transforming and creating new streams out of others, so we should be doing that. </p>
 <p>The one basic function that you should know by now is <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypemapselector-thisarg" target="_blank"><code>map(f)</code></a>, which takes each value of stream A, applies <code>f()</code> on it, and produces a value on stream B. If we do that to our request and response streams, we can map request URLs to response Promises (disguised as streams). </p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> responseMetastream = requestStream
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(requestUrl)</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">requestUrl</span>) </span>{
     <span class="hljs-keyword">return</span> Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
   });
 </code></pre>
@@ -5851,7 +5851,7 @@ Where a is the string &apos;https://api.github.com/users&apos;
 <p><img src="http://i.imgur.com/HHnmlac.png" alt="Response metastream"></p>
 <p>A metastream for responses looks confusing, and doesn&apos;t seem to help us at all. We just want a simple stream of responses, where each emitted value is a JSON object, not a &apos;Promise&apos; of a JSON object. Say hi to <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypeflatmapselector-resultselector" target="_blank">Mr. Flatmap</a>: a version of <code>map()</code> than &quot;flattens&quot; a metastream, by emitting on the &quot;trunk&quot; stream everything that will be emitted on &quot;branch&quot; streams. Flatmap is not a &quot;fix&quot; and metastreams are not a bug, these are really the tools for dealing with asynchronous responses in Rx.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> responseStream = requestStream
-  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(requestUrl)</span> </span>{
+  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">requestUrl</span>) </span>{
     <span class="hljs-keyword">return</span> Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
   });
 </code></pre>
@@ -5862,7 +5862,7 @@ responseStream: -----A--------B-----C---|-&gt;
 
 (lowercase is a request, uppercase is its response)
 </code></pre><p>Now that we finally have a response stream, we can render the data we receive:</p>
-<pre><code class="lang-javascript">responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(response)</span> </span>{
+<pre><code class="lang-javascript">responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
   <span class="hljs-comment">// render `response` to the DOM however you wish</span>
 });
 </code></pre>
@@ -5870,11 +5870,11 @@ responseStream: -----A--------B-----C---|-&gt;
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = Rx.Observable.just(<span class="hljs-string">&apos;https://api.github.com/users&apos;</span>);
 
 <span class="hljs-keyword">var</span> responseStream = requestStream
-  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(requestUrl)</span> </span>{
+  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">requestUrl</span>) </span>{
     <span class="hljs-keyword">return</span> Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
   });
 
-responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(response)</span> </span>{
+responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
   <span class="hljs-comment">// render `response` to the DOM however you wish</span>
 });
 </code></pre>
@@ -5886,7 +5886,7 @@ responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">
 </code></pre>
 <p>Since the refresh click event doesn&apos;t itself carry any API URL, we need to map each click to an actual URL. Now we change the request stream to be the refresh click stream mapped to the API endpoint with a random offset parameter each time.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = refreshClickStream
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
   });
@@ -5894,7 +5894,7 @@ responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">
 <p>Because I&apos;m dumb and I don&apos;t have automated tests, I just broke one of our previously built features. A request doesn&apos;t happen anymore on startup, it happens only when the refresh is clicked. Urgh. I need both behaviors: a request when <em>either</em> a refresh is clicked <em>or</em> the webpage was just opened.</p>
 <p>We know how to make a separate stream for each one of those cases:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestOnRefreshStream = refreshClickStream
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
   });
@@ -5908,7 +5908,7 @@ stream B: -----B---C-----D--------&gt;
           ---a-B---C--e--D--o-----&gt;
 </code></pre><p>It should be easy now:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestOnRefreshStream = refreshClickStream
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
   });
@@ -5921,7 +5921,7 @@ stream B: -----B---C-----D--------&gt;
 </code></pre>
 <p>There is an alternative and cleaner way of writing that, without the intermediate streams.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = refreshClickStream
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
   })
@@ -5929,7 +5929,7 @@ stream B: -----B---C-----D--------&gt;
 </code></pre>
 <p>Even shorter, even more readable:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = refreshClickStream
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
   })
@@ -5937,7 +5937,7 @@ stream B: -----B---C-----D--------&gt;
 </code></pre>
 <p>The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypestartwithscheduler-args" target="_blank"><code>startWith()</code></a> function does exactly what you think it does. No matter how your input stream looks like, the output stream resulting of <code>startWith(x)</code> will have <code>x</code> at the beginning. But I&apos;m not <a href="https://en.wikipedia.org/wiki/Don&apos;t_repeat_yourself" target="_blank">DRY</a> enough, I&apos;m repeating the API endpoint string. One way to fix this is by moving the <code>startWith()</code> close to the <code>refreshClickStream</code>, to essentially &quot;emulate&quot; a refresh click on startup.  </p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = refreshClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>)
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
   });
@@ -5945,7 +5945,7 @@ stream B: -----B---C-----D--------&gt;
 <p>Nice. If you go back to the point where I &quot;broke the automated tests&quot;, you should see that the only difference with this last approach is that I added the <code>startWith()</code>.</p>
 <h2 id="modelling-the-3-suggestions-with-streams">Modelling the 3 suggestions with streams</h2>
 <p>Until now, we have only touched a <em>suggestion</em> UI element on the rendering step that happens in the responseStream&apos;s <code>subscribe()</code>. Now with the refresh button, we have a problem: as soon as you click &apos;refresh&apos;, the current 3 suggestions are not cleared. New suggestions come in only after a response has arrived, but to make the UI look nice, we need to clean out the current suggestions when clicks happen on the refresh.</p>
-<pre><code class="lang-javascript">refreshClickStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+<pre><code class="lang-javascript">refreshClickStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-comment">// clear the 3 suggestion DOM elements </span>
 });
 </code></pre>
@@ -5957,29 +5957,29 @@ stream B: -----B---C-----D--------&gt;
 <p><img src="http://i.imgur.com/AIimQ8C.jpg" alt="Mantra"></p>
 <p>So let&apos;s model a suggestion as a stream, where each emitted value is the JSON object containing the suggestion data. We will do this separately for each of the 3 suggestions. This is how the stream for suggestion #1 could look like:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = responseStream
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(listUsers)</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">listUsers</span>) </span>{
     <span class="hljs-comment">// get one random user from the list</span>
     <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
   });
 </code></pre>
 <p>The others, <code>suggestion2Stream</code> and <code>suggestion3Stream</code> can be simply copy pasted from <code>suggestion1Stream</code>. This is not DRY, but it will keep our example simple for this tutorial, plus I think it&apos;s a good exercise to think how to avoid repetition in this case.</p>
 <p>Instead of having the rendering happen in responseStream&apos;s subscribe(), we do that here:</p>
-<pre><code class="lang-javascript">suggestion1Stream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(suggestion)</span> </span>{
+<pre><code class="lang-javascript">suggestion1Stream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">suggestion</span>) </span>{
   <span class="hljs-comment">// render the 1st suggestion to the DOM</span>
 });
 </code></pre>
 <p>Back to the &quot;on refresh, clear the suggestions&quot;, we can simply map refresh clicks to <code>null</code> suggestion data, and include that in the <code>suggestion1Stream</code>, as such:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = responseStream
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(listUsers)</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">listUsers</span>) </span>{
     <span class="hljs-comment">// get one random user from the list</span>
     <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
   })
   .merge(
-    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
+    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
   );
 </code></pre>
 <p>And when rendering, we interpret <code>null</code> as &quot;no data&quot;, hence hiding its UI element.</p>
-<pre><code class="lang-javascript">suggestion1Stream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(suggestion)</span> </span>{
+<pre><code class="lang-javascript">suggestion1Stream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">suggestion</span>) </span>{
   <span class="hljs-keyword">if</span> (suggestion === <span class="hljs-literal">null</span>) {
     <span class="hljs-comment">// hide the first suggestion DOM element</span>
   }
@@ -5999,12 +5999,12 @@ stream B: -----B---C-----D--------&gt;
 </code></pre><p>Where <code>N</code> stands for <code>null</code>.</p>
 <p>As a bonus, we can also render &quot;empty&quot; suggestions on startup. That is done by adding <code>startWith(null)</code> to the suggestion streams:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = responseStream
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(listUsers)</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">listUsers</span>) </span>{
     <span class="hljs-comment">// get one random user from the list</span>
     <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
   })
   .merge(
-    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
+    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
   )
   .startWith(<span class="hljs-literal">null</span>);
 </code></pre>
@@ -6023,7 +6023,7 @@ stream B: -----B---C-----D--------&gt;
 
 <span class="hljs-keyword">var</span> requestStream = refreshClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>)
   .merge(close1ClickStream) <span class="hljs-comment">// we added this</span>
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
   });
@@ -6044,12 +6044,12 @@ where f is the uppercase function
 </code></pre><p>We can apply combineLatest() on <code>close1ClickStream</code> and <code>responseStream</code>, so that whenever the close 1 button is clicked, we get the latest response emitted and produce a new value on <code>suggestion1Stream</code>. On the other hand, combineLatest() is symmetric: whenever a new response is emitted on <code>responseStream</code>, it will combine with the latest &apos;close 1&apos; click to produce a new suggestion. That is interesting, because it allows us to simplify our previous code for <code>suggestion1Stream</code>, like this:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = close1ClickStream
   .combineLatest(responseStream,             
-    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(click, listUsers)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">click, listUsers</span>) </span>{
       <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
     }
   )
   .merge(
-    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
+    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
   )
   .startWith(<span class="hljs-literal">null</span>);
 </code></pre>
@@ -6057,12 +6057,12 @@ where f is the uppercase function
 <p>There are different ways of solving this, and we will stay with the simplest one, which is simulating a click to the &apos;close 1&apos; button on startup:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = close1ClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>) <span class="hljs-comment">// we added this</span>
   .combineLatest(responseStream,             
-    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(click, listUsers)</span> </span>{l
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">click, listUsers</span>) </span>{l
       <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
     }
   )
   .merge(
-    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
+    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
   )
   .startWith(<span class="hljs-literal">null</span>);
 </code></pre>
@@ -6076,29 +6076,29 @@ where f is the uppercase function
 <span class="hljs-comment">// and the same logic for close2 and close3</span>
 
 <span class="hljs-keyword">var</span> requestStream = refreshClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>)
-  .map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
   });
 
 <span class="hljs-keyword">var</span> responseStream = requestStream
-  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(requestUrl)</span> </span>{
+  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">requestUrl</span>) </span>{
     <span class="hljs-keyword">return</span> Rx.Observable.fromPromise($.ajax({url: requestUrl}));
   });
 
 <span class="hljs-keyword">var</span> suggestion1Stream = close1ClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>)
   .combineLatest(responseStream,             
-    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(click, listUsers)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">click, listUsers</span>) </span>{
       <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
     }
   )
   .merge(
-    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
+    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
   )
   .startWith(<span class="hljs-literal">null</span>);
 <span class="hljs-comment">// and the same logic for suggestion2Stream and suggestion3Stream</span>
 
-suggestion1Stream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(suggestion)</span> </span>{
+suggestion1Stream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">suggestion</span>) </span>{
   <span class="hljs-keyword">if</span> (suggestion === <span class="hljs-literal">null</span>) {
     <span class="hljs-comment">// hide the first suggestion DOM element</span>
   }

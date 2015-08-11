@@ -8,7 +8,7 @@
         <title>transduce | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="8.2.138" data-basepath="../../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.138" data-basepath="../../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5735,15 +5735,15 @@
 <p>Such examples of transducers libraries are <a href="https://github.com/cognitect-labs/transducers-js" target="_blank">transducers-js</a> from Cognitect and <a href="https://github.com/jlongster/transducers.js" target="_blank">transducers.js</a> from James Long.</p>
 <p>In order for this operator to work, it must the transducers library must follow the following contract:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">return</span> {
-  init: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  init: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-comment">// Return the item</span>
     <span class="hljs-keyword">return</span> observer;
   },
-  step: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obs, input)</span> </span>{
+  step: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obs, input</span>) </span>{
     <span class="hljs-comment">// Process next item</span>
     <span class="hljs-keyword">return</span> obs.onNext(input);
   },
-  result: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obs)</span> </span>{
+  result: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obs</span>) </span>{
     <span class="hljs-comment">// Mark completion</span>
     <span class="hljs-keyword">return</span> obs.onCompleted();
   }
@@ -5757,8 +5757,8 @@
 <p><em>(<code>Observable</code>)</em>: An observable sequence that results from the transducer execution.</p>
 <h4 id="example">Example</h4>
 <p>Below is an example using <a href="https://github.com/cognitect-labs/transducers-js" target="_blank">transducers-js</a>.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">even</span> <span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; }
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul10</span><span class="hljs-params">(x)</span> </span>{ <span class="hljs-keyword">return</span> x * <span class="hljs-number">10</span>; }
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">even</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul10</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * <span class="hljs-number">10</span>; }
 
 <span class="hljs-keyword">var</span> t = transducers
 
@@ -5766,13 +5766,13 @@
   .transduce(t.comp(t.filter(even), t.map(mul10)));
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe(
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(x)</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: %s&apos;</span>, x);
   },
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: %s&apos;</span>, err);
   },
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
       <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
   });
 

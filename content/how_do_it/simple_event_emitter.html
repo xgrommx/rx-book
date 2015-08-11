@@ -8,7 +8,7 @@
         <title>How do I create a simple event emitter? | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.0.1">
+        <meta name="generator" content="GitBook 2.2.0">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -40,7 +40,7 @@
     
 
         
-    <div class="book" data-level="4.4" data-basepath="../.." data-revision="Wed Aug 05 2015 02:01:03 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="4.4" data-basepath="../.." data-revision="Tue Aug 11 2015 23:41:23 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,7 +5733,7 @@
 <p>Publish/Subscribe is a common pattern within JavaScript applications.  The idea is that you have a publisher that emits events and you have consumers which register their interest in a given event.  Typically you may see something like the following where you listen for a &apos;data&apos; event and then the event emitter publishes data to it.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> emitter = <span class="hljs-keyword">new</span> Emitter();
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logData</span><span class="hljs-params">(data)</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logData</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;data: &apos;</span> + data);
 }
 
@@ -5748,7 +5748,7 @@ emitter.off(<span class="hljs-string">&apos;data&apos;</span>, logData);
 <p>How might one implement this using the Reactive Extensions for JavaScript?  Using an <code>Rx.Subject</code> will solve this problem easily.  As you may remember, an <code>Rx.Subject</code> is both an Observer and Observable, so it handles both publish and subscribe.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
 
-<span class="hljs-keyword">var</span> subscription = subject.subscribe(data =&gt; <span class="hljs-built_in">console</span>.log(`data: ${data}`));
+<span class="hljs-keyword">var</span> subscription = subject.subscribe(data =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`data: <span class="hljs-subst">${data}</span>`</span>));
 
 subject.onNext(<span class="hljs-string">&apos;foo&apos;</span>);
 <span class="hljs-comment">// =&gt; data: foo</span>
@@ -5756,11 +5756,11 @@ subject.onNext(<span class="hljs-string">&apos;foo&apos;</span>);
 <p>Now that we have a basic understanding of publish and subscribe through <code>onNext</code> and <code>subscribe</code>, let&apos;s put it to work to handle multiple types of events at once.  First, we&apos;ll create an Emitter class which has three main methods, <code>emit</code>, <code>on</code> and <code>off</code> which allows you to emit an event, listen to an event and stop listening to an event.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> hasOwnProp = {}.hasOwnProperty;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createName</span> <span class="hljs-params">(name)</span> </span>{
-    <span class="hljs-keyword">return</span> `$ ${name}`;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createName</span> (<span class="hljs-params">name</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`$ <span class="hljs-subst">${name}</span>`</span>;
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Emitter</span><span class="hljs-params">()</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Emitter</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">this</span>.subjects = {};
 }
 
@@ -5798,11 +5798,11 @@ Emitter.prototype.dispose = () =&gt; {
 <p>Then we can use it much as we did above.  As the call to <code>subscribe</code> returns a subscription, we might want to hand that back to the user instead of providing an off method.  So, we could rewrite the above where we call the <code>on</code> method to <code>listen</code> and we return a subscription handle to the user to stop listening.  </p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> hasOwnProp = {}.hasOwnProperty;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createName</span> <span class="hljs-params">(name)</span> </span>{
-    <span class="hljs-keyword">return</span> `$ ${name}`;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createName</span> (<span class="hljs-params">name</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`$ <span class="hljs-subst">${name}</span>`</span>;
 }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Emitter</span><span class="hljs-params">()</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Emitter</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">this</span>.subjects = {};
 }
 
@@ -5832,7 +5832,7 @@ Emitter.prototype.dispose = () =&gt; {
 <p>Now we can use this to rewrite our example such as the following:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> emitter = <span class="hljs-keyword">new</span> Emitter();
 
-<span class="hljs-keyword">var</span> subcription = emitter.listen(<span class="hljs-string">&apos;data&apos;</span>, data =&gt; <span class="hljs-built_in">console</span>.log(`data: ${data}`);
+<span class="hljs-keyword">var</span> subcription = emitter.listen(<span class="hljs-string">&apos;data&apos;</span>, data =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`data: <span class="hljs-subst">${data}</span>`</span>);
 
 emitter.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-string">&apos;foo&apos;</span>);
 <span class="hljs-comment">// =&gt; data: foo</span>

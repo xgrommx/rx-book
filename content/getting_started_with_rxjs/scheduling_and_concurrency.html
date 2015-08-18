@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="3.5" data-basepath="../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.5" data-basepath="../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,12 +5733,12 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="using-schedulers">Using Schedulers</h1>
+                        <h1 id="using-schedulers"><a name="using-schedulers" class="plugin-anchor" href="#using-schedulers"><span class="fa fa-link"></span></a>Using Schedulers</h1>
 <p>A scheduler controls when a subscription starts and when notifications are published. It consists of three components. It is first a data structure. When you schedule for tasks to be completed, they are put into the scheduler for queueing based on priority or other criteria. It also offers an execution context which denotes where the task is executed (e.g., in the immediately, current thread, or in another callback mechanism such as <code>setTimeout</code> or <code>process.nextTick</code>). Lastly, it has a clock which provides a notion of time for itself (by accessing the <code>now</code> method of a scheduler). Tasks being scheduled on a particular scheduler will adhere to the time denoted by that clock only.</p>
 <p>Schedulers also introduce the notion of virtual time (denoted by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/virtualtimescheduler.md" target="_blank"><code>VirtualTimeScheduler</code></a> type), which does not correlate with real time that is used in our daily life. For example, a sequence that is specified to take 100 years to complete can be scheduled to complete in virtual time in a mere 5 minutes. This will be covered in the <a href="testing.md">Testing and Debugging Observable Sequences</a> topic.</p>
-<h2 id="scheduler-types">Scheduler Types</h2>
+<h2 id="scheduler-types"><a name="scheduler-types" class="plugin-anchor" href="#scheduler-types"><span class="fa fa-link"></span></a>Scheduler Types</h2>
 <p>The various Scheduler types provided by Rx all implement the <code>Scheduler</code> methods. Each of these can be created and returned by using static properties of the <code>Scheduler</code> object. The <code>ImmediateScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulerimmediate" target="_blank"><code>immediate</code></a> property) will start the specified action immediately. The <code>CurrentThreadScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulercurrentthread" target="_blank"><code>currentThread</code></a> property) will schedule actions to be performed on the thread that makes the original call. The action is not executed immediately, but is placed in a queue and only executed after the current action is complete.  The <code>DefaultScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulerdefault" target="_blank"><code>default</code></a> property) will schedule actions to be performed on a asynchronous callback, which is optimized for the particular runtime, such as <code>setImmediate</code> or <code>process.nextTick</code> on Node.js or in the browser with a fallback to <code>setTimeout</code>.</p>
-<h2 id="using-schedulers">Using Schedulers</h2>
+<h2 id="using-schedulers"><a name="using-schedulers" class="plugin-anchor" href="#using-schedulers"><span class="fa fa-link"></span></a>Using Schedulers</h2>
 <p>You may have already used schedulers in your Rx code without explicitly stating the type of schedulers to be used. This is because all Observable operators that deal with concurrency have optional schedulers. If you do not provide the scheduler, RxJS will pick a default scheduler by using the principle of least concurrency. This means that the scheduler which introduces the least amount of concurrency that satisfies the needs of the operator is chosen.  For example, for operators returning an observable with a finite and small number of messages, RxJS calls <code>immediate</code>.  For operators returning a potentially large or infinite number of messages, <code>currentThread</code> is called. For operators which use timers, <code>default</code> is used.</p>
 <p>Because RxJS uses the least concurrency scheduler, you can pick a different scheduler if you want to introduce concurrency for performance purpose.  To specify a particular scheduler, you can use those operator methods that take a scheduler, e.g., <code>return(42, Rx.Scheduler.default)</code>.</p>
 <p>In the following example, the source observable sequence is producing values at a frantic pace. The default scheduler of the generate operator would place onNext messages on the <code>currentThread</code>.</p>
@@ -5770,7 +5774,7 @@
   .map(x =&gt; x.observeOn(Rx.Scheduler.default))
   .map(x =&gt; expensive(x))  <span class="hljs-comment">// perform operations that are expensive on resources</span>
 </code></pre>
-<h2 id="when-to-use-which-scheduler">When to Use Which Scheduler</h2>
+<h2 id="when-to-use-which-scheduler"><a name="when-to-use-which-scheduler" class="plugin-anchor" href="#when-to-use-which-scheduler"><span class="fa fa-link"></span></a>When to Use Which Scheduler</h2>
 <p>To make things a little easier when you are creating your own operators, or using the standard built-in ones, which scheduler you should use.  The following table lays out each scenario with the suggested scheduler.</p>
 <table style="display: table">
     <th>
@@ -5809,7 +5813,7 @@
     </tr>
 </table>
 
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a name="see-also" class="plugin-anchor" href="#see-also"><span class="fa fa-link"></span></a>See Also</h2>
 <p><em>Reference</em></p>
 <ul>
 <li><a href="testing.md">Testing and Debugging Observable Sequences</a></li>

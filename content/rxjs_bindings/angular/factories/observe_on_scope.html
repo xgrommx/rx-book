@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="16.3.1.2" data-basepath="../../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="16.3.1.2" data-basepath="../../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,10 +5733,10 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-a-id-observeonscopescope-watchexpression-objectequality-a-observeonscope-scope-watchexpression-objectequality"><a id="observeonscopescope-watchexpression-objectequality"></a><code>observeOnScope(scope, watchExpression, [objectEquality])</code></h3>
+                        <h3 id="-a-id-observeonscopescope-watchexpression-objectequality-a-observeonscope-scope-watchexpression-objectequality"><a name="-a-id-observeonscopescope-watchexpression-objectequality-a-observeonscope-scope-watchexpression-objectequality" class="plugin-anchor" href="#-a-id-observeonscopescope-watchexpression-objectequality-a-observeonscope-scope-watchexpression-objectequality"><span class="fa fa-link"></span></a><a id="observeonscopescope-watchexpression-objectequality"></a><code>observeOnScope(scope, watchExpression, [objectEquality])</code></h3>
 <p><a href="#observeonscopescope-watchexpression-objectequality">#</a> <a href="https://github.com/Reactive-Extensions/rx.angular.js/blob/master/src/observeronscope.js#L1-L13" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Creates a factory which allows the user to observe a property on a given scope to check for old and new values.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>scope</code> <em>(Scope)</em>: The scope to apply the watch function.</li>
 <li><code>watchExpression</code>: Expression that is evaluated on each <code>$digest</code> cycle. A change in the return value triggers a call to the listener.<ul>
@@ -5742,9 +5746,9 @@
 </li>
 <li><code>[objectEquality]</code>: <em>(Function)</em>: Compare object for equality rather than for reference.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Rx)</em>: The root of RxJS</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js">angular.module(<span class="hljs-string">&apos;observeOnScopeApp&apos;</span>, [<span class="hljs-string">&apos;rx&apos;</span>])
     .controller(<span class="hljs-string">&apos;AppCtrl&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$scope, observeOnScope</span>) </span>{
 
@@ -5755,7 +5759,7 @@
         });
     });
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li>/src/observeronscope.js</li>

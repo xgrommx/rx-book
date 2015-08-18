@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="gitbook/style.css">
     
         
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="1" data-basepath="." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="1" data-basepath="." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,7 +5733,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="why-rxjs">Why RxJS?</h2>
+                        <h2 id="why-rxjs"><a name="why-rxjs" class="plugin-anchor" href="#why-rxjs"><span class="fa fa-link"></span></a>Why RxJS?</h2>
 <p>One question you may ask yourself, is why RxJS?  What about Promises?  Promises are good for solving asynchronous operations such as querying a service with an <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest</a>, where the expected behavior is one value and then completion.  The Reactive Extensions for JavaScript unifies both the world of Promises, callbacks as well as evented data such as DOM Input, Web Workers, Web Sockets.  Once we have unified these concepts, this enables rich composition.</p>
 <p>To give you an idea about rich composition, we can create an autocompletion service which takes the user input from a text input and then query a service, making sure not to flood the service with calls for every key stroke, but instead allow to go at a more natural pace.</p>
 <p>First, we&apos;ll reference the JavaScript files, including jQuery, although RxJS has no dependencies on jQuery...</p>

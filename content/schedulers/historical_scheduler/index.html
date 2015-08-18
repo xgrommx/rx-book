@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="12.1" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="12.1" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,10 +5733,10 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-rx-historicalscheduler-class"><code>Rx.HistoricalScheduler</code> class</h3>
+                        <h3 id="-rx-historicalscheduler-class"><a name="-rx-historicalscheduler-class" class="plugin-anchor" href="#-rx-historicalscheduler-class"><span class="fa fa-link"></span></a><code>Rx.HistoricalScheduler</code> class</h3>
 <p><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/historicalscheduler.js" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Provides a virtual time scheduler that uses a <code>Date</code> for absolute time and time spans for relative time.  This inherits from the <code>Rx.VirtualTimeScheduler</code> class.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
 <p>The following shows an example of using the <code>Rx.HistoricalScheduler</code>.  This shows creating a minute&apos;s worth of data from January 1st, 1970.</p>
 <pre><code class="lang-js"><span class="hljs-comment">// Initial data</span>
 <span class="hljs-keyword">var</span> initialDate = <span class="hljs-number">0</span>;
@@ -5784,7 +5788,7 @@ scheduler.start();
 <span class="hljs-comment">// =&gt; value: 51076</span>
 <span class="hljs-comment">// =&gt; date: Thu, 1 Jan 1970 00:01:00 UTC</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/historicalscheduler.js" target="_blank"><code>/src/core/concurrency/historicalscheduler.js</code></a></li>
@@ -5808,24 +5812,24 @@ scheduler.start();
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/historicalscheduler.js" target="_blank"><code>/tests/concurrency/historicalscheduler.js</code></a></li>
 </ul>
-<h2 id="-historicalscheduler-constructor"><code>HistoricalScheduler Constructor</code></h2>
+<h2 id="-historicalscheduler-constructor"><a name="-historicalscheduler-constructor" class="plugin-anchor" href="#-historicalscheduler-constructor"><span class="fa fa-link"></span></a><code>HistoricalScheduler Constructor</code></h2>
 <ul>
 <li><a href="#rxhistoricalschedulerinitialclock-comparer"><code>constructor</code></a></li>
 </ul>
-<h2 id="inherited-classes">Inherited Classes</h2>
+<h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/virtualtimescheduler.md" target="_blank"><code>Rx.VirtualScheduler</code></a></li>
 </ul>
-<h2 id="-historicalscheduler-constructor"><em>HistoricalScheduler Constructor</em></h2>
-<h3 id="-rx-historicalscheduler-initialclock-comparer"><code>Rx.HistoricalScheduler([initialClock], [comparer])</code></h3>
+<h2 id="-historicalscheduler-constructor"><a name="-historicalscheduler-constructor" class="plugin-anchor" href="#-historicalscheduler-constructor"><span class="fa fa-link"></span></a><em>HistoricalScheduler Constructor</em></h2>
+<h3 id="-rx-historicalscheduler-initialclock-comparer"><a name="-rx-historicalscheduler-initialclock-comparer" class="plugin-anchor" href="#-rx-historicalscheduler-initialclock-comparer"><span class="fa fa-link"></span></a><code>Rx.HistoricalScheduler([initialClock], [comparer])</code></h3>
 <p><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/historicalscheduler.js" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a new historical scheduler with the specified initial clock value.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li>[<code>initialClock</code>] <em>(Function)</em>: Initial value for the clock.</li>
 <li>[<code>comparer</code>] <em>(Function)</em>: Comparer to determine causality of events based on absolute time.</li>
 </ol>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> (<span class="hljs-params">x, y</span>) </span>{
   <span class="hljs-keyword">if</span> (x &gt; y) { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
   <span class="hljs-keyword">if</span> (x &lt; y) { <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>; }

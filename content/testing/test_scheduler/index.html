@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="14.4" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="14.4" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,9 +5733,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-testscheduler-class"><code>Rx.TestScheduler</code> class</h1>
+                        <h1 id="-rx-testscheduler-class"><a name="-rx-testscheduler-class" class="plugin-anchor" href="#-rx-testscheduler-class"><span class="fa fa-link"></span></a><code>Rx.TestScheduler</code> class</h1>
 <p>Virtual time scheduler used for testing applications and libraries built using Reactive Extensions.  This inherits from the <code>Rx.TestScheduler</code> class.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
 <p>The following shows an example of using the <code>Rx.TestScheduler</code>.  In order to make the end comparisons work, you must implement a collection assert, for example here using QUnit.</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createMessage</span>(<span class="hljs-params">actual, expected</span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Expected: [&apos;</span> + expected.toString() + <span class="hljs-string">&apos;]\r\nActual: [&apos;</span> + actual.toString() + <span class="hljs-string">&apos;]&apos;</span>;
@@ -5790,15 +5794,15 @@ collectionAssert.assertEqual(xs.subscriptions, [
     subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">230</span>)
 ]);
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
-<h2 id="-testscheduler-constructor"><code>TestScheduler Constructor</code></h2>
+<h2 id="-testscheduler-constructor"><a name="-testscheduler-constructor" class="plugin-anchor" href="#-testscheduler-constructor"><span class="fa fa-link"></span></a><code>TestScheduler Constructor</code></h2>
 <ul>
 <li><a href="#rxtestscheduler"><code>constructor</code></a></li>
 </ul>
-<h2 id="-testscheduler-instance-methods"><code>TestScheduler Instance Methods</code></h2>
+<h2 id="-testscheduler-instance-methods"><a name="-testscheduler-instance-methods" class="plugin-anchor" href="#-testscheduler-instance-methods"><span class="fa fa-link"></span></a><code>TestScheduler Instance Methods</code></h2>
 <ul>
 <li><a href="#rxtestschedulerprototypecreatecoldobservableargs"><code>createColdObservable</code></a></li>
 <li><a href="#rxtestschedulerprototypecreatehotobservableargs"><code>createHotObservable</code></a></li>
@@ -5807,15 +5811,15 @@ collectionAssert.assertEqual(xs.subscriptions, [
 <li><a href="#rxtestschedulerprototypestartwithdisposecreate-disposed"><code>startWithDispose</code></a></li>
 <li><a href="#rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed"><code>startWithTiming</code></a></li>
 </ul>
-<h2 id="inherited-classes">Inherited Classes</h2>
+<h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/virtualtimescheduler.md" target="_blank"><code>Rx.VirtualTimeScheduler</code></a></li>
 </ul>
-<h2 id="-testscheduler-constructor"><em>TestScheduler Constructor</em></h2>
-<h3 id="-a-id-rxtestscheduler-a-rx-testscheduler"><a id="rxtestscheduler"></a><code>Rx.TestScheduler()</code></h3>
+<h2 id="-testscheduler-constructor"><a name="-testscheduler-constructor" class="plugin-anchor" href="#-testscheduler-constructor"><span class="fa fa-link"></span></a><em>TestScheduler Constructor</em></h2>
+<h3 id="-a-id-rxtestscheduler-a-rx-testscheduler"><a name="-a-id-rxtestscheduler-a-rx-testscheduler" class="plugin-anchor" href="#-a-id-rxtestscheduler-a-rx-testscheduler"><span class="fa fa-link"></span></a><a id="rxtestscheduler"></a><code>Rx.TestScheduler()</code></h3>
 <p><a href="#rxtestscheduler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L10-L12" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a new virtual time test scheduler.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
     onCompleted = Rx.ReactiveTest.onCompleted;
 
@@ -5846,22 +5850,22 @@ collectionAssert.assertEqual(xs.subscriptions, [
     subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">230</span>)
 ]);
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h2 id="-testscheduler-instance-methods"><em>TestScheduler Instance Methods</em></h2>
-<h3 id="-a-id-rxtestschedulerprototypecreatecoldobservableargs-a-rx-testscheduler-prototype-createcoldobservable-args"><a id="rxtestschedulerprototypecreatecoldobservableargs"></a><code>Rx.TestScheduler.prototype.createColdObservable(...args)</code></h3>
+<h2 id="-testscheduler-instance-methods"><a name="-testscheduler-instance-methods" class="plugin-anchor" href="#-testscheduler-instance-methods"><span class="fa fa-link"></span></a><em>TestScheduler Instance Methods</em></h2>
+<h3 id="-a-id-rxtestschedulerprototypecreatecoldobservableargs-a-rx-testscheduler-prototype-createcoldobservable-args"><a name="-a-id-rxtestschedulerprototypecreatecoldobservableargs-a-rx-testscheduler-prototype-createcoldobservable-args" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypecreatecoldobservableargs-a-rx-testscheduler-prototype-createcoldobservable-args"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypecreatecoldobservableargs"></a><code>Rx.TestScheduler.prototype.createColdObservable(...args)</code></h3>
 <p><a href="#rxtestschedulerprototypecreatecoldobservableargs">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L118-L121" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a cold observable using the specified timestamped notification messages.</p>
-<h3 id="arguments">Arguments</h3>
+<h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
 <li><code>args</code> <em>(Arguments)</em>: An arguments array of Recorded objects from <code>Rx.ReactiveTest.onNext</code>, <code>Rx.ReactiveTest.onError</code>, and <code>Rx.ReactiveTest.onCompleted</code> methods.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: Cold observable sequence that can be used to assert the timing of subscriptions and notifications.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
     onCompleted = Rx.ReactiveTest.onCompleted;
 
@@ -5891,21 +5895,21 @@ collectionAssert.assertEqual(xs.subscriptions, [
     subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">500</span>)
 ]);
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxtestschedulerprototypecreatehotobservableargs-a-rx-testscheduler-prototype-createhotobservable-args"><a id="rxtestschedulerprototypecreatehotobservableargs"></a><code>Rx.TestScheduler.prototype.createHotObservable(...args)</code></h3>
+<h3 id="-a-id-rxtestschedulerprototypecreatehotobservableargs-a-rx-testscheduler-prototype-createhotobservable-args"><a name="-a-id-rxtestschedulerprototypecreatehotobservableargs-a-rx-testscheduler-prototype-createhotobservable-args" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypecreatehotobservableargs-a-rx-testscheduler-prototype-createhotobservable-args"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypecreatehotobservableargs"></a><code>Rx.TestScheduler.prototype.createHotObservable(...args)</code></h3>
 <p><a href="#rxtestschedulerprototypecreatehotobservableargs">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L108-L111" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a hot observable using the specified timestamped notification messages.</p>
-<h3 id="arguments">Arguments</h3>
+<h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
 <li><code>args</code> <em>(Arguments)</em>: An arguments array of Recorded objects from <code>Rx.ReactiveTest.onNext</code>, <code>Rx.ReactiveTest.onError</code>, and <code>Rx.ReactiveTest.onCompleted</code> methods.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: Hot observable sequence that can be used to assert the timing of subscriptions and notifications.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
     onCompleted = Rx.ReactiveTest.onCompleted;
 
@@ -5936,17 +5940,17 @@ collectionAssert.assertEqual(xs.subscriptions, [
     subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">230</span>)
 ]);
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxtestschedulerprototypecreateobserver-a-rx-testscheduler-prototype-createobserver"><a id="rxtestschedulerprototypecreateobserver"></a><code>Rx.TestScheduler.prototype.createObserver()</code></h3>
+<h3 id="-a-id-rxtestschedulerprototypecreateobserver-a-rx-testscheduler-prototype-createobserver"><a name="-a-id-rxtestschedulerprototypecreateobserver-a-rx-testscheduler-prototype-createobserver" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypecreateobserver-a-rx-testscheduler-prototype-createobserver"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypecreateobserver"></a><code>Rx.TestScheduler.prototype.createObserver()</code></h3>
 <p><a href="#rxtestschedulerprototypecreateobserver">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L127-L129" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates an observer that records received notification messages and timestamps those.</p>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: Observer that can be used to assert the timing of received notifications.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext;
 
 <span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
@@ -5974,21 +5978,21 @@ collectionAssert.assertEqual(res.messages, [
     onNext(<span class="hljs-number">101</span>, <span class="hljs-number">42</span>)
 ]);
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxtestschedulerprototypestartwithcreatecreate-a-rx-testscheduler-prototype-startwithcreate-create"><a id="rxtestschedulerprototypestartwithcreatecreate"></a><code>Rx.TestScheduler.prototype.startWithCreate(create)</code></h3>
+<h3 id="-a-id-rxtestschedulerprototypestartwithcreatecreate-a-rx-testscheduler-prototype-startwithcreate-create"><a name="-a-id-rxtestschedulerprototypestartwithcreatecreate-a-rx-testscheduler-prototype-startwithcreate-create" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypestartwithcreatecreate-a-rx-testscheduler-prototype-startwithcreate-create"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypestartwithcreatecreate"></a><code>Rx.TestScheduler.prototype.startWithCreate(create)</code></h3>
 <p><a href="#rxtestschedulerprototypestartwithcreatecreate">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L99-L101" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Starts the test scheduler and uses default virtual times to invoke the factory function, to subscribe to the resulting sequence, and to dispose the subscription.</p>
-<h3 id="arguments">Arguments</h3>
+<h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
 <li><code>create</code> <em>(Function)</em>: Factory method to create an observable sequence.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: Observer with timestamped recordings of notification messages that were received during the virtual time window when the subscription to the source sequence was active.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
     onCompleted = Rx.ReactiveTest.onCompleted;
 
@@ -6018,23 +6022,23 @@ collectionAssert.assertEqual(xs.subscriptions, [
     subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">500</span>)
 ]);
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxtestschedulerprototypestartwithdisposecreate-disposed-a-rx-testscheduler-prototype-startwithdispose-create-disposed"><a id="rxtestschedulerprototypestartwithdisposecreate-disposed"></a><code>Rx.TestScheduler.prototype.startWithDispose(create, disposed)</code></h3>
+<h3 id="-a-id-rxtestschedulerprototypestartwithdisposecreate-disposed-a-rx-testscheduler-prototype-startwithdispose-create-disposed"><a name="-a-id-rxtestschedulerprototypestartwithdisposecreate-disposed-a-rx-testscheduler-prototype-startwithdispose-create-disposed" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypestartwithdisposecreate-disposed-a-rx-testscheduler-prototype-startwithdispose-create-disposed"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypestartwithdisposecreate-disposed"></a><code>Rx.TestScheduler.prototype.startWithDispose(create, disposed)</code></h3>
 <p><a href="#rxtestschedulerprototypestartwithdisposecreate-disposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L90-L92" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Starts the test scheduler and uses the specified virtual time to dispose the subscription to the sequence obtained through the factory function.
 Default virtual times are used for factory invocation and sequence subscription.</p>
-<h3 id="arguments">Arguments</h3>
+<h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
 <li><code>create</code> <em>(Function)</em>: Factory method to create an observable sequence.</li>
 <li><code>disposed</code> <em>(Number)</em>: Virtual time at which to dispose the subscription.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: Observer with timestamped recordings of notification messages that were received during the virtual time window when the subscription to the source sequence was active.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
     onCompleted = Rx.ReactiveTest.onCompleted;
 
@@ -6067,24 +6071,24 @@ collectionAssert.assertEqual(xs.subscriptions, [
     subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">215</span>)
 ]);
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed-a-rx-testscheduler-prototype-startwithtiming-create-created-subscribed-disposed"><a id="rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed"></a><code>Rx.TestScheduler.prototype.startWithTiming(create, created, subscribed, disposed)</code></h3>
+<h3 id="-a-id-rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed-a-rx-testscheduler-prototype-startwithtiming-create-created-subscribed-disposed"><a name="-a-id-rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed-a-rx-testscheduler-prototype-startwithtiming-create-created-subscribed-disposed" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed-a-rx-testscheduler-prototype-startwithtiming-create-created-subscribed-disposed"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed"></a><code>Rx.TestScheduler.prototype.startWithTiming(create, created, subscribed, disposed)</code></h3>
 <p><a href="#rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L65-L81" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Starts the test scheduler and uses the specified virtual times to invoke the factory function, subscribe to the resulting sequence, and dispose the subscription.</p>
-<h3 id="arguments">Arguments</h3>
+<h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
 <li><code>create</code> <em>(Function)</em>: Factory method to create an observable sequence.</li>
 <li><code>created</code> <em>(Number)</em>: Virtual time at which to invoke the factory to create an observable sequence.</li>
 <li><code>subscribed</code> <em>(Number)</em>: Virtual time at which to subscribe to the created observable sequence.</li>
 <li><code>disposed</code> <em>(Number)</em>: Virtual time at which to dispose the subscription.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: Observer with timestamped recordings of notification messages that were received during the virtual time window when the subscription to the source sequence was active.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
     onCompleted = Rx.ReactiveTest.onCompleted;
 
@@ -6121,7 +6125,7 @@ collectionAssert.assertEqual(xs.subscriptions, [
     subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">300</span>)
 ]);
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>

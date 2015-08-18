@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="15.3.4" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="15.3.4" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,22 +5733,22 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="fromtransformstream">fromTransformStream</h1>
-<h3 id="-a-id-rxnodefromtransformstreamstream-a-rx-node-fromtransformstream-stream"><a id="rxnodefromtransformstreamstream"></a><code>Rx.Node.fromTransformStream(stream)</code></h3>
+                        <h1 id="fromtransformstream"><a name="fromtransformstream" class="plugin-anchor" href="#fromtransformstream"><span class="fa fa-link"></span></a>fromTransformStream</h1>
+<h3 id="-a-id-rxnodefromtransformstreamstream-a-rx-node-fromtransformstream-stream"><a name="-a-id-rxnodefromtransformstreamstream-a-rx-node-fromtransformstream-stream" class="plugin-anchor" href="#-a-id-rxnodefromtransformstreamstream-a-rx-node-fromtransformstream-stream"><span class="fa fa-link"></span></a><a id="rxnodefromtransformstreamstream"></a><code>Rx.Node.fromTransformStream(stream)</code></h3>
 <p><a href="#rxnodefromtransformstreamstream">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.node.js#L141-L143" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Converts a flowing transform stream to an Observable sequence.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>stream</code> <em>(Stream)</em>: A stream to convert to a observable sequence.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: An observable sequence which fires on each &apos;data&apos; event as well as handling &apos;error&apos; and &apos;finish&apos; events.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
 <span class="hljs-keyword">var</span> subscription = Rx.Node.fromTransformStream(getTransformStreamSomehow());
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.node.js</li>
 </ul>

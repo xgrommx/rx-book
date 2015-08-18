@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="12.2" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="12.2" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,9 +5733,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-scheduler-class"><code>Rx.Scheduler</code> class</h1>
+                        <h1 id="-rx-scheduler-class"><a name="-rx-scheduler-class" class="plugin-anchor" href="#-rx-scheduler-class"><span class="fa fa-link"></span></a><code>Rx.Scheduler</code> class</h1>
 <p>Provides a set of static methods to access commonly used schedulers and a base class for all schedulers.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
 <p>The follow example shows the basic usage of an <code>Rx.Scheduler</code>.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleWithState(
      <span class="hljs-string">&apos;world&apos;</span>,
@@ -5742,20 +5746,20 @@
 
 <span class="hljs-comment">// =&gt; hello world</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
-<h2 id="-scheduler-constructor"><code>Scheduler Constructor</code></h2>
+<h2 id="-scheduler-constructor"><a name="-scheduler-constructor" class="plugin-anchor" href="#-scheduler-constructor"><span class="fa fa-link"></span></a><code>Scheduler Constructor</code></h2>
 <ul>
 <li><a href="#rxschedulernow-schedule-schedulerelative-scheduleabsolute"><code>constructor</code></a></li>
 </ul>
-<h2 id="-scheduler-instance-methods"><code>Scheduler Instance Methods</code></h2>
+<h2 id="-scheduler-instance-methods"><a name="-scheduler-instance-methods" class="plugin-anchor" href="#-scheduler-instance-methods"><span class="fa fa-link"></span></a><code>Scheduler Instance Methods</code></h2>
 <ul>
 <li><a href="#rxschedulerprototypecatchexceptionhandler"><code>catchException</code></a></li>
 <li><a href="#rxschedulerprototypenow"><code>now</code></a></li>
 </ul>
-<h3 id="standard-scheduling">Standard Scheduling</h3>
+<h3 id="standard-scheduling"><a name="standard-scheduling" class="plugin-anchor" href="#standard-scheduling"><span class="fa fa-link"></span></a>Standard Scheduling</h3>
 <ul>
 <li><a href="#rxschedulerprototypescheduleaction"><code>schedule</code></a></li>
 <li><a href="#rxschedulerprototypeschedulewithstatestate-action"><code>scheduleWithState</code></a></li>
@@ -5764,7 +5768,7 @@
 <li><a href="#rxschedulerprototypeschedulewithabsoluteduetime-action"><code>scheduleWithRelative</code></a></li>
 <li><a href="#rxschedulerprototypeschedulewithabsoluteandstatestate-duetime-action"><code>scheduleWithRelativeAndState</code></a></li>
 </ul>
-<h3 id="recursive-scheduling">Recursive Scheduling</h3>
+<h3 id="recursive-scheduling"><a name="recursive-scheduling" class="plugin-anchor" href="#recursive-scheduling"><span class="fa fa-link"></span></a>Recursive Scheduling</h3>
 <ul>
 <li><a href="#rxschedulerschedulerecursiveaction"><code>scheduleRecursive</code></a></li>
 <li><a href="#rxschedulerschedulerecursivewithstatestate-action"><code>scheduleRecursiveWithState</code></a></li>
@@ -5773,33 +5777,33 @@
 <li><a href="#rxschedulerecursivewithrelativeduetime-action"><code>scheduleRecursiveWithRelative</code></a></li>
 <li><a href="#rxschedulerecursivewithrelativewithstatestate-duetime-action"><code>scheduleRecursiveWithRelativeAndState</code></a></li>
 </ul>
-<h3 id="periodic-scheduling">Periodic Scheduling</h3>
+<h3 id="periodic-scheduling"><a name="periodic-scheduling" class="plugin-anchor" href="#periodic-scheduling"><span class="fa fa-link"></span></a>Periodic Scheduling</h3>
 <ul>
 <li><a href="#rxschedulerprototypescheduleperiodicperiod-action"><code>schedulePeriodic</code></a></li>
 <li><a href="#rxschedulerscheduleperiodicwithstatestate-period-action"><code>schedulePeriodicWithState</code></a></li>
 </ul>
-<h2 id="-scheduler-class-methods">`Scheduler Class Methods</h2>
+<h2 id="-scheduler-class-methods"><a name="-scheduler-class-methods" class="plugin-anchor" href="#-scheduler-class-methods"><span class="fa fa-link"></span></a>`Scheduler Class Methods</h2>
 <ul>
 <li><a href="#rxschedulernormalizetimespan"><code>normalize</code></a></li>
 </ul>
-<h2 id="-scheduler-class-properties"><code>Scheduler Class Properties</code></h2>
+<h2 id="-scheduler-class-properties"><a name="-scheduler-class-properties" class="plugin-anchor" href="#-scheduler-class-properties"><span class="fa fa-link"></span></a><code>Scheduler Class Properties</code></h2>
 <ul>
 <li><a href="#rxschedulercurrentthread"><code>currentThread</code></a></li>
 <li><a href="#rxschedulerimmediate"><code>immediate</code></a></li>
 <li><a href="#rxschedulertimeout"><code>timeout</code></a></li>
 </ul>
-<h2 id="-scheduler-constructor"><em>Scheduler Constructor</em></h2>
-<h3 id="-a-id-rxschedulernow-schedule-schedulerelative-scheduleabsolute-a-rx-scheduler-now-schedule-schedulerelative-scheduleabsolute"><a id="rxschedulernow-schedule-schedulerelative-scheduleabsolute"></a><code>Rx.Scheduler(now, schedule, scheduleRelative, scheduleAbsolute)</code></h3>
+<h2 id="-scheduler-constructor"><a name="-scheduler-constructor" class="plugin-anchor" href="#-scheduler-constructor"><span class="fa fa-link"></span></a><em>Scheduler Constructor</em></h2>
+<h3 id="-a-id-rxschedulernow-schedule-schedulerelative-scheduleabsolute-a-rx-scheduler-now-schedule-schedulerelative-scheduleabsolute"><a name="-a-id-rxschedulernow-schedule-schedulerelative-scheduleabsolute-a-rx-scheduler-now-schedule-schedulerelative-scheduleabsolute" class="plugin-anchor" href="#-a-id-rxschedulernow-schedule-schedulerelative-scheduleabsolute-a-rx-scheduler-now-schedule-schedulerelative-scheduleabsolute"><span class="fa fa-link"></span></a><a id="rxschedulernow-schedule-schedulerelative-scheduleabsolute"></a><code>Rx.Scheduler(now, schedule, scheduleRelative, scheduleAbsolute)</code></h3>
 <p><a href="#rxschedulernow-schedule-schedulerelative-scheduleabsolute">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L5-L9" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Initializes a new instance of the <code>Rx.Scheduler</code>.  This is meant for Scheduler implementers and not normal usage.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>now</code> <em>(Function)</em>: Function which gets the current time according to the local machine&apos;s system clock.</li>
 <li><code>schedule</code> <em>(Function)</em>: Function to schedule an action immediately.</li>
 <li><code>scheduleRelative</code> <em>(Function)</em>: Function used to schedule an action in relative time.</li>
 <li><code>scheduleAbsolute</code> <em>(Function)</em>: Function used to schedule an action in absolute time.</li>
 </ol>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">// Used for scheduling immediately</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">schedule</span>(<span class="hljs-params">state, action</span>) </span>{
      <span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">this</span>,
@@ -5856,22 +5860,22 @@
 
 <span class="hljs-comment">// =&gt; hello</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-scheduler-instance-methods"><em>Scheduler Instance Methods</em></h2>
-<h3 id="-a-id-rxschedulerprototypecatchhandler-a-rx-scheduler-prototype-catch-handler"><a id="rxschedulerprototypecatchhandler"></a><code>Rx.Scheduler.prototype.catch(handler)</code></h3>
+<h2 id="-scheduler-instance-methods"><a name="-scheduler-instance-methods" class="plugin-anchor" href="#-scheduler-instance-methods"><span class="fa fa-link"></span></a><em>Scheduler Instance Methods</em></h2>
+<h3 id="-a-id-rxschedulerprototypecatchhandler-a-rx-scheduler-prototype-catch-handler"><a name="-a-id-rxschedulerprototypecatchhandler-a-rx-scheduler-prototype-catch-handler" class="plugin-anchor" href="#-a-id-rxschedulerprototypecatchhandler-a-rx-scheduler-prototype-catch-handler"><span class="fa fa-link"></span></a><a id="rxschedulerprototypecatchhandler"></a><code>Rx.Scheduler.prototype.catch(handler)</code></h3>
 <p><a href="#rxschedulerprototypecatchhandler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L65-L72" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Returns a scheduler that wraps the original scheduler, adding exception handling for scheduled actions.  There is an alias of <code>catchException</code> for browsers &lt; IE9.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>handler</code> <em>(Function)</em>: Handler that&apos;s run if an exception is caught. The exception will be rethrown if the handler returns <code>false</code>.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Scheduler)</em>: Wrapper around the original scheduler, enforcing exception handling.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inherits</span> (<span class="hljs-params">ctor, superCtor</span>) </span>{
     ctor.super_ = superCtor;
     ctor.prototype = <span class="hljs-built_in">Object</span>.create(superCtor.prototype, {
@@ -5906,38 +5910,38 @@ inherits (SchedulerError, <span class="hljs-built_in">Error</span>);
 
 <span class="hljs-comment">// =&gt; Uncaught Error: woops</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypenow-a-rx-scheduler-prototype-now"><a id="rxschedulerprototypenow"></a><code>Rx.Scheduler.prototype.now()</code></h3>
+<h3 id="-a-id-rxschedulerprototypenow-a-rx-scheduler-prototype-now"><a name="-a-id-rxschedulerprototypenow-a-rx-scheduler-prototype-now" class="plugin-anchor" href="#-a-id-rxschedulerprototypenow-a-rx-scheduler-prototype-now"><span class="fa fa-link"></span></a><a id="rxschedulerprototypenow"></a><code>Rx.Scheduler.prototype.now()</code></h3>
 <p><a href="#rxschedulerprototypenow">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L17-L24" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets the current time according to the Scheduler implementation.</p>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Number)</em>: The current time according to the Scheduler implementation.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> now = Rx.Scheduler.timeout.now();
 
 <span class="hljs-built_in">console</span>.log(now);
 <span class="hljs-comment">// =&gt; 1381806323143</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="standard-scheduling">Standard Scheduling</h3>
-<h3 id="-a-id-rxschedulerprototypescheduleaction-a-rx-scheduler-prototype-schedule-action"><a id="rxschedulerprototypescheduleaction"></a><code>Rx.Scheduler.prototype.schedule(action)</code></h3>
+<h3 id="standard-scheduling"><a name="standard-scheduling" class="plugin-anchor" href="#standard-scheduling"><span class="fa fa-link"></span></a>Standard Scheduling</h3>
+<h3 id="-a-id-rxschedulerprototypescheduleaction-a-rx-scheduler-prototype-schedule-action"><a name="-a-id-rxschedulerprototypescheduleaction-a-rx-scheduler-prototype-schedule-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypescheduleaction-a-rx-scheduler-prototype-schedule-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypescheduleaction"></a><code>Rx.Scheduler.prototype.schedule(action)</code></h3>
 <p><a href="#rxschedulerprototypescheduleaction">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L112-114" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>action</code> <em>(Function)</em>: Action to execute.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.immediate.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
@@ -5947,22 +5951,22 @@ inherits (SchedulerError, <span class="hljs-built_in">Error</span>);
 <span class="hljs-comment">// Tries to cancel but too late since it is immediate</span>
 disposable.dispose();
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypeschedulewithstatestate-action-a-rx-scheduler-prototype-schedulewithstate-state-action"><a id="rxschedulerprototypeschedulewithstatestate-action"></a><code>Rx.Scheduler.prototype.scheduleWithState(state, action)</code></h3>
+<h3 id="-a-id-rxschedulerprototypeschedulewithstatestate-action-a-rx-scheduler-prototype-schedulewithstate-state-action"><a name="-a-id-rxschedulerprototypeschedulewithstatestate-action-a-rx-scheduler-prototype-schedulewithstate-state-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulewithstatestate-action-a-rx-scheduler-prototype-schedulewithstate-state-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulewithstatestate-action"></a><code>Rx.Scheduler.prototype.scheduleWithState(state, action)</code></h3>
 <p><a href="#rxschedulerprototypeschedulewithstatestate-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L122-124" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed with state.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>state</code> <em>(Any)</em>: State passed to the action to be executed.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.immediate.scheduleWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
 });
@@ -5972,22 +5976,22 @@ disposable.dispose();
 <span class="hljs-comment">// Tries to cancel but too late since it is immediate</span>
 disposable.dispose();
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypeschedulewithabsoluteduetime-action-a-rx-scheduler-prototype-schedulewithabsolute-duetime-action"><a id="rxschedulerprototypeschedulewithabsoluteduetime-action"></a><code>Rx.Scheduler.prototype.scheduleWithAbsolute(duetime, action)</code></h3>
+<h3 id="-a-id-rxschedulerprototypeschedulewithabsoluteduetime-action-a-rx-scheduler-prototype-schedulewithabsolute-duetime-action"><a name="-a-id-rxschedulerprototypeschedulewithabsoluteduetime-action-a-rx-scheduler-prototype-schedulewithabsolute-duetime-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulewithabsoluteduetime-action-a-rx-scheduler-prototype-schedulewithabsolute-duetime-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulewithabsoluteduetime-action"></a><code>Rx.Scheduler.prototype.scheduleWithAbsolute(duetime, action)</code></h3>
 <p><a href="#rxschedulerprototypeschedulewithabsoluteduetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L153-155" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed at the specified absolute due time. Note this only works with the built-in <code>Rx.Scheduler.timeout</code> scheduler, as the rest will throw an exception as the framework does not allow for blocking.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>dueTime</code> <em>(Number)</em>: Absolute time at which to execute the action.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleWithAbsolute(
      <span class="hljs-built_in">Date</span>.now() + <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
      <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
@@ -5997,23 +6001,23 @@ disposable.dispose();
 
 <span class="hljs-comment">// =&gt; hello</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypeschedulewithabsoluteandstatestate-duetime-action-a-rx-scheduler-prototype-schedulewithabsoluteandstate-state-duetime-action"><a id="rxschedulerprototypeschedulewithabsoluteandstatestate-duetime-action"></a><code>Rx.Scheduler.prototype.scheduleWithAbsoluteAndState(state, duetime, action)</code></h3>
+<h3 id="-a-id-rxschedulerprototypeschedulewithabsoluteandstatestate-duetime-action-a-rx-scheduler-prototype-schedulewithabsoluteandstate-state-duetime-action"><a name="-a-id-rxschedulerprototypeschedulewithabsoluteandstatestate-duetime-action-a-rx-scheduler-prototype-schedulewithabsoluteandstate-state-duetime-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulewithabsoluteandstatestate-duetime-action-a-rx-scheduler-prototype-schedulewithabsoluteandstate-state-duetime-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulewithabsoluteandstatestate-duetime-action"></a><code>Rx.Scheduler.prototype.scheduleWithAbsoluteAndState(state, duetime, action)</code></h3>
 <p><a href="#rxschedulerprototypeschedulewithabsoluteandstatestate-duetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L164-166" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed at the specified absolute due time. Note this only works with the built-in <code>Rx.Scheduler.timeout</code> scheduler, as the rest will throw an exception as the framework does not allow for blocking.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>state</code> <em>(Any)</em>: State passed to the action to be executed.</li>
 <li><code>dueTime</code> <em>(Number)</em>: Absolute time at which to execute the action.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleWithAbsolute(
      <span class="hljs-string">&apos;world&apos;</span>,
      <span class="hljs-built_in">Date</span>.now() + <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
@@ -6024,22 +6028,22 @@ disposable.dispose();
 
 <span class="hljs-comment">// =&gt; hello world</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypeschedulewithrelativeduetime-action-a-rx-scheduler-prototype-schedulewithrelative-duetime-action"><a id="rxschedulerprototypeschedulewithrelativeduetime-action"></a><code>Rx.Scheduler.prototype.scheduleWithRelative(duetime, action)</code></h3>
+<h3 id="-a-id-rxschedulerprototypeschedulewithrelativeduetime-action-a-rx-scheduler-prototype-schedulewithrelative-duetime-action"><a name="-a-id-rxschedulerprototypeschedulewithrelativeduetime-action-a-rx-scheduler-prototype-schedulewithrelative-duetime-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulewithrelativeduetime-action-a-rx-scheduler-prototype-schedulewithrelative-duetime-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulewithrelativeduetime-action"></a><code>Rx.Scheduler.prototype.scheduleWithRelative(duetime, action)</code></h3>
 <p><a href="#rxschedulerprototypeschedulewithrelativeduetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L132-134" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed after the specified relative due time. Note this only works with the built-in <code>Rx.Scheduler.timeout</code> scheduler, as the rest will throw an exception as the framework does not allow for blocking.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>dueTime</code> <em>(Number)</em>: Relative time at which to execute the action.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleWithRelative(
      <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
      <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
@@ -6049,23 +6053,23 @@ disposable.dispose();
 
 <span class="hljs-comment">// =&gt; hello</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypeschedulewithrelativeandstatestate-duetime-action-a-rx-scheduler-prototype-schedulewithrelativeandstate-state-duetime-action"><a id="rxschedulerprototypeschedulewithrelativeandstatestate-duetime-action"></a><code>Rx.Scheduler.prototype.scheduleWithRelativeAndState(state, duetime, action)</code></h3>
+<h3 id="-a-id-rxschedulerprototypeschedulewithrelativeandstatestate-duetime-action-a-rx-scheduler-prototype-schedulewithrelativeandstate-state-duetime-action"><a name="-a-id-rxschedulerprototypeschedulewithrelativeandstatestate-duetime-action-a-rx-scheduler-prototype-schedulewithrelativeandstate-state-duetime-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulewithrelativeandstatestate-duetime-action-a-rx-scheduler-prototype-schedulewithrelativeandstate-state-duetime-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulewithrelativeandstatestate-duetime-action"></a><code>Rx.Scheduler.prototype.scheduleWithRelativeAndState(state, duetime, action)</code></h3>
 <p><a href="#rxschedulerprototypeschedulewithrelativeandstatestate-duetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L164-166" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed at the specified relative due time. Note this only works with the built-in <code>Rx.Scheduler.timeout</code> scheduler, as the rest will throw an exception as the framework does not allow for blocking.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>state</code> <em>(Any)</em>: State passed to the action to be executed.</li>
 <li><code>dueTime</code> <em>(Number)</em>: Relative time at which to execute the action.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleWithAbsolute(
      <span class="hljs-string">&apos;world&apos;</span>,
      <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
@@ -6076,22 +6080,22 @@ disposable.dispose();
 
 <span class="hljs-comment">// =&gt; hello world</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="recursive-scheduling">Recursive Scheduling</h3>
-<h3 id="-a-id-rxschedulerprototypeschedulerecursiveaction-a-rx-scheduler-prototype-schedulerecursive-action"><a id="rxschedulerprototypeschedulerecursiveaction"></a><code>Rx.Scheduler.prototype.scheduleRecursive(action)</code></h3>
+<h3 id="recursive-scheduling"><a name="recursive-scheduling" class="plugin-anchor" href="#recursive-scheduling"><span class="fa fa-link"></span></a>Recursive Scheduling</h3>
+<h3 id="-a-id-rxschedulerprototypeschedulerecursiveaction-a-rx-scheduler-prototype-schedulerecursive-action"><a name="-a-id-rxschedulerprototypeschedulerecursiveaction-a-rx-scheduler-prototype-schedulerecursive-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulerecursiveaction-a-rx-scheduler-prototype-schedulerecursive-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulerecursiveaction"></a><code>Rx.Scheduler.prototype.scheduleRecursive(action)</code></h3>
 <p><a href="#rxschedulerprototypescheduleaction">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L173-179" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed recursively.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>action</code> <em>(Function)</em>: Action to execute recursively. The parameter passed to the action is used to trigger recursive scheduling of the action.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> disposable = Rx.Scheduler.immediate.scheduleRecursive(
@@ -6107,22 +6111,22 @@ disposable.dispose();
 <span class="hljs-comment">// =&gt; 1</span>
 <span class="hljs-comment">// =&gt; 2</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypeschedulerecursivewithstatestate-action-a-rx-scheduler-prototype-schedulerecursivewithstate-state-action"><a id="rxschedulerprototypeschedulerecursivewithstatestate-action"></a><code>Rx.Scheduler.prototype.scheduleRecursiveWithState(state, action)</code></h3>
+<h3 id="-a-id-rxschedulerprototypeschedulerecursivewithstatestate-action-a-rx-scheduler-prototype-schedulerecursivewithstate-state-action"><a name="-a-id-rxschedulerprototypeschedulerecursivewithstatestate-action-a-rx-scheduler-prototype-schedulerecursivewithstate-state-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulerecursivewithstatestate-action-a-rx-scheduler-prototype-schedulerecursivewithstate-state-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulerecursivewithstatestate-action"></a><code>Rx.Scheduler.prototype.scheduleRecursiveWithState(state, action)</code></h3>
 <p><a href="#rxschedulerprototypeschedulerecursivewithstatestate-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L122-124" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed with state.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>state</code> <em>(Any)</em>: State passed to the action to be executed.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute recursively. The last parameter passed to the action is used to trigger recursive scheduling of the action, passing in recursive invocation state.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.immediate.scheduleRecursiveWithState(
      <span class="hljs-number">0</span>,
      <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i, self</span>) </span>{
@@ -6137,22 +6141,22 @@ disposable.dispose();
 <span class="hljs-comment">// =&gt; 1</span>
 <span class="hljs-comment">// =&gt; 2</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypeschedulerecursivewithabsoluteduetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsolute-duetime-action"><a id="rxschedulerprototypeschedulerecursivewithabsoluteduetime-action"></a><code>Rx.Scheduler.prototype.scheduleRecursiveWithAbsolute(duetime, action)</code></h3>
+<h3 id="-a-id-rxschedulerprototypeschedulerecursivewithabsoluteduetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsolute-duetime-action"><a name="-a-id-rxschedulerprototypeschedulerecursivewithabsoluteduetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsolute-duetime-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulerecursivewithabsoluteduetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsolute-duetime-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulerecursivewithabsoluteduetime-action"></a><code>Rx.Scheduler.prototype.scheduleRecursiveWithAbsolute(duetime, action)</code></h3>
 <p><a href="#rxschedulerprototypeschedulerecursivewithabsoluteduetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L226-232" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed recursively at a specified absolute due time. Note this only works with the built-in <code>Rx.Scheduler.timeout</code> scheduler, as the rest will throw an exception as the framework does not allow for blocking.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>dueTime</code> <em>(Number)</em>: Absolute time at which to execute the action for the first time.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute recursively. The parameter passed to the action is used to trigger recursive scheduling of the action at the specified absolute time.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleRecursiveWithAbsolute(
@@ -6170,23 +6174,23 @@ disposable.dispose();
 <span class="hljs-comment">// =&gt; 1</span>
 <span class="hljs-comment">// =&gt; 2</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypeschedulerecursivewithabsoluteandstatestate-duetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsoluteandstate-state-duetime-action"><a id="rxschedulerprototypeschedulerecursivewithabsoluteandstatestate-duetime-action"></a><code>Rx.Scheduler.prototype.scheduleRecursiveWithAbsoluteAndState(state, duetime, action)</code></h3>
+<h3 id="-a-id-rxschedulerprototypeschedulerecursivewithabsoluteandstatestate-duetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsoluteandstate-state-duetime-action"><a name="-a-id-rxschedulerprototypeschedulerecursivewithabsoluteandstatestate-duetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsoluteandstate-state-duetime-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulerecursivewithabsoluteandstatestate-duetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsoluteandstate-state-duetime-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulerecursivewithabsoluteandstatestate-duetime-action"></a><code>Rx.Scheduler.prototype.scheduleRecursiveWithAbsoluteAndState(state, duetime, action)</code></h3>
 <p><a href="#rxschedulerprototypeschedulerecursivewithabsoluteandstatestate-duetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L241-L245" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed recursively at a specified absolute due time. Note this only works with the built-in <code>Rx.Scheduler.timeout</code> scheduler, as the rest will throw an exception as the framework does not allow for blocking.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>state</code> <em>(Any)</em>: State passed to the action to be executed.</li>
 <li><code>dueTime</code> <em>(Number)</em>: Absolute time at which to execute the action for the first time.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute recursively. The last parameter passed to the action is used to trigger recursive scheduling of the action, passing in the recursive due time and invocation state.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleRecursiveWithAbsoluteAndState(
      <span class="hljs-number">0</span>,
      <span class="hljs-built_in">Date</span>.now() + <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
@@ -6203,22 +6207,22 @@ disposable.dispose();
 <span class="hljs-comment">// =&gt; 1</span>
 <span class="hljs-comment">// =&gt; 2</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypeschedulerecursivewithrelativeduetime-action-a-rx-scheduler-prototype-schedulerecursivewithrelative-duetime-action"><a id="rxschedulerprototypeschedulerecursivewithrelativeduetime-action"></a><code>Rx.Scheduler.prototype.scheduleRecursiveWithRelative(duetime, action)</code></h3>
+<h3 id="-a-id-rxschedulerprototypeschedulerecursivewithrelativeduetime-action-a-rx-scheduler-prototype-schedulerecursivewithrelative-duetime-action"><a name="-a-id-rxschedulerprototypeschedulerecursivewithrelativeduetime-action-a-rx-scheduler-prototype-schedulerecursivewithrelative-duetime-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulerecursivewithrelativeduetime-action-a-rx-scheduler-prototype-schedulerecursivewithrelative-duetime-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulerecursivewithrelativeduetime-action"></a><code>Rx.Scheduler.prototype.scheduleRecursiveWithRelative(duetime, action)</code></h3>
 <p><a href="#rxschedulerprototypeschedulerecursivewithrelativeduetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L199-L205" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed recursively at a specified relative due time. Note this only works with the built-in <code>Rx.Scheduler.timeout</code> scheduler, as the rest will throw an exception as the framework does not allow for blocking.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>dueTime</code> <em>(Number)</em>: Relative time at which to execute the action for the first time.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute recursively. The parameter passed to the action is used to trigger recursive scheduling of the action at the specified relative time.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleRecursiveWithRelative(
@@ -6236,23 +6240,23 @@ disposable.dispose();
 <span class="hljs-comment">// =&gt; 1</span>
 <span class="hljs-comment">// =&gt; 2</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerprototypeschedulerecursivewithrelativeandstatestate-duetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsoluteandstate-state-duetime-action"><a id="rxschedulerprototypeschedulerecursivewithrelativeandstatestate-duetime-action"></a><code>Rx.Scheduler.prototype.scheduleRecursiveWithAbsoluteAndState(state, duetime, action)</code></h3>
+<h3 id="-a-id-rxschedulerprototypeschedulerecursivewithrelativeandstatestate-duetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsoluteandstate-state-duetime-action"><a name="-a-id-rxschedulerprototypeschedulerecursivewithrelativeandstatestate-duetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsoluteandstate-state-duetime-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypeschedulerecursivewithrelativeandstatestate-duetime-action-a-rx-scheduler-prototype-schedulerecursivewithabsoluteandstate-state-duetime-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypeschedulerecursivewithrelativeandstatestate-duetime-action"></a><code>Rx.Scheduler.prototype.scheduleRecursiveWithAbsoluteAndState(state, duetime, action)</code></h3>
 <p><a href="#rxschedulerprototypeschedulerecursivewithrelativeandstatestate-duetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L214-218" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed recursively at a specified relative due time. Note this only works with the built-in <code>Rx.Scheduler.timeout</code> scheduler, as the rest will throw an exception as the framework does not allow for blocking.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>state</code> <em>(Any)</em>: State passed to the action to be executed.</li>
 <li><code>dueTime</code> <em>(Number)</em>: Relative time at which to execute the action for the first time.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute recursively. The last parameter passed to the action is used to trigger recursive scheduling of the action, passing in the recursive due time and invocation state.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.scheduleRecursiveWithRelativeAndState(
      <span class="hljs-number">0</span>,
      <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds in the future */</span>
@@ -6269,23 +6273,23 @@ disposable.dispose();
 <span class="hljs-comment">// =&gt; 1</span>
 <span class="hljs-comment">// =&gt; 2</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="periodic-scheduling">Periodic Scheduling</h3>
-<h3 id="-a-id-rxschedulerprototypescheduleperiodicperiod-action-a-rx-scheduler-prototype-scheduleperiodic-period-action"><a id="rxschedulerprototypescheduleperiodicperiod-action"></a><code>Rx.Scheduler.prototype.schedulePeriodic(period, action)</code></h3>
+<h3 id="periodic-scheduling"><a name="periodic-scheduling" class="plugin-anchor" href="#periodic-scheduling"><span class="fa fa-link"></span></a>Periodic Scheduling</h3>
+<h3 id="-a-id-rxschedulerprototypescheduleperiodicperiod-action-a-rx-scheduler-prototype-scheduleperiodic-period-action"><a name="-a-id-rxschedulerprototypescheduleperiodicperiod-action-a-rx-scheduler-prototype-scheduleperiodic-period-action" class="plugin-anchor" href="#-a-id-rxschedulerprototypescheduleperiodicperiod-action-a-rx-scheduler-prototype-scheduleperiodic-period-action"><span class="fa fa-link"></span></a><a id="rxschedulerprototypescheduleperiodicperiod-action"></a><code>Rx.Scheduler.prototype.schedulePeriodic(period, action)</code></h3>
 <p><a href="#rxschedulerprototypescheduleperiodicperiod-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L85-L89" title="View in source" target="_blank">&#x24C8;</a></p>
 <p> Schedules a periodic piece of work by dynamically discovering the scheduler&apos;s capabilities. The periodic task will be scheduled using <code>window.setInterval</code> for the base implementation.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>period</code> <em>(Number)</em>: Period for running the work periodically in ms.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.schedulePeriodic(
@@ -6304,23 +6308,23 @@ disposable.dispose();
 <span class="hljs-comment">// =&gt; 2</span>
 <span class="hljs-comment">// =&gt; 3</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerscheduleperiodicwithstatestate-period-action-a-rx-scheduler-prototype-scheduleperiodicwithstate-state-period-action"><a id="rxschedulerscheduleperiodicwithstatestate-period-action"></a><code>Rx.Scheduler.prototype.schedulePeriodicWithState(state, period, action)</code></h3>
+<h3 id="-a-id-rxschedulerscheduleperiodicwithstatestate-period-action-a-rx-scheduler-prototype-scheduleperiodicwithstate-state-period-action"><a name="-a-id-rxschedulerscheduleperiodicwithstatestate-period-action-a-rx-scheduler-prototype-scheduleperiodicwithstate-state-period-action" class="plugin-anchor" href="#-a-id-rxschedulerscheduleperiodicwithstatestate-period-action-a-rx-scheduler-prototype-scheduleperiodicwithstate-state-period-action"><span class="fa fa-link"></span></a><a id="rxschedulerscheduleperiodicwithstatestate-period-action"></a><code>Rx.Scheduler.prototype.schedulePeriodicWithState(state, period, action)</code></h3>
 <p><a href="#rxschedulerscheduleperiodicwithstatestate-period-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L98-L104" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules a periodic piece of work by dynamically discovering the scheduler&apos;s capabilities. The periodic task will be scheduled using <code>window.setInterval</code> for the base implementation.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>state</code> <em>(Any)</em>: State passed to the action to be executed.</li>
 <li><code>period</code> <em>(Number)</em>: Period for running the work periodically in ms.</li>
 <li><code>action</code> <em>(Function)</em>: Action to execute.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Scheduler.timeout.schedulePeriodicWithState(
      <span class="hljs-number">0</span>,
      <span class="hljs-number">1000</span>, <span class="hljs-comment">/* 1 second */</span>
@@ -6340,22 +6344,22 @@ disposable.dispose();
 <span class="hljs-comment">// =&gt; 2</span>
 <span class="hljs-comment">// =&gt; 3</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-scheduler-class-methods"><em>Scheduler Class Methods</em></h2>
-<h3 id="-a-id-rxschedulernormalizeduetime-a-rx-scheduler-normalize-duetime"><a id="rxschedulernormalizeduetime"></a><code>Rx.Scheduler.normalize(dueTime)</code></h3>
+<h2 id="-scheduler-class-methods"><a name="-scheduler-class-methods" class="plugin-anchor" href="#-scheduler-class-methods"><span class="fa fa-link"></span></a><em>Scheduler Class Methods</em></h2>
+<h3 id="-a-id-rxschedulernormalizeduetime-a-rx-scheduler-normalize-duetime"><a name="-a-id-rxschedulernormalizeduetime-a-rx-scheduler-normalize-duetime" class="plugin-anchor" href="#-a-id-rxschedulernormalizeduetime-a-rx-scheduler-normalize-duetime"><span class="fa fa-link"></span></a><a id="rxschedulernormalizeduetime"></a><code>Rx.Scheduler.normalize(dueTime)</code></h3>
 <p><a href="#rxschedulernormalizeduetime">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/scheduler.js#L255-L260" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Normalizes the specified time span value to a positive value.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>dueTime</code> <em>(Number)</em>: The time span value to normalize.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Number)</em>: The specified time span value if it is zero or positive; otherwise, 0</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> r1 = Rx.Scheduler.normalize(-<span class="hljs-number">1</span>);
 <span class="hljs-built_in">console</span>.log(r1);
 <span class="hljs-comment">// =&gt; 0</span>
@@ -6364,16 +6368,16 @@ disposable.dispose();
 <span class="hljs-built_in">console</span>.log(r1);
 <span class="hljs-comment">// =&gt; 255</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-scheduler-class-properties"><em>Scheduler Class Properties</em></h2>
-<h3 id="-a-id-rxschedulercurrentthread-a-rx-scheduler-currentthread"><a id="rxschedulercurrentthread"></a><code>Rx.Scheduler.currentThread</code></h3>
+<h2 id="-scheduler-class-properties"><a name="-scheduler-class-properties" class="plugin-anchor" href="#-scheduler-class-properties"><span class="fa fa-link"></span></a><em>Scheduler Class Properties</em></h2>
+<h3 id="-a-id-rxschedulercurrentthread-a-rx-scheduler-currentthread"><a name="-a-id-rxschedulercurrentthread-a-rx-scheduler-currentthread" class="plugin-anchor" href="#-a-id-rxschedulercurrentthread-a-rx-scheduler-currentthread"><span class="fa fa-link"></span></a><a id="rxschedulercurrentthread"></a><code>Rx.Scheduler.currentThread</code></h3>
 <p><a href="#rxschedulercurrentthread">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/currentthreadscheduler.js#L4-L68" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets a scheduler that schedules work as soon as possible on the current thread.  This implementation does not support relative and absolute scheduling due to thread blocking required.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = Rx.Scheduler.currentThread;
 
 <span class="hljs-keyword">var</span> disposable = scheduler.scheduleWithState(
@@ -6384,15 +6388,15 @@ disposable.dispose();
 
 <span class="hljs-comment">// =&gt; hello world</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulerimmediate-a-rx-scheduler-immediate"><a id="rxschedulerimmediate"></a><code>Rx.Scheduler.immediate</code></h3>
+<h3 id="-a-id-rxschedulerimmediate-a-rx-scheduler-immediate"><a name="-a-id-rxschedulerimmediate-a-rx-scheduler-immediate" class="plugin-anchor" href="#-a-id-rxschedulerimmediate-a-rx-scheduler-immediate"><span class="fa fa-link"></span></a><a id="rxschedulerimmediate"></a><code>Rx.Scheduler.immediate</code></h3>
 <p><a href="#rxschedulerimmediate">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/immediatescheduler.js#L6-L22" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets a scheduler that schedules work immediately on the current thread.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = Rx.Scheduler.immediate;
 
 <span class="hljs-keyword">var</span> disposable = scheduler.scheduleRecursiveWithState(
@@ -6409,12 +6413,12 @@ disposable.dispose();
 <span class="hljs-comment">// =&gt; 1</span>
 <span class="hljs-comment">// =&gt; 2</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxschedulertimeout-a-rx-scheduler-timeout"><a id="rxschedulertimeout"></a><code>Rx.Scheduler.timeout</code></h3>
+<h3 id="-a-id-rxschedulertimeout-a-rx-scheduler-timeout"><a name="-a-id-rxschedulertimeout-a-rx-scheduler-timeout" class="plugin-anchor" href="#-a-id-rxschedulertimeout-a-rx-scheduler-timeout"><span class="fa fa-link"></span></a><a id="rxschedulertimeout"></a><code>Rx.Scheduler.timeout</code></h3>
 <p><a href="#rxschedulertimeout">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/timeoutscheduler.js#L88-L125" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets a scheduler that schedules work via a timed callback based upon platform.</p>
 <p>For all schedule calls, it defaults to:</p>
@@ -6423,7 +6427,7 @@ disposable.dispose();
 <li>Browser: depending on platform may use <code>setImmediate</code>, <code>MessageChannel</code>, <code>window.postMessage</code> and for older versions of IE, it will default to <code>script.onreadystatechanged</code>, else falls back to <code>window.setTimeout</code>.</li>
 </ul>
 <p>For all relative and absolute scheduling, it defaults to using <code>window.setTimeout</code>.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = Rx.Scheduler.timeout;
 
 <span class="hljs-keyword">var</span> disposable = scheduler.scheduleWithState(
@@ -6435,7 +6439,7 @@ disposable.dispose();
 
 <span class="hljs-comment">// =&gt; 0</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>

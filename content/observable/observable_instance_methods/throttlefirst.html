@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="8.2.128" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.128" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,16 +5733,16 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-throttlefirst-windowduration-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-throttlefirst-js"><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttlefirst.js" target="_blank"><code>Rx.Observable.prototype.throttleFirst(windowDuration, [scheduler])</code></a></h2>
+                        <h2 id="-rx-observable-prototype-throttlefirst-windowduration-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-throttlefirst-js"><a name="-rx-observable-prototype-throttlefirst-windowduration-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-throttlefirst-js" class="plugin-anchor" href="#-rx-observable-prototype-throttlefirst-windowduration-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-throttlefirst-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttlefirst.js" target="_blank"><code>Rx.Observable.prototype.throttleFirst(windowDuration, [scheduler])</code></a></h2>
 <p>Returns an Observable that emits only the first item emitted by the source Observable during sequential time windows of a specified duration.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>windowDuration</code> <em>(<code>Number</code>)</em>: Time to wait before emitting another item after emitting the last item (specified as an integer denoting milliseconds).</li>
 <li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>:  The Scheduler to use internally to manage the timers that handle timeout for each item. If not provided, defaults to Scheduler.timeout.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An Observable that performs the throttle operation.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> times = [
     { value: <span class="hljs-number">0</span>, time: <span class="hljs-number">100</span> },
     { value: <span class="hljs-number">1</span>, time: <span class="hljs-number">600</span> },
@@ -5772,7 +5776,7 @@
 <span class="hljs-comment">// =&gt; Next: 3</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttlefirst.js" target="_blank"><code>/src/core/linq/observable/throttlefirst.js</code></a></li>

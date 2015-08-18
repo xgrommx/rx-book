@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="8.1.17" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.17" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,18 +5733,18 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-fromnodecallback-func-scheduler-context-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-fromnodecallback-js"><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromnodecallback.js" target="_blank"><code>Rx.Observable.fromNodeCallback(func, [scheduler], [context], [selector])</code></a></h2>
+                        <h2 id="-rx-observable-fromnodecallback-func-scheduler-context-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-fromnodecallback-js"><a name="-rx-observable-fromnodecallback-func-scheduler-context-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-fromnodecallback-js" class="plugin-anchor" href="#-rx-observable-fromnodecallback-func-scheduler-context-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-fromnodecallback-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromnodecallback.js" target="_blank"><code>Rx.Observable.fromNodeCallback(func, [scheduler], [context], [selector])</code></a></h2>
 <p>Converts a Node.js callback style function to an observable sequence.  This must be in function (err, ...) format.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>func</code> <em>(<code>Function</code>)</em>: Function with a callback as the last parameter to convert to an Observable sequence.</li>
 <li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the function on. If not specified, defaults to <code>Rx.Scheduler.timeout</code>.</li>
 <li><code>[context]</code> <em>(<code>Any</code>)</em>: The context for the func parameter to be executed.  If not specified, defaults to undefined.</li>
 <li><code>[selector]</code> <em>(<code>Function</code>)</em>: A selector which takes the arguments from callback sans the error to produce a single item to yield on next.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Function</code>)</em>: A function which when applied, returns an observable sequence with the callback arguments as an array if no selector given, else the object created by the selector function on success, or an error if the first parameter is not falsy.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>),
     Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
@@ -5764,7 +5768,7 @@
 <span class="hljs-comment">// =&gt; Next: success!</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromnodecallback.js" target="_blank">/src/core/observable/fromnodecallback.js</a></li>

@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="8.1.16" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.16" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,16 +5733,16 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-fromiterable-iterable-scheduler"><a href=""><code>Rx.Observable.fromIterable(iterable, [scheduler])</code></a></h2>
+                        <h2 id="-rx-observable-fromiterable-iterable-scheduler"><a name="-rx-observable-fromiterable-iterable-scheduler" class="plugin-anchor" href="#-rx-observable-fromiterable-iterable-scheduler"><span class="fa fa-link"></span></a><a href=""><code>Rx.Observable.fromIterable(iterable, [scheduler])</code></a></h2>
 <p>Converts an ES6 iterable into an Observable sequence.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>iterable</code> <em>(Iterable)</em>: Either a generator function or iterable such as Set, Map, etc.</li>
 <li><code>[scheduler=Rx.Scheduler.currentThread]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the function on. If not specified, defaults to <code>Rx.Scheduler.currentThread</code>.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Function</code>)</em>: The observable sequence whose elements are pulled from the given generator sequence.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">// Using a Set</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.fromIterable(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]));
 
@@ -5775,7 +5779,7 @@
 <span class="hljs-comment">// =&gt; Next: 42</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromiterable.js" target="_blank">/src/core/observable/fromiterable.js</a></li>

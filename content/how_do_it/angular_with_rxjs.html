@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="4.3" data-basepath="../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="4.3" data-basepath="../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,9 +5733,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="how-do-i-integrate-angular-js-with-rxjs">How do I integrate Angular.js with RxJS?</h1>
+                        <h1 id="how-do-i-integrate-angular-js-with-rxjs"><a name="how-do-i-integrate-angular-js-with-rxjs" class="plugin-anchor" href="#how-do-i-integrate-angular-js-with-rxjs"><span class="fa fa-link"></span></a>How do I integrate Angular.js with RxJS?</h1>
 <p><a href="http://angularjs.org/" target="_blank">AngularJS</a> is a popular MV* framework for JavaScript which covers things such as data binding, controllers as well as things such as dependency injection.  The Reactive Extensions for JavaScript plays well with this framework, and in fact has a dedicated library for interop called <a href="https://github.com/Reactive-Extensions/rx.angular.js" target="_blank">rx.angular.js</a>.  However, if you don&apos;t wish to use that, here are some simple ways you can integrate the two together.</p>
-<h2 id="integration-with-scopes">Integration with Scopes</h2>
+<h2 id="integration-with-scopes"><a name="integration-with-scopes" class="plugin-anchor" href="#integration-with-scopes"><span class="fa fa-link"></span></a>Integration with Scopes</h2>
 <p>The <a href="http://docs.angularjs.org/api/ng.$rootScope.Scope" target="_blank"><code>scope</code></a> is an object that refers to the application model. It is an execution context for expressions. Scopes are arranged in hierarchical structure which mimic the DOM structure of the application. Scopes can watch expressions and propagate events.</p>
 <p>Scopes provide the ability to observe change mutations on the scope through the <a href="http://docs.angularjs.org/api/ng.$rootScope.Scope#methods_$watch" target="_blank"><code>$watch</code></a> method.  This is a perfect opportunity to integrate the power of the Reactive Extensions for JavaScript with Angular.  Let&apos;s look at a typical usage of <code>$watch</code>.</p>
 <pre><code class="lang-js"><span class="hljs-comment">// Get the scope from somewhere</span>
@@ -5791,7 +5795,7 @@ Rx.Observable.$watch(scope, <span class="hljs-string">&apos;name&apos;</span>)
         scope.data = data;
     });
 </code></pre>
-<h2 id="integration-with-deferred-promise-objects">Integration with Deferred/Promise Objects</h2>
+<h2 id="integration-with-deferred-promise-objects"><a name="integration-with-deferred-promise-objects" class="plugin-anchor" href="#integration-with-deferred-promise-objects"><span class="fa fa-link"></span></a>Integration with Deferred/Promise Objects</h2>
 <p>AngularJS ships a promise/deferred implementation based upon <a href="https://github.com/kriskowal/q" target="_blank">Kris Kowal&apos;s Q</a> called the <a href="http://docs.angularjs.org/api/ng.$q" target="_blank"><code>$q</code></a> service.  Promises are quite useful in scenarios with one and done asynchronous operations such as querying a service through the <a href="http://docs.angularjs.org/api/ng.$http" target="_blank"><code>$http</code></a> service.</p>
 <pre><code class="lang-js">$http.get(<span class="hljs-string">&apos;/someUrl&apos;</span>)
     .then(successCallback, errCallback);

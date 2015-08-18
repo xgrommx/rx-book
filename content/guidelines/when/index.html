@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="2.2" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.2" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,11 +5733,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="when-to-use-rxjs">When to use RxJS</h1>
-<h3 id="use-rxjs-for-orchestrating-asynchronous-and-event-based-computations">Use RxJS for orchestrating asynchronous and event-based computations</h3>
+                        <h1 id="when-to-use-rxjs"><a name="when-to-use-rxjs" class="plugin-anchor" href="#when-to-use-rxjs"><span class="fa fa-link"></span></a>When to use RxJS</h1>
+<h3 id="use-rxjs-for-orchestrating-asynchronous-and-event-based-computations"><a name="use-rxjs-for-orchestrating-asynchronous-and-event-based-computations" class="plugin-anchor" href="#use-rxjs-for-orchestrating-asynchronous-and-event-based-computations"><span class="fa fa-link"></span></a>Use RxJS for orchestrating asynchronous and event-based computations</h3>
 <p>Code that deals with more than one event or asynchronous computation gets complicated quickly as it needs to build a state-machine to deal with ordering issues. Next to this, the code needs to deal with successful and failure termination of each separate computation. This leads to code that doesn&#x2019;t follow normal control-flow, is hard to understand and hard to maintain.</p>
 <p>RxJS makes these computations first-class citizens. This provides a model that allows for readable and composable APIs to deal with these asynchronous computations.</p>
-<h4 id="sample">Sample</h4>
+<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> input = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;input&apos;</span>);
 <span class="hljs-keyword">var</span> dictionarySuggest = Rx.Observable.fromEvent(input, <span class="hljs-string">&apos;keyup&apos;</span>)
   .map(() =&gt; input.value)
@@ -5764,9 +5768,9 @@
 <li>Receives the result from our computation.</li>
 <li>Receives exceptions in case of a failure occurring anywhere along the computation.</li>
 </ol>
-<h4 id="when-to-ignore-this-guideline">When to ignore this guideline</h4>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>If the application/library in question has very few asynchronous/event-based operations or has very few places where these operations need to be composed, the cost of depending on RxJS (redistributing the library as well as the learning curve) might outweigh the cost of manually coding these operations.</p>
-<h3 id="use-rxjs-to-deal-with-asynchronous-sequences-of-data">Use RxJS to deal with asynchronous sequences of data</h3>
+<h3 id="use-rxjs-to-deal-with-asynchronous-sequences-of-data"><a name="use-rxjs-to-deal-with-asynchronous-sequences-of-data" class="plugin-anchor" href="#use-rxjs-to-deal-with-asynchronous-sequences-of-data"><span class="fa fa-link"></span></a>Use RxJS to deal with asynchronous sequences of data</h3>
 <p>Several other libraries exist to aid asynchronous operations in the JavaScript ecosystem. Even though these libraries are powerful, they usually work best on operations that return a single message. They usually do not support operations that produce multiple messages over the lifetime of the operation.</p>
 <p>RxJS follows the following grammar: <code>onNext</code>* (<code>onCompleted</code>|<code>onError</code>)?. This allows for multiple messages to come in over time. This makes RxJS suitable for both operations that produce a single message, as well as operations that produce multiple messages.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5802,7 +5806,7 @@ readAsync(inFile, <span class="hljs-number">2</span> &lt;&lt; <span class="hljs-
 <p>Reading the whole file into memory, encrypting it and writing out the whole file would be an expensive operation.</p>
 <p>Instead, we rely on the fact that RxJS can produce many messages.</p>
 <p>We read the file asynchronously in blocks of 64K. This produces an observable sequence of byte arrays. We then encrypt each block separately (for this sample we assume the encryption operation can work on separate parts of the file). Once the block is encrypted, it is immediately sent further down the pipeline to be saved to the other file.  The <code>writeAsync</code> operation is an asynchronous operation that can process multiple messages.</p>
-<h4 id="when-to-ignore-this-guideline">When to ignore this guideline</h4>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>If the application/library in question has very few operations with multiple messages, the cost of depending on RxJS (redistributing the library as well as the learning curve) might outweigh the cost of manually coding these operations.</p>
 
                     

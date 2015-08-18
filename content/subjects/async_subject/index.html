@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="11.1" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="11.1" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,10 +5733,10 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-asyncsubject-class"><code>Rx.AsyncSubject</code> class</h1>
+                        <h1 id="-rx-asyncsubject-class"><a name="-rx-asyncsubject-class" class="plugin-anchor" href="#-rx-asyncsubject-class"><span class="fa fa-link"></span></a><code>Rx.AsyncSubject</code> class</h1>
 <p>Represents the result of an asynchronous operation.  The last value before the OnCompleted notification, or the error received through OnError, is sent to all subscribed observers.</p>
 <p>This class inherits both from the <code>Rx.Observable</code> and <code>Rx.Observer</code> classes.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
 <p>The follow example shows caching on the last value produced when followed by an onCompleted notification which makes it available to all subscribers.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.AsyncSubject();
 
@@ -5759,29 +5763,29 @@
 <span class="hljs-comment">// =&gt; Next: 3</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
-<h2 id="-asyncsubject-constructor"><code>AsyncSubject Constructor</code></h2>
+<h2 id="-asyncsubject-constructor"><a name="-asyncsubject-constructor" class="plugin-anchor" href="#-asyncsubject-constructor"><span class="fa fa-link"></span></a><code>AsyncSubject Constructor</code></h2>
 <ul>
 <li><a href="#rxasyncsubject"><code>constructor</code></a></li>
 </ul>
-<h2 id="-asyncsubject-instance-methods"><code>AsyncSubject Instance Methods</code></h2>
+<h2 id="-asyncsubject-instance-methods"><a name="-asyncsubject-instance-methods" class="plugin-anchor" href="#-asyncsubject-instance-methods"><span class="fa fa-link"></span></a><code>AsyncSubject Instance Methods</code></h2>
 <ul>
 <li><a href="#rxasyncsubjectprototypedispose"><code>dispose</code></a></li>
 <li><a href="#rxasyncsubjectprototypehasobservers"><code>hasObservers</code></a></li>
 </ul>
-<h2 id="inherited-classes">Inherited Classes</h2>
+<h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/core/observable.md" target="_blank"><code>Rx.Observable</code></a></li>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/core/observer.md" target="_blank"><code>Rx.Observer</code></a></li>
 </ul>
-<h2 id="-asyncsubject-constructor"><em>AsyncSubject Constructor</em></h2>
-<h3 id="-a-id-rxasyncsubject-a-rx-asyncsubject"><a id="rxasyncsubject"></a><code>Rx.AsyncSubject()</code></h3>
+<h2 id="-asyncsubject-constructor"><a name="-asyncsubject-constructor" class="plugin-anchor" href="#-asyncsubject-constructor"><span class="fa fa-link"></span></a><em>AsyncSubject Constructor</em></h2>
+<h3 id="-a-id-rxasyncsubject-a-rx-asyncsubject"><a name="-a-id-rxasyncsubject-a-rx-asyncsubject" class="plugin-anchor" href="#-a-id-rxasyncsubject-a-rx-asyncsubject"><span class="fa fa-link"></span></a><a id="rxasyncsubject"></a><code>Rx.AsyncSubject()</code></h3>
 <p><a href="#rxasyncsubject">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L33-L42" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a subject that can only receive one value and that value is cached for all future observations.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.AsyncSubject();
 
 subject.onNext(<span class="hljs-number">42</span>);
@@ -5801,16 +5805,16 @@ subject.onCompleted();
 <span class="hljs-comment">// =&gt; 42</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-asyncsubject-instance-methods"><em>AsyncSubject Instance Methods</em></h2>
-<h3 id="-a-id-rxasyncsubjectprototypedispose-a-rx-asyncsubject-prototype-dispose"><a id="rxasyncsubjectprototypedispose"></a><code>Rx.AsyncSubject.prototype.dispose()</code></h3>
+<h2 id="-asyncsubject-instance-methods"><a name="-asyncsubject-instance-methods" class="plugin-anchor" href="#-asyncsubject-instance-methods"><span class="fa fa-link"></span></a><em>AsyncSubject Instance Methods</em></h2>
+<h3 id="-a-id-rxasyncsubjectprototypedispose-a-rx-asyncsubject-prototype-dispose"><a name="-a-id-rxasyncsubjectprototypedispose-a-rx-asyncsubject-prototype-dispose" class="plugin-anchor" href="#-a-id-rxasyncsubjectprototypedispose-a-rx-asyncsubject-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxasyncsubjectprototypedispose"></a><code>Rx.AsyncSubject.prototype.dispose()</code></h3>
 <p><a href="#rxasyncsubjectprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L111-L116" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Unsubscribe all observers and release resources.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.AsyncSubject();
 
 <span class="hljs-keyword">var</span> subscription = subject.subscribe(
@@ -5840,17 +5844,17 @@ subject.dispose();
 
 <span class="hljs-comment">// =&gt; Object has been disposed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxasyncsubjectprototypehasobservers-a-rx-asyncsubject-prototype-hasobservers"><a id="rxasyncsubjectprototypehasobservers"></a><code>Rx.AsyncSubject.prototype.hasObservers()</code></h3>
+<h3 id="-a-id-rxasyncsubjectprototypehasobservers-a-rx-asyncsubject-prototype-hasobservers"><a name="-a-id-rxasyncsubjectprototypehasobservers-a-rx-asyncsubject-prototype-hasobservers" class="plugin-anchor" href="#-a-id-rxasyncsubjectprototypehasobservers-a-rx-asyncsubject-prototype-hasobservers"><span class="fa fa-link"></span></a><a id="rxasyncsubjectprototypehasobservers"></a><code>Rx.AsyncSubject.prototype.hasObservers()</code></h3>
 <p><a href="#rxasyncsubjectprototypehasobservers">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L49-L51" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Indicates whether the subject has observers subscribed to it.</p>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Boolean)</em>: Returns <code>true</code> if the AsyncSubject has observers, else <code>false</code>.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.AsyncSubject();
 
 <span class="hljs-built_in">console</span>.log(subject.hasObservers());
@@ -5872,7 +5876,7 @@ subject.dispose();
 
 <span class="hljs-comment">// =&gt; true</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>

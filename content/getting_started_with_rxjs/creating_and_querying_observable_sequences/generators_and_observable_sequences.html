@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="3.3.5" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.5" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,7 +5733,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="generators-and-observable-sequences">Generators and Observable Sequences</h1>
+                        <h1 id="generators-and-observable-sequences"><a name="generators-and-observable-sequences" class="plugin-anchor" href="#generators-and-observable-sequences"><span class="fa fa-link"></span></a>Generators and Observable Sequences</h1>
 <p>One of the more exciting features of ES6 is a new function type called generators.  They have been in Firefox for years, although they have now been finally standardized in ES6, and will be shipping in a browser or runtime near you. How generators differ from normal functions is that a normal function such as the following will run to completion, regardless of whether it is asynchronous or not.</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printNumberOfTimes</span>(<span class="hljs-params">msg, n</span>) </span>{
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
@@ -5767,7 +5771,7 @@ it.next();
 </code></pre>
 <p>This of course is only scratching the surface of what generators are capable of doing as we&apos;re more focused on the simple nature of yielding values.</p>
 <p>Since RxJS believes heavily in standards, we also look for ways to incorporate new language features as they become standardized so that you can take advantage of them, combined with the power of RxJS.</p>
-<h2 id="async-await-style-and-rxjs">Async/Await Style and RxJS</h2>
+<h2 id="async-await-style-and-rxjs"><a name="async-await-style-and-rxjs" class="plugin-anchor" href="#async-await-style-and-rxjs"><span class="fa fa-link"></span></a>Async/Await Style and RxJS</h2>
 <p>One common complaint of JavaScript is the callback nature to asynchronous behavior.  Luckily, this can be solved quite easily with a library approach.  To that end, we introduce <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/spawn.md" target="_blank"><code>Rx.spawn</code></a> which allows you to write straight forward code manner and can yield not only Observable sequences, but also Promises, Callbacks, Arrays, etc.  This allows you to write your code in a very imperative manner without all the callbacks, but also brings the power of RxJS whether you want to call <code>timeout</code>, <code>retry</code>, <code>catch</code> or any other method for that matter.  Note that this only yields a single value, but in RxJS terms, this is still quite useful.  </p>
 <p>For example, we could get the HTML from Bing.com and write it to the console, with a timeout of 5 seconds which will throw an error should it not respond in time.  We could also add in things like <code>retry</code> and <code>catch</code> so that we could for example try three times and then if it fails, give a default response or cached version.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
@@ -5785,7 +5789,7 @@ Rx.spawn(<span class="hljs-function"><span class="hljs-keyword">function</span>*
   <span class="hljs-built_in">console</span>.log(data);
 })();
 </code></pre>
-<h2 id="mixing-operators-with-generators">Mixing Operators with Generators</h2>
+<h2 id="mixing-operators-with-generators"><a name="mixing-operators-with-generators" class="plugin-anchor" href="#mixing-operators-with-generators"><span class="fa fa-link"></span></a>Mixing Operators with Generators</h2>
 <p>Many of the operators inside RxJS also support generators.  For example, we could use the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/from.md" target="_blank"><code>Rx.Observable.from</code></a> method to take a generator function, in this case, a Fibonacci sequence, take 10 of them and display it.</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fibonacci</span>(<span class="hljs-params"></span>)</span>{
   <span class="hljs-keyword">var</span> fn1 = <span class="hljs-number">1</span>;
@@ -5835,7 +5839,7 @@ Rx.Observable.from(fibonacci())
 </code></pre>
 <p>The future of JavaScript is exciting and generators add new possibilities to our applications to allow them to mix and match our programming styles.</p>
 <p>Notice that in this sample, move becomes an observable sequence in which we can manipulate further. The <a href="querying.md">Querying Observable Sequences</a> topic will show you how you can project this sequence into a collection of Points type and filter its content, so that your application will only receive values that satisfy a certain criteria.</p>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a name="see-also" class="plugin-anchor" href="#see-also"><span class="fa fa-link"></span></a>See Also</h2>
 <p>Concepts</p>
 <ul>
 <li><a href="querying.md">Querying Observable Sequences</a></li>

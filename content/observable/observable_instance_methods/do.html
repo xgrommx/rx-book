@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="8.2.31" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.31" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,28 +5733,28 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-do-observer-onnext-onerror-oncompleted">[<code>Rx.Observable.prototype.do(observer | [onNext], [onError], [onCompleted])</code>,</h2>
+                        <h2 id="-rx-observable-prototype-do-observer-onnext-onerror-oncompleted"><a name="-rx-observable-prototype-do-observer-onnext-onerror-oncompleted" class="plugin-anchor" href="#-rx-observable-prototype-do-observer-onnext-onerror-oncompleted"><span class="fa fa-link"></span></a>[<code>Rx.Observable.prototype.do(observer | [onNext], [onError], [onCompleted])</code>,</h2>
 <p><code>Rx.Observable.prototype.doAction(observer | [onNext], [onError], [onCompleted])</code>,
 <code>Rx.Observable.prototype.tap(observer | [onNext], [onError], [onCompleted])</code>
 ](<a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/do.js" target="_blank">https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/do.js</a>)</p>
 <p>Invokes an action for each element in the observable sequence and invokes an action upon graceful or exceptional termination of the observable sequence.
 This method can be used for debugging, logging, etc. of query behavior by intercepting the message stream to run arbitrary actions for messages on the pipeline.
 There is an alias to this method <code>doAction</code> for browsers &lt;IE9.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>observer</code> <em>(Observer)</em>: An observer to invoke for each element in the observable sequence.</li>
 <li><code>[onNext]</code> <em>(<code>Function</code>)</em>: Function to invoke for each element in the observable sequence.</li>
 <li><code>[onError]</code> <em>(<code>Function</code>)</em>: Function to invoke upon exceptional termination of the observable sequence. Used if only the first parameter is also a function.</li>
 <li><code>[oncompleted]</code> <em>(<code>Function</code>)</em>: Function to invoke upon graceful termination of the observable sequence. Used if only the first parameter is also a function.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence whose observers trigger an invocation of the given observable factory function.</p>
-<h4 id="example">Example</h4>
-<h5 id="using-a-function">Using a function</h5>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<h5 id="using-a-function"><a name="using-a-function" class="plugin-anchor" href="#using-a-function"><span class="fa fa-link"></span></a>Using a function</h5>
 <p><a href="http://jsbin.com/viquwa/1/embed?js,console" target="_blank"></a></p>
-<h5 id="using-an-observer">Using an observer</h5>
+<h5 id="using-an-observer"><a name="using-an-observer" class="plugin-anchor" href="#using-an-observer"><span class="fa fa-link"></span></a>Using an observer</h5>
 <p><a href="http://jsbin.com/votaq/1/embed?js,console" target="_blank"></a></p>
-<h4 id="location">Location</h4>
+<h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a></li>
 </ul>

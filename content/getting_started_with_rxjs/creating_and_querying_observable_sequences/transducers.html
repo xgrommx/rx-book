@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="3.3.8" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.8" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,7 +5733,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="transducers-with-observable-sequences">Transducers with Observable Sequences</h1>
+                        <h1 id="transducers-with-observable-sequences"><a name="transducers-with-observable-sequences" class="plugin-anchor" href="#transducers-with-observable-sequences"><span class="fa fa-link"></span></a>Transducers with Observable Sequences</h1>
 <p>Much like Language Integrated Query (LINQ), Transducers are composable algorithmic transformations. They, like LINQ, are independent from the context of their input and output sources and specify only the essence of the transformation in terms of an individual element. Because transducers are decoupled from input or output sources, they can be used in many different processes - collections, streams, observables, etc. Transducers compose directly, without awareness of input or creation of intermediate aggregates.  There are two major libraries currently out there, Cognitect&apos;s <a href="https://github.com/cognitect-labs/transducers-js" target="_blank"><code>transducer-js</code></a> and James Long&apos;s <a href="https://github.com/jlongster/transducers.js" target="_blank"><code>transducers.js</code></a> which are both great for getting high performance over large amounts of data.  Because it is collection type neutral, it is a perfect fit for RxJS to do transformations over large collections.</p>
 <p>The word <code>transduce</code> is just a combination of <code>transform</code> and <code>reduce</code>. The reduce function is the base transformation; any other transformation can be expressed in terms of it (<code>map</code>, <code>filter</code>, etc).</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];

@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="16.1.5.1" data-basepath="../../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="16.1.5.1" data-basepath="../../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,17 +5733,17 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-a-id-rxdomfrommutationobservertarget-options-a-rx-dom-frommutationobserver-target-options"><a id="rxdomfrommutationobservertarget-options"></a><code>Rx.DOM.fromMutationObserver(target, options)</code></h3>
+                        <h3 id="-a-id-rxdomfrommutationobservertarget-options-a-rx-dom-frommutationobserver-target-options"><a name="-a-id-rxdomfrommutationobservertarget-options-a-rx-dom-frommutationobserver-target-options" class="plugin-anchor" href="#-a-id-rxdomfrommutationobservertarget-options-a-rx-dom-frommutationobserver-target-options"><span class="fa fa-link"></span></a><a id="rxdomfrommutationobservertarget-options"></a><code>Rx.DOM.fromMutationObserver(target, options)</code></h3>
 <p><a href="#rxdomfrommutationobservertarget-options">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L471-L485" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
 <p>Creates an observable sequence from a <code>MutationObserver</code>.  The <code>MutationObserver</code> provides developers a way to react to changes in a DOM.  This requires <code>MutationObserver</code> to be supported in your browser/JavaScript runtime.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>target</code> <em>(Node)</em>: The Node on which to obserave DOM mutations.</li>
 <li><code>options</code> <em>(MutationObserverInit)</em>: A <a href="http://msdn.microsoft.com/en-us/library/windows/apps/dn252345.aspx" target="_blank"><code>MutationObserverInit</code></a> object, specifies which DOM mutations should be reported.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: An observable sequence which contains mutations on the given DOM target.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> foo = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;foo&apos;</span>);
 
 <span class="hljs-keyword">var</span> obs = Rx.DOM.fromMutationObserver(foo, { 

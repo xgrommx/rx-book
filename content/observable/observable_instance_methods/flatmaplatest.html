@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="8.2.49" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.49" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,12 +5733,12 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-flatmaplatest-selector-thisarg">[<code>Rx.Observable.prototype.flatMapLatest(selector, [thisArg])</code>,</h2>
+                        <h2 id="-rx-observable-prototype-flatmaplatest-selector-thisarg"><a name="-rx-observable-prototype-flatmaplatest-selector-thisarg" class="plugin-anchor" href="#-rx-observable-prototype-flatmaplatest-selector-thisarg"><span class="fa fa-link"></span></a>[<code>Rx.Observable.prototype.flatMapLatest(selector, [thisArg])</code>,</h2>
 <pre><code>`Rx.Observable.prototype.switchMap(selector, [thisArg])`,
 `Rx.Observable.prototype.selectSwitch(selector, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectswitch.js)
 </code></pre><p>Transform the items emitted by an Observable into Observables, and mirror those items emitted by the most-recently transformed Observable.</p>
 <p>The <code>flatMapLatest</code> operator is similar to the <code>flatMap</code> and <code>concatMap</code> methods described above, however, rather than emitting all of the items emitted by all of the Observables that the operator generates by transforming items from the source <code>Observable</code>, <code>switchMap</code> instead emits items from each such transformed <code>Observable</code> only until the next such <code>Observable</code> is emitted, then it ignores the previous one and begins emitting items emitted by the new one.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>selector</code> <em>(<code>Function</code>)</em>:  A transform function to apply to each source element.  The callback has the following information:<ol>
 <li>the value of the element</li>
@@ -5744,9 +5748,9 @@
 </li>
 <li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the predicate.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence which transforms the items emitted by an Observable into Observables, and mirror those items emitted by the most-recently transformed Observable.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable
   .range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>)
   .flatMapLatest(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{
@@ -5770,7 +5774,7 @@
 <span class="hljs-comment">// Next: 3b</span>
 <span class="hljs-comment">// Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectswitch.js" target="_blank"><code>/src/core/linq/observable/selectswitch.js</code></a></li>

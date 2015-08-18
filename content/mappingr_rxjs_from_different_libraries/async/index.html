@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="5.2" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="5.2" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,10 +5733,10 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="rxjs-for-async-js-users">RxJS for Async.js Users</h1>
+                        <h1 id="rxjs-for-async-js-users"><a name="rxjs-for-async-js-users" class="plugin-anchor" href="#rxjs-for-async-js-users"><span class="fa fa-link"></span></a>RxJS for Async.js Users</h1>
 <p><a href="https://github.com/caolan/async" target="_blank">Async.js</a> is a popular utility module which provides straight-forward, powerful functions for working with asynchronous JavaScript. Async provides around 20 functions that include the usual &apos;functional&apos; suspects (map, reduce, filter, each...) as well as some common patterns for asynchronous control flow (parallel, series, waterfall...). All these functions assume you follow the node.js convention of providing a single callback as the last argument of your async function.</p>
 <p>Many of these concepts in the library map directly to RxJS concepts.  We&apos;ll go operator by operator on how each map to existing functionality in RxJS.</p>
-<h2 id="collection-methods">Collection Methods</h2>
+<h2 id="collection-methods"><a name="collection-methods" class="plugin-anchor" href="#collection-methods"><span class="fa fa-link"></span></a>Collection Methods</h2>
 <ul>
 <li><a href="#asynceach"><code>async.each</code></a></li>
 <li><a href="#asyncmap"><code>async.map</code></a></li>
@@ -5744,7 +5748,7 @@
 <li><a href="#asyncevery"><code>async.every</code></a></li>
 <li><a href="#asynconcat"><code>async.concat</code></a></li>
 </ul>
-<h2 id="control-flow">Control Flow</h2>
+<h2 id="control-flow"><a name="control-flow" class="plugin-anchor" href="#control-flow"><span class="fa fa-link"></span></a>Control Flow</h2>
 <ul>
 <li><a href="#asyncseries"><code>async.series</code></a></li>
 <li><a href="#asyncparallel"><code>async.parallel</code></a></li>
@@ -5754,9 +5758,9 @@
 <li><a href="#asyncwaterfall"><code>async.waterfall</code></a></li>
 <li><a href="#asynccompose"><code>async.compose</code></a></li>
 </ul>
-<h2 id="-async-each"><code>async.each</code></h2>
+<h2 id="-async-each"><a name="-async-each" class="plugin-anchor" href="#-async-each"><span class="fa fa-link"></span></a><code>async.each</code></h2>
 <p>The <a href="https://github.com/caolan/async#eacharr-iterator-callback" target="_blank"><code>async.each</code></a> method applies an iterator function to each item in an array, in parallel. The iterator is called with an item from the list and a callback for when it has finished. If the iterator passes an error to this callback, the main callback for the each function is immediately called with the error.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we will use <code>async.each</code> to iterate an array of files to write some contents and save.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5771,7 +5775,7 @@
     <span class="hljs-comment">// if any of the saves produced an error, err would equal that error</span>
 });
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>Using RxJS, you can accomplish this task in a number of ways by using <code>Rx.Observable.fromNodeCallback</code> to wrap the <code>fs.writeFile</code> function, and then iterate the files by using the <code>Rx.Observable.for</code> method.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5790,9 +5794,9 @@ Rx.Observable
     );
 </code></pre>
 <hr>
-<h2 id="-async-map"><code>async.map</code></h2>
+<h2 id="-async-map"><a name="-async-map" class="plugin-anchor" href="#-async-map"><span class="fa fa-link"></span></a><code>async.map</code></h2>
 <p>The <code>async.map</code> method produces a new array of values by mapping each value in the given array through the iterator function. The iterator is called with an item from the array and a callback for when it has finished processing. The callback takes 2 arguments, an error and the transformed item from the array. If the iterator passes an error to this callback, the main callback for the map function is immediately called with the error.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll get the <code>fs.stat</code> for each file given and have the results returned as an array.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5801,7 +5805,7 @@ Rx.Observable
 
 <span class="hljs-keyword">async</span>.map(files, fs.stat, (err, results) =&gt; results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`is file: <span class="hljs-subst">${result.isFile()}</span>`</span>)));
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.stat</code> method again using our <code>Rx.Observable.fromNodeCallback</code>, then iterate using the <code>Rx.Observable.for</code> method, and finally, calling <code>.toArray()</code> to get our results as an entire array.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5820,9 +5824,9 @@ Rx.Observable
     );
 </code></pre>
 <hr>
-<h2 id="-async-filter"><code>async.filter</code></h2>
+<h2 id="-async-filter"><a name="-async-filter" class="plugin-anchor" href="#-async-filter"><span class="fa fa-link"></span></a><code>async.filter</code></h2>
 <p>The <code>async.filter</code> method returns a new array of all the values which pass an async truth test. The callback for each iterator call only accepts a single argument of true or false, it does not accept an error argument first! This is in-line with the way node libraries work with truth tests like fs.exists.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5833,7 +5837,7 @@ Rx.Observable
     results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`exists: <span class="hljs-subst">${result}</span>`</span>));
 });
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.exists</code> method using our <code>Rx.Observable.fromCallback</code> as it only has one result, a <code>true</code> or <code>false</code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx.Observable.for</code> method, filter the existing files and finally, calling <code>.toArray()</code> to get our results as an entire array.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5850,9 +5854,9 @@ Rx.Observable
     );
 </code></pre>
 <hr>
-<h2 id="-async-reject"><code>async.reject</code></h2>
+<h2 id="-async-reject"><a name="-async-reject" class="plugin-anchor" href="#-async-reject"><span class="fa fa-link"></span></a><code>async.reject</code></h2>
 <p>The <code>async.reject</code> method is the opposite of filter. Removes values that pass an async truth test.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5863,7 +5867,7 @@ Rx.Observable
     results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`exists: <span class="hljs-subst">${result}</span>`</span>));
 });
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.exists</code> method using our <code>Rx.Observable.fromCallback</code> as it only has one result, a <code>true</code> or <code>false</code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx.Observable.for</code> method, filter the existing files using <code>filter</code> and finally, calling <code>.toArray()</code> to get our results as an entire array.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5881,9 +5885,9 @@ Rx.Observable
     );
 </code></pre>
 <hr>
-<h2 id="-async-reduce"><code>async.reduce</code></h2>
+<h2 id="-async-reduce"><a name="-async-reduce" class="plugin-anchor" href="#-async-reduce"><span class="fa fa-link"></span></a><code>async.reduce</code></h2>
 <p>The <code>async.reduce</code> method reduces a list of values into a single value using an async iterator to return each successive step. Memo is the initial state of the reduction. This function only operates in series. For performance reasons, it may make sense to split a call to this function into a parallel map, then use the normal <code>Array.prototype.reduce</code> on the results. This function is for situations where each step in the reduction needs to be async, if you can get the data before reducing it then it&apos;s probably a good idea to do so.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5896,7 +5900,7 @@ Rx.Observable
 
 <span class="hljs-comment">// =&gt; 6</span>
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>In RxJS, we have a number of ways of doing this including using <code>Rx.Observable.fromArray</code> to turn an array into observable sequence, then we can call <code>reduce</code> to add the numbers.  To ensure that it is indeed async, we can switch to the <code>Rx.Scheduler.timeout</code> to ensure that it is done via a callback.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5908,9 +5912,9 @@ Rx.Observable
 <span class="hljs-comment">// =&gt; 6</span>
 </code></pre>
 <hr>
-<h2 id="-async-detect"><code>async.detect</code></h2>
+<h2 id="-async-detect"><a name="-async-detect" class="plugin-anchor" href="#-async-detect"><span class="fa fa-link"></span></a><code>async.detect</code></h2>
 <p>The <code>async.detect</code> method returns the first value in a list that passes an async truth test. The iterator is applied in parallel, meaning the first iterator to return true will fire the detect callback with that result. </p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll get the first file that matches.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5921,7 +5925,7 @@ Rx.Observable
     <span class="hljs-comment">// result now equals the first file in the list that exists</span>
 });
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>In RxJS, we can iterate over the files as above using <code>Rx.Observable.for</code> and then calling <code>first</code> to get the first matching file project forward the file name and whether the file exists.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5939,9 +5943,9 @@ Rx.Observable
         });
 </code></pre>
 <hr>
-<h2 id="-async-some"><code>async.some</code></h2>
+<h2 id="-async-some"><a name="-async-some" class="plugin-anchor" href="#-async-some"><span class="fa fa-link"></span></a><code>async.some</code></h2>
 <p>The <code>async.some</code> method returns <code>true</code> if at least one element in the array satisfies an async test. The callback for each iterator call only accepts a single argument of true or false, it does not accept an error argument first! This is in-line with the way node libraries work with truth tests like fs.exists. Once any iterator call returns true, the main callback is immediately called.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5952,7 +5956,7 @@ Rx.Observable
     <span class="hljs-comment">// if result is true then at least one of the files exists</span>
 });
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.exists</code> method using our <code>Rx.Observable.fromCallback</code> as it only has one result, a <code>true</code> or <code>false</code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx.Observable.for</code> method, then call <code>some</code> to determine whether any match.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5968,9 +5972,9 @@ Rx.Observable
         });
 </code></pre>
 <hr>
-<h2 id="-async-every"><code>async.every</code></h2>
+<h2 id="-async-every"><a name="-async-every" class="plugin-anchor" href="#-async-every"><span class="fa fa-link"></span></a><code>async.every</code></h2>
 <p>The <code>async.every</code> method returns <code>true</code> if every element in the array satisfies an async test. The callback for each iterator call only accepts a single argument of true or false, it does not accept an error argument first! This is in-line with the way node libraries work with truth tests like fs.exists.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5981,7 +5985,7 @@ Rx.Observable
     <span class="hljs-comment">// if result is true then every file exists</span>
 });
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.exists</code> method using our <code>Rx.Observable.fromCallback</code> as it only has one result, a <code>true</code> or <code>false</code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx.Observable.for</code> method, then call <code>every</code> to determine whether all match.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5999,9 +6003,9 @@ Rx.Observable
         });
 </code></pre>
 <hr>
-<h2 id="-async-concat"><code>async.concat</code></h2>
+<h2 id="-async-concat"><a name="-async-concat" class="plugin-anchor" href="#-async-concat"><span class="fa fa-link"></span></a><code>async.concat</code></h2>
 <p>The <code>async.concat</code> method applies an iterator to each item in a list, concatenating the results. Returns the concatenated list. The iterators are called in parallel, and the results are concatenated as they return.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -6012,7 +6016,7 @@ Rx.Observable
     <span class="hljs-comment">// files is now a list of filenames that exist in the 3 directories</span>
 });
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.readdir</code> method using our <code>Rx.Observable.fromNodeCallback</code>.  Then we&apos;ll iterate using the <code>Rx.Observable.for</code> method, then call <code>reduce</code> to add each item to the item to the overall list.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -6031,10 +6035,10 @@ Rx.Observable
         });
 </code></pre>
 <hr>
-<h2 id="-async-series"><code>async.series</code></h2>
+<h2 id="-async-series"><a name="-async-series" class="plugin-anchor" href="#-async-series"><span class="fa fa-link"></span></a><code>async.series</code></h2>
 <p>The <code>async.series</code> runs an array of functions in series, each one running once the previous function has completed. If any functions in the series pass an error to its callback, no more functions are run and the callback for the series is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.</p>
 <p>It is also possible to use an object instead of an array. Each property will be run as a function and the results will be passed to the final callback as an object instead of an array. This can be a more readable way of handling results from async.series.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example we&apos;ll run some examples with both an array or an object.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
 
@@ -6057,7 +6061,7 @@ Rx.Observable
     <span class="hljs-comment">// results is now equal to: {one: 1, two: 2}</span>
 });
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>We can achieve the same functionality of <code>async.series</code> with an array by simply calling fromArray and calling <code>flatMap</code> to give us the observable of the current.  Then we&apos;ll call <code>reduce</code> to add each item to a new array to return. </p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
@@ -6127,10 +6131,10 @@ wrapObject({
 <span class="hljs-comment">// =&gt; { one: 1, two: 2 }</span>
 </code></pre>
 <hr>
-<h2 id="-async-parallel"><code>async.parallel</code></h2>
+<h2 id="-async-parallel"><a name="-async-parallel" class="plugin-anchor" href="#-async-parallel"><span class="fa fa-link"></span></a><code>async.parallel</code></h2>
 <p>The <code>async.parallel</code> runs an array of functions in parallel, without waiting until the previous function has completed. If any of the functions pass an error to its callback, the main callback is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.</p>
 <p>It is also possible to use an object instead of an array. Each property will be run as a function and the results will be passed to the final callback as an object instead of an array. This can be a more readable way of handling results from async.parallel.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example we&apos;ll run some examples with both an array or an object.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
 
@@ -6156,7 +6160,7 @@ wrapObject({
     <span class="hljs-comment">// results is now equals to: {one: 1, two: 2}</span>
 });
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>We can achieve the same functionality of <code>async.series</code> with an array by calling <code>Rx.Observable.forkJoin</code> with our array of observable sequences.  This returns the last value from each sequence in &quot;parallel&quot;.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
@@ -6214,9 +6218,9 @@ wrapObjectParallel({
 <span class="hljs-comment">// =&gt; { one: 1, two: 2 }</span>
 </code></pre>
 <hr>
-<h2 id="-async-whilst"><code>async.whilst</code></h2>
+<h2 id="-async-whilst"><a name="-async-whilst" class="plugin-anchor" href="#-async-whilst"><span class="fa fa-link"></span></a><code>async.whilst</code></h2>
 <p>The <code>async.whilst</code> method repeatedly call function, while test returns true. Calls the callback when stopped, or an error occurs.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example we&apos;ll just run a keep calling the callback while the count is less than 5.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
 
@@ -6233,7 +6237,7 @@ wrapObjectParallel({
     }
 );
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>We can achieve the same kind of functionality by using the <code>Rx.Observable.while</code> method which takes a condition and an observable sequence that we created by calling <code>Rx.Observable.create</code>.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
@@ -6252,9 +6256,9 @@ Rx.Observable.while(
     );
 </code></pre>
 <hr>
-<h2 id="-async-dowhilst"><code>async.doWhilst</code></h2>
+<h2 id="-async-dowhilst"><a name="-async-dowhilst" class="plugin-anchor" href="#-async-dowhilst"><span class="fa fa-link"></span></a><code>async.doWhilst</code></h2>
 <p>The <code>async.doWhilst</code> method is a post check version of <code>whilst</code>. To reflect the difference in the order of operations test and fn arguments are switched. <code>doWhils</code>t is to <code>whilst</code> as <code>do while</code> is to <code>while</code> in plain JavaScript.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example we&apos;ll just run a keep calling the callback while the count is less than 5.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
 
@@ -6271,7 +6275,7 @@ Rx.Observable.while(
     }
 );
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>We can achieve the same kind of functionality by using the <code>doWhile</code> on our observable sequence which takes a predicate to determine whether to continue running.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
@@ -6286,9 +6290,9 @@ Rx.Observable.while(
     );
 </code></pre>
 <hr>
-<h2 id="-async-nexttick"><code>async.nextTick</code></h2>
+<h2 id="-async-nexttick"><a name="-async-nexttick" class="plugin-anchor" href="#-async-nexttick"><span class="fa fa-link"></span></a><code>async.nextTick</code></h2>
 <p>The <code>async.nextTick</code> method calls the callback on a later loop around the event loop. In node.js this just calls process.nextTick, in the browser it falls back to setImmediate(callback) if available, otherwise setTimeout(callback, 0), which means other higher priority events may precede the execution of the callback.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example we&apos;ll just run a keep calling the callback while the count is less than 5.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
 
@@ -6301,7 +6305,7 @@ Rx.Observable.while(
 
 call_order.push(<span class="hljs-string">&apos;one&apos;</span>);
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>We can achieve the same thing by using the <code>Rx.Scheduler.timeout</code> scheduler to schedule an item which will optimize for the runtime, for example, using <code>process.nextTick</code> if available, or <code>setImmediate</code> if available, or other fallbacks like <code>MessageChannel</code>, <code>postMessage</code> or even an async script load.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
@@ -6315,9 +6319,9 @@ Rx.Scheduler.timeout.schedule(() =&gt; {
 call_order.push(<span class="hljs-string">&apos;one&apos;</span>);
 </code></pre>
 <hr>
-<h2 id="-async-waterfall"><code>async.waterfall</code></h2>
+<h2 id="-async-waterfall"><a name="-async-waterfall" class="plugin-anchor" href="#-async-waterfall"><span class="fa fa-link"></span></a><code>async.waterfall</code></h2>
 <p>The <code>async.waterfall</code> method runs an array of functions in series, each passing their results to the next in the array. However, if any of the functions pass an error to the callback, the next function is not executed and the main callback is immediately called with the error.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll check whether a file exists, then rename it and finally return its <a href="http://nodejs.org/api/fs.html#fs_class_fs_stats" target="_blank">stats</a>.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
     fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>),
@@ -6351,7 +6355,7 @@ call_order.push(<span class="hljs-string">&apos;one&apos;</span>);
     }
 })
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>We can easily accomplish the same task as above using our wrappers for <code>Rx.Observable.fromCallback</code> and <code>Rx.Observable.fromNodeCallback</code>, creating a waterfall-like method.  First, let&apos;s implement a <code>waterfall</code> method using plain RxJS in which we enumerate the functions and call <code>flatMapLatest</code> on each resulting observable sequence to ensure we only get one value.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
@@ -6403,10 +6407,10 @@ obs.subscribe(
 );
 </code></pre>
 <hr>
-<h2 id="-async-compose"><code>async.compose</code></h2>
+<h2 id="-async-compose"><a name="-async-compose" class="plugin-anchor" href="#-async-compose"><span class="fa fa-link"></span></a><code>async.compose</code></h2>
 <p>The <a href="https://github.com/caolan/async#composefn1-fn2" target="_blank"><code>async.compose</code></a> method creates a function which is a composition of the passed asynchronous functions. Each function consumes the return value of the function that follows. Composing functions f(), g() and h() would produce the result of f(g(h())), only this version uses callbacks to obtain the return values.</p>
 <p>Each function is executed with the <code>this</code> binding of the composed function.</p>
-<h4 id="async-version">async version</h4>
+<h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll chain together two functions, one to add 1 to a supplied argument, and then chain it to another to multiply the result by 3.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
 
@@ -6424,7 +6428,7 @@ add1mul3(<span class="hljs-number">4</span>, (err, result) =&gt; <span class="hl
 
 <span class="hljs-comment">// =&gt; 15</span>
 </code></pre>
-<h4 id="rxjs-version">RxJS version</h4>
+<h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>Using RxJS, we can accomplish this using the usual composition operator <code>selectMany</code> or <code>flatMap</code>.  We&apos;ll wrap the <code>setTimeout</code> with a <code>wrapTimeout</code> method and ensure that we do deterministic cleanup via <code>clearTimeout</code>.  Then we can compose together our <code>add1</code> and <code>mul3</code> functions which result in observable sequences.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 

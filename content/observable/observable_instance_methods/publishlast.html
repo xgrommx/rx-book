@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="8.2.82" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.82" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,18 +5733,18 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-publishlast-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-publishlast-js"><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publishlast.js" target="_blank"><code>Rx.Observable.prototype.publishLast([selector])</code></a></h2>
+                        <h2 id="-rx-observable-prototype-publishlast-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-publishlast-js"><a name="-rx-observable-prototype-publishlast-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-publishlast-js" class="plugin-anchor" href="#-rx-observable-prototype-publishlast-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-publishlast-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publishlast.js" target="_blank"><code>Rx.Observable.prototype.publishLast([selector])</code></a></h2>
 <p>Returns an observable sequence that is the result of invoking the selector on a connectable observable sequence that shares a single subscription to the underlying sequence containing only the last notification.</p>
 <p>This operator is a specialization of <code>multicast</code> using a <code>Rx.AsyncSubject</code>.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>[selector]</code> <em>(<code>Function</code>)</em>: Selector function which can use the multicasted source sequence as many times as needed, without causing multiple subscriptions to the source sequence. Subscribers to the given source will only receive the last notification of the source.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(ConnectableObservable)</em>: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <p><a href="http://jsbin.com/wapis/1/embed?js,console" target="_blank"></a></p>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publishlatest.js" target="_blank"><code>/src/core/observable/publishlatest.js</code></a></li>

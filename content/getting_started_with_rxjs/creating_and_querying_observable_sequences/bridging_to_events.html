@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="3.3.2" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.2" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,11 +5733,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="bridging-to-events">Bridging to Events</h1>
+                        <h1 id="bridging-to-events"><a name="bridging-to-events" class="plugin-anchor" href="#bridging-to-events"><span class="fa fa-link"></span></a>Bridging to Events</h1>
 <p>RxJS provides factory methods for you to bridge with existing asynchronous sources in the DOM or Node.js so that you can employ the rich composing, filtering and resource management features provided by RxJS on any kind of data streams. This topic examines the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromevent.md" target="_blank"><code>fromEvent</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromeventpattern.md" target="_blank"><code>fromEventPattern</code></a> operator that allows &quot;importing&quot; a DOM or custom event into RxJS as an observable sequence. Every time an event is raised, an <code>onNext</code> message will be delivered to the observable sequence. You can then manipulate event data just like any other observable sequences.</p>
 <p>RxJS does not aim at replacing existing asynchronous programming models such as promises or callbacks. However, when you attempt to compose events, RxJS&#x2019;s factory methods will provide you the convenience that cannot be found in the current programming model. This is especially true for resource maintenance (e.g., when to unsubscribe) and filtering (e.g., choosing what kind of data to receive). In this topic and the ones that follow, you can examine how these RxJS features can assist you in asynchronous programming.</p>
 <p>Natively, RxJS supports a number of libraries and hooks into them such as <a href="http://jquery.com/" target="_blank">jQuery</a>, <a href="http://zeptojs.com/" target="_blank">Zepto.js</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a>, <a href="http://emberjs.com/" target="_blank">Ember.js</a> and <a href="http://backbonejs.org" target="_blank">Backbone.js</a> for using their event system.  This behavior, however, can be overridden to only use native bindings only.  By default, RxJS also has hooks for <a href="http://nodejs.org" target="_blank">Node.js</a> <code>EventEmitter</code> events natively supported.</p>
-<h2 id="converting-a-dom-event-to-a-rxjs-observable-sequence">Converting a DOM event to a RxJS Observable Sequence</h2>
+<h2 id="converting-a-dom-event-to-a-rxjs-observable-sequence"><a name="converting-a-dom-event-to-a-rxjs-observable-sequence" class="plugin-anchor" href="#converting-a-dom-event-to-a-rxjs-observable-sequence"><span class="fa fa-link"></span></a>Converting a DOM event to a RxJS Observable Sequence</h2>
 <p>The following sample creates a simple DOM event handler for the mouse move event, and prints out the mouse&#x2019;s location on the page.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> result = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;result&apos;</span>);
 
@@ -5809,7 +5813,7 @@ events.split(<span class="hljs-string">&apos; &apos;</span>).forEach(e =&gt; {
 });
 </code></pre>
 <p>Note this is already available in the <a href="https://github.com/Reactive-Extensions/RxJS-DOM" target="_blank">RxJS-DOM</a> project, but is small enough for you to implement yourself.</p>
-<h2 id="converting-a-node-js-event-to-a-rxjs-observable-sequence">Converting a Node.js event to a RxJS Observable Sequence</h2>
+<h2 id="converting-a-node-js-event-to-a-rxjs-observable-sequence"><a name="converting-a-node-js-event-to-a-rxjs-observable-sequence" class="plugin-anchor" href="#converting-a-node-js-event-to-a-rxjs-observable-sequence"><span class="fa fa-link"></span></a>Converting a Node.js event to a RxJS Observable Sequence</h2>
 <p>Node.js is also supported such as an <a href="http://nodejs.org/api/events.html#events_class_events_eventemitter" target="_blank"><code>EventEmitter</code></a>:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
   EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>).EventEmitter;
@@ -5823,7 +5827,7 @@ events.split(<span class="hljs-string">&apos; &apos;</span>).forEach(e =&gt; {
 eventEmitter.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-string">&apos;foo&apos;</span>);
 <span class="hljs-comment">// =&gt; data: foo</span>
 </code></pre>
-<h2 id="bridging-to-custom-events-with-fromeventpattern">Bridging to Custom Events with FromEventPattern</h2>
+<h2 id="bridging-to-custom-events-with-fromeventpattern"><a name="bridging-to-custom-events-with-fromeventpattern" class="plugin-anchor" href="#bridging-to-custom-events-with-fromeventpattern"><span class="fa fa-link"></span></a>Bridging to Custom Events with FromEventPattern</h2>
 <p>There may be instances dealing with libraries which have different ways of subscribing and unsubscribing from events.  The <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromeventpattern.md" target="_blank"><code>fromEventPattern</code></a> method was created exactly for this purpose to allow you to bridge to each of these custom event emitters.</p>
 <p>For example, you might want to bridge to using jQuery <a href="http://api.jquery.com/on/" target="_blank"><code>on</code></a> method.  We can convert the following code which alerts based upon the click of a table row.</p>
 <pre><code class="lang-js">$( <span class="hljs-string">&quot;#dataTable tbody&quot;</span> ).on(<span class="hljs-string">&apos;click&apos;</span>, <span class="hljs-string">&apos;tr&apos;</span>, () =&gt; alert($( <span class="hljs-keyword">this</span> ).text()));
@@ -5860,7 +5864,7 @@ eventEmitter.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class
     <span class="hljs-comment">// =&gt; Next: Clicked!</span>
 });
 </code></pre>
-<h2 id="see-also">See Also</h2>
+<h2 id="see-also"><a name="see-also" class="plugin-anchor" href="#see-also"><span class="fa fa-link"></span></a>See Also</h2>
 <p>Concepts</p>
 <ul>
 <li><a href="querying.md">Querying Observable Sequences</a></li>

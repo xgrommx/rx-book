@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="8.2.69" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.69" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,20 +5733,20 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js"><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergedelayerror.js" target="_blank"><code>Rx.Observable.mergeDelayError(...args)</code></a></h2>
+                        <h2 id="-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js"><a name="-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js" class="plugin-anchor" href="#-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergedelayerror.js" target="_blank"><code>Rx.Observable.mergeDelayError(...args)</code></a></h2>
 <p>Flattens an Observable that emits Observables into one Observable, in a way that allows an Observer to
 receive all successfully emitted items from all of the source Observables without being interrupted by
 an error notification from one of them.</p>
 <p>This behaves like <code>Observable.prototype.mergeAll</code> except that if any of the merged Observables notify of an
 error via the Observer&apos;s <code>onError</code>, <code>mergeDelayError</code> will refrain from propagating that
 error notification until all of the merged Observables have finished emitting items.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>args</code> <em>(Array|arguments)</em>: Arguments or an array of Observable sequences to merge.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An Observable that emits all of the items emitted by the Observables emitted by the Observable</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.of(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
 <span class="hljs-keyword">var</span> source2 = Rx.Observable.throwError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;woops&apos;</span>));
 <span class="hljs-keyword">var</span> source3 = Rx.Observable.of(<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>);
@@ -5768,7 +5772,7 @@ error notification until all of the merged Observables have finished emitting it
 <span class="hljs-comment">// =&gt; 6</span>
 <span class="hljs-comment">// =&gt; Error: Error: woops</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergedelayerror.js" target="_blank">/src/core/linq/observable/mergedelayerror.js</a></li>

@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="11.2" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="11.2" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,10 +5733,10 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-behaviorsubject-class"><code>Rx.BehaviorSubject</code> class</h1>
+                        <h1 id="-rx-behaviorsubject-class"><a name="-rx-behaviorsubject-class" class="plugin-anchor" href="#-rx-behaviorsubject-class"><span class="fa fa-link"></span></a><code>Rx.BehaviorSubject</code> class</h1>
 <p>Represents a value that changes over time.  Observers can subscribe to the subject to receive the last (or initial) value and all subsequent notifications.</p>
 <p>This class inherits both from the <code>Rx.Observable</code> and <code>Rx.Observer</code> classes.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
 <p>The follow example shows the basic usage of an <code>Rx.BehaviorSubject</code> class.</p>
 <pre><code class="lang-js"><span class="hljs-comment">/* Initialize with initial value of 42 */</span>
 <span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.BehaviorSubject(<span class="hljs-number">42</span>);
@@ -5756,33 +5760,33 @@ subject.onNext(<span class="hljs-number">56</span>);
 subject.onCompleted();
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.binding.js</li>
 </ul>
-<h2 id="-behaviorsubject-constructor"><code>BehaviorSubject Constructor</code></h2>
+<h2 id="-behaviorsubject-constructor"><a name="-behaviorsubject-constructor" class="plugin-anchor" href="#-behaviorsubject-constructor"><span class="fa fa-link"></span></a><code>BehaviorSubject Constructor</code></h2>
 <ul>
 <li><a href="#rxbehaviorsubjectintialvalue"><code>constructor</code></a></li>
 </ul>
-<h2 id="-behaviorsubject-instance-methods"><code>BehaviorSubject Instance Methods</code></h2>
+<h2 id="-behaviorsubject-instance-methods"><a name="-behaviorsubject-instance-methods" class="plugin-anchor" href="#-behaviorsubject-instance-methods"><span class="fa fa-link"></span></a><code>BehaviorSubject Instance Methods</code></h2>
 <ul>
 <li><a href="#rxbehaviorsubjectprototypedispose"><code>dispose</code></a></li>
 <li><a href="#rxbehaviorsubjectprototypehasobservers"><code>hasObservers</code></a></li>
 </ul>
-<h2 id="inherited-classes">Inherited Classes</h2>
+<h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/core/observable.md" target="_blank"><code>Rx.Observable</code></a></li>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/core/observer.md" target="_blank"><code>Rx.Observer</code></a></li>
 </ul>
-<h2 id="-behaviorsubject-constructor"><em>BehaviorSubject Constructor</em></h2>
-<h3 id="-a-id-rxbehaviorsubjectintialvalue-a-rx-behaviorsubject-initialvalue"><a id="rxbehaviorsubjectintialvalue"></a><code>Rx.BehaviorSubject(initialValue)</code></h3>
+<h2 id="-behaviorsubject-constructor"><a name="-behaviorsubject-constructor" class="plugin-anchor" href="#-behaviorsubject-constructor"><span class="fa fa-link"></span></a><em>BehaviorSubject Constructor</em></h2>
+<h3 id="-a-id-rxbehaviorsubjectintialvalue-a-rx-behaviorsubject-initialvalue"><a name="-a-id-rxbehaviorsubjectintialvalue-a-rx-behaviorsubject-initialvalue" class="plugin-anchor" href="#-a-id-rxbehaviorsubjectintialvalue-a-rx-behaviorsubject-initialvalue"><span class="fa fa-link"></span></a><a id="rxbehaviorsubjectintialvalue"></a><code>Rx.BehaviorSubject(initialValue)</code></h3>
 <p><a href="#rxbehaviorsubjectintialvalue">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/behaviorsubject.js#L30-L37" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Initializes a new instance of the <code>Rx.BehaviorSubject</code> class which creates a subject that caches its last value and starts with the specified value.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>initialValue</code> <em>(Any)</em>: Initial value sent to observers when no other value has been received by the subject yet.</li>
 </ol>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.BehaviorSubject(<span class="hljs-number">56</span>);
 
 subject.onCompleted();
@@ -5806,14 +5810,14 @@ subject.onNext(<span class="hljs-number">42</span>);
 subject.onCompleted();
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>= rx.binding.js</p>
 <hr>
-<h2 id="-behaviorsubject-instance-methods"><em>BehaviorSubject Instance Methods</em></h2>
-<h3 id="-a-id-rxbehaviorsubjectprototypedispose-a-rx-behaviorsubject-prototype-dispose"><a id="rxbehaviorsubjectprototypedispose"></a><code>Rx.BehaviorSubject.prototype.dispose()</code></h3>
+<h2 id="-behaviorsubject-instance-methods"><a name="-behaviorsubject-instance-methods" class="plugin-anchor" href="#-behaviorsubject-instance-methods"><span class="fa fa-link"></span></a><em>BehaviorSubject Instance Methods</em></h2>
+<h3 id="-a-id-rxbehaviorsubjectprototypedispose-a-rx-behaviorsubject-prototype-dispose"><a name="-a-id-rxbehaviorsubjectprototypedispose-a-rx-behaviorsubject-prototype-dispose" class="plugin-anchor" href="#-a-id-rxbehaviorsubjectprototypedispose-a-rx-behaviorsubject-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxbehaviorsubjectprototypedispose"></a><code>Rx.BehaviorSubject.prototype.dispose()</code></h3>
 <p><a href="#rxbehaviorsubjectprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/behaviorsubject.js#L97-L102" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Unsubscribe all observers and release resources.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.BehaviorSubject();
 
 <span class="hljs-keyword">var</span> subscription = subject.subscribe(
@@ -5843,15 +5847,15 @@ subject.dispose();
 
 <span class="hljs-comment">// =&gt; Object has been disposed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>= rx.binding.js</p>
 <hr>
-<h3 id="-a-id-rxbehaviorsubjectprototypehasobservers-a-rx-behaviorsubject-prototype-hasobservers"><a id="rxbehaviorsubjectprototypehasobservers"></a><code>Rx.BehaviorSubject.prototype.hasObservers()</code></h3>
+<h3 id="-a-id-rxbehaviorsubjectprototypehasobservers-a-rx-behaviorsubject-prototype-hasobservers"><a name="-a-id-rxbehaviorsubjectprototypehasobservers-a-rx-behaviorsubject-prototype-hasobservers" class="plugin-anchor" href="#-a-id-rxbehaviorsubjectprototypehasobservers-a-rx-behaviorsubject-prototype-hasobservers"><span class="fa fa-link"></span></a><a id="rxbehaviorsubjectprototypehasobservers"></a><code>Rx.BehaviorSubject.prototype.hasObservers()</code></h3>
 <p><a href="#rxbehaviorsubjectprototypehasobservers">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/behaviorsubject.js#L44-L46" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Indicates whether the subject has observers subscribed to it.</p>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Boolean)</em>: Returns <code>true</code> if the Subject has observers, else <code>false</code>.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.BehaviorSubject();
 
 <span class="hljs-built_in">console</span>.log(subject.hasObservers());
@@ -5873,7 +5877,7 @@ subject.dispose();
 
 <span class="hljs-comment">// =&gt; true</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>= rx.binding.js</p>
 <hr>
 

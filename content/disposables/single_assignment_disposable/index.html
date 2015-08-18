@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="13.5" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="13.5" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,9 +5733,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-singleassignmentdisposable-class"><code>Rx.SingleAssignmentDisposable</code> class</h1>
+                        <h1 id="-rx-singleassignmentdisposable-class"><a name="-rx-singleassignmentdisposable-class" class="plugin-anchor" href="#-rx-singleassignmentdisposable-class"><span class="fa fa-link"></span></a><code>Rx.SingleAssignmentDisposable</code> class</h1>
 <p>Represents a disposable resource which only allows a single assignment of its underlying disposable resource. If an underlying disposable resource has already been set, future attempts to set the underlying disposable resource will throw an Error.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
 <p>The follow example shows the basic usage of an Rx.SingleAssignmentDisposable.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
 
@@ -5742,44 +5746,44 @@ singleDisposable.setDisposable(disposable);
 singleDisposable.dispose();
 <span class="hljs-comment">// =&gt; disposed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
-<h2 id="-singleassignmentdisposable-constructor"><code>SingleAssignmentDisposable Constructor</code></h2>
+<h2 id="-singleassignmentdisposable-constructor"><a name="-singleassignmentdisposable-constructor" class="plugin-anchor" href="#-singleassignmentdisposable-constructor"><span class="fa fa-link"></span></a><code>SingleAssignmentDisposable Constructor</code></h2>
 <ul>
 <li><a href="#rxsingleassignmentdisposable"><code>constructor</code></a></li>
 </ul>
-<h2 id="-singleassignmentdisposable-instance-methods"><code>SingleAssignmentDisposable Instance Methods</code></h2>
+<h2 id="-singleassignmentdisposable-instance-methods"><a name="-singleassignmentdisposable-instance-methods" class="plugin-anchor" href="#-singleassignmentdisposable-instance-methods"><span class="fa fa-link"></span></a><code>SingleAssignmentDisposable Instance Methods</code></h2>
 <ul>
 <li><a href="#rxsingleassignmentdisposableprototypedispose"><code>dispose</code></a></li>
 <li><a href="#rxsingleassignmentdisposableprototypegetdisposable"><code>getDisposable</code></a></li>
 <li><a href="#rxsingleassignmentdisposableprototypesetdisposable"><code>setDisposable</code></a></li>
 </ul>
-<h2 id="-singleassignmentdisposable-instance-properties"><code>SingleAssignmentDisposable Instance Properties</code></h2>
+<h2 id="-singleassignmentdisposable-instance-properties"><a name="-singleassignmentdisposable-instance-properties" class="plugin-anchor" href="#-singleassignmentdisposable-instance-properties"><span class="fa fa-link"></span></a><code>SingleAssignmentDisposable Instance Properties</code></h2>
 <ul>
 <li><a href="#isdisposed"><code>isDisposed</code></a></li>
 </ul>
-<h2 id="-singleassignmentdisposable-constructor"><em>SingleAssignmentDisposable Constructor</em></h2>
-<h3 id="-a-id-rxsingleassignmentdisposable-a-rx-singleassignmentdisposable"><a id="rxsingleassignmentdisposable"></a><code>Rx.SingleAssignmentDisposable()</code></h3>
+<h2 id="-singleassignmentdisposable-constructor"><a name="-singleassignmentdisposable-constructor" class="plugin-anchor" href="#-singleassignmentdisposable-constructor"><span class="fa fa-link"></span></a><em>SingleAssignmentDisposable Constructor</em></h2>
+<h3 id="-a-id-rxsingleassignmentdisposable-a-rx-singleassignmentdisposable"><a name="-a-id-rxsingleassignmentdisposable-a-rx-singleassignmentdisposable" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposable-a-rx-singleassignmentdisposable"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposable"></a><code>Rx.SingleAssignmentDisposable()</code></h3>
 <p><a href="#rxsingleassignmentdisposable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/singleassignmentdisposable.js#L7-L10" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Initializes a new instance of the <code>Rx.SingleAssignmentDisposable</code> class.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
 
 <span class="hljs-built_in">console</span>.log(singleDisposable.isDisposed);
 <span class="hljs-comment">// =&gt; false</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-singleassignmentdisposable-instance-methods"><em>SingleAssignmentDisposable Instance Methods</em></h2>
-<h3 id="-a-id-rxsingleassignmentdisposableprototypedispose-a-rx-singleassignmentdisposable-prototype-dispose"><a id="rxsingleassignmentdisposableprototypedispose"></a><code>Rx.SingleAssignmentDisposable.prototype.dispose()</code></h3>
+<h2 id="-singleassignmentdisposable-instance-methods"><a name="-singleassignmentdisposable-instance-methods" class="plugin-anchor" href="#-singleassignmentdisposable-instance-methods"><span class="fa fa-link"></span></a><em>SingleAssignmentDisposable Instance Methods</em></h2>
+<h3 id="-a-id-rxsingleassignmentdisposableprototypedispose-a-rx-singleassignmentdisposable-prototype-dispose"><a name="-a-id-rxsingleassignmentdisposableprototypedispose-a-rx-singleassignmentdisposable-prototype-dispose" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposableprototypedispose-a-rx-singleassignmentdisposable-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposableprototypedispose"></a><code>Rx.SingleAssignmentDisposable.prototype.dispose()</code></h3>
 <p><a href="#rxsingleassignmentdisposableprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/singleassignmentdisposable.js#L47-L57" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Disposes the underlying disposable.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
 
 <span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
@@ -5795,17 +5799,17 @@ singleDisposable.dispose();
 <span class="hljs-built_in">console</span>.log(singleDisposable.isDisposed);
 <span class="hljs-comment">// =&gt; true</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxsingleassignmentdisposableprototypegetdisposable-a-rx-singleassignmentdisposable-prototype-getdisposable"><a id="rxsingleassignmentdisposableprototypegetdisposable"></a><code>Rx.SingleAssignmentDisposable.prototype.getDisposable()</code></h3>
+<h3 id="-a-id-rxsingleassignmentdisposableprototypegetdisposable-a-rx-singleassignmentdisposable-prototype-getdisposable"><a name="-a-id-rxsingleassignmentdisposableprototypegetdisposable-a-rx-singleassignmentdisposable-prototype-getdisposable" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposableprototypegetdisposable-a-rx-singleassignmentdisposable-prototype-getdisposable"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposableprototypegetdisposable"></a><code>Rx.SingleAssignmentDisposable.prototype.getDisposable()</code></h3>
 <p><a href="#rxsingleassignmentdisposableprototypegetdisposable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/singleassignmentdisposable.js#L18-L20" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets the underlying disposable. After disposal, the result of getting this method is undefined.</p>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The underlying disposable.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
 
 <span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
@@ -5816,19 +5820,19 @@ singleDisposable.setDisposable(disposable);
 
 <span class="hljs-built_in">console</span>.log(d === disposable);
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxsingleassignmentdisposableprototypesetdisposablevalue-a-rx-singleassignmentdisposable-prototype-setdisposable-value"><a id="rxsingleassignmentdisposableprototypesetdisposablevalue"></a><code>Rx.SingleAssignmentDisposable.prototype.setDisposable(value)</code></h3>
+<h3 id="-a-id-rxsingleassignmentdisposableprototypesetdisposablevalue-a-rx-singleassignmentdisposable-prototype-setdisposable-value"><a name="-a-id-rxsingleassignmentdisposableprototypesetdisposablevalue-a-rx-singleassignmentdisposable-prototype-setdisposable-value" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposableprototypesetdisposablevalue-a-rx-singleassignmentdisposable-prototype-setdisposable-value"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposableprototypesetdisposablevalue"></a><code>Rx.SingleAssignmentDisposable.prototype.setDisposable(value)</code></h3>
 <p><a href="#rxsingleassignmentdisposableprototypesetdisposablevalue">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/singleassignmentdisposable.js#L31-L42" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Sets the underlying disposable.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>value</code> <em>(Disposable)</em>: The new underlying disposable.</li>
 </ol>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
 
 <span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
@@ -5845,16 +5849,16 @@ singleDisposable.setDisposable(d1);
 
 <span class="hljs-comment">// =&gt; Disposable has already been assigned</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-singleassignmentdisposable-instance-properties"><em>SingleAssignmentDisposable Instance Properties</em></h2>
-<h3 id="-a-id-isdisposed-a-isdisposed"><a id="isdisposed"></a><code>isDisposed</code></h3>
+<h2 id="-singleassignmentdisposable-instance-properties"><a name="-singleassignmentdisposable-instance-properties" class="plugin-anchor" href="#-singleassignmentdisposable-instance-properties"><span class="fa fa-link"></span></a><em>SingleAssignmentDisposable Instance Properties</em></h2>
+<h3 id="-a-id-isdisposed-a-isdisposed"><a name="-a-id-isdisposed-a-isdisposed" class="plugin-anchor" href="#-a-id-isdisposed-a-isdisposed"><span class="fa fa-link"></span></a><a id="isdisposed"></a><code>isDisposed</code></h3>
 <p><a href="#isdisposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/singleassignmentdisposable.js#L8" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets a value that indicates whether the object is disposed.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
 
 <span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
@@ -5870,7 +5874,7 @@ singleDisposable.dispose();
 <span class="hljs-built_in">console</span>.log(singleDisposable.isDisposed);
 <span class="hljs-comment">// =&gt; true</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>

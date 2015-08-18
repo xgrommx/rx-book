@@ -34,13 +34,17 @@
     <link rel="stylesheet" href="../../../gitbook/style.css">
     
         
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
     
 
         
-    <div class="book" data-level="8.2.98" data-basepath="../../.." data-revision="Fri Aug 14 2015 22:45:25 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.98" data-basepath="../../.." data-revision="Tue Aug 18 2015 03:20:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,9 +5733,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-flatmapobserver-onnext-onerror-oncompleted-thisarg-rx-observable-prototype-selectmanyobserver-onnext-onerror-oncompleted-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-selectmanyobserver-js"><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectmanyobserver.js" target="_blank"><code>Rx.Observable.prototype.flatMapObserver(onNext, onError, onCompleted, [thisArg])</code>, <code>Rx.Observable.prototype.selectManyObserver(onNext, onError, onCompleted, [thisArg])</code></a></h2>
+                        <h2 id="-rx-observable-prototype-flatmapobserver-onnext-onerror-oncompleted-thisarg-rx-observable-prototype-selectmanyobserver-onnext-onerror-oncompleted-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-selectmanyobserver-js"><a name="-rx-observable-prototype-flatmapobserver-onnext-onerror-oncompleted-thisarg-rx-observable-prototype-selectmanyobserver-onnext-onerror-oncompleted-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-selectmanyobserver-js" class="plugin-anchor" href="#-rx-observable-prototype-flatmapobserver-onnext-onerror-oncompleted-thisarg-rx-observable-prototype-selectmanyobserver-onnext-onerror-oncompleted-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-selectmanyobserver-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectmanyobserver.js" target="_blank"><code>Rx.Observable.prototype.flatMapObserver(onNext, onError, onCompleted, [thisArg])</code>, <code>Rx.Observable.prototype.selectManyObserver(onNext, onError, onCompleted, [thisArg])</code></a></h2>
 <p>Projects each notification of an observable sequence to an observable sequence and merges the resulting observable sequences into one observable sequence.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>onNext</code> <em>(<code>Function</code>)</em>:  A transform function to apply to each element. The selector is called with the following information:<ol>
 <li>the value of the element</li>
@@ -5742,9 +5746,9 @@
 <li><code>onCompleted</code> <em>(<code>Function</code>)</em>: A transform function to apply when the end of the source sequence is reached.</li>
 <li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the transform functions.</li>
 </ol>
-<h4 id="returns">Returns</h4>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence whose elements are the result of invoking the one-to-many transform function corresponding to each notification in the input sequence.</p>
-<h4 id="example">Example</h4>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>)
     .flatMapObserver(
         <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, i</span>) </span>{
@@ -5773,7 +5777,7 @@
 <span class="hljs-comment">// =&gt; Next: 3</span>
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<h3 id="location">Location</h3>
+<h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectmanyobserver.js" target="_blank"><code>/src/core/linq/observable/selectmanyobserver.js</code></a></li>

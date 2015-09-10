@@ -11,6 +11,7 @@
 * [http://blog.bolshchikov.net/post/89367775878/composing-discrete-events-with-rxjs](http://blog.bolshchikov.net/post/89367775878/composing-discrete-events-with-rxjs)
 * [https://medium.com/@StanLea/reactive-components-with-rxjs-filter-scan-map-fe2b845ccc1b](https://medium.com/@StanLea/reactive-components-with-rxjs-filter-scan-map-fe2b845ccc1b)
 * [http://tategakibunko.hatenablog.com/entry/2015/05/27/161026](http://tategakibunko.hatenablog.com/entry/2015/05/27/161026)
+* [https://dhavaldalal.wordpress.com/2015/09/09/reactive-in-rxjs-and-non-reactive-in-scala-snakes-and-ladders](https://dhavaldalal.wordpress.com/2015/09/09/reactive-in-rxjs-and-non-reactive-in-scala-snakes-and-ladders)
 
 ## Bacon
 * [http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)

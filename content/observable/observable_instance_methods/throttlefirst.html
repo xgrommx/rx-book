@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.128" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.128" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,66 +5729,66 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-throttlefirst-windowduration-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-throttlefirst-js"><a name="-rx-observable-prototype-throttlefirst-windowduration-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-throttlefirst-js" class="plugin-anchor" href="#-rx-observable-prototype-throttlefirst-windowduration-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-throttlefirst-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttlefirst.js" target="_blank"><code>Rx.Observable.prototype.throttleFirst(windowDuration, [scheduler])</code></a></h2>
+                        <h2 id="-rx-observable-prototype-throttlefirst-windowduration-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-throttlefirst-js"><a name="-rx-observable-prototype-throttlefirst-windowduration-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-throttlefirst-js" class="plugin-anchor" href="#-rx-observable-prototype-throttlefirst-windowduration-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-throttlefirst-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttlefirst.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">throttleFirst</span><span class="token punctuation">(</span>windowDuration<span class="token punctuation">,</span> <span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
 <p>Returns an Observable that emits only the first item emitted by the source Observable during sequential time windows of a specified duration.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>windowDuration</code> <em>(<code>Number</code>)</em>: Time to wait before emitting another item after emitting the last item (specified as an integer denoting milliseconds).</li>
-<li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>:  The Scheduler to use internally to manage the timers that handle timeout for each item. If not provided, defaults to Scheduler.timeout.</li>
+<li><code><span class="token punctuation">[</span>scheduler<span class="token operator">=</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout<span class="token punctuation">]</span></code> <em>(<code>Scheduler</code>)</em>:  The Scheduler to use internally to manage the timers that handle timeout for each item. If not provided, defaults to Scheduler.timeout.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An Observable that performs the throttle operation.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> times = [
-    { value: <span class="hljs-number">0</span>, time: <span class="hljs-number">100</span> },
-    { value: <span class="hljs-number">1</span>, time: <span class="hljs-number">600</span> },
-    { value: <span class="hljs-number">2</span>, time: <span class="hljs-number">400</span> },
-    { value: <span class="hljs-number">3</span>, time: <span class="hljs-number">900</span> },
-    { value: <span class="hljs-number">4</span>, time: <span class="hljs-number">200</span> }
-];
+<pre><code class="lang-js"><span class="token keyword">var</span> times <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> time<span class="token punctuation">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> time<span class="token punctuation">:</span> <span class="token number">600</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> time<span class="token punctuation">:</span> <span class="token number">400</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> time<span class="token punctuation">:</span> <span class="token number">900</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> time<span class="token punctuation">:</span> <span class="token number">200</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Delay each item by time and project value;</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.from(times)
-  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable
-      .of(item.value)
-      .delay(item.time);
-  })
-  .throttleFirst(<span class="hljs-number">300</span> <span class="hljs-comment">/* ms */</span>);
+<span class="token comment" spellcheck="true">// Delay each item by time and project value;</span>
+<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>times<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable
+      <span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">delay</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">throttleFirst</span><span class="token punctuation">(</span><span class="token number">300</span> <span class="token comment" spellcheck="true">/* ms */</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: %s&apos;</span>, x);
-  },
-  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: %s&apos;</span>, err);
-  },
-  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-  });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: %s&apos;</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Next: 0</span>
-<span class="hljs-comment">// =&gt; Next: 2</span>
-<span class="hljs-comment">// =&gt; Next: 3</span>
-<span class="hljs-comment">// =&gt; Completed</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 0</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 2</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 3</span>
+<span class="token comment" spellcheck="true">// =&gt; Completed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttlefirst.js" target="_blank"><code>/src/core/linq/observable/throttlefirst.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttlefirst.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>linq<span class="token operator">/</span>observable<span class="token operator">/</span>throttlefirst<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.time.js" target="_blank"><code>rx.time.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.time.js" target="_blank"><code>rx<span class="token punctuation">.</span>time<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
-<li>If using <code>rx.time.js</code><ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li>If using <code>rx<span class="token punctuation">.</span>time<span class="token punctuation">.</span>js</code><ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 </li>
 </ul>
@@ -5794,13 +5798,13 @@
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS-All</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Time/" target="_blank"><code>RxJS-Time</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS<span class="token operator">-</span>All</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Time/" target="_blank"><code>RxJS<span class="token operator">-</span>Time</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/throttlefirst.js" target="_blank"><code>/tests/observable/throttlefirst.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/throttlefirst.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>throttlefirst<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 
                     

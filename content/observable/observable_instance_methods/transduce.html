@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.138" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.138" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,25 +5729,25 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-transduce-transducer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-transduce-js"><a name="-rx-observable-prototype-transduce-transducer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-transduce-js" class="plugin-anchor" href="#-rx-observable-prototype-transduce-transducer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-transduce-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/transduce.js" target="_blank"><code>Rx.Observable.prototype.transduce(transducer)</code></a></h2>
+                        <h2 id="-rx-observable-prototype-transduce-transducer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-transduce-js"><a name="-rx-observable-prototype-transduce-transducer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-transduce-js" class="plugin-anchor" href="#-rx-observable-prototype-transduce-transducer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-transduce-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/transduce.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">transduce</span><span class="token punctuation">(</span>transducer<span class="token punctuation">)</span></code></a></h2>
 <p>Executes a transducer to transform the observable sequence.  </p>
 <p>Transducers are composable algorithmic transformations. They are independent from the context of their input and output sources and specify only the essence of the transformation in terms of an individual element. Because transducers are decoupled from input or output sources, they can be used in many different processes such as Observable sequences. Transducers compose directly, without awareness of input or creation of intermediate aggregates.</p>
 <p>Such examples of transducers libraries are <a href="https://github.com/cognitect-labs/transducers-js" target="_blank">transducers-js</a> from Cognitect and <a href="https://github.com/jlongster/transducers.js" target="_blank">transducers.js</a> from James Long.</p>
 <p>In order for this operator to work, it must the transducers library must follow the following contract:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">return</span> {
-  init: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-comment">// Return the item</span>
-    <span class="hljs-keyword">return</span> observer;
-  },
-  step: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obs, input</span>) </span>{
-    <span class="hljs-comment">// Process next item</span>
-    <span class="hljs-keyword">return</span> obs.onNext(input);
-  },
-  result: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obs</span>) </span>{
-    <span class="hljs-comment">// Mark completion</span>
-    <span class="hljs-keyword">return</span> obs.onCompleted();
-  }
-};
+<pre><code class="lang-js"><span class="token keyword">return</span> <span class="token punctuation">{</span>
+  init<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Return the item</span>
+    <span class="token keyword">return</span> observer<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  step<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>obs<span class="token punctuation">,</span> input<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Process next item</span>
+    <span class="token keyword">return</span> obs<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  result<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>obs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Mark completion</span>
+    <span class="token keyword">return</span> obs<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
@@ -5753,40 +5757,40 @@
 <p><em>(<code>Observable</code>)</em>: An observable sequence that results from the transducer execution.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <p>Below is an example using <a href="https://github.com/cognitect-labs/transducers-js" target="_blank">transducers-js</a>.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">even</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; }
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul10</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * <span class="hljs-number">10</span>; }
+<pre><code class="lang-js"><span class="token keyword">function</span> even <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">mul10</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 
-<span class="hljs-keyword">var</span> t = transducers
+<span class="token keyword">var</span> t <span class="token operator">=</span> transducers
 
-<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>)
-  .transduce(t.comp(t.filter(even), t.map(mul10)));
+<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">transduce</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token function">comp</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>even<span class="token punctuation">)</span><span class="token punctuation">,</span> t<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>mul10<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: %s&apos;</span>, x);
-  },
-  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: %s&apos;</span>, err);
-  },
-  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-  });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: %s&apos;</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Next: 20</span>
-<span class="hljs-comment">// =&gt; Next: 40</span>
-<span class="hljs-comment">// =&gt; Completed</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 20</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 40</span>
+<span class="token comment" spellcheck="true">// =&gt; Completed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/transduce.js" target="_blank"><code>/src/core/linq/observable/transduce.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/transduce.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>linq<span class="token operator">/</span>observable<span class="token operator">/</span>transduce<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>NPM Packages:</p>
 <ul>
@@ -5794,13 +5798,13 @@
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS-All</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS<span class="token operator">-</span>All</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS<span class="token operator">-</span>Main</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/transduce.js" target="_blank"><code>/tests/observable/transduce.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/transduce.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>transduce<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 
                     

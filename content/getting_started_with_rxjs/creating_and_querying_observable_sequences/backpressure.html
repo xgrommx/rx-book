@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="3.3.9" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.9" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5737,105 +5741,105 @@
 <p>There are a number of ways that an observable sequence can be controlled so that the consumer does not get overwhelmed through lossy operations, meaning that packets will be dropped in between pause and resume actions.</p>
 <h3 id="debounce"><a name="debounce" class="plugin-anchor" href="#debounce"><span class="fa fa-link"></span></a>Debounce</h3>
 <p>The first technique for lossy backpressure is called <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/debounce.md" target="_blank"><code>debounce</code></a> which only emits an item from the source Observable after a particular timespan has passed without the Observable emitting any other items.  This is useful in scenarios such as if the user is typing too fast and you do not want to yield every keystroke, and instead wait half a second after the person stopped typing before yielding the value.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> debounced = Rx.Observable.fromEvent(input, <span class="hljs-string">&apos;keyup&apos;</span>)
-  .map(e =&gt; e.target.value)
-  .debounce(<span class="hljs-number">500</span> <span class="hljs-comment">/* ms */</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> debounced <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> <span class="token string">&apos;keyup&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&gt;</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">debounce</span><span class="token punctuation">(</span><span class="token number">500</span> <span class="token comment" spellcheck="true">/* ms */</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-debounced.subscribeOnNext(value =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Input value: %s&apos;</span>, value));
+debounced<span class="token punctuation">.</span><span class="token function">subscribeOnNext</span><span class="token punctuation">(</span>value <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Input value: %s&apos;</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="throttling"><a name="throttling" class="plugin-anchor" href="#throttling"><span class="fa fa-link"></span></a>Throttling</h3>
 <p>Another technique to deal with an observable sequence which is producing too much for the consumer is through throttling with the use of the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/throttlefirst.md" target="_blank"><code>throttleFirst</code></a> method which emits the first items emitted by an Observable within periodic time intervals.  Throttling can be especially useful for rate limiting execution of handlers on events like resize and scroll.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> throttled = Rx.Observable.fromEvent(<span class="hljs-built_in">window</span>, <span class="hljs-string">&apos;resize&apos;</span>)
-  .throttleFirst(<span class="hljs-number">250</span> <span class="hljs-comment">/* ms */</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> throttled <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token string">&apos;resize&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">throttleFirst</span><span class="token punctuation">(</span><span class="token number">250</span> <span class="token comment" spellcheck="true">/* ms */</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-throttled.subscribeOnNext(e =&gt; {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Window inner height: %d&apos;</span>, <span class="hljs-built_in">window</span>.innerHeight);
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Window inner width: %d&apos;</span>, <span class="hljs-built_in">window</span>.innerWidth);
-});
+throttled<span class="token punctuation">.</span><span class="token function">subscribeOnNext</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Window inner height: %d&apos;</span><span class="token punctuation">,</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Window inner width: %d&apos;</span><span class="token punctuation">,</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="sampling-observables"><a name="sampling-observables" class="plugin-anchor" href="#sampling-observables"><span class="fa fa-link"></span></a>Sampling Observables</h3>
 <p>You can also at certain intervals extract values from the observable sequence using the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/sample.md" target="_blank"><code>sample</code></a> method.  This is useful if you want values from say a stock ticker every five seconds or so without having to consume the entire observable sequence.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> sampled = getStockData()
-  .sample(<span class="hljs-number">5000</span> <span class="hljs-comment">/* ms */</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> sampled <span class="token operator">=</span> <span class="token function">getStockData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">sample</span><span class="token punctuation">(</span><span class="token number">5000</span> <span class="token comment" spellcheck="true">/* ms */</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-sampled.subscribeOnNext(data =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Stock data: %o&apos;</span>, data));
+sampled<span class="token punctuation">.</span><span class="token function">subscribeOnNext</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Stock data: %o&apos;</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="pausable-observables"><a name="pausable-observables" class="plugin-anchor" href="#pausable-observables"><span class="fa fa-link"></span></a>Pausable Observables</h3>
 <p>The ability to pause and resume is also a powerful concept which is offered in RxJS in both lossy and loss-less versions.  In the case of lossy backpressure, the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/pausable.md" target="_blank"><code>pausable</code></a> operator can be used to stop listening and then resume listening at a later time by calling <code>pause</code> and <code>resume</code> respectively on the observable sequence.  For example we can take some observable sequence and call <code>pausable</code>, then call <code>pause</code> to pause the sequence and <code>resume</code> within 5 seconds.  Note that any data that comes in between the pause and resume are lost.  Note that this only works for hot observables and is unsuitable for cold observables as they will restart upon resume.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> pausable = getSomeObservableSource()
-  .pausable();
+<pre><code class="lang-js"><span class="token keyword">var</span> pausable <span class="token operator">=</span> <span class="token function">getSomeObservableSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">pausable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-pausable.subscribeOnNext(data =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Data: %o&apos;</span>, data));
+pausable<span class="token punctuation">.</span><span class="token function">subscribeOnNext</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Data: %o&apos;</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-pausable.pause();
+pausable<span class="token punctuation">.</span><span class="token function">pause</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Resume in five seconds</span>
-setTimeout(() =&gt; pausable.resume(), <span class="hljs-number">5000</span>);
+<span class="token comment" spellcheck="true">// Resume in five seconds</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> pausable<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h2 id="loss-less-backpressure"><a name="loss-less-backpressure" class="plugin-anchor" href="#loss-less-backpressure"><span class="fa fa-link"></span></a>Loss-less Backpressure</h2>
 <p>In addition to supporting lossy backpressure mechanisms, RxJS also supports ways of getting the data in such a way that it is able to be fully consumed by the consumer at its own pace.  There are a number of strategies at work including using buffers that work with timespans, count or both, pausable buffers, reactive pull, etc.</p>
 <h3 id="buffers-and-windows"><a name="buffers-and-windows" class="plugin-anchor" href="#buffers-and-windows"><span class="fa fa-link"></span></a>Buffers and Windows</h3>
 <p>The first strategy of dealing with an overly chatty producer is through the use of buffers.  This allows the consumer to set either the number of items they wish to wait for at a time, or a particular timespan, or both, whichever comes first.  This is useful in a number of cases, for example if you want some data within a window for comparison purposes in addition to chunking up data as you need it.</p>
 <p>The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/bufferwithcount.md" target="_blank"><code>bufferWithCount</code></a> method allows us to specify the number of items that you wish to capture in a buffer array before yielding it to the consumer.  An impractical yet fun use of this is to calculate whether the user has input the Konami Code for example.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> codes = [
-  <span class="hljs-number">38</span>, <span class="hljs-comment">// up</span>
-  <span class="hljs-number">38</span>, <span class="hljs-comment">// up</span>
-  <span class="hljs-number">40</span>, <span class="hljs-comment">// down</span>
-  <span class="hljs-number">40</span>, <span class="hljs-comment">// down</span>
-  <span class="hljs-number">37</span>, <span class="hljs-comment">// left</span>
-  <span class="hljs-number">39</span>, <span class="hljs-comment">// right</span>
-  <span class="hljs-number">37</span>, <span class="hljs-comment">// left</span>
-  <span class="hljs-number">39</span>, <span class="hljs-comment">// right</span>
-  <span class="hljs-number">66</span>, <span class="hljs-comment">// b</span>
-  <span class="hljs-number">65</span>  <span class="hljs-comment">// a</span>
-];
+<pre><code class="lang-js"><span class="token keyword">var</span> codes <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token number">38</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// up</span>
+  <span class="token number">38</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// up</span>
+  <span class="token number">40</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// down</span>
+  <span class="token number">40</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// down</span>
+  <span class="token number">37</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// left</span>
+  <span class="token number">39</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// right</span>
+  <span class="token number">37</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// left</span>
+  <span class="token number">39</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// right</span>
+  <span class="token number">66</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// b</span>
+  <span class="token number">65</span>  <span class="token comment" spellcheck="true">// a</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isKonamiCode</span>(<span class="hljs-params">buffer</span>) </span>{
-  <span class="hljs-keyword">return</span> codes.toString() === buffer.toString();
-}
+<span class="token keyword">function</span> <span class="token function">isKonamiCode</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> codes<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> buffer<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">var</span> keys = Rx.Observable.fromEvent(<span class="hljs-built_in">document</span>, <span class="hljs-string">&apos;keyup&apos;</span>)
-  .map(e =&gt; e.keyCode)
-  .bufferWithCount(<span class="hljs-number">10</span>, <span class="hljs-number">1</span>)
-  .filter(isKonamiCode)
-  .subscribeOnNext(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;KONAMI!&apos;</span>));
+<span class="token keyword">var</span> keys <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>document<span class="token punctuation">,</span> <span class="token string">&apos;keyup&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&gt;</span> e<span class="token punctuation">.</span>keyCode<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">bufferWithCount</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isKonamiCode<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">subscribeOnNext</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;KONAMI!&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>On the other hand, you can also get the data within a buffer for a given amount of time with the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/bufferwithtime.md" target="_blank"><code>bufferWithTime</code></a>.  This is useful for example if you are tracking volume of data that is coming across the network, which can then be handled uniformly.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = getStockData()
-  .bufferWithTime(<span class="hljs-number">5000</span>, <span class="hljs-number">1000</span>) <span class="hljs-comment">// time in milliseconds</span>
-  .subscribeOnNext(data =&gt; data.forEach(d =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Stock: %o&apos;</span>, d)));
+<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token function">getStockData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">bufferWithTime</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// time in milliseconds</span>
+  <span class="token punctuation">.</span><span class="token function">subscribeOnNext</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> data<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>d <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Stock: %o&apos;</span><span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In order to keep buffers from filling too quickly, there is a method to cap the buffer by specifying ceilings for count and timespan, whichever occurs first.  For example, the network could be particularly quick with the data for the specified time, and other times not, so to keep the data levels even, you can specify this threshold via the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/bufferwithtimeorcount.md" target="_blank"><code>bufferWithTimeOrCount</code></a> method</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = getStockData()
-  .bufferWithTimeOrCount(<span class="hljs-number">5000</span> <span class="hljs-comment">/* ms */</span>, <span class="hljs-number">100</span> <span class="hljs-comment">/* items */</span>)
-  .subscribeOnNext(data =&gt; data.forEach(d =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Stock: %o&apos;</span>, d)));
+<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token function">getStockData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">bufferWithTimeOrCount</span><span class="token punctuation">(</span><span class="token number">5000</span> <span class="token comment" spellcheck="true">/* ms */</span><span class="token punctuation">,</span> <span class="token number">100</span> <span class="token comment" spellcheck="true">/* items */</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">subscribeOnNext</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> data<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>d <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Stock: %o&apos;</span><span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="pausable-buffers"><a name="pausable-buffers" class="plugin-anchor" href="#pausable-buffers"><span class="fa fa-link"></span></a>Pausable Buffers</h3>
 <p>The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/pausable.md" target="_blank"><code>pausable</code></a> method is great at dealing with hot observables where you would want to pause and resume while dropping data, however, you may want to preserve that data between the <code>pause</code> and <code>resume</code> calls.  To that end, we have introduced the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/pausablebuffered.md" target="_blank"><code>pausableBuffered</code></a> method which keeps a running buffer between <code>pause</code> is called and is drained when <code>resume</code> is called.  This then leaves the discretion up to the developer to decide when to pause and resume and in the mean time, no data is lost.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = getStockData()
-  .pausableBuffered();
+<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token function">getStockData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">pausableBuffered</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-source.subscribeOnNext(stock =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Stock data: %o&apos;</span>, stock));
+source<span class="token punctuation">.</span><span class="token function">subscribeOnNext</span><span class="token punctuation">(</span>stock <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Stock data: %o&apos;</span><span class="token punctuation">,</span> stock<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-source.pause();
+source<span class="token punctuation">.</span><span class="token function">pause</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Resume after five seconds</span>
-setTimeout(() =&gt; {
-  <span class="hljs-comment">// Drains the buffer and subscribeOnNext is called with the data</span>
-  source.resume();
-}, <span class="hljs-number">5000</span>);
+<span class="token comment" spellcheck="true">// Resume after five seconds</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// Drains the buffer and subscribeOnNext is called with the data</span>
+  source<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="controlled-observables"><a name="controlled-observables" class="plugin-anchor" href="#controlled-observables"><span class="fa fa-link"></span></a>Controlled Observables</h3>
 <p>In more advanced scenarios, you may want to control the absolute number of items that you receive at a given time, and the rest is buffered via the <code>controlled</code> method.  For example, you can pull 10 items, followed by 20 items, and is up to the discretion of the developer.  This is more in-line with the efforts from the <a href="http://www.reactive-streams.org/" target="_blank">Reactive Streams</a> effort to effectively turn the push stream into a push/pull stream.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = getStockData()
-  .controlled();
+<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token function">getStockData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">controlled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-source.subscribeOnNext(stock =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Stock data: %o&apos;</span>, stock));
+source<span class="token punctuation">.</span><span class="token function">subscribeOnNext</span><span class="token punctuation">(</span>stock <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Stock data: %o&apos;</span><span class="token punctuation">,</span> stock<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-source.request(<span class="hljs-number">2</span>);
+source<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Keep getting more after 5 seconds</span>
-setInterval(=&gt; source.request(<span class="hljs-number">2</span>), <span class="hljs-number">5000</span>);
+<span class="token comment" spellcheck="true">// Keep getting more after 5 seconds</span>
+<span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token operator">=</span><span class="token operator">&gt;</span> source<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="future-work"><a name="future-work" class="plugin-anchor" href="#future-work"><span class="fa fa-link"></span></a>Future Work</h3>
 <p>This is of course only the beginning of the work with backpressure as there are many other strategies that can be considered.  In future versions of RxJS, the idea of the controlled observable will be baked into the subscription itself which then allows the backpressure to be an essential part of the contract or requesting n number of items.</p>

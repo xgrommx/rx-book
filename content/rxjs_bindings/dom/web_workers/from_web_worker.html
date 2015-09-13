@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="16.1.4.1" data-basepath="../../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="16.1.4.1" data-basepath="../../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,11 +5729,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-a-id-rxdomfromwebworkerurl-a-rx-dom-fromwebworker-url"><a name="-a-id-rxdomfromwebworkerurl-a-rx-dom-fromwebworker-url" class="plugin-anchor" href="#-a-id-rxdomfromwebworkerurl-a-rx-dom-fromwebworker-url"><span class="fa fa-link"></span></a><a id="rxdomfromwebworkerurl"></a><code>Rx.DOM.fromWebWorker(url)</code></h3>
+                        <h3 id="-a-id-rxdomfromwebworkerurl-a-rx-dom-fromwebworker-url"><a name="-a-id-rxdomfromwebworkerurl-a-rx-dom-fromwebworker-url" class="plugin-anchor" href="#-a-id-rxdomfromwebworkerurl-a-rx-dom-fromwebworker-url"><span class="fa fa-link"></span></a><a id="rxdomfromwebworkerurl"></a><code>Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span><span class="token function">fromWebWorker</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxdomfromwebworkerurl">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L434-L456" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
 <p>Creates a Web Worker with a given URL as a Subject.</p>
 <h4 id="syntax"><a name="syntax" class="plugin-anchor" href="#syntax"><span class="fa fa-link"></span></a>Syntax</h4>
-<pre><code class="lang-js">Rx.DOM.fromWebWorker(url);
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span><span class="token function">fromWebWorker</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
@@ -5738,13 +5742,13 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Subject)</em>: A Subject which wraps a Web Worker.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> worker = Rx.DOM.fromWebWorker(<span class="hljs-string">&apos;worker.js&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> worker <span class="token operator">=</span> Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span><span class="token function">fromWebWorker</span><span class="token punctuation">(</span><span class="token string">&apos;worker.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-worker.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(e.data);
-});
+worker<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-worker.onNext(<span class="hljs-string">&apos;some data&apos;</span>);
+worker<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;some data&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                     

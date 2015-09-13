@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="14.1" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="14.1" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,27 +5729,27 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-reactivetest-class"><a name="-rx-reactivetest-class" class="plugin-anchor" href="#-rx-reactivetest-class"><span class="fa fa-link"></span></a><code>Rx.ReactiveTest</code> class</h1>
+                        <h1 id="-rx-reactivetest-class"><a name="-rx-reactivetest-class" class="plugin-anchor" href="#-rx-reactivetest-class"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span>ReactiveTest</code> class</h1>
 <p>This class contains test utility methods such as create notifications for testing purposes.</p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
-<h2 id="-reactivetest-class-methods"><a name="-reactivetest-class-methods" class="plugin-anchor" href="#-reactivetest-class-methods"><span class="fa fa-link"></span></a><code>ReactiveTest Class Methods</code></h2>
+<h2 id="-reactivetest-class-methods"><a name="-reactivetest-class-methods" class="plugin-anchor" href="#-reactivetest-class-methods"><span class="fa fa-link"></span></a><code>ReactiveTest Class <span class="token class-name">Methods</span></code></h2>
 <ul>
 <li><a href="#rxreactivetestoncompletedticks"><code>onCompleted</code></a></li>
 <li><a href="#rxreactivetestonerrorticksexception"><code>onError</code></a></li>
 <li><a href="#rxreactivetestonnextticksvalue"><code>onNext</code></a></li>
 <li><a href="#rxasyncsubjectprototypehasobservers"><code>subscribe</code></a></li>
 </ul>
-<h2 id="-reactivetest-class-fields"><a name="-reactivetest-class-fields" class="plugin-anchor" href="#-reactivetest-class-fields"><span class="fa fa-link"></span></a><code>ReactiveTest Class Fields</code></h2>
+<h2 id="-reactivetest-class-fields"><a name="-reactivetest-class-fields" class="plugin-anchor" href="#-reactivetest-class-fields"><span class="fa fa-link"></span></a><code>ReactiveTest Class <span class="token class-name">Fields</span></code></h2>
 <ul>
 <li><a href="#rxreactivetestcreated"><code>created</code></a></li>
 <li><a href="#rxreactivetestdisposed"><code>disposed</code></a></li>
 <li><a href="#rxreactivetestsubscribed"><code>subscribed</code></a></li>
 </ul>
 <h2 id="-reactivetest-class-methods"><a name="-reactivetest-class-methods" class="plugin-anchor" href="#-reactivetest-class-methods"><span class="fa fa-link"></span></a><em>ReactiveTest Class Methods</em></h2>
-<h3 id="-a-id-rxreactivetestoncompletedticks-a-rx-reactivetest-oncompleted-ticks"><a name="-a-id-rxreactivetestoncompletedticks-a-rx-reactivetest-oncompleted-ticks" class="plugin-anchor" href="#-a-id-rxreactivetestoncompletedticks-a-rx-reactivetest-oncompleted-ticks"><span class="fa fa-link"></span></a><a id="rxreactivetestoncompletedticks"></a><code>Rx.ReactiveTest.onCompleted(ticks)</code></h3>
+<h3 id="-a-id-rxreactivetestoncompletedticks-a-rx-reactivetest-oncompleted-ticks"><a name="-a-id-rxreactivetestoncompletedticks-a-rx-reactivetest-oncompleted-ticks" class="plugin-anchor" href="#-a-id-rxreactivetestoncompletedticks-a-rx-reactivetest-oncompleted-ticks"><span class="fa fa-link"></span></a><a id="rxreactivetestoncompletedticks"></a><code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span>ticks<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxreactivetestoncompletedticks">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/reactivetest.js#L89-L91" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Factory method for an OnCompleted notification record at a given time.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5755,29 +5759,29 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Recorded)</em>: OnCompleted notification.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> onCompleted = Rx.ReactiveTest.onCompleted;
+<pre><code class="lang-js"><span class="token keyword">var</span> onCompleted <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted<span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
+<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
-    onCompleted(<span class="hljs-number">260</span>)
-);
+<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
+    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">260</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x; });
-});
+<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithCreate</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Write custom assertion</span>
-collectionAssert(res, [
-    onCompleted(<span class="hljs-number">260</span>)
-]);
+<span class="token comment" spellcheck="true">// Write custom assertion</span>
+<span class="token function">collectionAssert</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">260</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxreactivetestonerrorticksexception-a-rx-reactivetest-onerror-ticks-exception"><a name="-a-id-rxreactivetestonerrorticksexception-a-rx-reactivetest-onerror-ticks-exception" class="plugin-anchor" href="#-a-id-rxreactivetestonerrorticksexception-a-rx-reactivetest-onerror-ticks-exception"><span class="fa fa-link"></span></a><a id="rxreactivetestonerrorticksexception"></a><code>Rx.ReactiveTest.onError(ticks, exception)</code></h3>
+<h3 id="-a-id-rxreactivetestonerrorticksexception-a-rx-reactivetest-onerror-ticks-exception"><a name="-a-id-rxreactivetestonerrorticksexception-a-rx-reactivetest-onerror-ticks-exception" class="plugin-anchor" href="#-a-id-rxreactivetestonerrorticksexception-a-rx-reactivetest-onerror-ticks-exception"><span class="fa fa-link"></span></a><a id="rxreactivetestonerrorticksexception"></a><code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>ticks<span class="token punctuation">,</span> exception<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxreactivetestonerrorticksexception">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/reactivetest.js#L77-L82" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Factory method for an OnError notification record at a given time with a given error.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5788,33 +5792,33 @@ collectionAssert(res, [
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Recorded)</em>: Recorded OnError notification.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> ex = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;woops&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> ex <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;woops&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> onError = Rx.ReactiveTest.onError;
+<span class="token keyword">var</span> onError <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onError<span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
+<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
-    onError(<span class="hljs-number">201</span>, ex)
-);
+<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
+    <span class="token function">onError</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> ex<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x; });
-});
+<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithCreate</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Write custom assertion</span>
-collectionAssert(res, [
+<span class="token comment" spellcheck="true">// Write custom assertion</span>
+<span class="token function">collectionAssert</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token punctuation">[</span>
 
-    <span class="hljs-comment">// Using a predicate</span>
-    onError(<span class="hljs-number">201</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{ <span class="hljs-keyword">return</span> e.message === <span class="hljs-string">&apos;woops&apos;</span>; })
-]);
+    <span class="token comment" spellcheck="true">// Using a predicate</span>
+    <span class="token function">onError</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> e<span class="token punctuation">.</span>message <span class="token operator">===</span> <span class="token string">&apos;woops&apos;</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxreactivetestonnextticksvalue-a-rx-reactivetest-onnext-ticks-value"><a name="-a-id-rxreactivetestonnextticksvalue-a-rx-reactivetest-onnext-ticks-value" class="plugin-anchor" href="#-a-id-rxreactivetestonnextticksvalue-a-rx-reactivetest-onnext-ticks-value"><span class="fa fa-link"></span></a><a id="rxreactivetestonnextticksvalue"></a><code>Rx.ReactiveTest.onNext(ticks, value)</code></h3>
+<h3 id="-a-id-rxreactivetestonnextticksvalue-a-rx-reactivetest-onnext-ticks-value"><a name="-a-id-rxreactivetestonnextticksvalue-a-rx-reactivetest-onnext-ticks-value" class="plugin-anchor" href="#-a-id-rxreactivetestonnextticksvalue-a-rx-reactivetest-onnext-ticks-value"><span class="fa fa-link"></span></a><a id="rxreactivetestonnextticksvalue"></a><code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>ticks<span class="token punctuation">,</span> value<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxreactivetestonnextticksvalue">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/reactivetest.js#L61-L66" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Factory method for an OnNext notification record at a given time with a given error.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5825,26 +5829,26 @@ collectionAssert(res, [
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Recorded)</em>: Recorded OnNext notification.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> ex = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;woops&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> ex <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;woops&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext;
+<span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
+<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
-    onNext(<span class="hljs-number">201</span>, <span class="hljs-number">42</span>)
-);
+<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
+    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x; });
-});
+<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithCreate</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Write custom assertion</span>
-collectionAssert(res, [
+<span class="token comment" spellcheck="true">// Write custom assertion</span>
+<span class="token function">collectionAssert</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token punctuation">[</span>
 
-    <span class="hljs-comment">// Using a predicate</span>
-    onNext(<span class="hljs-number">201</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x === <span class="hljs-number">42</span>; })
-]);
+    <span class="token comment" spellcheck="true">// Using a predicate</span>
+    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">===</span> <span class="token number">42</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5852,72 +5856,72 @@ collectionAssert(res, [
 </ul>
 <hr>
 <h2 id="-reactivetest-class-fields"><a name="-reactivetest-class-fields" class="plugin-anchor" href="#-reactivetest-class-fields"><span class="fa fa-link"></span></a><em>ReactiveTest Class Fields</em></h2>
-<h3 id="-a-id-rxreactivetestcreated-a-rx-reactivetest-created"><a name="-a-id-rxreactivetestcreated-a-rx-reactivetest-created" class="plugin-anchor" href="#-a-id-rxreactivetestcreated-a-rx-reactivetest-created"><span class="fa fa-link"></span></a><a id="rxreactivetestcreated"></a><code>Rx.ReactiveTest.created</code></h3>
+<h3 id="-a-id-rxreactivetestcreated-a-rx-reactivetest-created"><a name="-a-id-rxreactivetestcreated-a-rx-reactivetest-created" class="plugin-anchor" href="#-a-id-rxreactivetestcreated-a-rx-reactivetest-created"><span class="fa fa-link"></span></a><a id="rxreactivetestcreated"></a><code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>created</code></h3>
 <p><a href="#rxreactivetestcreated">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/reactivetest.js#L45" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Default virtual time used for creation of observable sequences in unit tests.  This has a value of <code>100</code>.</p>
+<p>Default virtual time used for creation of observable sequences in unit tests.  This has a value of <code><span class="token number">100</span></code>.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
-    Rx.ReactiveTest.onNext(<span class="hljs-number">201</span>, <span class="hljs-number">42</span>),
-    Rx.ReactiveTest.onNext(<span class="hljs-number">202</span>, <span class="hljs-number">56</span>),
-    Rx.ReactiveTest.onCompleted(<span class="hljs-number">203</span>)
-);
+<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">202</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">203</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> res = scheduler.startWithTiming(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> xs.map(funxtion (x) { <span class="hljs-keyword">return</span> x; })},
-    Rx.ReactiveTest.created,
-    Rx.ReactiveTest.subscribed,
-    Rx.ReactiveTest.disposed
-);
+<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithTiming</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>funxtion <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>created<span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>subscribed<span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>disposed
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxreactivetestdisposed-a-rx-reactivetest-disposed"><a name="-a-id-rxreactivetestdisposed-a-rx-reactivetest-disposed" class="plugin-anchor" href="#-a-id-rxreactivetestdisposed-a-rx-reactivetest-disposed"><span class="fa fa-link"></span></a><a id="rxreactivetestdisposed"></a><code>Rx.ReactiveTest.disposed</code></h3>
+<h3 id="-a-id-rxreactivetestdisposed-a-rx-reactivetest-disposed"><a name="-a-id-rxreactivetestdisposed-a-rx-reactivetest-disposed" class="plugin-anchor" href="#-a-id-rxreactivetestdisposed-a-rx-reactivetest-disposed"><span class="fa fa-link"></span></a><a id="rxreactivetestdisposed"></a><code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>disposed</code></h3>
 <p><a href="#rxreactivetestdisposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/reactivetest.js#L49" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Default virtual time used to dispose subscriptions in unit tests.  This has a value of <code>1000</code>.</p>
+<p>Default virtual time used to dispose subscriptions in unit tests.  This has a value of <code><span class="token number">1000</span></code>.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
-    Rx.ReactiveTest.onNext(<span class="hljs-number">201</span>, <span class="hljs-number">42</span>),
-    Rx.ReactiveTest.onNext(<span class="hljs-number">202</span>, <span class="hljs-number">56</span>),
-    Rx.ReactiveTest.onCompleted(<span class="hljs-number">203</span>)
-);
+<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">202</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">203</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> res = scheduler.startWithTiming(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> xs.map(funxtion (x) { <span class="hljs-keyword">return</span> x; })},
-    Rx.ReactiveTest.created,
-    Rx.ReactiveTest.subscribed,
-    Rx.ReactiveTest.disposed
-);
+<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithTiming</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>funxtion <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>created<span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>subscribed<span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>disposed
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxreactivetestsubscribed-a-rx-reactivetest-subscribed"><a name="-a-id-rxreactivetestsubscribed-a-rx-reactivetest-subscribed" class="plugin-anchor" href="#-a-id-rxreactivetestsubscribed-a-rx-reactivetest-subscribed"><span class="fa fa-link"></span></a><a id="rxreactivetestsubscribed"></a><code>Rx.ReactiveTest.subscribed</code></h3>
+<h3 id="-a-id-rxreactivetestsubscribed-a-rx-reactivetest-subscribed"><a name="-a-id-rxreactivetestsubscribed-a-rx-reactivetest-subscribed" class="plugin-anchor" href="#-a-id-rxreactivetestsubscribed-a-rx-reactivetest-subscribed"><span class="fa fa-link"></span></a><a id="rxreactivetestsubscribed"></a><code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>subscribed</code></h3>
 <p><a href="#rxreactivetestsubscribed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/reactivetest.js#L47" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Default virtual time used to subscribe to observable sequences in unit tests.  This has a value of <code>200</code>.</p>
+<p>Default virtual time used to subscribe to observable sequences in unit tests.  This has a value of <code><span class="token number">200</span></code>.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
-    Rx.ReactiveTest.onNext(<span class="hljs-number">201</span>, <span class="hljs-number">42</span>),
-    Rx.ReactiveTest.onNext(<span class="hljs-number">202</span>, <span class="hljs-number">56</span>),
-    Rx.ReactiveTest.onCompleted(<span class="hljs-number">203</span>)
-);
+<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">202</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">203</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> res = scheduler.startWithTiming(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> xs.map(funxtion (x) { <span class="hljs-keyword">return</span> x; })},
-    Rx.ReactiveTest.created,
-    Rx.ReactiveTest.subscribed,
-    Rx.ReactiveTest.disposed
-);
+<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithTiming</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>funxtion <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>created<span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>subscribed<span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>disposed
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>

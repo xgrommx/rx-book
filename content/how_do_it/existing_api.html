@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="4.1" data-basepath="../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="4.1" data-basepath="../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5727,87 +5731,87 @@
                     
                         <h1 id="wrap-an-existing-api-with-rxjs"><a name="wrap-an-existing-api-with-rxjs" class="plugin-anchor" href="#wrap-an-existing-api-with-rxjs"><span class="fa fa-link"></span></a>Wrap an Existing API with RxJS</h1>
 <p>One question that often comes up is how can I wrap an existing API into an Observable sequence?  The answer is fairly simple and not a lot of lines of code to make that happen.</p>
-<p>To make this a bit more concrete, let&apos;s take a familiar HTML5 API like <a href="http://dev.w3.org/geo/api/spec-source.html" target="_blank">Geolocation API</a>, in particular, the <code>navigator.geolocation.watchPosition</code> method.</p>
-<p>The typical use of this method might be the following where we would hook up an event handler to listen for success and errors on watching the geolocation by using the <code>navigator.geolocation.watchPosition</code> method.  When one wishes to terminate listening for geolocation updates, you simply call the <code>navigator.geolocation.clearWatch</code> method passing in the watch ID returned from the <code>watchPosition</code> method.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">watchPositionChanged</span>(<span class="hljs-params">e</span>) </span>{
-    <span class="hljs-comment">// Do something with the coordinates</span>
-}
+<p>To make this a bit more concrete, let&apos;s take a familiar HTML5 API like <a href="http://dev.w3.org/geo/api/spec-source.html" target="_blank">Geolocation API</a>, in particular, the <code>navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span>watchPosition</code> method.</p>
+<p>The typical use of this method might be the following where we would hook up an event handler to listen for success and errors on watching the geolocation by using the <code>navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span>watchPosition</code> method.  When one wishes to terminate listening for geolocation updates, you simply call the <code>navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span>clearWatch</code> method passing in the watch ID returned from the <code>watchPosition</code> method.</p>
+<pre><code class="lang-js"><span class="token keyword">function</span> <span class="token function">watchPositionChanged</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Do something with the coordinates</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">watchPositionError</span>(<span class="hljs-params">e</span>) </span>{
-    <span class="hljs-comment">// Handle position error</span>
-}
+<span class="token keyword">function</span> <span class="token function">watchPositionError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Handle position error</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">var</span> watchId = navigator.geolocation.watchPosition(
-    watchPositionChanged,
-    watchPositionError);
+<span class="token keyword">var</span> watchId <span class="token operator">=</span> navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span><span class="token function">watchPosition</span><span class="token punctuation">(</span>
+    watchPositionChanged<span class="token punctuation">,</span>
+    watchPositionError<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> stopWatching = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;#stopWatching&apos;</span>);
-stopWatching.addEventListener(<span class="hljs-string">&apos;click&apos;</span>, stopWatchingClicked, <span class="hljs-literal">false</span>);
+<span class="token keyword">var</span> stopWatching <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;#stopWatching&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+stopWatching<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> stopWatchingClicked<span class="token punctuation">,</span> <span class="token keyword">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Clear watching upon click</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">stopWatchingClicked</span>(<span class="hljs-params">e</span>) </span>{
-    navigator.geolocation.clearWatch(watchId)
-}
+<span class="token comment" spellcheck="true">// Clear watching upon click</span>
+<span class="token keyword">function</span> <span class="token function">stopWatchingClicked</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span><span class="token function">clearWatch</span><span class="token punctuation">(</span>watchId<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<p>In order to wrap this, we&apos;ll need to use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe" target="_blank"><code>Rx.Observable.create</code></a> method.  From this, we can yield values to the observer or handle the errors.  Let&apos;s see how the code might look, creating a watchPosition method which takes geolocation options.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">watchPosition</span>(<span class="hljs-params">geolocationOptions</span>) </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-        <span class="hljs-keyword">var</span> watchId = <span class="hljs-built_in">window</span>.navigator.geolocation.watchPosition(
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">successHandler</span> (<span class="hljs-params">loc</span>) </span>{
-                observer.onNext(loc);
-            }, 
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">errorHandler</span> (<span class="hljs-params">err</span>) </span>{
-                observer.onError(err);
-            }, 
-            geolocationOptions);
+<p>In order to wrap this, we&apos;ll need to use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>create</code></a> method.  From this, we can yield values to the observer or handle the errors.  Let&apos;s see how the code might look, creating a watchPosition method which takes geolocation options.</p>
+<pre><code class="lang-js"><span class="token keyword">function</span> <span class="token function">watchPosition</span><span class="token punctuation">(</span>geolocationOptions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> watchId <span class="token operator">=</span> window<span class="token punctuation">.</span>navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span><span class="token function">watchPosition</span><span class="token punctuation">(</span>
+            <span class="token keyword">function</span> successHandler <span class="token punctuation">(</span>loc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>loc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+            <span class="token keyword">function</span> errorHandler <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                observer<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+            geolocationOptions<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="hljs-keyword">return</span> () =&gt; {
-            <span class="hljs-built_in">window</span>.navigator.geolocation.clearWatch(watchId);
-        };
-    });
- }
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            window<span class="token punctuation">.</span>navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span><span class="token function">clearWatch</span><span class="token punctuation">(</span>watchId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
 </code></pre>
 <p>We need to also be aware of ensuring we&apos;re not adding too many watchPosition calls as we compose it together with other observable sequences.  To do that, we&apos;ll need to utilize the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypepublishselector" target="_blank"><code>publish</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#connectableobservableprototyperefcount" target="_blank"><code>refCount</code></a> methods from rx.binding.js.  </p>
 <p>Our final result should look like the following:</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">watchPosition</span>(<span class="hljs-params">geolocationOptions</span>) </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-        <span class="hljs-keyword">var</span> watchId = <span class="hljs-built_in">window</span>.navigator.geolocation.watchPosition(
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">successHandler</span> (<span class="hljs-params">loc</span>) </span>{
-                observer.onNext(loc);
-            }, 
-            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">errorHandler</span> (<span class="hljs-params">err</span>) </span>{
-                observer.onError(err);
-            }, 
-            geolocationOptions);
+<pre><code class="lang-js"><span class="token keyword">function</span> <span class="token function">watchPosition</span><span class="token punctuation">(</span>geolocationOptions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> watchId <span class="token operator">=</span> window<span class="token punctuation">.</span>navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span><span class="token function">watchPosition</span><span class="token punctuation">(</span>
+            <span class="token keyword">function</span> successHandler <span class="token punctuation">(</span>loc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>loc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+            <span class="token keyword">function</span> errorHandler <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                observer<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+            geolocationOptions<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="hljs-keyword">return</span> () =&gt; {
-            <span class="hljs-built_in">window</span>.navigator.geolocation.clearWatch(watchId);
-        };
-    }).publish().refCount();
- }
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            window<span class="token punctuation">.</span>navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span><span class="token function">clearWatch</span><span class="token punctuation">(</span>watchId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">publish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">refCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
 </code></pre>
 <p>And now we can consume the geolocation such as:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = watchPosition();
+<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token function">watchPosition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    position =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Next: <span class="hljs-subst">${position.coords.latitude}</span>, <span class="hljs-subst">${position.coords.longitude}</span>`</span>),
-    err =&gt; {
-        <span class="hljs-keyword">var</span> message = <span class="hljs-string">&apos;&apos;</span>;
-        <span class="hljs-keyword">switch</span> (err.code) {
-            <span class="hljs-keyword">case</span> err.PERMISSION_DENIED:
-                message = <span class="hljs-string">&apos;Permission denied&apos;</span>;
-                <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">case</span> err.POSITION_UNAVAILABLE:
-                message = <span class="hljs-string">&apos;Position unavailable&apos;</span>;
-                <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">case</span> err.PERMISSION_DENIED_TIMEOUT:
-                message = <span class="hljs-string">&apos;Position timeout&apos;</span>;
-                <span class="hljs-keyword">break</span>;
-        }
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + message);
-    },
-    () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>)
-);
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    position <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`Next<span class="token punctuation">:</span> $<span class="token punctuation">{</span>position<span class="token punctuation">.</span>coords<span class="token punctuation">.</span>latitude<span class="token punctuation">}</span><span class="token punctuation">,</span> $<span class="token punctuation">{</span>position<span class="token punctuation">.</span>coords<span class="token punctuation">.</span>longitude<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> message <span class="token operator">=</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">;</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span>err<span class="token punctuation">.</span>code<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> err<span class="token punctuation">.</span>PERMISSION_DENIED<span class="token punctuation">:</span>
+                message <span class="token operator">=</span> <span class="token string">&apos;Permission denied&apos;</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> err<span class="token punctuation">.</span>POSITION_UNAVAILABLE<span class="token punctuation">:</span>
+                message <span class="token operator">=</span> <span class="token string">&apos;Position unavailable&apos;</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> err<span class="token punctuation">.</span>PERMISSION_DENIED_TIMEOUT<span class="token punctuation">:</span>
+                message <span class="token operator">=</span> <span class="token string">&apos;Position timeout&apos;</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h5 id="together"><a name="together" class="plugin-anchor" href="#together"><span class="fa fa-link"></span></a>Together</h5>
 <p><a href="http://jsbin.com/raqep/3/embed?js,console" target="_blank"></a></p>

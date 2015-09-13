@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="2.3" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.3" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,12 +5737,12 @@
 <p>The single message indicating that an observable sequence has finished ensures that consumers of the observable sequence can deterministically establish that it is safe to perform cleanup operations.</p>
 <p>A single failure further ensures that abort semantics can be maintained for operators that work on multiple observable sequences.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
-xs.subscribe(
-  () =&gt; count++,
-  err =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: %s&apos;</span>, err.message),
-  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;OnNext has been called %d times&apos;</span>, count)
-);
+<pre><code class="lang-js"><span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+xs<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> count<span class="token operator">++</span><span class="token punctuation">,</span>
+  err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: %s&apos;</span><span class="token punctuation">,</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;OnNext has been called %d times&apos;</span><span class="token punctuation">,</span> count<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample we safely assume that the total amount of calls to the OnNext method won&#x2019;t change once the OnCompleted method is called as the observable sequence follows the Rx grammar.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5746,21 +5750,21 @@ xs.subscribe(
 <h3 id="assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message"><a name="assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message" class="plugin-anchor" href="#assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message"><span class="fa fa-link"></span></a>Assume resources are cleaned up after an <code>onError</code> or <code>onCompleted</code> message</h3>
 <p>Paragraph 3.1 states that no more messages should arrive after an <code>onError</code> or <code>onCompleted</code> message. This makes it possible to cleanup any resource used by the subscription the moment an <code>onError</code> or <code>onCompleted</code> arrives. Cleaning up resources immediately will make sure that any side-effect occurs in a predictable fashion. It also makes sure that the runtime can reclaim these resources.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
-<span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">appendAsync</span>(<span class="hljs-params">fd, buffer</span>) </span>{ <span class="hljs-comment">/* impl */</span> }
+<span class="token keyword">function</span> <span class="token function">appendAsync</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> buffer<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* impl */</span> <span class="token punctuation">}</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">openFile</span>(<span class="hljs-params">path, flags</span>) </span>{
-  <span class="hljs-keyword">var</span> fd = fs.openSync(path, flags);
-  <span class="hljs-keyword">return</span> Rx.Disposable.create(() =&gt; fs.closeSync(fd));
-}
+<span class="token keyword">function</span> <span class="token function">openFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> flags<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> fd <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">openSync</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> flags<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> fs<span class="token punctuation">.</span><span class="token function">closeSync</span><span class="token punctuation">(</span>fd<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-Rx.Observable.
-  using(
-    () =&gt; openFile(<span class="hljs-string">&apos;temp.txt&apos;</span>, <span class="hljs-string">&apos;w+&apos;</span>),
-    fd =&gt; Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>).map(v =&gt; Buffer(v)).flatMap(buffer =&gt; appendAsync(fd, buffer))
-  ).subscribe();
+Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>
+  <span class="token function">using</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">openFile</span><span class="token punctuation">(</span><span class="token string">&apos;temp.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;w+&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fd <span class="token operator">=</span><span class="token operator">&gt;</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>v <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">Buffer</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>buffer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">appendAsync</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> buffer<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample the Using operator creates a resource that will be disposed upon unsubscription. The Rx contract for cleanup ensures that unsubscription will be called automatically once an <code>onError</code> or <code>onCompleted</code> message is sent.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5769,11 +5773,11 @@ Rx.Observable.
 <p>When unsubscribe is called on an observable subscription, the observable sequence will make a best effort attempt to stop all outstanding work. This means that any queued work that has not been started will not start.</p>
 <p>Any work that is already in progress might still complete as it is not always safe to abort work that is in progress. Results from this work will not be signaled to any previously subscribed observer instances.</p>
 <h4 id="sample-1"><a name="sample-1" class="plugin-anchor" href="#sample-1"><span class="fa fa-link"></span></a>Sample 1</h4>
-<pre><code class="lang-js">Observable.timer(<span class="hljs-number">2000</span>).subscribe(...).dispose()
+<pre><code class="lang-js">Observable<span class="token punctuation">.</span><span class="token function">timer</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
-<p>In this sample subscribing to the observable sequence generated by Timer will queue an action on the <code>Scheduler.timeout</code> scheduler to send out an <code>onNext</code> message in 2 seconds. The subscription then gets canceled immediately. As the scheduled action has not started yet, it will be removed from the scheduler.</p>
+<p>In this sample subscribing to the observable sequence generated by Timer will queue an action on the <code>Scheduler<span class="token punctuation">.</span>timeout</code> scheduler to send out an <code>onNext</code> message in 2 seconds. The subscription then gets canceled immediately. As the scheduled action has not started yet, it will be removed from the scheduler.</p>
 <h4 id="sample-2"><a name="sample-2" class="plugin-anchor" href="#sample-2"><span class="fa fa-link"></span></a>Sample 2</h4>
-<pre><code class="lang-js">Rx.Observable.startAsync(() =&gt; Q.delay(<span class="hljs-number">2000</span>)).subscribe(...).dispose();
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">startAsync</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Q<span class="token punctuation">.</span><span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample the <code>startAsync</code> operator will immediately schedule the execution of the lambda provided as its argument. The subscription registers the observer instance as a listener to this execution. As the lambda is already running once the subscription is disposed, it will keep running and its return value is ignored.</p>
 

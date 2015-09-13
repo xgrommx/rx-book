@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.136" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.136" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,7 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-topromise-promisector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-topromise-js"><a name="-rx-observable-prototype-topromise-promisector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-topromise-js" class="plugin-anchor" href="#-rx-observable-prototype-topromise-promisector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-topromise-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/topromise.js" target="_blank"><code>Rx.Observable.prototype.toPromise(promiseCtor)</code></a></h2>
+                        <h2 id="-rx-observable-prototype-topromise-promisector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-topromise-js"><a name="-rx-observable-prototype-topromise-promisector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-topromise-js" class="plugin-anchor" href="#-rx-observable-prototype-topromise-promisector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-topromise-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/topromise.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toPromise</span><span class="token punctuation">(</span>promiseCtor<span class="token punctuation">)</span></code></a></h2>
 <p>Converts an existing observable sequence to an ES6 Compatible Promise.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
@@ -5734,19 +5738,19 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Promise</code>)</em>: An ES6 compatible promise with the last value from the observable sequence.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> promise = Rx.Observable.return(<span class="hljs-number">42</span>).toPromise(RSVP.Promise);
+<pre><code class="lang-js"><span class="token keyword">var</span> promise <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toPromise</span><span class="token punctuation">(</span>RSVP<span class="token punctuation">.</span>Promise<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-promise.then(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));
+promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; 42</span>
+<span class="token comment" spellcheck="true">// =&gt; 42</span>
 </code></pre>
 <h4 id="example-with-config"><a name="example-with-config" class="plugin-anchor" href="#example-with-config"><span class="fa fa-link"></span></a>Example with config</h4>
-<pre><code class="lang-js">Rx.config.Promise = RSVP.Promise;
-<span class="hljs-keyword">var</span> promise = Rx.Observable.return(<span class="hljs-number">42</span>).toPromise();
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>Promise <span class="token operator">=</span> RSVP<span class="token punctuation">.</span>Promise<span class="token punctuation">;</span>
+<span class="token keyword">var</span> promise <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-promise.then(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));
+promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; 42</span>
+<span class="token comment" spellcheck="true">// =&gt; 42</span>
 </code></pre>
 
                     

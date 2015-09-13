@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="2.5" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.5" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,7 +5733,7 @@
 <h3 id="implement-new-operators-by-composing-existing-operators"><a name="implement-new-operators-by-composing-existing-operators" class="plugin-anchor" href="#implement-new-operators-by-composing-existing-operators"><span class="fa fa-link"></span></a>Implement new operators by composing existing operators</h3>
 <p>Many operations can be composed from existing operators. This will lead to smaller, easier to maintain code. The Rx team has put a lot of effort in dealing with all corner cases in the base operators. By reusing these operators you&#x2019;ll get all that work for free in your operator.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.flatMap = selector =&gt; <span class="hljs-keyword">this</span>.map(selector).mergeAll();
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>flatMap <span class="token operator">=</span> selector <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mergeAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, the <code>flatMap</code> operator uses two existing operators: <a href="../../observable/observable_instance_methods/map.html"><code>map</code></a> and <a href="../../observable/observable_instance_methods/mergeall.html"><code>mergeAll</code></a>. The <a href="../../observable/observable_instance_methods/map.html"><code>map</code></a> operator already deals with any issues around the selector function throwing an exception. The <a href="../../observable/observable_instance_methods/mergeall.html"><code>mergeAll</code></a> operator already deals with concurrency issues of multiple observable sequences firing at the same time.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5737,36 +5741,36 @@
 <li>No appropriate set of base operators is available to implement this operator.</li>
 <li>Performance analysis proves that the implementation using existing operators has performance issues.  Such can be caused by <a href="../../observable/observable_instance_methods/materialize.html"><code>materialize</code></a>.</li>
 </ul>
-<h3 id="implement-custom-operators-using-observable-create-observable-observable-methods-create-html"><a name="implement-custom-operators-using-observable-create-observable-observable-methods-create-html" class="plugin-anchor" href="#implement-custom-operators-using-observable-create-observable-observable-methods-create-html"><span class="fa fa-link"></span></a>Implement custom operators using <a href="../../observable/observable_methods/create.html"><code>Observable.create</code></a></h3>
+<h3 id="implement-custom-operators-using-observable-create-observable-observable-methods-create-html"><a name="implement-custom-operators-using-observable-create-observable-observable-methods-create-html" class="plugin-anchor" href="#implement-custom-operators-using-observable-create-observable-observable-methods-create-html"><span class="fa fa-link"></span></a>Implement custom operators using <a href="../../observable/observable_methods/create.html"><code>Observable<span class="token punctuation">.</span>create</code></a></h3>
 <p>When it is not possible to follow guideline 5.1, use the Observable.Create(WithDisposable) method to create an observable sequence as it provides several protections make the observable sequence follow the RxJS contract.</p>
 <ul>
 <li>When the observable sequence has finished (either by firing <a href="../..observer/observer_instance_methods/onerror.html"><code>onError</code></a> or <a href="../../observer/observer_instance_methods/oncompleted.html"><code>onCompleted</code></a>), any subscription will automatically be unsubscribed.</li>
 <li>Any subscribed observer instance will only see a single OnError or OnCompleted message. No more messages are sent through. This ensures the Rx grammar of onNext* (onError|onCompleted)?</li>
 </ul>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
-  <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">return</span> source.subscribe(
-      x =&gt; {
-        <span class="hljs-keyword">var</span> result;
-        <span class="hljs-keyword">try</span> {
-          result = selector.call(thisArg, x, idx++, source);
-        } <span class="hljs-keyword">catch</span> (e) {
-          observer.onError(e);
-          <span class="hljs-keyword">return</span>;
-        }
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>map <span class="token operator">=</span> <span class="token punctuation">(</span>selector<span class="token punctuation">,</span> thisArg<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+      x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> result<span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          result <span class="token operator">=</span> selector<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>thisArg<span class="token punctuation">,</span> x<span class="token punctuation">,</span> idx<span class="token operator">++</span><span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          observer<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        observer.onNext(result);
-      },
-      observer.onError.bind(observer),
-      observer.onCompleted.bind(observer)
-    );
-  })
-};
+        observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      observer<span class="token punctuation">.</span>onError<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      observer<span class="token punctuation">.</span>onCompleted<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<p>In this sample, <code>map</code> uses the <code>Observable.create</code> operator to return a new instance of the Observable class. This ensures that no matter the implementation of the source observable sequence, the output observable sequence follows the Rx contract . It also ensures that the lifetime of subscriptions is a short as possible.</p>
+<p>In this sample, <code>map</code> uses the <code>Observable<span class="token punctuation">.</span>create</code> operator to return a new instance of the Observable class. This ensures that no matter the implementation of the source observable sequence, the output observable sequence follows the Rx contract . It also ensures that the lifetime of subscriptions is a short as possible.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <ul>
 <li>The operator needs to return an observable sequence that doesn&#x2019;t follow the Rx contract. This should usually be avoided (except when writing tests to see how code behaves when the contract is broken)</li>
@@ -5781,46 +5785,46 @@
 </ul>
 <p><strong>Note:</strong> calls to <code>Scheduler</code> implementations are not considered for this guideline. The reason for this is that only a small set of issues would be caught as most schedulers deal with asynchronous calls. Instead, protect the arguments passed to schedulers inside each scheduler implementation.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
-  <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">return</span> source.subscribe(
-      x =&gt; {
-        <span class="hljs-keyword">var</span> result;
-        <span class="hljs-keyword">try</span> {
-          result = selector.call(thisArg, x, idx++, source);
-        } <span class="hljs-keyword">catch</span> (e) {
-          observer.onError(e);
-          <span class="hljs-keyword">return</span>;
-        }
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>map <span class="token operator">=</span> <span class="token punctuation">(</span>selector<span class="token punctuation">,</span> thisArg<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+      x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> result<span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          result <span class="token operator">=</span> selector<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>thisArg<span class="token punctuation">,</span> x<span class="token punctuation">,</span> idx<span class="token operator">++</span><span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          observer<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        observer.onNext(result);
-      },
-      observer.onError.bind(observer),
-      observer.onCompleted.bind(observer)
-    );
-  })
-};
+        observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      observer<span class="token punctuation">.</span>onError<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      observer<span class="token punctuation">.</span>onCompleted<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>This sample invokes a selector function which is user code. It catches any exception resulting from this call and transfers the exception to the subscribed observer instance through the <code>onError</code> call.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
-<p>Ignore this guideline for calls to user code that are made before creating the observable sequence (outside of the <code>Observable.create</code> call). These calls are on the current execution context and are allowed to follow normal control flow.</p>
+<p>Ignore this guideline for calls to user code that are made before creating the observable sequence (outside of the <code>Observable<span class="token punctuation">.</span>create</code> call). These calls are on the current execution context and are allowed to follow normal control flow.</p>
 <p><strong>Note:</strong> do not protect calls to <code>subscribe</code>, <code>dispose</code>, <code>onNext</code>, <code>onError</code> and <code>onCompleted</code> methods. These calls are on the edge of the monad. Calling the <code>onError</code> method from these places will lead to unexpected behavior.</p>
 <h3 id="-subscribe-implementations-should-not-throw"><a name="-subscribe-implementations-should-not-throw" class="plugin-anchor" href="#-subscribe-implementations-should-not-throw"><span class="fa fa-link"></span></a><code>subscribe</code> implementations should not throw</h3>
 <p>As multiple observable sequences are composed, subscribe to a specific observable sequence might not happen at the time the user calls <code>subscribe</code> (e.g. Within the <code>concat</code> operator, the second observable sequence argument to <code>concat</code> will only be subscribed to once the first observable sequence has completed). Throwing an exception would bring down the program. Instead exceptions in subscribe should be tunneled to the <code>onError</code> method.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> CLOSED = <span class="hljs-number">3</span>;
+<pre><code class="lang-js"><span class="token keyword">var</span> CLOSED <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readWebSocket</span>(<span class="hljs-params">socket</span>) </span>{
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">if</span> (socket.readyState === CLOSED) {
-      observer.onError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;The websocket is no longer open.&apos;</span>));
-      <span class="hljs-keyword">return</span>;
-    }
-    <span class="hljs-comment">// Rest of the implementation goes here</span>
-  });
-}
+<span class="token keyword">function</span> <span class="token function">readWebSocket</span><span class="token punctuation">(</span>socket<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>socket<span class="token punctuation">.</span>readyState <span class="token operator">===</span> CLOSED<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      observer<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;The websocket is no longer open.&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// Rest of the implementation goes here</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>In this sample, an error condition is detected in the subscribe method implementation. An error is raised by calling the <code>onError</code> method instead of throwing the exception. This allows for proper handling of the exception if <code>subscribe</code> is called outside of the execution context of the original call to Subscribe by the user.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5828,29 +5832,29 @@
 <h3 id="-onerror-messages-should-have-abort-semantics"><a name="-onerror-messages-should-have-abort-semantics" class="plugin-anchor" href="#-onerror-messages-should-have-abort-semantics"><span class="fa fa-link"></span></a><code>onError</code> messages should have abort semantics</h3>
 <p>As normal control flow in JavaScript uses abort semantics for exceptions (the stack is unwound, current code path is interrupted), RxJS mimics this behavior. To ensure this behavior, no messages should be sent out by an operator once one of it sources has an error message or an exception is thrown within the operator.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.minimumBuffer = bufferSize =&gt; {
-  <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">var</span> data = [];
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>minimumBuffer <span class="token operator">=</span> bufferSize <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    <span class="hljs-keyword">return</span> source.subscribe(
-      value =&gt; {
-        data = data.concat(value);
-        <span class="hljs-keyword">if</span> (data.length &gt; bufferSize) {
-          observer.onNext(data.slice(<span class="hljs-number">0</span>));
-          data = [];
-        }
-      },
-      observer.onError.bind(observer),
-      () =&gt; {
-        <span class="hljs-keyword">if</span> (data.length &gt; <span class="hljs-number">0</span>) {
-          observer.onNext(data.slice(<span class="hljs-number">0</span>));
-        }
-        observer.onCompleted();
-      }
-    );
-  });
-};
+    <span class="token keyword">return</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+      value <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        data <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> bufferSize<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      observer<span class="token punctuation">.</span>onError<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        observer<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, a buffering operator will abandon the observable sequence as soon as the subscription to source encounters an error. The current buffer is not sent to any subscribers, maintain abort semantics.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5858,14 +5862,14 @@
 <h3 id="parameterize-concurrency-by-providing-a-scheduler-argument"><a name="parameterize-concurrency-by-providing-a-scheduler-argument" class="plugin-anchor" href="#parameterize-concurrency-by-providing-a-scheduler-argument"><span class="fa fa-link"></span></a>Parameterize concurrency by providing a scheduler argument</h3>
 <p>As there are many different notions of concurrency, and no scenario fits all, it is best to parameterize the concurrency an operator introduces. The notion of parameterizing concurrency in RxJS is abstracted through the <code>Scheduler</code> class.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.just = (value, scheduler) =&gt; {
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">return</span> scheduler.schedule(() =&gt; {
-      observer.onNext(value);
-      observer.onCompleted();
-    });
-  });
-};
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>just <span class="token operator">=</span> <span class="token punctuation">(</span>value<span class="token punctuation">,</span> scheduler<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> scheduler<span class="token punctuation">.</span><span class="token function">schedule</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      observer<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, the <code>just</code> operator parameterizes the level of concurrency the operator has by providing a scheduler argument. It then uses this scheduler to schedule the firing of the <code>onNext</code> and <code>onCompleted</code> messages.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5877,17 +5881,17 @@
 <p>In most cases there is a good default that can be chosen for an operator that has parameterized concurrency through guideline 5.6. This will make the code that uses this operator more succinct.</p>
 <p><strong>Note:</strong> Follow guideline 5.9 when choosing the default scheduler, using the immediate scheduler where possible, only choosing a scheduler with more concurrency when needed.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.just = (value, scheduler) =&gt; {
-  <span class="hljs-comment">// Pick a default scheduler, in this case, immediately</span>
-  Rx.helpers.isScheduler(scheduler) || (scheduler = Rx.Scheduler.immediate);
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>just <span class="token operator">=</span> <span class="token punctuation">(</span>value<span class="token punctuation">,</span> scheduler<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// Pick a default scheduler, in this case, immediately</span>
+  Rx<span class="token punctuation">.</span>helpers<span class="token punctuation">.</span><span class="token function">isScheduler</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>scheduler <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>immediate<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">return</span> scheduler.schedule(() =&gt; {
-      observer.onNext(value);
-      observer.onCompleted();
-    });
-  });
-};
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> scheduler<span class="token punctuation">.</span><span class="token function">schedule</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      observer<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, we provided a default scheduler if not provided by the caller.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5895,59 +5899,59 @@
 <h3 id="the-scheduler-should-be-the-last-argument-to-the-operator"><a name="the-scheduler-should-be-the-last-argument-to-the-operator" class="plugin-anchor" href="#the-scheduler-should-be-the-last-argument-to-the-operator"><span class="fa fa-link"></span></a>The scheduler should be the last argument to the operator</h3>
 <p>Adding the scheduler as the last argument is a must for all operators introducing concurrency.  This is to ensure that the schedulers are optional, and a default one can be chosen.  This also makes the programming experience much more predictable.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.just = (value, scheduler) =&gt; {
-  <span class="hljs-comment">// Pick a default scheduler, in this case, immediately</span>
-  Rx.helpers.isScheduler(scheduler) || (scheduler = Rx.Scheduler.immediate);
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>just <span class="token operator">=</span> <span class="token punctuation">(</span>value<span class="token punctuation">,</span> scheduler<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// Pick a default scheduler, in this case, immediately</span>
+  Rx<span class="token punctuation">.</span>helpers<span class="token punctuation">.</span><span class="token function">isScheduler</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>scheduler <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>immediate<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">return</span> scheduler.schedule(() =&gt; {
-      observer.onNext(value);
-      observer.onCompleted();
-    });
-  });
-};
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> scheduler<span class="token punctuation">.</span><span class="token function">schedule</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      observer<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<p>In this sample the <code>return</code> operator has two parameters, and the scheduler parameter defaults to the immediate scheduler if not provided. As the scheduler argument is the last argument, adding or omitting the argument is clearly visible.</p>
+<p>In this sample the <code><span class="token keyword">return</span></code> operator has two parameters, and the scheduler parameter defaults to the immediate scheduler if not provided. As the scheduler argument is the last argument, adding or omitting the argument is clearly visible.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>JavaScript supports rest arguments syntax. With this syntax, the rest arguments has to be the last argument. Make the scheduler the final to last argument in this case.</p>
 <h3 id="avoid-introducing-concurrency"><a name="avoid-introducing-concurrency" class="plugin-anchor" href="#avoid-introducing-concurrency"><span class="fa fa-link"></span></a>Avoid introducing concurrency</h3>
-<p>By adding concurrency, we change the timeliness of an observable sequence. Messages will be scheduled to arrive later. The time it takes to deliver a message is data itself, by adding concurrency we skew that data.  This includes not using such mechanisms as <code>setTimeout</code>, <code>setImmediate</code>, <code>requestAnimationFrame</code>, <code>process.nextTick</code>, etc which should be avoided directly in your code, and instead be wrapped by a <code>Scheduler</code> class.</p>
+<p>By adding concurrency, we change the timeliness of an observable sequence. Messages will be scheduled to arrive later. The time it takes to deliver a message is data itself, by adding concurrency we skew that data.  This includes not using such mechanisms as <code>setTimeout</code>, <code>setImmediate</code>, <code>requestAnimationFrame</code>, <code>process<span class="token punctuation">.</span>nextTick</code>, etc which should be avoided directly in your code, and instead be wrapped by a <code>Scheduler</code> class.</p>
 <h4 id="sample-1"><a name="sample-1" class="plugin-anchor" href="#sample-1"><span class="fa fa-link"></span></a>Sample 1</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
-  <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">return</span> source.subscribe(
-      x =&gt; {
-        <span class="hljs-keyword">var</span> result;
-        <span class="hljs-keyword">try</span> {
-          result = selector.call(thisArg, x, idx++, source);
-        } <span class="hljs-keyword">catch</span> (e) {
-          observer.onError(e);
-          <span class="hljs-keyword">return</span>;
-        }
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>map <span class="token operator">=</span> <span class="token punctuation">(</span>selector<span class="token punctuation">,</span> thisArg<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+      x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> result<span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          result <span class="token operator">=</span> selector<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>thisArg<span class="token punctuation">,</span> x<span class="token punctuation">,</span> idx<span class="token operator">++</span><span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          observer<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        observer.onNext(result);
-      },
-      observer.onError.bind(observer),
-      observer.onCompleted.bind(observer)
-    );
-  })
-};
+        observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      observer<span class="token punctuation">.</span>onError<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      observer<span class="token punctuation">.</span>onCompleted<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, the select operator does not use a scheduler to send out the <code>onNext</code> message. Instead it uses the source observable sequence call to <code>onNext</code> to process the message, hence staying in the same time-window.</p>
 <h4 id="sample-2"><a name="sample-2" class="plugin-anchor" href="#sample-2"><span class="fa fa-link"></span></a>Sample 2</h4>
-<pre><code class="lang-js">Rx.Observable.just = (value, scheduler) =&gt; {
-  <span class="hljs-comment">// Pick a default scheduler, in this case, immediately</span>
-  Rx.helpers.isScheduler(scheduler) || (scheduler = Rx.Scheduler.immediate);
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>just <span class="token operator">=</span> <span class="token punctuation">(</span>value<span class="token punctuation">,</span> scheduler<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// Pick a default scheduler, in this case, immediately</span>
+  Rx<span class="token punctuation">.</span>helpers<span class="token punctuation">.</span><span class="token function">isScheduler</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>scheduler <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>immediate<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">return</span> scheduler.schedule(() =&gt; {
-      observer.onNext(value);
-      observer.onCompleted();
-    });
-  });
-};
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> scheduler<span class="token punctuation">.</span><span class="token function">schedule</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      observer<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this case, the default scheduler for the <code>just</code> operator is the immediate scheduler. This scheduler does not introduce concurrency.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5984,69 +5988,69 @@
 </tbody>
 </table>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Observable.prototype.zip = () =&gt; {
-  <span class="hljs-keyword">var</span> parent = <span class="hljs-keyword">this</span>,
-      sources = slice.call(<span class="hljs-built_in">arguments</span>),
-      resultSelector = sources.pop();
+<pre><code class="lang-js">Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>zip <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> parent <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">,</span>
+      sources <span class="token operator">=</span> slice<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      resultSelector <span class="token operator">=</span> sources<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  sources.unshift(parent);
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AnonymousObservable(observer =&gt; {
-    <span class="hljs-keyword">var</span> n = sources.length,
-      queues = arrayInitialize(n, () =&gt; []),
-      isDone = arrayInitialize(n, () =&gt; <span class="hljs-literal">false</span>);
+  sources<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">AnonymousObservable</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> n <span class="token operator">=</span> sources<span class="token punctuation">.</span>length<span class="token punctuation">,</span>
+      queues <span class="token operator">=</span> <span class="token function">arrayInitialize</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      isDone <span class="token operator">=</span> <span class="token function">arrayInitialize</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span>(<span class="hljs-params">i</span>) </span>{
-      <span class="hljs-keyword">var</span> res, queuedValues;
-      <span class="hljs-keyword">if</span> (queues.every(x =&gt; x.length &gt; <span class="hljs-number">0</span>)) {
-        <span class="hljs-keyword">try</span> {
-          queuedValues = queues.map(x =&gt; x.shift());
-          res = resultSelector.apply(parent, queuedValues);
-        } <span class="hljs-keyword">catch</span> (ex) {
-          observer.onError(ex);
-          <span class="hljs-keyword">return</span>;
-        }
-        observer.onNext(res);
-      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isDone.filter((x, j) =&gt; j !== i).every(identity)) {
-        observer.onCompleted();
-      }
-    };
+    <span class="token keyword">function</span> <span class="token function">next</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> res<span class="token punctuation">,</span> queuedValues<span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>queues<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          queuedValues <span class="token operator">=</span> queues<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          res <span class="token operator">=</span> resultSelector<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> queuedValues<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">ex</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          observer<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>isDone<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> j<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> j <span class="token operator">!</span><span class="token operator">==</span> i<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span>identity<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        observer<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">done</span>(<span class="hljs-params">i</span>) </span>{
-      isDone[i] = <span class="hljs-literal">true</span>;
-      <span class="hljs-keyword">if</span> (isDone.every(x =&gt; x)) {
-        observer.onCompleted();
-      }
-    }
+    <span class="token keyword">function</span> <span class="token function">done</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      isDone<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>isDone<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        observer<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">var</span> subscriptions = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(n);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>; idx &lt; n; idx++) {
-      (i =&gt; {
-        <span class="hljs-keyword">var</span> source = sources[i], sad = <span class="hljs-keyword">new</span> SingleAssignmentDisposable();
-        Rx.helpers.isPromise(source) &amp;&amp; (source = Rx.Observable.fromPromise(source));
-        sad.setDisposable(source.subscribe(x =&gt; {
-          queues[i].push(x);
-          next(i);
-        }, observer.onError.bind(observer), () =&gt; {
-          done(i);
-        }));
-        subscriptions[i] = sad;
-      })(idx);
-    }
+    <span class="token keyword">var</span> subscriptions <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> idx <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> idx<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token punctuation">(</span>i <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> source <span class="token operator">=</span> sources<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> sad <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SingleAssignmentDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Rx<span class="token punctuation">.</span>helpers<span class="token punctuation">.</span><span class="token function">isPromise</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromPromise</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sad<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+          queues<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">next</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> observer<span class="token punctuation">.</span>onError<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">done</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        subscriptions<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> sad<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>idx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CompositeDisposable(subscriptions);
-  });
-};
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CompositeDisposable</span><span class="token punctuation">(</span>subscriptions<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, the operator groups all disposable instances controlling the various subscriptions together and returns the group as the result of subscribing to the outer observable sequence. When a user of this operator subscribes to the resulting observable sequence, he/she will get back a disposable instance that controls subscription to all underlying observable sequences.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>There are currently no known instances where this guideline should be ignored.</p>
 <h3 id="operators-should-not-block"><a name="operators-should-not-block" class="plugin-anchor" href="#operators-should-not-block"><span class="fa fa-link"></span></a>Operators should not block</h3>
 <p>RxJS is a library for composing asynchronous and event-based programs using observable collections.</p>
-<p>By making an operator blocking we lose these asynchronous characteristics. We also potentially lose composability (e.g. by returning a value typed as <code>T</code> instead of <code>Observable&lt;T&gt;</code>).  This is in contrast to the Array#extras such as <code>sum</code>, <code>reduce</code>, <code>some</code> and <code>every</code> which return a single value.</p>
+<p>By making an operator blocking we lose these asynchronous characteristics. We also potentially lose composability (e.g. by returning a value typed as <code>T</code> instead of <code>Observable<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span></code>).  This is in contrast to the Array#extras such as <code>sum</code>, <code>reduce</code>, <code>some</code> and <code>every</code> which return a single value.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.sum = () =&gt; <span class="hljs-keyword">this</span>.reduce((acc, x) =&gt; acc + x, <span class="hljs-number">0</span>);
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sum <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> acc <span class="token operator">+</span> x<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>In this sample, the <code>sum</code> operator has a return type of <code>Observable&lt;Number&gt;</code> instead of <code>Number</code>. By doing this, the operator does not block. It also allows the result value to be used in further composition.</p>
+<p>In this sample, the <code>sum</code> operator has a return type of <code>Observable<span class="token operator">&lt;</span>Number<span class="token operator">&gt;</span></code> instead of <code>Number</code>. By doing this, the operator does not block. It also allows the result value to be used in further composition.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>There are currently no known instances where this guideline should be ignored.</p>
 <h3 id="avoid-deep-stacks-caused-by-recursion-in-operators"><a name="avoid-deep-stacks-caused-by-recursion-in-operators" class="plugin-anchor" href="#avoid-deep-stacks-caused-by-recursion-in-operators"><span class="fa fa-link"></span></a>Avoid deep stacks caused by recursion in operators</h3>
@@ -6057,68 +6061,68 @@
 <li>Implement an infinite looping generator using the yield iterator pattern, convert it to an observable sequence using the <code>from</code> operator.</li>
 </ul>
 <h4 id="sample-1"><a name="sample-1" class="plugin-anchor" href="#sample-1"><span class="fa fa-link"></span></a>Sample 1</h4>
-<pre><code class="lang-js">Rx.Observable.repeat = (value, scheduler) =&gt; {
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">return</span> scheduler.scheduleRecursive(self =&gt; {
-      observer.onNext(value);
-      self();
-    });
-  });
-};
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>repeat <span class="token operator">=</span> <span class="token punctuation">(</span>value<span class="token punctuation">,</span> scheduler<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> scheduler<span class="token punctuation">.</span><span class="token function">scheduleRecursive</span><span class="token punctuation">(</span>self <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">self</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, the recursive <code>scheduleRecursive</code> method is used to allow the scheduler to schedule the next iteration of the recursive function. Schedulers such as the current thread scheduler do not rely on stack semantics. Using such a scheduler with this pattern will avoid stack overflow issues.</p>
 <h4 id="sample-2"><a name="sample-2" class="plugin-anchor" href="#sample-2"><span class="fa fa-link"></span></a>Sample 2</h4>
-<pre><code class="lang-js">Rx.Observable.repeat = value =&gt; {
-  <span class="hljs-keyword">return</span> Rx.Observable.from(
-    <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
-      <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) { <span class="hljs-keyword">yield</span> value; }
-    }());
-};
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>repeat <span class="token operator">=</span> value <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">yield</span> value<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>The yield iterator pattern ensures that the stack depth does not increase drastically. By returning an infinite generator with the <code>from</code> operator can build an infinite observable sequence.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>There are currently no known instances where this guideline should be ignored.</p>
-<h3 id="argument-validation-should-occur-outside-observable-create"><a name="argument-validation-should-occur-outside-observable-create" class="plugin-anchor" href="#argument-validation-should-occur-outside-observable-create"><span class="fa fa-link"></span></a>Argument validation should occur outside <code>Observable.create</code></h3>
-<p>As guideline 5.3 specifies that the <code>Observable.create</code> operator should not throw, any argument validation that potentially throws exceptions should be done outside the <code>Observable.create</code> operator.</p>
+<h3 id="argument-validation-should-occur-outside-observable-create"><a name="argument-validation-should-occur-outside-observable-create" class="plugin-anchor" href="#argument-validation-should-occur-outside-observable-create"><span class="fa fa-link"></span></a>Argument validation should occur outside <code>Observable<span class="token punctuation">.</span>create</code></h3>
+<p>As guideline 5.3 specifies that the <code>Observable<span class="token punctuation">.</span>create</code> operator should not throw, any argument validation that potentially throws exceptions should be done outside the <code>Observable<span class="token punctuation">.</span>create</code> operator.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
-  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span> == <span class="hljs-literal">null</span>) {
-    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&apos;Must be an instance of an Observable&apos;</span>);
-  }
-  <span class="hljs-keyword">if</span> (selector == <span class="hljs-literal">null</span>) {
-    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&apos;selector cannot be null/undefined&apos;</span>);
-  }
-  <span class="hljs-keyword">var</span> selectorFn = <span class="hljs-keyword">typeof</span> selector !== <span class="hljs-string">&apos;function&apos;</span> ? () =&gt; selector : selector;
-  <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
-    <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">return</span> source.subscribe(
-      x =&gt; {
-        <span class="hljs-keyword">var</span> result;
-        <span class="hljs-keyword">try</span> {
-          result = selectorFn.call(thisArg, x, idx++, source);
-        } <span class="hljs-keyword">catch</span> (e) {
-          observer.onError(e);
-          <span class="hljs-keyword">return</span>;
-        }
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>map <span class="token operator">=</span> <span class="token punctuation">(</span>selector<span class="token punctuation">,</span> thisArg<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">&apos;Must be an instance of an Observable&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>selector <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">&apos;selector cannot be null/undefined&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">var</span> selectorFn <span class="token operator">=</span> <span class="token keyword">typeof</span> selector <span class="token operator">!</span><span class="token operator">==</span> <span class="token string">&apos;function&apos;</span> <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> selector <span class="token punctuation">:</span> selector<span class="token punctuation">;</span>
+  <span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+      x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> result<span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+          result <span class="token operator">=</span> selectorFn<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>thisArg<span class="token punctuation">,</span> x<span class="token punctuation">,</span> idx<span class="token operator">++</span><span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          observer<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        observer.onNext(result);
-      },
-      observer.onError.bind(observer),
-      observer.onCompleted.bind(observer)
-    );
-  };
-};
+        observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      observer<span class="token punctuation">.</span>onError<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      observer<span class="token punctuation">.</span>onCompleted<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<p>In this sample, the arguments are checked for null values before the <code>Observable.create</code> operator is called.</p>
+<p>In this sample, the arguments are checked for null values before the <code>Observable<span class="token punctuation">.</span>create</code> operator is called.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>Ignore this guideline if some aspect of the argument cannot be checked until the subscription is active.</p>
 <h3 id="unsubscription-should-be-idempotent"><a name="unsubscription-should-be-idempotent" class="plugin-anchor" href="#unsubscription-should-be-idempotent"><span class="fa fa-link"></span></a>Unsubscription should be idempotent</h3>
 <p>The observable <code>subscribe</code> method returns a <code>Disposable</code> instance that can be used to clean up the subscription. The <code>Disposable</code> instance doesn&#x2019;t give any information about what the state of the subscription is. As consumers do not know the state of the subscription, calling the <code>dispose</code> method multiple times should be allowed. Only the first call the side-effect of cleaning up the subscription should occur.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subscription = xs.subscribe(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));
-subscription.dispose();
-subscription.dispose();
+<pre><code class="lang-js"><span class="token keyword">var</span> subscription <span class="token operator">=</span> xs<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+subscription<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+subscription<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, the subscription is disposed twice, the first time the subscription will be cleaned up and the second call will be a no-op.</p>
 <h3 id="unsubscription-should-not-throw"><a name="unsubscription-should-not-throw" class="plugin-anchor" href="#unsubscription-should-not-throw"><span class="fa fa-link"></span></a>Unsubscription should not throw</h3>

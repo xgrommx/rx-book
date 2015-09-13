@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="11.3" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="11.3" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,33 +5729,33 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-replaysubject-class"><a name="-rx-replaysubject-class" class="plugin-anchor" href="#-rx-replaysubject-class"><span class="fa fa-link"></span></a><code>Rx.ReplaySubject</code> class</h1>
+                        <h1 id="-rx-replaysubject-class"><a name="-rx-replaysubject-class" class="plugin-anchor" href="#-rx-replaysubject-class"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span>ReplaySubject</code> class</h1>
 <p>Represents an object that is both an observable sequence as well as an observer.  Each notification is broadcasted to all subscribed and future observers, subject to buffer trimming policies.</p>
-<p>This class inherits both from the <code>Rx.Observable</code> and <code>Rx.Observer</code> classes.</p>
+<p>This class inherits both from the <code>Rx<span class="token punctuation">.</span>Observable</code> and <code>Rx<span class="token punctuation">.</span>Observer</code> classes.</p>
 <h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
-<p>The follow example shows the basic usage of an <code>Rx.ReplaySubject</code> class.  Note that this only holds the past two items in the cache.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.ReplaySubject(<span class="hljs-number">2</span> <span class="hljs-comment">/* buffer size */</span>);
+<p>The follow example shows the basic usage of an <code>Rx<span class="token punctuation">.</span>ReplaySubject</code> class.  Note that this only holds the past two items in the cache.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>ReplaySubject</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token comment" spellcheck="true">/* buffer size */</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-subject.onNext(<span class="hljs-string">&apos;a&apos;</span>);
-subject.onNext(<span class="hljs-string">&apos;b&apos;</span>);
-subject.onNext(<span class="hljs-string">&apos;c&apos;</span>);
+subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;a&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;b&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;c&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = subject.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-    });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Next: b</span>
-<span class="hljs-comment">// =&gt; Next: c</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: b</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: c</span>
 
-subject.onNext(<span class="hljs-string">&apos;d&apos;</span>);
-<span class="hljs-comment">// =&gt; Next: d</span>
+subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;d&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: d</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5768,45 +5772,45 @@ subject.onNext(<span class="hljs-string">&apos;d&apos;</span>);
 </ul>
 <h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/core/observable.md" target="_blank"><code>Rx.Observable</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/core/observer.md" target="_blank"><code>Rx.Observer</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/core/observable.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/core/observer.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observer</code></a></li>
 </ul>
 <h2 id="-replaysubject-constructor"><a name="-replaysubject-constructor" class="plugin-anchor" href="#-replaysubject-constructor"><span class="fa fa-link"></span></a><em>ReplaySubject Constructor</em></h2>
-<h3 id="-a-id-rxreplaysubjectbuffersize-windowsize-scheduler-a-rx-replaysubject-buffersize-windowsize-scheduler"><a name="-a-id-rxreplaysubjectbuffersize-windowsize-scheduler-a-rx-replaysubject-buffersize-windowsize-scheduler" class="plugin-anchor" href="#-a-id-rxreplaysubjectbuffersize-windowsize-scheduler-a-rx-replaysubject-buffersize-windowsize-scheduler"><span class="fa fa-link"></span></a><a id="rxreplaysubjectbuffersize-windowSize-scheduler"></a><code>Rx.ReplaySubject([bufferSize], [windowSize], [scheduler])</code></h3>
+<h3 id="-a-id-rxreplaysubjectbuffersize-windowsize-scheduler-a-rx-replaysubject-buffersize-windowsize-scheduler"><a name="-a-id-rxreplaysubjectbuffersize-windowsize-scheduler-a-rx-replaysubject-buffersize-windowsize-scheduler" class="plugin-anchor" href="#-a-id-rxreplaysubjectbuffersize-windowsize-scheduler-a-rx-replaysubject-buffersize-windowsize-scheduler"><span class="fa fa-link"></span></a><a id="rxreplaysubjectbuffersize-windowSize-scheduler"></a><code>Rx<span class="token punctuation">.</span><span class="token function">ReplaySubject</span><span class="token punctuation">(</span><span class="token punctuation">[</span>bufferSize<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>windowSize<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxreplaysubjectintialvalue">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/replaysubject.js#L53-L64" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Initializes a new instance of the <code>Rx.ReplaySubject</code> class with the specified buffer size, window and scheduler.</p>
+<p>Initializes a new instance of the <code>Rx<span class="token punctuation">.</span>ReplaySubject</code> class with the specified buffer size, window and scheduler.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
-<li><code>[bufferSize = Number.MAX_VALUE]</code> <em>(Number)</em>: Maximum element count of the replay buffer.</li>
-<li><code>[windowSize = NUMBER.MAX_VALUE]</code> <em>(Number)</em>: Maximum time length of the replay buffer.</li>
-<li><code>[scheduler = Rx.Scheduler.currentThread]</code> <em>(Scheduler)</em>: Scheduler the observers are invoked on.</li>
+<li><code><span class="token punctuation">[</span>bufferSize <span class="token operator">=</span> Number<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">]</span></code> <em>(Number)</em>: Maximum element count of the replay buffer.</li>
+<li><code><span class="token punctuation">[</span>windowSize <span class="token operator">=</span> NUMBER<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">]</span></code> <em>(Number)</em>: Maximum time length of the replay buffer.</li>
+<li><code><span class="token punctuation">[</span>scheduler <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>currentThread<span class="token punctuation">]</span></code> <em>(Scheduler)</em>: Scheduler the observers are invoked on.</li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.ReplaySubject(
-    <span class="hljs-number">2</span> <span class="hljs-comment">/* buffer size */</span>,
-    <span class="hljs-literal">null</span> <span class="hljs-comment">/* unlimited time buffer */</span>,
-    Rx.Scheduler.timeout);
+<pre><code class="lang-js"><span class="token keyword">var</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>ReplaySubject</span><span class="token punctuation">(</span>
+    <span class="token number">2</span> <span class="token comment" spellcheck="true">/* buffer size */</span><span class="token punctuation">,</span>
+    <span class="token keyword">null</span> <span class="token comment" spellcheck="true">/* unlimited time buffer */</span><span class="token punctuation">,</span>
+    Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-subject.onNext(<span class="hljs-string">&apos;a&apos;</span>);
-subject.onNext(<span class="hljs-string">&apos;b&apos;</span>);
-subject.onNext(<span class="hljs-string">&apos;c&apos;</span>);
+subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;a&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;b&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;c&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = subject.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-    });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Next: b</span>
-<span class="hljs-comment">// =&gt; Next: c</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: b</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: c</span>
 
-subject.onNext(<span class="hljs-string">&apos;d&apos;</span>);
-<span class="hljs-comment">// =&gt; Next: d</span>
+subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;d&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: d</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5814,70 +5818,70 @@ subject.onNext(<span class="hljs-string">&apos;d&apos;</span>);
 </ul>
 <hr>
 <h2 id="-replaysubject-instance-methods"><a name="-replaysubject-instance-methods" class="plugin-anchor" href="#-replaysubject-instance-methods"><span class="fa fa-link"></span></a><em>ReplaySubject Instance Methods</em></h2>
-<h3 id="-a-id-rxreplaysubjectprototypedispose-a-rx-replaysubject-prototype-dispose"><a name="-a-id-rxreplaysubjectprototypedispose-a-rx-replaysubject-prototype-dispose" class="plugin-anchor" href="#-a-id-rxreplaysubjectprototypedispose-a-rx-replaysubject-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxreplaysubjectprototypedispose"></a><code>Rx.ReplaySubject.prototype.dispose()</code></h3>
+<h3 id="-a-id-rxreplaysubjectprototypedispose-a-rx-replaysubject-prototype-dispose"><a name="-a-id-rxreplaysubjectprototypedispose-a-rx-replaysubject-prototype-dispose" class="plugin-anchor" href="#-a-id-rxreplaysubjectprototypedispose-a-rx-replaysubject-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxreplaysubjectprototypedispose"></a><code>Rx<span class="token punctuation">.</span>ReplaySubject<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxreplaysubjectprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/ReplaySubject.js#L147-L150" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Unsubscribe all observers and release resources.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.ReplaySubject();
+<pre><code class="lang-js"><span class="token keyword">var</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>ReplaySubject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = subject.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-    });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-subject.onNext(<span class="hljs-number">42</span>);
-<span class="hljs-comment">// =&gt; Next: 42</span>
+subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 42</span>
 
-subject.onCompleted();
-<span class="hljs-comment">// =&gt; Completed</span>
+subject<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; Completed</span>
 
-subject.dispose();
+subject<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">try</span> {
-    subject.onNext(<span class="hljs-number">56</span>);
-} <span class="hljs-keyword">catch</span> (e) {
-    <span class="hljs-built_in">console</span>.log(e.message);
-}
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">56</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// =&gt; Object has been disposed</span>
+<span class="token comment" spellcheck="true">// =&gt; Object has been disposed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.binding.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxreplaysubjectprototypehasobservers-a-rx-replaysubject-prototype-hasobservers"><a name="-a-id-rxreplaysubjectprototypehasobservers-a-rx-replaysubject-prototype-hasobservers" class="plugin-anchor" href="#-a-id-rxreplaysubjectprototypehasobservers-a-rx-replaysubject-prototype-hasobservers"><span class="fa fa-link"></span></a><a id="rxreplaysubjectprototypehasobservers"></a><code>Rx.ReplaySubject.prototype.hasObservers()</code></h3>
+<h3 id="-a-id-rxreplaysubjectprototypehasobservers-a-rx-replaysubject-prototype-hasobservers"><a name="-a-id-rxreplaysubjectprototypehasobservers-a-rx-replaysubject-prototype-hasobservers" class="plugin-anchor" href="#-a-id-rxreplaysubjectprototypehasobservers-a-rx-replaysubject-prototype-hasobservers"><span class="fa fa-link"></span></a><a id="rxreplaysubjectprototypehasobservers"></a><code>Rx<span class="token punctuation">.</span>ReplaySubject<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">hasObservers</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxreplaysubjectprototypehasobservers">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/ReplaySubject.js#L71-L73" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Indicates whether the subject has observers subscribed to it.</p>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Boolean)</em>: Returns <code>true</code> if the Subject has observers, else <code>false</code>.</p>
+<p><em>(Boolean)</em>: Returns <code><span class="token keyword">true</span></code> if the Subject has observers, else <code><span class="token keyword">false</span></code>.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.ReplaySubject();
+<pre><code class="lang-js"><span class="token keyword">var</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>ReplaySubject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(subject.hasObservers());
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>subject<span class="token punctuation">.</span><span class="token function">hasObservers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; false</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 
-<span class="hljs-keyword">var</span> subscription = subject.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-    });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(subject.hasObservers());
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>subject<span class="token punctuation">.</span><span class="token function">hasObservers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; true</span>
+<span class="token comment" spellcheck="true">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>

@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="7.8" data-basepath="../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="7.8" data-basepath="../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,26 +5729,26 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-helpers-pluck-property-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l5"><a name="-rx-helpers-pluck-property-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l5" class="plugin-anchor" href="#-rx-helpers-pluck-property-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l5"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L5" target="_blank"><code>Rx.helpers.pluck(property)</code></a></h2>
+                        <h2 id="-rx-helpers-pluck-property-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l5"><a name="-rx-helpers-pluck-property-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l5" class="plugin-anchor" href="#-rx-helpers-pluck-property-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l5"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L5" target="_blank"><code>Rx<span class="token punctuation">.</span>helpers<span class="token punctuation">.</span><span class="token function">pluck</span><span class="token punctuation">(</span>property<span class="token punctuation">)</span></code></a></h2>
 <p>Plucks a property from the object.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>property</code> <em>(String)</em>: The property name to pluck from the object.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Boolean)</em>: <code>true</code> if equal; else <code>false</code>.</p>
+<p><em>(Boolean)</em>: <code><span class="token keyword">true</span></code> if equal; else <code><span class="token keyword">false</span></code>.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> pluck = Rx.helpers.pluck;
+<pre><code class="lang-js"><span class="token keyword">var</span> pluck <span class="token operator">=</span> Rx<span class="token punctuation">.</span>helpers<span class="token punctuation">.</span>pluck<span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)
-  .timeInterval()
-  .map(pluck(<span class="hljs-string">&apos;value&apos;</span>))
-  .take(<span class="hljs-number">3</span>);
+<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">timeInterval</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token function">pluck</span><span class="token punctuation">(</span><span class="token string">&apos;value&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-source.subscribe(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));
-<span class="hljs-comment">// =&gt; 0</span>
-<span class="hljs-comment">// =&gt; 1</span>
-<span class="hljs-comment">// =&gt; 2</span>
+source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 0</span>
+<span class="token comment" spellcheck="true">// =&gt; 1</span>
+<span class="token comment" spellcheck="true">// =&gt; 2</span>
 </code></pre>
 
                     

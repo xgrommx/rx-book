@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.92" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.92" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,7 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-retrywhen-notifier-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-retrywhen-js"><a name="-rx-observable-prototype-retrywhen-notifier-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-retrywhen-js" class="plugin-anchor" href="#-rx-observable-prototype-retrywhen-notifier-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-retrywhen-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/retrywhen.js" target="_blank"><code>Rx.Observable.prototype.retryWhen(notifier)</code></a></h2>
+                        <h2 id="-rx-observable-prototype-retrywhen-notifier-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-retrywhen-js"><a name="-rx-observable-prototype-retrywhen-notifier-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-retrywhen-js" class="plugin-anchor" href="#-rx-observable-prototype-retrywhen-notifier-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-retrywhen-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/retrywhen.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">retryWhen</span><span class="token punctuation">(</span>notifier<span class="token punctuation">)</span></code></a></h2>
 <p>Repeats the source observable sequence on error when the notifier emits a next value. If the source observable errors and the notifier completes, it will complete the source sequence</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
@@ -5735,124 +5739,124 @@ and observable that either continues, completes or errors. This behavior is then
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence producing the elements of the given sequence repeatedly until it terminates successfully or is notified to error or complete.</p>
 <h4 id="example-delayed-retry"><a name="example-delayed-retry" class="plugin-anchor" href="#example-delayed-retry"><span class="fa fa-link"></span></a>Example: delayed retry</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
+<pre><code class="lang-js"><span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>{
-        <span class="hljs-keyword">if</span>(n === <span class="hljs-number">2</span>) {
-            <span class="hljs-keyword">throw</span> <span class="hljs-string">&apos;ex&apos;</span>;
-        }
-        <span class="hljs-keyword">return</span> n;
-    })
-    .retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errors</span>) </span>{
-        <span class="hljs-keyword">return</span> errors.delay(<span class="hljs-number">200</span>);
-    })
-    .take(<span class="hljs-number">6</span>);
+<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token string">&apos;ex&apos;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">retryWhen</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>errors<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> errors<span class="token punctuation">.</span><span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-    });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Next: 0</span>
-<span class="hljs-comment">// =&gt; Next: 1</span>
-<span class="hljs-comment">// 200 ms pass</span>
-<span class="hljs-comment">// =&gt; Next: 0</span>
-<span class="hljs-comment">// =&gt; Next: 1</span>
-<span class="hljs-comment">// 200 ms pass</span>
-<span class="hljs-comment">// =&gt; Next: 0</span>
-<span class="hljs-comment">// =&gt; Next: 1</span>
-<span class="hljs-comment">// =&gt; Error: &apos;ex&apos;</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 0</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 1</span>
+<span class="token comment" spellcheck="true">// 200 ms pass</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 0</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 1</span>
+<span class="token comment" spellcheck="true">// 200 ms pass</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 0</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 1</span>
+<span class="token comment" spellcheck="true">// =&gt; Error: &apos;ex&apos;</span>
 </code></pre>
 <h4 id="example-erroring-an-observable-after-2-failures"><a name="example-erroring-an-observable-after-2-failures" class="plugin-anchor" href="#example-erroring-an-observable-after-2-failures"><span class="fa fa-link"></span></a>Example: Erroring an observable after 2 failures</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
+<pre><code class="lang-js"><span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>{
-        <span class="hljs-keyword">if</span>(n === <span class="hljs-number">2</span>) {
-            <span class="hljs-keyword">throw</span> <span class="hljs-string">&apos;ex&apos;</span>;
-        }
-        <span class="hljs-keyword">return</span> n;
-    })
-    .retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errors</span>) </span>{
-        <span class="hljs-keyword">return</span> errors.scan(<span class="hljs-number">0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errorCount, err</span>) </span>{
-            <span class="hljs-keyword">if</span>(errorCount &gt;= <span class="hljs-number">2</span>) {
-                <span class="hljs-keyword">throw</span> err;
-            }
-            <span class="hljs-keyword">return</span> errorCount + <span class="hljs-number">1</span>;
-        });
-    });
+<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token string">&apos;ex&apos;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">retryWhen</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>errors<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> errors<span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>errorCount<span class="token punctuation">,</span> err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>errorCount <span class="token operator">&gt;=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> err<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> errorCount <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-    });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Next: 0</span>
-<span class="hljs-comment">// =&gt; Next: 1</span>
-<span class="hljs-comment">// =&gt; Next: 0</span>
-<span class="hljs-comment">// =&gt; Next: 1</span>
-<span class="hljs-comment">// =&gt; Error: &apos;ex&apos;</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 0</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 1</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 0</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 1</span>
+<span class="token comment" spellcheck="true">// =&gt; Error: &apos;ex&apos;</span>
 </code></pre>
 <h4 id="example-completing-an-observable-after-2-failures"><a name="example-completing-an-observable-after-2-failures" class="plugin-anchor" href="#example-completing-an-observable-after-2-failures"><span class="fa fa-link"></span></a>Example: Completing an observable after 2 failures</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
+<pre><code class="lang-js"><span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)
-    .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>) </span>{
-        <span class="hljs-keyword">if</span>(n === <span class="hljs-number">2</span>) {
-            <span class="hljs-keyword">throw</span> <span class="hljs-string">&apos;ex&apos;</span>;
-        }
-        <span class="hljs-keyword">return</span> n;
-    })
-    .retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errors</span>) </span>{
-        <span class="hljs-keyword">return</span> errors.scan(<span class="hljs-number">0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errorCount, err</span>) </span>{
-            <span class="hljs-keyword">return</span> errorCount + <span class="hljs-number">1</span>;
-        }).takeWhile(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errorCount</span>) </span>{
-            <span class="hljs-keyword">return</span> errorCount &lt; <span class="hljs-number">2</span>;
-        });
-    });
+<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token string">&apos;ex&apos;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">retryWhen</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>errors<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> errors<span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>errorCount<span class="token punctuation">,</span> err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> errorCount <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">takeWhile</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>errorCount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> errorCount <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-    });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Next: 0</span>
-<span class="hljs-comment">// =&gt; Next: 1</span>
-<span class="hljs-comment">// =&gt; Next: 0</span>
-<span class="hljs-comment">// =&gt; Next: 1</span>
-<span class="hljs-comment">// =&gt; Completed</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 0</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 1</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 0</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 1</span>
+<span class="token comment" spellcheck="true">// =&gt; Completed</span>
 </code></pre>
 <p>An incrememntal back-off strategy for handling errors:</p>
-<pre><code class="lang-js">Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">o</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;subscribing&quot;</span>);
-    o.onError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;always fails&quot;</span>));
-  }).retryWhen(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">attempts</span>) </span>{
-      <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>).zip(attempts, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{ <span class="hljs-keyword">return</span> i; }).flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;delay retry by &quot;</span> + i + <span class="hljs-string">&quot; second(s)&quot;</span>);
-        <span class="hljs-keyword">return</span> Rx.Observable.timer(i * <span class="hljs-number">1000</span>);
-      });
-  }).subscribe();
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;subscribing&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    o<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&quot;always fails&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">retryWhen</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>attempts<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">zip</span><span class="token punctuation">(</span>attempts<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> i<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;delay retry by &quot;</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">&quot; second(s)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">timer</span><span class="token punctuation">(</span>i <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/*
+<span class="token comment" spellcheck="true">/*
 subscribing
 delay retry by 1 second(s)
 subscribing
@@ -5865,16 +5869,16 @@ subscribing
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/retry.js" target="_blank"><code>/src/core/linq/observable/retrywhen.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/retry.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>linq<span class="token operator">/</span>observable<span class="token operator">/</span>retrywhen<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
@@ -5886,13 +5890,13 @@ subscribing
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS-All</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS<span class="token operator">-</span>All</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS<span class="token operator">-</span>Main</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/retry.js" target="_blank"><code>/tests/observable/retry.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/retry.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>retry<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 
                     

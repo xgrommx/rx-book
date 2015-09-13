@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.1.38" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.38" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,14 +5729,14 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-timer-duetime-period-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-timer-js"><a name="-rx-observable-timer-duetime-period-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-timer-js" class="plugin-anchor" href="#-rx-observable-timer-duetime-period-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-timer-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timer.js" target="_blank"><code>Rx.Observable.timer(dueTime, [period], [scheduler])</code></a></h2>
-<p>Returns an observable sequence that produces a value after dueTime has elapsed and then after each period.  Note for <code>rx.lite.js</code>, only 
+                        <h2 id="-rx-observable-timer-duetime-period-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-timer-js"><a name="-rx-observable-timer-duetime-period-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-timer-js" class="plugin-anchor" href="#-rx-observable-timer-duetime-period-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-timer-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timer.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">timer</span><span class="token punctuation">(</span>dueTime<span class="token punctuation">,</span> <span class="token punctuation">[</span>period<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
+<p>Returns an observable sequence that produces a value after dueTime has elapsed and then after each period.  Note for <code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code>, only 
 relative time is supported.</p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
 <li><code>dueTime</code> <em>(Date|Number)</em>: Absolute (specified as a Date object) or relative time (specified as an integer denoting milliseconds) at which to produce the first value.</li>
-<li><code>[period|scheduler=Rx.Scheduler.timeout]</code> <em>(Number|Scheduler)</em>: Period to produce subsequent values (specified as an integer denoting milliseconds), or the scheduler to run the timer on. If not specified, the resulting timer is not recurring.</li>
-<li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the timer on. If not specified, the timeout scheduler is used.</li>
+<li><code><span class="token punctuation">[</span>period<span class="token operator">|</span>scheduler<span class="token operator">=</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout<span class="token punctuation">]</span></code> <em>(Number|Scheduler)</em>: Period to produce subsequent values (specified as an integer denoting milliseconds), or the scheduler to run the timer on. If not specified, the resulting timer is not recurring.</li>
+<li><code><span class="token punctuation">[</span>scheduler<span class="token operator">=</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout<span class="token punctuation">]</span></code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the timer on. If not specified, the timeout scheduler is used.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that produces a value after due time has elapsed and then each period.</p>
@@ -5747,13 +5751,13 @@ relative time is supported.</p>
 <p>Dist:</p>
 <ul>
 <li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js" target="_blank">rx.time.js</a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>.time.js<ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 </li>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>.lite.js | rx.lite.compat.js</li>
@@ -5765,7 +5769,7 @@ relative time is supported.</p>
 <p>NuGet Packages:</p>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>JS-Time</li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>

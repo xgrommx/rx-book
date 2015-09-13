@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.1.11" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.11" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,14 +5729,14 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-from-iterable-mapfn-thisarg-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-from-js"><a name="-rx-observable-from-iterable-mapfn-thisarg-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-from-js" class="plugin-anchor" href="#-rx-observable-from-iterable-mapfn-thisarg-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-from-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/from.js" target="_blank"><code>Rx.Observable.from(iterable, [mapFn], [thisArg], [scheduler])</code></a></h2>
+                        <h2 id="-rx-observable-from-iterable-mapfn-thisarg-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-from-js"><a name="-rx-observable-from-iterable-mapfn-thisarg-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-from-js" class="plugin-anchor" href="#-rx-observable-from-iterable-mapfn-thisarg-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-from-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/from.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>iterable<span class="token punctuation">,</span> <span class="token punctuation">[</span>mapFn<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>thisArg<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
 <p>This method creates a new Observable sequence from an array-like or iterable object.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>iterable</code> <em>(<code>Array</code> | <code>Arguments</code> | <code>Iterable</code>)</em>: An array-like or iterable object to convert to an Observable sequence.</li>
-<li><code>[mapFn]</code> <em>(<code>Function</code>)</em>: Map function to call on every element of the array.</li>
-<li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: The context to use calling the mapFn if provided.</li>
-<li><code>[scheduler=Rx.Scheduler.currentThread]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the enumeration of the input sequence on.</li>
+<li><code><span class="token punctuation">[</span>mapFn<span class="token punctuation">]</span></code> <em>(<code>Function</code>)</em>: Map function to call on every element of the array.</li>
+<li><code><span class="token punctuation">[</span>thisArg<span class="token punctuation">]</span></code> <em>(<code>Any</code>)</em>: The context to use calling the mapFn if provided.</li>
+<li><code><span class="token punctuation">[</span>scheduler<span class="token operator">=</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>currentThread<span class="token punctuation">]</span></code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the enumeration of the input sequence on.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: The observable sequence whose elements are pulled from the given iterable sequence.</p>
@@ -5752,16 +5756,16 @@
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/from.js" target="_blank"><code>/src/core/linq/observable/from.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/from.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>linq<span class="token operator">/</span>observable<span class="token operator">/</span>from<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
@@ -5773,13 +5777,13 @@
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-Complete" target="_blank"><code>RxJS-Complete</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Complete" target="_blank"><code>RxJS<span class="token operator">-</span>Complete</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS<span class="token operator">-</span>Main</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/from.js" target="_blank"><code>/tests/observable/from.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/from.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>from<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 
                     

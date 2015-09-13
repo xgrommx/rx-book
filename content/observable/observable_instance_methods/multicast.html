@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.72" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.72" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,7 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-multicast-subject-subjectselector-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-multicast-js"><a name="-rx-observable-prototype-multicast-subject-subjectselector-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-multicast-js" class="plugin-anchor" href="#-rx-observable-prototype-multicast-subject-subjectselector-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-multicast-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/multicast.js" target="_blank"><code>Rx.Observable.prototype.multicast(subject | subjectSelector, [selector])</code></a></h2>
+                        <h2 id="-rx-observable-prototype-multicast-subject-subjectselector-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-multicast-js"><a name="-rx-observable-prototype-multicast-subject-subjectselector-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-multicast-js" class="plugin-anchor" href="#-rx-observable-prototype-multicast-subject-subjectselector-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-multicast-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/multicast.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">multicast</span><span class="token punctuation">(</span>subject <span class="token operator">|</span> subjectSelector<span class="token punctuation">,</span> <span class="token punctuation">[</span>selector<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
 <p>Multicasts the source sequence notifications through an instantiated subject into all uses of the sequence within a selector function. Each
 subscription to the resulting sequence causes a separate multicast invocation, exposing the sequence resulting from the selector function&apos;s
 invocation. For specializations with fixed subject types, see <code>publish</code>, <code>share</code>, <code>publishValue</code>, <code>shareValue</code>, <code>publishLast</code>, <code>replay</code>, and <code>shareReplay</code>.</p>
@@ -5733,7 +5737,7 @@ invocation. For specializations with fixed subject types, see <code>publish</cod
 <ol>
 <li><code>subjectSelector</code> <em>(<code>Function</code>)</em>:  Factory function to create an intermediate subject through which the source sequence&apos;s elements will be multicast to the selector function.</li>
 <li><code>subject</code> <em>(Subject)</em>: Subject to push source elements into.</li>
-<li><code>[selector]</code> <em>(<code>Function</code>)</em>: Optional selector function which can use the multicasted source sequence subject to the policies enforced by the created subject. Specified only if <code>subjectSelector</code> is provided.</li>
+<li><code><span class="token punctuation">[</span>selector<span class="token punctuation">]</span></code> <em>(<code>Function</code>)</em>: Optional selector function which can use the multicasted source sequence subject to the policies enforced by the created subject. Specified only if <code>subjectSelector</code> is provided.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.</p>
@@ -5742,18 +5746,18 @@ invocation. For specializations with fixed subject types, see <code>publish</cod
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/multicast.js" target="_blank"><code>/src/core/observable/multicast.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/multicast.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>observable<span class="token operator">/</span>multicast<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx.binding.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a> </li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx<span class="token punctuation">.</span>binding<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a> </li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
-<li>If using <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx.binding.js</code></a><ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.lite.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li>If using <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx<span class="token punctuation">.</span>binding<span class="token punctuation">.</span>js</code></a><ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 </li>
 </ul>
@@ -5763,12 +5767,12 @@ invocation. For specializations with fixed subject types, see <code>publish</cod
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-Binding/" target="_blank"><code>RxJS-Binding</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Binding/" target="_blank"><code>RxJS<span class="token operator">-</span>Binding</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/multicast.js" target="_blank"><code>/tests/observable/multicast.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/multicast.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>multicast<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 
                     

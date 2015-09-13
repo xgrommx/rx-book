@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.30" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.30" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,58 +5729,58 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-distinctuntilchanged-keyselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-distinctuntilchanged-js"><a name="-rx-observable-prototype-distinctuntilchanged-keyselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-distinctuntilchanged-js" class="plugin-anchor" href="#-rx-observable-prototype-distinctuntilchanged-keyselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-distinctuntilchanged-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/distinctuntilchanged.js" target="_blank"><code>Rx.Observable.prototype.distinctUntilChanged([keySelector], [comparer])</code></a></h2>
+                        <h2 id="-rx-observable-prototype-distinctuntilchanged-keyselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-distinctuntilchanged-js"><a name="-rx-observable-prototype-distinctuntilchanged-keyselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-distinctuntilchanged-js" class="plugin-anchor" href="#-rx-observable-prototype-distinctuntilchanged-keyselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-distinctuntilchanged-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/distinctuntilchanged.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">distinctUntilChanged</span><span class="token punctuation">(</span><span class="token punctuation">[</span>keySelector<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>comparer<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
 <p><rx-marbles key="distinctUntilChanged"></rx-marbles></p>
 <p>Returns an observable sequence that contains only distinct elements according to the keySelector and the comparer. Usage of this operator should be considered carefully due to the maintenance of an internal lookup structure which can grow large. </p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
-<li><code>[keySelector]</code> <em>(<code>Function</code>)</em>: A function to compute the comparison key for each element.</li>
-<li><code>[comparer]</code> <em>(<code>Function</code>)</em>: Equality comparer for computed key values. If not provided, defaults to an equality comparer function.</li>
+<li><code><span class="token punctuation">[</span>keySelector<span class="token punctuation">]</span></code> <em>(<code>Function</code>)</em>: A function to compute the comparison key for each element.</li>
+<li><code><span class="token punctuation">[</span>comparer<span class="token punctuation">]</span></code> <em>(<code>Function</code>)</em>: Equality comparer for computed key values. If not provided, defaults to an equality comparer function.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence only containing the distinct elements, based on a computed key value, from the source sequence.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* Without key selector */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.fromArray([
-        <span class="hljs-number">42</span>, <span class="hljs-number">42</span>, <span class="hljs-number">24</span>, <span class="hljs-number">24</span>
-    ])
-    .distinct();
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">/* Without key selector */</span>
+<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token number">42</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">24</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">distinct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Next: 42</span>
-<span class="hljs-comment">// =&gt; Next: 24</span>
-<span class="hljs-comment">// =&gt; Completed </span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 42</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 24</span>
+<span class="token comment" spellcheck="true">// =&gt; Completed </span>
 
-<span class="hljs-comment">/* With key selector */</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.fromArray([
-        {value: <span class="hljs-number">42</span>}, {value: <span class="hljs-number">24</span>}, {value: <span class="hljs-number">42</span>}, {value: <span class="hljs-number">24</span>}
-    ])
-    .distinct(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x.value; });
+<span class="token comment" spellcheck="true">/* With key selector */</span>
+<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>value<span class="token punctuation">:</span> <span class="token number">42</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>value<span class="token punctuation">:</span> <span class="token number">24</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>value<span class="token punctuation">:</span> <span class="token number">42</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>value<span class="token punctuation">:</span> <span class="token number">24</span><span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">distinct</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x<span class="token punctuation">.</span>value<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
-    });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Next: { value: 42 }</span>
-<span class="hljs-comment">// =&gt; Next: { value: 24 }</span>
-<span class="hljs-comment">// =&gt; Completed</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: { value: 42 }</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: { value: 24 }</span>
+<span class="token comment" spellcheck="true">// =&gt; Completed</span>
 </code></pre>
 <h4 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h4>
 <ul>

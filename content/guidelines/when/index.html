@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="2.2" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.2" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5730,20 +5734,20 @@
 <p>Code that deals with more than one event or asynchronous computation gets complicated quickly as it needs to build a state-machine to deal with ordering issues. Next to this, the code needs to deal with successful and failure termination of each separate computation. This leads to code that doesn&#x2019;t follow normal control-flow, is hard to understand and hard to maintain.</p>
 <p>RxJS makes these computations first-class citizens. This provides a model that allows for readable and composable APIs to deal with these asynchronous computations.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> input = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;input&apos;</span>);
-<span class="hljs-keyword">var</span> dictionarySuggest = Rx.Observable.fromEvent(input, <span class="hljs-string">&apos;keyup&apos;</span>)
-  .map(() =&gt; input.value)
-  .filter(text =&gt; !!text)
-  .distinctUntilChanged()
-  .throttle(<span class="hljs-number">250</span>)
-  .flatMapLatest(searchWikipedia)
-  .subscribe(
-    results =&gt; {
-      list = [];
-      list.concat(results.map(createItem));
-    },
-    err =&gt; logError(err)
-  );
+<pre><code class="lang-js"><span class="token keyword">var</span> input <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&apos;input&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> dictionarySuggest <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> <span class="token string">&apos;keyup&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> input<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>text <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token operator">!</span><span class="token operator">!</span>text<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">distinctUntilChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">throttle</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMapLatest</span><span class="token punctuation">(</span>searchWikipedia<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    results <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      list<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>results<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>createItem<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">logError</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>This sample models a common UI paradigm of receiving completion suggestions while the user is typing input.</p>
 <p>RxJS creates an observable sequence that models an existing <code>keyup</code> event on the input.</p>
@@ -5765,34 +5769,34 @@
 <h3 id="use-rxjs-to-deal-with-asynchronous-sequences-of-data"><a name="use-rxjs-to-deal-with-asynchronous-sequences-of-data" class="plugin-anchor" href="#use-rxjs-to-deal-with-asynchronous-sequences-of-data"><span class="fa fa-link"></span></a>Use RxJS to deal with asynchronous sequences of data</h3>
 <p>Several other libraries exist to aid asynchronous operations in the JavaScript ecosystem. Even though these libraries are powerful, they usually work best on operations that return a single message. They usually do not support operations that produce multiple messages over the lifetime of the operation.</p>
 <p>RxJS follows the following grammar: <code>onNext</code>* (<code>onCompleted</code>|<code>onError</code>)?. This allows for multiple messages to come in over time. This makes RxJS suitable for both operations that produce a single message, as well as operations that produce multiple messages.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
-<span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Read/write from stream implementation</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readAsync</span>(<span class="hljs-params">fd, chunkSize</span>) </span>{ <span class="hljs-comment">/* impl */</span> }
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">appendAsync</span>(<span class="hljs-params">fd, buffer</span>) </span>{ <span class="hljs-comment">/* impl */</span> }
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">encrypt</span>(<span class="hljs-params">buffer</span>) </span>{ <span class="hljs-comment">/* impl */</span>}
+<span class="token comment" spellcheck="true">// Read/write from stream implementation</span>
+<span class="token keyword">function</span> <span class="token function">readAsync</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> chunkSize<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* impl */</span> <span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">appendAsync</span><span class="token punctuation">(</span>fd<span class="token punctuation">,</span> buffer<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* impl */</span> <span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">encrypt</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* impl */</span><span class="token punctuation">}</span>
 
-<span class="hljs-comment">//open a 4GB file for asynchronous reading in blocks of 64K</span>
-<span class="hljs-keyword">var</span> inFile = fs.openSync(<span class="hljs-string">&apos;4GBfile.txt&apos;</span>, <span class="hljs-string">&apos;r+&apos;</span>);
-<span class="hljs-keyword">var</span> outFile = fs.openSync(<span class="hljs-string">&apos;Encrypted.txt&apos;</span>, <span class="hljs-string">&apos;w+&apos;</span>);
+<span class="token comment" spellcheck="true">//open a 4GB file for asynchronous reading in blocks of 64K</span>
+<span class="token keyword">var</span> inFile <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">openSync</span><span class="token punctuation">(</span><span class="token string">&apos;4GBfile.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;r+&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> outFile <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">openSync</span><span class="token punctuation">(</span><span class="token string">&apos;Encrypted.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;w+&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-readAsync(inFile, <span class="hljs-number">2</span> &lt;&lt; <span class="hljs-number">15</span>)
-  .map(encrypt)
-  .flatMap(data =&gt; appendAsync(outFile, data))
-  .subscribe(
-    () =&gt; {},
-    err =&gt; {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;An error occurred while encrypting the file: %s&apos;</span>, err.message);
-      fs.closeSync(inFile);
-      fs.closeSync(outFile);
-    },
-    () =&gt; {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Successfully encrypted the file.&apos;</span>);
-      fs.closeSync(inFile);
-      fs.closeSync(outFile);
-    }
-  );
+<span class="token function">readAsync</span><span class="token punctuation">(</span>inFile<span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">15</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>encrypt<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">appendAsync</span><span class="token punctuation">(</span>outFile<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;An error occurred while encrypting the file: %s&apos;</span><span class="token punctuation">,</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      fs<span class="token punctuation">.</span><span class="token function">closeSync</span><span class="token punctuation">(</span>inFile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      fs<span class="token punctuation">.</span><span class="token function">closeSync</span><span class="token punctuation">(</span>outFile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Successfully encrypted the file.&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      fs<span class="token punctuation">.</span><span class="token function">closeSync</span><span class="token punctuation">(</span>inFile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      fs<span class="token punctuation">.</span><span class="token function">closeSync</span><span class="token punctuation">(</span>outFile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, a 4 GB file is read in its entirety, encrypted and saved out to another file.</p>
 <p>Reading the whole file into memory, encrypting it and writing out the whole file would be an expensive operation.</p>

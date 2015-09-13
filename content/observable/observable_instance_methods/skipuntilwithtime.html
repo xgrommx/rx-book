@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.107" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.107" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,13 +5729,13 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-skipuntilwithtime-starttime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-skipuntilwithtime-js"><a name="-rx-observable-prototype-skipuntilwithtime-starttime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-skipuntilwithtime-js" class="plugin-anchor" href="#-rx-observable-prototype-skipuntilwithtime-starttime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-skipuntilwithtime-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipuntilwithtime.js" target="_blank"><code>Rx.Observable.prototype.skipUntilWithTime(startTime, [scheduler])</code></a></h2>
+                        <h2 id="-rx-observable-prototype-skipuntilwithtime-starttime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-skipuntilwithtime-js"><a name="-rx-observable-prototype-skipuntilwithtime-starttime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-skipuntilwithtime-js" class="plugin-anchor" href="#-rx-observable-prototype-skipuntilwithtime-starttime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-skipuntilwithtime-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipuntilwithtime.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">skipUntilWithTime</span><span class="token punctuation">(</span>startTime<span class="token punctuation">,</span> <span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
 <p>Skips elements from the observable source sequence until the specified start time, using the specified scheduler to run timers.</p>
 <p>Errors produced by the source sequence are always forwarded to the result sequence, even if the error occurs before the start time.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>startTime</code> <em>(<code>Date</code> | <code>Number</code>)</em>: Time to start taking elements from the source sequence. If this value is less than or equal to current time, no elements will be skipped.</li>
-<li>[<code>scheduler = Rx.Scheduler.timeout</code>] <em>(<code>Scheduler</code>)</em>: Scheduler to run the timer on. If not specified, defaults to Rx.Scheduler.timeout.</li>
+<li>[<code>scheduler <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout</code>] <em>(<code>Scheduler</code>)</em>: Scheduler to run the timer on. If not specified, defaults to Rx.Scheduler.timeout.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence with the elements skipped until the specified start time.   </p>
@@ -5740,18 +5744,18 @@
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipuntilwithtime.js" target="_blank"><code>/src/core/observable/skipuntilwithtime.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipuntilwithtime.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>observable<span class="token operator">/</span>skipuntilwithtime<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js" target="_blank"><code>rx.time.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js" target="_blank"><code>rx<span class="token punctuation">.</span>time<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
-<li>If using <code>rx.time.js</code><ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li>If using <code>rx<span class="token punctuation">.</span>time<span class="token punctuation">.</span>js</code><ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 </li>
 </ul>
@@ -5761,12 +5765,12 @@
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-Time/" target="_blank"><code>RxJS-Main</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Time/" target="_blank"><code>RxJS<span class="token operator">-</span>Main</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/skipuntilwithtime.js" target="_blank"><code>/tests/observable/skipuntilwithtime.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/skipuntilwithtime.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>skipuntilwithtime<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 
                     

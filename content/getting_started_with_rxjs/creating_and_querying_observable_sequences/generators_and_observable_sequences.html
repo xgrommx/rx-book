@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="3.3.5" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.5" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5727,107 +5731,107 @@
                     
                         <h1 id="generators-and-observable-sequences"><a name="generators-and-observable-sequences" class="plugin-anchor" href="#generators-and-observable-sequences"><span class="fa fa-link"></span></a>Generators and Observable Sequences</h1>
 <p>One of the more exciting features of ES6 is a new function type called generators.  They have been in Firefox for years, although they have now been finally standardized in ES6, and will be shipping in a browser or runtime near you. How generators differ from normal functions is that a normal function such as the following will run to completion, regardless of whether it is asynchronous or not.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printNumberOfTimes</span>(<span class="hljs-params">msg, n</span>) </span>{
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
-    <span class="hljs-built_in">console</span>.log(msg);
-  }
-}
+<pre><code class="lang-js"><span class="token keyword">function</span> <span class="token function">printNumberOfTimes</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-printNumberOfTime(<span class="hljs-string">&apos;Hello world&apos;</span>, <span class="hljs-number">1</span>);
-<span class="hljs-comment">// =&gt; Hello world</span>
+<span class="token function">printNumberOfTime</span><span class="token punctuation">(</span><span class="token string">&apos;Hello world&apos;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; Hello world</span>
 
-<span class="hljs-comment">// Asynchronous</span>
-setTimeout(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Hello from setTimeout after one second&apos;</span>), <span class="hljs-number">1000</span>); 
-<span class="hljs-comment">// =&gt; Hello from setTimeout after one second</span>
+<span class="token comment" spellcheck="true">// Asynchronous</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Hello from setTimeout after one second&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">// =&gt; Hello from setTimeout after one second</span>
 </code></pre>
-<p>Instead of running to completion, generators allow us to interrupt the flow of the function by introducing the <code>yield</code> keyword which pauses the function.  The function cannot resume on its own without the external consumer saying that they need the next value.  </p>
-<p>To create a generator function, you must use the <code>function*</code> syntax which then becomes a generator.  In this particular example, we will yield a single value, the meaning of life.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">theMeaningOfLife</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">yield</span> <span class="hljs-number">42</span>;
-}
+<p>Instead of running to completion, generators allow us to interrupt the flow of the function by introducing the <code><span class="token keyword">yield</span></code> keyword which pauses the function.  The function cannot resume on its own without the external consumer saying that they need the next value.  </p>
+<p>To create a generator function, you must use the <code><span class="token keyword">function</span><span class="token operator">*</span></code> syntax which then becomes a generator.  In this particular example, we will yield a single value, the meaning of life.</p>
+<pre><code class="lang-js"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">theMeaningOfLife</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token number">42</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>To get the value out, we need to invoke the function, and then call <code>next</code> to get the next value.  The return value from the <code>next</code> call will have a flag as to whether it is done, as well as any value that is yielded.  Note that the function doesn&apos;t do anything until we start to call <code>next</code>.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> it = theMeaningOfLife();
+<pre><code class="lang-js"><span class="token keyword">var</span> it <span class="token operator">=</span> <span class="token function">theMeaningOfLife</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-it.next();
-<span class="hljs-comment">// =&gt; { done: false, value: 42 }</span>
+it<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; { done: false, value: 42 }</span>
 
-it.next();
-<span class="hljs-comment">// =&gt; { done: true, value: undefined }</span>
+it<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; { done: true, value: undefined }</span>
 </code></pre>
-<p>We can also use some ES6 shorthand for getting values from a generator such as the <code>for..of</code>.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> v <span class="hljs-keyword">of</span> theMeaningOfLife()) {
-  <span class="hljs-built_in">console</span>.log(v);
-}
-<span class="hljs-comment">// =&gt; 42</span>
+<p>We can also use some ES6 shorthand for getting values from a generator such as the <code><span class="token keyword">for</span><span class="token punctuation">.</span><span class="token punctuation">.</span>of</code>.</p>
+<pre><code class="lang-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> v of <span class="token function">theMeaningOfLife</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// =&gt; 42</span>
 </code></pre>
 <p>This of course is only scratching the surface of what generators are capable of doing as we&apos;re more focused on the simple nature of yielding values.</p>
 <p>Since RxJS believes heavily in standards, we also look for ways to incorporate new language features as they become standardized so that you can take advantage of them, combined with the power of RxJS.</p>
 <h2 id="async-await-style-and-rxjs"><a name="async-await-style-and-rxjs" class="plugin-anchor" href="#async-await-style-and-rxjs"><span class="fa fa-link"></span></a>Async/Await Style and RxJS</h2>
-<p>One common complaint of JavaScript is the callback nature to asynchronous behavior.  Luckily, this can be solved quite easily with a library approach.  To that end, we introduce <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/spawn.md" target="_blank"><code>Rx.spawn</code></a> which allows you to write straight forward code manner and can yield not only Observable sequences, but also Promises, Callbacks, Arrays, etc.  This allows you to write your code in a very imperative manner without all the callbacks, but also brings the power of RxJS whether you want to call <code>timeout</code>, <code>retry</code>, <code>catch</code> or any other method for that matter.  Note that this only yields a single value, but in RxJS terms, this is still quite useful.  </p>
-<p>For example, we could get the HTML from Bing.com and write it to the console, with a timeout of 5 seconds which will throw an error should it not respond in time.  We could also add in things like <code>retry</code> and <code>catch</code> so that we could for example try three times and then if it fails, give a default response or cached version.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
-<span class="hljs-keyword">var</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;request&apos;</span>);
-<span class="hljs-keyword">var</span> get = Rx.Observable.fromNodeCallback(request);
+<p>One common complaint of JavaScript is the callback nature to asynchronous behavior.  Luckily, this can be solved quite easily with a library approach.  To that end, we introduce <a href="../../observable/observable_methods/spawn.html"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>spawn</code></a> which allows you to write straight forward code manner and can yield not only Observable sequences, but also Promises, Callbacks, Arrays, etc.  This allows you to write your code in a very imperative manner without all the callbacks, but also brings the power of RxJS whether you want to call <code>timeout</code>, <code>retry</code>, <code><span class="token keyword">catch</span></code> or any other method for that matter.  Note that this only yields a single value, but in RxJS terms, this is still quite useful.  </p>
+<p>For example, we could get the HTML from Bing.com and write it to the console, with a timeout of 5 seconds which will throw an error should it not respond in time.  We could also add in things like <code>retry</code> and <code><span class="token keyword">catch</span></code> so that we could for example try three times and then if it fails, give a default response or cached version.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> request <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;request&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> <span class="token keyword">get</span> <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromNodeCallback</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Rx.spawn(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">var</span> data;
-  <span class="hljs-keyword">try</span> {
-    data = <span class="hljs-keyword">yield</span> get(<span class="hljs-string">&apos;http://bing.com&apos;</span>).timeout(<span class="hljs-number">5000</span> <span class="hljs-comment">/*ms*/</span>);
-  } <span class="hljs-keyword">catch</span> (e) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error %s&apos;</span>, e);
-  } 
+Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">spawn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> data<span class="token punctuation">;</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    data <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;http://bing.com&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">timeout</span><span class="token punctuation">(</span><span class="token number">5000</span> <span class="token comment" spellcheck="true">/*ms*/</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> 
 
-  <span class="hljs-built_in">console</span>.log(data);
-})();
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h2 id="mixing-operators-with-generators"><a name="mixing-operators-with-generators" class="plugin-anchor" href="#mixing-operators-with-generators"><span class="fa fa-link"></span></a>Mixing Operators with Generators</h2>
-<p>Many of the operators inside RxJS also support generators.  For example, we could use the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/from.md" target="_blank"><code>Rx.Observable.from</code></a> method to take a generator function, in this case, a Fibonacci sequence, take 10 of them and display it.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fibonacci</span>(<span class="hljs-params"></span>)</span>{
-  <span class="hljs-keyword">var</span> fn1 = <span class="hljs-number">1</span>;
-  <span class="hljs-keyword">var</span> fn2 = <span class="hljs-number">1</span>;
-  <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
-    <span class="hljs-keyword">var</span> current = fn2;
-    fn2 = fn1;
-    fn1 = fn1 + current;
-    <span class="hljs-keyword">yield</span> current;
-  }
-}
+<p>Many of the operators inside RxJS also support generators.  For example, we could use the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/from.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>from</code></a> method to take a generator function, in this case, a Fibonacci sequence, take 10 of them and display it.</p>
+<pre><code class="lang-js"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fibonacci</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> fn1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> fn2 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> current <span class="token operator">=</span> fn2<span class="token punctuation">;</span>
+    fn2 <span class="token operator">=</span> fn1<span class="token punctuation">;</span>
+    fn1 <span class="token operator">=</span> fn1 <span class="token operator">+</span> current<span class="token punctuation">;</span>
+    <span class="token keyword">yield</span> current<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-Rx.Observable.from(fibonacci())
-  .take(<span class="hljs-number">10</span>)
-  .subscribe(x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Value: %s&apos;</span>, x));
+Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token function">fibonacci</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Value: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">//=&gt; Value: 1</span>
-<span class="hljs-comment">//=&gt; Value: 1</span>
-<span class="hljs-comment">//=&gt; Value: 2</span>
-<span class="hljs-comment">//=&gt; Value: 3</span>
-<span class="hljs-comment">//=&gt; Value: 5</span>
-<span class="hljs-comment">//=&gt; Value: 8</span>
-<span class="hljs-comment">//=&gt; Value: 13</span>
-<span class="hljs-comment">//=&gt; Value: 21</span>
-<span class="hljs-comment">//=&gt; Value: 34</span>
-<span class="hljs-comment">//=&gt; Value: 55</span>
+<span class="token comment" spellcheck="true">//=&gt; Value: 1</span>
+<span class="token comment" spellcheck="true">//=&gt; Value: 1</span>
+<span class="token comment" spellcheck="true">//=&gt; Value: 2</span>
+<span class="token comment" spellcheck="true">//=&gt; Value: 3</span>
+<span class="token comment" spellcheck="true">//=&gt; Value: 5</span>
+<span class="token comment" spellcheck="true">//=&gt; Value: 8</span>
+<span class="token comment" spellcheck="true">//=&gt; Value: 13</span>
+<span class="token comment" spellcheck="true">//=&gt; Value: 21</span>
+<span class="token comment" spellcheck="true">//=&gt; Value: 34</span>
+<span class="token comment" spellcheck="true">//=&gt; Value: 55</span>
 </code></pre>
 <p>That&apos;s just the beginning, as there are several operators such as <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatmap.md" target="_blank"><code>concatMap</code></a>/<a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatmap.md" target="_blank"><code>selectConcat</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/selectmany.md" target="_blank"><code>flatMap</code></a>/<a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatmap.md" target="_blank"><code>selectMany</code></a> which take iterables as an argument so that we can further enable composition.  For example, we could project using generators from a <code>flatMap</code> operation.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.of(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
-  .flatMap(
-    (x, i) =&gt; <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">yield</span> x; <span class="hljs-keyword">yield</span> i; }(),
-    (x, y, i1, i2) =&gt; x + y + i1 + i2
-  );
+<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span>x<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">yield</span> x<span class="token punctuation">;</span> <span class="token keyword">yield</span> i<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> i1<span class="token punctuation">,</span> i2<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> x <span class="token operator">+</span> y <span class="token operator">+</span> i1 <span class="token operator">+</span> i2
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
-  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
-  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Next: 2</span>
-<span class="hljs-comment">// =&gt; Next: 2</span>
-<span class="hljs-comment">// =&gt; Next: 5</span>
-<span class="hljs-comment">// =&gt; Next: 5</span>
-<span class="hljs-comment">// =&gt; Next: 8</span>
-<span class="hljs-comment">// =&gt; Next: 8</span>
-<span class="hljs-comment">// =&gt; Completed</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 2</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 2</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 5</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 5</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 8</span>
+<span class="token comment" spellcheck="true">// =&gt; Next: 8</span>
+<span class="token comment" spellcheck="true">// =&gt; Completed</span>
 </code></pre>
 <p>The future of JavaScript is exciting and generators add new possibilities to our applications to allow them to mix and match our programming styles.</p>
 <p>Notice that in this sample, move becomes an observable sequence in which we can manipulate further. The <a href="querying.md">Querying Observable Sequences</a> topic will show you how you can project this sequence into a collection of Points type and filter its content, so that your application will only receive values that satisfy a certain criteria.</p>

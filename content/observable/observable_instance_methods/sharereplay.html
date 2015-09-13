@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.85" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.85" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,14 +5729,14 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-sharereplay-buffersize-window-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-sharereplay-js"><a name="-rx-observable-prototype-sharereplay-buffersize-window-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-sharereplay-js" class="plugin-anchor" href="#-rx-observable-prototype-sharereplay-buffersize-window-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-sharereplay-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sharereplay.js" target="_blank"><code>Rx.Observable.prototype.shareReplay([bufferSize], [window], [scheduler])</code></a></h2>
+                        <h2 id="-rx-observable-prototype-sharereplay-buffersize-window-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-sharereplay-js"><a name="-rx-observable-prototype-sharereplay-buffersize-window-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-sharereplay-js" class="plugin-anchor" href="#-rx-observable-prototype-sharereplay-buffersize-window-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-sharereplay-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sharereplay.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">shareReplay</span><span class="token punctuation">(</span><span class="token punctuation">[</span>bufferSize<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>window<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
 <p>Returns an observable sequence that shares a single subscription to the underlying sequence replaying notifications subject to a maximum time length for the replay buffer.</p>
 <p>This operator is a specialization of <code>replay</code> that connects to the connectable observable sequence when the number of observers goes from zero to one, and disconnects when there are no more observers.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
-<li><code>[bufferSize]</code> <em>(<code>Number</code>)</em>: Maximum element count of the replay buffer.</li>
-<li><code>[window]</code> <em>(<code>Number</code>)</em>: Maximum time length of the replay buffer in milliseconds.</li>
-<li><code>[scheduler]</code> <em>(<code>Scheduler</code>)</em>: Scheduler where connected observers within the selector function will be invoked on.</li>
+<li><code><span class="token punctuation">[</span>bufferSize<span class="token punctuation">]</span></code> <em>(<code>Number</code>)</em>: Maximum element count of the replay buffer.</li>
+<li><code><span class="token punctuation">[</span>window<span class="token punctuation">]</span></code> <em>(<code>Number</code>)</em>: Maximum time length of the replay buffer in milliseconds.</li>
+<li><code><span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span></code> <em>(<code>Scheduler</code>)</em>: Scheduler where connected observers within the selector function will be invoked on.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.</p>
@@ -5741,18 +5745,18 @@
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sharereplay.js" target="_blank"><code>/src/core/observable/sharereplay.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sharereplay.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>observable<span class="token operator">/</span>sharereplay<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx.binding.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx<span class="token punctuation">.</span>binding<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
-<li>If using <code>rx.binding.js</code><ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li>If using <code>rx<span class="token punctuation">.</span>binding<span class="token punctuation">.</span>js</code><ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 </li>
 </ul>
@@ -5762,11 +5766,11 @@
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-Binding/" target="_blank"><code>RxJS-Binding</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Binding/" target="_blank"><code>RxJS<span class="token operator">-</span>Binding</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/sharereplay.js" target="_blank"><code>/tests/observable/sharereplay.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/sharereplay.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>sharereplay<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 
                     

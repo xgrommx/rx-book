@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.11" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.11" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,13 +5729,13 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-bufferwithtimeorcount-timespan-count-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-bufferwithtimeorcount-js"><a name="-rx-observable-prototype-bufferwithtimeorcount-timespan-count-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-bufferwithtimeorcount-js" class="plugin-anchor" href="#-rx-observable-prototype-bufferwithtimeorcount-timespan-count-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-bufferwithtimeorcount-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/bufferwithtimeorcount.js" target="_blank"><code>Rx.Observable.prototype.bufferWithTimeOrCount(timeSpan, count, [scheduler])</code></a></h2>
+                        <h2 id="-rx-observable-prototype-bufferwithtimeorcount-timespan-count-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-bufferwithtimeorcount-js"><a name="-rx-observable-prototype-bufferwithtimeorcount-timespan-count-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-bufferwithtimeorcount-js" class="plugin-anchor" href="#-rx-observable-prototype-bufferwithtimeorcount-timespan-count-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-bufferwithtimeorcount-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/bufferwithtimeorcount.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">bufferWithTimeOrCount</span><span class="token punctuation">(</span>timeSpan<span class="token punctuation">,</span> count<span class="token punctuation">,</span> <span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
 <p>Projects each element of an observable sequence into a buffer that is completed when either it&apos;s full or a given amount of time has elapsed.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>timeSpan</code> <em>(<code>Number</code>)</em>: Maximum time length of a buffer.</li>
 <li><code>count</code> <em>(<code>Number</code>)</em>: Maximum element count of a buffer.</li>
-<li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run buffer timers on. If not specified, the timeout scheduler is used.</li>
+<li><code><span class="token punctuation">[</span>scheduler<span class="token operator">=</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout<span class="token punctuation">]</span></code> <em>(<code>Scheduler</code>)</em>: Scheduler to run buffer timers on. If not specified, the timeout scheduler is used.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence of buffers. </p>

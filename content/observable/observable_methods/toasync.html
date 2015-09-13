@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.1.39" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.39" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,13 +5729,13 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-toasync-func-scheduler-context-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-toasync-js"><a name="-rx-observable-toasync-func-scheduler-context-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-toasync-js" class="plugin-anchor" href="#-rx-observable-toasync-func-scheduler-context-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-toasync-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toasync.js" target="_blank"><code>Rx.Observable.toAsync(func, [scheduler], [context])</code></a></h2>
+                        <h2 id="-rx-observable-toasync-func-scheduler-context-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-toasync-js"><a name="-rx-observable-toasync-func-scheduler-context-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-toasync-js" class="plugin-anchor" href="#-rx-observable-toasync-func-scheduler-context-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-toasync-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toasync.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">toAsync</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> <span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>context<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
 <p>Converts the function into an asynchronous function. Each invocation of the resulting asynchronous function causes an invocation of the original synchronous function on the specified scheduler.</p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
 <li><code>func</code> <em>(<code>Function</code>)</em>: Function to convert to an asynchronous function.</li>
-<li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the function on. If not specified, defaults to Scheduler.timeout.</li>
-<li><code>[context]</code> <em>(<code>Any</code>)</em>: The context for the func parameter to be executed.  If not specified, defaults to undefined.</li>
+<li><code><span class="token punctuation">[</span>scheduler<span class="token operator">=</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout<span class="token punctuation">]</span></code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the function on. If not specified, defaults to Scheduler.timeout.</li>
+<li><code><span class="token punctuation">[</span>context<span class="token punctuation">]</span></code> <em>(<code>Any</code>)</em>: The context for the func parameter to be executed.  If not specified, defaults to undefined.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Function</code>)</em>: Asynchronous function.</p>
@@ -5744,14 +5748,14 @@
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.js" target="_blank"><code>rx.async.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.compat.js" target="_blank"><code>rx.async.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.js" target="_blank"><code>rx<span class="token punctuation">.</span>async<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>async<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
 <li><a href="https://www.npmjs.org/package/rx" target="_blank"><code>rx</code></a>.async.js | rx.async.compat.js</li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx.binding.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx<span class="token punctuation">.</span>binding<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>NPM Packages:</p>
 <ul>

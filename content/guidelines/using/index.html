@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="2.4" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.4" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5732,7 +5736,7 @@
 <p><img src="https://raw.githubusercontent.com/Reactive-Extensions/RxJS/master/doc/designguidelines/images/throttleWithTimeout.png" alt="throttleWithSelector"></p>
 <p>By drawing the diagram we can see that we will need some kind of delay after the user input, before firing of another asynchronous call. The delay in this sample maps to the <code>throttle</code> operator. To create another observable sequence from an observable sequence we will use the <code>flatMap</code> or <code>selectMany</code> operator. This
 will lead to the following code:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> dictionarySuggest = userInput.throttle(<span class="hljs-number">250</span>).flatMap(input =&gt; serverCall(input));
+<pre><code class="lang-js"><span class="token keyword">var</span> dictionarySuggest <span class="token operator">=</span> userInput<span class="token punctuation">.</span><span class="token function">throttle</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>input <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">serverCall</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>This guideline can be ignored if you feel comfortable enough with the observable sequence you want to write. However, even the Rx team members will still grab the whiteboard to draw a marble-diagram once in a while.</p>
@@ -5758,19 +5762,19 @@ will lead to the following code:</p>
 <h3 id="consider-passing-a-specific-scheduler-to-concurrency-introducing-operators"><a name="consider-passing-a-specific-scheduler-to-concurrency-introducing-operators" class="plugin-anchor" href="#consider-passing-a-specific-scheduler-to-concurrency-introducing-operators"><span class="fa fa-link"></span></a>Consider passing a specific scheduler to concurrency introducing operators</h3>
 <p>Rather than using the <code>observeOn</code> operator to change the execution context on which the observable sequence produces messages, it is better to create concurrency in the right place to begin with. As operators parameterize introduction of concurrency by providing a scheduler argument overload, passing the right scheduler will lead to fewer places where the ObserveOn operator has to be used.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">90000</span>, Rx.Scheduler.requestAnimationFrame).subscribe(draw);
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">90000</span><span class="token punctuation">,</span> Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>requestAnimationFrame<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>draw<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>In this sample, callbacks from the <code>range</code> operator will arrive by calling <code>window.requestAnimationFrame</code>.  The default overload of <code>range</code> would place the <code>onNext</code> call on the <code>Rx.Scheduler.currentThread</code> which is used when recursive scheduling is required immediately.  By providing the <code>Rx.Scheduler.requestAnimationFrame</code> scheduler, all messages from this observable sequence will originiate on the <code>window.requestAnimationFrame</code> callback.</p>
+<p>In this sample, callbacks from the <code>range</code> operator will arrive by calling <code>window<span class="token punctuation">.</span>requestAnimationFrame</code>.  The default overload of <code>range</code> would place the <code>onNext</code> call on the <code>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>currentThread</code> which is used when recursive scheduling is required immediately.  By providing the <code>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>requestAnimationFrame</code> scheduler, all messages from this observable sequence will originiate on the <code>window<span class="token punctuation">.</span>requestAnimationFrame</code> callback.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>When combining several events that originate on different execution contexts, use guideline 4.4 to put  all messages on a specific execution context as late as possible.</p>
 <h3 id="call-the-observeon-operator-as-late-and-in-as-few-places-as-possible"><a name="call-the-observeon-operator-as-late-and-in-as-few-places-as-possible" class="plugin-anchor" href="#call-the-observeon-operator-as-late-and-in-as-few-places-as-possible"><span class="fa fa-link"></span></a>Call the <code>observeOn</code> operator as late and in as few places as possible</h3>
 <p>By using the <code>observeOn</code> operator, an action is scheduled for each message that comes through the original observable sequence. This potentially changes timing information as well as puts additional stress on the system. Placing this operator later in the query will reduce both concerns.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> result = xs.throttle(<span class="hljs-number">1000</span>)
-  .flatMap(x =&gt; ys.takeUntil(zs).sample(<span class="hljs-number">250</span>).map(y =&gt; x + y))
-  .merge(ws)
-  .filter(x =&gt; x &lt; <span class="hljs-number">10</span>)
-  .observeOn(Rx.Scheduler.requestAnimationFrame);
+<pre><code class="lang-js"><span class="token keyword">var</span> result <span class="token operator">=</span> xs<span class="token punctuation">.</span><span class="token function">throttle</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> ys<span class="token punctuation">.</span><span class="token function">takeUntil</span><span class="token punctuation">(</span>zs<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sample</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>y <span class="token operator">=</span><span class="token operator">&gt;</span> x <span class="token operator">+</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>ws<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">observeOn</span><span class="token punctuation">(</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>requestAnimationFrame<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>This sample combines many observable sequences running on many different execution contexts. The query filters out a lot of messages. Placing the <code>observeOn</code> operator earlier in the query would do extra work on messages that would be filtered out anyway. Calling the <code>observeOn</code> operator at the end of the query will create the least performance impact.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5778,20 +5782,20 @@ will lead to the following code:</p>
 <h3 id="consider-limiting-buffers"><a name="consider-limiting-buffers" class="plugin-anchor" href="#consider-limiting-buffers"><span class="fa fa-link"></span></a>Consider limiting buffers</h3>
 <p>RxJS comes with several operators and classes that create buffers over observable sequences, e.g. the <code>replay</code> operator. As these buffers work on any observable sequence, the size of these buffers will depend on the observable sequence it is operating on. If the buffer is unbounded, this can lead to memory pressure. Many buffering operators provide policies to limit the buffer, either in time or size. Providing this limit will address memory pressure issues.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> result = xs.replay(<span class="hljs-literal">null</span>, <span class="hljs-number">10000</span>, <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> <span class="hljs-comment">/* 1 hr */</span>).refCount();
+<pre><code class="lang-js"><span class="token keyword">var</span> result <span class="token operator">=</span> xs<span class="token punctuation">.</span><span class="token function">replay</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">,</span> <span class="token number">1000</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token comment" spellcheck="true">/* 1 hr */</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">refCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, the <code>replay</code> operator creates a buffer. We have limited that buffer to contain at most 10,000 messages and keep these messages around for a maximum of 1 hour.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>When the amount of messages created by the observable sequence that populates the buffer is small or when the buffer size is limited.</p>
-<h3 id="make-side-effects-explicit-using-the-do-tap-operator"><a name="make-side-effects-explicit-using-the-do-tap-operator" class="plugin-anchor" href="#make-side-effects-explicit-using-the-do-tap-operator"><span class="fa fa-link"></span></a>Make side-effects explicit using the <code>do</code>/<code>tap</code> operator</h3>
+<h3 id="make-side-effects-explicit-using-the-do-tap-operator"><a name="make-side-effects-explicit-using-the-do-tap-operator" class="plugin-anchor" href="#make-side-effects-explicit-using-the-do-tap-operator"><span class="fa fa-link"></span></a>Make side-effects explicit using the <code><span class="token keyword">do</span></code>/<code>tap</code> operator</h3>
 <p>As many Rx operators take functions as arguments, it is possible to pass any valid user code in these arguments. This code can change global state (e.g. change global variables, write to disk etc...).</p>
 <p>The composition in Rx runs through each operator for each subscription (with the exception of the sharing operators, such as <code>publish</code>). This will make every side-effect occur for each subscription.</p>
 <p>If this behavior is the desired behavior, it is best to make this explicit by putting the side-effecting code
-in a <code>do</code>/<code>tap</code> operator.  There are overloads to this method which call the specified method only, for example <code>doOnNext</code>/<code>tapOnNext</code>, <code>doOnError</code>/<code>tapOnError</code>,<code>doOnCompleted</code>/<code>tapOnCompleted</code></p>
+in a <code><span class="token keyword">do</span></code>/<code>tap</code> operator.  There are overloads to this method which call the specified method only, for example <code>doOnNext</code>/<code>tapOnNext</code>, <code>doOnError</code>/<code>tapOnError</code>,<code>doOnCompleted</code>/<code>tapOnCompleted</code></p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> result = xs.filter(x =&gt; x.failed).tap(x =&gt; log(x));
+<pre><code class="lang-js"><span class="token keyword">var</span> result <span class="token operator">=</span> xs<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x<span class="token punctuation">.</span>failed<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>In this sample, messages are filtered for failure. The messages are logged before handing them out to the code subscribed to this observable sequence. The logging is a side-effect (e.g. placing the messages in the computer&#x2019;s event log) and is explicitly done via a call to the <code>do</code>/<code>tap</code> operator.</p>
+<p>In this sample, messages are filtered for failure. The messages are logged before handing them out to the code subscribed to this observable sequence. The logging is a side-effect (e.g. placing the messages in the computer&#x2019;s event log) and is explicitly done via a call to the <code><span class="token keyword">do</span></code>/<code>tap</code> operator.</p>
 <h3 id="assume-messages-can-come-through-until-unsubscribe-has-completed"><a name="assume-messages-can-come-through-until-unsubscribe-has-completed" class="plugin-anchor" href="#assume-messages-can-come-through-until-unsubscribe-has-completed"><span class="fa fa-link"></span></a>Assume messages can come through until unsubscribe has completed</h3>
 <p>As RxJS uses a push model, messages can be sent from different execution contexts. Messages can be in flight while calling unsubscribe. These messages can still come through while the call to unsubscribe is in progress. After control has returned, no more messages will arrive. The unsubscription process can still be in progress on a different context.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5801,17 +5805,17 @@ in a <code>do</code>/<code>tap</code> operator.  There are overloads to this met
 separate set of side-effects. Certain situations require that these side-effects occur only once. The <code>publish</code> operator provides a mechanism to share subscriptions by broadcasting a single subscription to multiple subscribers.</p>
 <p>There are several overloads of the <code>publish</code> operator. The most convenient overloads are the ones that provide a function with a wrapped observable sequence argument that shares the side-effects.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> xs = Rx.Observable.create(observer =&gt; {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Side effect&apos;</span>);
-  observer.onNext(<span class="hljs-string">&apos;hi!&apos;</span>);
-  observer.onCompleted();
-});
+<pre><code class="lang-js"><span class="token keyword">var</span> xs <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Side effect&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;hi!&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  observer<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-xs.publish(sharedXs =&gt; {
-  sharedXs.subscribe(<span class="hljs-built_in">console</span>.log);
-  sharedXs.subscribe(<span class="hljs-built_in">console</span>.log);
-  <span class="hljs-keyword">return</span> sharedXs;
-}).subscribe();
+xs<span class="token punctuation">.</span><span class="token function">publish</span><span class="token punctuation">(</span>sharedXs <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  sharedXs<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  sharedXs<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> sharedXs<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In this sample, xs is an observable sequence that has side-effects (writing to the console). Normally each separate subscription will trigger these side-effects. The <code>publish</code> operator uses a single subscription to xs for all subscribers to sharedXs.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>

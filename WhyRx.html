@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="1" data-basepath="." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="1" data-basepath="." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5729,54 +5733,54 @@
 <p>One question you may ask yourself, is why RxJS?  What about Promises?  Promises are good for solving asynchronous operations such as querying a service with an <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest</a>, where the expected behavior is one value and then completion.  The Reactive Extensions for JavaScript unifies both the world of Promises, callbacks as well as evented data such as DOM Input, Web Workers, Web Sockets.  Once we have unified these concepts, this enables rich composition.</p>
 <p>To give you an idea about rich composition, we can create an autocompletion service which takes the user input from a text input and then query a service, making sure not to flood the service with calls for every key stroke, but instead allow to go at a more natural pace.</p>
 <p>First, we&apos;ll reference the JavaScript files, including jQuery, although RxJS has no dependencies on jQuery...</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://code.jquery.com/jquery.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<pre><code class="lang-html"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;http://code.jquery.com/jquery.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;rx.lite.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
 </code></pre>
-<p>Next, we&apos;ll get the user input from an input, listening to the keyup event by using the <a href="content/observable/observable_methods/fromevent.html"><code>Rx.Observable.fromEvent</code></a> method.  This will either use the event binding from <a href="http://jquery.com" target="_blank">jQuery</a>, <a href="http://zeptojs.com/" target="_blank">Zepto</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a> and <a href="http://emberjs.com/" target="_blank">Ember.js</a> if available, and if not, falls back to the native event binding.  This gives you consistent ways of thinking of events depending on your framework, so there are no surprises.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> $input = $(<span class="hljs-string">&apos;#input&apos;</span>),
-    $results = $(<span class="hljs-string">&apos;#results&apos;</span>);
+<p>Next, we&apos;ll get the user input from an input, listening to the keyup event by using the <a href="content/observable/observable_methods/fromevent.html"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromEvent</code></a> method.  This will either use the event binding from <a href="http://jquery.com" target="_blank">jQuery</a>, <a href="http://zeptojs.com/" target="_blank">Zepto</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a> and <a href="http://emberjs.com/" target="_blank">Ember.js</a> if available, and if not, falls back to the native event binding.  This gives you consistent ways of thinking of events depending on your framework, so there are no surprises.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> $input <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&apos;#input&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    $results <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&apos;#results&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/* Only get the value from each key up */</span>
-<span class="hljs-keyword">var</span> keyups = Rx.Observable.fromEvent($input, <span class="hljs-string">&apos;keyup&apos;</span>)
-    .map(e =&gt; e.target.value)
-    .filter(text =&gt; text.length &gt; <span class="hljs-number">2</span>);
+<span class="token comment" spellcheck="true">/* Only get the value from each key up */</span>
+<span class="token keyword">var</span> keyups <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>$input<span class="token punctuation">,</span> <span class="token string">&apos;keyup&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&gt;</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>text <span class="token operator">=</span><span class="token operator">&gt;</span> text<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/* Now throttle/debounce the input for 500ms */</span>
-<span class="hljs-keyword">var</span> throttled = keyups.throttle(<span class="hljs-number">500</span> <span class="hljs-comment">/* ms */</span>);
+<span class="token comment" spellcheck="true">/* Now throttle/debounce the input for 500ms */</span>
+<span class="token keyword">var</span> throttled <span class="token operator">=</span> keyups<span class="token punctuation">.</span><span class="token function">throttle</span><span class="token punctuation">(</span><span class="token number">500</span> <span class="token comment" spellcheck="true">/* ms */</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/* Now get only distinct values, so we eliminate the arrows and other control characters */</span>
-<span class="hljs-keyword">var</span> distinct = throttled.distinctUntilChanged();
+<span class="token comment" spellcheck="true">/* Now get only distinct values, so we eliminate the arrows and other control characters */</span>
+<span class="token keyword">var</span> distinct <span class="token operator">=</span> throttled<span class="token punctuation">.</span><span class="token function">distinctUntilChanged</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>Now, let&apos;s query Wikipedia!  In RxJS, we can instantly bind to any <a href="https://github.com/promises-aplus/promises-spec" target="_blank">Promises A+</a> implementation through the <a href="content/observable/observable_methods/frompromise.html"><code>Rx.Observable.fromPromise</code></a> method or by just directly returning it, and we wrap it for you.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">searchWikipedia</span> (<span class="hljs-params">term</span>) </span>{
-    <span class="hljs-keyword">return</span> $.ajax({
-        url: <span class="hljs-string">&apos;http://en.wikipedia.org/w/api.php&apos;</span>,
-        dataType: <span class="hljs-string">&apos;jsonp&apos;</span>,
-        data: {
-            action: <span class="hljs-string">&apos;opensearch&apos;</span>,
-            format: <span class="hljs-string">&apos;json&apos;</span>,
-            search: term
-        }
-    }).promise();
-}
+<p>Now, let&apos;s query Wikipedia!  In RxJS, we can instantly bind to any <a href="https://github.com/promises-aplus/promises-spec" target="_blank">Promises A+</a> implementation through the <a href="content/observable/observable_methods/frompromise.html"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromPromise</code></a> method or by just directly returning it, and we wrap it for you.</p>
+<pre><code class="lang-js"><span class="token keyword">function</span> searchWikipedia <span class="token punctuation">(</span>term<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        url<span class="token punctuation">:</span> <span class="token string">&apos;http://en.wikipedia.org/w/api.php&apos;</span><span class="token punctuation">,</span>
+        dataType<span class="token punctuation">:</span> <span class="token string">&apos;jsonp&apos;</span><span class="token punctuation">,</span>
+        data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            action<span class="token punctuation">:</span> <span class="token string">&apos;opensearch&apos;</span><span class="token punctuation">,</span>
+            format<span class="token punctuation">:</span> <span class="token string">&apos;json&apos;</span><span class="token punctuation">,</span>
+            search<span class="token punctuation">:</span> term
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">promise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>Once that is created, now we can tie together the distinct throttled input and then query the service.  In this case, we&apos;ll call <a href="content/observable/observable_instance_methods/flatmaplatest.html"><code>flatMapLatest</code></a> to get the value and ensure that we&apos;re not introducing any out of order sequence calls.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> suggestions = distinct.flatMapLatest(searchWikipedia);
+<pre><code class="lang-js"><span class="token keyword">var</span> suggestions <span class="token operator">=</span> distinct<span class="token punctuation">.</span><span class="token function">flatMapLatest</span><span class="token punctuation">(</span>searchWikipedia<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Finally, we call the subscribe method on our observable sequence to start pulling data.</p>
-<pre><code class="lang-js">suggestions.subscribe(data =&gt; {
-    <span class="hljs-keyword">var</span> res = data[<span class="hljs-number">1</span>];
+<pre><code class="lang-js">suggestions<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> res <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    <span class="hljs-comment">/* Do something with the data like binding */</span>
-    $results.empty();
+    <span class="token comment" spellcheck="true">/* Do something with the data like binding */</span>
+    $results<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    $.each(res, (_, value) =&gt; $(<span class="hljs-string">&apos;&lt;li&gt;&apos;</span> + value + <span class="hljs-string">&apos;&lt;/li&gt;&apos;</span>).appendTo($results));
-}, error =&gt; {
-    <span class="hljs-comment">/* handle any errors */</span>
-    $results.empty();
+    $<span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token punctuation">(</span>_<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&apos;&lt;li&gt;&apos;</span> <span class="token operator">+</span> value <span class="token operator">+</span> <span class="token string">&apos;&lt;/li&gt;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendTo</span><span class="token punctuation">(</span>$results<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> error <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/* handle any errors */</span>
+    $results<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    $(<span class="hljs-string">&apos;&lt;li&gt;Error: &apos;</span> + error + <span class="hljs-string">&apos;&lt;/li&gt;&apos;</span>).appendTo($results);
-});
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&apos;&lt;li&gt;Error: &apos;</span> <span class="token operator">+</span> error <span class="token operator">+</span> <span class="token string">&apos;&lt;/li&gt;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendTo</span><span class="token punctuation">(</span>$results<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                     

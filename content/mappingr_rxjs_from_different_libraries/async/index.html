@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="5.2" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="5.2" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5730,729 +5734,729 @@
 <p>Many of these concepts in the library map directly to RxJS concepts.  We&apos;ll go operator by operator on how each map to existing functionality in RxJS.</p>
 <h2 id="collection-methods"><a name="collection-methods" class="plugin-anchor" href="#collection-methods"><span class="fa fa-link"></span></a>Collection Methods</h2>
 <ul>
-<li><a href="#asynceach"><code>async.each</code></a></li>
-<li><a href="#asyncmap"><code>async.map</code></a></li>
-<li><a href="#asyncfilter"><code>async.filter</code></a></li>
-<li><a href="#asyncreject"><code>async.reject</code></a></li>
-<li><a href="#asyncreduce"><code>async.reduce</code></a></li>
-<li><a href="#asyncdetect"><code>async.detect</code></a></li>
-<li><a href="#asyncsome"><code>async.some</code></a></li>
-<li><a href="#asyncevery"><code>async.every</code></a></li>
-<li><a href="#asynconcat"><code>async.concat</code></a></li>
+<li><a href="#asynceach"><code>async<span class="token punctuation">.</span>each</code></a></li>
+<li><a href="#asyncmap"><code>async<span class="token punctuation">.</span>map</code></a></li>
+<li><a href="#asyncfilter"><code>async<span class="token punctuation">.</span>filter</code></a></li>
+<li><a href="#asyncreject"><code>async<span class="token punctuation">.</span>reject</code></a></li>
+<li><a href="#asyncreduce"><code>async<span class="token punctuation">.</span>reduce</code></a></li>
+<li><a href="#asyncdetect"><code>async<span class="token punctuation">.</span>detect</code></a></li>
+<li><a href="#asyncsome"><code>async<span class="token punctuation">.</span>some</code></a></li>
+<li><a href="#asyncevery"><code>async<span class="token punctuation">.</span>every</code></a></li>
+<li><a href="#asynconcat"><code>async<span class="token punctuation">.</span>concat</code></a></li>
 </ul>
 <h2 id="control-flow"><a name="control-flow" class="plugin-anchor" href="#control-flow"><span class="fa fa-link"></span></a>Control Flow</h2>
 <ul>
-<li><a href="#asyncseries"><code>async.series</code></a></li>
-<li><a href="#asyncparallel"><code>async.parallel</code></a></li>
-<li><a href="#asyncwhilst"><code>async.whilst</code></a></li>
-<li><a href="#asyncdowhilst"><code>async.doWhilst</code></a></li>
-<li><a href="#asyncnexttick"><code>async.nextTick</code></a></li>
-<li><a href="#asyncwaterfall"><code>async.waterfall</code></a></li>
-<li><a href="#asynccompose"><code>async.compose</code></a></li>
+<li><a href="#asyncseries"><code>async<span class="token punctuation">.</span>series</code></a></li>
+<li><a href="#asyncparallel"><code>async<span class="token punctuation">.</span>parallel</code></a></li>
+<li><a href="#asyncwhilst"><code>async<span class="token punctuation">.</span>whilst</code></a></li>
+<li><a href="#asyncdowhilst"><code>async<span class="token punctuation">.</span>doWhilst</code></a></li>
+<li><a href="#asyncnexttick"><code>async<span class="token punctuation">.</span>nextTick</code></a></li>
+<li><a href="#asyncwaterfall"><code>async<span class="token punctuation">.</span>waterfall</code></a></li>
+<li><a href="#asynccompose"><code>async<span class="token punctuation">.</span>compose</code></a></li>
 </ul>
-<h2 id="-async-each"><a name="-async-each" class="plugin-anchor" href="#-async-each"><span class="fa fa-link"></span></a><code>async.each</code></h2>
-<p>The <a href="https://github.com/caolan/async#eacharr-iterator-callback" target="_blank"><code>async.each</code></a> method applies an iterator function to each item in an array, in parallel. The iterator is called with an item from the list and a callback for when it has finished. If the iterator passes an error to this callback, the main callback for the each function is immediately called with the error.</p>
+<h2 id="-async-each"><a name="-async-each" class="plugin-anchor" href="#-async-each"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>each</code></h2>
+<p>The <a href="https://github.com/caolan/async#eacharr-iterator-callback" target="_blank"><code>async<span class="token punctuation">.</span>each</code></a> method applies an iterator function to each item in an array, in parallel. The iterator is called with an item from the list and a callback for when it has finished. If the iterator passes an error to this callback, the main callback for the each function is immediately called with the error.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
-<p>In this example, we will use <code>async.each</code> to iterate an array of files to write some contents and save.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>In this example, we will use <code>async<span class="token punctuation">.</span>each</code> to iterate an array of files to write some contents and save.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file2.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file3.txt&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">saveFile</span> (<span class="hljs-params">file, cb</span>) </span>{
-    fs.writeFile(file, <span class="hljs-string">&apos;Hello Node&apos;</span>, err =&gt; cb(err));
-}
+<span class="token keyword">function</span> saveFile <span class="token punctuation">(</span>file<span class="token punctuation">,</span> cb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> <span class="token string">&apos;Hello Node&apos;</span><span class="token punctuation">,</span> err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">cb</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">async</span>.each(files, saveFile, err =&gt; {
-    <span class="hljs-comment">// if any of the saves produced an error, err would equal that error</span>
-});
+async<span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> saveFile<span class="token punctuation">,</span> err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// if any of the saves produced an error, err would equal that error</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>Using RxJS, you can accomplish this task in a number of ways by using <code>Rx.Observable.fromNodeCallback</code> to wrap the <code>fs.writeFile</code> function, and then iterate the files by using the <code>Rx.Observable.for</code> method.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>Using RxJS, you can accomplish this task in a number of ways by using <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromNodeCallback</code> to wrap the <code>fs<span class="token punctuation">.</span>writeFile</code> function, and then iterate the files by using the <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">for</span></code> method.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file2.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file3.txt&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// wrap the method</span>
-<span class="hljs-keyword">var</span> writeFile = Rx.Observable.fromNodeCallback(fs.writeFile);
+<span class="token comment" spellcheck="true">// wrap the method</span>
+<span class="token keyword">var</span> writeFile <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromNodeCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>writeFile<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Rx.Observable
-    .for(files, file =&gt; writeFile(file, <span class="hljs-string">&apos;Hello Node&apos;</span>))
-    .subscribe(
-        () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;file written!&apos;</span>),
-        err =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`err <span class="hljs-subst">${err}</span>`</span>),
-        () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;completed!&apos;</span>)
-    );
+Rx<span class="token punctuation">.</span>Observable
+    <span class="token punctuation">.</span><span class="token keyword">for</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> file <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">writeFile</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> <span class="token string">&apos;Hello Node&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;file written!&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`err $<span class="token punctuation">{</span>err<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;completed!&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-map"><a name="-async-map" class="plugin-anchor" href="#-async-map"><span class="fa fa-link"></span></a><code>async.map</code></h2>
-<p>The <code>async.map</code> method produces a new array of values by mapping each value in the given array through the iterator function. The iterator is called with an item from the array and a callback for when it has finished processing. The callback takes 2 arguments, an error and the transformed item from the array. If the iterator passes an error to this callback, the main callback for the map function is immediately called with the error.</p>
+<h2 id="-async-map"><a name="-async-map" class="plugin-anchor" href="#-async-map"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>map</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>map</code> method produces a new array of values by mapping each value in the given array through the iterator function. The iterator is called with an item from the array and a callback for when it has finished processing. The callback takes 2 arguments, an error and the transformed item from the array. If the iterator passes an error to this callback, the main callback for the map function is immediately called with the error.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
-<p>In this example, we&apos;ll get the <code>fs.stat</code> for each file given and have the results returned as an array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>In this example, we&apos;ll get the <code>fs<span class="token punctuation">.</span>stat</code> for each file given and have the results returned as an array.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file2.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file3.txt&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.map(files, fs.stat, (err, results) =&gt; results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`is file: <span class="hljs-subst">${result.isFile()}</span>`</span>)));
+async<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> fs<span class="token punctuation">.</span>stat<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> results<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> results<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>result <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`is file<span class="token punctuation">:</span> $<span class="token punctuation">{</span>result<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.stat</code> method again using our <code>Rx.Observable.fromNodeCallback</code>, then iterate using the <code>Rx.Observable.for</code> method, and finally, calling <code>.toArray()</code> to get our results as an entire array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs<span class="token punctuation">.</span>stat</code> method again using our <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromNodeCallback</code>, then iterate using the <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">for</span></code> method, and finally, calling <code><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code> to get our results as an entire array.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> stat = Rx.Observable.fromNodeCallback(fs.stat);
+<span class="token keyword">var</span> stat <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromNodeCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>stat<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file2.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file3.txt&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-Rx.Observable
-    .for(files, stat)
-    .toArray()
-    .subscribe(
-        results =&gt;
-            results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`is file: <span class="hljs-subst">${result.isFile()}</span>`</span>)),
-        err =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`err: <span class="hljs-subst">${err}</span>`</span>)
-    );
+Rx<span class="token punctuation">.</span>Observable
+    <span class="token punctuation">.</span><span class="token keyword">for</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> stat<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        results <span class="token operator">=</span><span class="token operator">&gt;</span>
+            results<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>result <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`is file<span class="token punctuation">:</span> $<span class="token punctuation">{</span>result<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`err<span class="token punctuation">:</span> $<span class="token punctuation">{</span>err<span class="token punctuation">}</span>`<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-filter"><a name="-async-filter" class="plugin-anchor" href="#-async-filter"><span class="fa fa-link"></span></a><code>async.filter</code></h2>
-<p>The <code>async.filter</code> method returns a new array of all the values which pass an async truth test. The callback for each iterator call only accepts a single argument of true or false, it does not accept an error argument first! This is in-line with the way node libraries work with truth tests like fs.exists.</p>
+<h2 id="-async-filter"><a name="-async-filter" class="plugin-anchor" href="#-async-filter"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>filter</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>filter</code> method returns a new array of all the values which pass an async truth test. The callback for each iterator call only accepts a single argument of true or false, it does not accept an error argument first! This is in-line with the way node libraries work with truth tests like fs.exists.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
-<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs<span class="token punctuation">.</span>exists</code> for each file given and have the results returned as an array.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file2.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file3.txt&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.filter(files, fs.exists, (err, results) =&gt; {
-    results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`exists: <span class="hljs-subst">${result}</span>`</span>));
-});
+async<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> fs<span class="token punctuation">.</span>exists<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> results<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    results<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>result <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`exists<span class="token punctuation">:</span> $<span class="token punctuation">{</span>result<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.exists</code> method using our <code>Rx.Observable.fromCallback</code> as it only has one result, a <code>true</code> or <code>false</code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx.Observable.for</code> method, filter the existing files and finally, calling <code>.toArray()</code> to get our results as an entire array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs<span class="token punctuation">.</span>exists</code> method using our <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromCallback</code> as it only has one result, a <code><span class="token keyword">true</span></code> or <code><span class="token keyword">false</span></code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">for</span></code> method, filter the existing files and finally, calling <code><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code> to get our results as an entire array.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> exists = Rx.Observable.fromCallback(fs.exists);
+<span class="token keyword">var</span> exists <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>exists<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Rx.Observable
-    .for(files, exists)
-    .where(x =&gt; x)
-    .toArray()
-    .subscribe(
-        results =&gt;
-            results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`exists: <span class="hljs-subst">${result}</span>`</span>));
-    );
+Rx<span class="token punctuation">.</span>Observable
+    <span class="token punctuation">.</span><span class="token keyword">for</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> exists<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        results <span class="token operator">=</span><span class="token operator">&gt;</span>
+            results<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>result <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`exists<span class="token punctuation">:</span> $<span class="token punctuation">{</span>result<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-reject"><a name="-async-reject" class="plugin-anchor" href="#-async-reject"><span class="fa fa-link"></span></a><code>async.reject</code></h2>
-<p>The <code>async.reject</code> method is the opposite of filter. Removes values that pass an async truth test.</p>
+<h2 id="-async-reject"><a name="-async-reject" class="plugin-anchor" href="#-async-reject"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>reject</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>reject</code> method is the opposite of filter. Removes values that pass an async truth test.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
-<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs<span class="token punctuation">.</span>exists</code> for each file given and have the results returned as an array.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file2.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file3.txt&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.reject(files, fs.exists, (err, results) =&gt; {
-    results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`exists: <span class="hljs-subst">${result}</span>`</span>));
-});
+async<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> fs<span class="token punctuation">.</span>exists<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> results<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    results<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>result <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`exists<span class="token punctuation">:</span> $<span class="token punctuation">{</span>result<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.exists</code> method using our <code>Rx.Observable.fromCallback</code> as it only has one result, a <code>true</code> or <code>false</code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx.Observable.for</code> method, filter the existing files using <code>filter</code> and finally, calling <code>.toArray()</code> to get our results as an entire array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs<span class="token punctuation">.</span>exists</code> method using our <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromCallback</code> as it only has one result, a <code><span class="token keyword">true</span></code> or <code><span class="token keyword">false</span></code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">for</span></code> method, filter the existing files using <code>filter</code> and finally, calling <code><span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code> to get our results as an entire array.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> exists = Rx.Observable.fromCallback(fs.exists);
+<span class="token keyword">var</span> exists <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>exists<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Rx.Observable
-    .for(files, exists)
-    .where(x =&gt; !x)
-    .toArray()
-    .subscribe(
-        results =&gt; 
-            results.forEach(result =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`exists: <span class="hljs-subst">${result}</span>`</span>));
-        }
-    );
+Rx<span class="token punctuation">.</span>Observable
+    <span class="token punctuation">.</span><span class="token keyword">for</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> exists<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token operator">!</span>x<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        results <span class="token operator">=</span><span class="token operator">&gt;</span> 
+            results<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>result <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`exists<span class="token punctuation">:</span> $<span class="token punctuation">{</span>result<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-reduce"><a name="-async-reduce" class="plugin-anchor" href="#-async-reduce"><span class="fa fa-link"></span></a><code>async.reduce</code></h2>
-<p>The <code>async.reduce</code> method reduces a list of values into a single value using an async iterator to return each successive step. Memo is the initial state of the reduction. This function only operates in series. For performance reasons, it may make sense to split a call to this function into a parallel map, then use the normal <code>Array.prototype.reduce</code> on the results. This function is for situations where each step in the reduction needs to be async, if you can get the data before reducing it then it&apos;s probably a good idea to do so.</p>
+<h2 id="-async-reduce"><a name="-async-reduce" class="plugin-anchor" href="#-async-reduce"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>reduce</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>reduce</code> method reduces a list of values into a single value using an async iterator to return each successive step. Memo is the initial state of the reduction. This function only operates in series. For performance reasons, it may make sense to split a call to this function into a parallel map, then use the normal <code>Array<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>reduce</code> on the results. This function is for situations where each step in the reduction needs to be async, if you can get the data before reducing it then it&apos;s probably a good idea to do so.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
-<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs<span class="token punctuation">.</span>exists</code> for each file given and have the results returned as an array.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reduction</span> (<span class="hljs-params">acc, x, cb</span>) </span>{
-    process.nextTick(() =&gt; cb(<span class="hljs-literal">null</span>, acc + x));
-}
+<span class="token keyword">function</span> reduction <span class="token punctuation">(</span>acc<span class="token punctuation">,</span> x<span class="token punctuation">,</span> cb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    process<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> acc <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">async</span>.reduce([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], <span class="hljs-number">0</span>, fs.reduction, (err, results) =&gt; <span class="hljs-built_in">console</span>.log(results));
+async<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> fs<span class="token punctuation">.</span>reduction<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> results<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; 6</span>
+<span class="token comment" spellcheck="true">// =&gt; 6</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>In RxJS, we have a number of ways of doing this including using <code>Rx.Observable.fromArray</code> to turn an array into observable sequence, then we can call <code>reduce</code> to add the numbers.  To ensure that it is indeed async, we can switch to the <code>Rx.Scheduler.timeout</code> to ensure that it is done via a callback.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>In RxJS, we have a number of ways of doing this including using <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromArray</code> to turn an array into observable sequence, then we can call <code>reduce</code> to add the numbers.  To ensure that it is indeed async, we can switch to the <code>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout</code> to ensure that it is done via a callback.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Rx.Observable
-    .fromArray([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], Rx.Scheduler.timeout)
-    .reduce((acc, x) =&gt; acc + x, <span class="hljs-number">0</span>)
-    .subscribe(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));
-<span class="hljs-comment">// =&gt; 6</span>
+Rx<span class="token punctuation">.</span>Observable
+    <span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> acc <span class="token operator">+</span> x<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 6</span>
 </code></pre>
 <hr>
-<h2 id="-async-detect"><a name="-async-detect" class="plugin-anchor" href="#-async-detect"><span class="fa fa-link"></span></a><code>async.detect</code></h2>
-<p>The <code>async.detect</code> method returns the first value in a list that passes an async truth test. The iterator is applied in parallel, meaning the first iterator to return true will fire the detect callback with that result. </p>
+<h2 id="-async-detect"><a name="-async-detect" class="plugin-anchor" href="#-async-detect"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>detect</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>detect</code> method returns the first value in a list that passes an async truth test. The iterator is applied in parallel, meaning the first iterator to return true will fire the detect callback with that result. </p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll get the first file that matches.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1&apos;</span>,<span class="hljs-string">&apos;file2&apos;</span>,<span class="hljs-string">&apos;file3&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;file2&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;file3&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.detect(files, fs.exists, result =&gt; {
-    <span class="hljs-comment">// result now equals the first file in the list that exists</span>
-});
+async<span class="token punctuation">.</span><span class="token function">detect</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> fs<span class="token punctuation">.</span>exists<span class="token punctuation">,</span> result <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// result now equals the first file in the list that exists</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>In RxJS, we can iterate over the files as above using <code>Rx.Observable.for</code> and then calling <code>first</code> to get the first matching file project forward the file name and whether the file exists.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>In RxJS, we can iterate over the files as above using <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">for</span></code> and then calling <code>first</code> to get the first matching file project forward the file name and whether the file exists.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1&apos;</span>,<span class="hljs-string">&apos;file2&apos;</span>,<span class="hljs-string">&apos;file3&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;file2&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;file3&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> exists = Rx.Observable.fromCallback(fs.exists);
+<span class="token keyword">var</span> exists <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>exists<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Rx.Observable
-    .for(files, file =&gt; ({ file: file, exists: exists(file) }))
-    .first(x =&gt; x.exists)
-    .subscribe(
-        result =&gt; {
-            <span class="hljs-comment">// result now equals the first file in the list that exists</span>
-        });
+Rx<span class="token punctuation">.</span>Observable
+    <span class="token punctuation">.</span><span class="token keyword">for</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> file <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> file<span class="token punctuation">:</span> file<span class="token punctuation">,</span> exists<span class="token punctuation">:</span> <span class="token function">exists</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x<span class="token punctuation">.</span>exists<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        result <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// result now equals the first file in the list that exists</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-some"><a name="-async-some" class="plugin-anchor" href="#-async-some"><span class="fa fa-link"></span></a><code>async.some</code></h2>
-<p>The <code>async.some</code> method returns <code>true</code> if at least one element in the array satisfies an async test. The callback for each iterator call only accepts a single argument of true or false, it does not accept an error argument first! This is in-line with the way node libraries work with truth tests like fs.exists. Once any iterator call returns true, the main callback is immediately called.</p>
+<h2 id="-async-some"><a name="-async-some" class="plugin-anchor" href="#-async-some"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>some</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>some</code> method returns <code><span class="token keyword">true</span></code> if at least one element in the array satisfies an async test. The callback for each iterator call only accepts a single argument of true or false, it does not accept an error argument first! This is in-line with the way node libraries work with truth tests like fs.exists. Once any iterator call returns true, the main callback is immediately called.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
-<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs<span class="token punctuation">.</span>exists</code> for each file given and have the results returned as an array.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file2.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file3.txt&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.some(files, fs.exists, result =&gt; {
-    <span class="hljs-comment">// if result is true then at least one of the files exists</span>
-});
+async<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> fs<span class="token punctuation">.</span>exists<span class="token punctuation">,</span> result <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// if result is true then at least one of the files exists</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.exists</code> method using our <code>Rx.Observable.fromCallback</code> as it only has one result, a <code>true</code> or <code>false</code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx.Observable.for</code> method, then call <code>some</code> to determine whether any match.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs<span class="token punctuation">.</span>exists</code> method using our <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromCallback</code> as it only has one result, a <code><span class="token keyword">true</span></code> or <code><span class="token keyword">false</span></code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">for</span></code> method, then call <code>some</code> to determine whether any match.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> exists = Rx.Observable.fromCallback(fs.exists);
+<span class="token keyword">var</span> exists <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>exists<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Rx.Observable
-    .for(files, exists)
-    .some()
-    .subscribe(
-        results =&gt; {
-            <span class="hljs-comment">// if result is true then at least one of the files exists</span>
-        });
+Rx<span class="token punctuation">.</span>Observable
+    <span class="token punctuation">.</span><span class="token keyword">for</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> exists<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        results <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// if result is true then at least one of the files exists</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-every"><a name="-async-every" class="plugin-anchor" href="#-async-every"><span class="fa fa-link"></span></a><code>async.every</code></h2>
-<p>The <code>async.every</code> method returns <code>true</code> if every element in the array satisfies an async test. The callback for each iterator call only accepts a single argument of true or false, it does not accept an error argument first! This is in-line with the way node libraries work with truth tests like fs.exists.</p>
+<h2 id="-async-every"><a name="-async-every" class="plugin-anchor" href="#-async-every"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>every</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>every</code> method returns <code><span class="token keyword">true</span></code> if every element in the array satisfies an async test. The callback for each iterator call only accepts a single argument of true or false, it does not accept an error argument first! This is in-line with the way node libraries work with truth tests like fs.exists.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
-<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs<span class="token punctuation">.</span>exists</code> for each file given and have the results returned as an array.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file2.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file3.txt&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.every(files, fs.exists, result =&gt; {
-    <span class="hljs-comment">// if result is true then every file exists</span>
-});
+async<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> fs<span class="token punctuation">.</span>exists<span class="token punctuation">,</span> result <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// if result is true then every file exists</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.exists</code> method using our <code>Rx.Observable.fromCallback</code> as it only has one result, a <code>true</code> or <code>false</code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx.Observable.for</code> method, then call <code>every</code> to determine whether all match.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs<span class="token punctuation">.</span>exists</code> method using our <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromCallback</code> as it only has one result, a <code><span class="token keyword">true</span></code> or <code><span class="token keyword">false</span></code> value instead of the usual callback with error and result.  Then we&apos;ll iterate using the <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">for</span></code> method, then call <code>every</code> to determine whether all match.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> files = [<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>, <span class="hljs-string">&apos;file3.txt&apos;</span>];
+<span class="token keyword">var</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file2.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file3.txt&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> exists = Rx.Observable.fromCallback(fs.exists);
+<span class="token keyword">var</span> exists <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>exists<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Rx.Observable
-    .for(files, exists)
-    .every()
-    .subscribe(
-        results =&gt; {
-            <span class="hljs-comment">// if result is true then every file exists</span>
-        });
+Rx<span class="token punctuation">.</span>Observable
+    <span class="token punctuation">.</span><span class="token keyword">for</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> exists<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        results <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// if result is true then every file exists</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-concat"><a name="-async-concat" class="plugin-anchor" href="#-async-concat"><span class="fa fa-link"></span></a><code>async.concat</code></h2>
-<p>The <code>async.concat</code> method applies an iterator to each item in a list, concatenating the results. Returns the concatenated list. The iterators are called in parallel, and the results are concatenated as they return.</p>
+<h2 id="-async-concat"><a name="-async-concat" class="plugin-anchor" href="#-async-concat"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>concat</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>concat</code> method applies an iterator to each item in a list, concatenating the results. Returns the concatenated list. The iterators are called in parallel, and the results are concatenated as they return.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
-<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs.exists</code> for each file given and have the results returned as an array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>In this example, we&apos;ll determine whether the file exists by calling <code>fs<span class="token punctuation">.</span>exists</code> for each file given and have the results returned as an array.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> directories = [<span class="hljs-string">&apos;dir1&apos;</span>, <span class="hljs-string">&apos;dir2&apos;</span>, <span class="hljs-string">&apos;dir3&apos;</span>];
+<span class="token keyword">var</span> directories <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;dir1&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;dir2&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;dir3&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.concat(files, fs.readdir, (err, files) =&gt; {
-    <span class="hljs-comment">// files is now a list of filenames that exist in the 3 directories</span>
-});
+async<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> fs<span class="token punctuation">.</span>readdir<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> files<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// files is now a list of filenames that exist in the 3 directories</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs.readdir</code> method using our <code>Rx.Observable.fromNodeCallback</code>.  Then we&apos;ll iterate using the <code>Rx.Observable.for</code> method, then call <code>reduce</code> to add each item to the item to the overall list.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>Using RxJS, we can achieve the same results of an array of all of our values by wrapping the <code>fs<span class="token punctuation">.</span>readdir</code> method using our <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromNodeCallback</code>.  Then we&apos;ll iterate using the <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">for</span></code> method, then call <code>reduce</code> to add each item to the item to the overall list.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> readdir = Rx.Observable.fromNodeCallback(fs.readdir);
+<span class="token keyword">var</span> readdir <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromNodeCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>readdir<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Rx.Observable
-    .for(files, readdir)
-    .reduce((acc, x) =&gt; { acc.push(x); <span class="hljs-keyword">return</span> acc; }, [])
-    .subscribe(
-        files =&gt; {
-            <span class="hljs-comment">// files is now a list of filenames that exist in the 3 directories</span>
-        },
-        err =&gt; {
-            <span class="hljs-comment">// handle error</span>
-        });
+Rx<span class="token punctuation">.</span>Observable
+    <span class="token punctuation">.</span><span class="token keyword">for</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> readdir<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> acc<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span> acc<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        files <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// files is now a list of filenames that exist in the 3 directories</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// handle error</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-series"><a name="-async-series" class="plugin-anchor" href="#-async-series"><span class="fa fa-link"></span></a><code>async.series</code></h2>
-<p>The <code>async.series</code> runs an array of functions in series, each one running once the previous function has completed. If any functions in the series pass an error to its callback, no more functions are run and the callback for the series is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.</p>
+<h2 id="-async-series"><a name="-async-series" class="plugin-anchor" href="#-async-series"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>series</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>series</code> runs an array of functions in series, each one running once the previous function has completed. If any functions in the series pass an error to its callback, no more functions are run and the callback for the series is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.</p>
 <p>It is also possible to use an object instead of an array. Each property will be run as a function and the results will be passed to the final callback as an object instead of an array. This can be a more readable way of handling results from async.series.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example we&apos;ll run some examples with both an array or an object.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.series([
-    callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;one&apos;</span>), <span class="hljs-number">200</span>),
-    callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;two&apos;</span>), <span class="hljs-number">100</span>)
-],
-<span class="hljs-comment">// optional callback</span>
-(err, results) =&gt; {
-    <span class="hljs-comment">// results is now equal to [&apos;one&apos;, &apos;two&apos;]</span>
-});
+async<span class="token punctuation">.</span><span class="token function">series</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">&apos;two&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token comment" spellcheck="true">// optional callback</span>
+<span class="token punctuation">(</span>err<span class="token punctuation">,</span> results<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// results is now equal to [&apos;one&apos;, &apos;two&apos;]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-<span class="hljs-comment">// an example using an object instead of an array</span>
-<span class="hljs-keyword">async</span>.series({
-    one: callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-number">1</span>), <span class="hljs-number">200</span>),
-    two: callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-number">2</span>), <span class="hljs-number">100</span>)
-},
-(err, results) =&gt; {
-    <span class="hljs-comment">// results is now equal to: {one: 1, two: 2}</span>
-});
+<span class="token comment" spellcheck="true">// an example using an object instead of an array</span>
+async<span class="token punctuation">.</span><span class="token function">series</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    one<span class="token punctuation">:</span> callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    two<span class="token punctuation">:</span> callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span>err<span class="token punctuation">,</span> results<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// results is now equal to: {one: 1, two: 2}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>We can achieve the same functionality of <code>async.series</code> with an array by simply calling fromArray and calling <code>flatMap</code> to give us the observable of the current.  Then we&apos;ll call <code>reduce</code> to add each item to a new array to return. </p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<p>We can achieve the same functionality of <code>async<span class="token punctuation">.</span>series</code> with an array by simply calling fromArray and calling <code>flatMap</code> to give us the observable of the current.  Then we&apos;ll call <code>reduce</code> to add each item to a new array to return. </p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrapArray</span> (<span class="hljs-params">items</span>) </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable
-        .fromArray(items)
-        .flatMap(x =&gt; x)
-        .reduce((acc, x) =&gt; {
-            <span class="hljs-keyword">var</span> arr = acc.slice(<span class="hljs-number">0</span>);
-            arr.push(x);
-            <span class="hljs-keyword">return</span> arr;
-        }, []);
-}
+<span class="token keyword">function</span> wrapArray <span class="token punctuation">(</span>items<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable
+        <span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span>items<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> arr <span class="token operator">=</span> acc<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-wrapArray([
-        Rx.Observable.return(<span class="hljs-string">&apos;one&apos;</span>),
-        Rx.Observable.return(<span class="hljs-string">&apos;two&apos;</span>)
-    ])
-    .subscribe(
-        <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>),
-        err =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Error: <span class="hljs-subst">${err}</span>`</span>)
-    );
+<span class="token function">wrapArray</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`Error<span class="token punctuation">:</span> $<span class="token punctuation">{</span>err<span class="token punctuation">}</span>`<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; [&apos;one&apos;, &apos;two&apos;]</span>
+<span class="token comment" spellcheck="true">// =&gt; [&apos;one&apos;, &apos;two&apos;]</span>
 </code></pre>
 <p>Using an object literal can also be achieved with a little bit more work, but totally reasonable.  Instead of just returning the observable in <code>flatMap</code>, we&apos;ll add a property to a new object which will contain our key moving forward. Then, we&apos;ll call <code>reduce</code> much as before, copying the values to a new object, and then plucking the value from each time it comes through and adding it to our final object.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrapObject</span> (<span class="hljs-params">obj</span>) </span>{
-    <span class="hljs-keyword">var</span> keys = <span class="hljs-built_in">Object</span>.keys(obj),
-        hasOwnProperty = {}.hasOwnProperty;
+<span class="token keyword">function</span> wrapObject <span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> keys <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        hasOwnProperty <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">.</span>hasOwnProperty<span class="token punctuation">;</span>
 
-    <span class="hljs-keyword">return</span> Rx.Observable
-        .fromArray(keys)
-        .flatMap(key =&gt; {
+    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable
+        <span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span>keys<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>key <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
 
-            <span class="hljs-keyword">return</span> obj[key].map(x =&gt; {
-                <span class="hljs-keyword">var</span> newObj = {};
-                newObj[key] = x;
-                <span class="hljs-keyword">return</span> newObj;
-            });
-        })
-        .reduce((acc, x) =&gt; {
-            <span class="hljs-keyword">var</span> newObj = {};
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> acc) {
-                <span class="hljs-keyword">if</span>(!hasOwnProperty.call(acc)) {
-                    newObj[prop] = acc[prop];
-                }
-            }
+            <span class="token keyword">return</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> newObj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+                newObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+                <span class="token keyword">return</span> newObj<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> newObj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> acc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>hasOwnProperty<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>acc<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    newObj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token operator">=</span> acc<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-keyword">var</span> xKey = <span class="hljs-built_in">Object</span>.keys(x)[<span class="hljs-number">0</span>];
-            newObj[xKey] = x[xKey];
+            <span class="token keyword">var</span> xKey <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            newObj<span class="token punctuation">[</span>xKey<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">[</span>xKey<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-            <span class="hljs-keyword">return</span> newObj;
-        }, {});
-}
+            <span class="token keyword">return</span> newObj<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-wrapObject({
-        one: Rx.Observable.return(<span class="hljs-number">1</span>),
-        two: Rx.Observable.return(<span class="hljs-number">2</span>)
-    })
-    .subscribe(
-        <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>),
-        err =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Error: <span class="hljs-subst">${err}</span>`</span>)
-    );
+<span class="token function">wrapObject</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        one<span class="token punctuation">:</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        two<span class="token punctuation">:</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`Error<span class="token punctuation">:</span> $<span class="token punctuation">{</span>err<span class="token punctuation">}</span>`<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; { one: 1, two: 2 }</span>
+<span class="token comment" spellcheck="true">// =&gt; { one: 1, two: 2 }</span>
 </code></pre>
 <hr>
-<h2 id="-async-parallel"><a name="-async-parallel" class="plugin-anchor" href="#-async-parallel"><span class="fa fa-link"></span></a><code>async.parallel</code></h2>
-<p>The <code>async.parallel</code> runs an array of functions in parallel, without waiting until the previous function has completed. If any of the functions pass an error to its callback, the main callback is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.</p>
+<h2 id="-async-parallel"><a name="-async-parallel" class="plugin-anchor" href="#-async-parallel"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>parallel</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>parallel</code> runs an array of functions in parallel, without waiting until the previous function has completed. If any of the functions pass an error to its callback, the main callback is immediately called with the value of the error. Once the tasks have completed, the results are passed to the final callback as an array.</p>
 <p>It is also possible to use an object instead of an array. Each property will be run as a function and the results will be passed to the final callback as an object instead of an array. This can be a more readable way of handling results from async.parallel.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example we&apos;ll run some examples with both an array or an object.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.parallel([
-    callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;one&apos;</span>), <span class="hljs-number">200</span>),
-    callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-string">&apos;two&apos;</span>), <span class="hljs-number">100</span>)
-],
+async<span class="token punctuation">.</span><span class="token function">parallel</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">&apos;two&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
 
-<span class="hljs-comment">// optional callback</span>
-(err, results) =&gt; {
-    <span class="hljs-comment">// the results array will equal [&apos;one&apos;,&apos;two&apos;] even though</span>
-    <span class="hljs-comment">// the second function had a shorter timeout.</span>
-});
+<span class="token comment" spellcheck="true">// optional callback</span>
+<span class="token punctuation">(</span>err<span class="token punctuation">,</span> results<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// the results array will equal [&apos;one&apos;,&apos;two&apos;] even though</span>
+    <span class="token comment" spellcheck="true">// the second function had a shorter timeout.</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
 
-<span class="hljs-comment">// an example using an object instead of an array</span>
-<span class="hljs-keyword">async</span>.parallel({
-    one: callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-number">1</span>), <span class="hljs-number">200</span>),
-    two: callback =&gt; setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, <span class="hljs-number">2</span>), <span class="hljs-number">100</span>)
-},
-(err, results) =&gt; {
-    <span class="hljs-comment">// results is now equals to: {one: 1, two: 2}</span>
-});
+<span class="token comment" spellcheck="true">// an example using an object instead of an array</span>
+async<span class="token punctuation">.</span><span class="token function">parallel</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    one<span class="token punctuation">:</span> callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    two<span class="token punctuation">:</span> callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span>err<span class="token punctuation">,</span> results<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// results is now equals to: {one: 1, two: 2}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>We can achieve the same functionality of <code>async.series</code> with an array by calling <code>Rx.Observable.forkJoin</code> with our array of observable sequences.  This returns the last value from each sequence in &quot;parallel&quot;.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<p>We can achieve the same functionality of <code>async<span class="token punctuation">.</span>series</code> with an array by calling <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>forkJoin</code> with our array of observable sequences.  This returns the last value from each sequence in &quot;parallel&quot;.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrapArrayParallel</span> (<span class="hljs-params">items</span>) </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable.forkJoin.apply(<span class="hljs-literal">null</span>, items);
-}
+<span class="token keyword">function</span> wrapArrayParallel <span class="token punctuation">(</span>items<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>forkJoin<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> items<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-wrapArrayParallel([
-        Rx.Observable.return(<span class="hljs-string">&apos;one&apos;</span>),
-        Rx.Observable.return(<span class="hljs-string">&apos;two&apos;</span>)
-    ])
-    .subscribe(
-        <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>),
-        err =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Error: <span class="hljs-subst">${err}</span>`</span>)
-    );
+<span class="token function">wrapArrayParallel</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`Error<span class="token punctuation">:</span> $<span class="token punctuation">{</span>err<span class="token punctuation">}</span>`<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; [&apos;one&apos;, &apos;two&apos;]</span>
+<span class="token comment" spellcheck="true">// =&gt; [&apos;one&apos;, &apos;two&apos;]</span>
 </code></pre>
-<p>Using an object literal can also be achieved with a little bit more work, but totally reasonable.  Instead of simply calling <code>forkJoin</code>, we first need to extract the observable sequences by calling <code>map</code> on the keys we obtained by <code>Object.keys</code>.  Because the order of observable sequences is deterministic, we can then call <code>map</code> to transform the array into an object, by calling <code>reduce</code> on the array, turning the array into an object with the appropriate keys.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<p>Using an object literal can also be achieved with a little bit more work, but totally reasonable.  Instead of simply calling <code>forkJoin</code>, we first need to extract the observable sequences by calling <code>map</code> on the keys we obtained by <code>Object<span class="token punctuation">.</span>keys</code>.  Because the order of observable sequences is deterministic, we can then call <code>map</code> to transform the array into an object, by calling <code>reduce</code> on the array, turning the array into an object with the appropriate keys.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrapObjectParallel</span> (<span class="hljs-params">obj</span>) </span>{
-    <span class="hljs-keyword">var</span> keys = <span class="hljs-built_in">Object</span>.keys(obj);
-    <span class="hljs-keyword">var</span> mapped = keys.map(key =&gt; obj[key]);
+<span class="token keyword">function</span> wrapObjectParallel <span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> keys <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> mapped <span class="token operator">=</span> keys<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>key <span class="token operator">=</span><span class="token operator">&gt;</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-keyword">return</span> Rx.Observable.forkJoin.apply(<span class="hljs-literal">null</span>, mapped)
-        .map(arr =&gt; {
-            <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
-            <span class="hljs-keyword">return</span> arr.reduce((acc, x) =&gt; {
-                <span class="hljs-keyword">var</span> key = keys[idx++];
+    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>forkJoin<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> mapped<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>arr <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> key <span class="token operator">=</span> keys<span class="token punctuation">[</span>idx<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-                <span class="hljs-keyword">var</span> newObj = {};
-                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> acc) {
-                    <span class="hljs-keyword">if</span>(!hasOwnProperty.call(acc)) {
-                        newObj[prop] = acc[prop];
-                    }
-                }
+                <span class="token keyword">var</span> newObj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> acc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>hasOwnProperty<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>acc<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        newObj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token operator">=</span> acc<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
 
-                newObj[key] = x;
+                newObj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
 
-                <span class="hljs-keyword">return</span> newObj;                
-            }, {})
-        });
-}
+                <span class="token keyword">return</span> newObj<span class="token punctuation">;</span>                
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-wrapObjectParallel({
-        one: Rx.Observable.return(<span class="hljs-number">1</span>),
-        two: Rx.Observable.return(<span class="hljs-number">2</span>)
-    })
-    .subscribe(
-        <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>),
-        err =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Error: <span class="hljs-subst">${err}</span>`</span>)
-    );
+<span class="token function">wrapObjectParallel</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        one<span class="token punctuation">:</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        two<span class="token punctuation">:</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`Error<span class="token punctuation">:</span> $<span class="token punctuation">{</span>err<span class="token punctuation">}</span>`<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; { one: 1, two: 2 }</span>
+<span class="token comment" spellcheck="true">// =&gt; { one: 1, two: 2 }</span>
 </code></pre>
 <hr>
-<h2 id="-async-whilst"><a name="-async-whilst" class="plugin-anchor" href="#-async-whilst"><span class="fa fa-link"></span></a><code>async.whilst</code></h2>
-<p>The <code>async.whilst</code> method repeatedly call function, while test returns true. Calls the callback when stopped, or an error occurs.</p>
+<h2 id="-async-whilst"><a name="-async-whilst" class="plugin-anchor" href="#-async-whilst"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>whilst</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>whilst</code> method repeatedly call function, while test returns true. Calls the callback when stopped, or an error occurs.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example we&apos;ll just run a keep calling the callback while the count is less than 5.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
+<span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.whilst(
-    () =&gt; count &lt; <span class="hljs-number">5</span>,
-    callback =&gt; {
-        count++;
-        setTimeout(callback, <span class="hljs-number">1000</span>);
-    },
-    err =&gt; {
-        <span class="hljs-comment">// 5 seconds have passed</span>
-    }
-);
+async<span class="token punctuation">.</span><span class="token function">whilst</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> count <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        count<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span>callback<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 5 seconds have passed</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>We can achieve the same kind of functionality by using the <code>Rx.Observable.while</code> method which takes a condition and an observable sequence that we created by calling <code>Rx.Observable.create</code>.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<p>We can achieve the same kind of functionality by using the <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">while</span></code> method which takes a condition and an observable sequence that we created by calling <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>create</code>.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
+<span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-Rx.Observable.while(
-        () =&gt; count &lt; <span class="hljs-number">5</span>,
-        Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obs</span>) </span>{
-            setTimeout(() =&gt; observer.onNext(count++), <span class="hljs-number">1000</span>)
-        }
-    )
-    .subscribe(
-        x =&gt; { <span class="hljs-comment">/* do something with each value */</span> },
-        err =&gt; { <span class="hljs-comment">/* handle errors */</span> },
-        () =&gt; { <span class="hljs-comment">/* 5 seconds have passed */</span> }
-    );
+Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">while</span><span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> count <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">,</span>
+        Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>obs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>count<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* do something with each value */</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* handle errors */</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* 5 seconds have passed */</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-dowhilst"><a name="-async-dowhilst" class="plugin-anchor" href="#-async-dowhilst"><span class="fa fa-link"></span></a><code>async.doWhilst</code></h2>
-<p>The <code>async.doWhilst</code> method is a post check version of <code>whilst</code>. To reflect the difference in the order of operations test and fn arguments are switched. <code>doWhils</code>t is to <code>whilst</code> as <code>do while</code> is to <code>while</code> in plain JavaScript.</p>
+<h2 id="-async-dowhilst"><a name="-async-dowhilst" class="plugin-anchor" href="#-async-dowhilst"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>doWhilst</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>doWhilst</code> method is a post check version of <code>whilst</code>. To reflect the difference in the order of operations test and fn arguments are switched. <code>doWhils</code>t is to <code>whilst</code> as <code><span class="token keyword">do</span> <span class="token keyword">while</span></code> is to <code><span class="token keyword">while</span></code> in plain JavaScript.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example we&apos;ll just run a keep calling the callback while the count is less than 5.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
+<span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.dowWilst(
-    () =&gt; count &lt; <span class="hljs-number">5</span>,
-    callback =&gt; {
-        count++;
-        setTimeout(callback, <span class="hljs-number">1000</span>);
-    },
-    err =&gt; {
-        <span class="hljs-comment">// 5 seconds have passed</span>
-    }
-);
+async<span class="token punctuation">.</span><span class="token function">dowWilst</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> count <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        count<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span>callback<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 5 seconds have passed</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>We can achieve the same kind of functionality by using the <code>doWhile</code> on our observable sequence which takes a predicate to determine whether to continue running.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+<span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> source = Rx.Observable.return(<span class="hljs-number">42</span>).doWhile(
-    () =&gt; ++i &lt; <span class="hljs-number">2</span>)
-    .subscribe(
-        consoel.log.bind(<span class="hljs-built_in">console</span>),
-        err =&gt; { <span class="hljs-comment">/* handle errors */</span> },
-        () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;done&apos;</span>)
-    );
+<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">doWhile</span><span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token operator">++</span>i <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        consoel<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* handle errors */</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;done&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-nexttick"><a name="-async-nexttick" class="plugin-anchor" href="#-async-nexttick"><span class="fa fa-link"></span></a><code>async.nextTick</code></h2>
-<p>The <code>async.nextTick</code> method calls the callback on a later loop around the event loop. In node.js this just calls process.nextTick, in the browser it falls back to setImmediate(callback) if available, otherwise setTimeout(callback, 0), which means other higher priority events may precede the execution of the callback.</p>
+<h2 id="-async-nexttick"><a name="-async-nexttick" class="plugin-anchor" href="#-async-nexttick"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>nextTick</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>nextTick</code> method calls the callback on a later loop around the event loop. In node.js this just calls process.nextTick, in the browser it falls back to setImmediate(callback) if available, otherwise setTimeout(callback, 0), which means other higher priority events may precede the execution of the callback.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example we&apos;ll just run a keep calling the callback while the count is less than 5.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> call_order = [];
+<span class="token keyword">var</span> call_order <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.nextTick(() =&gt; {
-    call_order.push(<span class="hljs-string">&apos;two&apos;</span>);
-    <span class="hljs-comment">// call_order now equals [&apos;one&apos;,&apos;two&apos;]</span>
-});
+async<span class="token punctuation">.</span><span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    call_order<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// call_order now equals [&apos;one&apos;,&apos;two&apos;]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-call_order.push(<span class="hljs-string">&apos;one&apos;</span>);
+call_order<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>We can achieve the same thing by using the <code>Rx.Scheduler.timeout</code> scheduler to schedule an item which will optimize for the runtime, for example, using <code>process.nextTick</code> if available, or <code>setImmediate</code> if available, or other fallbacks like <code>MessageChannel</code>, <code>postMessage</code> or even an async script load.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<p>We can achieve the same thing by using the <code>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout</code> scheduler to schedule an item which will optimize for the runtime, for example, using <code>process<span class="token punctuation">.</span>nextTick</code> if available, or <code>setImmediate</code> if available, or other fallbacks like <code>MessageChannel</code>, <code>postMessage</code> or even an async script load.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> call_order = [];
+<span class="token keyword">var</span> call_order <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-Rx.Scheduler.timeout.schedule(() =&gt; {
-    call_order.push(<span class="hljs-string">&apos;two&apos;</span>);
-    <span class="hljs-comment">// call_order now equals [&apos;one&apos;,&apos;two&apos;]</span>
-});
+Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout<span class="token punctuation">.</span><span class="token function">schedule</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    call_order<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// call_order now equals [&apos;one&apos;,&apos;two&apos;]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-call_order.push(<span class="hljs-string">&apos;one&apos;</span>);
+call_order<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-waterfall"><a name="-async-waterfall" class="plugin-anchor" href="#-async-waterfall"><span class="fa fa-link"></span></a><code>async.waterfall</code></h2>
-<p>The <code>async.waterfall</code> method runs an array of functions in series, each passing their results to the next in the array. However, if any of the functions pass an error to the callback, the next function is not executed and the main callback is immediately called with the error.</p>
+<h2 id="-async-waterfall"><a name="-async-waterfall" class="plugin-anchor" href="#-async-waterfall"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>waterfall</code></h2>
+<p>The <code>async<span class="token punctuation">.</span>waterfall</code> method runs an array of functions in series, each passing their results to the next in the array. However, if any of the functions pass an error to the callback, the next function is not executed and the main callback is immediately called with the error.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll check whether a file exists, then rename it and finally return its <a href="http://nodejs.org/api/fs.html#fs_class_fs_stats" target="_blank">stats</a>.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>),
-    path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;path&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Get file and destination</span>
-<span class="hljs-keyword">var</span> file = path.join(__dirname, <span class="hljs-string">&apos;file.txt&apos;</span>),
-    dest = path.join(__dirname, <span class="hljs-string">&apos;file1.txt&apos;</span>);
+<span class="token comment" spellcheck="true">// Get file and destination</span>
+<span class="token keyword">var</span> file <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&apos;file.txt&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    dest <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">async</span>.waterfall([
-    callback =&gt; {
-        fs.exists(file, flag =&gt; {
-            <span class="hljs-keyword">if</span> (flag) {
-                callback(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;File does not exist.&apos;</span>))
-            } <span class="hljs-keyword">else</span> {
-                callback(<span class="hljs-literal">null</span>);
-            }
-        });
-    },
-    callback =&gt; {
-        fs.rename(file, dest, err =&gt; callback(err));
-    },
-    callback =&gt; {
-        fs.stat(dest, (err, fsStat) =&gt; callback(err, fsStat));
-    }
-], (err, fsStat) =&gt; {
-    <span class="hljs-keyword">if</span> (err) {
-        <span class="hljs-built_in">console</span>.log(err);
-    } <span class="hljs-keyword">else</span> {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(fsStat));
-    }
-})
+async<span class="token punctuation">.</span><span class="token function">waterfall</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        fs<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> flag <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;File does not exist.&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        fs<span class="token punctuation">.</span><span class="token function">rename</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> dest<span class="token punctuation">,</span> err <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    callback <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        fs<span class="token punctuation">.</span><span class="token function">stat</span><span class="token punctuation">(</span>dest<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> fsStat<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> fsStat<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> fsStat<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>fsStat<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
-<p>We can easily accomplish the same task as above using our wrappers for <code>Rx.Observable.fromCallback</code> and <code>Rx.Observable.fromNodeCallback</code>, creating a waterfall-like method.  First, let&apos;s implement a <code>waterfall</code> method using plain RxJS in which we enumerate the functions and call <code>flatMapLatest</code> on each resulting observable sequence to ensure we only get one value.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<p>We can easily accomplish the same task as above using our wrappers for <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromCallback</code> and <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromNodeCallback</code>, creating a waterfall-like method.  First, let&apos;s implement a <code>waterfall</code> method using plain RxJS in which we enumerate the functions and call <code>flatMapLatest</code> on each resulting observable sequence to ensure we only get one value.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = {
-    waterfall: series =&gt; {
-        <span class="hljs-keyword">return</span> Rx.Observable.defer(() =&gt; {
-            <span class="hljs-keyword">var</span> acc = series[<span class="hljs-number">0</span>]();
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>, len = series.length; i &lt; len; i++) {
+<span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token punctuation">{</span>
+    waterfall<span class="token punctuation">:</span> series <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">defer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> acc <span class="token operator">=</span> series<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> len <span class="token operator">=</span> series<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                <span class="hljs-comment">// Pass in func to deal with closure capture</span>
-                (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">func</span>) </span>{
+                <span class="token comment" spellcheck="true">// Pass in func to deal with closure capture</span>
+                <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>func<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-                    <span class="hljs-comment">// Call flatMapLatest on each function</span>
-                    acc = acc.flatMapLatest(x =&gt; func(x));
-                }(series[i]));
-            }
+                    <span class="token comment" spellcheck="true">// Call flatMapLatest on each function</span>
+                    acc <span class="token operator">=</span> acc<span class="token punctuation">.</span><span class="token function">flatMapLatest</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">func</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">(</span>series<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
 
-            <span class="hljs-keyword">return</span> acc; 
-        });
-    }
-}
+            <span class="token keyword">return</span> acc<span class="token punctuation">;</span> 
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<p>Once we&apos;ve defined this method, we can now use it such as the following, wrapping <code>fs.exists</code>, <code>fs.rename</code> and <code>fs.stat</code>.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>),
-    path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
+<p>Once we&apos;ve defined this method, we can now use it such as the following, wrapping <code>fs<span class="token punctuation">.</span>exists</code>, <code>fs<span class="token punctuation">.</span>rename</code> and <code>fs<span class="token punctuation">.</span>stat</code>.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;path&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> file = path.join(__dirname, <span class="hljs-string">&apos;file.txt&apos;</span>),
-    dest = path.join(__dirname, <span class="hljs-string">&apos;file1.txt&apos;</span>),
-    exists = Rx.Observable.fromCallback(fs.exists),
-    rename = Rx.Observable.fromNodeCallback(fs.rename),
-    stat = Rx.Observable.fromNodeCallback(fs.stat);
+<span class="token keyword">var</span> file <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&apos;file.txt&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    dest <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    exists <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>exists<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    rename <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromNodeCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>rename<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    stat <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromNodeCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>stat<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> obs = <span class="hljs-keyword">async</span>.waterfall([
-    () =&gt; exists(file),
-    (flag) =&gt; {
-        <span class="hljs-comment">// Rename or throw computation</span>
-        <span class="hljs-keyword">return</span> flag ?
-            rename(file, dest) :
-            Rx.Observable.throw(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;File does not exist.&apos;</span>));
-    },
-    () =&gt; stat(dest)
-]);
+<span class="token keyword">var</span> obs <span class="token operator">=</span> async<span class="token punctuation">.</span><span class="token function">waterfall</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">exists</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// Rename or throw computation</span>
+        <span class="token keyword">return</span> flag <span class="token operator">?</span>
+            <span class="token function">rename</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> dest<span class="token punctuation">)</span> <span class="token punctuation">:</span>
+            Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;File does not exist.&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">stat</span><span class="token punctuation">(</span>dest<span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Now subscribe to get the results or error</span>
-obs.subscribe(
-    fsStat =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(fsStat)),
-    <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>)
-);
+<span class="token comment" spellcheck="true">// Now subscribe to get the results or error</span>
+obs<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    fsStat <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>fsStat<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <hr>
-<h2 id="-async-compose"><a name="-async-compose" class="plugin-anchor" href="#-async-compose"><span class="fa fa-link"></span></a><code>async.compose</code></h2>
-<p>The <a href="https://github.com/caolan/async#composefn1-fn2" target="_blank"><code>async.compose</code></a> method creates a function which is a composition of the passed asynchronous functions. Each function consumes the return value of the function that follows. Composing functions f(), g() and h() would produce the result of f(g(h())), only this version uses callbacks to obtain the return values.</p>
-<p>Each function is executed with the <code>this</code> binding of the composed function.</p>
+<h2 id="-async-compose"><a name="-async-compose" class="plugin-anchor" href="#-async-compose"><span class="fa fa-link"></span></a><code>async<span class="token punctuation">.</span>compose</code></h2>
+<p>The <a href="https://github.com/caolan/async#composefn1-fn2" target="_blank"><code>async<span class="token punctuation">.</span>compose</code></a> method creates a function which is a composition of the passed asynchronous functions. Each function consumes the return value of the function that follows. Composing functions f(), g() and h() would produce the result of f(g(h())), only this version uses callbacks to obtain the return values.</p>
+<p>Each function is executed with the <code><span class="token keyword">this</span></code> binding of the composed function.</p>
 <h4 id="async-version"><a name="async-version" class="plugin-anchor" href="#async-version"><span class="fa fa-link"></span></a>async version</h4>
 <p>In this example, we&apos;ll chain together two functions, one to add 1 to a supplied argument, and then chain it to another to multiply the result by 3.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> <span class="hljs-keyword">async</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;async&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> async <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;async&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add1</span>(<span class="hljs-params">n, callback</span>) </span>{
-    setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, n + <span class="hljs-number">1</span>), <span class="hljs-number">10</span>);
-}
+<span class="token keyword">function</span> <span class="token function">add1</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul3</span>(<span class="hljs-params">n, callback</span>) </span>{
-    setTimeout(() =&gt; callback(<span class="hljs-literal">null</span>, n * <span class="hljs-number">3</span>), <span class="hljs-number">10</span>);
-}
+<span class="token keyword">function</span> <span class="token function">mul3</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> n <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">var</span> add1mul3 = <span class="hljs-keyword">async</span>.compose(mul3, add1);
+<span class="token keyword">var</span> add1mul3 <span class="token operator">=</span> async<span class="token punctuation">.</span><span class="token function">compose</span><span class="token punctuation">(</span>mul3<span class="token punctuation">,</span> add1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-add1mul3(<span class="hljs-number">4</span>, (err, result) =&gt; <span class="hljs-built_in">console</span>.log(result));
+<span class="token function">add1mul3</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> result<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; 15</span>
+<span class="token comment" spellcheck="true">// =&gt; 15</span>
 </code></pre>
 <h4 id="rxjs-version"><a name="rxjs-version" class="plugin-anchor" href="#rxjs-version"><span class="fa fa-link"></span></a>RxJS version</h4>
 <p>Using RxJS, we can accomplish this using the usual composition operator <code>selectMany</code> or <code>flatMap</code>.  We&apos;ll wrap the <code>setTimeout</code> with a <code>wrapTimeout</code> method and ensure that we do deterministic cleanup via <code>clearTimeout</code>.  Then we can compose together our <code>add1</code> and <code>mul3</code> functions which result in observable sequences.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">wrapTimeout</span> (<span class="hljs-params">fn, arg</span>) </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable.create(obs =&gt; {
+<span class="token keyword">function</span> wrapTimeout <span class="token punctuation">(</span>fn<span class="token punctuation">,</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>obs <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
 
-        <span class="hljs-comment">// Ensure the composition of the this argument</span>
-        <span class="hljs-keyword">var</span> id = setTimeout(() =&gt; {
-            obs.onNext(fn.call(fn, arg));
-            obs.onCompleted();
-        }, <span class="hljs-number">10</span>);
+        <span class="token comment" spellcheck="true">// Ensure the composition of the this argument</span>
+        <span class="token keyword">var</span> id <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            obs<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>fn<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> arg<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            obs<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="hljs-comment">// Handle cleanup/early disposal</span>
-        <span class="hljs-keyword">return</span> () =&gt; clearTimeout(id)
-    });
-}
+        <span class="token comment" spellcheck="true">// Handle cleanup/early disposal</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add1</span> (<span class="hljs-params">n</span>) </span>{
-    <span class="hljs-keyword">return</span> wrapTimeout(x =&gt; x + <span class="hljs-number">1</span>, n);
-}
+<span class="token keyword">function</span> add1 <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">wrapTimeout</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul3</span> (<span class="hljs-params">n</span>) </span>{
-    <span class="hljs-keyword">return</span> wrapTimeout(x =&gt; x * <span class="hljs-number">3</span>, n);
-}
+<span class="token keyword">function</span> mul3 <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">wrapTimeout</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-add1(<span class="hljs-number">4</span>)
-    .flatMap(mul3)
-    .subscribe(
-        <span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>),
-        err =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Error: <span class="hljs-subst">${e}</span>`</span>)
-    );
-<span class="hljs-comment">// =&gt; 15</span>
+<span class="token function">add1</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>mul3<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`Error<span class="token punctuation">:</span> $<span class="token punctuation">{</span>e<span class="token punctuation">}</span>`<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 15</span>
 </code></pre>
 <hr>
 

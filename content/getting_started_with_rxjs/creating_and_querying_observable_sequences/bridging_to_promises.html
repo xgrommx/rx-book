@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="3.3.4" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.4" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5730,121 +5734,121 @@
 <p>The advantage that you get when you intermix Promises with Observable sequences is that unlike the ES6 Promise standard, you get cancellation semantics which means you can disregard values if you no longer are interested.  One of the biggest problems around Promises right now are around cancellation, as to cancel the operation, such as an XHR is not easily done with the existing standard, nor is it to only get the last value to ensure no out of order requests.  With Observable sequences, you get that behavior for free in a multicast behavior, instead of the unicast Promise behavior.</p>
 <p>The following list of operators natively support Promises:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/amb.md" target="_blank"><code>Rx.Observable.amb</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/ambproto.md" target="_blank"><code>Rx.Observable.prototype.amb</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/case.md" target="_blank"><code>Rx.Observable.case</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/catch.md" target="_blank"><code>Rx.Observable.catch</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/catchproto.md" target="_blank"><code>Rx.Observable.prototype.catch</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/combinelatest.md" target="_blank"><code>Rx.Observable.combineLatest</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/combinelatestproto.md" target="_blank"><code>Rx.Observable.prototype.combineLatest</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concat.md" target="_blank"><code>Rx.Observable.concat</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatproto.md" target="_blank"><code>Rx.Observable.prototype.concat</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatmap.md" target="_blank"><code>Rx.Observable.prototype.concatMap</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatobserver.md" target="_blank"><code>Rx.Observable.prototype.concatMapObserver</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/defer.md" target="_blank"><code>Rx.Observable.defer</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/selectmany.md" target="_blank"><code>Rx.Observable.prototype.flatMap</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/flatmaplatest.md" target="_blank"><code>Rx.Observable.prototype.flatMapLatest</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/forkjoin.md" target="_blank"><code>Rx.Observable.forkJoin</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/forkjoinproto.md" target="_blank"><code>Rx.Observable.prototype.forkJoin</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/if.md" target="_blank"><code>Rx.Observable.if</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/merge.md" target="_blank"><code>Rx.Observable.merge</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/mergeall.md" target="_blank"><code>Rx.Observable.prototype.mergeAll</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/onerrorresumenext.md" target="_blank"><code>Rx.Observable.onErrorResumeNext</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/onerrorresumenextproto.md" target="_blank"><code>Rx.Observable.prototype.onErrorResumeNext</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/selectmany.md" target="_blank"><code>Rx.Observable.prototype.selectMany</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/flatmaplatest.md" target="_blank"><code>Rx.Observable.prototype.selectSwitch</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/sequenceequal.md" target="_blank"><code>Rx.Observable.prototype.sequenceEqual</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/skipuntil.md" target="_blank"><code>Rx.Observable.prototype.skipUntil</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/startasync.md" target="_blank"><code>Rx.Observable.startAsync</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/switch.md" target="_blank"><code>Rx.Observable.prototype.switch</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/takeuntil.md" target="_blank"><code>Rx.Observable.prototype.takeUntil</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/debouncewithselector.md" target="_blank"><code>Rx.Observable.prototype.debounceWithSelector</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timeoutwithselector.md" target="_blank"><code>Rx.Observable.prototype.timeoutWithSelector</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/while.md" target="_blank"><code>Rx.Observable.while</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/window.md" target="_blank"><code>Rx.Observable.prototype.window</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/withlatestfrom.md" target="_blank"><code>Rx.Observable.withLatestFrom</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/zip.md" target="_blank"><code>Rx.Observable.zip</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/zipproto.md" target="_blank"><code>Rx.Observable.prototype.zip</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/amb.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>amb</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/ambproto.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>amb</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/case.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">case</span></code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/catch.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">catch</span></code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/catchproto.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token keyword">catch</span></code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/combinelatest.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>combineLatest</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/combinelatestproto.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>combineLatest</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concat.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>concat</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatproto.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>concat</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatmap.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>concatMap</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/concatobserver.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>concatMapObserver</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/defer.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>defer</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/selectmany.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>flatMap</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/flatmaplatest.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>flatMapLatest</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/forkjoin.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>forkJoin</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/forkjoinproto.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>forkJoin</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/if.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">if</span></code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/merge.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>merge</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/mergeall.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>mergeAll</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/onerrorresumenext.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>onErrorResumeNext</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/onerrorresumenextproto.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>onErrorResumeNext</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/selectmany.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>selectMany</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/flatmaplatest.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>selectSwitch</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/sequenceequal.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sequenceEqual</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/skipuntil.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>skipUntil</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/startasync.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>startAsync</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/switch.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token keyword">switch</span></code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/takeuntil.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>takeUntil</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/debouncewithselector.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>debounceWithSelector</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timeoutwithselector.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>timeoutWithSelector</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/while.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">while</span></code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/window.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>window</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/withlatestfrom.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>withLatestFrom</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/zip.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>zip</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/zipproto.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>zip</code></a></li>
 </ul>
 <p>Because of this, we can now do a number of very interesting things such as combining Promises and Observable sequences.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
-  .flatMap(x =&gt; <span class="hljs-built_in">Promise</span>.resolve(x * x));
+<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>x <span class="token operator">*</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
-  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
-  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; onNext: 0</span>
-<span class="hljs-comment">// =&gt; onNext: 1</span>
-<span class="hljs-comment">// =&gt; onNext: 4</span>
-<span class="hljs-comment">// =&gt; onCompleted</span>
+<span class="token comment" spellcheck="true">// =&gt; onNext: 0</span>
+<span class="token comment" spellcheck="true">// =&gt; onNext: 1</span>
+<span class="token comment" spellcheck="true">// =&gt; onNext: 4</span>
+<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
 </code></pre>
 <p>This is just scatching the surface of what Promises and RxJS can do together so that we have first class single values and first class multiple values working together.</p>
 <h2 id="converting-promises-to-observable-sequences"><a name="converting-promises-to-observable-sequences" class="plugin-anchor" href="#converting-promises-to-observable-sequences"><span class="fa fa-link"></span></a>Converting Promises to Observable Sequences</h2>
-<p>It&apos;s quite simple to convert a Promise object which conforms to the ES6 Standard Promise where the behavior is uniform across implementations.  To support this, we provide the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/frompromise.md" target="_blank"><code>Rx.Observable.fromPromise</code></a> method which calls the <code>then</code> method of the promise to handle both success and error cases.</p>
+<p>It&apos;s quite simple to convert a Promise object which conforms to the ES6 Standard Promise where the behavior is uniform across implementations.  To support this, we provide the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/frompromise.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromPromise</code></a> method which calls the <code>then</code> method of the promise to handle both success and error cases.</p>
 <p>In the following example, we create promise objects using <a href="https://github.com/tildeio/rsvp.js" target="_blank">RSVP</a> library.</p>
-<pre><code class="lang-js"><span class="hljs-comment">// Create a promise which resolves 42</span>
-<span class="hljs-keyword">var</span> promise1 = <span class="hljs-keyword">new</span> RSVP.Promise((resolve, reject) =&gt; resolve(<span class="hljs-number">42</span>));
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Create a promise which resolves 42</span>
+<span class="token keyword">var</span> promise1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RSVP<span class="token punctuation">.</span>Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> source1 = Rx.Observable.fromPromise(promise1);
+<span class="token keyword">var</span> source1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromPromise</span><span class="token punctuation">(</span>promise1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription1 = source1.subscribe(
-  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
-  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
-  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
+<span class="token keyword">var</span> subscription1 <span class="token operator">=</span> source1<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; onNext: 42</span>
-<span class="hljs-comment">// =&gt; onCompleted</span>
+<span class="token comment" spellcheck="true">// =&gt; onNext: 42</span>
+<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
 
-<span class="hljs-comment">// Create a promise which rejects with an error</span>
-<span class="hljs-keyword">var</span> promise2 = <span class="hljs-keyword">new</span> RSVP.Promise((resolve, reject) =&gt; reject(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;reason&apos;</span>)));
+<span class="token comment" spellcheck="true">// Create a promise which rejects with an error</span>
+<span class="token keyword">var</span> promise2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RSVP<span class="token punctuation">.</span>Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;reason&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> source2 = Rx.Observable.fromPromise(promise2);
+<span class="token keyword">var</span> source2 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromPromise</span><span class="token punctuation">(</span>promise2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription2 = source2.subscribe(
-  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
-  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
-  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
+<span class="token keyword">var</span> subscription2 <span class="token operator">=</span> source2<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; onError: reject</span>
+<span class="token comment" spellcheck="true">// =&gt; onError: reject</span>
 </code></pre>
 <p>Notice that in this sample, these promises becomes an observable sequences in which we can manipulate further. The <a href="querying.md">Querying Observable Sequences</a> topic will show you how you can project this sequence into another, filter its content, so that your application will only receive values that satisfy a certain criteria.</p>
 <h2 id="converting-observable-sequences-to-promises"><a name="converting-observable-sequences-to-promises" class="plugin-anchor" href="#converting-observable-sequences-to-promises"><span class="fa fa-link"></span></a>Converting Observable Sequences to Promises</h2>
 <p>Just as you can convert a Promise to an Observable sequence, you can also convert an Observable sequence to a Promise.  This either requires native support for Promises, or a Promise library you can add yourself, such as <a href="https://github.com/kriskowal/q" target="_blank">Q</a>, <a href="https://github.com/tildeio/rsvp.js" target="_blank">RSVP</a>, <a href="https://github.com/cujojs/when" target="_blank">when.js</a> among others.  These libraries must conform to the ES6 standard for construction where it provides two functions to resolve or reject the promise.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; resolve(<span class="hljs-number">42</span>));
+<pre><code class="lang-js"><span class="token keyword">var</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>We can use the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/frompromise.md" target="_blank"><code>toPromise</code></a> method which allows you to convert an Observable sequence to a Promise.  This method accepts a Promise constructor, and if not provided, will default to a default implementation.  In this first example, we will use <a href="https://github.com/tildeio/rsvp.js" target="_blank">RSVP</a> to construct our Promise objects.</p>
-<pre><code class="lang-js"><span class="hljs-comment">// Return a single value</span>
-<span class="hljs-keyword">var</span> source1 = Rx.Observable.just(<span class="hljs-number">1</span>).toPromise(RSVP.Promise);
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Return a single value</span>
+<span class="token keyword">var</span> source1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toPromise</span><span class="token punctuation">(</span>RSVP<span class="token punctuation">.</span>Promise<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-source1.then(
-  value =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Resolved value: %s&apos;</span>, value),
-  reason =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Rejected reason: %s&apos;</span>, reason));
+source1<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+  value <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Resolved value: %s&apos;</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  reason <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Rejected reason: %s&apos;</span><span class="token punctuation">,</span> reason<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Resolved value: 1</span>
+<span class="token comment" spellcheck="true">// =&gt; Resolved value: 1</span>
 
-<span class="hljs-comment">// Reject the Promise</span>
-<span class="hljs-keyword">var</span> source2 = Rx.Observable.throwError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;reason&apos;</span>)).toPromise(RSVP.Promise);
+<span class="token comment" spellcheck="true">// Reject the Promise</span>
+<span class="token keyword">var</span> source2 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">throwError</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;reason&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toPromise</span><span class="token punctuation">(</span>RSVP<span class="token punctuation">.</span>Promise<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-source2.then(
-  value =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Resolved value: %s&apos;</span>, value),
-  reason =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Rejected reason: %s&apos;</span>, reason));
+source2<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+  value <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Resolved value: %s&apos;</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  reason <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Rejected reason: %s&apos;</span><span class="token punctuation">,</span> reason<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Rejected reason: Error: reason</span>
+<span class="token comment" spellcheck="true">// =&gt; Rejected reason: Error: reason</span>
 </code></pre>
-<p>If an implementation is not given with the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/frompromise.md" target="_blank"><code>toPromise</code></a> method, it will fall back to the Promise implementation specified in the <code>Rx.config.Promise</code> field.  By default this will be set to the runtime&apos;s ES6 Promise implementation, but can easily be overridden by specifying the configuration information.</p>
-<pre><code class="lang-js">Rx.config.Promise = RSVP.Promise;
+<p>If an implementation is not given with the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/frompromise.md" target="_blank"><code>toPromise</code></a> method, it will fall back to the Promise implementation specified in the <code>Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>Promise</code> field.  By default this will be set to the runtime&apos;s ES6 Promise implementation, but can easily be overridden by specifying the configuration information.</p>
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>Promise <span class="token operator">=</span> RSVP<span class="token punctuation">.</span>Promise<span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> source1 = Rx.Observable.just(<span class="hljs-number">1</span>).toPromise();
+<span class="token keyword">var</span> source1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-source1.then(
-  value =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Resolved value: %s&apos;</span>, value),
-  reason =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Rejected reason: %s&apos;</span>, reason));
+source1<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+  value <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Resolved value: %s&apos;</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  reason <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Rejected reason: %s&apos;</span><span class="token punctuation">,</span> reason<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Resolved value: 1</span>
+<span class="token comment" spellcheck="true">// =&gt; Resolved value: 1</span>
 </code></pre>
 <p>If you are in a pure ES6 environment, this should just work without any settings on your part as it will use the runtime&apos;s ES6 Promise implementation.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.just(<span class="hljs-number">1</span>).toPromise();
+<pre><code class="lang-js"><span class="token keyword">var</span> source1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-source1.then(
-  value =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Resolved value: %s&apos;</span>, value),
-  reason =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Rejected reason: %s&apos;</span>, reason));
+source1<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+  value <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Resolved value: %s&apos;</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  reason <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Rejected reason: %s&apos;</span><span class="token punctuation">,</span> reason<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Resolved value: 1</span>
+<span class="token comment" spellcheck="true">// =&gt; Resolved value: 1</span>
 </code></pre>
 <p>Concepts</p>
 <ul>

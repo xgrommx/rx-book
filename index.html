@@ -39,10 +39,14 @@
         <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="0" data-basepath="." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="0" data-basepath="." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5768,20 +5772,20 @@
             <td colspan="2">
                 <pre>
 <code>
-getDataFromLocalMemory()
-    .filter (s =&gt; s != null)
-    .map(s =&gt; `${s} transformed`)
-    .forEach(s =&gt; console.log(`next =&gt; ${s}`))
+<span class="token function">getDataFromLocalMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>filter <span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> s <span class="token operator">!</span><span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> `$<span class="token punctuation">{</span>s<span class="token punctuation">}</span> transformed`<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`next <span class="token operator">=</span><span class="token operator">&gt;</span> $<span class="token punctuation">{</span>s<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code>
                 </pre>
             </td>
             <td colspan="2">
                 <pre>
 <code>
-getDataFromNetwork()
-    .filter (s =&gt; s != null)
-    .map(s =&gt; `${s} transformed`)
-    .subscribe(s =&gt; console.log(`next =&gt; ${s}`))
+<span class="token function">getDataFromNetwork</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>filter <span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> s <span class="token operator">!</span><span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> `$<span class="token punctuation">{</span>s<span class="token punctuation">}</span> transformed`<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`next <span class="token operator">=</span><span class="token operator">&gt;</span> $<span class="token punctuation">{</span>s<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code>
                 </pre>
             </td>

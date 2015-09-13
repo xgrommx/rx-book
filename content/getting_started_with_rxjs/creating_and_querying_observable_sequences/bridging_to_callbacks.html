@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="3.3.3" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.3" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5728,86 +5732,86 @@
                         <h1 id="bridging-to-callbacks"><a name="bridging-to-callbacks" class="plugin-anchor" href="#bridging-to-callbacks"><span class="fa fa-link"></span></a>Bridging to Callbacks</h1>
 <p>Besides events, other asynchronous data sources exist in the the web and server-side world. One of them is the the simple callback pattern which is frequently used in Node.js. In this design pattern, the arguments are passed to the function, and then a callback is usually the last parameter, which when executed, passes control to the inner scope with the data.  Node.js has a standard way of doing callbacks in which the the callback is called with the <code>Error</code> object first if there is an error, else null, and then the additional parameters from the callback.</p>
 <h2 id="converting-callbacks-to-observable-sequences"><a name="converting-callbacks-to-observable-sequences" class="plugin-anchor" href="#converting-callbacks-to-observable-sequences"><span class="fa fa-link"></span></a>Converting Callbacks to Observable Sequences</h2>
-<p>Many asynchronous methods in Node.js and the many JavaScript APIs are written in such a way that it has a callback as the last parameter. These standard callbacks are executed with the data passed to it once it is available.  We can use the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromcallback.md" target="_blank"><code>Rx.Observable.fromCallback</code></a> to wrap these kinds of callbacks.  Note that this does not cover the Node.js style of callbacks where the <code>Error</code> parameter is first.  For that operation, we provide the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromnodecallback.md" target="_blank"><code>Rx.Observable.fromNodeCallback</code></a> which we will cover below.</p>
-<p>In the following example, we will convert the Node.js <a href="http://nodejs.org/api/fs.html#fs_fs_exists_path_callback" target="_blank"><code>fs.exists</code></a> function.  This function takes a path and returns a <code>true</code> or <code>false</code> value whether the file exists, in this case we will check if &apos;file.txt&apos; exists.  The arguments returned when wrapped in <code>Rx.Observable.fromCallback</code> will return an array containing the arguments passed to the callback.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
-    fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<p>Many asynchronous methods in Node.js and the many JavaScript APIs are written in such a way that it has a callback as the last parameter. These standard callbacks are executed with the data passed to it once it is available.  We can use the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromcallback.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromCallback</code></a> to wrap these kinds of callbacks.  Note that this does not cover the Node.js style of callbacks where the <code>Error</code> parameter is first.  For that operation, we provide the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromnodecallback.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromNodeCallback</code></a> which we will cover below.</p>
+<p>In the following example, we will convert the Node.js <a href="http://nodejs.org/api/fs.html#fs_fs_exists_path_callback" target="_blank"><code>fs<span class="token punctuation">.</span>exists</code></a> function.  This function takes a path and returns a <code><span class="token keyword">true</span></code> or <code><span class="token keyword">false</span></code> value whether the file exists, in this case we will check if &apos;file.txt&apos; exists.  The arguments returned when wrapped in <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromCallback</code> will return an array containing the arguments passed to the callback.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Wrap the exists method</span>
-<span class="hljs-keyword">var</span> exists = Rx.Observable.fromCallback(fs.exists);
+<span class="token comment" spellcheck="true">// Wrap the exists method</span>
+<span class="token keyword">var</span> exists <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>exists<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> source = exists(<span class="hljs-string">&apos;file.txt&apos;</span>);
+<span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token function">exists</span><span class="token punctuation">(</span><span class="token string">&apos;file.txt&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Get the first argument only which is true/false</span>
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
-    e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
-    () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
+<span class="token comment" spellcheck="true">// Get the first argument only which is true/false</span>
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; onNext: true</span>
-<span class="hljs-comment">// =&gt; onCompleted</span>
+<span class="token comment" spellcheck="true">// =&gt; onNext: true</span>
+<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
 </code></pre>
 <h2 id="converting-node-js-style-callbacks-to-observable-sequences"><a name="converting-node-js-style-callbacks-to-observable-sequences" class="plugin-anchor" href="#converting-node-js-style-callbacks-to-observable-sequences"><span class="fa fa-link"></span></a>Converting Node.js Style Callbacks to Observable Sequences</h2>
-<p>Node.js has adopted a convention in many of the callbacks where an error may occur, such as File I/O, Network requests, etc.  RxJS supports this through the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromnodecallback.md" target="_blank"><code>Rx.Observable.fromNodeCallback</code></a> method in which the error, if present, is captured and the <code>onError</code> notification is sent.  Otherwise, the <code>onNext</code> is sent with the rest of the callback arguments, followed by an <code>onCompleted</code> notification.</p>
-<p>In the following example, we will convert the Node.js <a href="http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback" target="_blank"><code>fs.rename</code></a> function to an Observable sequence.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>),
-    Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
+<p>Node.js has adopted a convention in many of the callbacks where an error may occur, such as File I/O, Network requests, etc.  RxJS supports this through the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromnodecallback.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromNodeCallback</code></a> method in which the error, if present, is captured and the <code>onError</code> notification is sent.  Otherwise, the <code>onNext</code> is sent with the rest of the callback arguments, followed by an <code>onCompleted</code> notification.</p>
+<p>In the following example, we will convert the Node.js <a href="http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback" target="_blank"><code>fs<span class="token punctuation">.</span>rename</code></a> function to an Observable sequence.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Wrap fs.rename</span>
-<span class="hljs-keyword">var</span> rename = Rx.Observable.fromNodeCallback(fs.rename);
+<span class="token comment" spellcheck="true">// Wrap fs.rename</span>
+<span class="token keyword">var</span> rename <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromNodeCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>rename<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Rename file which returns no parameters except an error</span>
-<span class="hljs-keyword">var</span> source = rename(<span class="hljs-string">&apos;file1.txt&apos;</span>, <span class="hljs-string">&apos;file2.txt&apos;</span>);
+<span class="token comment" spellcheck="true">// Rename file which returns no parameters except an error</span>
+<span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token function">rename</span><span class="token punctuation">(</span><span class="token string">&apos;file1.txt&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;file2.txt&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: success!&apos;</span>),
-    e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
-    () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+    x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: success!&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; onNext: success!</span>
-<span class="hljs-comment">// =&gt; onCompleted</span>
+<span class="token comment" spellcheck="true">// =&gt; onNext: success!</span>
+<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
 </code></pre>
 <h2 id="converting-observable-sequences-to-callbacks"><a name="converting-observable-sequences-to-callbacks" class="plugin-anchor" href="#converting-observable-sequences-to-callbacks"><span class="fa fa-link"></span></a>Converting Observable sequences to Callbacks</h2>
 <p>We can easily go in another direction and convert an observable sequence to a callback.  This of course requires the observable sequence to yield only one value for this to make sense.  Let&apos;s convert using the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timer.md" target="_blank"><code>timer</code></a> method to wait for a certain amount of time.  The implementation of <code>toCallback</code> could look like the following.  Note that it is not included in RxJS but you can easily add it if needed.</p>
-<pre><code class="lang-js">Rx.Observable.prototype.toCallback = cb =&gt; {
-  <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> () =&gt; {
-    <span class="hljs-keyword">var</span> val, hasVal = <span class="hljs-literal">false</span>;
-    source.subscribe(
-      x=&gt; { hasVal = <span class="hljs-literal">true</span>; val = x; },
-      e =&gt; <span class="hljs-keyword">throw</span> e, <span class="hljs-comment">// Default error handling</span>
-      () =&gt; hasVal &amp;&amp; cb(val)}
-    );
-  };
-};
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toCallback <span class="token operator">=</span> cb <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> val<span class="token punctuation">,</span> hasVal <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+    source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+      x<span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> hasVal <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span> val <span class="token operator">=</span> x<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      e <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">throw</span> e<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// Default error handling</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> hasVal <span class="token operator">&amp;&amp;</span> <span class="token function">cb</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Then we could execute our command simply like the following:</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cb</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hi!&apos;</span>); }
+<pre><code class="lang-js"><span class="token keyword">function</span> cb <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hi!&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 
-setTimeout(
-  Rx.Observable.timer(<span class="hljs-number">5000</span>)
-    .toCallback(cb)
-  , <span class="hljs-number">500</span>);
+<span class="token function">setTimeout</span><span class="token punctuation">(</span>
+  Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">timer</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">toCallback</span><span class="token punctuation">(</span>cb<span class="token punctuation">)</span>
+  <span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h2 id="converting-observable-sequences-to-node-js-style-callbacks"><a name="converting-observable-sequences-to-node-js-style-callbacks" class="plugin-anchor" href="#converting-observable-sequences-to-node-js-style-callbacks"><span class="fa fa-link"></span></a>Converting Observable sequences to Node.js Style Callbacks</h2>
 <p>The same could also apply to Node.js style callbacks should you desire that behavior.  Once again the same restrictions apply with regards to having a single value and an end much like above.  The implementation of <code>toNodeCallback</code> could look like the following.  Note that it is not included in RxJS but you can easily add it if needed.</p>
-<pre><code class="lang-js">Rx.Observable.prototype.toNodeCallback = cb =&gt; {
-  <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
-  <span class="hljs-keyword">return</span> () =&gt; {
-    <span class="hljs-keyword">var</span> val, hasVal = <span class="hljs-literal">false</span>;
-    source.subscribe(
-      x =&gt; { hasVal = <span class="hljs-literal">true</span>; val = x; },
-      e =&gt; cb(e),
-      () =&gt; hasVal &amp;&amp; cb(<span class="hljs-literal">null</span>, val)}
-    );
-  };
-};
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toNodeCallback <span class="token operator">=</span> cb <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> val<span class="token punctuation">,</span> hasVal <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+    source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+      x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> hasVal <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span> val <span class="token operator">=</span> x<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      e <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">cb</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> hasVal <span class="token operator">&amp;&amp;</span> <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <p>We could then take this and for example if we had an observable sequence which gets a value from a REST call and then convert it to Node.js style.</p>
-<pre><code>getData().toNodeCallback((err, data) =&gt; {
-    if (err) { throw err; }
-    // Do something with the data
-});
+<pre><code><span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toNodeCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">throw</span> err<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// Do something with the data</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
                     
                     </section>

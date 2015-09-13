@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="13.3" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="13.3" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,29 +5729,29 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-refcountdisposable-class"><a name="-rx-refcountdisposable-class" class="plugin-anchor" href="#-rx-refcountdisposable-class"><span class="fa fa-link"></span></a><code>Rx.RefCountDisposable</code> class</h1>
+                        <h1 id="-rx-refcountdisposable-class"><a name="-rx-refcountdisposable-class" class="plugin-anchor" href="#-rx-refcountdisposable-class"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span>RefCountDisposable</code> class</h1>
 <p>Represents a disposable resource that only disposes its underlying disposable resource when all <code>getDisposable</code> dependent disposable objects have been disposed.</p>
 <h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
-<p>The follow example shows the basic usage of an <code>Rx.RefCountDisposable</code>.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<p>The follow example shows the basic usage of an <code>Rx<span class="token punctuation">.</span>RefCountDisposable</code>.</p>
+<pre><code class="lang-js"><span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> refCountDisposable = <span class="hljs-keyword">new</span> Rx.RefCountDisposable(disposable);
+<span class="token keyword">var</span> refCountDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>RefCountDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Try disposing before the underlying is disposed</span>
-refCountDisposable.dispose();
+<span class="token comment" spellcheck="true">// Try disposing before the underlying is disposed</span>
+refCountDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>refCountDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 
-<span class="hljs-comment">// Dispose the underlying disposable</span>
-disposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+<span class="token comment" spellcheck="true">// Dispose the underlying disposable</span>
+disposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; disposed</span>
 
-<span class="hljs-comment">// Now dispose the primary</span>
-refCountDisposable.dispose();
+<span class="token comment" spellcheck="true">// Now dispose the primary</span>
+refCountDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>refCountDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5767,20 +5771,20 @@ refCountDisposable.dispose();
 <li><a href="#isdisposed"><code>isDisposed</code></a></li>
 </ul>
 <h2 id="-refcountdisposable-constructor"><a name="-refcountdisposable-constructor" class="plugin-anchor" href="#-refcountdisposable-constructor"><span class="fa fa-link"></span></a><em>RefCountDisposable Constructor</em></h2>
-<h3 id="-a-id-rxrefcountdisposable-a-rx-refcountdisposable-disposable"><a name="-a-id-rxrefcountdisposable-a-rx-refcountdisposable-disposable" class="plugin-anchor" href="#-a-id-rxrefcountdisposable-a-rx-refcountdisposable-disposable"><span class="fa fa-link"></span></a><a id="rxrefcountdisposable"></a><code>Rx.RefCountDisposable(disposable)</code></h3>
+<h3 id="-a-id-rxrefcountdisposable-a-rx-refcountdisposable-disposable"><a name="-a-id-rxrefcountdisposable-a-rx-refcountdisposable-disposable" class="plugin-anchor" href="#-a-id-rxrefcountdisposable-a-rx-refcountdisposable-disposable"><span class="fa fa-link"></span></a><a id="rxrefcountdisposable"></a><code>Rx<span class="token punctuation">.</span><span class="token function">RefCountDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxrefcountdisposable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L7-L10" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Initializes a new instance of the <code>Rx.RefCountDisposable</code> class with the specified disposable</p>
+<p>Initializes a new instance of the <code>Rx<span class="token punctuation">.</span>RefCountDisposable</code> class with the specified disposable</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>disposable</code> <em>(Disposable)</em>: Underlying disposable.</li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<pre><code class="lang-js"><span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> refCountDisposable = <span class="hljs-keyword">new</span> Rx.RefCountDisposable(disposable);
+<span class="token keyword">var</span> refCountDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>RefCountDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>refCountDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5788,59 +5792,59 @@ refCountDisposable.dispose();
 </ul>
 <hr>
 <h2 id="-refcountdisposable-instance-methods"><a name="-refcountdisposable-instance-methods" class="plugin-anchor" href="#-refcountdisposable-instance-methods"><span class="fa fa-link"></span></a><em>RefCountDisposable Instance Methods</em></h2>
-<h3 id="-a-id-rxrefcountdisposableprototypedispose-a-rx-refcountdisposable-prototype-dispose"><a name="-a-id-rxrefcountdisposableprototypedispose-a-rx-refcountdisposable-prototype-dispose" class="plugin-anchor" href="#-a-id-rxrefcountdisposableprototypedispose-a-rx-refcountdisposable-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxrefcountdisposableprototypedispose"></a><code>Rx.RefCountDisposable.prototype.dispose()</code></h3>
+<h3 id="-a-id-rxrefcountdisposableprototypedispose-a-rx-refcountdisposable-prototype-dispose"><a name="-a-id-rxrefcountdisposableprototypedispose-a-rx-refcountdisposable-prototype-dispose" class="plugin-anchor" href="#-a-id-rxrefcountdisposableprototypedispose-a-rx-refcountdisposable-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxrefcountdisposableprototypedispose"></a><code>Rx<span class="token punctuation">.</span>RefCountDisposable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxrefcountdisposableprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L30-L35" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Disposes the underlying disposable only when all dependent disposables have been disposed.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<pre><code class="lang-js"><span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> refCountDisposable = <span class="hljs-keyword">new</span> Rx.RefCountDisposable(disposable);
+<span class="token keyword">var</span> refCountDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>RefCountDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Try disposing before the underlying is disposed</span>
-refCountDisposable.dispose();
+<span class="token comment" spellcheck="true">// Try disposing before the underlying is disposed</span>
+refCountDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>refCountDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 
-<span class="hljs-comment">// Dispose the underlying disposable</span>
-disposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+<span class="token comment" spellcheck="true">// Dispose the underlying disposable</span>
+disposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; disposed</span>
 
-<span class="hljs-comment">// Now dispose the primary</span>
-refCountDisposable.dispose();
+<span class="token comment" spellcheck="true">// Now dispose the primary</span>
+refCountDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>refCountDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxrefcountdisposableprototypegetdisposable-a-rx-refcountdisposable-prototype-getdisposable"><a name="-a-id-rxrefcountdisposableprototypegetdisposable-a-rx-refcountdisposable-prototype-getdisposable" class="plugin-anchor" href="#-a-id-rxrefcountdisposableprototypegetdisposable-a-rx-refcountdisposable-prototype-getdisposable"><span class="fa fa-link"></span></a><a id="rxrefcountdisposableprototypegetdisposable"></a><code>Rx.RefCountDisposable.prototype.getDisposable()</code></h3>
+<h3 id="-a-id-rxrefcountdisposableprototypegetdisposable-a-rx-refcountdisposable-prototype-getdisposable"><a name="-a-id-rxrefcountdisposableprototypegetdisposable-a-rx-refcountdisposable-prototype-getdisposable" class="plugin-anchor" href="#-a-id-rxrefcountdisposableprototypegetdisposable-a-rx-refcountdisposable-prototype-getdisposable"><span class="fa fa-link"></span></a><a id="rxrefcountdisposableprototypegetdisposable"></a><code>Rx<span class="token punctuation">.</span>RefCountDisposable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">getDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxrefcountdisposableprototypegetdisposable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L18-L20" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Returns a dependent disposable that when disposed decreases the refcount on the underlying disposable.</p>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: A dependent disposable contributing to the reference count that manages the underlying disposable&apos;s lifetime.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<pre><code class="lang-js"><span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> refCountDisposable = <span class="hljs-keyword">new</span> Rx.RefCountDisposable(disposable);
+<span class="token keyword">var</span> refCountDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>RefCountDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> d = refCountDisposable.getDisposable();
+<span class="token keyword">var</span> d <span class="token operator">=</span> refCountDisposable<span class="token punctuation">.</span><span class="token function">getDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(d === disposable);
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>d <span class="token operator">===</span> disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 
-<span class="hljs-comment">// Clean up disposables</span>
-disposable.dispose();
-d.dispose();
+<span class="token comment" spellcheck="true">// Clean up disposables</span>
+disposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+d<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Now try to dispose the main</span>
-refCountDisposable.dispose();
+<span class="token comment" spellcheck="true">// Now try to dispose the main</span>
+refCountDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>refCountDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5852,20 +5856,20 @@ refCountDisposable.dispose();
 <p><a href="#isdisposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L8" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets a value that indicates whether the object is disposed.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<pre><code class="lang-js"><span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> refCountDisposable = <span class="hljs-keyword">new</span> Rx.RefCountDisposable(disposable);
+<span class="token keyword">var</span> refCountDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>RefCountDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-disposable.dispose();
+disposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>refCountDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 
-refCountDisposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+refCountDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; disposed</span>
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>refCountDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>

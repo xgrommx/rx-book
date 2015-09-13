@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.1" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.1" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,13 +5729,13 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-aggregate-seed-accumulator-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-aggregate-js"><a name="-rx-observable-prototype-aggregate-seed-accumulator-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-aggregate-js" class="plugin-anchor" href="#-rx-observable-prototype-aggregate-seed-accumulator-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-aggregate-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/aggregate.js" target="_blank"><code>Rx.Observable.prototype.aggregate([seed], accumulator)</code></a></h2>
-<p>Use <code>Rx.Observable.prototype.reduce</code> instead.</p>
+                        <h2 id="-rx-observable-prototype-aggregate-seed-accumulator-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-aggregate-js"><a name="-rx-observable-prototype-aggregate-seed-accumulator-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-aggregate-js" class="plugin-anchor" href="#-rx-observable-prototype-aggregate-seed-accumulator-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-aggregate-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/aggregate.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">aggregate</span><span class="token punctuation">(</span><span class="token punctuation">[</span>seed<span class="token punctuation">]</span><span class="token punctuation">,</span> accumulator<span class="token punctuation">)</span></code></a></h2>
+<p>Use <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>reduce</code> instead.</p>
 <p>Applies an accumulator function over an observable sequence, returning the result of the aggregation as a single element in the result sequence. The specified seed value is used as the initial accumulator value.</p>
-<p>For aggregation behavior with incremental intermediate results, see <code>Rx.Observable.prototype.scan</code>.</p>
+<p>For aggregation behavior with incremental intermediate results, see <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>scan</code>.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
-<li><code>[seed]</code> <em>(Mixed)</em>: The initial accumulator value.</li>
+<li><code><span class="token punctuation">[</span>seed<span class="token punctuation">]</span></code> <em>(Mixed)</em>: The initial accumulator value.</li>
 <li><code>accumulator</code> <em>(<code>Function</code>)</em>: accumulator An accumulator function to be invoked on each element.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
@@ -5744,17 +5748,17 @@
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/aggregate.js" target="_blank"><code>/src/core/linq/observable/aggregate.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/aggregate.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>linq<span class="token operator">/</span>observable<span class="token operator">/</span>aggregate<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx.all.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.aggregates.js" target="_blank"><code>rx.aggregates.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.aggregates.js" target="_blank"><code>rx<span class="token punctuation">.</span>aggregates<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx.lite.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>NPM Packages:</p>
 <ul>
@@ -5762,12 +5766,12 @@
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS-All</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Aggregates/" target="_blank"><code>RxJS-Aggregates</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS<span class="token operator">-</span>All</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Aggregates/" target="_blank"><code>RxJS<span class="token operator">-</span>Aggregates</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/aggregate.js" target="_blank"><code>/tests/observable/aggregate.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/aggregate.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>aggregate<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 
                     

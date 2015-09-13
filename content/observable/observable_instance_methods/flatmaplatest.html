@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.49" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.49" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,9 +5729,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-flatmaplatest-selector-thisarg"><a name="-rx-observable-prototype-flatmaplatest-selector-thisarg" class="plugin-anchor" href="#-rx-observable-prototype-flatmaplatest-selector-thisarg"><span class="fa fa-link"></span></a>[<code>Rx.Observable.prototype.flatMapLatest(selector, [thisArg])</code>,</h2>
-<pre><code>`Rx.Observable.prototype.switchMap(selector, [thisArg])`,
-`Rx.Observable.prototype.selectSwitch(selector, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectswitch.js)
+                        <h2 id="-rx-observable-prototype-flatmaplatest-selector-thisarg"><a name="-rx-observable-prototype-flatmaplatest-selector-thisarg" class="plugin-anchor" href="#-rx-observable-prototype-flatmaplatest-selector-thisarg"><span class="fa fa-link"></span></a>[<code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">flatMapLatest</span><span class="token punctuation">(</span>selector<span class="token punctuation">,</span> <span class="token punctuation">[</span>thisArg<span class="token punctuation">]</span><span class="token punctuation">)</span></code>,</h2>
+<pre><code>`Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">switchMap</span><span class="token punctuation">(</span>selector<span class="token punctuation">,</span> <span class="token punctuation">[</span>thisArg<span class="token punctuation">]</span><span class="token punctuation">)</span>`<span class="token punctuation">,</span>
+`Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">selectSwitch</span><span class="token punctuation">(</span>selector<span class="token punctuation">,</span> <span class="token punctuation">[</span>thisArg<span class="token punctuation">]</span><span class="token punctuation">)</span>`<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>Reactive<span class="token operator">-</span>Extensions<span class="token operator">/</span>RxJS<span class="token operator">/</span>blob<span class="token operator">/</span>master<span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>linq<span class="token operator">/</span>observable<span class="token operator">/</span>selectswitch<span class="token punctuation">.</span>js<span class="token punctuation">)</span>
 </code></pre><p>Transform the items emitted by an Observable into Observables, and mirror those items emitted by the most-recently transformed Observable.</p>
 <p>The <code>flatMapLatest</code> operator is similar to the <code>flatMap</code> and <code>concatMap</code> methods described above, however, rather than emitting all of the items emitted by all of the Observables that the operator generates by transforming items from the source <code>Observable</code>, <code>switchMap</code> instead emits items from each such transformed <code>Observable</code> only until the next such <code>Observable</code> is emitted, then it ignores the previous one and begins emitting items emitted by the new one.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5738,47 +5742,47 @@
 <li>the Observable object being subscribed</li>
 </ol>
 </li>
-<li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the predicate.</li>
+<li><code><span class="token punctuation">[</span>thisArg<span class="token punctuation">]</span></code> <em>(<code>Any</code>)</em>: Object to use as <code><span class="token keyword">this</span></code> when executing the predicate.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence which transforms the items emitted by an Observable into Observables, and mirror those items emitted by the most-recently transformed Observable.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable
-  .range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>)
-  .flatMapLatest(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{
-    <span class="hljs-keyword">return</span> Rx.Observable.from([x + <span class="hljs-string">&apos;a&apos;</span>, x + <span class="hljs-string">&apos;b&apos;</span>]);
-  });
+<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable
+  <span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMapLatest</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">[</span>x <span class="token operator">+</span> <span class="token string">&apos;a&apos;</span><span class="token punctuation">,</span> x <span class="token operator">+</span> <span class="token string">&apos;b&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: %s&apos;</span>, x);
-  },
-  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: %s&apos;</span>, err);
-  },
-  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
-  });
+<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: %s&apos;</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Next: 1a</span>
-<span class="hljs-comment">// Next: 2a</span>
-<span class="hljs-comment">// Next: 3a</span>
-<span class="hljs-comment">// Next: 3b</span>
-<span class="hljs-comment">// Completed</span>
+<span class="token comment" spellcheck="true">// Next: 1a</span>
+<span class="token comment" spellcheck="true">// Next: 2a</span>
+<span class="token comment" spellcheck="true">// Next: 3a</span>
+<span class="token comment" spellcheck="true">// Next: 3b</span>
+<span class="token comment" spellcheck="true">// Completed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectswitch.js" target="_blank"><code>/src/core/linq/observable/selectswitch.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectswitch.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>linq<span class="token operator">/</span>observable<span class="token operator">/</span>selectswitch<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
@@ -5790,13 +5794,13 @@
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS-All</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS<span class="token operator">-</span>All</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS<span class="token operator">-</span>Main</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/flatmaplatest.js" target="_blank"><code>/tests/observable/flatmaplatest.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/flatmaplatest.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>flatmaplatest<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 
                     

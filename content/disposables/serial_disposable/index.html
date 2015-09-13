@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="13.4" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="13.4" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,23 +5729,23 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-serialdisposable-class"><a name="-rx-serialdisposable-class" class="plugin-anchor" href="#-rx-serialdisposable-class"><span class="fa fa-link"></span></a><code>Rx.SerialDisposable</code> class</h1>
+                        <h1 id="-rx-serialdisposable-class"><a name="-rx-serialdisposable-class" class="plugin-anchor" href="#-rx-serialdisposable-class"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span>SerialDisposable</code> class</h1>
 <p>Represents a disposable resource whose underlying disposable resource can be replaced by another disposable resource, causing automatic disposal of the previous underlying disposable resource.</p>
 <h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
 <p>The follow example shows the basic usage of an Rx.SerialDisposable.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> serialDisposable = <span class="hljs-keyword">new</span> Rx.SerialDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> serialDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SerialDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
+<span class="token keyword">var</span> d1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-serialDisposable.setDisposable(d1);
+serialDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> d2 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;two&apos;</span>));
+<span class="token keyword">var</span> d2 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-serialDisposable.setDisposable(d2);
-<span class="hljs-comment">// =&gt; one</span>
+serialDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>d2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; one</span>
 
-serialDisposable.dispose();
-<span class="hljs-comment">// = two</span>
+serialDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// = two</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5762,14 +5766,14 @@ serialDisposable.dispose();
 <li><a href="#isdisposed"><code>isDisposed</code></a></li>
 </ul>
 <h2 id="-serialdisposable-constructor"><a name="-serialdisposable-constructor" class="plugin-anchor" href="#-serialdisposable-constructor"><span class="fa fa-link"></span></a><em>SerialDisposable Constructor</em></h2>
-<h3 id="-a-id-rxserialdisposable-a-rx-serialdisposable"><a name="-a-id-rxserialdisposable-a-rx-serialdisposable" class="plugin-anchor" href="#-a-id-rxserialdisposable-a-rx-serialdisposable"><span class="fa fa-link"></span></a><a id="rxserialdisposable"></a><code>Rx.SerialDisposable()</code></h3>
+<h3 id="-a-id-rxserialdisposable-a-rx-serialdisposable"><a name="-a-id-rxserialdisposable-a-rx-serialdisposable" class="plugin-anchor" href="#-a-id-rxserialdisposable-a-rx-serialdisposable"><span class="fa fa-link"></span></a><a id="rxserialdisposable"></a><code>Rx<span class="token punctuation">.</span><span class="token function">SerialDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxserialdisposable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/serialdisposable.js#L5-L8" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Initializes a new instance of the <code>Rx.SerialDisposable</code> class.</p>
+<p>Initializes a new instance of the <code>Rx<span class="token punctuation">.</span>SerialDisposable</code> class.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> serialDisposable = <span class="hljs-keyword">new</span> Rx.SerialDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> serialDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SerialDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(serialDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>serialDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5777,50 +5781,50 @@ serialDisposable.dispose();
 </ul>
 <hr>
 <h2 id="-serialdisposable-instance-methods"><a name="-serialdisposable-instance-methods" class="plugin-anchor" href="#-serialdisposable-instance-methods"><span class="fa fa-link"></span></a><em>SerialDisposable Instance Methods</em></h2>
-<h3 id="-a-id-rxserialdisposableprototypedispose-a-rx-serialdisposable-prototype-dispose"><a name="-a-id-rxserialdisposableprototypedispose-a-rx-serialdisposable-prototype-dispose" class="plugin-anchor" href="#-a-id-rxserialdisposableprototypedispose-a-rx-serialdisposable-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxserialdisposableprototypedispose"></a><code>Rx.SerialDisposable.prototype.dispose()</code></h3>
+<h3 id="-a-id-rxserialdisposableprototypedispose-a-rx-serialdisposable-prototype-dispose"><a name="-a-id-rxserialdisposableprototypedispose-a-rx-serialdisposable-prototype-dispose" class="plugin-anchor" href="#-a-id-rxserialdisposableprototypedispose-a-rx-serialdisposable-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxserialdisposableprototypedispose"></a><code>Rx<span class="token punctuation">.</span>SerialDisposable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxserialdisposableprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/serialdisposable.js#L50-L60" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Disposes the underlying disposable as well as all future replacements.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> serialDisposable = <span class="hljs-keyword">new</span> Rx.SerialDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> serialDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SerialDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
+<span class="token keyword">var</span> d1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-serialDisposable.setDisposable(disposable);
+serialDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-serialDisposable.dispose();
-<span class="hljs-comment">// =&gt; one</span>
+serialDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; one</span>
 
-<span class="hljs-keyword">var</span> d2 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;two&apos;</span>));
+<span class="token keyword">var</span> d2 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; two</span>
+<span class="token comment" spellcheck="true">// =&gt; two</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxserialdisposableprototypegetdisposable-a-rx-serialdisposable-prototype-getdisposable"><a name="-a-id-rxserialdisposableprototypegetdisposable-a-rx-serialdisposable-prototype-getdisposable" class="plugin-anchor" href="#-a-id-rxserialdisposableprototypegetdisposable-a-rx-serialdisposable-prototype-getdisposable"><span class="fa fa-link"></span></a><a id="rxserialdisposableprototypegetdisposable"></a><code>Rx.SerialDisposable.prototype.getDisposable()</code></h3>
+<h3 id="-a-id-rxserialdisposableprototypegetdisposable-a-rx-serialdisposable-prototype-getdisposable"><a name="-a-id-rxserialdisposableprototypegetdisposable-a-rx-serialdisposable-prototype-getdisposable" class="plugin-anchor" href="#-a-id-rxserialdisposableprototypegetdisposable-a-rx-serialdisposable-prototype-getdisposable"><span class="fa fa-link"></span></a><a id="rxserialdisposableprototypegetdisposable"></a><code>Rx<span class="token punctuation">.</span>SerialDisposable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">getDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxserialdisposableprototypegetdisposable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/serialdisposable.js#L16-L18" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets the underlying disposable.</p>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The underlying disposable.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> serialDisposable = <span class="hljs-keyword">new</span> Rx.SerialDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> serialDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SerialDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-serialDisposable.setDisposable(disposable);
+serialDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> d = serialDisposable.getDisposable();
+<span class="token keyword">var</span> d <span class="token operator">=</span> serialDisposable<span class="token punctuation">.</span><span class="token function">getDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(d === disposable);
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>d <span class="token operator">===</span> disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxserialdisposableprototypesetdisposablevalue-a-rx-serialdisposable-prototype-setdisposable-value"><a name="-a-id-rxserialdisposableprototypesetdisposablevalue-a-rx-serialdisposable-prototype-setdisposable-value" class="plugin-anchor" href="#-a-id-rxserialdisposableprototypesetdisposablevalue-a-rx-serialdisposable-prototype-setdisposable-value"><span class="fa fa-link"></span></a><a id="rxserialdisposableprototypesetdisposablevalue"></a><code>Rx.SerialDisposable.prototype.setDisposable(value)</code></h3>
+<h3 id="-a-id-rxserialdisposableprototypesetdisposablevalue-a-rx-serialdisposable-prototype-setdisposable-value"><a name="-a-id-rxserialdisposableprototypesetdisposablevalue-a-rx-serialdisposable-prototype-setdisposable-value" class="plugin-anchor" href="#-a-id-rxserialdisposableprototypesetdisposablevalue-a-rx-serialdisposable-prototype-setdisposable-value"><span class="fa fa-link"></span></a><a id="rxserialdisposableprototypesetdisposablevalue"></a><code>Rx<span class="token punctuation">.</span>SerialDisposable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxserialdisposableprototypesetdisposablevalue">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/serialdisposable.js#L24-L36" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Sets the underlying disposable.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5828,19 +5832,19 @@ serialDisposable.setDisposable(disposable);
 <li><code>value</code> <em>(Disposable)</em>: The new underlying disposable.</li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> serialDisposable = <span class="hljs-keyword">new</span> Rx.SerialDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> serialDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SerialDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
+<span class="token keyword">var</span> d1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-serialDisposable.setDisposable(d1);
+serialDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-serialDisposable.dispose();
-<span class="hljs-comment">// =&gt; one</span>
+serialDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; one</span>
 
-<span class="hljs-keyword">var</span> d2 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;two&apos;</span>));
+<span class="token keyword">var</span> d2 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-serialDisposable.setDisposable(d2);
-<span class="hljs-comment">// =&gt; two</span>
+serialDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>d2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; two</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5852,20 +5856,20 @@ serialDisposable.setDisposable(d2);
 <p><a href="#isdisposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/serialdisposable.js#L6" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets a value that indicates whether the object is disposed.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> serialDisposable = <span class="hljs-keyword">new</span> Rx.SerialDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> serialDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SerialDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-serialDisposable.setDisposable(disposable);
+serialDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(serialDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>serialDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 
-serialDisposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+serialDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; disposed</span>
 
-<span class="hljs-built_in">console</span>.log(serialDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>serialDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>

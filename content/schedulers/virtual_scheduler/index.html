@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="12.3" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="12.3" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,64 +5729,64 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-virtualtimescheduler-class"><a name="-rx-virtualtimescheduler-class" class="plugin-anchor" href="#-rx-virtualtimescheduler-class"><span class="fa fa-link"></span></a><code>Rx.VirtualTimeScheduler</code> class</h1>
-<p>Base class for providing scheduling in virtual time.  This inherits from the <code>Rx.Scheduler</code> class.</p>
+                        <h1 id="-rx-virtualtimescheduler-class"><a name="-rx-virtualtimescheduler-class" class="plugin-anchor" href="#-rx-virtualtimescheduler-class"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler</code> class</h1>
+<p>Base class for providing scheduling in virtual time.  This inherits from the <code>Rx<span class="token punctuation">.</span>Scheduler</code> class.</p>
 <h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
-<p>The following shows an example of using the <code>Rx.VirtualTimeScheduler</code>. In order for this to work, you must implement the <code>add</code>, <code>toDateTimeOffset</code> and <code>toRelative</code> methods as described below.</p>
-<pre><code class="lang-js"><span class="hljs-comment">/* Comparer required for scheduling priority */</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> (<span class="hljs-params">x, y</span>) </span>{
-    <span class="hljs-keyword">if</span> (x &gt; y) { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
-    <span class="hljs-keyword">if</span> (x &lt; y) { <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>; }
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
+<p>The following shows an example of using the <code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler</code>. In order for this to work, you must implement the <code>add</code>, <code>toDateTimeOffset</code> and <code>toRelative</code> methods as described below.</p>
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">/* Comparer required for scheduling priority */</span>
+<span class="token keyword">function</span> comparer <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.VirtualTimeScheduler(<span class="hljs-number">0</span>, comparer);
+<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>VirtualTimeScheduler</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> comparer<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/**
+<span class="token comment" spellcheck="true">/**
  * Adds a relative time value to an absolute time value.
  * @param {Any} absolute Absolute virtual time value.
  * @param {Any} relative Relative virtual time value to add.
  * @return {Any} Resulting absolute virtual time sum value.
  */</span>
-scheduler.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">absolute, relative</span>) </span>{
-    <span class="hljs-keyword">return</span> absolute + relative;
-};
+scheduler<span class="token punctuation">.</span>add <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>absolute<span class="token punctuation">,</span> relative<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> absolute <span class="token operator">+</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/**
+<span class="token comment" spellcheck="true">/**
  * Converts an absolute time to a number
  * @param {Number} The absolute time in ms
  * @returns {Number} The absolute time in ms
  */</span>
-scheduler.toDateTimeOffset = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">absolute</span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(absolute).getTime();
-};
+scheduler<span class="token punctuation">.</span>toDateTimeOffset <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>absolute<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>absolute<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/**
+<span class="token comment" spellcheck="true">/**
  * Converts the time span number/Date to a relative virtual time value.
  * @param {Number} timeSpan TimeSpan value to convert.
  * @return {Number} Corresponding relative virtual time value.
  */</span>
-scheduler.toRelative = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">timeSpan</span>) </span>{
-    <span class="hljs-keyword">return</span> timeSpan;
-};
+scheduler<span class="token punctuation">.</span>toRelative <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>timeSpan<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> timeSpan<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Schedule some time</span>
-scheduler.scheduleAbsolute(<span class="hljs-number">1</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;foo&apos;</span>); });
-scheduler.scheduleAbsolute(<span class="hljs-number">2</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;bar&apos;</span>); });
-scheduler.scheduleAbsolute(<span class="hljs-number">3</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ scheduler.stop(); });
+<span class="token comment" spellcheck="true">// Schedule some time</span>
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsolute</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;foo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsolute</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;bar&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsolute</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> scheduler<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Start the scheduler</span>
-scheduler.start();
+<span class="token comment" spellcheck="true">// Start the scheduler</span>
+scheduler<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; foo</span>
-<span class="hljs-comment">// =&gt; bar</span>
+<span class="token comment" spellcheck="true">// =&gt; foo</span>
+<span class="token comment" spellcheck="true">// =&gt; bar</span>
 
-<span class="hljs-comment">// Check the clock once stopped</span>
-<span class="hljs-built_in">console</span>.log(scheduler.now());
-<span class="hljs-comment">// =&gt; 3</span>
+<span class="token comment" spellcheck="true">// Check the clock once stopped</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 3</span>
 
-<span class="hljs-built_in">console</span>.log(scheduler.clock);
-<span class="hljs-comment">// =&gt; 3</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">.</span>clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 3</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5820,10 +5824,10 @@ scheduler.start();
 </ul>
 <h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md" target="_blank"><code>Rx.Scheduler</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Scheduler</code></a></li>
 </ul>
 <h2 id="-virtualtimescheduler-constructor"><a name="-virtualtimescheduler-constructor" class="plugin-anchor" href="#-virtualtimescheduler-constructor"><span class="fa fa-link"></span></a><em>VirtualTimeScheduler Constructor</em></h2>
-<h3 id="-a-id-rxvirtualtimescheduler-a-rx-virtualtimescheduler-initialclock-comparer"><a name="-a-id-rxvirtualtimescheduler-a-rx-virtualtimescheduler-initialclock-comparer" class="plugin-anchor" href="#-a-id-rxvirtualtimescheduler-a-rx-virtualtimescheduler-initialclock-comparer"><span class="fa fa-link"></span></a><a id="rxvirtualtimescheduler"></a><code>Rx.VirtualTimeScheduler(initialClock, comparer)</code></h3>
+<h3 id="-a-id-rxvirtualtimescheduler-a-rx-virtualtimescheduler-initialclock-comparer"><a name="-a-id-rxvirtualtimescheduler-a-rx-virtualtimescheduler-initialclock-comparer" class="plugin-anchor" href="#-a-id-rxvirtualtimescheduler-a-rx-virtualtimescheduler-initialclock-comparer"><span class="fa fa-link"></span></a><a id="rxvirtualtimescheduler"></a><code>Rx<span class="token punctuation">.</span><span class="token function">VirtualTimeScheduler</span><span class="token punctuation">(</span>initialClock<span class="token punctuation">,</span> comparer<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvirtualtimescheduler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L38-L44" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a new virtual time scheduler with the specified initial clock value and absolute time comparer.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5832,16 +5836,16 @@ scheduler.start();
 <li><code>comparer</code> <em>(Function)</em>: Comparer to determine causality of events based on absolute time.</li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> (<span class="hljs-params">x, y</span>) </span>{
-    <span class="hljs-keyword">if</span> (x &gt; y) { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
-    <span class="hljs-keyword">if</span> (x &lt; y) { <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>; }
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
+<pre><code class="lang-js"><span class="token keyword">function</span> comparer <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.VirtualTimeScheduler(
-    <span class="hljs-number">0</span>,          <span class="hljs-comment">/* initial clock of 0 */</span>
-    comparer    <span class="hljs-comment">/* comparer for determining order */</span>
-);
+<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>VirtualTimeScheduler</span><span class="token punctuation">(</span>
+    <span class="token number">0</span><span class="token punctuation">,</span>          <span class="token comment" spellcheck="true">/* initial clock of 0 */</span>
+    comparer    <span class="token comment" spellcheck="true">/* comparer for determining order */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5849,7 +5853,7 @@ scheduler.start();
 </ul>
 <hr>
 <h2 id="-virtualtimescheduler-instance-methods"><a name="-virtualtimescheduler-instance-methods" class="plugin-anchor" href="#-virtualtimescheduler-instance-methods"><span class="fa fa-link"></span></a><em>VirtualTimeScheduler Instance Methods</em></h2>
-<h3 id="-a-id-rxvirtualtimeschedulerprototypeadvancebytime-a-rx-virtualtimescheduler-prototype-advanceby-time"><a name="-a-id-rxvirtualtimeschedulerprototypeadvancebytime-a-rx-virtualtimescheduler-prototype-advanceby-time" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeadvancebytime-a-rx-virtualtimescheduler-prototype-advanceby-time"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeadvancebytime"></a><code>Rx.VirtualTimeScheduler.prototype.advanceBy(time)</code></h3>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypeadvancebytime-a-rx-virtualtimescheduler-prototype-advanceby-time"><a name="-a-id-rxvirtualtimeschedulerprototypeadvancebytime-a-rx-virtualtimescheduler-prototype-advanceby-time" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeadvancebytime-a-rx-virtualtimescheduler-prototype-advanceby-time"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeadvancebytime"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">advanceBy</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvirtualtimeschedulerprototypeadvancebytime">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L166-L176" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Advances the scheduler&apos;s clock by the specified relative time, running all work scheduled for that timespan.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5857,26 +5861,26 @@ scheduler.start();
 <li><code>time</code> <em>(Any)</em>: Relative time to advance the scheduler&apos;s clock by.</li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
-    <span class="hljs-number">200</span> <span class="hljs-comment">/* initial time */</span>
-);
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyVirtualScheduler</span><span class="token punctuation">(</span>
+    <span class="token number">200</span> <span class="token comment" spellcheck="true">/* initial time */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleAbsolute(<span class="hljs-number">250</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsolute</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hello&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.advanceBy(<span class="hljs-number">300</span>);
-<span class="hljs-comment">// =&gt; hello</span>
+scheduler<span class="token punctuation">.</span><span class="token function">advanceBy</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; hello</span>
 
-<span class="hljs-built_in">console</span>.log(scheduler.clock);
-<span class="hljs-comment">// =&gt; 500</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">.</span>clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 500</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxvirtualtimeschedulerprototypeadvancetotime-a-rx-virtualtimescheduler-prototype-advanceto-time"><a name="-a-id-rxvirtualtimeschedulerprototypeadvancetotime-a-rx-virtualtimescheduler-prototype-advanceto-time" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeadvancetotime-a-rx-virtualtimescheduler-prototype-advanceto-time"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeadvancetotime"></a><code>Rx.VirtualTimeScheduler.prototype.advanceTo(time)</code></h3>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypeadvancetotime-a-rx-virtualtimescheduler-prototype-advanceto-time"><a name="-a-id-rxvirtualtimeschedulerprototypeadvancetotime-a-rx-virtualtimescheduler-prototype-advanceto-time" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeadvancetotime-a-rx-virtualtimescheduler-prototype-advanceto-time"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeadvancetotime"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">advanceTo</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvirtualtimeschedulerprototypeadvancetotime">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L136-L160" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Advances the scheduler&apos;s clock to the specified time, running all work till that point.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5884,31 +5888,31 @@ scheduler.advanceBy(<span class="hljs-number">300</span>);
 <li><code>time</code> <em>(Any)</em>: Absolute time to advance the scheduler&apos;s clock to.</li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
-    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
-);
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyVirtualScheduler</span><span class="token punctuation">(</span>
+    <span class="token number">0</span> <span class="token comment" spellcheck="true">/* initial time */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsolute</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hello&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleAbsolute(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;world&apos;</span>);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsolute</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;world&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.advanceBy(<span class="hljs-number">300</span>);
-<span class="hljs-comment">// =&gt; hello</span>
-<span class="hljs-comment">// =&gt; world</span>
+scheduler<span class="token punctuation">.</span><span class="token function">advanceBy</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; hello</span>
+<span class="token comment" spellcheck="true">// =&gt; world</span>
 
-<span class="hljs-built_in">console</span>.log(scheduler.clock);
-<span class="hljs-comment">// =&gt; 300</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">.</span>clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 300</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolute-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolute-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolute-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action"></a><code>Rx.VirtualTimeScheduler.prototype.scheduleAbsolute(dueTime, action)</code></h3>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolute-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolute-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolute-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">scheduleAbsolute</span><span class="token punctuation">(</span>dueTime<span class="token punctuation">,</span> action<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L216-L218" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed at dueTime.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5919,31 +5923,31 @@ scheduler.advanceBy(<span class="hljs-number">300</span>);
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
-    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
-);
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyVirtualScheduler</span><span class="token punctuation">(</span>
+    <span class="token number">0</span> <span class="token comment" spellcheck="true">/* initial time */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsolute</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hello&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleAbsolute(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;world&apos;</span>);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsolute</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;world&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.advanceBy(<span class="hljs-number">300</span>);
-<span class="hljs-comment">// =&gt; hello</span>
-<span class="hljs-comment">// =&gt; world</span>
+scheduler<span class="token punctuation">.</span><span class="token function">advanceBy</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; hello</span>
+<span class="token comment" spellcheck="true">// =&gt; world</span>
 
-<span class="hljs-built_in">console</span>.log(scheduler.clock);
-<span class="hljs-comment">// =&gt; 300</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">.</span>clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 300</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolutewithstate-state-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolutewithstate-state-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolutewithstate-state-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action"></a><code>Rx.VirtualTimeScheduler.prototype.scheduleAbsoluteWithState(state, dueTime, action)</code></h3>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolutewithstate-state-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolutewithstate-state-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolutewithstate-state-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">scheduleAbsoluteWithState</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> dueTime<span class="token punctuation">,</span> action<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L227-L236" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed at dueTime.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5955,31 +5959,31 @@ scheduler.advanceBy(<span class="hljs-number">300</span>);
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
-    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
-);
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyVirtualScheduler</span><span class="token punctuation">(</span>
+    <span class="token number">0</span> <span class="token comment" spellcheck="true">/* initial time */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleAbsoluteWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsoluteWithState</span><span class="token punctuation">(</span><span class="token string">&apos;world&apos;</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hello &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleAbsoluteWithState(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;goodnight &apos;</span> + x);
-}, <span class="hljs-string">&apos;moon&apos;</span>);
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsoluteWithState</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;goodnight &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">&apos;moon&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.start();
-<span class="hljs-comment">// =&gt; hello world</span>
-<span class="hljs-comment">// =&gt; goodnight moon</span>
+scheduler<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; hello world</span>
+<span class="token comment" spellcheck="true">// =&gt; goodnight moon</span>
 
-<span class="hljs-built_in">console</span>.log(scheduler.clock);
-<span class="hljs-comment">// =&gt; 200</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">.</span>clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 200</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxvirtualtimeschedulerprototypeschedulerelativeduetime-action-a-rx-virtualtimescheduler-prototype-schedulerelative-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypeschedulerelativeduetime-action-a-rx-virtualtimescheduler-prototype-schedulerelative-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeschedulerelativeduetime-action-a-rx-virtualtimescheduler-prototype-schedulerelative-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeschedulerelativeduetime-action"></a><code>Rx.VirtualTimeScheduler.prototype.scheduleRelative(dueTime, action)</code></h3>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypeschedulerelativeduetime-action-a-rx-virtualtimescheduler-prototype-schedulerelative-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypeschedulerelativeduetime-action-a-rx-virtualtimescheduler-prototype-schedulerelative-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeschedulerelativeduetime-action-a-rx-virtualtimescheduler-prototype-schedulerelative-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeschedulerelativeduetime-action"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">scheduleRelative</span><span class="token punctuation">(</span>dueTime<span class="token punctuation">,</span> action<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvirtualtimeschedulerprototypeschedulerelativeduetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L100-L102" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed at dueTime.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5990,31 +5994,31 @@ scheduler.start();
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
-    <span class="hljs-number">100</span> <span class="hljs-comment">/* initial time */</span>
-);
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyVirtualScheduler</span><span class="token punctuation">(</span>
+    <span class="token number">100</span> <span class="token comment" spellcheck="true">/* initial time */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleRelative</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hello&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleRelative(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;world&apos;</span>);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleRelative</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;world&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.start();
-<span class="hljs-comment">// =&gt; hello</span>
-<span class="hljs-comment">// =&gt; world</span>
+scheduler<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; hello</span>
+<span class="token comment" spellcheck="true">// =&gt; world</span>
 
-<span class="hljs-built_in">console</span>.log(scheduler.clock);
-<span class="hljs-comment">// =&gt; 400</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">.</span>clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 400</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-schedulerelativewithstate-state-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-schedulerelativewithstate-state-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-schedulerelativewithstate-state-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action"></a><code>Rx.VirtualTimeScheduler.prototype.scheduleRelativeWithState(state, dueTime, action)</code></h3>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-schedulerelativewithstate-state-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-schedulerelativewithstate-state-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-schedulerelativewithstate-state-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">scheduleRelativeWithState</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> dueTime<span class="token punctuation">,</span> action<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L89-L92" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Schedules an action to be executed at dueTime.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -6026,31 +6030,31 @@ scheduler.start();
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
-    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
-);
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyVirtualScheduler</span><span class="token punctuation">(</span>
+    <span class="token number">0</span> <span class="token comment" spellcheck="true">/* initial time */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleRelativeWithState</span><span class="token punctuation">(</span><span class="token string">&apos;world&apos;</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hello &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;moon&apos;</span>, <span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;goodnight &apos;</span> + x);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleRelativeWithState</span><span class="token punctuation">(</span><span class="token string">&apos;moon&apos;</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;goodnight &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.start();
-<span class="hljs-comment">// =&gt; hello world</span>
-<span class="hljs-comment">// =&gt; goodnight moon</span>
+scheduler<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; hello world</span>
+<span class="token comment" spellcheck="true">// =&gt; goodnight moon</span>
 
-<span class="hljs-built_in">console</span>.log(scheduler.clock);
-<span class="hljs-comment">// =&gt; 300</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">.</span>clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 300</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxvritualtimeschedulerprototypesleeptime-a-rx-virtualtimescheduler-prototype-sleep-time"><a name="-a-id-rxvritualtimeschedulerprototypesleeptime-a-rx-virtualtimescheduler-prototype-sleep-time" class="plugin-anchor" href="#-a-id-rxvritualtimeschedulerprototypesleeptime-a-rx-virtualtimescheduler-prototype-sleep-time"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypesleeptime"></a><code>Rx.VirtualTimeScheduler.prototype.sleep(time)</code></h3>
+<h3 id="-a-id-rxvritualtimeschedulerprototypesleeptime-a-rx-virtualtimescheduler-prototype-sleep-time"><a name="-a-id-rxvritualtimeschedulerprototypesleeptime-a-rx-virtualtimescheduler-prototype-sleep-time" class="plugin-anchor" href="#-a-id-rxvritualtimeschedulerprototypesleeptime-a-rx-virtualtimescheduler-prototype-sleep-time"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypesleeptime"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvritualtimeschedulerprototypesleeptime">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L182-L190" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Advances the scheduler&apos;s clock by the specified relative time.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -6058,70 +6062,70 @@ scheduler.start();
 <li><code>time</code> <em>(Any)</em>: Relative time to advance the scheduler&apos;s clock by.</li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
-    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
-);
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyVirtualScheduler</span><span class="token punctuation">(</span>
+    <span class="token number">0</span> <span class="token comment" spellcheck="true">/* initial time */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.sleep(<span class="hljs-number">400</span>);
+scheduler<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(scheduler.clock);
-<span class="hljs-comment">// =&gt; 400</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">.</span>clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 400</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxvritualtimeschedulerprototypestart-a-rx-virtualtimescheduler-prototype-start"><a name="-a-id-rxvritualtimeschedulerprototypestart-a-rx-virtualtimescheduler-prototype-start" class="plugin-anchor" href="#-a-id-rxvritualtimeschedulerprototypestart-a-rx-virtualtimescheduler-prototype-start"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypestart"></a><code>Rx.VirtualTimeScheduler.prototype.start()</code></h3>
+<h3 id="-a-id-rxvritualtimeschedulerprototypestart-a-rx-virtualtimescheduler-prototype-start"><a name="-a-id-rxvritualtimeschedulerprototypestart-a-rx-virtualtimescheduler-prototype-start" class="plugin-anchor" href="#-a-id-rxvritualtimeschedulerprototypestart-a-rx-virtualtimescheduler-prototype-start"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypestart"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvritualtimeschedulerprototypestart">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L107-L123" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Starts the virtual time scheduler.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
-    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
-);
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyVirtualScheduler</span><span class="token punctuation">(</span>
+    <span class="token number">0</span> <span class="token comment" spellcheck="true">/* initial time */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleRelativeWithState</span><span class="token punctuation">(</span><span class="token string">&apos;world&apos;</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hello &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;moon&apos;</span>, <span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;goodnight &apos;</span> + x);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleRelativeWithState</span><span class="token punctuation">(</span><span class="token string">&apos;moon&apos;</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;goodnight &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.start();
-<span class="hljs-comment">// =&gt; hello world</span>
-<span class="hljs-comment">// =&gt; goodnight moon</span>
+scheduler<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; hello world</span>
+<span class="token comment" spellcheck="true">// =&gt; goodnight moon</span>
 
-<span class="hljs-built_in">console</span>.log(scheduler.clock);
-<span class="hljs-comment">// =&gt; 400</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>scheduler<span class="token punctuation">.</span>clock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 400</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxvritualtimeschedulerprototypestop-a-rx-virtualtimescheduler-prototype-stop"><a name="-a-id-rxvritualtimeschedulerprototypestop-a-rx-virtualtimescheduler-prototype-stop" class="plugin-anchor" href="#-a-id-rxvritualtimeschedulerprototypestop-a-rx-virtualtimescheduler-prototype-stop"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypestop"></a><code>Rx.VirtualTimeScheduler.prototype.stop()</code></h3>
+<h3 id="-a-id-rxvritualtimeschedulerprototypestop-a-rx-virtualtimescheduler-prototype-stop"><a name="-a-id-rxvritualtimeschedulerprototypestop-a-rx-virtualtimescheduler-prototype-stop" class="plugin-anchor" href="#-a-id-rxvritualtimeschedulerprototypestop-a-rx-virtualtimescheduler-prototype-stop"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypestop"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvritualtimeschedulerprototypestop">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L128-L130" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Stops the virtual time scheduler.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
-    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
-);
+<pre><code class="lang-js"><span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyVirtualScheduler</span><span class="token punctuation">(</span>
+    <span class="token number">0</span> <span class="token comment" spellcheck="true">/* initial time */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello world&apos;</span>);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleRelative</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hello world&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    scheduler.stop();
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleRelative</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    scheduler<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello world&apos;</span>);
-});
+scheduler<span class="token punctuation">.</span><span class="token function">scheduleRelative</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hello world&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-scheduler.start();
-<span class="hljs-comment">// =&gt; hello world</span>
+scheduler<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; hello world</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -6129,7 +6133,7 @@ scheduler.start();
 </ul>
 <hr>
 <h2 id="-virtualtimescheduler-abstract-protected-methods"><a name="-virtualtimescheduler-abstract-protected-methods" class="plugin-anchor" href="#-virtualtimescheduler-abstract-protected-methods"><span class="fa fa-link"></span></a><em>VirtualTimeScheduler Abstract Protected Methods</em></h2>
-<h3 id="-a-id-rxvirtualtimeschedulerprototypeaddabsolute-relative-a-rx-virtualtimescheduler-prototype-add-absolute-relative"><a name="-a-id-rxvirtualtimeschedulerprototypeaddabsolute-relative-a-rx-virtualtimescheduler-prototype-add-absolute-relative" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeaddabsolute-relative-a-rx-virtualtimescheduler-prototype-add-absolute-relative"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeaddabsolute-relative"></a><code>Rx.VirtualTimeScheduler.prototype.add(absolute, relative)</code></h3>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypeaddabsolute-relative-a-rx-virtualtimescheduler-prototype-add-absolute-relative"><a name="-a-id-rxvirtualtimeschedulerprototypeaddabsolute-relative-a-rx-virtualtimescheduler-prototype-add-absolute-relative" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeaddabsolute-relative-a-rx-virtualtimescheduler-prototype-add-absolute-relative"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeaddabsolute-relative"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>absolute<span class="token punctuation">,</span> relative<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvirtualtimeschedulerprototypeaddabsolute-relative">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L54" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Adds a relative time value to an absolute time value.  This method is used in several methods including <code>scheduleRelativeWithState</code>, <code>advanceBy</code> and <code>sleep</code>.</p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
@@ -6141,18 +6145,18 @@ scheduler.start();
 <p><em>(Any)</em>: Resulting absolute virtual time sum value.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <p>One possible implementation could be as simple as the following:</p>
-<pre><code class="lang-js">scheduler.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">absolute, relative</span>) </span>{
-    <span class="hljs-keyword">return</span> absolute + relative;
-};
+<pre><code class="lang-js">scheduler<span class="token punctuation">.</span>add <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>absolute<span class="token punctuation">,</span> relative<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> absolute <span class="token operator">+</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute-a-rx-virtualtimescheduler-prototype-todatetimeoffset-absolute"><a name="-a-id-rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute-a-rx-virtualtimescheduler-prototype-todatetimeoffset-absolute" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute-a-rx-virtualtimescheduler-prototype-todatetimeoffset-absolute"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute"></a><code>Rx.VirtualTimeScheduler.prototype.toDateTimeOffset(absolute)</code></h3>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute-a-rx-virtualtimescheduler-prototype-todatetimeoffset-absolute"><a name="-a-id-rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute-a-rx-virtualtimescheduler-prototype-todatetimeoffset-absolute" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute-a-rx-virtualtimescheduler-prototype-todatetimeoffset-absolute"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toDateTimeOffset</span><span class="token punctuation">(</span>absolute<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L61" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Converts an absolute time to a number.  This is used directly in the <code>now</code> method on the <code>Rx.Scheduler</code></p>
+<p>Converts an absolute time to a number.  This is used directly in the <code>now</code> method on the <code>Rx<span class="token punctuation">.</span>Scheduler</code></p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
 <li><code>absolute</code> <em>(Any)</em>: The absolute time to convert.</li>
@@ -6161,17 +6165,17 @@ scheduler.start();
 <p><em>(Number)</em>: The absolute time in ms.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <p>One possible implementation could be as simple as the following:</p>
-<pre><code class="lang-js"><span class="hljs-comment">// String -&gt; Number</span>
-scheduler.toDateTimeOffset = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">absolute</span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">return</span> absolute.length;
-};
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// String -&gt; Number</span>
+scheduler<span class="token punctuation">.</span>toDateTimeOffset <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>absolute<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">return</span> absolute<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxvirtualtimeschedulerprototypetorelativetimespan-a-rx-virtualtimescheduler-prototype-torelative-timespan"><a name="-a-id-rxvirtualtimeschedulerprototypetorelativetimespan-a-rx-virtualtimescheduler-prototype-torelative-timespan" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypetorelativetimespan-a-rx-virtualtimescheduler-prototype-torelative-timespan"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypetorelativetimespan"></a><code>Rx.VirtualTimeScheduler.prototype.toRelative(timeSpan)</code></h3>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypetorelativetimespan-a-rx-virtualtimescheduler-prototype-torelative-timespan"><a name="-a-id-rxvirtualtimeschedulerprototypetorelativetimespan-a-rx-virtualtimescheduler-prototype-torelative-timespan" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypetorelativetimespan-a-rx-virtualtimescheduler-prototype-torelative-timespan"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypetorelativetimespan"></a><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toRelative</span><span class="token punctuation">(</span>timeSpan<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxvirtualtimeschedulerprototypetorelativetimespan">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L61" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Converts the time span number/Date to a relative virtual time value.</p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
@@ -6182,10 +6186,10 @@ scheduler.toDateTimeOffset = <span class="hljs-function"><span class="hljs-keywo
 <p><em>(Number)</em>: Corresponding relative virtual time value.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <p>One possible implementation could be as simple as the following:</p>
-<pre><code class="lang-js"><span class="hljs-comment">// Number -&gt; Number</span>
-scheduler.toRelative = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">timeSpan</span>) </span>{
-    <span class="hljs-keyword">return</span> timeSpan;
-};
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Number -&gt; Number</span>
+scheduler<span class="token punctuation">.</span>toRelative <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>timeSpan<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> timeSpan<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>

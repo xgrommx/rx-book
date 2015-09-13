@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="12.1" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="12.1" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,71 +5729,71 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-rx-historicalscheduler-class"><a name="-rx-historicalscheduler-class" class="plugin-anchor" href="#-rx-historicalscheduler-class"><span class="fa fa-link"></span></a><code>Rx.HistoricalScheduler</code> class</h3>
+                        <h3 id="-rx-historicalscheduler-class"><a name="-rx-historicalscheduler-class" class="plugin-anchor" href="#-rx-historicalscheduler-class"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span>HistoricalScheduler</code> class</h3>
 <p><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/historicalscheduler.js" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Provides a virtual time scheduler that uses a <code>Date</code> for absolute time and time spans for relative time.  This inherits from the <code>Rx.VirtualTimeScheduler</code> class.</p>
+<p>Provides a virtual time scheduler that uses a <code>Date</code> for absolute time and time spans for relative time.  This inherits from the <code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler</code> class.</p>
 <h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
-<p>The following shows an example of using the <code>Rx.HistoricalScheduler</code>.  This shows creating a minute&apos;s worth of data from January 1st, 1970.</p>
-<pre><code class="lang-js"><span class="hljs-comment">// Initial data</span>
-<span class="hljs-keyword">var</span> initialDate = <span class="hljs-number">0</span>;
-<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.HistoricalScheduler(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(initialDate));
+<p>The following shows an example of using the <code>Rx<span class="token punctuation">.</span>HistoricalScheduler</code>.  This shows creating a minute&apos;s worth of data from January 1st, 1970.</p>
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Initial data</span>
+<span class="token keyword">var</span> initialDate <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>HistoricalScheduler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>initialDate<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Yield unto this subject</span>
-<span class="hljs-keyword">var</span> s = <span class="hljs-keyword">new</span> Rx.Subject();
+<span class="token comment" spellcheck="true">// Yield unto this subject</span>
+<span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Some random data</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getData</span>(<span class="hljs-params">time</span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * (time + <span class="hljs-number">1</span>));
-}
+<span class="token comment" spellcheck="true">// Some random data</span>
+<span class="token keyword">function</span> <span class="token function">getData</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>time <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// Enqueue 1 minute&apos;s worth of data</span>
-<span class="hljs-keyword">while</span> (initialDate &lt;= <span class="hljs-number">60000</span>) {
+<span class="token comment" spellcheck="true">// Enqueue 1 minute&apos;s worth of data</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>initialDate <span class="token operator">&lt;=</span> <span class="token number">60000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-  (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{
+  <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-    scheduler.scheduleWithAbsolute(i, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-      s.onNext({ value: getData(i), date: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(i) });
-    });
+    scheduler<span class="token punctuation">.</span><span class="token function">scheduleWithAbsolute</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      s<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token function">getData</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">,</span> date<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  }(initialDate));
+  <span class="token punctuation">}</span><span class="token punctuation">(</span>initialDate<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  initialDate += <span class="hljs-number">10000</span>;
-}
+  initialDate <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">10000</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// Subscription set</span>
-s.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;value: &apos;</span>, x.value);
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;date: &apos;</span>, x.date.toGMTString());
-});
+<span class="token comment" spellcheck="true">// Subscription set</span>
+s<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;value: &apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;date: &apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">.</span>date<span class="token punctuation">.</span><span class="token function">toGMTString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Run it</span>
-scheduler.start();
+<span class="token comment" spellcheck="true">// Run it</span>
+scheduler<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; value: 0</span>
-<span class="hljs-comment">// =&gt; date: Thu, 1 Jan 1970 00:00:00 UTC</span>
-<span class="hljs-comment">// =&gt; value: 2013</span>
-<span class="hljs-comment">// =&gt; date: Thu, 1 Jan 1970 00:00:10 UTC</span>
-<span class="hljs-comment">// =&gt; value: 5896</span>
-<span class="hljs-comment">// =&gt; date: Thu, 1 Jan 1970 00:00:20 UTC</span>
-<span class="hljs-comment">// =&gt; value: 5415</span>
-<span class="hljs-comment">// =&gt; date: Thu, 1 Jan 1970 00:00:30 UTC</span>
-<span class="hljs-comment">// =&gt; value: 13411</span>
-<span class="hljs-comment">// =&gt; date: Thu, 1 Jan 1970 00:00:40 UTC</span>
-<span class="hljs-comment">// =&gt; value: 15518</span>
-<span class="hljs-comment">// =&gt; date: Thu, 1 Jan 1970 00:00:50 UTC</span>
-<span class="hljs-comment">// =&gt; value: 51076</span>
-<span class="hljs-comment">// =&gt; date: Thu, 1 Jan 1970 00:01:00 UTC</span>
+<span class="token comment" spellcheck="true">// =&gt; value: 0</span>
+<span class="token comment" spellcheck="true">// =&gt; date: Thu, 1 Jan 1970 00:00:00 UTC</span>
+<span class="token comment" spellcheck="true">// =&gt; value: 2013</span>
+<span class="token comment" spellcheck="true">// =&gt; date: Thu, 1 Jan 1970 00:00:10 UTC</span>
+<span class="token comment" spellcheck="true">// =&gt; value: 5896</span>
+<span class="token comment" spellcheck="true">// =&gt; date: Thu, 1 Jan 1970 00:00:20 UTC</span>
+<span class="token comment" spellcheck="true">// =&gt; value: 5415</span>
+<span class="token comment" spellcheck="true">// =&gt; date: Thu, 1 Jan 1970 00:00:30 UTC</span>
+<span class="token comment" spellcheck="true">// =&gt; value: 13411</span>
+<span class="token comment" spellcheck="true">// =&gt; date: Thu, 1 Jan 1970 00:00:40 UTC</span>
+<span class="token comment" spellcheck="true">// =&gt; value: 15518</span>
+<span class="token comment" spellcheck="true">// =&gt; date: Thu, 1 Jan 1970 00:00:50 UTC</span>
+<span class="token comment" spellcheck="true">// =&gt; value: 51076</span>
+<span class="token comment" spellcheck="true">// =&gt; date: Thu, 1 Jan 1970 00:01:00 UTC</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/historicalscheduler.js" target="_blank"><code>/src/core/concurrency/historicalscheduler.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/historicalscheduler.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>concurrency<span class="token operator">/</span>historicalscheduler<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.virutaltime.js" target="_blank"><code>rx.virutaltime.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.virutaltime.js" target="_blank"><code>rx<span class="token punctuation">.</span>virutaltime<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>NPM Packages:</p>
 <ul>
@@ -5797,12 +5801,12 @@ scheduler.start();
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS-All</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-VirtualTime/" target="_blank"><code>RxJS-VirtualTime</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS<span class="token operator">-</span>All</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-VirtualTime/" target="_blank"><code>RxJS<span class="token operator">-</span>VirtualTime</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/historicalscheduler.js" target="_blank"><code>/tests/concurrency/historicalscheduler.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/historicalscheduler.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>concurrency<span class="token operator">/</span>historicalscheduler<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <h2 id="-historicalscheduler-constructor"><a name="-historicalscheduler-constructor" class="plugin-anchor" href="#-historicalscheduler-constructor"><span class="fa fa-link"></span></a><code>HistoricalScheduler Constructor</code></h2>
 <ul>
@@ -5810,10 +5814,10 @@ scheduler.start();
 </ul>
 <h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/virtualtimescheduler.md" target="_blank"><code>Rx.VirtualScheduler</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/virtualtimescheduler.md" target="_blank"><code>Rx<span class="token punctuation">.</span>VirtualScheduler</code></a></li>
 </ul>
 <h2 id="-historicalscheduler-constructor"><a name="-historicalscheduler-constructor" class="plugin-anchor" href="#-historicalscheduler-constructor"><span class="fa fa-link"></span></a><em>HistoricalScheduler Constructor</em></h2>
-<h3 id="-rx-historicalscheduler-initialclock-comparer"><a name="-rx-historicalscheduler-initialclock-comparer" class="plugin-anchor" href="#-rx-historicalscheduler-initialclock-comparer"><span class="fa fa-link"></span></a><code>Rx.HistoricalScheduler([initialClock], [comparer])</code></h3>
+<h3 id="-rx-historicalscheduler-initialclock-comparer"><a name="-rx-historicalscheduler-initialclock-comparer" class="plugin-anchor" href="#-rx-historicalscheduler-initialclock-comparer"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span><span class="token function">HistoricalScheduler</span><span class="token punctuation">(</span><span class="token punctuation">[</span>initialClock<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>comparer<span class="token punctuation">]</span><span class="token punctuation">)</span></code></h3>
 <p><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/historicalscheduler.js" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a new historical scheduler with the specified initial clock value.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5822,16 +5826,16 @@ scheduler.start();
 <li>[<code>comparer</code>] <em>(Function)</em>: Comparer to determine causality of events based on absolute time.</li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> (<span class="hljs-params">x, y</span>) </span>{
-  <span class="hljs-keyword">if</span> (x &gt; y) { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
-  <span class="hljs-keyword">if</span> (x &lt; y) { <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>; }
-  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
+<pre><code class="lang-js"><span class="token keyword">function</span> comparer <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.HistoricalScheduler(
-  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">0</span>),  <span class="hljs-comment">/* initial clock of 0 */</span>
-  comparer      <span class="hljs-comment">/* comparer for determining order */</span>
-);
+<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>HistoricalScheduler</span><span class="token punctuation">(</span>
+  <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">/* initial clock of 0 */</span>
+  comparer      <span class="token comment" spellcheck="true">/* comparer for determining order */</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                     

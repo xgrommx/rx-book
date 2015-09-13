@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="16.1.1.5" data-basepath="../../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="16.1.1.5" data-basepath="../../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,29 +5729,29 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-a-id-rxdomrequestposturl-body-a-rx-dom-request-post-url-body"><a name="-a-id-rxdomrequestposturl-body-a-rx-dom-request-post-url-body" class="plugin-anchor" href="#-a-id-rxdomrequestposturl-body-a-rx-dom-request-post-url-body"><span class="fa fa-link"></span></a><a id="rxdomrequestposturl-body"></a><code>Rx.DOM.Request.post(url, [body])</code></h3>
+                        <h3 id="-a-id-rxdomrequestposturl-body-a-rx-dom-request-post-url-body"><a name="-a-id-rxdomrequestposturl-body-a-rx-dom-request-post-url-body" class="plugin-anchor" href="#-a-id-rxdomrequestposturl-body-a-rx-dom-request-post-url-body"><span class="fa fa-link"></span></a><a id="rxdomrequestposturl-body"></a><code>Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">[</span>body<span class="token punctuation">]</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxdomrequestposturl-body">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L238-L240" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
-<p>Creates an observable sequence from an Ajax POST Request with the body.  This method is just shorthand for the <code>Rx.DOM.Request.ajax</code> method with the POST method.</p>
+<p>Creates an observable sequence from an Ajax POST Request with the body.  This method is just shorthand for the <code>Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Request<span class="token punctuation">.</span>ajax</code> method with the POST method.</p>
 <h4 id="syntax"><a name="syntax" class="plugin-anchor" href="#syntax"><span class="fa fa-link"></span></a>Syntax</h4>
-<pre><code class="lang-js">Rx.DOM.Request.post(url, body);
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> body<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>url</code> <em>(String)</em>: A string of the URL to make the Ajax call.</li>
-<li><code>[body]</code> <em>(Object)</em>: The body to post</li>
+<li><code><span class="token punctuation">[</span>body<span class="token punctuation">]</span></code> <em>(Object)</em>: The body to post</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: The observable sequence which contains the response from the Ajax POST.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js">Rx.DOM.Request.post(<span class="hljs-string">&apos;/test&apos;</span>)
-    .subscribe(
-        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">xhr</span>) </span>{
-            <span class="hljs-built_in">console</span>.log(xhr.responseText);
-        },
-        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-            <span class="hljs-comment">// Log the error</span>
-        }
-    );
+<pre><code class="lang-js">Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">&apos;/test&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        <span class="token keyword">function</span> <span class="token punctuation">(</span>xhr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>xhr<span class="token punctuation">.</span>responseText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// Log the error</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                     

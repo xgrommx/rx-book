@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="8.2.140" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.140" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,21 +5729,21 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-window-windowopenings-windowboundaries-windowclosingselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-window-js"><a name="-rx-observable-prototype-window-windowopenings-windowboundaries-windowclosingselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-window-js" class="plugin-anchor" href="#-rx-observable-prototype-window-windowopenings-windowboundaries-windowclosingselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-window-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/window.js" target="_blank"><code>Rx.Observable.prototype.window([windowOpenings], [windowBoundaries], windowClosingSelector)</code></a></h2>
+                        <h2 id="-rx-observable-prototype-window-windowopenings-windowboundaries-windowclosingselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-window-js"><a name="-rx-observable-prototype-window-windowopenings-windowboundaries-windowclosingselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-window-js" class="plugin-anchor" href="#-rx-observable-prototype-window-windowopenings-windowboundaries-windowclosingselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-window-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/window.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">window</span><span class="token punctuation">(</span><span class="token punctuation">[</span>windowOpenings<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>windowBoundaries<span class="token punctuation">]</span><span class="token punctuation">,</span> windowClosingSelector<span class="token punctuation">)</span></code></a></h2>
 <p>Projects each element of an observable sequence into zero or more windows.</p>
-<pre><code class="lang-js"><span class="hljs-comment">// With window closing selector</span>
-Rx.Observable.prototype.window(windowClosingSelector);
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// With window closing selector</span>
+Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">window</span><span class="token punctuation">(</span>windowClosingSelector<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// With window opening and window closing selector</span>
-Rx.Observable.prototype.window(windowOpenings, windowClosingSelector);
+<span class="token comment" spellcheck="true">// With window opening and window closing selector</span>
+Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">window</span><span class="token punctuation">(</span>windowOpenings<span class="token punctuation">,</span> windowClosingSelector<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// With boundaries</span>
-Rx.Observable.prototype.window(windowBoundaries);
+<span class="token comment" spellcheck="true">// With boundaries</span>
+Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">window</span><span class="token punctuation">(</span>windowBoundaries<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
-<li><code>[windowOpenings]</code> <em>(<code>Observable</code>)</em>: Observable sequence whose elements denote the creation of new windows 
-2.<code>[windowBoundaries]</code> <em>(<code>Observable</code>)</em>: Sequence of window boundary markers. The current window is closed and a new window is opened upon receiving a boundary marker. </li>
+<li><code><span class="token punctuation">[</span>windowOpenings<span class="token punctuation">]</span></code> <em>(<code>Observable</code>)</em>: Observable sequence whose elements denote the creation of new windows 
+2.<code><span class="token punctuation">[</span>windowBoundaries<span class="token punctuation">]</span></code> <em>(<code>Observable</code>)</em>: Sequence of window boundary markers. The current window is closed and a new window is opened upon receiving a boundary marker. </li>
 <li><code>windowClosingSelector</code> <em>(<code>Function</code>)</em>: A function invoked to define the closing of each produced window.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
@@ -5754,15 +5758,15 @@ Rx.Observable.prototype.window(windowBoundaries);
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/window.js" target="_blank"><code>/src/core/observable/window.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/window.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>observable<span class="token operator">/</span>window<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.coincidence.js" target="_blank"><code>rx.coincidence.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.coincidence.js" target="_blank"><code>rx<span class="token punctuation">.</span>coincidence<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 <p>NPM Packages:</p>
 <ul>
@@ -5770,11 +5774,11 @@ Rx.Observable.prototype.window(windowBoundaries);
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Coincidence</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS<span class="token operator">-</span>Coincidence</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/window.js" target="_blank"><code>/tests/observable/window.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/window.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>window<span class="token punctuation">.</span>js</code></a></li>
 </ul>
 
                     

@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="14.3" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="14.3" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,7 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-subscription-class"><a name="-rx-subscription-class" class="plugin-anchor" href="#-rx-subscription-class"><span class="fa fa-link"></span></a><code>Rx.Subscription</code> class</h1>
+                        <h1 id="-rx-subscription-class"><a name="-rx-subscription-class" class="plugin-anchor" href="#-rx-subscription-class"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span>Subscription</code> class</h1>
 <p>Records information about subscriptions to and unsubscriptions from observable sequences.</p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5746,22 +5750,22 @@
 <li><a href="#unsubscribe"><code>unsubscribe</code></a></li>
 </ul>
 <h2 id="-subscription-constructor"><a name="-subscription-constructor" class="plugin-anchor" href="#-subscription-constructor"><span class="fa fa-link"></span></a><em>Subscription Constructor</em></h2>
-<h3 id="-a-id-rxsubscriptionsubscribe-unsubscribe-a-rx-subscription-subscribe-unsubscribe"><a name="-a-id-rxsubscriptionsubscribe-unsubscribe-a-rx-subscription-subscribe-unsubscribe" class="plugin-anchor" href="#-a-id-rxsubscriptionsubscribe-unsubscribe-a-rx-subscription-subscribe-unsubscribe"><span class="fa fa-link"></span></a><a id="rxsubscriptionsubscribe-unsubscribe"></a><code>Rx.Subscription(subscribe, unsubscribe)</code></h3>
+<h3 id="-a-id-rxsubscriptionsubscribe-unsubscribe-a-rx-subscription-subscribe-unsubscribe"><a name="-a-id-rxsubscriptionsubscribe-unsubscribe-a-rx-subscription-subscribe-unsubscribe" class="plugin-anchor" href="#-a-id-rxsubscriptionsubscribe-unsubscribe-a-rx-subscription-subscribe-unsubscribe"><span class="fa fa-link"></span></a><a id="rxsubscriptionsubscribe-unsubscribe"></a><code>Rx<span class="token punctuation">.</span><span class="token function">Subscription</span><span class="token punctuation">(</span>subscribe<span class="token punctuation">,</span> unsubscribe<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxsubscriptionsubscribe-unsubscribe">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L8-L11" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a new subscription object with the given virtual subscription and unsubscription time.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>subscribe</code> <em>(Number)</em>: Virtual time at which the subscription occurred.</li>
-<li><code>[unsubscribe = Number.MAX_VALUE]</code> <em>(Number)</em>: Virtual time at which the unsubscription occurred.</li>
+<li><code><span class="token punctuation">[</span>unsubscribe <span class="token operator">=</span> Number<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">]</span></code> <em>(Number)</em>: Virtual time at which the unsubscription occurred.</li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subscription = <span class="hljs-keyword">new</span> Rx.Subscription(<span class="hljs-number">200</span>, <span class="hljs-number">1000</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> subscription <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subscription</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(recorded.time);
-<span class="hljs-comment">// =&gt; 200</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>recorded<span class="token punctuation">.</span>time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 200</span>
 
-<span class="hljs-built_in">console</span>.log(recorded.unsubscribe);
-<span class="hljs-comment">// =&gt; 1000</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>recorded<span class="token punctuation">.</span>unsubscribe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 1000</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5769,7 +5773,7 @@
 </ul>
 <hr>
 <h2 id="-subscription-instance-methods"><a name="-subscription-instance-methods" class="plugin-anchor" href="#-subscription-instance-methods"><span class="fa fa-link"></span></a><em>Subscription Instance Methods</em></h2>
-<h3 id="-a-id-rxsubscriptionprototypeequalsother-a-rx-subscription-prototype-equals-other"><a name="-a-id-rxsubscriptionprototypeequalsother-a-rx-subscription-prototype-equals-other" class="plugin-anchor" href="#-a-id-rxsubscriptionprototypeequalsother-a-rx-subscription-prototype-equals-other"><span class="fa fa-link"></span></a><a id="rxsubscriptionprototypeequalsother"></a><code>Rx.Subscription.prototype.equals(other)</code></h3>
+<h3 id="-a-id-rxsubscriptionprototypeequalsother-a-rx-subscription-prototype-equals-other"><a name="-a-id-rxsubscriptionprototypeequalsother-a-rx-subscription-prototype-equals-other" class="plugin-anchor" href="#-a-id-rxsubscriptionprototypeequalsother-a-rx-subscription-prototype-equals-other"><span class="fa fa-link"></span></a><a id="rxsubscriptionprototypeequalsother"></a><code>Rx<span class="token punctuation">.</span>Subscription<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>other<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxsubscriptionprototypeequalsother">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L18-L20" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Checks whether the given subscription is equal to the current instance.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5777,37 +5781,37 @@
 <li><code>other</code> <em>(Subscription)</em>: Subscription object to check for equality.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Boolean)</em>: Returns <code>true</code> if the Subscription equals the other, else <code>false</code>.</p>
+<p><em>(Boolean)</em>: Returns <code><span class="token keyword">true</span></code> if the Subscription equals the other, else <code><span class="token keyword">false</span></code>.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> s1 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>, <span class="hljs-number">500</span>);
-<span class="hljs-keyword">var</span> s2 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>);
-<span class="hljs-keyword">var</span> s3 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>, <span class="hljs-number">500</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subscription</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> s2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subscription</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> s3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subscription</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(s1.equals(s2));
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 
-<span class="hljs-built_in">console</span>.log(s1.equals(s3));
-<span class="hljs-comment">// =&gt; true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>s3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxsubscriptionprototypetostring-a-rx-subscription-prototype-tostring"><a name="-a-id-rxsubscriptionprototypetostring-a-rx-subscription-prototype-tostring" class="plugin-anchor" href="#-a-id-rxsubscriptionprototypetostring-a-rx-subscription-prototype-tostring"><span class="fa fa-link"></span></a><a id="rxsubscriptionprototypetostring"></a><code>Rx.Subscription.prototype.toString()</code></h3>
+<h3 id="-a-id-rxsubscriptionprototypetostring-a-rx-subscription-prototype-tostring"><a name="-a-id-rxsubscriptionprototypetostring-a-rx-subscription-prototype-tostring" class="plugin-anchor" href="#-a-id-rxsubscriptionprototypetostring-a-rx-subscription-prototype-tostring"><span class="fa fa-link"></span></a><a id="rxsubscriptionprototypetostring"></a><code>Rx<span class="token punctuation">.</span>Subscription<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxsubscriptionprototypeequalsother">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L30-L32" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Returns a string representation of the current Subscription value.</p>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(String)</em>: String representation of the current Subscription value.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> s1 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subscription</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(s1.toString());
-<span class="hljs-comment">// =&gt; (201, Infinite)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; (201, Infinite)</span>
 
-<span class="hljs-keyword">var</span> s2 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>, <span class="hljs-number">1000</span>);
-<span class="hljs-built_in">console</span>.log(s2.toString());
-<span class="hljs-comment">// =&gt; (201, 1000)</span>
+<span class="token keyword">var</span> s2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subscription</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s2<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; (201, 1000)</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5821,10 +5825,10 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Number)</em>: The subscription virtual time.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> s1 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subscription</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(s1.subscribe);
-<span class="hljs-comment">// =&gt; 201</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>subscribe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 201</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5837,10 +5841,10 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Number)</em>: The unsubscription virtual time.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> s1 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>, <span class="hljs-number">500</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subscription</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(r1.unsubscribe);
-<span class="hljs-comment">// =&gt; foo</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>r1<span class="token punctuation">.</span>unsubscribe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; foo</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>

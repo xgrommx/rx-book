@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="15.2.2" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="15.2.2" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5726,7 +5730,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="toeventemitter"><a name="toeventemitter" class="plugin-anchor" href="#toeventemitter"><span class="fa fa-link"></span></a>toEventEmitter</h1>
-<h3 id="-a-id-rxnodetoeventemitterobservable-eventname-a-rx-node-toeventemitter-observable-eventname"><a name="-a-id-rxnodetoeventemitterobservable-eventname-a-rx-node-toeventemitter-observable-eventname" class="plugin-anchor" href="#-a-id-rxnodetoeventemitterobservable-eventname-a-rx-node-toeventemitter-observable-eventname"><span class="fa fa-link"></span></a><a id="rxnodetoeventemitterobservable-eventname"></a><code>Rx.Node.toEventEmitter(observable, eventName)</code></h3>
+<h3 id="-a-id-rxnodetoeventemitterobservable-eventname-a-rx-node-toeventemitter-observable-eventname"><a name="-a-id-rxnodetoeventemitterobservable-eventname-a-rx-node-toeventemitter-observable-eventname" class="plugin-anchor" href="#-a-id-rxnodetoeventemitterobservable-eventname-a-rx-node-toeventemitter-observable-eventname"><span class="fa fa-link"></span></a><a id="rxnodetoeventemitterobservable-eventname"></a><code>Rx<span class="token punctuation">.</span>Node<span class="token punctuation">.</span><span class="token function">toEventEmitter</span><span class="token punctuation">(</span>observable<span class="token punctuation">,</span> eventName<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxnodetoeventemitterobservable-eventname">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.node.js#L66-L84" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Converts the given observable sequence to an event emitter with the given event name. 
 The errors are handled on the &apos;error&apos; event and completion on the &apos;end&apos; event.</p>
@@ -5738,25 +5742,25 @@ The errors are handled on the &apos;error&apos; event and completion on the &apo
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(EventEmitter)</em>: An EventEmitter which emits the given eventName for each onNext call in addition to &apos;error&apos; and &apos;end&apos; events.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;Rx&apos;</span>);
+<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;Rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> source = Rx.Observable.return(<span class="hljs-number">42</span>);
+<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> emitter = Rx.Node.toEventEmitter(source, <span class="hljs-string">&apos;data&apos;</span>);
+<span class="token keyword">var</span> emitter <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Node<span class="token punctuation">.</span><span class="token function">toEventEmitter</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> <span class="token string">&apos;data&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-emitter.on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Data: &apos;</span> + data); 
-});
+emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&apos;data&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Data: &apos;</span> <span class="token operator">+</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-emitter.on(<span class="hljs-string">&apos;end&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;End&apos;</span>);
-});
+emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&apos;end&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;End&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Ensure to call publish to fire events from the observable</span>
-emitter.publish();
+<span class="token comment" spellcheck="true">// Ensure to call publish to fire events from the observable</span>
+emitter<span class="token punctuation">.</span><span class="token function">publish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// =&gt; Data: 42</span>
-<span class="hljs-comment">// =&gt; End</span>
+<span class="token comment" spellcheck="true">// =&gt; Data: 42</span>
+<span class="token comment" spellcheck="true">// =&gt; End</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>

@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="13.5" data-basepath="../../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="13.5" data-basepath="../../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,18 +5729,18 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-singleassignmentdisposable-class"><a name="-rx-singleassignmentdisposable-class" class="plugin-anchor" href="#-rx-singleassignmentdisposable-class"><span class="fa fa-link"></span></a><code>Rx.SingleAssignmentDisposable</code> class</h1>
+                        <h1 id="-rx-singleassignmentdisposable-class"><a name="-rx-singleassignmentdisposable-class" class="plugin-anchor" href="#-rx-singleassignmentdisposable-class"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span>SingleAssignmentDisposable</code> class</h1>
 <p>Represents a disposable resource which only allows a single assignment of its underlying disposable resource. If an underlying disposable resource has already been set, future attempts to set the underlying disposable resource will throw an Error.</p>
 <h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
 <p>The follow example shows the basic usage of an Rx.SingleAssignmentDisposable.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> singleDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SingleAssignmentDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-singleDisposable.setDisposable(disposable);
+singleDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-singleDisposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+singleDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; disposed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5757,14 +5761,14 @@ singleDisposable.dispose();
 <li><a href="#isdisposed"><code>isDisposed</code></a></li>
 </ul>
 <h2 id="-singleassignmentdisposable-constructor"><a name="-singleassignmentdisposable-constructor" class="plugin-anchor" href="#-singleassignmentdisposable-constructor"><span class="fa fa-link"></span></a><em>SingleAssignmentDisposable Constructor</em></h2>
-<h3 id="-a-id-rxsingleassignmentdisposable-a-rx-singleassignmentdisposable"><a name="-a-id-rxsingleassignmentdisposable-a-rx-singleassignmentdisposable" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposable-a-rx-singleassignmentdisposable"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposable"></a><code>Rx.SingleAssignmentDisposable()</code></h3>
+<h3 id="-a-id-rxsingleassignmentdisposable-a-rx-singleassignmentdisposable"><a name="-a-id-rxsingleassignmentdisposable-a-rx-singleassignmentdisposable" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposable-a-rx-singleassignmentdisposable"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposable"></a><code>Rx<span class="token punctuation">.</span><span class="token function">SingleAssignmentDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxsingleassignmentdisposable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/singleassignmentdisposable.js#L7-L10" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Initializes a new instance of the <code>Rx.SingleAssignmentDisposable</code> class.</p>
+<p>Initializes a new instance of the <code>Rx<span class="token punctuation">.</span>SingleAssignmentDisposable</code> class.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> singleDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SingleAssignmentDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(singleDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>singleDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5772,52 +5776,52 @@ singleDisposable.dispose();
 </ul>
 <hr>
 <h2 id="-singleassignmentdisposable-instance-methods"><a name="-singleassignmentdisposable-instance-methods" class="plugin-anchor" href="#-singleassignmentdisposable-instance-methods"><span class="fa fa-link"></span></a><em>SingleAssignmentDisposable Instance Methods</em></h2>
-<h3 id="-a-id-rxsingleassignmentdisposableprototypedispose-a-rx-singleassignmentdisposable-prototype-dispose"><a name="-a-id-rxsingleassignmentdisposableprototypedispose-a-rx-singleassignmentdisposable-prototype-dispose" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposableprototypedispose-a-rx-singleassignmentdisposable-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposableprototypedispose"></a><code>Rx.SingleAssignmentDisposable.prototype.dispose()</code></h3>
+<h3 id="-a-id-rxsingleassignmentdisposableprototypedispose-a-rx-singleassignmentdisposable-prototype-dispose"><a name="-a-id-rxsingleassignmentdisposableprototypedispose-a-rx-singleassignmentdisposable-prototype-dispose" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposableprototypedispose-a-rx-singleassignmentdisposable-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposableprototypedispose"></a><code>Rx<span class="token punctuation">.</span>SingleAssignmentDisposable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxsingleassignmentdisposableprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/singleassignmentdisposable.js#L47-L57" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Disposes the underlying disposable.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> singleDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SingleAssignmentDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-singleDisposable.setDisposable(disposable);
+singleDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(singleDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>singleDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 
-singleDisposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+singleDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; disposed</span>
 
-<span class="hljs-built_in">console</span>.log(singleDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>singleDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxsingleassignmentdisposableprototypegetdisposable-a-rx-singleassignmentdisposable-prototype-getdisposable"><a name="-a-id-rxsingleassignmentdisposableprototypegetdisposable-a-rx-singleassignmentdisposable-prototype-getdisposable" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposableprototypegetdisposable-a-rx-singleassignmentdisposable-prototype-getdisposable"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposableprototypegetdisposable"></a><code>Rx.SingleAssignmentDisposable.prototype.getDisposable()</code></h3>
+<h3 id="-a-id-rxsingleassignmentdisposableprototypegetdisposable-a-rx-singleassignmentdisposable-prototype-getdisposable"><a name="-a-id-rxsingleassignmentdisposableprototypegetdisposable-a-rx-singleassignmentdisposable-prototype-getdisposable" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposableprototypegetdisposable-a-rx-singleassignmentdisposable-prototype-getdisposable"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposableprototypegetdisposable"></a><code>Rx<span class="token punctuation">.</span>SingleAssignmentDisposable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">getDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
 <p><a href="#rxsingleassignmentdisposableprototypegetdisposable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/singleassignmentdisposable.js#L18-L20" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets the underlying disposable. After disposal, the result of getting this method is undefined.</p>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The underlying disposable.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> singleDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SingleAssignmentDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-singleDisposable.setDisposable(disposable);
+singleDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> d = singleDisposable.getDisposable();
+<span class="token keyword">var</span> d <span class="token operator">=</span> singleDisposable<span class="token punctuation">.</span><span class="token function">getDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(d === disposable);
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>d <span class="token operator">===</span> disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxsingleassignmentdisposableprototypesetdisposablevalue-a-rx-singleassignmentdisposable-prototype-setdisposable-value"><a name="-a-id-rxsingleassignmentdisposableprototypesetdisposablevalue-a-rx-singleassignmentdisposable-prototype-setdisposable-value" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposableprototypesetdisposablevalue-a-rx-singleassignmentdisposable-prototype-setdisposable-value"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposableprototypesetdisposablevalue"></a><code>Rx.SingleAssignmentDisposable.prototype.setDisposable(value)</code></h3>
+<h3 id="-a-id-rxsingleassignmentdisposableprototypesetdisposablevalue-a-rx-singleassignmentdisposable-prototype-setdisposable-value"><a name="-a-id-rxsingleassignmentdisposableprototypesetdisposablevalue-a-rx-singleassignmentdisposable-prototype-setdisposable-value" class="plugin-anchor" href="#-a-id-rxsingleassignmentdisposableprototypesetdisposablevalue-a-rx-singleassignmentdisposable-prototype-setdisposable-value"><span class="fa fa-link"></span></a><a id="rxsingleassignmentdisposableprototypesetdisposablevalue"></a><code>Rx<span class="token punctuation">.</span>SingleAssignmentDisposable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span></code></h3>
 <p><a href="#rxsingleassignmentdisposableprototypesetdisposablevalue">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/singleassignmentdisposable.js#L31-L42" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Sets the underlying disposable.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5825,21 +5829,21 @@ singleDisposable.setDisposable(disposable);
 <li><code>value</code> <em>(Disposable)</em>: The new underlying disposable.</li>
 </ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> singleDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SingleAssignmentDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
+<span class="token keyword">var</span> d1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-singleDisposable.setDisposable(d1);
+singleDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> d2 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;two&apos;</span>));
+<span class="token keyword">var</span> d2 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">try</span> {
-    singleDisposable.setDisposable(d2);
-} <span class="hljs-keyword">catch</span> (e) {
-    <span class="hljs-built_in">console</span>.log(e.message);
-}
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    singleDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>d2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// =&gt; Disposable has already been assigned</span>
+<span class="token comment" spellcheck="true">// =&gt; Disposable has already been assigned</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5851,20 +5855,20 @@ singleDisposable.setDisposable(d1);
 <p><a href="#isdisposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/singleassignmentdisposable.js#L8" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Gets a value that indicates whether the object is disposed.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> singleDisposable = <span class="hljs-keyword">new</span> Rx.SingleAssignmentDisposable();
+<pre><code class="lang-js"><span class="token keyword">var</span> singleDisposable <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SingleAssignmentDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<span class="token keyword">var</span> disposable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-singleDisposable.setDisposable(disposable);
+singleDisposable<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>disposable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(singleDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>singleDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; false</span>
 
-singleDisposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+singleDisposable<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; disposed</span>
 
-<span class="hljs-built_in">console</span>.log(singleDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>singleDisposable<span class="token punctuation">.</span>isDisposed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>

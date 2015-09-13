@@ -41,10 +41,14 @@
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
         
     
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
     
 
         
-    <div class="book" data-level="7.2" data-basepath="../.." data-revision="Sat Sep 12 2015 15:11:29 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="7.2" data-basepath="../.." data-revision="Sun Sep 13 2015 19:05:48 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5725,7 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-helpers-defaultsubcomparer-x-y-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l9"><a name="-rx-helpers-defaultsubcomparer-x-y-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l9" class="plugin-anchor" href="#-rx-helpers-defaultsubcomparer-x-y-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l9"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L9" target="_blank"><code>Rx.helpers.defaultSubComparer(x, y)</code></a></h2>
+                        <h2 id="-rx-helpers-defaultsubcomparer-x-y-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l9"><a name="-rx-helpers-defaultsubcomparer-x-y-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l9" class="plugin-anchor" href="#-rx-helpers-defaultsubcomparer-x-y-https-github-com-reactive-extensions-rxjs-blob-master-src-core-headers-basicheader-js-l9"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L9" target="_blank"><code>Rx<span class="token punctuation">.</span>helpers<span class="token punctuation">.</span><span class="token function">defaultSubComparer</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span></code></a></h2>
 <p>The default comparer to determine whether one object is greater, less than or equal to another.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
@@ -5733,24 +5737,24 @@
 <li><code>y</code> <em>(Any)</em>: The second value to compare</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Number)</em>: Returns <code>1</code> if <code>x</code> is greater than <code>y</code>, <code>-1</code> if <code>y</code> is greater than <code>x</code>, and <code>0</code> if the objects are equal.</p>
+<p><em>(Number)</em>: Returns <code><span class="token number">1</span></code> if <code>x</code> is greater than <code>y</code>, <code><span class="token operator">-</span><span class="token number">1</span></code> if <code>y</code> is greater than <code>x</code>, and <code><span class="token number">0</span></code> if the objects are equal.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> comparer = Rx.helpers.defaultSubcomparer;
+<pre><code class="lang-js"><span class="token keyword">var</span> comparer <span class="token operator">=</span> Rx<span class="token punctuation">.</span>helpers<span class="token punctuation">.</span>defaultSubcomparer<span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Should return 0</span>
-<span class="hljs-keyword">var</span> x = <span class="hljs-number">42</span>, y = <span class="hljs-number">42</span>
-<span class="hljs-built_in">console</span>.log(comparer(x, y));
-<span class="hljs-comment">// =&gt; 0</span>
+<span class="token comment" spellcheck="true">// Should return 0</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">42</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">comparer</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 0</span>
 
-<span class="hljs-comment">// Should return -1</span>
-<span class="hljs-keyword">var</span> x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">0</span>), y = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
-<span class="hljs-built_in">console</span>.log(comparer(x, y));
-<span class="hljs-comment">// =&gt; -1</span>
+<span class="token comment" spellcheck="true">// Should return -1</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">comparer</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; -1</span>
 
-<span class="hljs-comment">// Should return 1</span>
-<span class="hljs-keyword">var</span> x = <span class="hljs-number">43</span>, y = <span class="hljs-number">42</span>;
-<span class="hljs-built_in">console</span>.log(comparer(x, y));
-<span class="hljs-comment">// =&gt; 1</span>
+<span class="token comment" spellcheck="true">// Should return 1</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">43</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">comparer</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// =&gt; 1</span>
 </code></pre>
 
                     

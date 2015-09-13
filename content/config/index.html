@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="6" data-basepath="../.." data-revision="Sun Sep 13 2015 20:38:47 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="6" data-basepath="../.." data-revision="Sun Sep 13 2015 20:59:21 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,36 +5733,9 @@
 <p>Configuration information for the Reactive Extensions for JavaScript</p>
 <h2 id="documentation"><a name="documentation" class="plugin-anchor" href="#documentation"><span class="fa fa-link"></span></a>Documentation</h2>
 <ul>
-<li><a href="#rxconfigpromise"><code>Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>Promise</code></a></li>
-<li><a href="#rxconfigusenativeevents"><code>Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>useNativeEvents</code></a></li>
+<li><a href="content/config/promise.html"><code>Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>Promise</code></a></li>
+<li><a href="content/config/usenativeevents.html"><code>Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>useNativeEvents</code></a></li>
 </ul>
-<hr>
-<h3 id="-a-id-rxconfigpromise-a-rx-config-promise"><a name="-a-id-rxconfigpromise-a-rx-config-promise" class="plugin-anchor" href="#-a-id-rxconfigpromise-a-rx-config-promise"><span class="fa fa-link"></span></a><a id="rxconfigpromise"></a><code>Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>Promise</code></h3>
-<p><a href="#rxconfigpromise">#</a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/basicheader.js" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
-<p>Sets the default Promise type to be used when the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/topromise.md" target="_blank"><code>toPromise</code></a> method is called.  Note that the Promise implementation must conform to the ES6 specification.  Some of those supported libraries are <a href="https://github.com/kriskowal/q" target="_blank">Q</a>, <a href="https://github.com/tildeio/rsvp.js" target="_blank">RSVP</a>, <a href="https://github.com/cujojs/when" target="_blank">when.js</a> among others.  If not specified, this defaults to the native ES6 Promise, if available, else will throw an error.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>Promise <span class="token operator">=</span> RSVP<span class="token punctuation">.</span>Promise<span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> p <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>value <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Value: %s&apos;</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; Value: 1</span>
-</code></pre>
-<hr>
-<h3 id="-a-id-rxconfigusenativeevents-a-rx-config-usenativeevents"><a name="-a-id-rxconfigusenativeevents-a-rx-config-usenativeevents" class="plugin-anchor" href="#-a-id-rxconfigusenativeevents-a-rx-config-usenativeevents"><span class="fa fa-link"></span></a><a id="rxconfigusenativeevents"></a><code>Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>useNativeEvents</code></h3>
-<p><a href="#rxconfigusenativeevents">#</a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromevent.js" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
-<p>Determines whether the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/fromevent.md" target="_blank"><code>fromEvent</code></a> method uses native DOM events only and disregards the referenced supported libraries such as <a href="http://jquery.com/" target="_blank">jQuery</a>, <a href="http://zeptojs.com/" target="_blank">Zepto.js</a>, <a href="https://angularjs.org/" target="_blank">AngularJS</a>, <a href="http://emberjs.com/" target="_blank">Ember.js</a> and <a href="http://backbonejs.org" target="_blank">Backbone.js</a></p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<p>For example, we could have jQuery referenced as part of our project, however, we only want native DOM events.</p>
-<pre><code class="lang-html"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;jquery.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;rx.lite.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
-</code></pre>
-<p>We can do this by setting the <code>Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>useNativeEvents</code> flag to <code><span class="token keyword">true</span></code>.</p>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>useNativeEvents <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
-
-Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>document<span class="token punctuation">,</span> <span class="token string">&apos;mousemove&apos;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;ClientX: %d, ClientY: %d&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>clientX<span class="token punctuation">,</span> e<span class="token punctuation">.</span>clientY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<hr>
 
                     
                     </section>

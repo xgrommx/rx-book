@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="8.1.24" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.24" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,11 +5729,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js"><a name="-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js" class="plugin-anchor" href="#-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergedelayerror.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">mergeDelayError</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>args<span class="token punctuation">)</span></code></a></h2>
+                        <h2 id="-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js"><a name="-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js" class="plugin-anchor" href="#-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergedelayerror.js" target="_blank"><code>Rx.Observable.mergeDelayError(...args)</code></a></h2>
 <p>Flattens an Observable that emits Observables into one Observable, in a way that allows an Observer to
 receive all successfully emitted items from all of the source Observables without being interrupted by
 an error notification from one of them.</p>
-<p>This behaves like <code>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>mergeAll</code> except that if any of the merged Observables notify of an
+<p>This behaves like <code>Observable.prototype.mergeAll</code> except that if any of the merged Observables notify of an
 error via the Observer&apos;s <code>onError</code>, <code>mergeDelayError</code> will refrain from propagating that
 error notification until all of the merged Observables have finished emitting items.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5747,30 +5743,30 @@ error notification until all of the merged Observables have finished emitting it
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An Observable that emits all of the items emitted by the Observables emitted by the Observable</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> source1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> source2 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">throwError</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;woops&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> source3 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.of(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
+<span class="hljs-keyword">var</span> source2 = Rx.Observable.throwError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;woops&apos;</span>));
+<span class="hljs-keyword">var</span> source3 = Rx.Observable.of(<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>);
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">mergeDelayError</span><span class="token punctuation">(</span>source1<span class="token punctuation">,</span> source2<span class="token punctuation">,</span> source3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.mergeDelayError(source1, source2, source3);
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: %s&apos;</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: %s&apos;</span>, x);
+  },
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: %s&apos;</span>, err);
+  },
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+  });
 
-<span class="token comment" spellcheck="true">// =&gt; 1</span>
-<span class="token comment" spellcheck="true">// =&gt; 2</span>
-<span class="token comment" spellcheck="true">// =&gt; 3</span>
-<span class="token comment" spellcheck="true">// =&gt; 4</span>
-<span class="token comment" spellcheck="true">// =&gt; 5</span>
-<span class="token comment" spellcheck="true">// =&gt; 6</span>
-<span class="token comment" spellcheck="true">// =&gt; Error: Error: woops</span>
+<span class="hljs-comment">// =&gt; 1</span>
+<span class="hljs-comment">// =&gt; 2</span>
+<span class="hljs-comment">// =&gt; 3</span>
+<span class="hljs-comment">// =&gt; 4</span>
+<span class="hljs-comment">// =&gt; 5</span>
+<span class="hljs-comment">// =&gt; 6</span>
+<span class="hljs-comment">// =&gt; Error: Error: woops</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
@@ -5779,14 +5775,14 @@ error notification until all of the merged Observables have finished emitting it
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx.lite.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
 </ul>
 <p>NPM Packages:</p>
 <ul>
@@ -5794,13 +5790,13 @@ error notification until all of the merged Observables have finished emitting it
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS<span class="token operator">-</span>All</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS<span class="token operator">-</span>Main</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-All</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/mergedelayerror.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>mergedelayerror<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/mergedelayerror.js" target="_blank"><code>/tests/observable/mergedelayerror.js</code></a></li>
 </ul>
 
                     
@@ -5835,6 +5831,10 @@ error notification until all of the merged Observables have finished emitting it
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

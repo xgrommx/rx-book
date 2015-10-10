@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="3.3.8" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.8" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5734,82 +5730,82 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="transducers-with-observable-sequences"><a name="transducers-with-observable-sequences" class="plugin-anchor" href="#transducers-with-observable-sequences"><span class="fa fa-link"></span></a>Transducers with Observable Sequences</h1>
-<p>Much like Language Integrated Query (LINQ), Transducers are composable algorithmic transformations. They, like LINQ, are independent from the context of their input and output sources and specify only the essence of the transformation in terms of an individual element. Because transducers are decoupled from input or output sources, they can be used in many different processes - collections, streams, observables, etc. Transducers compose directly, without awareness of input or creation of intermediate aggregates.  There are two major libraries currently out there, Cognitect&apos;s <a href="https://github.com/cognitect-labs/transducers-js" target="_blank"><code>transducer<span class="token operator">-</span>js</code></a> and James Long&apos;s <a href="https://github.com/jlongster/transducers.js" target="_blank"><code>transducers<span class="token punctuation">.</span>js</code></a> which are both great for getting high performance over large amounts of data.  Because it is collection type neutral, it is a perfect fit for RxJS to do transformations over large collections.</p>
+<p>Much like Language Integrated Query (LINQ), Transducers are composable algorithmic transformations. They, like LINQ, are independent from the context of their input and output sources and specify only the essence of the transformation in terms of an individual element. Because transducers are decoupled from input or output sources, they can be used in many different processes - collections, streams, observables, etc. Transducers compose directly, without awareness of input or creation of intermediate aggregates.  There are two major libraries currently out there, Cognitect&apos;s <a href="https://github.com/cognitect-labs/transducers-js" target="_blank"><code>transducer-js</code></a> and James Long&apos;s <a href="https://github.com/jlongster/transducers.js" target="_blank"><code>transducers.js</code></a> which are both great for getting high performance over large amounts of data.  Because it is collection type neutral, it is a perfect fit for RxJS to do transformations over large collections.</p>
 <p>The word <code>transduce</code> is just a combination of <code>transform</code> and <code>reduce</code>. The reduce function is the base transformation; any other transformation can be expressed in terms of it (<code>map</code>, <code>filter</code>, etc).</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
 
-arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> result<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+arr.reduce((result, x) =&gt; result.concat(x + <span class="hljs-number">1</span>), []);
 
-<span class="token comment" spellcheck="true">// =&gt; [ 2, 3, 4, 5 ]</span>
+<span class="hljs-comment">// =&gt; [ 2, 3, 4, 5 ]</span>
 </code></pre>
 <p>Using transducers, we can model the following behavior while breaking apart the map aspect of adding 1 to the concat operation, adding the seed and then the &quot;collection&quot; to transduce.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
 
-<span class="token keyword">function</span> <span class="token function">increment</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-<span class="token keyword">function</span> <span class="token function">concatItem</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> acc<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">concatItem</span>(<span class="hljs-params">acc, x</span>) </span>{ <span class="hljs-keyword">return</span> acc.concat(x); }
 
-<span class="token function">transduce</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span>increment<span class="token punctuation">)</span><span class="token punctuation">,</span> concatItem<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+transduce(map(increment), concatItem, [], arr);
 
-<span class="token comment" spellcheck="true">// =&gt; [ 2, 3, 4, 5 ]</span>
+<span class="hljs-comment">// =&gt; [ 2, 3, 4, 5 ]</span>
 </code></pre>
-<p>Using Cognitect&apos;s <a href="https://github.com/cognitect-labs/transducers-js" target="_blank"><code>transducers<span class="token operator">-</span>js</code></a> library, we can easily accomplish what we had above.  </p>
-<pre><code class="lang-js"><span class="token keyword">var</span> t <span class="token operator">=</span> transducers<span class="token punctuation">;</span>
+<p>Using Cognitect&apos;s <a href="https://github.com/cognitect-labs/transducers-js" target="_blank"><code>transducers-js</code></a> library, we can easily accomplish what we had above.  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> t = transducers;
 
-<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
 
-<span class="token keyword">function</span> <span class="token function">increment</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; }
 
-<span class="token function">into</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> t<span class="token punctuation">.</span><span class="token function">comp</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>increment<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+into([], t.comp(t.map(increment)), arr);
 
-<span class="token comment" spellcheck="true">// =&gt; [ 2, 3, 4, 5 ]</span>
+<span class="hljs-comment">// =&gt; [ 2, 3, 4, 5 ]</span>
 </code></pre>
 <p>We can go a step further and add filtering as well to get only even values.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> t <span class="token operator">=</span> transducers<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> t = transducers;
 
-<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
 
-<span class="token keyword">function</span> <span class="token function">increment</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-<span class="token keyword">function</span> <span class="token function">isEven</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isEven</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; }
 
-<span class="token function">into</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> t<span class="token punctuation">.</span><span class="token function">comp</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>increment<span class="token punctuation">)</span><span class="token punctuation">,</span> t<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isEven<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+into([], t.comp(t.map(increment), t.filter(isEven)), arr);
 
-<span class="token comment" spellcheck="true">// =&gt; [ 2, 4 ]</span>
+<span class="hljs-comment">// =&gt; [ 2, 4 ]</span>
 </code></pre>
 <p>Since it works so well using Arrays, there&apos;s no reason why it cannot work for Observable sequences as well.  To that end, we have introduced the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/transduce.md" target="_blank"><code>transduce</code></a> method which acts exactly like it does for Arrays, but for Observable sequences.  Once again, let&apos;s go over the above example, this time using an Observable sequence.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> t <span class="token operator">=</span> transducers<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> t = transducers;
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>);
 
-<span class="token keyword">function</span> <span class="token function">increment</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-<span class="token keyword">function</span> <span class="token function">isEven</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isEven</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; }
 
-<span class="token keyword">var</span> transduced <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">transduce</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token function">comp</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>increment<span class="token punctuation">)</span><span class="token punctuation">,</span> t<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isEven<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> transduced = source.transduce(t.comp(t.map(increment), t.filter(isEven)));
 
-transduced<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+transduced.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; Next: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; Completed</span>
+<span class="hljs-comment">// =&gt; Next: 2</span>
+<span class="hljs-comment">// =&gt; Next: 4</span>
+<span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
-<p>Note that this above example also works the same with <code>transducers<span class="token punctuation">.</span>js</code> as well with little to no modification.  This example will in fact work faster than the traditional LINQ style (as of now) which most use currently.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>Note that this above example also works the same with <code>transducers.js</code> as well with little to no modification.  This example will in fact work faster than the traditional LINQ style (as of now) which most use currently.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>);
 
-<span class="token keyword">function</span> <span class="token function">increment</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-<span class="token keyword">function</span> <span class="token function">isEven</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x + <span class="hljs-number">1</span>; }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isEven</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; }
 
-<span class="token keyword">var</span> transduced <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>increment<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isEven<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> transduced = source.map(increment).filter(isEven);
 
-transduced<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+transduced.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; Next: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; Completed</span>
+<span class="hljs-comment">// =&gt; Next: 2</span>
+<span class="hljs-comment">// =&gt; Next: 4</span>
+<span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
 <p>This opens up a wide new set of possibilities making RxJS even faster over large collections with no intermediate Observable sequences.</p>
 
@@ -5845,6 +5841,10 @@ transduced<span class="token punctuation">.</span><span class="token function">s
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

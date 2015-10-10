@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="16.1.6.1" data-basepath="../../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="16.1.6.1" data-basepath="../../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,12 +5729,12 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-a-id-rxdomgeolocationgetcurrentpositiongeolocationoptions-a-rx-dom-geolocation-getcurrentposition-geolocationoptions"><a name="-a-id-rxdomgeolocationgetcurrentpositiongeolocationoptions-a-rx-dom-geolocation-getcurrentposition-geolocationoptions" class="plugin-anchor" href="#-a-id-rxdomgeolocationgetcurrentpositiongeolocationoptions-a-rx-dom-geolocation-getcurrentposition-geolocationoptions"><span class="fa fa-link"></span></a><a id="rxdomgeolocationgetcurrentpositiongeolocationoptions"></a><code>Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Geolocation<span class="token punctuation">.</span><span class="token function">getCurrentPosition</span><span class="token punctuation">(</span><span class="token punctuation">[</span>geolocationOptions<span class="token punctuation">]</span><span class="token punctuation">)</span></code></h3>
+                        <h3 id="-a-id-rxdomgeolocationgetcurrentpositiongeolocationoptions-a-rx-dom-geolocation-getcurrentposition-geolocationoptions"><a name="-a-id-rxdomgeolocationgetcurrentpositiongeolocationoptions-a-rx-dom-geolocation-getcurrentposition-geolocationoptions" class="plugin-anchor" href="#-a-id-rxdomgeolocationgetcurrentpositiongeolocationoptions-a-rx-dom-geolocation-getcurrentposition-geolocationoptions"><span class="fa fa-link"></span></a><a id="rxdomgeolocationgetcurrentpositiongeolocationoptions"></a><code>Rx.DOM.Geolocation.getCurrentPosition([geolocationOptions])</code></h3>
 <p><a href="#rxdomgeolocationgetcurrentpositiongeolocationoptions">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L688-L702" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
 <p>Obtains the geographic position, in terms of latitude and longitude coordinates, of the device.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
-<li><code><span class="token punctuation">[</span>geolocationOptions<span class="token punctuation">]</span></code> <em>(Object)</em>: An object literal to specify one or more of the following attributes and desired values:<ul>
+<li><code>[geolocationOptions]</code> <em>(Object)</em>: An object literal to specify one or more of the following attributes and desired values:<ul>
 <li>enableHighAccuracy: Specify true to obtain the most accurate position possible, or false to optimize in favor of performance and power consumption.</li>
 <li>timeout: An Integer value that indicates the time, in milliseconds, allowed for obtaining the position.
  If timeout is Infinity, (the default value) the location request will not time out.
@@ -5753,30 +5749,30 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: An observable sequence with the current geographical location of the device running the client.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Geolocation<span class="token punctuation">.</span><span class="token function">getCurrentPosition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.DOM.Geolocation.getCurrentPosition();
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>pos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next:&apos;</span> <span class="token operator">+</span> position<span class="token punctuation">.</span>coords<span class="token punctuation">.</span>latitude <span class="token operator">+</span> <span class="token string">&apos;,&apos;</span> <span class="token operator">+</span> position<span class="token punctuation">.</span>coords<span class="token punctuation">.</span>longitude<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> message <span class="token operator">=</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">;</span>
-        <span class="token keyword">switch</span> <span class="token punctuation">(</span>err<span class="token punctuation">.</span>code<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">case</span> err<span class="token punctuation">.</span>PERMISSION_DENIED<span class="token punctuation">:</span>
-                message <span class="token operator">=</span> <span class="token string">&apos;Permission denied&apos;</span><span class="token punctuation">;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> err<span class="token punctuation">.</span>POSITION_UNAVAILABLE<span class="token punctuation">:</span>
-                message <span class="token operator">=</span> <span class="token string">&apos;Position unavailable&apos;</span><span class="token punctuation">;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token keyword">case</span> err<span class="token punctuation">.</span>PERMISSION_DENIED_TIMEOUT<span class="token punctuation">:</span>
-                message <span class="token operator">=</span> <span class="token string">&apos;Position timeout&apos;</span><span class="token punctuation">;</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pos</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next:&apos;</span> + position.coords.latitude + <span class="hljs-string">&apos;,&apos;</span> + position.coords.longitude);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+        <span class="hljs-keyword">var</span> message = <span class="hljs-string">&apos;&apos;</span>;
+        <span class="hljs-keyword">switch</span> (err.code) {
+            <span class="hljs-keyword">case</span> err.PERMISSION_DENIED:
+                message = <span class="hljs-string">&apos;Permission denied&apos;</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> err.POSITION_UNAVAILABLE:
+                message = <span class="hljs-string">&apos;Position unavailable&apos;</span>;
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> err.PERMISSION_DENIED_TIMEOUT:
+                message = <span class="hljs-string">&apos;Position timeout&apos;</span>;
+                <span class="hljs-keyword">break</span>;
+        }
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + message);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+    });
 </code></pre>
 
                     
@@ -5811,6 +5807,10 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

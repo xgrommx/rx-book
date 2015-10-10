@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="3.6" data-basepath="../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.6" data-basepath="../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5738,156 +5734,156 @@
 <p>If you have an observable sequence that publishes values over an extended period of time, testing it in real time can be a stretch. The RxJS library provides the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md" target="_blank"><code>TestScheduler</code></a> type to assist testing this kind of time-dependent code without actually waiting for time to pass. The <code>TestScheduler</code> inherits <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/virtualtimescheduler.md" target="_blank"><code>VirtualScheduler</code></a> and allows you to create, publish and subscribe to sequences in emulated time. For example, you can compact a publication which takes 5 days to complete into a 2 minute run, while maintaining the correct scale. You can also take a sequence which actually has happened in the past (e.g., a sequence of stock ticks for a previous year) and compute or subscribe to it as if it is pushing out new values in real time.</p>
 <p>The factory methods <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed" target="_blank"><code>startWithTiming</code></a>, <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypestartwithcreatecreate" target="_blank"><code>startWithCreate</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypestartwithdisposecreate-disposed" target="_blank"><code>startWithDispose</code></a> executes all scheduled tasks until the queue is empty, or you can specify a time to so that queued-up tasks are only executed to the specified time.</p>
 <p>The following example creates a hot observable sequence with specified <code>onNext</code> notifications. It then starts the test scheduler and specifies when to subscribe to and dispose of the hot observable sequence. The Start method returns an instance of an <code>Observer</code>, which contains a <code>messages</code> property that records all notifications in a list.</p>
-<p>After the sequence has completed, we use can define method such as <code>collectionAssert<span class="token punctuation">.</span>assertEqual</code> to compare the <code>messages</code> property, together with a list of expected values to see if both are identical (with the same number of items, and items are equal and in the same order). By doing so, we can confirm that we have indeed received the notifications that we expect. In our example, since we only start subscribing at 150, we will miss out the value &apos;abc&apos;. However, when we compare the values we have received so far at 400, we notice that we have in fact received all the published values after we subscribed to the sequence. And we also verify that the OnCompleted notification was fired at the right time at 500. In addition, subscription information is also captured by the <code>Observable</code> type returned by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypecreatehotobservableargs" target="_blank"><code>createHotObservable</code></a> method.</p>
-<p>In the same way, you can use that same defined method such as our <code>collectionAssert<span class="token punctuation">.</span>assertEqual</code> below to confirm that subscriptions indeed happened at expected times.  It is easy to wrap this for your favorite unit testing framework whether it is QUnit, Mocha, Jasmine, etc.  In this example, we&apos;ll write a quick wrapper for QUnit.</p>
-<pre><code class="lang-js"><span class="token keyword">function</span> <span class="token function">createMessage</span><span class="token punctuation">(</span>actual<span class="token punctuation">,</span> expected<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token string">&apos;Expected: [&apos;</span> <span class="token operator">+</span> expected<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&apos;]\r\nActual: [&apos;</span> <span class="token operator">+</span> actual<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&apos;]&apos;</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<p>After the sequence has completed, we use can define method such as <code>collectionAssert.assertEqual</code> to compare the <code>messages</code> property, together with a list of expected values to see if both are identical (with the same number of items, and items are equal and in the same order). By doing so, we can confirm that we have indeed received the notifications that we expect. In our example, since we only start subscribing at 150, we will miss out the value &apos;abc&apos;. However, when we compare the values we have received so far at 400, we notice that we have in fact received all the published values after we subscribed to the sequence. And we also verify that the OnCompleted notification was fired at the right time at 500. In addition, subscription information is also captured by the <code>Observable</code> type returned by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypecreatehotobservableargs" target="_blank"><code>createHotObservable</code></a> method.</p>
+<p>In the same way, you can use that same defined method such as our <code>collectionAssert.assertEqual</code> below to confirm that subscriptions indeed happened at expected times.  It is easy to wrap this for your favorite unit testing framework whether it is QUnit, Mocha, Jasmine, etc.  In this example, we&apos;ll write a quick wrapper for QUnit.</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createMessage</span>(<span class="hljs-params">actual, expected</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Expected: [&apos;</span> + expected.toString() + <span class="hljs-string">&apos;]\r\nActual: [&apos;</span> + actual.toString() + <span class="hljs-string">&apos;]&apos;</span>;
+}
 
-<span class="token comment" spellcheck="true">// Using QUnit testing for assertions</span>
-<span class="token keyword">var</span> collectionAssert <span class="token operator">=</span> <span class="token punctuation">{</span>
-    assertEqual<span class="token punctuation">:</span> <span class="token punctuation">(</span>expected<span class="token punctuation">,</span> actual<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> comparer <span class="token operator">=</span> Rx<span class="token punctuation">.</span>internals<span class="token punctuation">.</span>isEqual<span class="token punctuation">,</span>
-            isOk <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Using QUnit testing for assertions</span>
+<span class="hljs-keyword">var</span> collectionAssert = {
+    assertEqual: (expected, actual) =&gt; {
+        <span class="hljs-keyword">var</span> comparer = Rx.internals.isEqual,
+            isOk = <span class="hljs-literal">true</span>;
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>expected<span class="token punctuation">.</span>length <span class="token operator">!</span><span class="token operator">==</span> actual<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">ok</span><span class="token punctuation">(</span><span class="token keyword">false</span><span class="token punctuation">,</span> <span class="token string">&apos;Not equal length. Expected: &apos;</span> <span class="token operator">+</span> expected<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token string">&apos; Actual: &apos;</span> <span class="token operator">+</span> actual<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        <span class="hljs-keyword">if</span> (expected.length !== actual.length) {
+            ok(<span class="hljs-literal">false</span>, <span class="hljs-string">&apos;Not equal length. Expected: &apos;</span> + expected.length + <span class="hljs-string">&apos; Actual: &apos;</span> + actual.length);
+            <span class="hljs-keyword">return</span>;
+        }
 
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> expected<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            isOk <span class="token operator">=</span> <span class="token function">comparer</span><span class="token punctuation">(</span>expected<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> actual<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isOk<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, len = expected.length; i &lt; len; i++) {
+            isOk = comparer(expected[i], actual[i]);
+            <span class="hljs-keyword">if</span> (!isOk) {
+                <span class="hljs-keyword">break</span>;
+            }
+        }
 
-        <span class="token function">ok</span><span class="token punctuation">(</span>isOk<span class="token punctuation">,</span> <span class="token function">createMessage</span><span class="token punctuation">(</span>expected<span class="token punctuation">,</span> actual<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+        ok(isOk, createMessage(expected, actual));
+    }
+};
 
-<span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">,</span>
-    onCompleted <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted<span class="token punctuation">,</span>
-    subscribe <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>subscribe<span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
+    onCompleted = Rx.ReactiveTest.onCompleted,
+    subscribe = Rx.ReactiveTest.subscribe;
 
-<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">&apos;buffer should join strings&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+test(<span class="hljs-string">&apos;buffer should join strings&apos;</span>, () =&gt; {
 
-    <span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
-    <span class="token keyword">var</span> input <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
-        <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token string">&apos;abc&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token string">&apos;def&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">,</span> <span class="token string">&apos;ghi&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token string">&apos;pqr&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">450</span><span class="token punctuation">,</span> <span class="token string">&apos;xyz&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">var</span> input = scheduler.createHotObservable(
+        onNext(<span class="hljs-number">100</span>, <span class="hljs-string">&apos;abc&apos;</span>),
+        onNext(<span class="hljs-number">200</span>, <span class="hljs-string">&apos;def&apos;</span>),
+        onNext(<span class="hljs-number">250</span>, <span class="hljs-string">&apos;ghi&apos;</span>),
+        onNext(<span class="hljs-number">300</span>, <span class="hljs-string">&apos;pqr&apos;</span>),
+        onNext(<span class="hljs-number">450</span>, <span class="hljs-string">&apos;xyz&apos;</span>),
+        onCompleted(<span class="hljs-number">500</span>)
+    );
 
-    <span class="token keyword">var</span> results <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithTiming</span><span class="token punctuation">(</span>
-        <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> input<span class="token punctuation">.</span><span class="token function">buffer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> input<span class="token punctuation">.</span><span class="token function">debounce</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> scheduler<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>b <span class="token operator">=</span><span class="token operator">&gt;</span> b<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">&apos;,&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token number">50</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// created</span>
-        <span class="token number">150</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// subscribed</span>
-        <span class="token number">600</span>  <span class="token comment" spellcheck="true">// disposed</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">var</span> results = scheduler.startWithTiming(
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> input.buffer(() =&gt; input.debounce(<span class="hljs-number">100</span>, scheduler))
+            .map(b =&gt; b.join(<span class="hljs-string">&apos;,&apos;</span>));
+        },
+        <span class="hljs-number">50</span>,  <span class="hljs-comment">// created</span>
+        <span class="hljs-number">150</span>, <span class="hljs-comment">// subscribed</span>
+        <span class="hljs-number">600</span>  <span class="hljs-comment">// disposed</span>
+    );
 
-    collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>results<span class="token punctuation">.</span>messages<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-        <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">&apos;def,ghi,pqr&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> <span class="token string">&apos;xyz&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
-    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    collectionAssert.assertEqual(results.messages, [
+        onNext(<span class="hljs-number">400</span>, <span class="hljs-string">&apos;def,ghi,pqr&apos;</span>),
+        onNext(<span class="hljs-number">500</span>, <span class="hljs-string">&apos;xyz&apos;</span>),
+        onCompleted(<span class="hljs-number">500</span>)
+    ]);
 
-    collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>input<span class="token punctuation">.</span>subscriptions<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-        <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span>
-    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    collectionAssert.assertEqual(input.subscriptions, [
+        subscribe(<span class="hljs-number">150</span>, <span class="hljs-number">500</span>),
+        subscribe(<span class="hljs-number">150</span>, <span class="hljs-number">400</span>),
+        subscribe(<span class="hljs-number">400</span>, <span class="hljs-number">500</span>)
+    ]);
+});
 </code></pre>
 <h2 id="debugging-your-rx-application"><a name="debugging-your-rx-application" class="plugin-anchor" href="#debugging-your-rx-application"><span class="fa fa-link"></span></a>Debugging your Rx application</h2>
-<p>You can use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypedoobserver--onnext-onerror-oncompleted" target="_blank"><code><span class="token keyword">do</span></code></a> operator to debug your Rx application. The <code><span class="token keyword">do</span></code> operator allows you to specify various actions to be taken for each item of observable sequence (e.g., print or log the item, etc.). This is especially helpful when you are chaining many operators and you want to know what values are produced at each level.</p>
-<p>In the following example, we are going to reuse the Buffer example which generates integers every second, while putting them into buffers that can hold 5 items each. In our original example in the <a href="querying.md">Querying Observable Sequences</a> topic, we subscribe only to the final <code>Observable</code> sequence when the buffer is full (and before it is emptied). In this example, however, we will use the <code><span class="token keyword">do</span></code> operator to print out the values when they are being pushed out by the original sequence (an integer every second). When the buffer is full, we use the <code><span class="token keyword">do</span></code> operator to print the status, before handing over all this as the final sequence for the observer to subscribe.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> seq1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
-   <span class="token punctuation">.</span><span class="token keyword">do</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>console<span class="token punctuation">)</span><span class="token punctuation">)</span>
-   <span class="token punctuation">.</span><span class="token function">bufferWithCount</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
-   <span class="token punctuation">.</span><span class="token keyword">do</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;buffer is full&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-   <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Sum of the buffer is &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> acc <span class="token operator">+</span> x<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>You can use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypedoobserver--onnext-onerror-oncompleted" target="_blank"><code>do</code></a> operator to debug your Rx application. The <code>do</code> operator allows you to specify various actions to be taken for each item of observable sequence (e.g., print or log the item, etc.). This is especially helpful when you are chaining many operators and you want to know what values are produced at each level.</p>
+<p>In the following example, we are going to reuse the Buffer example which generates integers every second, while putting them into buffers that can hold 5 items each. In our original example in the <a href="querying.md">Querying Observable Sequences</a> topic, we subscribe only to the final <code>Observable</code> sequence when the buffer is full (and before it is emptied). In this example, however, we will use the <code>do</code> operator to print out the values when they are being pushed out by the original sequence (an integer every second). When the buffer is full, we use the <code>do</code> operator to print the status, before handing over all this as the final sequence for the observer to subscribe.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> seq1 = Rx.Observable.interval(<span class="hljs-number">1000</span>)
+   .do(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>))
+   .bufferWithCount(<span class="hljs-number">5</span>)
+   .do(x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;buffer is full&apos;</span>))
+   .subscribe(x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Sum of the buffer is &apos;</span> + x.reduce((acc, x) =&gt; acc + x, <span class="hljs-number">0</span>)));
 
-<span class="token comment" spellcheck="true">// =&gt; 0</span>
-<span class="token comment" spellcheck="true">// =&gt; 1</span>
-<span class="token comment" spellcheck="true">// =&gt; 2</span>
-<span class="token comment" spellcheck="true">// =&gt; 3</span>
-<span class="token comment" spellcheck="true">// =&gt; 4</span>
-<span class="token comment" spellcheck="true">// =&gt; buffer is full</span>
-<span class="token comment" spellcheck="true">// =&gt; Sum of the buffer is 10</span>
-<span class="token comment" spellcheck="true">// ...</span>
+<span class="hljs-comment">// =&gt; 0</span>
+<span class="hljs-comment">// =&gt; 1</span>
+<span class="hljs-comment">// =&gt; 2</span>
+<span class="hljs-comment">// =&gt; 3</span>
+<span class="hljs-comment">// =&gt; 4</span>
+<span class="hljs-comment">// =&gt; buffer is full</span>
+<span class="hljs-comment">// =&gt; Sum of the buffer is 10</span>
+<span class="hljs-comment">// ...</span>
 </code></pre>
-<p>As you can see from this sample, a subscription is on the recipient end of a series of chained observable sequences. At first, we create an observable sequence of integers separate by a second using the Interval operator. Then, we put 5 items into a buffer using the Buffer operator, and send them out as another sequence only when the buffer is full. Lastly, this is handed over to the Subscribe operator. Data propagate down all these intermediate sequences until they are pushed to the observer. In the same way, subscriptions are propagated in the reverse direction to the source sequence. By inserting the <code><span class="token keyword">do</span></code> operator in the middle of such propagations, you can &quot;spy&quot; on such data flow just like you use console.log  perform debugging.</p>
+<p>As you can see from this sample, a subscription is on the recipient end of a series of chained observable sequences. At first, we create an observable sequence of integers separate by a second using the Interval operator. Then, we put 5 items into a buffer using the Buffer operator, and send them out as another sequence only when the buffer is full. Lastly, this is handed over to the Subscribe operator. Data propagate down all these intermediate sequences until they are pushed to the observer. In the same way, subscriptions are propagated in the reverse direction to the source sequence. By inserting the <code>do</code> operator in the middle of such propagations, you can &quot;spy&quot; on such data flow just like you use console.log  perform debugging.</p>
 <p>You can also use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypetimestampscheduler" target="_blank"><code>timestamp</code></a> operator to verify the time when an item is pushed out by an observable sequence. This can help you troubleshoot time-based operations to ensure accuracy. Recall the following example from the <a href="creating.md">Creating and Subscribing to Simple Observable Sequences</a> topic, in which we chain the <code>timestamp</code> operator to the query so that each value pushed out by the source sequence will be appended by the time when it is published. By doing so, when we subscribe to this source sequence, we can receive both its value and timestamp.</p>
-<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Current time: &apos;</span> <span class="token operator">+</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Current time: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">timer</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">timestamp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.timer(<span class="hljs-number">5000</span>, <span class="hljs-number">1000</span>)
+    .timestamp();
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>value <span class="token operator">+</span> <span class="token string">&apos;: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span>timestamp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(x =&gt; <span class="hljs-built_in">console</span>.log(x.value + <span class="hljs-string">&apos;: &apos;</span> + x.timestamp));
 
-<span class="token comment" spellcheck="true">/* Output will look similar to this */</span>
-<span class="token comment" spellcheck="true">// =&gt; Current time: 1382646947400</span>
-<span class="token comment" spellcheck="true">// =&gt; 0: 1382646952400</span>
-<span class="token comment" spellcheck="true">// =&gt; 1: 1382646953400</span>
-<span class="token comment" spellcheck="true">// =&gt; 2: 1382646954400</span>
-<span class="token comment" spellcheck="true">// =&gt; 3: 1382646955400</span>
-<span class="token comment" spellcheck="true">// =&gt; 4: 1382646956400</span>
-<span class="token comment" spellcheck="true">// =&gt; 5: 1382646957400</span>
-<span class="token comment" spellcheck="true">// =&gt; 6: 1382646958400</span>
+<span class="hljs-comment">/* Output will look similar to this */</span>
+<span class="hljs-comment">// =&gt; Current time: 1382646947400</span>
+<span class="hljs-comment">// =&gt; 0: 1382646952400</span>
+<span class="hljs-comment">// =&gt; 1: 1382646953400</span>
+<span class="hljs-comment">// =&gt; 2: 1382646954400</span>
+<span class="hljs-comment">// =&gt; 3: 1382646955400</span>
+<span class="hljs-comment">// =&gt; 4: 1382646956400</span>
+<span class="hljs-comment">// =&gt; 5: 1382646957400</span>
+<span class="hljs-comment">// =&gt; 6: 1382646958400</span>
 </code></pre>
 <p>By using the <code>timestamp</code> operator, we have verified that the first item is indeed pushed out 5 seconds after the sequence, and each item is published 1 second later.</p>
-<p>You can remove any <code><span class="token keyword">do</span></code> and <code>map</code> or <code>select</code> calls after you finish debugging.</p>
+<p>You can remove any <code>do</code> and <code>map</code> or <code>select</code> calls after you finish debugging.</p>
 <h2 id="long-stack-traces-support"><a name="long-stack-traces-support" class="plugin-anchor" href="#long-stack-traces-support"><span class="fa fa-link"></span></a>Long Stack Traces Support</h2>
 <p>When dealing with large RxJS applications, debugging and finding where the error occurred can be a difficult operation. As you chain more and more operators together, the longer the stack trace gets, and the harder it is to find out where things went wrong. Inspiration for this feature came from the <a href="https://github.com/kriskowal/q" target="_blank">Q library</a> from <a href="https://github.com/kriskowal" target="_blank">@kriskowal</a> which helped us get started.</p>
 <p>RxJS comes with optional support for &quot;long stack traces&quot; where the stack property of Error from onError calls is rewritten to be traced along asynchronous jumps instead of stopping at the most recent one. As an example:</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">timestamp</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span>value <span class="token operator">&gt;</span> <span class="token number">98</span><span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> x<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>)
+  .timestamp()
+  .map((x) =&gt; {
+    <span class="hljs-keyword">if</span> (x.value &gt; <span class="hljs-number">98</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>();
+    <span class="hljs-keyword">return</span> x;
+  });
 
-source<span class="token punctuation">.</span><span class="token function">subscribeOnError</span><span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">.</span>stack<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+source.subscribeOnError(err =&gt; <span class="hljs-built_in">console</span>.log(err.stack));
 </code></pre>
 <p>The error stack easily becomes unreadable and hard to find where the error actually occurred:</p>
-<pre><code class="lang-bash">$ node example<span class="token punctuation">.</span>js
+<pre><code class="lang-bash">$ node example.js
 
   Error
-  at C<span class="token punctuation">:</span>\GitHub\example<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token number">29</span>
-  at AnonymousObserver<span class="token punctuation">.</span>_onNext <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\rxjs\dist\rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">4013</span><span class="token punctuation">:</span><span class="token number">31</span><span class="token punctuation">)</span>
-  at AnonymousObserver<span class="token punctuation">.</span>Rx<span class="token punctuation">.</span>AnonymousObserver<span class="token punctuation">.</span>AnonymousObserver<span class="token punctuation">.</span>next <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\rxjs\dist\rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">1863</span><span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">)</span>
-  at AnonymousObserver<span class="token punctuation">.</span>Rx<span class="token punctuation">.</span>internals<span class="token punctuation">.</span>AbstractObserver<span class="token punctuation">.</span>AbstractObserver<span class="token punctuation">.</span>onNext <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\rxjs\dist\rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">1795</span><span class="token punctuation">:</span><span class="token number">35</span><span class="token punctuation">)</span>
-  at AutoDetachObserverPrototype<span class="token punctuation">.</span>next <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\rxjs\dist\rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">9226</span><span class="token punctuation">:</span><span class="token number">23</span><span class="token punctuation">)</span>
-  at AutoDetachObserver<span class="token punctuation">.</span>Rx<span class="token punctuation">.</span>internals<span class="token punctuation">.</span>AbstractObserver<span class="token punctuation">.</span>AbstractObserver<span class="token punctuation">.</span>onNext <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\rxjs\dist\rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">1795</span><span class="token punctuation">:</span><span class="token number">35</span><span class="token punctuation">)</span>
-  at AnonymousObserver<span class="token punctuation">.</span>_onNext <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\rxjs\dist\rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">4018</span><span class="token punctuation">:</span><span class="token number">18</span><span class="token punctuation">)</span>
-  at AnonymousObserver<span class="token punctuation">.</span>Rx<span class="token punctuation">.</span>AnonymousObserver<span class="token punctuation">.</span>AnonymousObserver<span class="token punctuation">.</span>next <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\rxjs\dist\rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">1863</span><span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">)</span>
-  at AnonymousObserver<span class="token punctuation">.</span>Rx<span class="token punctuation">.</span>internals<span class="token punctuation">.</span>AbstractObserver<span class="token punctuation">.</span>AbstractObserver<span class="token punctuation">.</span>onNext <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\rxjs\dist\rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">1795</span><span class="token punctuation">:</span><span class="token number">35</span><span class="token punctuation">)</span>
-  at AutoDetachObserverPrototype<span class="token punctuation">.</span>next <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\rxjs\dist\rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">9226</span><span class="token punctuation">:</span><span class="token number">23</span><span class="token punctuation">)</span>
+  at C:\GitHub\example.js:<span class="hljs-number">6</span>:<span class="hljs-number">29</span>
+  at AnonymousObserver._onNext (C:\GitHub\rxjs\dist\rx.all.js:<span class="hljs-number">4013</span>:<span class="hljs-number">31</span>)
+  at AnonymousObserver.Rx.AnonymousObserver.AnonymousObserver.next (C:\GitHub\rxjs\dist\rx.all.js:<span class="hljs-number">1863</span>:<span class="hljs-number">12</span>)
+  at AnonymousObserver.Rx.internals.AbstractObserver.AbstractObserver.onNext (C:\GitHub\rxjs\dist\rx.all.js:<span class="hljs-number">1795</span>:<span class="hljs-number">35</span>)
+  at AutoDetachObserverPrototype.next (C:\GitHub\rxjs\dist\rx.all.js:<span class="hljs-number">9226</span>:<span class="hljs-number">23</span>)
+  at AutoDetachObserver.Rx.internals.AbstractObserver.AbstractObserver.onNext (C:\GitHub\rxjs\dist\rx.all.js:<span class="hljs-number">1795</span>:<span class="hljs-number">35</span>)
+  at AnonymousObserver._onNext (C:\GitHub\rxjs\dist\rx.all.js:<span class="hljs-number">4018</span>:<span class="hljs-number">18</span>)
+  at AnonymousObserver.Rx.AnonymousObserver.AnonymousObserver.next (C:\GitHub\rxjs\dist\rx.all.js:<span class="hljs-number">1863</span>:<span class="hljs-number">12</span>)
+  at AnonymousObserver.Rx.internals.AbstractObserver.AbstractObserver.onNext (C:\GitHub\rxjs\dist\rx.all.js:<span class="hljs-number">1795</span>:<span class="hljs-number">35</span>)
+  at AutoDetachObserverPrototype.next (C:\GitHub\rxjs\dist\rx.all.js:<span class="hljs-number">9226</span>:<span class="hljs-number">23</span>)
 </code></pre>
 <p>Instead, we can turn on this feature by setting the following flag:</p>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>config<span class="token punctuation">.</span>longStackSupport <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+<pre><code class="lang-js">Rx.config.longStackSupport = <span class="hljs-literal">true</span>;
 </code></pre>
 <p>When running the same example again with the flag set at the top, our stack trace looks much nicer and indicates exactly where the error occurred:</p>
-<pre><code class="lang-bash">$ node example<span class="token punctuation">.</span>js
+<pre><code class="lang-bash">$ node example.js
 
   Error
-  at C<span class="token punctuation">:</span>\GitHub\example<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token number">29</span>
-  From previous event<span class="token punctuation">:</span>
-  at Object<span class="token punctuation">.</span><span class="token operator">&lt;</span>anonymous<span class="token operator">&gt;</span> <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\example<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token number">28</span><span class="token punctuation">)</span>
-  From previous event<span class="token punctuation">:</span>
-  at Object<span class="token punctuation">.</span><span class="token operator">&lt;</span>anonymous<span class="token operator">&gt;</span> <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\example<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">)</span>
-  From previous event<span class="token punctuation">:</span>
-  at Object<span class="token punctuation">.</span><span class="token operator">&lt;</span>anonymous<span class="token operator">&gt;</span> <span class="token punctuation">(</span>C<span class="token punctuation">:</span>\GitHub\example<span class="token punctuation">.</span>js<span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">)</span>
+  at C:\GitHub\example.js:<span class="hljs-number">6</span>:<span class="hljs-number">29</span>
+  From previous event:
+  at Object.&lt;anonymous&gt; (C:\GitHub\example.js:<span class="hljs-number">3</span>:<span class="hljs-number">28</span>)
+  From previous event:
+  at Object.&lt;anonymous&gt; (C:\GitHub\example.js:<span class="hljs-number">4</span>:<span class="hljs-number">4</span>)
+  From previous event:
+  at Object.&lt;anonymous&gt; (C:\GitHub\example.js:<span class="hljs-number">5</span>:<span class="hljs-number">4</span>)
 </code></pre>
 <p>Now, it is more clear that the error did occur exactly at line 6 with throwing an error and only shows the user code in this point. This is very helpful for debugging, as otherwise you end up getting only the first line, plus a bunch of RxJS internals, with no sign of where the operation started.</p>
 <p>This feature does come with a serious performance and memory overhead, however, If you&apos;re working with lots of RxJS code, or trying to scale a server to many users, you should probably keep it off. In development, this is perfectly fine for finding those pesky errors!</p>
@@ -5932,6 +5928,10 @@ source<span class="token punctuation">.</span><span class="token function">subsc
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

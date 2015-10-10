@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="15.3.5" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="15.3.5" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5734,25 +5730,25 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="writetostream"><a name="writetostream" class="plugin-anchor" href="#writetostream"><span class="fa fa-link"></span></a>writeToStream</h1>
-<h3 id="-a-id-rxnodewritetostreamobservable-stream-encoding-a-rx-node-writetostream-observable-stream-encoding"><a name="-a-id-rxnodewritetostreamobservable-stream-encoding-a-rx-node-writetostream-observable-stream-encoding" class="plugin-anchor" href="#-a-id-rxnodewritetostreamobservable-stream-encoding-a-rx-node-writetostream-observable-stream-encoding"><span class="fa fa-link"></span></a><a id="rxnodewritetostreamobservable-stream-encoding"></a><code>Rx<span class="token punctuation">.</span>Node<span class="token punctuation">.</span><span class="token function">writeToStream</span><span class="token punctuation">(</span>observable<span class="token punctuation">,</span> stream<span class="token punctuation">,</span> <span class="token punctuation">[</span>encoding<span class="token punctuation">]</span><span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxnodewritetostreamobservable-stream-encoding-a-rx-node-writetostream-observable-stream-encoding"><a name="-a-id-rxnodewritetostreamobservable-stream-encoding-a-rx-node-writetostream-observable-stream-encoding" class="plugin-anchor" href="#-a-id-rxnodewritetostreamobservable-stream-encoding-a-rx-node-writetostream-observable-stream-encoding"><span class="fa fa-link"></span></a><a id="rxnodewritetostreamobservable-stream-encoding"></a><code>Rx.Node.writeToStream(observable, stream, [encoding])</code></h3>
 <p><a href="#rxnodewritetostreamobservable-stream-encoding">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.node.js#L124-L138" title="View in source" target="_blank">&#x24C8;</a> </p>
 <p>Writes an observable sequence to a stream.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>observable</code> <em>(Obsesrvable)</em>: Observable sequence to write to a stream.</li>
 <li><code>stream</code> <em>(Stream)</em>: The stream to write to.</li>
-<li><code><span class="token punctuation">[</span>encoding<span class="token punctuation">]</span></code> <em>(String)</em>: The encoding of the item to write.</li>
+<li><code>[encoding]</code> <em>(String)</em>: The encoding of the item to write.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Disposable)</em>: The subscription handle.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;Rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;Rx&apos;</span>);
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Node<span class="token punctuation">.</span><span class="token function">writeToStream</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> process<span class="token punctuation">.</span>stdout<span class="token punctuation">,</span> <span class="token string">&apos;utf8&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = Rx.Node.writeToStream(source, process.stdout, <span class="hljs-string">&apos;utf8&apos;</span>);
 
-<span class="token comment" spellcheck="true">// =&gt; 01234</span>
+<span class="hljs-comment">// =&gt; 01234</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5791,6 +5787,10 @@
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

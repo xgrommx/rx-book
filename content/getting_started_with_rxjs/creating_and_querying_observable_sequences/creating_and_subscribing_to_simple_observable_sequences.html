@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5736,306 +5732,306 @@
                         <h1 id="creating-and-subscribing-to-simple-observable-sequences"><a name="creating-and-subscribing-to-simple-observable-sequences" class="plugin-anchor" href="#creating-and-subscribing-to-simple-observable-sequences"><span class="fa fa-link"></span></a>Creating and Subscribing to Simple Observable Sequences</h1>
 <p>You do not need to implement the <code>Observable</code> class manually to create an observable sequence. Similarly, you do not need to implement <code>Observer</code> either to subscribe to a sequence. By installing the Reactive Extension libraries, you can take advantage of the <code>Observable</code> type which provides many operators for you to create a simple sequence with zero, one or more elements. In addition, RxJS provides an overloaded <code>subscribe</code> method which allows you to pass in <code>onNext</code>, <code>onError</code> and <code>onCompleted</code> function handlers.</p>
 <h2 id="creating-a-sequence-from-scratch"><a name="creating-a-sequence-from-scratch" class="plugin-anchor" href="#creating-a-sequence-from-scratch"><span class="fa fa-link"></span></a>Creating a sequence from scratch</h2>
-<p>Before getting into many operators, let&apos;s look at how to create an <code>Observable</code> from scratch using the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/create.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>create</code></a> method.</p>
-<p>First, we need to ensure we reference the core <code>rx<span class="token punctuation">.</span>js</code> file.</p>
-<pre><code class="lang-html"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;rx.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<p>Before getting into many operators, let&apos;s look at how to create an <code>Observable</code> from scratch using the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/create.md" target="_blank"><code>Rx.Observable.create</code></a> method.</p>
+<p>First, we need to ensure we reference the core <code>rx.js</code> file.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>Or if we&apos;re using <a href="http://node.js" target="_blank">Node.js</a>, we can reference it as such:</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 </code></pre>
 <p>In this example, we will simply yield a single value of 42 and then mark it as completed.  The return value is completely optional if no cleanup is required.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// Yield a single value and complete</span>
-  observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  observer<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.create(observer =&gt; {
+  <span class="hljs-comment">// Yield a single value and complete</span>
+  observer.onNext(<span class="hljs-number">42</span>);
+  observer.onCompleted();
 
-  <span class="token comment" spellcheck="true">// Any cleanup logic might go here</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;disposed&apos;</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-comment">// Any cleanup logic might go here</span>
+  <span class="hljs-keyword">return</span> () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>)
+});
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; onNext: 42</span>
-<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
+<span class="hljs-comment">// =&gt; onNext: 42</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
 
-subscription<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; disposed</span>
+subscription.dispose();
+<span class="hljs-comment">// =&gt; disposed</span>
 </code></pre>
 <p>For most operations, this is completely overkill, but shows the very basics of how most RxJS operators work.</p>
 <h2 id="creating-and-subscribing-to-a-simple-sequence"><a name="creating-and-subscribing-to-a-simple-sequence" class="plugin-anchor" href="#creating-and-subscribing-to-a-simple-sequence"><span class="fa fa-link"></span></a>Creating and subscribing to a simple sequence</h2>
 <p>The following sample uses the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/range.md" target="_blank"><code>range</code></a> operator of the <code>Observable</code> type to create a simple observable collection of numbers. The observer subscribes to this collection using the Subscribe method of the Observable class, and provides actions that are delegates which handle <code>onNext</code>, <code>onError</code> and <code>onCompleted</code>.  In our example, it creates a sequence of integers that starts with x and produces y sequential numbers afterwards.</p>
 <p>As soon as the subscription happens, the values are sent to the observer. The <code>onNext</code> function then prints out the values.</p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Creates an observable sequence of 5 integers, starting from 1</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-comment">// Creates an observable sequence of 5 integers, starting from 1</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>);
 
-<span class="token comment" spellcheck="true">// Prints out each item</span>
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Prints out each item</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 5</span>
-<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
+<span class="hljs-comment">// =&gt; onNext: 1</span>
+<span class="hljs-comment">// =&gt; onNext: 2</span>
+<span class="hljs-comment">// =&gt; onNext: 3</span>
+<span class="hljs-comment">// =&gt; onNext: 4</span>
+<span class="hljs-comment">// =&gt; onNext: 5</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>When an observer subscribes to an observable sequence, the <code>subscribe</code> method may be using asynchronous behavior behind the scenes depending on the operator. Therefore, the <code>subscribe</code> call is asynchronous in that the caller is not blocked until the observation of the sequence completes. This will be covered in more details in the <a href="schedulers.md">Using Schedulers</a> topic.</p>
 <p>Notice that the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/susbcribe.md" target="_blank"><code>subscribe</code></a> method returns a <code>Disposable</code>, so that you can unsubscribe to a sequence and dispose of it easily. When you invoke the <code>dispose</code> method on the observable sequence, the observer will stop listening to the observable for data.  Normally, you do not need to explicitly call <code>dispose</code> unless you need to unsubscribe early, or when the source observable sequence has a longer life span than the observer. Subscriptions in Rx are designed for fire-and-forget scenarios without the usage of a finalizer. Note that the default behavior of the Observable operators is to dispose of the subscription as soon as possible (i.e, when an <code>onCompleted</code> or <code>onError</code> messages is published). For example, the code will subscribe x to both sequences a and b. If a throws an error, x will immediately be unsubscribed from b.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> x <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">zip</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token punctuation">(</span>a1<span class="token punctuation">,</span> b1<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> a1 <span class="token operator">+</span> b1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> x = Rx.Observable.zip(a, b, (a1, b1) =&gt; a1 + b1).subscribe();
 </code></pre>
 <p>You can also tweak the code sample to use the Create operator of the Observer type, which creates and returns an observer from specified OnNext, OnError, and OnCompleted action delegates. You can then pass this observer to the Subscribe method of the Observable type. The following sample shows how to do this.</p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Creates an observable sequence of 5 integers, starting from 1</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-comment">// Creates an observable sequence of 5 integers, starting from 1</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>);
 
-<span class="token comment" spellcheck="true">// Create observer</span>
-<span class="token keyword">var</span> observer <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observer<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Create observer</span>
+<span class="hljs-keyword">var</span> observer = Rx.Observer.create(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// Prints out each item</span>
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Prints out each item</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(observer);
 
-<span class="token comment" spellcheck="true">// =&gt; onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 5</span>
-<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
+<span class="hljs-comment">// =&gt; onNext: 1</span>
+<span class="hljs-comment">// =&gt; onNext: 2</span>
+<span class="hljs-comment">// =&gt; onNext: 3</span>
+<span class="hljs-comment">// =&gt; onNext: 4</span>
+<span class="hljs-comment">// =&gt; onNext: 5</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>In addition to creating an observable sequence from scratch, you can convert existing Arrays,  events, callbacks and promises into observable sequences. The other topics in this section will show you how to do this.</p>
 <p>Notice that this topic only shows you a few operators that can create an observable sequence from scratch. To learn more about other LINQ operators, see Querying Observable Sequences using LINQ Operators.</p>
 <h2 id="using-a-timer"><a name="using-a-timer" class="plugin-anchor" href="#using-a-timer"><span class="fa fa-link"></span></a>Using a timer</h2>
 <p>The following sample uses the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timer.md" target="_blank"><code>timer</code></a> operator to create a sequence. The sequence will push out the first value after 5 second has elapsed, then it will push out subsequent values every 1 second. For illustration purpose, we chain the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timestamp.md" target="_blank"><code>timestamp</code></a> operator to the query so that each value pushed out will be appended by the time when it is published. By doing so, when we subscribe to this source sequence, we can receive both its value and timestamp.</p>
 <p>First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.</p>
-<pre><code class="lang-html"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;rx.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;rx.time.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.time.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>Now on to our example</p>
-<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Current time: &apos;</span> <span class="token operator">+</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Current time: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">timer</span><span class="token punctuation">(</span>
-  <span class="token number">5000</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/* 5 seconds */</span>
-  <span class="token number">1000</span> <span class="token comment" spellcheck="true">/* 1 second */</span><span class="token punctuation">)</span>
-   <span class="token punctuation">.</span><span class="token function">timestamp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.timer(
+  <span class="hljs-number">5000</span>, <span class="hljs-comment">/* 5 seconds */</span>
+  <span class="hljs-number">1000</span> <span class="hljs-comment">/* 1 second */</span>)
+   .timestamp();
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>value <span class="token operator">+</span> <span class="token string">&apos;: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span>timestamp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(x.value + <span class="hljs-string">&apos;: &apos;</span> + x.timestamp));
 
-<span class="token comment" spellcheck="true">/* Output may be similar to this */</span>
-<span class="token comment" spellcheck="true">// Current time: 1382560697820</span>
-<span class="token comment" spellcheck="true">// 0: 1382560702820</span>
-<span class="token comment" spellcheck="true">// 1: 1382560703820</span>
-<span class="token comment" spellcheck="true">// 2: 1382560704820</span>
+<span class="hljs-comment">/* Output may be similar to this */</span>
+<span class="hljs-comment">// Current time: 1382560697820</span>
+<span class="hljs-comment">// 0: 1382560702820</span>
+<span class="hljs-comment">// 1: 1382560703820</span>
+<span class="hljs-comment">// 2: 1382560704820</span>
 </code></pre>
 <p>By using the <code>timestamp</code> operator, we have verified that the first item is indeed pushed out 5 seconds after the sequence has started, and each item is published 1 second later.</p>
 <h2 id="converting-arrays-and-iterables-to-an-observable-sequence"><a name="converting-arrays-and-iterables-to-an-observable-sequence" class="plugin-anchor" href="#converting-arrays-and-iterables-to-an-observable-sequence"><span class="fa fa-link"></span></a>Converting Arrays and Iterables to an Observable Sequence</h2>
-<p>Using the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/from.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>from</code></a> operator, you can convert an array to observable sequence.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<p>Using the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/from.md" target="_blank"><code>Rx.Observable.from</code></a> operator, you can convert an array to observable sequence.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> array = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
 
-<span class="token comment" spellcheck="true">// Converts an array to an observable sequence</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Converts an array to an observable sequence</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.from(array);
 
-<span class="token comment" spellcheck="true">// Prints out each item</span>
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Prints out each item</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 5</span>
-<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
+<span class="hljs-comment">// =&gt; onNext: 1</span>
+<span class="hljs-comment">// =&gt; onNext: 2</span>
+<span class="hljs-comment">// =&gt; onNext: 3</span>
+<span class="hljs-comment">// =&gt; onNext: 4</span>
+<span class="hljs-comment">// =&gt; onNext: 5</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>You can also convert array-like objects such as objects with a length property and indexed with numbers.  In this case, we&apos;ll simply have an object with a length of 5.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> arrayLike <span class="token operator">=</span> <span class="token punctuation">{</span> length<span class="token punctuation">:</span> <span class="token number">5</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> arrayLike = { length: <span class="hljs-number">5</span> };
 
-<span class="token comment" spellcheck="true">// Converts an array to an observable sequence</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>arrayLike<span class="token punctuation">,</span> <span class="token punctuation">(</span>v<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Converts an array to an observable sequence</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.from(arrayLike, (v, k) =&gt; k);
 
-<span class="token comment" spellcheck="true">// Prints out each item</span>
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Prints out each item</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 5</span>
-<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
+<span class="hljs-comment">// =&gt; onNext: 1</span>
+<span class="hljs-comment">// =&gt; onNext: 2</span>
+<span class="hljs-comment">// =&gt; onNext: 3</span>
+<span class="hljs-comment">// =&gt; onNext: 4</span>
+<span class="hljs-comment">// =&gt; onNext: 5</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>In addition, we can also use ES6 Iterable objects such as <code>Map</code> and <code>Set</code> using <code>from</code> to an observable sequence.  In this example, we can take a <code>Set</code> and convert it to an observable sequence.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> <span class="token keyword">set</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]);
 
-<span class="token comment" spellcheck="true">// Converts a Set to an observable sequence</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">set</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Converts a Set to an observable sequence</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.from(set);
 
-<span class="token comment" spellcheck="true">// Prints out each item</span>
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Prints out each item</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 5</span>
-<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
+<span class="hljs-comment">// =&gt; onNext: 1</span>
+<span class="hljs-comment">// =&gt; onNext: 2</span>
+<span class="hljs-comment">// =&gt; onNext: 3</span>
+<span class="hljs-comment">// =&gt; onNext: 4</span>
+<span class="hljs-comment">// =&gt; onNext: 5</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>We can also do a <code>Map</code> as well by applying the same technique.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> <span class="token keyword">set</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">&apos;key1&apos;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&apos;key2&apos;</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([[<span class="hljs-string">&apos;key1&apos;</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">&apos;key2&apos;</span>, <span class="hljs-number">2</span>]]);
 
-<span class="token comment" spellcheck="true">// Converts a Set to an observable sequence</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">set</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Converts a Set to an observable sequence</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.from(set);
 
-<span class="token comment" spellcheck="true">// Prints out each item</span>
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Prints out each item</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; onNext: key1, 1</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: key2, 2</span>
-<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
+<span class="hljs-comment">// =&gt; onNext: key1, 1</span>
+<span class="hljs-comment">// =&gt; onNext: key2, 2</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>The <code>from</code> method can also support ES6 generators which may already be in your browser, or coming to a browser near you.  This allows us to do such things as Fibonacci sequences and so forth and convert them to an observable sequence.</p>
-<pre><code class="lang-js"><span class="token keyword">function</span><span class="token operator">*</span> fibonacci <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> fn1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> fn2 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">var</span> current <span class="token operator">=</span> fn2<span class="token punctuation">;</span>
-    fn2 <span class="token operator">=</span> fn1<span class="token punctuation">;</span>
-    fn1 <span class="token operator">=</span> fn1 <span class="token operator">+</span> current<span class="token punctuation">;</span>
-    <span class="token keyword">yield</span> current<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">fibonacci</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> fn1 = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">var</span> fn2 = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>){
+    <span class="hljs-keyword">var</span> current = fn2;
+    fn2 = fn1;
+    fn1 = fn1 + current;
+    <span class="hljs-keyword">yield</span> current;
+  }
+}
 
-<span class="token comment" spellcheck="true">// Converts a generator to an observable sequence</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token function">fibonacci</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Converts a generator to an observable sequence</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.from(fibonacci()).take(<span class="hljs-number">5</span>);
 
-<span class="token comment" spellcheck="true">// Prints out each item</span>
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Prints out each item</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 5</span>
-<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
+<span class="hljs-comment">// =&gt; onNext: 1</span>
+<span class="hljs-comment">// =&gt; onNext: 1</span>
+<span class="hljs-comment">// =&gt; onNext: 2</span>
+<span class="hljs-comment">// =&gt; onNext: 3</span>
+<span class="hljs-comment">// =&gt; onNext: 5</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <h2 id="cold-vs-hot-observables"><a name="cold-vs-hot-observables" class="plugin-anchor" href="#cold-vs-hot-observables"><span class="fa fa-link"></span></a>Cold vs. Hot Observables</h2>
 <p>Cold observables start running upon subscription, i.e., the observable sequence only starts pushing values to the observers when Subscribe is called. Values are also not shared among subscribers. This is different from hot observables such as mouse move events or stock tickers which are already producing values even before a subscription is active. When an observer subscribes to a hot observable sequence, it will get the current value in the stream. The hot observable sequence is shared among all subscribers, and each subscriber is pushed the next value in the sequence. For example, even if no one has subscribed to a particular stock ticker, the ticker will continue to update its value based on market movement. When a subscriber registers interest in this ticker, it will automatically get the latest tick.</p>
 <p>The following example demonstrates a cold observable sequence. In this example, we use the Interval operator to create a simple observable sequence of numbers pumped out at specific intervals, in this case, every 1 second.</p>
 <p>Two observers then subscribe to this sequence and print out its values. You will notice that the sequence is reset for each subscriber, in which the second subscription will restart the sequence from the first value.</p>
 <p>First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.</p>
-<pre><code class="lang-html"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;rx.lite.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>And now to the example.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>);
 
-<span class="token keyword">var</span> subscription1 <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 1: onNext: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 1: onError: &apos;</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 1: onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription1 = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 1: onNext: &apos;</span> + x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 1: onError: &apos;</span> + e.message),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 1: onCompleted&apos;</span>));
 
-<span class="token keyword">var</span> subscription2 <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 2: onNext: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 2: onError: &apos;</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 2: onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription2 = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 2: onNext: &apos;</span> + x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 2: onError: &apos;</span> + e.message),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 2: onCompleted&apos;</span>));
 
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-  subscription1<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  subscription2<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+setTimeout(() =&gt; {
+  subscription1.dispose();
+  subscription2.dispose();
+}, <span class="hljs-number">5000</span>);
 
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 0</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 2: onNext: 0</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 2: onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 2: onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 2: onNext: 3</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 0</span>
+<span class="hljs-comment">// =&gt; Observer 2: onNext: 0</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 1</span>
+<span class="hljs-comment">// =&gt; Observer 2: onNext: 1</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 2</span>
+<span class="hljs-comment">// =&gt; Observer 2: onNext: 2</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 3</span>
+<span class="hljs-comment">// =&gt; Observer 2: onNext: 3</span>
 </code></pre>
-<p>In the following example, we convert the previous cold observable sequence source to a hot one using the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/publish.md" target="_blank"><code>publish</code></a> operator, which returns a <code>ConnectableObservable</code> instance we name <code>hot</code>. The <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/publish.md" target="_blank"><code>publish</code></a> operator provides a mechanism to share subscriptions by broadcasting a single subscription to multiple subscribers. The <code>hot</code> variable acts as a proxy by subscribing to <code>source</code> and, as it receives values from <code>source</code>, pushing them to its own subscribers. To establish a subscription to the backing source and start receiving values, we use the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/connect.md" target="_blank"><code>ConnectableObservable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>connect</code></a> method. Since <code>ConnectableObservable</code> inherits <code>Observable</code>, we can use <code>subscribe</code> to subscribe to this hot sequence even before it starts running. Notice that in the example, the hot sequence has not been started when <code>subscription1</code> subscribes to it. Therefore, no value is pushed to the subscriber. After calling Connect, values are then pushed to <code>subscription1</code>. After a delay of 3 seconds, <code>subscription2</code> subscribes to <code>hot</code> and starts receiving the values immediately from the current position (3 in this case) until the end. The output looks like this:</p>
-<pre><code><span class="token comment" spellcheck="true">// =&gt; Current time: 1382562433256</span>
-<span class="token comment" spellcheck="true">// =&gt; Current Time after 1st subscription: 1382562433260</span>
-<span class="token comment" spellcheck="true">// =&gt; Current Time after connect: 1382562436261</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 0</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; Current Time after 2nd subscription: 1382562439262</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 2: onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 2: onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 2: onNext: 4</span>
+<p>In the following example, we convert the previous cold observable sequence source to a hot one using the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/publish.md" target="_blank"><code>publish</code></a> operator, which returns a <code>ConnectableObservable</code> instance we name <code>hot</code>. The <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/publish.md" target="_blank"><code>publish</code></a> operator provides a mechanism to share subscriptions by broadcasting a single subscription to multiple subscribers. The <code>hot</code> variable acts as a proxy by subscribing to <code>source</code> and, as it receives values from <code>source</code>, pushing them to its own subscribers. To establish a subscription to the backing source and start receiving values, we use the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/connect.md" target="_blank"><code>ConnectableObservable.prototype.connect</code></a> method. Since <code>ConnectableObservable</code> inherits <code>Observable</code>, we can use <code>subscribe</code> to subscribe to this hot sequence even before it starts running. Notice that in the example, the hot sequence has not been started when <code>subscription1</code> subscribes to it. Therefore, no value is pushed to the subscriber. After calling Connect, values are then pushed to <code>subscription1</code>. After a delay of 3 seconds, <code>subscription2</code> subscribes to <code>hot</code> and starts receiving the values immediately from the current position (3 in this case) until the end. The output looks like this:</p>
+<pre><code>// =&gt; Current time: 1382562433256
+// =&gt; Current Time after 1st subscription: 1382562433260
+// =&gt; Current Time after connect: 1382562436261
+// =&gt; Observer 1: onNext: 0
+// =&gt; Observer 1: onNext: 1
+// =&gt; Current Time after 2nd subscription: 1382562439262
+// =&gt; Observer 1: onNext: 2
+// =&gt; Observer 2: onNext: 2
+// =&gt; Observer 1: onNext: 3
+// =&gt; Observer 2: onNext: 3
+// =&gt; Observer 1: onNext: 4
+// =&gt; Observer 2: onNext: 4
 </code></pre><p>First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.</p>
-<pre><code class="lang-html"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;rx.lite.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.lite.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <p>Now onto the example!</p>
-<pre><code class="lang-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Current time: &apos;</span> <span class="token operator">+</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Current time: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
-<span class="token comment" spellcheck="true">// Creates a sequence</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Creates a sequence</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>);
 
-<span class="token comment" spellcheck="true">// Convert the sequence into a hot sequence</span>
-<span class="token keyword">var</span> hot <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">publish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Convert the sequence into a hot sequence</span>
+<span class="hljs-keyword">var</span> hot = source.publish();
 
-<span class="token comment" spellcheck="true">// No value is pushed to 1st subscription at this point</span>
-<span class="token keyword">var</span> subscription1 <span class="token operator">=</span> hot<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 1: onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 1: onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 1: onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// No value is pushed to 1st subscription at this point</span>
+<span class="hljs-keyword">var</span> subscription1 = hot.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 1: onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 1: onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 1: onCompleted&apos;</span>));
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Current Time after 1st subscription: &apos;</span> <span class="token operator">+</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Current Time after 1st subscription: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
-<span class="token comment" spellcheck="true">// Idle for 3 seconds</span>
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+<span class="hljs-comment">// Idle for 3 seconds</span>
+setTimeout(() =&gt; {
 
-  <span class="token comment" spellcheck="true">// Hot is connected to source and starts pushing value to subscribers</span>
-  hot<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-comment">// Hot is connected to source and starts pushing value to subscribers</span>
+  hot.connect();
 
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Current Time after connect: &apos;</span> <span class="token operator">+</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Current Time after connect: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
-  <span class="token comment" spellcheck="true">// Idle for another 3 seconds</span>
-  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="hljs-comment">// Idle for another 3 seconds</span>
+  setTimeout(() =&gt; {
 
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Current Time after 2nd subscription: &apos;</span> <span class="token operator">+</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Current Time after 2nd subscription: &apos;</span> + <span class="hljs-built_in">Date</span>.now());
 
-    <span class="token keyword">var</span> subscription2 <span class="token operator">=</span> hot<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-      x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 2: onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-      e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 2: onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Observer 2: onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">var</span> subscription2 = hot.subscribe(
+      x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 2: onNext: %s&apos;</span>, x),
+      e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 2: onError: %s&apos;</span>, e),
+      () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Observer 2: onCompleted&apos;</span>));
 
-  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  }, <span class="hljs-number">3000</span>);
+}, <span class="hljs-number">3000</span>);
 
-<span class="token comment" spellcheck="true">// =&gt; Current Time after connect: 1431197578426</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 0</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; Current Time after 2nd subscription: 1431197581434</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 2: onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 2: onNext: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 1: onNext: 5</span>
-<span class="token comment" spellcheck="true">// =&gt; Observer 2: onNext: 5</span>
-<span class="token comment" spellcheck="true">// =&gt; ...</span>
+<span class="hljs-comment">// =&gt; Current Time after connect: 1431197578426</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 0</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 1</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 2</span>
+<span class="hljs-comment">// =&gt; Current Time after 2nd subscription: 1431197581434</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 3</span>
+<span class="hljs-comment">// =&gt; Observer 2: onNext: 3</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 4</span>
+<span class="hljs-comment">// =&gt; Observer 2: onNext: 4</span>
+<span class="hljs-comment">// =&gt; Observer 1: onNext: 5</span>
+<span class="hljs-comment">// =&gt; Observer 2: onNext: 5</span>
+<span class="hljs-comment">// =&gt; ...</span>
 </code></pre>
 <p><strong>Analogies</strong> </p>
 <p>It helps to think of cold and hot Observables as movies or performances that one can watch (&quot;subscribe&quot;).</p>
@@ -6044,7 +6040,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>Hot Observables: live performances.</li>
 <li>Hot Observables replayed: live performances recorded on video.</li>
 </ul>
-<p>Whenever you watch a movie, your run of the movie is independent of anyone else&apos;s run, even though all movie watchers see the same effects. On the other hand, a live performance is shared to multiple viewers. If you arrive late to a live performance, you will simply miss some of it. However, if it was recorded on video (in RxJS this would happen with a BehaviorSubject or a ReplaySubject), you can watch a &quot;movie&quot; of the live performance. A <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/refcount.md" target="_blank"><code><span class="token punctuation">.</span><span class="token function">publish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">refCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></a> live performance is one where the artists quit playing when no one is watching, and start playing again when there is at least one person in the audience. </p>
+<p>Whenever you watch a movie, your run of the movie is independent of anyone else&apos;s run, even though all movie watchers see the same effects. On the other hand, a live performance is shared to multiple viewers. If you arrive late to a live performance, you will simply miss some of it. However, if it was recorded on video (in RxJS this would happen with a BehaviorSubject or a ReplaySubject), you can watch a &quot;movie&quot; of the live performance. A <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/refcount.md" target="_blank"><code>.publish().refCount()</code></a> live performance is one where the artists quit playing when no one is watching, and start playing again when there is at least one person in the audience. </p>
 
                     
                     </section>
@@ -6078,6 +6074,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

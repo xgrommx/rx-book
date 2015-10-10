@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="15.1.2" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="15.1.2" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5734,41 +5730,41 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="fromnodecallback"><a name="fromnodecallback" class="plugin-anchor" href="#fromnodecallback"><span class="fa fa-link"></span></a>fromNodeCallback</h1>
-<h3 id="-a-id-rxnodefromnodecallbackfunc-scheduler-context-a-rx-node-fromnodecallback-func-scheduler-context"><a name="-a-id-rxnodefromnodecallbackfunc-scheduler-context-a-rx-node-fromnodecallback-func-scheduler-context" class="plugin-anchor" href="#-a-id-rxnodefromnodecallbackfunc-scheduler-context-a-rx-node-fromnodecallback-func-scheduler-context"><span class="fa fa-link"></span></a><a id="rxnodefromnodecallbackfunc-scheduler-context"></a><code>Rx<span class="token punctuation">.</span>Node<span class="token punctuation">.</span><span class="token function">fromNodeCallback</span><span class="token punctuation">(</span>func<span class="token punctuation">,</span> <span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>context<span class="token punctuation">]</span><span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxnodefromnodecallbackfunc-scheduler-context-a-rx-node-fromnodecallback-func-scheduler-context"><a name="-a-id-rxnodefromnodecallbackfunc-scheduler-context-a-rx-node-fromnodecallback-func-scheduler-context" class="plugin-anchor" href="#-a-id-rxnodefromnodecallbackfunc-scheduler-context-a-rx-node-fromnodecallback-func-scheduler-context"><span class="fa fa-link"></span></a><a id="rxnodefromnodecallbackfunc-scheduler-context"></a><code>Rx.Node.fromNodeCallback(func, [scheduler], [context])</code></h3>
 <p><a href="#rxnodefromcallbackfunc-scheduler-context">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.node.js#L41-L43" title="View in source" target="_blank">&#x24C8;</a> </p>
-<p><strong>Deprecated in favor of <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromNodeCallback</code> in rx.async.js.</strong></p>
+<p><strong>Deprecated in favor of <code>Rx.Observable.fromNodeCallback</code> in rx.async.js.</strong></p>
 <p>Converts a Node.js callback style function to an observable sequence.  This must be in function (err, ...) format.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>func</code> <em>(Function)</em>: Callback function which must be in function (err, ...) format.</li>
-<li><code><span class="token punctuation">[</span>scheduler <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>timeout<span class="token punctuation">]</span></code> <em>(Scheduler)</em>: Scheduler used to execute the callback.</li>
-<li><code><span class="token punctuation">[</span>context<span class="token punctuation">]</span></code> <em>(Any)</em>: The context to execute the callback.</li>
+<li><code>[scheduler = Rx.Scheduler.timeout]</code> <em>(Scheduler)</em>: Scheduler used to execute the callback.</li>
+<li><code>[context]</code> <em>(Any)</em>: The context to execute the callback.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Function)</em>: An function which when applied, returns an observable sequence with the callback arguments as an array.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;fs&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;Rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;Rx&apos;</span>);
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Node<span class="token punctuation">.</span><span class="token function">fromNodeCallback</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span>stat<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">&apos;file.txt&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = Rx.Node.fromNodeCallback(fs.stat)(<span class="hljs-string">&apos;file.txt&apos;</span>);
 
-<span class="token keyword">var</span> observer <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observer<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> stat <span class="token operator">=</span> x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> stat<span class="token punctuation">.</span><span class="token function">isFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>   
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
-    <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> observer = Rx.Observer.create(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+        <span class="hljs-keyword">var</span> stat = x[<span class="hljs-number">0</span>];
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + stat.isFile());
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
+    }
+);
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(observer);
 
-<span class="token comment" spellcheck="true">// =&gt; Next: true</span>
-<span class="token comment" spellcheck="true">// =&gt; Completed</span>
+<span class="hljs-comment">// =&gt; Next: true</span>
+<span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5807,6 +5803,10 @@
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

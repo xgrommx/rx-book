@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="8.1.37" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.37" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,7 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-spawn-fn-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-spawn-js"><a name="-rx-observable-spawn-fn-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-spawn-js" class="plugin-anchor" href="#-rx-observable-spawn-fn-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-spawn-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/spawn.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">spawn</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span></code></a></h2>
+                        <h2 id="-rx-observable-spawn-fn-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-spawn-js"><a name="-rx-observable-spawn-fn-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-spawn-js" class="plugin-anchor" href="#-rx-observable-spawn-fn-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-spawn-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/spawn.js" target="_blank"><code>Rx.Observable.spawn(fn)</code></a></h2>
 <p>Spawns a generator function which allows for Promises, Observable sequences, Arrays, Objects, Generators and functions.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
@@ -5742,31 +5738,31 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An Observable with the final result.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
-<span class="token keyword">var</span> thunk <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>cb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> thunk = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cb</span>) </span>{
+    cb(<span class="hljs-literal">null</span>, val);
+  };
+};
 
-<span class="token keyword">var</span> spawned <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">spawn</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> v <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">thunk</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> w <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token punctuation">[</span><span class="token number">24</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token keyword">yield</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token keyword">yield</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token number">56</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> z <span class="token operator">=</span> <span class="token keyword">yield</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">78</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> v <span class="token operator">+</span> w<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> x <span class="token operator">+</span> y <span class="token operator">+</span> z<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> spawned = Rx.Observable.spawn(<span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> v = <span class="hljs-keyword">yield</span> thunk(<span class="hljs-number">12</span>);
+  <span class="hljs-keyword">var</span> w = <span class="hljs-keyword">yield</span> [<span class="hljs-number">24</span>];
+  <span class="hljs-keyword">var</span> x = <span class="hljs-keyword">yield</span> Rx.Observable.just(<span class="hljs-number">42</span>);
+  <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">yield</span> Rx.Observable.just(<span class="hljs-number">56</span>);
+  <span class="hljs-keyword">var</span> z = <span class="hljs-keyword">yield</span> <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">78</span>);
+  <span class="hljs-keyword">return</span> v + w[<span class="hljs-number">0</span>] + x + y + z;
+});
 
-spawned<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;next %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;error %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+spawned.subscribe(
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;next %s&apos;</span>, x); },
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;error %s&apos;</span>, e); },
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;completed&apos;</span>); }
+);
 
-<span class="token comment" spellcheck="true">// =&gt; next 212</span>
-<span class="token comment" spellcheck="true">// =&gt; completed</span>
+<span class="hljs-comment">// =&gt; next 212</span>
+<span class="hljs-comment">// =&gt; completed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
@@ -5775,19 +5771,19 @@ spawned<span class="token punctuation">.</span><span class="token function">subs
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.js" target="_blank"><code>rx<span class="token punctuation">.</span>async<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>async<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.js" target="_blank"><code>rx.async.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.compat.js" target="_blank"><code>rx.async.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
-<li>If using <code>rx<span class="token punctuation">.</span>async<span class="token punctuation">.</span>js</code> | <code>rx<span class="token punctuation">.</span>async<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code><ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx<span class="token punctuation">.</span>binding<span class="token punctuation">.</span>js</code></a></li>
+<li>If using <code>rx.async.js</code> | <code>rx.async.compat.js</code><ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js" target="_blank"><code>rx.binding.js</code></a></li>
 </ul>
 </li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.lite.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
 </ul>
 <p>NPM Packages:</p>
 <ul>
@@ -5795,8 +5791,8 @@ spawned<span class="token punctuation">.</span><span class="token function">subs
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS<span class="token operator">-</span>All</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Async" target="_blank"><code>RxJS<span class="token operator">-</span>Async</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-All/" target="_blank"><code>RxJS-All</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Async" target="_blank"><code>RxJS-Async</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
@@ -5835,6 +5831,10 @@ spawned<span class="token punctuation">.</span><span class="token function">subs
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

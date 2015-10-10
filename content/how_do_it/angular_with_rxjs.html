@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="4.3" data-basepath="../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="4.3" data-basepath="../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5738,83 +5734,83 @@
 <h2 id="integration-with-scopes"><a name="integration-with-scopes" class="plugin-anchor" href="#integration-with-scopes"><span class="fa fa-link"></span></a>Integration with Scopes</h2>
 <p>The <a href="http://docs.angularjs.org/api/ng.$rootScope.Scope" target="_blank"><code>scope</code></a> is an object that refers to the application model. It is an execution context for expressions. Scopes are arranged in hierarchical structure which mimic the DOM structure of the application. Scopes can watch expressions and propagate events.</p>
 <p>Scopes provide the ability to observe change mutations on the scope through the <a href="http://docs.angularjs.org/api/ng.$rootScope.Scope#methods_$watch" target="_blank"><code>$watch</code></a> method.  This is a perfect opportunity to integrate the power of the Reactive Extensions for JavaScript with Angular.  Let&apos;s look at a typical usage of <code>$watch</code>.</p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Get the scope from somewhere</span>
-<span class="token keyword">var</span> scope <span class="token operator">=</span> $rootScope<span class="token punctuation">;</span>
-scope<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&apos;Reactive Extensions&apos;</span><span class="token punctuation">;</span>
-scope<span class="token punctuation">.</span>counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-comment">// Get the scope from somewhere</span>
+<span class="hljs-keyword">var</span> scope = $rootScope;
+scope.name = <span class="hljs-string">&apos;Reactive Extensions&apos;</span>;
+scope.counter = <span class="hljs-number">0</span>;
 
-scope<span class="token punctuation">.</span><span class="token function">$watch</span><span class="token punctuation">(</span><span class="token string">&apos;name&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-  scope<span class="token punctuation">.</span>counter <span class="token operator">=</span> scope<span class="token punctuation">.</span>counter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-  scope<span class="token punctuation">.</span>oldValue <span class="token operator">=</span> oldValue<span class="token punctuation">;</span>
-  scope<span class="token punctuation">.</span>newValue <span class="token operator">=</span> newValue<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+scope.$watch(<span class="hljs-string">&apos;name&apos;</span>, (newValue, oldValue) =&gt; {
+  scope.counter = scope.counter + <span class="hljs-number">1</span>;
+  scope.oldValue = oldValue;
+  scope.newValue = newValue;
+});
 
-scope<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&apos;RxJS&apos;</span><span class="token punctuation">;</span>
+scope.name = <span class="hljs-string">&apos;RxJS&apos;</span>;
 
-<span class="token comment" spellcheck="true">// Process All the Watchers</span>
-scope<span class="token punctuation">.</span><span class="token function">$digest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Process All the Watchers</span>
+scope.$digest();
 
-<span class="token comment" spellcheck="true">// See the counter increment</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>counter<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; 1</span>
+<span class="hljs-comment">// See the counter increment</span>
+<span class="hljs-built_in">console</span>.log(counter);
+<span class="hljs-comment">// =&gt; 1</span>
 </code></pre>
-<p>Using the Reactive Extensions for JavaScript, we&apos;re able to easily bind to this by wrapping the <code>$watch</code> as an observable.  To do this, we&apos;ll create an observable sequence using <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>create</code> which gives us an observer to yield to.  In this case, we&apos;ll capture both the old and new values through our listener function.  The <code>$watch</code> function returns a function, which when called, ceases the watch expression.</p>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>$watch <span class="token operator">=</span> <span class="token punctuation">(</span>scope<span class="token punctuation">,</span> watchExpression<span class="token punctuation">,</span> objectEquality<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Create function to handle old and new Value</span>
-        <span class="token keyword">function</span> listener <span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token punctuation">{</span> oldValue<span class="token punctuation">:</span> oldValue<span class="token punctuation">,</span> newValue<span class="token punctuation">:</span> newValue <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+<p>Using the Reactive Extensions for JavaScript, we&apos;re able to easily bind to this by wrapping the <code>$watch</code> as an observable.  To do this, we&apos;ll create an observable sequence using <code>Rx.Observable.create</code> which gives us an observer to yield to.  In this case, we&apos;ll capture both the old and new values through our listener function.  The <code>$watch</code> function returns a function, which when called, ceases the watch expression.</p>
+<pre><code class="lang-js">Rx.Observable.$watch = (scope, watchExpression, objectEquality) =&gt; {
+    <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
+        <span class="hljs-comment">// Create function to handle old and new Value</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">listener</span> (<span class="hljs-params">newValue, oldValue</span>) </span>{
+            observer.onNext({ oldValue: oldValue, newValue: newValue });
+        }
 
-        <span class="token comment" spellcheck="true">// Returns function which disconnects the $watch expression</span>
-        <span class="token keyword">return</span> scope<span class="token punctuation">.</span><span class="token function">$watch</span><span class="token punctuation">(</span>watchExpression<span class="token punctuation">,</span> listener<span class="token punctuation">,</span> objectEquality<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="hljs-comment">// Returns function which disconnects the $watch expression</span>
+        <span class="hljs-keyword">return</span> scope.$watch(watchExpression, listener, objectEquality);
+    });
+};
 </code></pre>
 <p>Now that we have this, we&apos;re able to now take the above example and now add some RxJS goodness to it.</p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Get the scope from somewhere</span>
-<span class="token keyword">var</span> scope <span class="token operator">=</span> $rootScope<span class="token punctuation">;</span>
-scope<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&apos;Reactive Extensions&apos;</span><span class="token punctuation">;</span>
-scope<span class="token punctuation">.</span>isLoading <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
-scope<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-comment">// Get the scope from somewhere</span>
+<span class="hljs-keyword">var</span> scope = $rootScope;
+scope.name = <span class="hljs-string">&apos;Reactive Extensions&apos;</span>;
+scope.isLoading = <span class="hljs-literal">false</span>;
+scope.data = [];
 
-<span class="token comment" spellcheck="true">// Watch for name change and throttle it for 1 second and then query a service</span>
-Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">$watch</span><span class="token punctuation">(</span>scope<span class="token punctuation">,</span> <span class="token string">&apos;name&apos;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">throttle</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span> 
-    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&gt;</span> e<span class="token punctuation">.</span>newValue<span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token keyword">do</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> 
-        <span class="token comment" spellcheck="true">// Set loading and reset data</span>
-        scope<span class="token punctuation">.</span>isLoading <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
-        scope<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">flatMapLatest</span><span class="token punctuation">(</span>querySomeService<span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+<span class="hljs-comment">// Watch for name change and throttle it for 1 second and then query a service</span>
+Rx.Observable.$watch(scope, <span class="hljs-string">&apos;name&apos;</span>)
+    .throttle(<span class="hljs-number">1000</span>) 
+    .map(e =&gt; e.newValue)
+    .do(() =&gt; { 
+        <span class="hljs-comment">// Set loading and reset data</span>
+        scope.isLoading = <span class="hljs-literal">true</span>;
+        scope.data = [];
+    })
+    .flatMapLatest(querySomeService)
+    .subscribe(data =&gt; {
 
-        <span class="token comment" spellcheck="true">// Set the data</span>
-        scope<span class="token punctuation">.</span>isLoading <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
-        scope<span class="token punctuation">.</span>data <span class="token operator">=</span> data<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="hljs-comment">// Set the data</span>
+        scope.isLoading = <span class="hljs-literal">false</span>;
+        scope.data = data;
+    });
 </code></pre>
 <h2 id="integration-with-deferred-promise-objects"><a name="integration-with-deferred-promise-objects" class="plugin-anchor" href="#integration-with-deferred-promise-objects"><span class="fa fa-link"></span></a>Integration with Deferred/Promise Objects</h2>
 <p>AngularJS ships a promise/deferred implementation based upon <a href="https://github.com/kriskowal/q" target="_blank">Kris Kowal&apos;s Q</a> called the <a href="http://docs.angularjs.org/api/ng.$q" target="_blank"><code>$q</code></a> service.  Promises are quite useful in scenarios with one and done asynchronous operations such as querying a service through the <a href="http://docs.angularjs.org/api/ng.$http" target="_blank"><code>$http</code></a> service.</p>
-<pre><code class="lang-js">$http<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;/someUrl&apos;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>successCallback<span class="token punctuation">,</span> errCallback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js">$http.get(<span class="hljs-string">&apos;/someUrl&apos;</span>)
+    .then(successCallback, errCallback);
 </code></pre>
-<p>Using the Reactive Extensions for JavaScript, we can also integrate using the <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>fromPromise</code> bridge available in RxJS version 2.2+.  We simply </p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Query data</span>
-<span class="token keyword">var</span> observable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromPromise</span><span class="token punctuation">(</span>
-    <span class="token function">$http</span><span class="token punctuation">(</span>
-        method<span class="token punctuation">:</span> <span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span>
-        url<span class="token punctuation">:</span> <span class="token string">&apos;someurl&apos;</span><span class="token punctuation">,</span>
-        params<span class="token punctuation">:</span> <span class="token punctuation">{</span> searchString<span class="token punctuation">:</span> $scope<span class="token punctuation">.</span>searchString <span class="token punctuation">}</span>
-    <span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>Using the Reactive Extensions for JavaScript, we can also integrate using the <code>Rx.Observable.fromPromise</code> bridge available in RxJS version 2.2+.  We simply </p>
+<pre><code class="lang-js"><span class="hljs-comment">// Query data</span>
+<span class="hljs-keyword">var</span> observable = Rx.Observable.fromPromise(
+    $http(
+        method: <span class="hljs-string">&apos;GET&apos;</span>,
+        url: <span class="hljs-string">&apos;someurl&apos;</span>,
+        params: { searchString: $scope.searchString }
+    )
+);
 
-<span class="token comment" spellcheck="true">// Subscribe to data and update UI</span>
-observable<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-    data <span class="token operator">=</span><span class="token operator">&gt;</span> $scope<span class="token punctuation">.</span>data <span class="token operator">=</span> data<span class="token punctuation">,</span>
-    err <span class="token operator">=</span><span class="token operator">&gt;</span> $scope<span class="token punctuation">.</span>error <span class="token operator">=</span> err<span class="token punctuation">.</span>message
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Subscribe to data and update UI</span>
+observable.subscribe(
+    data =&gt; $scope.data = data,
+    err =&gt; $scope.error = err.message
+);
 </code></pre>
 <p>These are just only the beginnings of what you can do with the Reactive Extensions for JavaScript and AngularJS.</p>
 
@@ -5850,6 +5846,10 @@ observable<span class="token punctuation">.</span><span class="token function">s
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

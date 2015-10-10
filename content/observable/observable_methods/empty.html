@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="8.1.8" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.8" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,11 +5729,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-empty-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-empty-js"><a name="-rx-observable-empty-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-empty-js" class="plugin-anchor" href="#-rx-observable-empty-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-empty-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/empty.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
+                        <h2 id="-rx-observable-empty-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-empty-js"><a name="-rx-observable-empty-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-empty-js" class="plugin-anchor" href="#-rx-observable-empty-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-empty-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/empty.js" target="_blank"><code>Rx.Observable.empty([scheduler])</code></a></h2>
 <p>Returns an empty observable sequence, using the specified scheduler to send out the single OnCompleted message.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
-<li><code><span class="token punctuation">[</span>scheduler<span class="token operator">=</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>immediate<span class="token punctuation">]</span></code> <em>(<code>Scheduler</code>)</em>: Scheduler to send the termination call on.</li>
+<li><code>[scheduler=Rx.Scheduler.immediate]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to send the termination call on.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence with no elements.</p>
@@ -5750,12 +5746,12 @@
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
@@ -5767,9 +5763,9 @@
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-Complete" target="_blank"><code>RxJS<span class="token operator">-</span>Complete</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS<span class="token operator">-</span>Main</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Complete" target="_blank"><code>RxJS-Complete</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
@@ -5808,6 +5804,10 @@
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

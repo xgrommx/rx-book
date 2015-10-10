@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="3.7" data-basepath="../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.7" data-basepath="../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5737,90 +5733,90 @@
 <p>You can extend RxJS by adding new operators for operations that are not provided by the base library, or by creating your own implementation of standard query operators to improve readability and performance. Writing a customized version of a standard operator is useful when you want to operate with in-memory objects and when the intended customization does not require a comprehensive view of the query.</p>
 <h2 id="creating-new-operators"><a name="creating-new-operators" class="plugin-anchor" href="#creating-new-operators"><span class="fa fa-link"></span></a>Creating New Operators</h2>
 <p>RxJS offers a full set of operators that cover most of the possible operations on a set of entities. However, you might need an operator to add a particular semantic meaning to your query&#xFFFD;especially if you can reuse that same operator several times in your code.  Adding new operators to RxJS is a way to extend its capabilities. However, you can also improve code readability by wrapping existing operators into more specialized and meaningful ones.</p>
-<p>For example, let&apos;s see how we might implement the <a href="http://lodash.com/docs#where" target="_blank">_.where</a> method from <a href="http://lodash.com/" target="_blank">Lo-Dash</a> or <a href="http://underscorejs.org/" target="_blank">Underscore</a>, which takes a set of attributes and does a deep comparison for equality.  We might try implementing this from scratch using the <code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>createWithDisposable</code> method such as the following code.</p>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>whereProperties <span class="token operator">=</span> properties <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">,</span>
-        comparer <span class="token operator">=</span> Rx<span class="token punctuation">.</span>internals<span class="token punctuation">.</span>isEqual<span class="token punctuation">;</span>
+<p>For example, let&apos;s see how we might implement the <a href="http://lodash.com/docs#where" target="_blank">_.where</a> method from <a href="http://lodash.com/" target="_blank">Lo-Dash</a> or <a href="http://underscorejs.org/" target="_blank">Underscore</a>, which takes a set of attributes and does a deep comparison for equality.  We might try implementing this from scratch using the <code>Rx.Observable.createWithDisposable</code> method such as the following code.</p>
+<pre><code class="lang-js">Rx.Observable.prototype.whereProperties = properties =&gt; {
+    <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>,
+        comparer = Rx.internals.isEqual;
 
-    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">filterByProperties</span><span class="token punctuation">(</span>observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Our disposable is the subscription from the parent</span>
-        <span class="token keyword">return</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-            data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="hljs-keyword">return</span> Rx.Observable.filterByProperties(observer =&gt; {
+        <span class="hljs-comment">// Our disposable is the subscription from the parent</span>
+        <span class="hljs-keyword">return</span> source.subscribe(
+            data =&gt; {
 
-                <span class="token keyword">try</span> <span class="token punctuation">{</span>
-                    <span class="token keyword">var</span> shouldRun <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+                <span class="hljs-keyword">try</span> {
+                    <span class="hljs-keyword">var</span> shouldRun = <span class="hljs-literal">true</span>;
 
-                    <span class="token comment" spellcheck="true">// Iterate the properties for deep equality</span>
-                    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> properties<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">comparer</span><span class="token punctuation">(</span>properties<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                            shouldRun <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
-                            <span class="token keyword">break</span><span class="token punctuation">;</span>
-                        <span class="token punctuation">}</span>
-                    <span class="token punctuation">}</span>
-                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    observer<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
+                    <span class="hljs-comment">// Iterate the properties for deep equality</span>
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> properties) {
+                        <span class="hljs-keyword">if</span> (!comparer(properties[prop], data[prop])) {
+                            shouldRun = <span class="hljs-literal">false</span>;
+                            <span class="hljs-keyword">break</span>;
+                        }
+                    }
+                } <span class="hljs-keyword">catch</span> (e) {
+                    observer.onError(e);
+                }
 
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>shouldRun<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            observer<span class="token punctuation">.</span>onError<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            observer<span class="token punctuation">.</span>onCompleted<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+                <span class="hljs-keyword">if</span> (shouldRun) {
+                    observer.onNext(data);
+                }
+            },
+            observer.onError.bind(observer),
+            observer.onCompleted.bind(observer)
+        );
+    });
+};
 </code></pre>
 <p>Many existing operators, such as this, instead could be built using other basic operators for example in this case, <code>filter</code> or <code>where</code>.  In fact, many existing operators are built using other basic operators. For example, the <code>flatMap</code> or <code>selectMany</code> operator is built by composing the <code>map</code> or <code>select</code> and <code>mergeObservable</code> operators, as the following code shows.</p>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>flatMap <span class="token operator">=</span> selector <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mergeObservable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js">Rx.Observable.prototype.flatMap = selector =&gt; <span class="hljs-keyword">this</span>.map(selector).mergeObservable();
 </code></pre>
 <p>We could rewrite it as the following to take advantage of already built in operators.</p>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>filterByProperties <span class="token operator">=</span> properties <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> comparer <span class="token operator">=</span> Rx<span class="token punctuation">.</span>internals<span class="token punctuation">.</span>isEqual<span class="token punctuation">;</span>
+<pre><code class="lang-js">Rx.Observable.prototype.filterByProperties = properties =&gt; {
+    <span class="hljs-keyword">var</span> comparer = Rx.internals.isEqual;
 
-    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.filter(data =&gt; {
 
-        <span class="token comment" spellcheck="true">// Iterate the properties for deep equality</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> properties<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">comparer</span><span class="token punctuation">(</span>properties<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">,</span> data<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
+        <span class="hljs-comment">// Iterate the properties for deep equality</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> properties) {
+            <span class="hljs-keyword">if</span> (!comparer(properties[prop], data[prop])) {
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            }
+        }
 
-        <span class="token keyword">return</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    });
+};
 </code></pre>
 <p>By reusing existing operators when you build a new one, you can take advantage of the existing performance or exception handling capabilities implemented in the RxJS libraries.  When writing a custom operator, it is good practice not to leave any disposables unused; otherwise, you may find that resources could actually be leaked and cancellation may not work correctly.</p>
 <h2 id="testing-your-new-operator"><a name="testing-your-new-operator" class="plugin-anchor" href="#testing-your-new-operator"><span class="fa fa-link"></span></a>Testing Your New Operator</h2>
-<p>Just because you have implemented a new operator doesn&apos;t mean you are finished.  Now, let&apos;s write a test to verify its behavior from what we learned in the <a href="testing.md">Testing and Debugging</a> topic.  We&apos;ll reuse the <code>collectionAssert<span class="token punctuation">.</span>assertEqual</code> from the previous topic so it is not repeated here.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">,</span>
-    onCompleted <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted<span class="token punctuation">,</span>
-    subscribe <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>subscribe<span class="token punctuation">;</span>
+<p>Just because you have implemented a new operator doesn&apos;t mean you are finished.  Now, let&apos;s write a test to verify its behavior from what we learned in the <a href="testing.md">Testing and Debugging</a> topic.  We&apos;ll reuse the <code>collectionAssert.assertEqual</code> from the previous topic so it is not repeated here.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
+    onCompleted = Rx.ReactiveTest.onCompleted,
+    subscribe = Rx.ReactiveTest.subscribe;
 
-<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">&apos;filterProperties should yield with match&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+test(<span class="hljs-string">&apos;filterProperties should yield with match&apos;</span>, () =&gt; {
 
-    <span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
-    <span class="token keyword">var</span> input <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
-        <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;curly&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;age&apos;</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token string">&apos;quotes&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;Oh, a wise guy, eh?&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Poifect!&apos;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;moe&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;age&apos;</span><span class="token punctuation">:</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token string">&apos;quotes&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;Spread out!&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;You knucklehead!&apos;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">)</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">var</span> input = scheduler.createHotObservable(
+        onNext(<span class="hljs-number">210</span>, { <span class="hljs-string">&apos;name&apos;</span>: <span class="hljs-string">&apos;curly&apos;</span>, <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">30</span>, <span class="hljs-string">&apos;quotes&apos;</span>: [<span class="hljs-string">&apos;Oh, a wise guy, eh?&apos;</span>, <span class="hljs-string">&apos;Poifect!&apos;</span>] }),
+        onNext(<span class="hljs-number">220</span>, { <span class="hljs-string">&apos;name&apos;</span>: <span class="hljs-string">&apos;moe&apos;</span>, <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">40</span>, <span class="hljs-string">&apos;quotes&apos;</span>: [<span class="hljs-string">&apos;Spread out!&apos;</span>, <span class="hljs-string">&apos;You knucklehead!&apos;</span>] }),
+        onCompleted(<span class="hljs-number">230</span>)
+    );
 
-    <span class="token keyword">var</span> results <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithCreate</span><span class="token punctuation">(</span>
-        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> input<span class="token punctuation">.</span><span class="token function">filterByProperties</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">&apos;age&apos;</span><span class="token punctuation">:</span> <span class="token number">40</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">var</span> results = scheduler.startWithCreate(
+        () =&gt; input.filterByProperties({ <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">40</span> })
+    );
 
-    collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>results<span class="token punctuation">.</span>messages<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-        <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;moe&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;age&apos;</span><span class="token punctuation">:</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token string">&apos;quotes&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;Spread out!&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;You knucklehead!&apos;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">)</span>
-    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    collectionAssert.assertEqual(results.messages, [
+        onNext(<span class="hljs-number">220</span>, { <span class="hljs-string">&apos;name&apos;</span>: <span class="hljs-string">&apos;moe&apos;</span>, <span class="hljs-string">&apos;age&apos;</span>: <span class="hljs-number">40</span>, <span class="hljs-string">&apos;quotes&apos;</span>: [<span class="hljs-string">&apos;Spread out!&apos;</span>, <span class="hljs-string">&apos;You knucklehead!&apos;</span>] }),
+        onCompleted(<span class="hljs-number">230</span>)
+    ]);
 
-    collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>input<span class="token punctuation">.</span>subscriptions<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-        <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">230</span><span class="token punctuation">)</span>
-    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    collectionAssert.assertEqual(input.subscriptions, [
+        subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">230</span>)
+    ]);
+});
 </code></pre>
 <p>In order for this to be successfully tested, we should check for when there is no data, empty, single matches, multiple matches and so forth.</p>
 <h2 id="see-also"><a name="see-also" class="plugin-anchor" href="#see-also"><span class="fa fa-link"></span></a>See Also</h2>
@@ -5861,6 +5857,10 @@
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

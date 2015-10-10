@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="3.5" data-basepath="../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.5" data-basepath="../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5734,45 +5730,45 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="using-schedulers"><a name="using-schedulers" class="plugin-anchor" href="#using-schedulers"><span class="fa fa-link"></span></a>Using Schedulers</h1>
-<p>A scheduler controls when a subscription starts and when notifications are published. It consists of three components. It is first a data structure. When you schedule for tasks to be completed, they are put into the scheduler for queueing based on priority or other criteria. It also offers an execution context which denotes where the task is executed (e.g., in the immediately, current thread, or in another callback mechanism such as <code>setTimeout</code> or <code>process<span class="token punctuation">.</span>nextTick</code>). Lastly, it has a clock which provides a notion of time for itself (by accessing the <code>now</code> method of a scheduler). Tasks being scheduled on a particular scheduler will adhere to the time denoted by that clock only.</p>
+<p>A scheduler controls when a subscription starts and when notifications are published. It consists of three components. It is first a data structure. When you schedule for tasks to be completed, they are put into the scheduler for queueing based on priority or other criteria. It also offers an execution context which denotes where the task is executed (e.g., in the immediately, current thread, or in another callback mechanism such as <code>setTimeout</code> or <code>process.nextTick</code>). Lastly, it has a clock which provides a notion of time for itself (by accessing the <code>now</code> method of a scheduler). Tasks being scheduled on a particular scheduler will adhere to the time denoted by that clock only.</p>
 <p>Schedulers also introduce the notion of virtual time (denoted by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/virtualtimescheduler.md" target="_blank"><code>VirtualTimeScheduler</code></a> type), which does not correlate with real time that is used in our daily life. For example, a sequence that is specified to take 100 years to complete can be scheduled to complete in virtual time in a mere 5 minutes. This will be covered in the <a href="testing.md">Testing and Debugging Observable Sequences</a> topic.</p>
 <h2 id="scheduler-types"><a name="scheduler-types" class="plugin-anchor" href="#scheduler-types"><span class="fa fa-link"></span></a>Scheduler Types</h2>
-<p>The various Scheduler types provided by Rx all implement the <code>Scheduler</code> methods. Each of these can be created and returned by using static properties of the <code>Scheduler</code> object. The <code>ImmediateScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulerimmediate" target="_blank"><code>immediate</code></a> property) will start the specified action immediately. The <code>CurrentThreadScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulercurrentthread" target="_blank"><code>currentThread</code></a> property) will schedule actions to be performed on the thread that makes the original call. The action is not executed immediately, but is placed in a queue and only executed after the current action is complete.  The <code>DefaultScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulerdefault" target="_blank"><code><span class="token keyword">default</span></code></a> property) will schedule actions to be performed on a asynchronous callback, which is optimized for the particular runtime, such as <code>setImmediate</code> or <code>process<span class="token punctuation">.</span>nextTick</code> on Node.js or in the browser with a fallback to <code>setTimeout</code>.</p>
+<p>The various Scheduler types provided by Rx all implement the <code>Scheduler</code> methods. Each of these can be created and returned by using static properties of the <code>Scheduler</code> object. The <code>ImmediateScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulerimmediate" target="_blank"><code>immediate</code></a> property) will start the specified action immediately. The <code>CurrentThreadScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulercurrentthread" target="_blank"><code>currentThread</code></a> property) will schedule actions to be performed on the thread that makes the original call. The action is not executed immediately, but is placed in a queue and only executed after the current action is complete.  The <code>DefaultScheduler</code> (by accessing the static <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md#rxschedulerdefault" target="_blank"><code>default</code></a> property) will schedule actions to be performed on a asynchronous callback, which is optimized for the particular runtime, such as <code>setImmediate</code> or <code>process.nextTick</code> on Node.js or in the browser with a fallback to <code>setTimeout</code>.</p>
 <h2 id="using-schedulers"><a name="using-schedulers" class="plugin-anchor" href="#using-schedulers"><span class="fa fa-link"></span></a>Using Schedulers</h2>
-<p>You may have already used schedulers in your Rx code without explicitly stating the type of schedulers to be used. This is because all Observable operators that deal with concurrency have optional schedulers. If you do not provide the scheduler, RxJS will pick a default scheduler by using the principle of least concurrency. This means that the scheduler which introduces the least amount of concurrency that satisfies the needs of the operator is chosen.  For example, for operators returning an observable with a finite and small number of messages, RxJS calls <code>immediate</code>.  For operators returning a potentially large or infinite number of messages, <code>currentThread</code> is called. For operators which use timers, <code><span class="token keyword">default</span></code> is used.</p>
-<p>Because RxJS uses the least concurrency scheduler, you can pick a different scheduler if you want to introduce concurrency for performance purpose.  To specify a particular scheduler, you can use those operator methods that take a scheduler, e.g., <code><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">,</span> Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span></code>.</p>
+<p>You may have already used schedulers in your Rx code without explicitly stating the type of schedulers to be used. This is because all Observable operators that deal with concurrency have optional schedulers. If you do not provide the scheduler, RxJS will pick a default scheduler by using the principle of least concurrency. This means that the scheduler which introduces the least amount of concurrency that satisfies the needs of the operator is chosen.  For example, for operators returning an observable with a finite and small number of messages, RxJS calls <code>immediate</code>.  For operators returning a potentially large or infinite number of messages, <code>currentThread</code> is called. For operators which use timers, <code>default</code> is used.</p>
+<p>Because RxJS uses the least concurrency scheduler, you can pick a different scheduler if you want to introduce concurrency for performance purpose.  To specify a particular scheduler, you can use those operator methods that take a scheduler, e.g., <code>return(42, Rx.Scheduler.default)</code>.</p>
 <p>In the following example, the source observable sequence is producing values at a frantic pace. The default scheduler of the generate operator would place onNext messages on the <code>currentThread</code>.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> obs <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">generate</span><span class="token punctuation">(</span>
-    <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
-    x <span class="token operator">=</span><span class="token operator">&gt;</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
-    x <span class="token operator">=</span><span class="token operator">&gt;</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obs = Rx.Observable.generate(
+    <span class="hljs-number">0</span>,
+    () =&gt; <span class="hljs-literal">true</span>,
+    x =&gt; x + <span class="hljs-number">1</span>,
+    x =&gt; x);
 </code></pre>
 <p>This will queue up on the observer quickly. We can improve this code by using the observeOn operator, which allows you to specify the context that you want to use to send pushed notifications (onNext) to observers. By default, the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/observeon.md" target="_blank"><code>observeOn</code></a> operator ensures that <code>onNext</code> will be called as many times as possible on the current thread. You can use its overloads and redirect the <code>onNext</code> outputs to a different context. In addition, you can use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/subscribeon.md" target="_blank"><code>subscribeOn</code></a> operator to return a proxy observable that delegates actions to a specific scheduler. For example, for a UI-intensive application, you can delegate all background operations to be performed on a scheduler running in the background by using <code>subscribeOn</code> and passing to it the <code>DefaultScheduler</code>.</p>
 <p>The following example will schedule any onNext notifications on the current Dispatcher, so that any value pushed out is sent on the UI thread. This is especially beneficial to Silverlight developers who use RxJS.</p>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">generate</span><span class="token punctuation">(</span>
-    <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
-    x <span class="token operator">=</span><span class="token operator">&gt;</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
-    x <span class="token operator">=</span><span class="token operator">&gt;</span> x
-    <span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">observeOn</span><span class="token punctuation">(</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js">Rx.Observable.generate(
+    <span class="hljs-number">0</span>,
+    () =&gt; <span class="hljs-literal">true</span>,
+    x =&gt; x + <span class="hljs-number">1</span>,
+    x =&gt; x
+    )
+    .observeOn(Rx.Scheduler.default)
+    .subscribe(...);
 </code></pre>
-<p>Instead of using the <code>observeOn</code> operator to change the execution context on which the observable sequence produces messages, we can create concurrency in the right place to begin with. As operators parameterize introduction of concurrency by providing a scheduler argument overload, passing the right scheduler will lead to fewer places where the ObserveOn operator has to be used. For example, we can unblock the observer and subscribe to the UI thread directly by changing the scheduler used by the source, as in the following example. In this code, by using the <code>generate</code> method passing a scheduler, and providing the <code>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span><span class="token keyword">default</span></code> instance, all values pushed out from this observable sequence will originate via an asynchronous callback.</p>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">generate</span><span class="token punctuation">(</span>
-    <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
-    x <span class="token operator">=</span><span class="token operator">&gt;</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
-    x <span class="token operator">=</span><span class="token operator">&gt;</span> x<span class="token punctuation">,</span>
-    Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>Instead of using the <code>observeOn</code> operator to change the execution context on which the observable sequence produces messages, we can create concurrency in the right place to begin with. As operators parameterize introduction of concurrency by providing a scheduler argument overload, passing the right scheduler will lead to fewer places where the ObserveOn operator has to be used. For example, we can unblock the observer and subscribe to the UI thread directly by changing the scheduler used by the source, as in the following example. In this code, by using the <code>generate</code> method passing a scheduler, and providing the <code>Rx.Scheduler.default</code> instance, all values pushed out from this observable sequence will originate via an asynchronous callback.</p>
+<pre><code class="lang-js">Rx.Observable.generate(
+    <span class="hljs-number">0</span>,
+    () =&gt; <span class="hljs-literal">true</span>,
+    x =&gt; x + <span class="hljs-number">1</span>,
+    x =&gt; x,
+    Rx.Scheduler.default)
+    .subscribe(...);
 </code></pre>
 <p>You should also note that by using the <code>observeOn</code> operator, an action is scheduled for each message that comes through the original observable sequence. This potentially changes timing information as well as puts additional stress on the system. If you have a query that composes various observable sequences running on many different execution contexts, and you are doing filtering in the query, it is best to place <code>observeOn</code> later in the query. This is because a query will potentially filter out a lot of messages, and placing the <code>observeOn</code> operator earlier in the query would do extra work on messages that would be filtered out anyway. Calling the <code>observeOn</code> operator at the end of the query will create the least performance impact.</p>
 <p>Another advantage of specifying a scheduler type explicitly is that you can introduce concurrency for performance purpose, as illustrated by the following code.</p>
-<pre><code class="lang-js">seq<span class="token punctuation">.</span><span class="token function">groupBy</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> x<span class="token punctuation">.</span><span class="token function">observeOn</span><span class="token punctuation">(</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">expensive</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// perform operations that are expensive on resources</span>
+<pre><code class="lang-js">seq.groupBy(...)
+  .map(x =&gt; x.observeOn(Rx.Scheduler.default))
+  .map(x =&gt; expensive(x))  <span class="hljs-comment">// perform operations that are expensive on resources</span>
 </code></pre>
 <h2 id="when-to-use-which-scheduler"><a name="when-to-use-which-scheduler" class="plugin-anchor" href="#when-to-use-which-scheduler"><span class="fa fa-link"></span></a>When to Use Which Scheduler</h2>
 <p>To make things a little easier when you are creating your own operators, or using the standard built-in ones, which scheduler you should use.  The following table lays out each scenario with the suggested scheduler.</p>
@@ -5851,6 +5847,10 @@
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

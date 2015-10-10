@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="16.1.1.2" data-basepath="../../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="16.1.1.2" data-basepath="../../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,44 +5729,44 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-a-id-rxdomrequestajaxcoldurl-settings-a-rx-dom-request-ajaxcold-url-settings"><a name="-a-id-rxdomrequestajaxcoldurl-settings-a-rx-dom-request-ajaxcold-url-settings" class="plugin-anchor" href="#-a-id-rxdomrequestajaxcoldurl-settings-a-rx-dom-request-ajaxcold-url-settings"><span class="fa fa-link"></span></a><a id="rxdomrequestajaxcoldurl--settings"></a><code>Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token function">ajaxCold</span><span class="token punctuation">(</span>url <span class="token operator">|</span> settings<span class="token punctuation">)</span></code></h3>
+                        <h3 id="-a-id-rxdomrequestajaxcoldurl-settings-a-rx-dom-request-ajaxcold-url-settings"><a name="-a-id-rxdomrequestajaxcoldurl-settings-a-rx-dom-request-ajaxcold-url-settings" class="plugin-anchor" href="#-a-id-rxdomrequestajaxcoldurl-settings-a-rx-dom-request-ajaxcold-url-settings"><span class="fa fa-link"></span></a><a id="rxdomrequestajaxcoldurl--settings"></a><code>Rx.DOM.Request.ajaxCold(url | settings)</code></h3>
 <p><a href="#rxdomrequestajaxcoldurl--settings">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L145-L204" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
 <p>Creates a cold observable for an Ajax request with either a settings object with url, headers, etc or a string for a URL.</p>
 <h4 id="syntax"><a name="syntax" class="plugin-anchor" href="#syntax"><span class="fa fa-link"></span></a>Syntax</h4>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Using string URL</span>
-Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token function">ajaxCold</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-comment">// Using string URL</span>
+Rx.DOM.Request.ajaxCold(url);
 
-<span class="token comment" spellcheck="true">// Using settings object</span>
-Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token function">ajaxCold</span><span class="token punctuation">(</span>settings<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Using settings object</span>
+Rx.DOM.Request.ajaxCold(settings);
 </code></pre>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>url</code> <em>(String)</em>: A string of the URL to make the Ajax call.</li>
 <li><p><code>settings</code> <em>(Object)</em>: An object with the following properties</p>
-<pre><code> <span class="token operator">-</span> `url` <span class="token operator">*</span><span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">:</span> URL of the request
-   <span class="token operator">-</span> `method` <span class="token operator">*</span><span class="token punctuation">(</span>String<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">:</span> Method of the request<span class="token punctuation">,</span> such as GET<span class="token punctuation">,</span> POST<span class="token punctuation">,</span> PUT<span class="token punctuation">,</span> PATCH<span class="token punctuation">,</span> DELETE
-   <span class="token operator">-</span> `async` <span class="token operator">*</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">:</span> Whether the request is async
-   <span class="token operator">-</span> `headers` <span class="token operator">*</span><span class="token punctuation">(</span>Object<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">:</span> Optional headers
+<pre><code> - `url` *(String)*: URL of the request
+   - `method` *(String)*: Method of the request, such as GET, POST, PUT, PATCH, DELETE
+   - `async` *(Boolean)*: Whether the request is async
+   - `headers` *(Object)*: Optional headers
 </code></pre></li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: An observable sequence containing the <code>XMLHttpRequest</code>.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <p>The following example uses a simple URL to retrieve a list of products. </p>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token function">ajaxCold</span><span class="token punctuation">(</span><span class="token string">&apos;/products&apos;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span> 
-        <span class="token keyword">function</span> <span class="token punctuation">(</span>xhr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre><code class="lang-js">Rx.DOM.Request.ajaxCold(<span class="hljs-string">&apos;/products&apos;</span>)
+    .subscribe( 
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">xhr</span>) </span>{
 
-            <span class="token keyword">var</span> products <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>xhr<span class="token punctuation">.</span>responseText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="hljs-keyword">var</span> products = <span class="hljs-built_in">JSON</span>.parse(xhr.responseText);
 
-            products<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>product<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>product<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token keyword">function</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// Log the error</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            products.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">product</span>) </span>{
+                <span class="hljs-built_in">console</span>.log(product);
+            });
+        },
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+            <span class="hljs-comment">// Log the error</span>
+        }
+    );
 </code></pre>
 
                     
@@ -5805,6 +5801,10 @@ Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

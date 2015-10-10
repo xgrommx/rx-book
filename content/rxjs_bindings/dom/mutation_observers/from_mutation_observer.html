@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="16.1.5.1" data-basepath="../../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="16.1.5.1" data-basepath="../../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,7 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-a-id-rxdomfrommutationobservertarget-options-a-rx-dom-frommutationobserver-target-options"><a name="-a-id-rxdomfrommutationobservertarget-options-a-rx-dom-frommutationobserver-target-options" class="plugin-anchor" href="#-a-id-rxdomfrommutationobservertarget-options-a-rx-dom-frommutationobserver-target-options"><span class="fa fa-link"></span></a><a id="rxdomfrommutationobservertarget-options"></a><code>Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span><span class="token function">fromMutationObserver</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> options<span class="token punctuation">)</span></code></h3>
+                        <h3 id="-a-id-rxdomfrommutationobservertarget-options-a-rx-dom-frommutationobserver-target-options"><a name="-a-id-rxdomfrommutationobservertarget-options-a-rx-dom-frommutationobserver-target-options" class="plugin-anchor" href="#-a-id-rxdomfrommutationobservertarget-options-a-rx-dom-frommutationobserver-target-options"><span class="fa fa-link"></span></a><a id="rxdomfrommutationobservertarget-options"></a><code>Rx.DOM.fromMutationObserver(target, options)</code></h3>
 <p><a href="#rxdomfrommutationobservertarget-options">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L471-L485" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
 <p>Creates an observable sequence from a <code>MutationObserver</code>.  The <code>MutationObserver</code> provides developers a way to react to changes in a DOM.  This requires <code>MutationObserver</code> to be supported in your browser/JavaScript runtime.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5744,27 +5740,27 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: An observable sequence which contains mutations on the given DOM target.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> foo <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&apos;foo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> foo = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;foo&apos;</span>);
 
-<span class="token keyword">var</span> obs <span class="token operator">=</span> Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span><span class="token function">fromMutationObserver</span><span class="token punctuation">(</span>foo<span class="token punctuation">,</span> <span class="token punctuation">{</span> 
-    attributes<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span> 
-    childList<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span> 
-    characterData<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
-    attributeFilter<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;dir&quot;</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> obs = Rx.DOM.fromMutationObserver(foo, { 
+    attributes: <span class="hljs-literal">true</span>, 
+    childList: <span class="hljs-literal">true</span>, 
+    characterData: <span class="hljs-literal">true</span>,
+    attributeFilter: [<span class="hljs-string">&quot;id&quot;</span>, <span class="hljs-string">&quot;dir&quot;</span>]
+});
 
-foo<span class="token punctuation">.</span>dir <span class="token operator">=</span> <span class="token string">&apos;rtl&apos;</span><span class="token punctuation">;</span>
+foo.dir = <span class="hljs-string">&apos;rtl&apos;</span>;
 
-<span class="token comment" spellcheck="true">// Listen for mutations</span>
-obs<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>mutations<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    mutations<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>mutation<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Type of mutation: &quot;</span> <span class="token operator">+</span> mutation<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Listen for mutations</span>
+obs.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">mutations</span>) </span>{
+    mutations.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">mutation</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Type of mutation: &quot;</span> + mutation.type);
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">&quot;attributes&quot;</span> <span class="token operator">===</span> mutation<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Old attribute value: &quot;</span> <span class="token operator">+</span> mutationRecord<span class="token punctuation">.</span>oldValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;attributes&quot;</span> === mutation.type) {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Old attribute value: &quot;</span> + mutationRecord.oldValue);
+        }
+    });
+});
 </code></pre>
 
                     
@@ -5799,6 +5795,10 @@ obs<span class="token punctuation">.</span><span class="token function">subscrib
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

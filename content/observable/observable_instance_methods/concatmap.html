@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="8.2.16" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.16" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,24 +5729,24 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-concatmap-selector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-concatmap-js"><a name="-rx-observable-prototype-concatmap-selector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-concatmap-js" class="plugin-anchor" href="#-rx-observable-prototype-concatmap-selector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-concatmap-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/concatmap.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">concatMap</span><span class="token punctuation">(</span>selector<span class="token punctuation">,</span> <span class="token punctuation">[</span>resultSelector<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
+                        <h2 id="-rx-observable-prototype-concatmap-selector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-concatmap-js"><a name="-rx-observable-prototype-concatmap-selector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-concatmap-js" class="plugin-anchor" href="#-rx-observable-prototype-concatmap-selector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-concatmap-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/concatmap.js" target="_blank"><code>Rx.Observable.prototype.concatMap(selector, [resultSelector])</code></a></h2>
 <p>This is an alias for the <code>selectConcat</code> method.  This can be one of the following:</p>
 <p>Projects each element of an observable sequence to an observable sequence and concatenates the resulting observable sequences or Promises into one observable sequence.</p>
-<pre><code class="lang-js">source<span class="token punctuation">.</span><span class="token function">concatMap</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-source<span class="token punctuation">.</span><span class="token function">concatMap</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js">source.concatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, i</span>) </span>{ <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">0</span>, x); });
+source.concatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, i</span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(x + <span class="hljs-number">1</span>}; });
 </code></pre>
 <p>Projects each element of an observable sequence or Promise to an observable sequence, invokes the result selector for the source element and each of the corresponding inner sequence&apos;s elements, and concatenates the results into one observable sequence.</p>
-<pre><code class="lang-js">source<span class="token punctuation">.</span><span class="token function">concatMap</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">+</span> y <span class="token operator">+</span> i<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-source<span class="token punctuation">.</span><span class="token function">concatMap</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>x <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">+</span> y <span class="token operator">+</span> i<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js">source.concatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, i</span>) </span>{ <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">0</span>, x); }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y, i</span>) </span>{ <span class="hljs-keyword">return</span> x + y + i; });
+source.concatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, i</span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(x + i); }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y, i</span>) </span>{ <span class="hljs-keyword">return</span> x + y + i; });
 </code></pre>
 <p>Projects each element of the source observable sequence to the other observable sequence or Promise and merges the resulting observable sequences into one observable sequence.</p>
-<pre><code class="lang-js">source<span class="token punctuation">.</span><span class="token function">concatMap</span><span class="token punctuation">(</span>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-source<span class="token punctuation">.</span><span class="token function">concatMap</span><span class="token punctuation">(</span>Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js">source.concatMap(Rx.Observable.fromArray([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]));
+source.concatMap(<span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">42</span>));
 </code></pre>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>selector</code> <em>(<code>Function</code>)</em>:  A transform function to apply to each element or an observable sequence to project each element from the source sequence onto.</li>
-<li><code><span class="token punctuation">[</span>resultSelector<span class="token punctuation">]</span></code> <em>(<code>Function</code>)</em>: A transform function to apply to each element of the intermediate sequence.</li>
+<li><code>[resultSelector]</code> <em>(<code>Function</code>)</em>: A transform function to apply to each element of the intermediate sequence.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence whose elements are the result of invoking the one-to-many transform function collectionSelector on each element of the input sequence and then mapping each of those sequence elements and their corresponding source element to a result element.   </p>
@@ -5765,12 +5761,12 @@ source<span class="token punctuation">.</span><span class="token function">conca
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
 </ul>
 <p>NPM Packages:</p>
 <ul>
@@ -5778,9 +5774,9 @@ source<span class="token punctuation">.</span><span class="token function">conca
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-Complete/" target="_blank"><code>RxJS<span class="token operator">-</span>Complete</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS<span class="token operator">-</span>Main</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Complete/" target="_blank"><code>RxJS-Complete</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
@@ -5819,6 +5815,10 @@ source<span class="token punctuation">.</span><span class="token function">conca
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

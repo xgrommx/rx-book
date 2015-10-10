@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="8.2.31" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.31" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,9 +5729,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-do-observer-onnext-onerror-oncompleted"><a name="-rx-observable-prototype-do-observer-onnext-onerror-oncompleted" class="plugin-anchor" href="#-rx-observable-prototype-do-observer-onnext-onerror-oncompleted"><span class="fa fa-link"></span></a>[<code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token keyword">do</span><span class="token punctuation">(</span>observer <span class="token operator">|</span> <span class="token punctuation">[</span>onNext<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onError<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onCompleted<span class="token punctuation">]</span><span class="token punctuation">)</span></code>,</h2>
-<p><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">doAction</span><span class="token punctuation">(</span>observer <span class="token operator">|</span> <span class="token punctuation">[</span>onNext<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onError<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onCompleted<span class="token punctuation">]</span><span class="token punctuation">)</span></code>,
-<code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span>observer <span class="token operator">|</span> <span class="token punctuation">[</span>onNext<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onError<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onCompleted<span class="token punctuation">]</span><span class="token punctuation">)</span></code>
+                        <h2 id="-rx-observable-prototype-do-observer-onnext-onerror-oncompleted"><a name="-rx-observable-prototype-do-observer-onnext-onerror-oncompleted" class="plugin-anchor" href="#-rx-observable-prototype-do-observer-onnext-onerror-oncompleted"><span class="fa fa-link"></span></a>[<code>Rx.Observable.prototype.do(observer | [onNext], [onError], [onCompleted])</code>,</h2>
+<p><code>Rx.Observable.prototype.doAction(observer | [onNext], [onError], [onCompleted])</code>,
+<code>Rx.Observable.prototype.tap(observer | [onNext], [onError], [onCompleted])</code>
 ](<a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/do.js" target="_blank">https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/do.js</a>)</p>
 <p>Invokes an action for each element in the observable sequence and invokes an action upon graceful or exceptional termination of the observable sequence.
 This method can be used for debugging, logging, etc. of query behavior by intercepting the message stream to run arbitrary actions for messages on the pipeline.
@@ -5743,9 +5739,9 @@ There is an alias to this method <code>doAction</code> for browsers &lt;IE9.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>observer</code> <em>(Observer)</em>: An observer to invoke for each element in the observable sequence.</li>
-<li><code><span class="token punctuation">[</span>onNext<span class="token punctuation">]</span></code> <em>(<code>Function</code>)</em>: Function to invoke for each element in the observable sequence.</li>
-<li><code><span class="token punctuation">[</span>onError<span class="token punctuation">]</span></code> <em>(<code>Function</code>)</em>: Function to invoke upon exceptional termination of the observable sequence. Used if only the first parameter is also a function.</li>
-<li><code><span class="token punctuation">[</span>oncompleted<span class="token punctuation">]</span></code> <em>(<code>Function</code>)</em>: Function to invoke upon graceful termination of the observable sequence. Used if only the first parameter is also a function.</li>
+<li><code>[onNext]</code> <em>(<code>Function</code>)</em>: Function to invoke for each element in the observable sequence.</li>
+<li><code>[onError]</code> <em>(<code>Function</code>)</em>: Function to invoke upon exceptional termination of the observable sequence. Used if only the first parameter is also a function.</li>
+<li><code>[oncompleted]</code> <em>(<code>Function</code>)</em>: Function to invoke upon graceful termination of the observable sequence. Used if only the first parameter is also a function.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence whose observers trigger an invocation of the given observable factory function.</p>
@@ -5791,6 +5787,10 @@ There is an alias to this method <code>doAction</code> for browsers &lt;IE9.</p>
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

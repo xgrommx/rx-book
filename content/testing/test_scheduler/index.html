@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="14.4" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="14.4" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,66 +5729,66 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-testscheduler-class"><a name="-rx-testscheduler-class" class="plugin-anchor" href="#-rx-testscheduler-class"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span>TestScheduler</code> class</h1>
-<p>Virtual time scheduler used for testing applications and libraries built using Reactive Extensions.  This inherits from the <code>Rx<span class="token punctuation">.</span>TestScheduler</code> class.</p>
+                        <h1 id="-rx-testscheduler-class"><a name="-rx-testscheduler-class" class="plugin-anchor" href="#-rx-testscheduler-class"><span class="fa fa-link"></span></a><code>Rx.TestScheduler</code> class</h1>
+<p>Virtual time scheduler used for testing applications and libraries built using Reactive Extensions.  This inherits from the <code>Rx.TestScheduler</code> class.</p>
 <h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
-<p>The following shows an example of using the <code>Rx<span class="token punctuation">.</span>TestScheduler</code>.  In order to make the end comparisons work, you must implement a collection assert, for example here using QUnit.</p>
-<pre><code class="lang-js"><span class="token keyword">function</span> <span class="token function">createMessage</span><span class="token punctuation">(</span>actual<span class="token punctuation">,</span> expected<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token string">&apos;Expected: [&apos;</span> <span class="token operator">+</span> expected<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&apos;]\r\nActual: [&apos;</span> <span class="token operator">+</span> actual<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&apos;]&apos;</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<p>The following shows an example of using the <code>Rx.TestScheduler</code>.  In order to make the end comparisons work, you must implement a collection assert, for example here using QUnit.</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createMessage</span>(<span class="hljs-params">actual, expected</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Expected: [&apos;</span> + expected.toString() + <span class="hljs-string">&apos;]\r\nActual: [&apos;</span> + actual.toString() + <span class="hljs-string">&apos;]&apos;</span>;
+}
 
-<span class="token comment" spellcheck="true">// Using QUnit testing for assertions</span>
-<span class="token keyword">var</span> collectionAssert <span class="token operator">=</span> <span class="token punctuation">{</span>
-    assertEqual<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>expected<span class="token punctuation">,</span> actual<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> comparer <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Internals<span class="token punctuation">.</span>isEqual<span class="token punctuation">,</span>
-            isOk <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Using QUnit testing for assertions</span>
+<span class="hljs-keyword">var</span> collectionAssert = {
+    assertEqual: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">expected, actual</span>) </span>{
+        <span class="hljs-keyword">var</span> comparer = Rx.Internals.isEqual,
+            isOk = <span class="hljs-literal">true</span>;
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>expected<span class="token punctuation">.</span>length <span class="token operator">!</span><span class="token operator">==</span> actual<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">ok</span><span class="token punctuation">(</span><span class="token keyword">false</span><span class="token punctuation">,</span> <span class="token string">&apos;Not equal length. Expected: &apos;</span> <span class="token operator">+</span> expected<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token string">&apos; Actual: &apos;</span> <span class="token operator">+</span> actual<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
+        <span class="hljs-keyword">if</span> (expected.length !== actual.length) {
+            ok(<span class="hljs-literal">false</span>, <span class="hljs-string">&apos;Not equal length. Expected: &apos;</span> + expected.length + <span class="hljs-string">&apos; Actual: &apos;</span> + actual.length);
+            <span class="hljs-keyword">return</span>;
+        }
 
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> expected<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            isOk <span class="token operator">=</span> <span class="token function">comparer</span><span class="token punctuation">(</span>expected<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> actual<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isOk<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, len = expected.length; i &lt; len; i++) {
+            isOk = comparer(expected[i], actual[i]);
+            <span class="hljs-keyword">if</span> (!isOk) {
+                <span class="hljs-keyword">break</span>;
+            }
+        }
 
-        <span class="token function">ok</span><span class="token punctuation">(</span>isOk<span class="token punctuation">,</span> <span class="token function">createMessage</span><span class="token punctuation">(</span>expected<span class="token punctuation">,</span> actual<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+        ok(isOk, createMessage(expected, actual));
+    }
+};
 
-<span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">,</span>
-    onCompleted <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted<span class="token punctuation">,</span>
-    subscribe <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>subscribe<span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
+    onCompleted = Rx.ReactiveTest.onCompleted,
+    subscribe = Rx.ReactiveTest.subscribe;
 
-<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
-<span class="token comment" spellcheck="true">// Create hot observable which will start firing</span>
-<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Create hot observable which will start firing</span>
+<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
+    onNext(<span class="hljs-number">150</span>, <span class="hljs-number">1</span>),
+    onNext(<span class="hljs-number">210</span>, <span class="hljs-number">2</span>),
+    onNext(<span class="hljs-number">220</span>, <span class="hljs-number">3</span>),
+    onCompleted(<span class="hljs-number">230</span>)
+);
 
-<span class="token comment" spellcheck="true">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
-<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithCreate</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">*</span> x <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x });
+});
 
-<span class="token comment" spellcheck="true">// Implement collection assertion</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>messages<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Implement collection assertion</span>
+collectionAssert.assertEqual(res.messages, [
+    onNext(<span class="hljs-number">210</span>, <span class="hljs-number">4</span>),
+    onNext(<span class="hljs-number">220</span>, <span class="hljs-number">9</span>),
+    onCompleted(<span class="hljs-number">230</span>)
+]);
 
-<span class="token comment" spellcheck="true">// Check for subscribe/unsubscribe</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>xs<span class="token punctuation">.</span>subscriptions<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">230</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Check for subscribe/unsubscribe</span>
+collectionAssert.assertEqual(xs.subscriptions, [
+    subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">230</span>)
+]);
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5813,42 +5809,42 @@ collectionAssert<span class="token punctuation">.</span><span class="token funct
 </ul>
 <h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/virtualtimescheduler.md" target="_blank"><code>Rx<span class="token punctuation">.</span>VirtualTimeScheduler</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/virtualtimescheduler.md" target="_blank"><code>Rx.VirtualTimeScheduler</code></a></li>
 </ul>
 <h2 id="-testscheduler-constructor"><a name="-testscheduler-constructor" class="plugin-anchor" href="#-testscheduler-constructor"><span class="fa fa-link"></span></a><em>TestScheduler Constructor</em></h2>
-<h3 id="-a-id-rxtestscheduler-a-rx-testscheduler"><a name="-a-id-rxtestscheduler-a-rx-testscheduler" class="plugin-anchor" href="#-a-id-rxtestscheduler-a-rx-testscheduler"><span class="fa fa-link"></span></a><a id="rxtestscheduler"></a><code>Rx<span class="token punctuation">.</span><span class="token function">TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxtestscheduler-a-rx-testscheduler"><a name="-a-id-rxtestscheduler-a-rx-testscheduler" class="plugin-anchor" href="#-a-id-rxtestscheduler-a-rx-testscheduler"><span class="fa fa-link"></span></a><a id="rxtestscheduler"></a><code>Rx.TestScheduler()</code></h3>
 <p><a href="#rxtestscheduler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L10-L12" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a new virtual time test scheduler.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">,</span>
-    onCompleted <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
+    onCompleted = Rx.ReactiveTest.onCompleted;
 
-<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
-<span class="token comment" spellcheck="true">// Create hot observable which will start firing</span>
-<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Create hot observable which will start firing</span>
+<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
+    onNext(<span class="hljs-number">150</span>, <span class="hljs-number">1</span>),
+    onNext(<span class="hljs-number">210</span>, <span class="hljs-number">2</span>),
+    onNext(<span class="hljs-number">220</span>, <span class="hljs-number">3</span>),
+    onCompleted(<span class="hljs-number">230</span>)
+);
 
-<span class="token comment" spellcheck="true">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
-<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithCreate</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">*</span> x <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x });
+});
 
-<span class="token comment" spellcheck="true">// Implement collection assertion</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>messages<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Implement collection assertion</span>
+collectionAssert.assertEqual(res.messages, [
+    onNext(<span class="hljs-number">210</span>, <span class="hljs-number">4</span>),
+    onNext(<span class="hljs-number">220</span>, <span class="hljs-number">9</span>),
+    onCompleted(<span class="hljs-number">230</span>)
+]);
 
-<span class="token comment" spellcheck="true">// Check for subscribe/unsubscribe</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>xs<span class="token punctuation">.</span>subscriptions<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">230</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Check for subscribe/unsubscribe</span>
+collectionAssert.assertEqual(xs.subscriptions, [
+    subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">230</span>)
+]);
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5856,134 +5852,134 @@ collectionAssert<span class="token punctuation">.</span><span class="token funct
 </ul>
 <hr>
 <h2 id="-testscheduler-instance-methods"><a name="-testscheduler-instance-methods" class="plugin-anchor" href="#-testscheduler-instance-methods"><span class="fa fa-link"></span></a><em>TestScheduler Instance Methods</em></h2>
-<h3 id="-a-id-rxtestschedulerprototypecreatecoldobservableargs-a-rx-testscheduler-prototype-createcoldobservable-args"><a name="-a-id-rxtestschedulerprototypecreatecoldobservableargs-a-rx-testscheduler-prototype-createcoldobservable-args" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypecreatecoldobservableargs-a-rx-testscheduler-prototype-createcoldobservable-args"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypecreatecoldobservableargs"></a><code>Rx<span class="token punctuation">.</span>TestScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">createColdObservable</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>args<span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxtestschedulerprototypecreatecoldobservableargs-a-rx-testscheduler-prototype-createcoldobservable-args"><a name="-a-id-rxtestschedulerprototypecreatecoldobservableargs-a-rx-testscheduler-prototype-createcoldobservable-args" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypecreatecoldobservableargs-a-rx-testscheduler-prototype-createcoldobservable-args"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypecreatecoldobservableargs"></a><code>Rx.TestScheduler.prototype.createColdObservable(...args)</code></h3>
 <p><a href="#rxtestschedulerprototypecreatecoldobservableargs">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L118-L121" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a cold observable using the specified timestamped notification messages.</p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
-<li><code>args</code> <em>(Arguments)</em>: An arguments array of Recorded objects from <code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext</code>, <code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onError</code>, and <code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted</code> methods.</li>
+<li><code>args</code> <em>(Arguments)</em>: An arguments array of Recorded objects from <code>Rx.ReactiveTest.onNext</code>, <code>Rx.ReactiveTest.onError</code>, and <code>Rx.ReactiveTest.onCompleted</code> methods.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: Cold observable sequence that can be used to assert the timing of subscriptions and notifications.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">,</span>
-    onCompleted <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
+    onCompleted = Rx.ReactiveTest.onCompleted;
 
-<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
-<span class="token comment" spellcheck="true">// Create cold observable with offset from subscribe time</span>
-<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createColdObservable</span><span class="token punctuation">(</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Create cold observable with offset from subscribe time</span>
+<span class="hljs-keyword">var</span> xs = scheduler.createColdObservable(
+    onNext(<span class="hljs-number">150</span>, <span class="hljs-number">1</span>),
+    onNext(<span class="hljs-number">200</span>, <span class="hljs-number">2</span>),
+    onNext(<span class="hljs-number">250</span>, <span class="hljs-number">3</span>),
+    onCompleted(<span class="hljs-number">300</span>)
+);
 
-<span class="token comment" spellcheck="true">// Note we&apos;ll start at 200 for subscribe</span>
-<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithCreate</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; });
+});
 
-<span class="token comment" spellcheck="true">// Implement collection assertion</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>messages<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Implement collection assertion</span>
+collectionAssert.assertEqual(res.messages, [
+    onNext(<span class="hljs-number">400</span>, <span class="hljs-number">2</span>),
+    onCompleted(<span class="hljs-number">500</span>)
+]);
 
-<span class="token comment" spellcheck="true">// Check for subscribe/unsubscribe</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>xs<span class="token punctuation">.</span>subscriptions<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Check for subscribe/unsubscribe</span>
+collectionAssert.assertEqual(xs.subscriptions, [
+    subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">500</span>)
+]);
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxtestschedulerprototypecreatehotobservableargs-a-rx-testscheduler-prototype-createhotobservable-args"><a name="-a-id-rxtestschedulerprototypecreatehotobservableargs-a-rx-testscheduler-prototype-createhotobservable-args" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypecreatehotobservableargs-a-rx-testscheduler-prototype-createhotobservable-args"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypecreatehotobservableargs"></a><code>Rx<span class="token punctuation">.</span>TestScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>args<span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxtestschedulerprototypecreatehotobservableargs-a-rx-testscheduler-prototype-createhotobservable-args"><a name="-a-id-rxtestschedulerprototypecreatehotobservableargs-a-rx-testscheduler-prototype-createhotobservable-args" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypecreatehotobservableargs-a-rx-testscheduler-prototype-createhotobservable-args"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypecreatehotobservableargs"></a><code>Rx.TestScheduler.prototype.createHotObservable(...args)</code></h3>
 <p><a href="#rxtestschedulerprototypecreatehotobservableargs">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L108-L111" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a hot observable using the specified timestamped notification messages.</p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
 <ol>
-<li><code>args</code> <em>(Arguments)</em>: An arguments array of Recorded objects from <code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext</code>, <code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onError</code>, and <code>Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted</code> methods.</li>
+<li><code>args</code> <em>(Arguments)</em>: An arguments array of Recorded objects from <code>Rx.ReactiveTest.onNext</code>, <code>Rx.ReactiveTest.onError</code>, and <code>Rx.ReactiveTest.onCompleted</code> methods.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: Hot observable sequence that can be used to assert the timing of subscriptions and notifications.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">,</span>
-    onCompleted <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
+    onCompleted = Rx.ReactiveTest.onCompleted;
 
-<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
-<span class="token comment" spellcheck="true">// Create hot observable which will start firing</span>
-<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Create hot observable which will start firing</span>
+<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
+    onNext(<span class="hljs-number">150</span>, <span class="hljs-number">1</span>),
+    onNext(<span class="hljs-number">210</span>, <span class="hljs-number">2</span>),
+    onNext(<span class="hljs-number">220</span>, <span class="hljs-number">3</span>),
+    onCompleted(<span class="hljs-number">230</span>)
+);
 
-<span class="token comment" spellcheck="true">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
-<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithCreate</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">*</span> x <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x });
+});
 
-<span class="token comment" spellcheck="true">// Implement collection assertion</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>messages<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Implement collection assertion</span>
+collectionAssert.assertEqual(res.messages, [
+    onNext(<span class="hljs-number">210</span>, <span class="hljs-number">4</span>),
+    onNext(<span class="hljs-number">220</span>, <span class="hljs-number">9</span>),
+    onCompleted(<span class="hljs-number">230</span>)
+]);
 
-<span class="token comment" spellcheck="true">// Check for subscribe/unsubscribe</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>xs<span class="token punctuation">.</span>subscriptions<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">230</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Check for subscribe/unsubscribe</span>
+collectionAssert.assertEqual(xs.subscriptions, [
+    subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">230</span>)
+]);
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxtestschedulerprototypecreateobserver-a-rx-testscheduler-prototype-createobserver"><a name="-a-id-rxtestschedulerprototypecreateobserver-a-rx-testscheduler-prototype-createobserver" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypecreateobserver-a-rx-testscheduler-prototype-createobserver"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypecreateobserver"></a><code>Rx<span class="token punctuation">.</span>TestScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">createObserver</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxtestschedulerprototypecreateobserver-a-rx-testscheduler-prototype-createobserver"><a name="-a-id-rxtestschedulerprototypecreateobserver-a-rx-testscheduler-prototype-createobserver" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypecreateobserver-a-rx-testscheduler-prototype-createobserver"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypecreateobserver"></a><code>Rx.TestScheduler.prototype.createObserver()</code></h3>
 <p><a href="#rxtestschedulerprototypecreateobserver">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L127-L129" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates an observer that records received notification messages and timestamps those.</p>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: Observer that can be used to assert the timing of received notifications.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext;
 
-<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
-<span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>SerialDisposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> Rx.SerialDisposable();
 
-<span class="token keyword">var</span> xs <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">,</span> scheduler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> xs = Rx.Observable.return(<span class="hljs-number">42</span>, scheduler);
 
-<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createObserver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> res = scheduler.createObserver();
 
-scheduler<span class="token punctuation">.</span><span class="token function">scheduleAbsolute</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    d<span class="token punctuation">.</span><span class="token function">setDisposable</span><span class="token punctuation">(</span>xs<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-        <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            d<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            res<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        res<span class="token punctuation">.</span>onError<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">,</span>
-        res<span class="token punctuation">.</span>onCompleted<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    d.setDisposable(xs.subscribe(
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+            d.dispose();
+            res.onNext(x);
+        },
+        res.onError.bind(res),
+        res.onCompleted.bind(res)
+    );
+});
 
-scheduler<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+scheduler.start();
 
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>messages<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">101</span><span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+collectionAssert.assertEqual(res.messages, [
+    onNext(<span class="hljs-number">101</span>, <span class="hljs-number">42</span>)
+]);
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxtestschedulerprototypestartwithcreatecreate-a-rx-testscheduler-prototype-startwithcreate-create"><a name="-a-id-rxtestschedulerprototypestartwithcreatecreate-a-rx-testscheduler-prototype-startwithcreate-create" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypestartwithcreatecreate-a-rx-testscheduler-prototype-startwithcreate-create"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypestartwithcreatecreate"></a><code>Rx<span class="token punctuation">.</span>TestScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">startWithCreate</span><span class="token punctuation">(</span>create<span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxtestschedulerprototypestartwithcreatecreate-a-rx-testscheduler-prototype-startwithcreate-create"><a name="-a-id-rxtestschedulerprototypestartwithcreatecreate-a-rx-testscheduler-prototype-startwithcreate-create" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypestartwithcreatecreate-a-rx-testscheduler-prototype-startwithcreate-create"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypestartwithcreatecreate"></a><code>Rx.TestScheduler.prototype.startWithCreate(create)</code></h3>
 <p><a href="#rxtestschedulerprototypestartwithcreatecreate">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L99-L101" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Starts the test scheduler and uses default virtual times to invoke the factory function, to subscribe to the resulting sequence, and to dispose the subscription.</p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
@@ -5993,41 +5989,41 @@ collectionAssert<span class="token punctuation">.</span><span class="token funct
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: Observer with timestamped recordings of notification messages that were received during the virtual time window when the subscription to the source sequence was active.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">,</span>
-    onCompleted <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
+    onCompleted = Rx.ReactiveTest.onCompleted;
 
-<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
-<span class="token comment" spellcheck="true">// Create cold observable with offset from subscribe time</span>
-<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createColdObservable</span><span class="token punctuation">(</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Create cold observable with offset from subscribe time</span>
+<span class="hljs-keyword">var</span> xs = scheduler.createColdObservable(
+    onNext(<span class="hljs-number">150</span>, <span class="hljs-number">1</span>),
+    onNext(<span class="hljs-number">200</span>, <span class="hljs-number">2</span>),
+    onNext(<span class="hljs-number">250</span>, <span class="hljs-number">3</span>),
+    onCompleted(<span class="hljs-number">300</span>)
+);
 
-<span class="token comment" spellcheck="true">// Note we&apos;ll start at 200 for subscribe</span>
-<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithCreate</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithCreate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> xs.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; });
+});
 
-<span class="token comment" spellcheck="true">// Implement collection assertion</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>messages<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Implement collection assertion</span>
+collectionAssert.assertEqual(res.messages, [
+    onNext(<span class="hljs-number">400</span>, <span class="hljs-number">2</span>),
+    onCompleted(<span class="hljs-number">500</span>)
+]);
 
-<span class="token comment" spellcheck="true">// Check for subscribe/unsubscribe</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>xs<span class="token punctuation">.</span>subscriptions<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Check for subscribe/unsubscribe</span>
+collectionAssert.assertEqual(xs.subscriptions, [
+    subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">500</span>)
+]);
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxtestschedulerprototypestartwithdisposecreate-disposed-a-rx-testscheduler-prototype-startwithdispose-create-disposed"><a name="-a-id-rxtestschedulerprototypestartwithdisposecreate-disposed-a-rx-testscheduler-prototype-startwithdispose-create-disposed" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypestartwithdisposecreate-disposed-a-rx-testscheduler-prototype-startwithdispose-create-disposed"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypestartwithdisposecreate-disposed"></a><code>Rx<span class="token punctuation">.</span>TestScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">startWithDispose</span><span class="token punctuation">(</span>create<span class="token punctuation">,</span> disposed<span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxtestschedulerprototypestartwithdisposecreate-disposed-a-rx-testscheduler-prototype-startwithdispose-create-disposed"><a name="-a-id-rxtestschedulerprototypestartwithdisposecreate-disposed-a-rx-testscheduler-prototype-startwithdispose-create-disposed" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypestartwithdisposecreate-disposed-a-rx-testscheduler-prototype-startwithdispose-create-disposed"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypestartwithdisposecreate-disposed"></a><code>Rx.TestScheduler.prototype.startWithDispose(create, disposed)</code></h3>
 <p><a href="#rxtestschedulerprototypestartwithdisposecreate-disposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L90-L92" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Starts the test scheduler and uses the specified virtual time to dispose the subscription to the sequence obtained through the factory function.
 Default virtual times are used for factory invocation and sequence subscription.</p>
@@ -6039,44 +6035,44 @@ Default virtual times are used for factory invocation and sequence subscription.
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: Observer with timestamped recordings of notification messages that were received during the virtual time window when the subscription to the source sequence was active.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">,</span>
-    onCompleted <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
+    onCompleted = Rx.ReactiveTest.onCompleted;
 
-<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
-<span class="token comment" spellcheck="true">// Create hot observable which will start firing</span>
-<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">220</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">230</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Create hot observable which will start firing</span>
+<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
+    onNext(<span class="hljs-number">150</span>, <span class="hljs-number">1</span>),
+    onNext(<span class="hljs-number">210</span>, <span class="hljs-number">2</span>),
+    onNext(<span class="hljs-number">220</span>, <span class="hljs-number">3</span>),
+    onCompleted(<span class="hljs-number">230</span>)
+);
 
-<span class="token comment" spellcheck="true">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
-<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithDispose</span><span class="token punctuation">(</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">*</span> x <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token number">215</span> <span class="token comment" spellcheck="true">/* Dispose at 215 */</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithDispose(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x });
+    },
+    <span class="hljs-number">215</span> <span class="hljs-comment">/* Dispose at 215 */</span>
+);
 
-<span class="token comment" spellcheck="true">// Implement collection assertion</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>messages<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">215</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Implement collection assertion</span>
+collectionAssert.assertEqual(res.messages, [
+    onNext(<span class="hljs-number">210</span>, <span class="hljs-number">4</span>),
+    onCompleted(<span class="hljs-number">215</span>)
+]);
 
-<span class="token comment" spellcheck="true">// Check for subscribe/unsubscribe</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>xs<span class="token punctuation">.</span>subscriptions<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">215</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Check for subscribe/unsubscribe</span>
+collectionAssert.assertEqual(xs.subscriptions, [
+    subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">215</span>)
+]);
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed-a-rx-testscheduler-prototype-startwithtiming-create-created-subscribed-disposed"><a name="-a-id-rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed-a-rx-testscheduler-prototype-startwithtiming-create-created-subscribed-disposed" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed-a-rx-testscheduler-prototype-startwithtiming-create-created-subscribed-disposed"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed"></a><code>Rx<span class="token punctuation">.</span>TestScheduler<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">startWithTiming</span><span class="token punctuation">(</span>create<span class="token punctuation">,</span> created<span class="token punctuation">,</span> subscribed<span class="token punctuation">,</span> disposed<span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed-a-rx-testscheduler-prototype-startwithtiming-create-created-subscribed-disposed"><a name="-a-id-rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed-a-rx-testscheduler-prototype-startwithtiming-create-created-subscribed-disposed" class="plugin-anchor" href="#-a-id-rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed-a-rx-testscheduler-prototype-startwithtiming-create-created-subscribed-disposed"><span class="fa fa-link"></span></a><a id="rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed"></a><code>Rx.TestScheduler.prototype.startWithTiming(create, created, subscribed, disposed)</code></h3>
 <p><a href="#rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/testscheduler.js#L65-L81" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Starts the test scheduler and uses the specified virtual times to invoke the factory function, subscribe to the resulting sequence, and dispose the subscription.</p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
@@ -6089,41 +6085,41 @@ collectionAssert<span class="token punctuation">.</span><span class="token funct
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observer)</em>: Observer with timestamped recordings of notification messages that were received during the virtual time window when the subscription to the source sequence was active.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> onNext <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onNext<span class="token punctuation">,</span>
-    onCompleted <span class="token operator">=</span> Rx<span class="token punctuation">.</span>ReactiveTest<span class="token punctuation">.</span>onCompleted<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> onNext = Rx.ReactiveTest.onNext,
+    onCompleted = Rx.ReactiveTest.onCompleted;
 
-<span class="token keyword">var</span> scheduler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>TestScheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.TestScheduler();
 
-<span class="token comment" spellcheck="true">// Create hot observable which will start firing</span>
-<span class="token keyword">var</span> xs <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">createHotObservable</span><span class="token punctuation">(</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">260</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">310</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">360</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Create hot observable which will start firing</span>
+<span class="hljs-keyword">var</span> xs = scheduler.createHotObservable(
+    onNext(<span class="hljs-number">150</span>, <span class="hljs-number">1</span>),
+    onNext(<span class="hljs-number">210</span>, <span class="hljs-number">2</span>),
+    onNext(<span class="hljs-number">260</span>, <span class="hljs-number">3</span>),
+    onNext(<span class="hljs-number">310</span>, <span class="hljs-number">4</span>),
+    onCompleted(<span class="hljs-number">360</span>)
+);
 
-<span class="token comment" spellcheck="true">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
-<span class="token keyword">var</span> res <span class="token operator">=</span> scheduler<span class="token punctuation">.</span><span class="token function">startWithTiming</span><span class="token punctuation">(</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> xs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> x <span class="token operator">*</span> x <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token number">100</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/* Create at 100    */</span>
-    <span class="token number">200</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">/* Subscribe at 200 */</span>
-    <span class="token number">300</span>  <span class="token comment" spellcheck="true">/* Dispose at 300   */</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Note we&apos;ll start at 200 for subscribe, hence missing the 150 mark</span>
+<span class="hljs-keyword">var</span> res = scheduler.startWithTiming(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> xs.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * x });
+    },
+    <span class="hljs-number">100</span>, <span class="hljs-comment">/* Create at 100    */</span>
+    <span class="hljs-number">200</span>, <span class="hljs-comment">/* Subscribe at 200 */</span>
+    <span class="hljs-number">300</span>  <span class="hljs-comment">/* Dispose at 300   */</span>
+);
 
-<span class="token comment" spellcheck="true">// Implement collection assertion</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>messages<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">210</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">260</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Implement collection assertion</span>
+collectionAssert.assertEqual(res.messages, [
+    onNext(<span class="hljs-number">210</span>, <span class="hljs-number">4</span>),
+    onNext(<span class="hljs-number">260</span>, <span class="hljs-number">9</span>),
+    onCompleted(<span class="hljs-number">300</span>)
+]);
 
-<span class="token comment" spellcheck="true">// Check for subscribe/unsubscribe</span>
-collectionAssert<span class="token punctuation">.</span><span class="token function">assertEqual</span><span class="token punctuation">(</span>xs<span class="token punctuation">.</span>subscriptions<span class="token punctuation">,</span> <span class="token punctuation">[</span>
-    <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Check for subscribe/unsubscribe</span>
+collectionAssert.assertEqual(xs.subscriptions, [
+    subscribe(<span class="hljs-number">200</span>, <span class="hljs-number">300</span>)
+]);
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -6163,6 +6159,10 @@ collectionAssert<span class="token punctuation">.</span><span class="token funct
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="8.2.26" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.2.26" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,7 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-observable-prototype-singleinstance-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-singleinstance-js"><a name="-observable-prototype-singleinstance-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-singleinstance-js" class="plugin-anchor" href="#-observable-prototype-singleinstance-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-singleinstance-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/singleinstance.js" target="_blank"><code>Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">singleInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></a></h2>
+                        <h2 id="-observable-prototype-singleinstance-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-singleinstance-js"><a name="-observable-prototype-singleinstance-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-singleinstance-js" class="plugin-anchor" href="#-observable-prototype-singleinstance-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-singleinstance-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/singleinstance.js" target="_blank"><code>Observable.prototype.singleInstance()</code></a></h2>
 <p>Returns a &quot;cold&quot; observable that becomes &quot;hot&quot; upon first subscription, and goes &quot;cold&quot; again when all subscriptions to it are disposed.</p>
 <p>At first subscription to the returned observable, the source observable is subscribed to. That source subscription is then shared amongst each subsequent simultaneous subscription to the returned observable. </p>
 <p>When all subscriptions to the returned observable have completed, the source observable subscription is disposed of.</p>
@@ -5741,74 +5737,74 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: An observable sequence that stays connected to the source as long as there is at least one subscription to the observable sequence.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> interval <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> interval = Rx.Observable.interval(<span class="hljs-number">1000</span>);
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> interval
-    <span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">doAction</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Side effect&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = interval
+    .take(<span class="hljs-number">2</span>)
+    .doAction(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Side effect&apos;</span>);
+    });
 
-<span class="token keyword">var</span> single <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">singleInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> single = source.singleInstance();
 
-<span class="token comment" spellcheck="true">// two simultaneous subscriptions, lasting 2 seconds</span>
-single<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token function">createObserver</span><span class="token punctuation">(</span><span class="token string">&apos;SourceA&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-single<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token function">createObserver</span><span class="token punctuation">(</span><span class="token string">&apos;SourceB&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// two simultaneous subscriptions, lasting 2 seconds</span>
+single.subscribe(createObserver(<span class="hljs-string">&apos;SourceA&apos;</span>));
+single.subscribe(createObserver(<span class="hljs-string">&apos;SourceB&apos;</span>));
 
-<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// resubscribe two times again, more than 5 seconds later,</span>
-    <span class="token comment" spellcheck="true">// long after the original two subscriptions have ended</span>
-    single<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token function">createObserver</span><span class="token punctuation">(</span><span class="token string">&apos;SourceC&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    single<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token function">createObserver</span><span class="token punctuation">(</span><span class="token string">&apos;SourceD&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-comment">// resubscribe two times again, more than 5 seconds later,</span>
+    <span class="hljs-comment">// long after the original two subscriptions have ended</span>
+    single.subscribe(createObserver(<span class="hljs-string">&apos;SourceC&apos;</span>));
+    single.subscribe(createObserver(<span class="hljs-string">&apos;SourceD&apos;</span>));
+}, <span class="hljs-number">5000</span>);
 
-<span class="token keyword">function</span> <span class="token function">createObserver</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observer<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>
-        <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> tag <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed: &apos;</span> <span class="token operator">+</span> tag<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createObserver</span>(<span class="hljs-params">tag</span>) </span>{
+    <span class="hljs-keyword">return</span> Rx.Observer.create(
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + tag + x);
+        },
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
+        },
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed: &apos;</span> + tag);
+        });
+}
 
-<span class="token comment" spellcheck="true">// =&gt; Side effect</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: SourceA0</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: SourceB0</span>
-<span class="token comment" spellcheck="true">// =&gt; Side effect</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: SourceA1</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: SourceB1</span>
-<span class="token comment" spellcheck="true">// =&gt; Completed: SourceA</span>
-<span class="token comment" spellcheck="true">// =&gt; Completed: SourceB</span>
-<span class="token comment" spellcheck="true">// =&gt; Side effect</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: SourceC0</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: SourceD0</span>
-<span class="token comment" spellcheck="true">// =&gt; Side effect</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: SourceC1</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: SourceD1</span>
-<span class="token comment" spellcheck="true">// =&gt; Completed: SourceC</span>
-<span class="token comment" spellcheck="true">// =&gt; Completed: SourceD</span>
+<span class="hljs-comment">// =&gt; Side effect</span>
+<span class="hljs-comment">// =&gt; Next: SourceA0</span>
+<span class="hljs-comment">// =&gt; Next: SourceB0</span>
+<span class="hljs-comment">// =&gt; Side effect</span>
+<span class="hljs-comment">// =&gt; Next: SourceA1</span>
+<span class="hljs-comment">// =&gt; Next: SourceB1</span>
+<span class="hljs-comment">// =&gt; Completed: SourceA</span>
+<span class="hljs-comment">// =&gt; Completed: SourceB</span>
+<span class="hljs-comment">// =&gt; Side effect</span>
+<span class="hljs-comment">// =&gt; Next: SourceC0</span>
+<span class="hljs-comment">// =&gt; Next: SourceD0</span>
+<span class="hljs-comment">// =&gt; Side effect</span>
+<span class="hljs-comment">// =&gt; Next: SourceC1</span>
+<span class="hljs-comment">// =&gt; Next: SourceD1</span>
+<span class="hljs-comment">// =&gt; Completed: SourceC</span>
+<span class="hljs-comment">// =&gt; Completed: SourceD</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <p>File:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/singleinstance.js" target="_blank"><code><span class="token operator">/</span>src<span class="token operator">/</span>core<span class="token operator">/</span>linq<span class="token operator">/</span>observable<span class="token operator">/</span>singleinstance<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/singleinstance.js" target="_blank"><code>/src/core/linq/observable/singleinstance.js</code></a></li>
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>all<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.binding.js" target="_blank"><code>rx<span class="token punctuation">.</span>binding<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js" target="_blank"><code>rx.all.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js" target="_blank"><code>rx.all.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.binding.js" target="_blank"><code>rx.binding.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
-<li>If using <code>rx<span class="token punctuation">.</span>binding<span class="token punctuation">.</span>js</code><ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li>If using <code>rx.binding.js</code><ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js" target="_blank"><code>rx.lite.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
 </ul>
 </li>
 </ul>
@@ -5818,11 +5814,11 @@ single<span class="token punctuation">.</span><span class="token function">subsc
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-Binding/" target="_blank"><code>RxJS<span class="token operator">-</span>Binding</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Binding/" target="_blank"><code>RxJS-Binding</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/singleinstance.js" target="_blank"><code><span class="token operator">/</span>tests<span class="token operator">/</span>observable<span class="token operator">/</span>singleinstance<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/singleinstance.js" target="_blank"><code>/tests/observable/singleinstance.js</code></a></li>
 </ul>
 
                     
@@ -5857,6 +5853,10 @@ single<span class="token punctuation">.</span><span class="token function">subsc
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

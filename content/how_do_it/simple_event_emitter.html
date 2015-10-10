@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="4.4" data-basepath="../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="4.4" data-basepath="../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5735,114 +5731,114 @@
                     
                         <h1 id="how-do-i-create-a-custom-event-emitter"><a name="how-do-i-create-a-custom-event-emitter" class="plugin-anchor" href="#how-do-i-create-a-custom-event-emitter"><span class="fa fa-link"></span></a>How do I create a custom event emitter?</h1>
 <p>Publish/Subscribe is a common pattern within JavaScript applications.  The idea is that you have a publisher that emits events and you have consumers which register their interest in a given event.  Typically you may see something like the following where you listen for a &apos;data&apos; event and then the event emitter publishes data to it.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> emitter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Emitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> emitter = <span class="hljs-keyword">new</span> Emitter();
 
-<span class="token keyword">function</span> <span class="token function">logData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;data: &apos;</span> <span class="token operator">+</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">logData</span>(<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;data: &apos;</span> + data);
+}
 
-emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&apos;data&apos;</span><span class="token punctuation">,</span> logData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+emitter.on(<span class="hljs-string">&apos;data&apos;</span>, logData);
 
-emitter<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">&apos;data&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;foo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; data: foo</span>
+emitter.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-string">&apos;foo&apos;</span>);
+<span class="hljs-comment">// =&gt; data: foo</span>
 
-<span class="token comment" spellcheck="true">// Destroy handler</span>
-emitter<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string">&apos;data&apos;</span><span class="token punctuation">,</span> logData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Destroy handler</span>
+emitter.off(<span class="hljs-string">&apos;data&apos;</span>, logData);
 </code></pre>
-<p>How might one implement this using the Reactive Extensions for JavaScript?  Using an <code>Rx<span class="token punctuation">.</span>Subject</code> will solve this problem easily.  As you may remember, an <code>Rx<span class="token punctuation">.</span>Subject</code> is both an Observer and Observable, so it handles both publish and subscribe.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>How might one implement this using the Reactive Extensions for JavaScript?  Using an <code>Rx.Subject</code> will solve this problem easily.  As you may remember, an <code>Rx.Subject</code> is both an Observer and Observable, so it handles both publish and subscribe.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`data<span class="token punctuation">:</span> $<span class="token punctuation">{</span>data<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = subject.subscribe(data =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`data: <span class="hljs-subst">${data}</span>`</span>));
 
-subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token string">&apos;foo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; data: foo</span>
+subject.onNext(<span class="hljs-string">&apos;foo&apos;</span>);
+<span class="hljs-comment">// =&gt; data: foo</span>
 </code></pre>
 <p>Now that we have a basic understanding of publish and subscribe through <code>onNext</code> and <code>subscribe</code>, let&apos;s put it to work to handle multiple types of events at once.  First, we&apos;ll create an Emitter class which has three main methods, <code>emit</code>, <code>on</code> and <code>off</code> which allows you to emit an event, listen to an event and stop listening to an event.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> hasOwnProp <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">.</span>hasOwnProperty<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> hasOwnProp = {}.hasOwnProperty;
 
-<span class="token keyword">function</span> createName <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> `$ $<span class="token punctuation">{</span>name<span class="token punctuation">}</span>`<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createName</span> (<span class="hljs-params">name</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`$ <span class="hljs-subst">${name}</span>`</span>;
+}
 
-<span class="token keyword">function</span> <span class="token function">Emitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Emitter</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.subjects = {};
+}
 
-Emitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>emit <span class="token operator">=</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> fnName <span class="token operator">=</span> <span class="token function">createName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+Emitter.prototype.emit = (name, data) =&gt; {
+    <span class="hljs-keyword">var</span> fnName = createName(name);
+    <span class="hljs-keyword">this</span>.subjects[fnName] || (<span class="hljs-keyword">this</span>.subjects[fnName] = <span class="hljs-keyword">new</span> Rx.Subject());
+    <span class="hljs-keyword">this</span>.subjects[fnName].onNext(data);
+};
 
-Emitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>on <span class="token operator">=</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> fnName <span class="token operator">=</span> <span class="token function">createName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+Emitter.prototype.on = (name, handler) =&gt; {
+    <span class="hljs-keyword">var</span> fnName = createName(name);
+    <span class="hljs-keyword">this</span>.subjects[fnName] || (<span class="hljs-keyword">this</span>.subjects[fnName] = <span class="hljs-keyword">new</span> Rx.Subject());
+    <span class="hljs-keyword">this</span>.subjects[fnName].subscribe(handler);
+};
 
-Emitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>off <span class="token operator">=</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> fnName <span class="token operator">=</span> <span class="token function">createName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">delete</span> <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+Emitter.prototype.off = (name, handler) =&gt; {
+    <span class="hljs-keyword">var</span> fnName = createName(name);
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.subjects[fnName]) {
+        <span class="hljs-keyword">this</span>.subjects[fnName].dispose();
+        <span class="hljs-keyword">delete</span> <span class="hljs-keyword">this</span>.subjects[fnName];
+    }
+};
 
-Emitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>dispose <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> subjects <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> subjects<span class="token punctuation">)</span> <span class="token punctuation">{</span>    
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>hasOwnProp<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>subjects<span class="token punctuation">,</span> prop<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            subjects<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+Emitter.prototype.dispose = () =&gt; {
+    <span class="hljs-keyword">var</span> subjects = <span class="hljs-keyword">this</span>.subjects;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> subjects) {    
+        <span class="hljs-keyword">if</span> (hasOwnProp.call(subjects, prop)) {
+            subjects[prop].dispose();
+        }
+    }
 
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">this</span>.subjects = {};
+};
 </code></pre>
 <p>Then we can use it much as we did above.  As the call to <code>subscribe</code> returns a subscription, we might want to hand that back to the user instead of providing an off method.  So, we could rewrite the above where we call the <code>on</code> method to <code>listen</code> and we return a subscription handle to the user to stop listening.  </p>
-<pre><code class="lang-js"><span class="token keyword">var</span> hasOwnProp <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">.</span>hasOwnProperty<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> hasOwnProp = {}.hasOwnProperty;
 
-<span class="token keyword">function</span> createName <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> `$ $<span class="token punctuation">{</span>name<span class="token punctuation">}</span>`<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createName</span> (<span class="hljs-params">name</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`$ <span class="hljs-subst">${name}</span>`</span>;
+}
 
-<span class="token keyword">function</span> <span class="token function">Emitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Emitter</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.subjects = {};
+}
 
-Emitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>emit <span class="token operator">=</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> fnName <span class="token operator">=</span> <span class="token function">createName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+Emitter.prototype.emit = (name, data) =&gt; {
+    <span class="hljs-keyword">var</span> fnName = createName(name);
+    <span class="hljs-keyword">this</span>.subjects[fnName] || (<span class="hljs-keyword">this</span>.subjects[fnName] = <span class="hljs-keyword">new</span> Rx.Subject());
+    <span class="hljs-keyword">this</span>.subjects[fnName].onNext(data);
+};
 
-Emitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>listen <span class="token operator">=</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> fnName <span class="token operator">=</span> <span class="token function">createName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">[</span>fnName<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+Emitter.prototype.listen = (name, handler) =&gt; {
+    <span class="hljs-keyword">var</span> fnName = createName(name);
+    <span class="hljs-keyword">this</span>.subjects[fnName] || (<span class="hljs-keyword">this</span>.subjects[fnName] = <span class="hljs-keyword">new</span> Rx.Subject());
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.subjects[fnName].subscribe(handler);
+};
 
-Emitter<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>dispose <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> subjects <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>subjects<span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> subjects<span class="token punctuation">)</span> <span class="token punctuation">{</span>    
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>hasOwnProp<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>subjects<span class="token punctuation">,</span> prop<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            subjects<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+Emitter.prototype.dispose = () =&gt; {
+    <span class="hljs-keyword">var</span> subjects = <span class="hljs-keyword">this</span>.subjects;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> subjects) {    
+        <span class="hljs-keyword">if</span> (hasOwnProp.call(subjects, prop)) {
+            subjects[prop].dispose();
+        }
+    }
 
-    <span class="token keyword">this</span><span class="token punctuation">.</span>subjects <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">this</span>.subjects = {};
+};
 </code></pre>
 <p>Now we can use this to rewrite our example such as the following:</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> emitter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Emitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> emitter = <span class="hljs-keyword">new</span> Emitter();
 
-<span class="token keyword">var</span> subcription <span class="token operator">=</span> emitter<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token string">&apos;data&apos;</span><span class="token punctuation">,</span> data <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`data<span class="token punctuation">:</span> $<span class="token punctuation">{</span>data<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subcription = emitter.listen(<span class="hljs-string">&apos;data&apos;</span>, data =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`data: <span class="hljs-subst">${data}</span>`</span>);
 
-emitter<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">&apos;data&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;foo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; data: foo</span>
+emitter.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-string">&apos;foo&apos;</span>);
+<span class="hljs-comment">// =&gt; data: foo</span>
 
-<span class="token comment" spellcheck="true">// Destroy the subscription</span>
-subscription<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Destroy the subscription</span>
+subscription.dispose();
 </code></pre>
 
                     
@@ -5877,6 +5873,10 @@ subscription<span class="token punctuation">.</span><span class="token function"
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

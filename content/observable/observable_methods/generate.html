@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="8.1.19" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="8.1.19" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,7 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-generate-initialstate-condition-iterate-resultselector-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-generate-js"><a name="-rx-observable-generate-initialstate-condition-iterate-resultselector-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-generate-js" class="plugin-anchor" href="#-rx-observable-generate-initialstate-condition-iterate-resultselector-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-generate-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/generate.js" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">generate</span><span class="token punctuation">(</span>initialState<span class="token punctuation">,</span> condition<span class="token punctuation">,</span> iterate<span class="token punctuation">,</span> resultSelector<span class="token punctuation">,</span> <span class="token punctuation">[</span>scheduler<span class="token punctuation">]</span><span class="token punctuation">)</span></code></a></h2>
+                        <h2 id="-rx-observable-generate-initialstate-condition-iterate-resultselector-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-generate-js"><a name="-rx-observable-generate-initialstate-condition-iterate-resultselector-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-generate-js" class="plugin-anchor" href="#-rx-observable-generate-initialstate-condition-iterate-resultselector-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-generate-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/generate.js" target="_blank"><code>Rx.Observable.generate(initialState, condition, iterate, resultSelector, [scheduler])</code></a></h2>
 <p>Converts an array to an observable sequence, using an optional scheduler to enumerate the array.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
@@ -5741,7 +5737,7 @@
 <li><code>condition</code> <em>(<code>Function</code>)</em>: Condition to terminate generation (upon returning false).</li>
 <li><code>iterate</code> <em>(<code>Function</code>)</em>: Iteration step function.</li>
 <li><code>resultSelector</code> <em>(<code>Function</code>)</em>: Selector function for results produced in the sequence.</li>
-<li><code><span class="token punctuation">[</span>scheduler<span class="token operator">=</span>Rx<span class="token punctuation">.</span>Scheduler<span class="token punctuation">.</span>currentThread<span class="token punctuation">]</span></code> <em>(<code>Scheduler</code>)</em>: Scheduler on which to run the generator loop. If not provided, defaults to Scheduler.currentThread.</li>
+<li><code>[scheduler=Rx.Scheduler.currentThread]</code> <em>(<code>Scheduler</code>)</em>: Scheduler on which to run the generator loop. If not provided, defaults to Scheduler.currentThread.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(<code>Observable</code>)</em>: The generated sequence.</p>
@@ -5754,14 +5750,14 @@
 </ul>
 <p>Dist:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
 </ul>
 <p>Prerequisites:</p>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx<span class="token punctuation">.</span>lite<span class="token punctuation">.</span>compat<span class="token punctuation">.</span>js</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js" target="_blank"><code>rx.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js" target="_blank"><code>rx.compat.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js" target="_blank"><code>rx.lite.js</code></a> | <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js" target="_blank"><code>rx.lite.compat.js</code></a></li>
 </ul>
 <p>NPM Packages:</p>
 <ul>
@@ -5769,8 +5765,8 @@
 </ul>
 <p>NuGet Packages:</p>
 <ul>
-<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS<span class="token operator">-</span>Main</code></a></li>
-<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS<span class="token operator">-</span>Lite</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Main/" target="_blank"><code>RxJS-Main</code></a></li>
+<li><a href="http://www.nuget.org/packages/RxJS-Lite/" target="_blank"><code>RxJS-Lite</code></a></li>
 </ul>
 <p>Unit Tests:</p>
 <ul>
@@ -5809,6 +5805,10 @@
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

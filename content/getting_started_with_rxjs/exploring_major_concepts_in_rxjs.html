@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="3.2" data-basepath="../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.2" data-basepath="../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5742,69 +5738,69 @@
 <p>In order to receive notifications from an observable collection, you use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted" target="_blank"><code>subscribe</code></a> method of <code>Observable</code> to hand it an <code>Observer</code> object. In return for this observer, the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted" target="_blank"><code>subscribe</code></a> method returns a <code>Disposable</code> object that acts as a handle for the subscription. This allows you to clean up the subscription after you are done.  Calling <code>dispose</code> on this object detaches the observer from the source so that notifications are no longer delivered. As you can infer, in RxJS you do not need to explicitly unsubscribe from an event as in the common JavaScript event model.</p>
 <p>Observers support three publication events, reflected by the object&apos;s methods. The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md#rxobserverprototypeonnextvalue" target="_blank"><code>onNext</code></a> can be called zero or more times, when the observable data source has data available. For example, an observable data source used for mouse move events can send out an event object every time the mouse has moved. The other two methods are used to indicate completion or errors.</p>
 <p>The following lists the <code>Observable</code> / <code>Observer</code> objects in addition to the <code>Disposable</code> object.</p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">/**
+<pre><code class="lang-js"><span class="hljs-comment">/**
  * Defines a method to release allocated resources.
  */</span>
-<span class="token keyword">function</span> <span class="token function">Disposable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Disposable</span>(<span class="hljs-params"></span>) </span>{ }
 
-<span class="token comment" spellcheck="true">/**
+<span class="hljs-comment">/**
  * Performs application-defined tasks associated with freeing, releasing, or resetting resources.
  */</span>
-Disposable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>dispose <span class="token operator">=</span>  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+Disposable.prototype.dispose =  () =&gt; { ... }
 
-<span class="token comment" spellcheck="true">/**
+<span class="hljs-comment">/**
  * Defines a provider for push-based notification.
  */</span>
-<span class="token keyword">function</span> <span class="token function">Observable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Observable</span>(<span class="hljs-params"></span>) </span>{ }
 
-<span class="token comment" spellcheck="true">/**
+<span class="hljs-comment">/**
  * Notifies the provider that an observer is to receive notifications.
  *
  * @param {Observer} observer The object that is to receive notifications.
  * @returns {Disposable} A reference to disposable that allows observers to stop receiving notifications before the provider has finished sending them.
  */</span>
-Observable<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>subscribe <span class="token operator">=</span>  observer <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+Observable.prototype.subscribe =  observer =&gt; { ... }
 
-<span class="token comment" spellcheck="true">/**
+<span class="hljs-comment">/**
  * Provides a mechanism for receiving push-based notifications.
  */</span>
-<span class="token keyword">function</span> <span class="token function">Observer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Observer</span>(<span class="hljs-params"></span>) </span>{ }
 
-<span class="token comment" spellcheck="true">/**
+<span class="hljs-comment">/**
  * Provides the observer with new data.
  *
  * @param {Any} value The current notification information.
  */</span>
-Observer<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>onNext <span class="token operator">=</span> value <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+Observer.prototype.onNext = value =&gt; { ... };
 
-<span class="token comment" spellcheck="true">/**
+<span class="hljs-comment">/**
  * Notifies the observer that the provider has experienced an error condition.
  *
  * @param {Error} error An object that provides additional information about the error.
  */</span>
-Observer<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>onError <span class="token operator">=</span> error <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+Observer.prototype.onError = error =&gt; { ... };
 
-<span class="token comment" spellcheck="true">/**
+<span class="hljs-comment">/**
  * Notifies the observer that the provider has finished sending push-based notifications.
  */</span>
-Observer<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>onCompleted <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+Observer.prototype.onCompleted = () =&gt; { ... };
 </code></pre>
 <p>RxJS also provides <code>subscribe</code> capabilities so that you can avoid implementing the <code>Observer</code> object yourself. For each publication event (<code>onNext</code>, <code>onError</code>, <code>onCompleted</code>) of an observable sequence, you can specify a function that will be invoked, as shown in the following example. If you do not specify an action for an event, the default behavior will occur.</p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Creates an observable sequence of 5 integers, starting from 1</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-comment">// Creates an observable sequence of 5 integers, starting from 1</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>);
 
-<span class="token comment" spellcheck="true">// Prints out each item</span>
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-    x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: &apos;</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Prints out each item</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+    x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: &apos;</span> + x),
+    e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: &apos;</span> + e.message),
+    () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; onNext: 1</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 2</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 3</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 4</span>
-<span class="token comment" spellcheck="true">// =&gt; onNext: 5</span>
-<span class="token comment" spellcheck="true">// =&gt; onCompleted</span>
+<span class="hljs-comment">// =&gt; onNext: 1</span>
+<span class="hljs-comment">// =&gt; onNext: 2</span>
+<span class="hljs-comment">// =&gt; onNext: 3</span>
+<span class="hljs-comment">// =&gt; onNext: 4</span>
+<span class="hljs-comment">// =&gt; onNext: 5</span>
+<span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>You can treat the observable sequence (such as a sequence of mouse-over events) as if it were a normal collection. Thus you can write queries over the collection to do things like filtering, grouping, composing, etc. To make observable sequences more useful, the RxJS libraries provide many factory operators so that you do not need to implement any of these on your own. This will be covered in the <a href="querying.md">Querying Observable Sequences</a> topic.</p>
 <h3 id="caution"><a name="caution" class="plugin-anchor" href="#caution"><span class="fa fa-link"></span></a>Caution:</h3>
@@ -5851,6 +5847,10 @@ Observer<span class="token punctuation">.</span>prototype<span class="token punc
 
     
     <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

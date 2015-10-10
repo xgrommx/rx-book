@@ -40,17 +40,13 @@
         
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="0" data-basepath="." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="0" data-basepath="." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5776,20 +5772,20 @@
             <td colspan="2">
                 <pre>
 <code>
-<span class="token function">getDataFromLocalMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span>filter <span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> s <span class="token operator">!</span><span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> `$<span class="token punctuation">{</span>s<span class="token punctuation">}</span> transformed`<span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`next <span class="token operator">=</span><span class="token operator">&gt;</span> $<span class="token punctuation">{</span>s<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span>
+getDataFromLocalMemory()
+    .filter (s =&gt; s != null)
+    .map(s =&gt; `${s} transformed`)
+    .forEach(s =&gt; console.log(`next =&gt; ${s}`))
 </code>
                 </pre>
             </td>
             <td colspan="2">
                 <pre>
 <code>
-<span class="token function">getDataFromNetwork</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span>filter <span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> s <span class="token operator">!</span><span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> `$<span class="token punctuation">{</span>s<span class="token punctuation">}</span> transformed`<span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>s <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`next <span class="token operator">=</span><span class="token operator">&gt;</span> $<span class="token punctuation">{</span>s<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span>
+getDataFromNetwork()
+    .filter (s =&gt; s != null)
+    .map(s =&gt; `${s} transformed`)
+    .subscribe(s =&gt; console.log(`next =&gt; ${s}`))
 </code>
                 </pre>
             </td>
@@ -5828,6 +5824,10 @@
 
     
     <script src="gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

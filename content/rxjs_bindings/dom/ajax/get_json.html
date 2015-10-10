@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="16.1.1.4" data-basepath="../../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="16.1.1.4" data-basepath="../../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,7 +5729,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-a-id-rxdomrequestgetjsonurl-a-rx-dom-request-getjson-url"><a name="-a-id-rxdomrequestgetjsonurl-a-rx-dom-request-getjson-url" class="plugin-anchor" href="#-a-id-rxdomrequestgetjsonurl-a-rx-dom-request-getjson-url"><span class="fa fa-link"></span></a><a id="rxdomrequestgetjsonurl"></a><code>Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token function">getJSON</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span></code></h3>
+                        <h3 id="-a-id-rxdomrequestgetjsonurl-a-rx-dom-request-getjson-url"><a name="-a-id-rxdomrequestgetjsonurl-a-rx-dom-request-getjson-url" class="plugin-anchor" href="#-a-id-rxdomrequestgetjsonurl-a-rx-dom-request-getjson-url"><span class="fa fa-link"></span></a><a id="rxdomrequestgetjsonurl"></a><code>Rx.DOM.Request.getJSON(url)</code></h3>
 <p><a href="#rxdomrequestgetjsonurl">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L259-L264" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
 <p>Creates an observable sequence from JSON from an Ajax request.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5743,16 +5739,16 @@
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Observable)</em>: The observable sequence which contains the parsed JSON.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js">Rx<span class="token punctuation">.</span>DOM<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;/products&apos;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-        <span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// Log data length</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// Log the error</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js">Rx.DOM.Request.get(<span class="hljs-string">&apos;/products&apos;</span>)
+    .subscribe(
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+            <span class="hljs-comment">// Log data length</span>
+            <span class="hljs-built_in">console</span>.log(data.length);
+        },
+        <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+            <span class="hljs-comment">// Log the error</span>
+        }
+    );
 </code></pre>
 
                     
@@ -5787,6 +5783,10 @@
 
     
     <script src="../../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

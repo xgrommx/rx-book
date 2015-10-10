@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="2.1" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="2.1" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5762,25 +5758,25 @@
 <p>A stream is a sequence of <strong>ongoing events ordered in time</strong>. It can emit three different things: a value (of some type), an error, or a &quot;completed&quot; signal. Consider that the &quot;completed&quot; takes place, for instance, when the current window or view containing that button is closed.</p>
 <p>We capture these emitted events only <strong>asynchronously</strong>, by defining a function that will execute when a value is emitted, another function when an error is emitted, and another function when &apos;completed&apos; is emitted. Sometimes these last two can be omitted and you can just focus on defining the function for values. The &quot;listening&quot; to the stream is called <strong>subscribing</strong>. The functions we are defining are observers. The stream is the subject (or &quot;observable&quot;) being observed. This is precisely the <a href="https://en.wikipedia.org/wiki/Observer_pattern" target="_blank">Observer Design Pattern</a>.</p>
 <p>An alternative way of drawing that diagram is with ASCII, which we will use in some parts of this tutorial:</p>
-<pre><code><span class="token operator">--</span>a<span class="token operator">--</span><span class="token operator">-</span>b<span class="token operator">-</span>c<span class="token operator">--</span><span class="token operator">-</span>d<span class="token operator">--</span><span class="token operator">-</span>X<span class="token operator">--</span><span class="token operator">-</span><span class="token operator">|</span><span class="token operator">-</span><span class="token operator">&gt;</span>
+<pre><code>--a---b-c---d---X---|-&gt;
 
-a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d are emitted values
+a, b, c, d are emitted values
 X is an error
-<span class="token operator">|</span> is the <span class="token string">&apos;completed&apos;</span> signal
-<span class="token operator">--</span><span class="token operator">-</span><span class="token operator">&gt;</span> is the timeline
+| is the &apos;completed&apos; signal
+---&gt; is the timeline
 </code></pre><p>Since this feels so familiar already, and I don&apos;t want you to get bored, let&apos;s do something new: we are going to create new click event streams transformed out of the original click event stream.</p>
-<p>First, let&apos;s make a counter stream that indicates how many times a button was clicked. In common Reactive libraries, each stream has many functions attached to it, such as <code>map</code>, <code>filter</code>, <code>scan</code>, etc. When you call one of these functions, such as <code>clickStream<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span></code>, it returns a <strong>new stream</strong> based on the click stream. It does not modify the original click stream in any way. This is a property called <strong>immutability</strong>, and it goes together with Reactive streams just like pancakes are good with syrup. That allows us to chain functions like <code>clickStream<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span></code>:</p>
-<pre><code>  clickStream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">-</span>c<span class="token operator">--</span><span class="token operator">--</span>c<span class="token operator">--</span>c<span class="token operator">--</span><span class="token operator">--</span>c<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>c<span class="token operator">--</span><span class="token operator">&gt;</span>
-               vvvvv <span class="token function">map</span><span class="token punctuation">(</span>c becomes <span class="token number">1</span><span class="token punctuation">)</span> vvvv
-               <span class="token operator">--</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">--</span><span class="token operator">--</span><span class="token number">1</span><span class="token operator">--</span><span class="token number">1</span><span class="token operator">--</span><span class="token operator">--</span><span class="token number">1</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token number">1</span><span class="token operator">--</span><span class="token operator">&gt;</span>
-               vvvvvvvvv <span class="token function">scan</span><span class="token punctuation">(</span><span class="token operator">+</span><span class="token punctuation">)</span> vvvvvvvvv
-counterStream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">--</span><span class="token operator">--</span><span class="token number">2</span><span class="token operator">--</span><span class="token number">3</span><span class="token operator">--</span><span class="token operator">--</span><span class="token number">4</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token number">5</span><span class="token operator">--</span><span class="token operator">&gt;</span>
-</code></pre><p>The <code><span class="token function">map</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span></code> function replaces (into the new stream) each emitted value according to a function <code>f</code> you provide. In our case, we mapped to the number 1 on each click. The <code><span class="token function">scan</span><span class="token punctuation">(</span>g<span class="token punctuation">)</span></code> function aggregates all previous values on the stream, producing value <code>x <span class="token operator">=</span> <span class="token function">g</span><span class="token punctuation">(</span>accumulated<span class="token punctuation">,</span> current<span class="token punctuation">)</span></code>, where <code>g</code> was simply the add function in this example. Then, <code>counterStream</code> emits the total number of clicks whenever a click happens.</p>
+<p>First, let&apos;s make a counter stream that indicates how many times a button was clicked. In common Reactive libraries, each stream has many functions attached to it, such as <code>map</code>, <code>filter</code>, <code>scan</code>, etc. When you call one of these functions, such as <code>clickStream.map(f)</code>, it returns a <strong>new stream</strong> based on the click stream. It does not modify the original click stream in any way. This is a property called <strong>immutability</strong>, and it goes together with Reactive streams just like pancakes are good with syrup. That allows us to chain functions like <code>clickStream.map(f).scan(g)</code>:</p>
+<pre><code>  clickStream: ---c----c--c----c------c--&gt;
+               vvvvv map(c becomes 1) vvvv
+               ---1----1--1----1------1--&gt;
+               vvvvvvvvv scan(+) vvvvvvvvv
+counterStream: ---1----2--3----4------5--&gt;
+</code></pre><p>The <code>map(f)</code> function replaces (into the new stream) each emitted value according to a function <code>f</code> you provide. In our case, we mapped to the number 1 on each click. The <code>scan(g)</code> function aggregates all previous values on the stream, producing value <code>x = g(accumulated, current)</code>, where <code>g</code> was simply the add function in this example. Then, <code>counterStream</code> emits the total number of clicks whenever a click happens.</p>
 <p>To show the real power of Reactive, let&apos;s just say that you want to have a stream of &quot;double click&quot; events. To make it even more interesting, let&apos;s say we want the new stream to consider triple clicks as double clicks, or in general, multiple clicks (two or more). Take a deep breath and imagine how you would do that in a traditional imperative and stateful fashion. I bet it sounds fairly nasty and involves some variables to keep state and some fiddling with time intervals.</p>
 <p>Well, in Reactive it&apos;s pretty simple. In fact, the logic is just <a href="http://jsfiddle.net/staltz/4gGgs/27/" target="_blank">4 lines of code</a>.
 But let&apos;s ignore code for now. Thinking in diagrams is the best way to understand and build streams, whether you&apos;re a beginner or an expert.</p>
 <p><img src="http://i.imgur.com/HMGWNO5.png" alt="Multiple clicks stream"></p>
-<p>Grey boxes are functions transforming one stream into another. First we accumulate clicks in lists, whenever 250 milliseconds of &quot;event silence&quot; has happened (that&apos;s what <code><span class="token function">buffer</span><span class="token punctuation">(</span>stream<span class="token punctuation">.</span><span class="token function">throttle</span><span class="token punctuation">(</span>250ms<span class="token punctuation">)</span><span class="token punctuation">)</span></code> does, in a nutshell. Don&apos;t worry about understanding the details at this point, we are just demoing Reactive for now). The result is a stream of lists, from which we apply <code><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code> to map each list to an integer matching the length of that list. Finally, we ignore <code><span class="token number">1</span></code> integers using the <code><span class="token function">filter</span><span class="token punctuation">(</span>x <span class="token operator">&gt;=</span> <span class="token number">2</span><span class="token punctuation">)</span></code> function. That&apos;s it: 3 operations to produce our intended stream. We can then subscribe (&quot;listen&quot;) to it to react accordingly how we wish.</p>
+<p>Grey boxes are functions transforming one stream into another. First we accumulate clicks in lists, whenever 250 milliseconds of &quot;event silence&quot; has happened (that&apos;s what <code>buffer(stream.throttle(250ms))</code> does, in a nutshell. Don&apos;t worry about understanding the details at this point, we are just demoing Reactive for now). The result is a stream of lists, from which we apply <code>map()</code> to map each list to an integer matching the length of that list. Finally, we ignore <code>1</code> integers using the <code>filter(x &gt;= 2)</code> function. That&apos;s it: 3 operations to produce our intended stream. We can then subscribe (&quot;listen&quot;) to it to react accordingly how we wish.</p>
 <p>I hope you enjoy the beauty of this approach. This example is just the tip of the iceberg: you can apply the same operations on different kinds of streams, for instance, on a stream of API responses; on the other hand, there are many other functions available.</p>
 <h2 id="-why-should-i-consider-adopting-rp"><a name="-why-should-i-consider-adopting-rp" class="plugin-anchor" href="#-why-should-i-consider-adopting-rp"><span class="fa fa-link"></span></a>&quot;Why should I consider adopting RP?&quot;</h2>
 <p>Reactive Programming raises the level of abstraction of your code so you can focus on the interdependence of events that define the business logic, rather than having to constantly fiddle with a large amount of implementation details. Code in RP will likely be more concise.</p>
@@ -5804,37 +5800,37 @@ But let&apos;s ignore code for now. Thinking in diagrams is the best way to unde
 <h2 id="request-and-response"><a name="request-and-response" class="plugin-anchor" href="#request-and-response"><span class="fa fa-link"></span></a>Request and response</h2>
 <p><strong>How do you approach this problem with Rx?</strong> Well, to start with, (almost) <em>everything can be a stream</em>. That&apos;s the Rx mantra. Let&apos;s start with the easiest feature: &quot;on startup, load 3 accounts data from the API&quot;. There is nothing special here, this is simply about (1) doing a request, (2) getting a response, (3) rendering the response. So let&apos;s go ahead and represent our requests as a stream. At first this will feel like overkill, but we need to start from the basics, right?</p>
 <p>On startup we need to do only one request, so if we model it as a data stream, it will be a stream with only one emitted value. Later, we know we will have many requests happening, but for now, it is just one.</p>
-<pre><code><span class="token operator">--</span>a<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">|</span><span class="token operator">-</span><span class="token operator">&gt;</span>
+<pre><code>--a------|-&gt;
 
-Where a is the string <span class="token string">&apos;https://api.github.com/users&apos;</span>
+Where a is the string &apos;https://api.github.com/users&apos;
 </code></pre><p>This is a stream of URLs that we want to request. Whenever a request event happens, it tells us two things: when and what. &quot;When&quot; the request should be executed is when the event is emitted. And &quot;what&quot; should be requested is the value emitted: a string containing the URL.</p>
 <p>To create such stream with a single value is very simple in Rx*. The official terminology for a stream is &quot;Observable&quot;, for the fact that it can be observed, but I find it to be a silly name, so I call it <em>stream</em>.</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> requestStream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token string">&apos;https://api.github.com/users&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = Rx.Observable.just(<span class="hljs-string">&apos;https://api.github.com/users&apos;</span>);
 </code></pre>
 <p>But now, that is just a stream of strings, doing no other operation, so we need to somehow make something happen when that value is emitted. That&apos;s done by <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted" target="_blank">subscribing</a> to the stream.</p>
-<pre><code class="lang-javascript">requestStream<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>requestUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// execute the request</span>
-  jQuery<span class="token punctuation">.</span><span class="token function">getJSON</span><span class="token punctuation">(</span>requestUrl<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>responseData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// ...</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-javascript">requestStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">requestUrl</span>) </span>{
+  <span class="hljs-comment">// execute the request</span>
+  jQuery.getJSON(requestUrl, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">responseData</span>) </span>{
+    <span class="hljs-comment">// ...</span>
+  });
+}
 </code></pre>
 <p>Notice we are using a jQuery Ajax callback (which we assume you <a href="http://devdocs.io/jquery/jquery.getjson" target="_blank">should know already</a>) to handle the asynchronicity of the request operation. But wait a moment, Rx is for dealing with <strong>asynchronous</strong> data streams. Couldn&apos;t the response for that request be a stream containing the data arriving at some time in the future? Well, at a conceptual level, it sure looks like it, so let&apos;s try that.</p>
-<pre><code class="lang-javascript">requestStream<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>requestUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// execute the request</span>
-  <span class="token keyword">var</span> responseStream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>observer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    jQuery<span class="token punctuation">.</span><span class="token function">getJSON</span><span class="token punctuation">(</span>requestUrl<span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">done</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span> observer<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>jqXHR<span class="token punctuation">,</span> status<span class="token punctuation">,</span> error<span class="token punctuation">)</span> <span class="token punctuation">{</span> observer<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">always</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> observer<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript">requestStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">requestUrl</span>) </span>{
+  <span class="hljs-comment">// execute the request</span>
+  <span class="hljs-keyword">var</span> responseStream = Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">observer</span>) </span>{
+    jQuery.getJSON(requestUrl)
+    .done(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{ observer.onNext(response); })
+    .fail(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jqXHR, status, error</span>) </span>{ observer.onError(error); })
+    .always(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ observer.onCompleted(); });
+  });
 
-  responseStream<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// do something with the response</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+  responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-comment">// do something with the response</span>
+  });
+}
 </code></pre>
-<p>What <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></a> does is create your own custom stream by explicitly informing each observer (or in other words, a &quot;subscriber&quot;) about data events (<code><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code>) or errors (<code><span class="token function">onError</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code>). What we did was just wrap that jQuery Ajax Promise. <strong>Excuse me, does this mean that a Promise is an Observable?</strong></p>
+<p>What <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe" target="_blank"><code>Rx.Observable.create()</code></a> does is create your own custom stream by explicitly informing each observer (or in other words, a &quot;subscriber&quot;) about data events (<code>onNext()</code>) or errors (<code>onError()</code>). What we did was just wrap that jQuery Ajax Promise. <strong>Excuse me, does this mean that a Promise is an Observable?</strong></p>
 <p>&#xA0;
 &#xA0;
 &#xA0;
@@ -5842,279 +5838,279 @@ Where a is the string <span class="token string">&apos;https://api.github.com/us
 &#xA0;</p>
 <p><img src="http://www.myfacewhen.net/uploads/3324-amazed-face.gif" alt="Amazed"></p>
 <p>Yes.</p>
-<p>Observable is Promise++. In Rx you can easily convert a Promise to an Observable by doing <code><span class="token keyword">var</span> stream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromPromise</span><span class="token punctuation">(</span>promise<span class="token punctuation">)</span></code>, so let&apos;s use that. The only difference is that Observables are not <a href="http://promises-aplus.github.io/promises-spec/" target="_blank">Promises/A+</a> compliant, but conceptually there is no clash. A Promise is simply an Observable with one single emitted value. Rx streams go beyond promises by allowing many returned values.</p>
+<p>Observable is Promise++. In Rx you can easily convert a Promise to an Observable by doing <code>var stream = Rx.Observable.fromPromise(promise)</code>, so let&apos;s use that. The only difference is that Observables are not <a href="http://promises-aplus.github.io/promises-spec/" target="_blank">Promises/A+</a> compliant, but conceptually there is no clash. A Promise is simply an Observable with one single emitted value. Rx streams go beyond promises by allowing many returned values.</p>
 <p>This is pretty nice, and shows how Observables are at least as powerful as Promises. So if you believe the Promises hype, keep an eye on what Rx Observables are capable of.</p>
-<p>Now back to our example, if you were quick to notice, we have one <code><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code> call inside another, which is somewhat akin to callback hell. Also, the creation of <code>responseStream</code> is dependent on <code>requestStream</code>. As you heard before, in Rx there are simple mechanisms for transforming and creating new streams out of others, so we should be doing that. </p>
-<p>The one basic function that you should know by now is <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypemapselector-thisarg" target="_blank"><code><span class="token function">map</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span></code></a>, which takes each value of stream A, applies <code><span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code> on it, and produces a value on stream B. If we do that to our request and response streams, we can map request URLs to response Promises (disguised as streams). </p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> responseMetastream <span class="token operator">=</span> requestStream
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>requestUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromPromise</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">.</span><span class="token function">getJSON</span><span class="token punctuation">(</span>requestUrl<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>Now back to our example, if you were quick to notice, we have one <code>subscribe()</code> call inside another, which is somewhat akin to callback hell. Also, the creation of <code>responseStream</code> is dependent on <code>requestStream</code>. As you heard before, in Rx there are simple mechanisms for transforming and creating new streams out of others, so we should be doing that. </p>
+<p>The one basic function that you should know by now is <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypemapselector-thisarg" target="_blank"><code>map(f)</code></a>, which takes each value of stream A, applies <code>f()</code> on it, and produces a value on stream B. If we do that to our request and response streams, we can map request URLs to response Promises (disguised as streams). </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> responseMetastream = requestStream
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">requestUrl</span>) </span>{
+    <span class="hljs-keyword">return</span> Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
+  });
 </code></pre>
 <p>Then we will have created a beast called &quot;<em>metastream</em>&quot;: a stream of streams. Don&apos;t panic yet. A metastream is a stream where each emitted value is yet another stream. You can think of it as <a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming" target="_blank">pointers</a>): each emitted value is a <em>pointer</em> to another stream. In our example, each request URL is mapped to a pointer to the promise stream containing the corresponding response.</p>
 <p><img src="http://i.imgur.com/HHnmlac.png" alt="Response metastream"></p>
-<p>A metastream for responses looks confusing, and doesn&apos;t seem to help us at all. We just want a simple stream of responses, where each emitted value is a JSON object, not a &apos;Promise&apos; of a JSON object. Say hi to <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypeflatmapselector-resultselector" target="_blank">Mr. Flatmap</a>: a version of <code><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code> than &quot;flattens&quot; a metastream, by emitting on the &quot;trunk&quot; stream everything that will be emitted on &quot;branch&quot; streams. Flatmap is not a &quot;fix&quot; and metastreams are not a bug, these are really the tools for dealing with asynchronous responses in Rx.</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> responseStream <span class="token operator">=</span> requestStream
-  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>requestUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromPromise</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">.</span><span class="token function">getJSON</span><span class="token punctuation">(</span>requestUrl<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>A metastream for responses looks confusing, and doesn&apos;t seem to help us at all. We just want a simple stream of responses, where each emitted value is a JSON object, not a &apos;Promise&apos; of a JSON object. Say hi to <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypeflatmapselector-resultselector" target="_blank">Mr. Flatmap</a>: a version of <code>map()</code> than &quot;flattens&quot; a metastream, by emitting on the &quot;trunk&quot; stream everything that will be emitted on &quot;branch&quot; streams. Flatmap is not a &quot;fix&quot; and metastreams are not a bug, these are really the tools for dealing with asynchronous responses in Rx.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> responseStream = requestStream
+  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">requestUrl</span>) </span>{
+    <span class="hljs-keyword">return</span> Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
+  });
 </code></pre>
 <p><img src="http://i.imgur.com/Hi3zNzJ.png" alt="Response stream"></p>
 <p>Nice. And because the response stream is defined according to request stream, <strong>if</strong> we have later on more events happening on request stream, we will have the corresponding response events happening on response stream, as expected:</p>
-<pre><code>requestStream<span class="token punctuation">:</span>  <span class="token operator">--</span>a<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>b<span class="token operator">--</span>c<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">|</span><span class="token operator">-</span><span class="token operator">&gt;</span>
-responseStream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>A<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>B<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>C<span class="token operator">--</span><span class="token operator">-</span><span class="token operator">|</span><span class="token operator">-</span><span class="token operator">&gt;</span>
+<pre><code>requestStream:  --a-----b--c------------|-&gt;
+responseStream: -----A--------B-----C---|-&gt;
 
-<span class="token punctuation">(</span>lowercase is a request<span class="token punctuation">,</span> uppercase is its response<span class="token punctuation">)</span>
+(lowercase is a request, uppercase is its response)
 </code></pre><p>Now that we finally have a response stream, we can render the data we receive:</p>
-<pre><code class="lang-javascript">responseStream<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// render `response` to the DOM however you wish</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript">responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+  <span class="hljs-comment">// render `response` to the DOM however you wish</span>
+});
 </code></pre>
 <p>Joining all the code until now, we have:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> requestStream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token string">&apos;https://api.github.com/users&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = Rx.Observable.just(<span class="hljs-string">&apos;https://api.github.com/users&apos;</span>);
 
-<span class="token keyword">var</span> responseStream <span class="token operator">=</span> requestStream
-  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>requestUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromPromise</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">.</span><span class="token function">getJSON</span><span class="token punctuation">(</span>requestUrl<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> responseStream = requestStream
+  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">requestUrl</span>) </span>{
+    <span class="hljs-keyword">return</span> Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
+  });
 
-responseStream<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// render `response` to the DOM however you wish</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+responseStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+  <span class="hljs-comment">// render `response` to the DOM however you wish</span>
+});
 </code></pre>
 <h2 id="the-refresh-button"><a name="the-refresh-button" class="plugin-anchor" href="#the-refresh-button"><span class="fa fa-link"></span></a>The refresh button</h2>
 <p>I did not yet mention that the JSON in the response is a list with 100 users. The API only allows us to specify the page offset, and not the page size, so we&apos;re using just 3 data objects and wasting 97 others. We can ignore that problem for now, since later on we will see how to cache the responses.</p>
 <p>Everytime the refresh button is clicked, the request stream should emit a new URL, so that we can get a new response. We need two things: a stream of click events on the refresh button (mantra: anything can be a stream), and we need to change the request stream to depend on the refresh click stream. Gladly, RxJS comes with tools to make Observables from event listeners.</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> refreshButton <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;.refresh&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> refreshClickStream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>refreshButton<span class="token punctuation">,</span> <span class="token string">&apos;click&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> refreshButton = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.refresh&apos;</span>);
+<span class="hljs-keyword">var</span> refreshClickStream = Rx.Observable.fromEvent(refreshButton, <span class="hljs-string">&apos;click&apos;</span>);
 </code></pre>
 <p>Since the refresh click event doesn&apos;t itself carry any API URL, we need to map each click to an actual URL. Now we change the request stream to be the refresh click stream mapped to the API endpoint with a random offset parameter each time.</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> requestStream <span class="token operator">=</span> refreshClickStream
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> randomOffset <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token string">&apos;https://api.github.com/users?since=&apos;</span> <span class="token operator">+</span> randomOffset<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = refreshClickStream
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
+  });
 </code></pre>
 <p>Because I&apos;m dumb and I don&apos;t have automated tests, I just broke one of our previously built features. A request doesn&apos;t happen anymore on startup, it happens only when the refresh is clicked. Urgh. I need both behaviors: a request when <em>either</em> a refresh is clicked <em>or</em> the webpage was just opened.</p>
 <p>We know how to make a separate stream for each one of those cases:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> requestOnRefreshStream <span class="token operator">=</span> refreshClickStream
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> randomOffset <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token string">&apos;https://api.github.com/users?since=&apos;</span> <span class="token operator">+</span> randomOffset<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestOnRefreshStream = refreshClickStream
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
+  });
 
-<span class="token keyword">var</span> startupRequestStream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token string">&apos;https://api.github.com/users&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> startupRequestStream = Rx.Observable.just(<span class="hljs-string">&apos;https://api.github.com/users&apos;</span>);
 </code></pre>
-<p>But how can we &quot;merge&quot; these two into one? Well, there&apos;s <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypemergemaxconcurrent--other" target="_blank"><code><span class="token function">merge</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></a>. Explained in the diagram dialect, this is what it does:</p>
-<pre><code>stream A<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">-</span>a<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>e<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>o<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">&gt;</span>
-stream B<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>B<span class="token operator">--</span><span class="token operator">-</span>C<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>D<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">&gt;</span>
+<p>But how can we &quot;merge&quot; these two into one? Well, there&apos;s <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypemergemaxconcurrent--other" target="_blank"><code>merge()</code></a>. Explained in the diagram dialect, this is what it does:</p>
+<pre><code>stream A: ---a--------e-----o-----&gt;
+stream B: -----B---C-----D--------&gt;
           vvvvvvvvv merge vvvvvvvvv
-          <span class="token operator">--</span><span class="token operator">-</span>a<span class="token operator">-</span>B<span class="token operator">--</span><span class="token operator">-</span>C<span class="token operator">--</span>e<span class="token operator">--</span>D<span class="token operator">--</span>o<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">&gt;</span>
+          ---a-B---C--e--D--o-----&gt;
 </code></pre><p>It should be easy now:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> requestOnRefreshStream <span class="token operator">=</span> refreshClickStream
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> randomOffset <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token string">&apos;https://api.github.com/users?since=&apos;</span> <span class="token operator">+</span> randomOffset<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestOnRefreshStream = refreshClickStream
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
+  });
 
-<span class="token keyword">var</span> startupRequestStream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token string">&apos;https://api.github.com/users&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> startupRequestStream = Rx.Observable.just(<span class="hljs-string">&apos;https://api.github.com/users&apos;</span>);
 
-<span class="token keyword">var</span> requestStream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>
-  requestOnRefreshStream<span class="token punctuation">,</span> startupRequestStream
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> requestStream = Rx.Observable.merge(
+  requestOnRefreshStream, startupRequestStream
+);
 </code></pre>
 <p>There is an alternative and cleaner way of writing that, without the intermediate streams.</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> requestStream <span class="token operator">=</span> refreshClickStream
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> randomOffset <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token string">&apos;https://api.github.com/users?since=&apos;</span> <span class="token operator">+</span> randomOffset<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token string">&apos;https://api.github.com/users&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = refreshClickStream
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
+  })
+  .merge(Rx.Observable.just(<span class="hljs-string">&apos;https://api.github.com/users&apos;</span>));
 </code></pre>
 <p>Even shorter, even more readable:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> requestStream <span class="token operator">=</span> refreshClickStream
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> randomOffset <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token string">&apos;https://api.github.com/users?since=&apos;</span> <span class="token operator">+</span> randomOffset<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token string">&apos;https://api.github.com/users&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = refreshClickStream
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
+  })
+  .startWith(<span class="hljs-string">&apos;https://api.github.com/users&apos;</span>);
 </code></pre>
-<p>The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypestartwithscheduler-args" target="_blank"><code><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></a> function does exactly what you think it does. No matter how your input stream looks like, the output stream resulting of <code><span class="token function">startWith</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span></code> will have <code>x</code> at the beginning. But I&apos;m not <a href="https://en.wikipedia.org/wiki/Don&apos;t_repeat_yourself" target="_blank">DRY</a> enough, I&apos;m repeating the API endpoint string. One way to fix this is by moving the <code><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code> close to the <code>refreshClickStream</code>, to essentially &quot;emulate&quot; a refresh click on startup.  </p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> requestStream <span class="token operator">=</span> refreshClickStream<span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token string">&apos;startup click&apos;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> randomOffset <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token string">&apos;https://api.github.com/users?since=&apos;</span> <span class="token operator">+</span> randomOffset<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypestartwithscheduler-args" target="_blank"><code>startWith()</code></a> function does exactly what you think it does. No matter how your input stream looks like, the output stream resulting of <code>startWith(x)</code> will have <code>x</code> at the beginning. But I&apos;m not <a href="https://en.wikipedia.org/wiki/Don&apos;t_repeat_yourself" target="_blank">DRY</a> enough, I&apos;m repeating the API endpoint string. One way to fix this is by moving the <code>startWith()</code> close to the <code>refreshClickStream</code>, to essentially &quot;emulate&quot; a refresh click on startup.  </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> requestStream = refreshClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>)
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
+  });
 </code></pre>
-<p>Nice. If you go back to the point where I &quot;broke the automated tests&quot;, you should see that the only difference with this last approach is that I added the <code><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code>.</p>
+<p>Nice. If you go back to the point where I &quot;broke the automated tests&quot;, you should see that the only difference with this last approach is that I added the <code>startWith()</code>.</p>
 <h2 id="modelling-the-3-suggestions-with-streams"><a name="modelling-the-3-suggestions-with-streams" class="plugin-anchor" href="#modelling-the-3-suggestions-with-streams"><span class="fa fa-link"></span></a>Modelling the 3 suggestions with streams</h2>
-<p>Until now, we have only touched a <em>suggestion</em> UI element on the rendering step that happens in the responseStream&apos;s <code><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code>. Now with the refresh button, we have a problem: as soon as you click &apos;refresh&apos;, the current 3 suggestions are not cleared. New suggestions come in only after a response has arrived, but to make the UI look nice, we need to clean out the current suggestions when clicks happen on the refresh.</p>
-<pre><code class="lang-javascript">refreshClickStream<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// clear the 3 suggestion DOM elements </span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>Until now, we have only touched a <em>suggestion</em> UI element on the rendering step that happens in the responseStream&apos;s <code>subscribe()</code>. Now with the refresh button, we have a problem: as soon as you click &apos;refresh&apos;, the current 3 suggestions are not cleared. New suggestions come in only after a response has arrived, but to make the UI look nice, we need to clean out the current suggestions when clicks happen on the refresh.</p>
+<pre><code class="lang-javascript">refreshClickStream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// clear the 3 suggestion DOM elements </span>
+});
 </code></pre>
-<p>No, not so fast, pal. This is bad, because we now have <strong>two</strong> subscribers that affect the suggestion DOM elements (the other one being <code>responseStream<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code>), and that doesn&apos;t really sound like <a href="https://en.wikipedia.org/wiki/Separation_of_concerns" target="_blank">Separation of concerns</a>. Remember the Reactive mantra? </p>
+<p>No, not so fast, pal. This is bad, because we now have <strong>two</strong> subscribers that affect the suggestion DOM elements (the other one being <code>responseStream.subscribe()</code>), and that doesn&apos;t really sound like <a href="https://en.wikipedia.org/wiki/Separation_of_concerns" target="_blank">Separation of concerns</a>. Remember the Reactive mantra? </p>
 <p>&#xA0;
 &#xA0;
 &#xA0;
 &#xA0;</p>
 <p><img src="http://i.imgur.com/AIimQ8C.jpg" alt="Mantra"></p>
 <p>So let&apos;s model a suggestion as a stream, where each emitted value is the JSON object containing the suggestion data. We will do this separately for each of the 3 suggestions. This is how the stream for suggestion #1 could look like:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> suggestion1Stream <span class="token operator">=</span> responseStream
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>listUsers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// get one random user from the list</span>
-    <span class="token keyword">return</span> listUsers<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span>listUsers<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = responseStream
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">listUsers</span>) </span>{
+    <span class="hljs-comment">// get one random user from the list</span>
+    <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
+  });
 </code></pre>
 <p>The others, <code>suggestion2Stream</code> and <code>suggestion3Stream</code> can be simply copy pasted from <code>suggestion1Stream</code>. This is not DRY, but it will keep our example simple for this tutorial, plus I think it&apos;s a good exercise to think how to avoid repetition in this case.</p>
 <p>Instead of having the rendering happen in responseStream&apos;s subscribe(), we do that here:</p>
-<pre><code class="lang-javascript">suggestion1Stream<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>suggestion<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// render the 1st suggestion to the DOM</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript">suggestion1Stream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">suggestion</span>) </span>{
+  <span class="hljs-comment">// render the 1st suggestion to the DOM</span>
+});
 </code></pre>
-<p>Back to the &quot;on refresh, clear the suggestions&quot;, we can simply map refresh clicks to <code><span class="token keyword">null</span></code> suggestion data, and include that in the <code>suggestion1Stream</code>, as such:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> suggestion1Stream <span class="token operator">=</span> responseStream
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>listUsers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// get one random user from the list</span>
-    <span class="token keyword">return</span> listUsers<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span>listUsers<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>
-    refreshClickStream<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>Back to the &quot;on refresh, clear the suggestions&quot;, we can simply map refresh clicks to <code>null</code> suggestion data, and include that in the <code>suggestion1Stream</code>, as such:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = responseStream
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">listUsers</span>) </span>{
+    <span class="hljs-comment">// get one random user from the list</span>
+    <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
+  })
+  .merge(
+    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
+  );
 </code></pre>
-<p>And when rendering, we interpret <code><span class="token keyword">null</span></code> as &quot;no data&quot;, hence hiding its UI element.</p>
-<pre><code class="lang-javascript">suggestion1Stream<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>suggestion<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>suggestion <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// hide the first suggestion DOM element</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// show the first suggestion DOM element</span>
-    <span class="token comment" spellcheck="true">// and render the data</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>And when rendering, we interpret <code>null</code> as &quot;no data&quot;, hence hiding its UI element.</p>
+<pre><code class="lang-javascript">suggestion1Stream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">suggestion</span>) </span>{
+  <span class="hljs-keyword">if</span> (suggestion === <span class="hljs-literal">null</span>) {
+    <span class="hljs-comment">// hide the first suggestion DOM element</span>
+  }
+  <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// show the first suggestion DOM element</span>
+    <span class="hljs-comment">// and render the data</span>
+  }
+});
 </code></pre>
 <p>The big picture is now:</p>
-<pre><code>refreshClickStream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>o<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>o<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">&gt;</span>
-     requestStream<span class="token punctuation">:</span> <span class="token operator">-</span>r<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>r<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>r<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">&gt;</span>
-    responseStream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span>R<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>R<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>R<span class="token operator">--</span><span class="token operator">&gt;</span>   
- suggestion1Stream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span>s<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>N<span class="token operator">--</span><span class="token operator">-</span>s<span class="token operator">--</span><span class="token operator">--</span>N<span class="token operator">-</span>s<span class="token operator">--</span><span class="token operator">&gt;</span>
- suggestion2Stream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span>q<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>N<span class="token operator">--</span><span class="token operator">-</span>q<span class="token operator">--</span><span class="token operator">--</span>N<span class="token operator">-</span>q<span class="token operator">--</span><span class="token operator">&gt;</span>
- suggestion3Stream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span>t<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>N<span class="token operator">--</span><span class="token operator">-</span>t<span class="token operator">--</span><span class="token operator">--</span>N<span class="token operator">-</span>t<span class="token operator">--</span><span class="token operator">&gt;</span>
-</code></pre><p>Where <code>N</code> stands for <code><span class="token keyword">null</span></code>.</p>
-<p>As a bonus, we can also render &quot;empty&quot; suggestions on startup. That is done by adding <code><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span></code> to the suggestion streams:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> suggestion1Stream <span class="token operator">=</span> responseStream
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>listUsers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// get one random user from the list</span>
-    <span class="token keyword">return</span> listUsers<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span>listUsers<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>
-    refreshClickStream<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code>refreshClickStream: ----------o--------o----&gt;
+     requestStream: -r--------r--------r----&gt;
+    responseStream: ----R---------R------R--&gt;   
+ suggestion1Stream: ----s-----N---s----N-s--&gt;
+ suggestion2Stream: ----q-----N---q----N-q--&gt;
+ suggestion3Stream: ----t-----N---t----N-t--&gt;
+</code></pre><p>Where <code>N</code> stands for <code>null</code>.</p>
+<p>As a bonus, we can also render &quot;empty&quot; suggestions on startup. That is done by adding <code>startWith(null)</code> to the suggestion streams:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = responseStream
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">listUsers</span>) </span>{
+    <span class="hljs-comment">// get one random user from the list</span>
+    <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
+  })
+  .merge(
+    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
+  )
+  .startWith(<span class="hljs-literal">null</span>);
 </code></pre>
 <p>Which results in:</p>
-<pre><code>refreshClickStream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>o<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>o<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">&gt;</span>
-     requestStream<span class="token punctuation">:</span> <span class="token operator">-</span>r<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>r<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>r<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">&gt;</span>
-    responseStream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span>R<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>R<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>R<span class="token operator">--</span><span class="token operator">&gt;</span>   
- suggestion1Stream<span class="token punctuation">:</span> <span class="token operator">-</span>N<span class="token operator">--</span>s<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>N<span class="token operator">--</span><span class="token operator">--</span>s<span class="token operator">--</span><span class="token operator">--</span>N<span class="token operator">-</span>s<span class="token operator">--</span><span class="token operator">&gt;</span>
- suggestion2Stream<span class="token punctuation">:</span> <span class="token operator">-</span>N<span class="token operator">--</span>q<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>N<span class="token operator">--</span><span class="token operator">--</span>q<span class="token operator">--</span><span class="token operator">--</span>N<span class="token operator">-</span>q<span class="token operator">--</span><span class="token operator">&gt;</span>
- suggestion3Stream<span class="token punctuation">:</span> <span class="token operator">-</span>N<span class="token operator">--</span>t<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>N<span class="token operator">--</span><span class="token operator">--</span>t<span class="token operator">--</span><span class="token operator">--</span>N<span class="token operator">-</span>t<span class="token operator">--</span><span class="token operator">&gt;</span>
+<pre><code>refreshClickStream: ----------o---------o----&gt;
+     requestStream: -r--------r---------r----&gt;
+    responseStream: ----R----------R------R--&gt;   
+ suggestion1Stream: -N--s-----N----s----N-s--&gt;
+ suggestion2Stream: -N--q-----N----q----N-q--&gt;
+ suggestion3Stream: -N--t-----N----t----N-t--&gt;
 </code></pre><h2 id="closing-a-suggestion-and-using-cached-responses"><a name="closing-a-suggestion-and-using-cached-responses" class="plugin-anchor" href="#closing-a-suggestion-and-using-cached-responses"><span class="fa fa-link"></span></a>Closing a suggestion and using cached responses</h2>
 <p>There is one feature remaining to implement. Each suggestion should have its own &apos;x&apos; button for closing it, and loading another in its place. At first thought, you could say it&apos;s enough to make a new request when any close button is clicked:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> close1Button <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;.close1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> close1ClickStream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>close1Button<span class="token punctuation">,</span> <span class="token string">&apos;click&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// and the same for close2Button and close3Button</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> close1Button = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.close1&apos;</span>);
+<span class="hljs-keyword">var</span> close1ClickStream = Rx.Observable.fromEvent(close1Button, <span class="hljs-string">&apos;click&apos;</span>);
+<span class="hljs-comment">// and the same for close2Button and close3Button</span>
 
-<span class="token keyword">var</span> requestStream <span class="token operator">=</span> refreshClickStream<span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token string">&apos;startup click&apos;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>close1ClickStream<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// we added this</span>
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> randomOffset <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token string">&apos;https://api.github.com/users?since=&apos;</span> <span class="token operator">+</span> randomOffset<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> requestStream = refreshClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>)
+  .merge(close1ClickStream) <span class="hljs-comment">// we added this</span>
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
+  });
 </code></pre>
 <p>That does not work. It will close and reload <em>all</em> suggestions, rather than just only the one we clicked on. There are a couple of different ways of solving this, and to keep it interesting, we will solve it by reusing previous responses. The API&apos;s response page size is 100 users while we were using just 3 of those, so there is plenty of fresh data available. No need to request more.</p>
 <p>Again, let&apos;s think in streams. When a &apos;close1&apos; click event happens, we want to use the <em>most recently emitted</em> response on <code>responseStream</code> to get one random user from the list in the response. As such:</p>
-<pre><code>    requestStream<span class="token punctuation">:</span> <span class="token operator">--</span>r<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">&gt;</span>
-   responseStream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>R<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">&gt;</span>
-close1ClickStream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>c<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">&gt;</span>
-suggestion1Stream<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>s<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>s<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">&gt;</span>
-</code></pre><p>In Rx* there is a combinator function called <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypecombinelatestargs-resultselector" target="_blank"><code>combineLatest</code></a> that seems to do what we need. It takes two streams A and B as inputs, and whenever either stream emits a value, <code>combineLatest</code> joins the two most recently emitted values <code>a</code> and <code>b</code> from both streams and outputs a value <code>c <span class="token operator">=</span> <span class="token function">f</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span></code>, where <code>f</code> is a function you define. It is better explained with a diagram:</p>
-<pre><code>stream A<span class="token punctuation">:</span> <span class="token operator">--</span>a<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>e<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>i<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">&gt;</span>
-stream B<span class="token punctuation">:</span> <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>b<span class="token operator">--</span><span class="token operator">--</span>c<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>d<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>q<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">&gt;</span>
-          vvvvvvvv <span class="token function">combineLatest</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> vvvvvvv
-          <span class="token operator">--</span><span class="token operator">--</span>AB<span class="token operator">--</span><span class="token operator">-</span>AC<span class="token operator">--</span>EC<span class="token operator">--</span><span class="token operator">-</span>ED<span class="token operator">--</span>ID<span class="token operator">--</span>IQ<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">&gt;</span>
+<pre><code>    requestStream: --r---------------&gt;
+   responseStream: ------R-----------&gt;
+close1ClickStream: ------------c-----&gt;
+suggestion1Stream: ------s-----s-----&gt;
+</code></pre><p>In Rx* there is a combinator function called <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypecombinelatestargs-resultselector" target="_blank"><code>combineLatest</code></a> that seems to do what we need. It takes two streams A and B as inputs, and whenever either stream emits a value, <code>combineLatest</code> joins the two most recently emitted values <code>a</code> and <code>b</code> from both streams and outputs a value <code>c = f(x,y)</code>, where <code>f</code> is a function you define. It is better explained with a diagram:</p>
+<pre><code>stream A: --a-----------e--------i--------&gt;
+stream B: -----b----c--------d-------q----&gt;
+          vvvvvvvv combineLatest(f) vvvvvvv
+          ----AB---AC--EC---ED--ID--IQ----&gt;
 
-where f is the uppercase <span class="token keyword">function</span>
+where f is the uppercase function
 </code></pre><p>We can apply combineLatest() on <code>close1ClickStream</code> and <code>responseStream</code>, so that whenever the close 1 button is clicked, we get the latest response emitted and produce a new value on <code>suggestion1Stream</code>. On the other hand, combineLatest() is symmetric: whenever a new response is emitted on <code>responseStream</code>, it will combine with the latest &apos;close 1&apos; click to produce a new suggestion. That is interesting, because it allows us to simplify our previous code for <code>suggestion1Stream</code>, like this:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> suggestion1Stream <span class="token operator">=</span> close1ClickStream
-  <span class="token punctuation">.</span><span class="token function">combineLatest</span><span class="token punctuation">(</span>responseStream<span class="token punctuation">,</span>             
-    <span class="token keyword">function</span><span class="token punctuation">(</span>click<span class="token punctuation">,</span> listUsers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> listUsers<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span>listUsers<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>
-    refreshClickStream<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = close1ClickStream
+  .combineLatest(responseStream,             
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">click, listUsers</span>) </span>{
+      <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
+    }
+  )
+  .merge(
+    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
+  )
+  .startWith(<span class="hljs-literal">null</span>);
 </code></pre>
 <p>One piece is still missing in the puzzle. The combineLatest() uses the most recent of the two sources, but if one of those sources hasn&apos;t emitted anything yet, combineLatest() cannot produce a data event on the output stream. If you look at the ASCII diagram above, you will see that the output has nothing when the first stream emitted value <code>a</code>. Only when the second stream emitted value <code>b</code> could it produce an output value.</p>
 <p>There are different ways of solving this, and we will stay with the simplest one, which is simulating a click to the &apos;close 1&apos; button on startup:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> suggestion1Stream <span class="token operator">=</span> close1ClickStream<span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token string">&apos;startup click&apos;</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// we added this</span>
-  <span class="token punctuation">.</span><span class="token function">combineLatest</span><span class="token punctuation">(</span>responseStream<span class="token punctuation">,</span>             
-    <span class="token keyword">function</span><span class="token punctuation">(</span>click<span class="token punctuation">,</span> listUsers<span class="token punctuation">)</span> <span class="token punctuation">{</span>l
-      <span class="token keyword">return</span> listUsers<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span>listUsers<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>
-    refreshClickStream<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = close1ClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>) <span class="hljs-comment">// we added this</span>
+  .combineLatest(responseStream,             
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">click, listUsers</span>) </span>{l
+      <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
+    }
+  )
+  .merge(
+    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
+  )
+  .startWith(<span class="hljs-literal">null</span>);
 </code></pre>
 <h2 id="wrapping-up"><a name="wrapping-up" class="plugin-anchor" href="#wrapping-up"><span class="fa fa-link"></span></a>Wrapping up</h2>
 <p>And we&apos;re done. The complete code for all this was:</p>
-<pre><code class="lang-javascript"><span class="token keyword">var</span> refreshButton <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;.refresh&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> refreshClickStream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>refreshButton<span class="token punctuation">,</span> <span class="token string">&apos;click&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> refreshButton = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.refresh&apos;</span>);
+<span class="hljs-keyword">var</span> refreshClickStream = Rx.Observable.fromEvent(refreshButton, <span class="hljs-string">&apos;click&apos;</span>);
 
-<span class="token keyword">var</span> closeButton1 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;.close1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> close1ClickStream <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>closeButton1<span class="token punctuation">,</span> <span class="token string">&apos;click&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// and the same logic for close2 and close3</span>
+<span class="hljs-keyword">var</span> closeButton1 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.close1&apos;</span>);
+<span class="hljs-keyword">var</span> close1ClickStream = Rx.Observable.fromEvent(closeButton1, <span class="hljs-string">&apos;click&apos;</span>);
+<span class="hljs-comment">// and the same logic for close2 and close3</span>
 
-<span class="token keyword">var</span> requestStream <span class="token operator">=</span> refreshClickStream<span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token string">&apos;startup click&apos;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> randomOffset <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token string">&apos;https://api.github.com/users?since=&apos;</span> <span class="token operator">+</span> randomOffset<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> requestStream = refreshClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>)
+  .map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> randomOffset = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">500</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;https://api.github.com/users?since=&apos;</span> + randomOffset;
+  });
 
-<span class="token keyword">var</span> responseStream <span class="token operator">=</span> requestStream
-  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>requestUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromPromise</span><span class="token punctuation">(</span>$<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>url<span class="token punctuation">:</span> requestUrl<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> responseStream = requestStream
+  .flatMap(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">requestUrl</span>) </span>{
+    <span class="hljs-keyword">return</span> Rx.Observable.fromPromise($.ajax({url: requestUrl}));
+  });
 
-<span class="token keyword">var</span> suggestion1Stream <span class="token operator">=</span> close1ClickStream<span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token string">&apos;startup click&apos;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">combineLatest</span><span class="token punctuation">(</span>responseStream<span class="token punctuation">,</span>             
-    <span class="token keyword">function</span><span class="token punctuation">(</span>click<span class="token punctuation">,</span> listUsers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> listUsers<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span>listUsers<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>
-    refreshClickStream<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// and the same logic for suggestion2Stream and suggestion3Stream</span>
+<span class="hljs-keyword">var</span> suggestion1Stream = close1ClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>)
+  .combineLatest(responseStream,             
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">click, listUsers</span>) </span>{
+      <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
+    }
+  )
+  .merge(
+    refreshClickStream.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; })
+  )
+  .startWith(<span class="hljs-literal">null</span>);
+<span class="hljs-comment">// and the same logic for suggestion2Stream and suggestion3Stream</span>
 
-suggestion1Stream<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>suggestion<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>suggestion <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// hide the first suggestion DOM element</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// show the first suggestion DOM element</span>
-    <span class="token comment" spellcheck="true">// and render the data</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+suggestion1Stream.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">suggestion</span>) </span>{
+  <span class="hljs-keyword">if</span> (suggestion === <span class="hljs-literal">null</span>) {
+    <span class="hljs-comment">// hide the first suggestion DOM element</span>
+  }
+  <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// show the first suggestion DOM element</span>
+    <span class="hljs-comment">// and render the data</span>
+  }
+});
 </code></pre>
 <p><strong>You can see this working example at <a href="http://jsfiddle.net/staltz/8jFJH/48/" target="_blank">http://jsfiddle.net/staltz/8jFJH/48/</a></strong></p>
-<p>That piece of code is small but dense: it features management of multiple events with proper separation of concerns, and even caching of responses. The functional style made the code look more declarative than imperative: we are not giving a sequence of instructions to execute, we are just <strong>telling what something is</strong> by defining relationships between streams. For instance, with Rx we told the computer that <em><code>suggestion1Stream</code> <strong>is</strong> the &apos;close 1&apos; stream combined with one user from the latest response, besides being <code><span class="token keyword">null</span></code> when a refresh happens or program startup happened</em>.</p>
-<p>Notice also the impressive absence of control flow elements such as <code><span class="token keyword">if</span></code>, <code><span class="token keyword">for</span></code>, <code><span class="token keyword">while</span></code>, and the typical callback-based control flow that you expect from a JavaScript application. You can even get rid of the <code><span class="token keyword">if</span></code> and <code><span class="token keyword">else</span></code> in the <code><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code> above by using <code><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code> if you want (I&apos;ll leave the implementation details to you as an exercise). In Rx, we have stream functions such as <code>map</code>, <code>filter</code>, <code>scan</code>, <code>merge</code>, <code>combineLatest</code>, <code>startWith</code>, and many more to control the flow of an event-driven program. This toolset of functions gives you more power in less code.</p>
+<p>That piece of code is small but dense: it features management of multiple events with proper separation of concerns, and even caching of responses. The functional style made the code look more declarative than imperative: we are not giving a sequence of instructions to execute, we are just <strong>telling what something is</strong> by defining relationships between streams. For instance, with Rx we told the computer that <em><code>suggestion1Stream</code> <strong>is</strong> the &apos;close 1&apos; stream combined with one user from the latest response, besides being <code>null</code> when a refresh happens or program startup happened</em>.</p>
+<p>Notice also the impressive absence of control flow elements such as <code>if</code>, <code>for</code>, <code>while</code>, and the typical callback-based control flow that you expect from a JavaScript application. You can even get rid of the <code>if</code> and <code>else</code> in the <code>subscribe()</code> above by using <code>filter()</code> if you want (I&apos;ll leave the implementation details to you as an exercise). In Rx, we have stream functions such as <code>map</code>, <code>filter</code>, <code>scan</code>, <code>merge</code>, <code>combineLatest</code>, <code>startWith</code>, and many more to control the flow of an event-driven program. This toolset of functions gives you more power in less code.</p>
 <h2 id="what-comes-next"><a name="what-comes-next" class="plugin-anchor" href="#what-comes-next"><span class="fa fa-link"></span></a>What comes next</h2>
 <p>If you think Rx* will be your preferred library for Reactive Programming, take a while to get acquainted with the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md" target="_blank">big list of functions</a> for transforming, combining, and creating Observables. If you want to understand those functions in diagrams of streams, take a look at <a href="https://github.com/Netflix/RxJava/wiki/Creating-Observables" target="_blank">RxJava&apos;s very useful documentation with marble diagrams</a>. Whenever you get stuck trying to do something, draw those diagrams, think on them, look at the long list of functions, and think more. This workflow has been effective in my experience.</p>
 <p>Once you start getting the hang of programming with Rx<em>, it is absolutely required to understand the concept of <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/gettingstarted/creating.md#cold-vs-hot-observables" target="_blank">Cold vs Hot Observables</a>. If you ignore this, it will come back and bite you brutally. You have been warned. Sharpen your skills further by learning real functional programming, and getting acquainted with issues such as side effects that affect Rx</em>.</p>
@@ -6154,6 +6150,10 @@ suggestion1Stream<span class="token punctuation">.</span><span class="token func
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

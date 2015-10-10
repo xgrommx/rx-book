@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="5.1" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="5.1" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5745,48 +5741,48 @@
 <p>In Bacon.js (and RxJS for that matter), an EventStream represents a stream of events. It is an Observable object, meaning that you can listen to events in the stream using, for instance, the onValue method with a callback.  </p>
 <h3 id="creating-event-streams"><a name="creating-event-streams" class="plugin-anchor" href="#creating-event-streams"><span class="fa fa-link"></span></a>Creating Event Streams</h3>
 <h4 id="bacon-js"><a name="bacon-js" class="plugin-anchor" href="#bacon-js"><span class="fa fa-link"></span></a>Bacon.js</h4>
-<p>Because Bacon.js is optimized for jQuery and Zepto, you can use the <code>$<span class="token punctuation">.</span>fn<span class="token punctuation">.</span>asEventStream</code> method to easily bind to create event streams. </p>
+<p>Because Bacon.js is optimized for jQuery and Zepto, you can use the <code>$.fn.asEventStream</code> method to easily bind to create event streams. </p>
 <p>For example we can get the clickable element, listen to the <code>click</code> event, and then we can subscribe via the <code>onValue</code> method to capture the clicks.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> clickable <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&apos;#clickable&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">asEventStream</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> clickable = $(<span class="hljs-string">&apos;#clickable&apos;</span>).asEventStream(<span class="hljs-string">&apos;click&apos;</span>);
 
-clickable<span class="token punctuation">.</span><span class="token function">onValue</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;clicked!&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+clickable.onValue(e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;clicked!&apos;</span>));
 </code></pre>
 <p>The support goes above just standard support, but also selectors and an optional argument selector which transforms the arguments of the event to a single object.</p>
-<pre><code class="lang-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&quot;#my-div&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">asEventStream</span><span class="token punctuation">(</span><span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;.more-specific-selector&quot;</span><span class="token punctuation">)</span>
+<pre><code class="lang-js">$(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;.more-specific-selector&quot;</span>)
 
-<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&quot;#my-div&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">asEventStream</span><span class="token punctuation">(</span><span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;.more-specific-selector&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>event<span class="token punctuation">,</span> args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;.more-specific-selector&quot;</span>, (event, args) =&gt; args[<span class="hljs-number">0</span>]);
 
-<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&quot;#my-div&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">asEventStream</span><span class="token punctuation">(</span><span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>event<span class="token punctuation">,</span> args<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>, (event, args) =&gt; args[<span class="hljs-number">0</span>]);
 </code></pre>
 <h4 id="rxjs"><a name="rxjs" class="plugin-anchor" href="#rxjs"><span class="fa fa-link"></span></a>RxJS</h4>
 <p>It&apos;s very similar in RxJS core.  Until recently, this feature was reserved for external libraries such as <a href="https://github.com/Reactive-Extensions/RxJS-jQuery" target="_blank">RxJS-jQuery</a>, <a href="https://github.com/Reactive-Extensions/RxJS-DOM" target="_blank">RxJS-DOM</a>, <a href="https://github.com/Reactive-Extensions/RxJS-Dojo" target="_blank">RxJS-Dojo</a> and <a href="https://github.com/Reactive-Extensions/RxJS-MooTools" target="_blank">RxJS-MooTools</a>.  RxJS 2.2 introduced two ways to bind to events with <code>fromEvent</code> and <code>fromEventPattern</code> so that bridge libraries are strictly not as necessary as they used to be.  </p>
 <p>For example, we can recreate the binding to the clickable element for the <code>click</code> event, and then call <code>subscribe</code> with a function which listens for each time the clickable is clicked.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> clickable <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&apos;#clickable&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> clickable = $(<span class="hljs-string">&apos;#clickable&apos;</span>);
 
-<span class="token keyword">var</span> clickableObservable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>clickable<span class="token punctuation">,</span> <span class="token string">&apos;click&apos;</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;clicked!&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> clickableObservable = Rx.Observable.fromEvent(clickable, <span class="hljs-string">&apos;click&apos;</span>)
+    .subscribe(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;clicked!&apos;</span>));
 </code></pre>
 <p>In addition, RxJS also supports for event argument transformers for additional data.  For example, if a Node.js <code>EventEmitter</code> emits more than one piece of data at a time, you can still capture it.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> Rx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;rx&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    EventEmitter <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;events&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>EventEmitter<span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>),
+    EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>).EventEmitter;
 
-<span class="token keyword">var</span> e <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventEmitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> e = <span class="hljs-keyword">new</span> EventEmitter();
 
-Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token string">&apos;data&apos;</span><span class="token punctuation">,</span> args <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> first<span class="token punctuation">:</span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> second<span class="token punctuation">:</span> args<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>`$<span class="token punctuation">{</span>data<span class="token punctuation">.</span>first<span class="token punctuation">}</span><span class="token punctuation">,</span> $<span class="token punctuation">{</span>data<span class="token punctuation">.</span>second<span class="token punctuation">}</span>`<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Rx.Observable.fromEvent(e, <span class="hljs-string">&apos;data&apos;</span>, args =&gt; ({ first: args[<span class="hljs-number">0</span>], second: args[<span class="hljs-number">1</span>] }))
+    .subscribe(data =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${data.first}</span>, <span class="hljs-subst">${data.second}</span>`</span>));
 
-e<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">&apos;data&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;foo&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;bar&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; foo,bar</span>
+e.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-string">&apos;foo&apos;</span>, <span class="hljs-string">&apos;bar&apos;</span>);
+<span class="hljs-comment">// =&gt; foo,bar</span>
 </code></pre>
 <h3 id="querying-streams"><a name="querying-streams" class="plugin-anchor" href="#querying-streams"><span class="fa fa-link"></span></a>Querying Streams</h3>
 <p>Event Streams support higher ordered functions much as RxJS does such as <code>map</code>, <code>filter</code> and more, although supports a more Underscore/Lo-Dash style than the callback selector style found in RxJS.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> plus <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&quot;#plus&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">asEventStream</span><span class="token punctuation">(</span><span class="token string">&quot;click&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> minus <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&quot;#minus&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">asEventStream</span><span class="token punctuation">(</span><span class="token string">&quot;click&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> plus = $(<span class="hljs-string">&quot;#plus&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>).map(<span class="hljs-number">1</span>);
+<span class="hljs-keyword">var</span> minus = $(<span class="hljs-string">&quot;#minus&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>).map(-<span class="hljs-number">1</span>);
 
-<span class="token comment" spellcheck="true">// Combine both into one</span>
-<span class="token keyword">var</span> both <span class="token operator">=</span> plus<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>minus<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Combine both into one</span>
+<span class="hljs-keyword">var</span> both = plus.merge(minus);
 
-both<span class="token punctuation">.</span>onValue <span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* returns 1 or -1 */</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+both.onValue (x =&gt; { <span class="hljs-comment">/* returns 1 or -1 */</span> });
 </code></pre>
 
                     
@@ -5821,6 +5817,10 @@ both<span class="token punctuation">.</span>onValue <span class="token punctuati
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

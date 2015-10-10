@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="3.3.7" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="3.3.7" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5735,22 +5731,22 @@
                     
                         <h1 id="error-handling-in-the-reactive-extensions"><a name="error-handling-in-the-reactive-extensions" class="plugin-anchor" href="#error-handling-in-the-reactive-extensions"><span class="fa fa-link"></span></a>Error Handling in the Reactive Extensions</h1>
 <p>One of the most difficult tasks in asynchronous programming is dealing with errors.  Unlike interactive style programming, we cannot simply use the try/catch/finally approach that we use when dealing with blocking code.</p>
-<pre><code class="lang-js"><span class="token keyword">try</span> <span class="token punctuation">{</span>
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> obj <span class="token keyword">in</span> objs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">doSomething</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">handleError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
-  <span class="token function">doCleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-js"><span class="hljs-keyword">try</span> {
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> obj <span class="hljs-keyword">in</span> objs) {
+    doSomething(obj);
+  }
+} <span class="hljs-keyword">catch</span> (e) {
+  handleError(e);
+} <span class="hljs-keyword">finally</span> {
+  doCleanup();
+}
 </code></pre>
 <p>These actions mirror exactly our <code>Observer</code> class which has the following contract for handing zero to infinite items with <code>onNext</code> and optionally handling either an <code>Error</code> with <code>onError</code> or successful completion with <code>onCompleted</code>.</p>
-<pre><code class="lang-typescript"><span class="token keyword">interface</span> <span class="token class-name">Observable</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-  <span class="token function">onNext</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> T<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">void</span>
-  <span class="token function">onError</span><span class="token punctuation">(</span>error<span class="token punctuation">:</span> Error<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">void</span>
-  <span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">void</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-typescript"><span class="hljs-interface"><span class="hljs-keyword">interface</span> Observable&lt;T&gt; </span>{
+  onNext(value: T) : <span class="hljs-built_in">void</span>
+  onError(error: <span class="hljs-built_in">Error</span>) : <span class="hljs-built_in">void</span>
+  onCompleted() : <span class="hljs-built_in">void</span>
+}
 </code></pre>
 <p>But the try/catch/finally approach won&apos;t work with asynchronous code.  Instead, we have a myriad of ways of handling errors as they occur, and ensure proper disposal of resources.</p>
 <p>For example, we might want to do the following:</p>
@@ -5762,167 +5758,167 @@
 </ul>
 <p>We&apos;ll cover each of those scenarios and more in this section.</p>
 <h2 id="catching-errors"><a name="catching-errors" class="plugin-anchor" href="#catching-errors"><span class="fa fa-link"></span></a>Catching Errors</h2>
-<p>The first topic is catching errors as they happen with our streams. In the Reactive Extensions, any error is propogated through the <code>onError</code> channel which halts the sequence.  We can compensate for this by using the <code><span class="token keyword">catch</span></code> operator, at both the class and instance level.  </p>
-<p>Using the class level <code><span class="token keyword">catch</span></code> method, we can catch errors as they happen with the current sequence and then move to the next sequence should there be an error.  For example, we could try getting data from several URLs, it doesn&apos;t matter which since they all have the same data, and then if that fails, default to a cached version, so an error should never propagate.  One thing to note is that if <code><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;url&apos;</span><span class="token punctuation">)</span></code> calls succeed, then it will not move onto the next sequence in the list.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>
-  <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;url1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;url2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;url3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token function">getCachedVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>The first topic is catching errors as they happen with our streams. In the Reactive Extensions, any error is propogated through the <code>onError</code> channel which halts the sequence.  We can compensate for this by using the <code>catch</code> operator, at both the class and instance level.  </p>
+<p>Using the class level <code>catch</code> method, we can catch errors as they happen with the current sequence and then move to the next sequence should there be an error.  For example, we could try getting data from several URLs, it doesn&apos;t matter which since they all have the same data, and then if that fails, default to a cached version, so an error should never propagate.  One thing to note is that if <code>get(&apos;url&apos;)</code> calls succeed, then it will not move onto the next sequence in the list.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.catch(
+  get(<span class="hljs-string">&apos;url1&apos;</span>),
+  get(<span class="hljs-string">&apos;url2&apos;</span>),
+  get(<span class="hljs-string">&apos;url3&apos;</span>),
+  getCachedVersion()
+);
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Display the data as it comes in</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  data =&gt; {
+    <span class="hljs-comment">// Display the data as it comes in</span>
+  }
+);
 </code></pre>
-<p>We also have an instance version of <code><span class="token keyword">catch</span></code> which can be used two ways.  The first way is much like the example above, where we can take an existing stream, catch the error and move onto the next stream or <code>Promise</code>.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;url1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token function">getCachedVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>We also have an instance version of <code>catch</code> which can be used two ways.  The first way is much like the example above, where we can take an existing stream, catch the error and move onto the next stream or <code>Promise</code>.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = get(<span class="hljs-string">&apos;url1&apos;</span>).catch(getCachedVersion());
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Display the data as it comes in</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  data =&gt; {
+    <span class="hljs-comment">// Display the data as it comes in</span>
+  }
+);
 </code></pre>
-<p>The other overload of <code><span class="token keyword">catch</span></code> allows us to inspect the error as it comes in so we can decide which route to take.  For example, if an error status code of 500 comes back from our web server, we can assume it is down and then use a cached version.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;url1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>e <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">500</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">cachedVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;url2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>The other overload of <code>catch</code> allows us to inspect the error as it comes in so we can decide which route to take.  For example, if an error status code of 500 comes back from our web server, we can assume it is down and then use a cached version.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = get(<span class="hljs-string">&apos;url1&apos;</span>).catch(e =&gt; {
+  <span class="hljs-keyword">if</span> (e.status === <span class="hljs-number">500</span>) {
+    <span class="hljs-keyword">return</span> cachedVersion();
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> get(<span class="hljs-string">&apos;url2&apos;</span>);
+  }
+});
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Display the data as it comes in</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  data =&gt; {
+    <span class="hljs-comment">// Display the data as it comes in</span>
+  }
+);
 </code></pre>
 <p>This isn&apos;t the only way to handle errors as there are plenty of others as you&apos;ll see below.</p>
 <h2 id="ignoring-errors-with-onerrorresumenext"><a name="ignoring-errors-with-onerrorresumenext" class="plugin-anchor" href="#ignoring-errors-with-onerrorresumenext"><span class="fa fa-link"></span></a>Ignoring Errors with <code>onErrorResumeNext</code></h2>
 <p>The Reactive Extensions borrowed from a number of languages in our design.  One of those features is bringing <a href="https://msdn.microsoft.com/en-us/library/5hsw66as.aspx" target="_blank"><code>On Error Resume Next</code></a> from Microsoft Visual Basic.  This operation specifies that when a run-time error occurs, control goes to the statement immediately following the statement where the error occurred, and execution continues from that point.  There are some instances with stream processing that you simply want to skip a stream which produces an error and move to the next stream.  We can achieve this with a class based and instance based <code>onErrorResumeNext</code> method.</p>
-<p>The class based <code>onErrorResumeNext</code> continues a stream that is terminated normally or by an <code>Error</code> with the next stream or <code>Promise</code>.  Unlike <code><span class="token keyword">catch</span></code>, <code>onErrorResumeNext</code> will continue to the next sequence regardless of whether the previous was in error or not.  To make this more concrete, let&apos;s use a simple example of mixing error sequences with normal sequences.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">onErrorResumeNext</span><span class="token punctuation">(</span>
-  Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token number">56</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token number">78</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>The class based <code>onErrorResumeNext</code> continues a stream that is terminated normally or by an <code>Error</code> with the next stream or <code>Promise</code>.  Unlike <code>catch</code>, <code>onErrorResumeNext</code> will continue to the next sequence regardless of whether the previous was in error or not.  To make this more concrete, let&apos;s use a simple example of mixing error sequences with normal sequences.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.onErrorResumeNext(
+  Rx.Observable.just(<span class="hljs-number">42</span>),
+  Rx.Observable.throw(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>()),
+  Rx.Observable.just(<span class="hljs-number">56</span>),
+  Rx.Observable.throw(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>()),
+  Rx.Observable.just(<span class="hljs-number">78</span>)
+);
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  data <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; 42</span>
-<span class="token comment" spellcheck="true">// =&gt; 56</span>
-<span class="token comment" spellcheck="true">// =&gt; 78</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  data =&gt; <span class="hljs-built_in">console</span>.log(data)
+);
+<span class="hljs-comment">// =&gt; 42</span>
+<span class="hljs-comment">// =&gt; 56</span>
+<span class="hljs-comment">// =&gt; 78</span>
 </code></pre>
 <p>The instance based <code>onErrorResumeNext</code> is similar to the class based version, the only difference being that it is attached to the prototype, but can take another sequence or <code>Promise</code> and continue.</p>
 <h2 id="retrying-sequences"><a name="retrying-sequences" class="plugin-anchor" href="#retrying-sequences"><span class="fa fa-link"></span></a>Retrying Sequences</h2>
 <p>When catching errors isn&apos;t enough and we want to retry our logic, we can do so with <code>retry</code> or <code>retryWhen</code> operators.  With the <code>retry</code> operator, we can try a certain operation a number of times before an error is thrown.  This is useful when you need to get data from a resource which may have intermittent failures due to load or any other issue.</p>
 <p>Let&apos;s take a look at a simple example of trying to get some data from a URL and giving up after three tries.</p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Try three times to get the data and then give up</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;url&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">retry</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-comment">// Try three times to get the data and then give up</span>
+<span class="hljs-keyword">var</span> source = get(<span class="hljs-string">&apos;url&apos;</span>).retry(<span class="hljs-number">3</span>);
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  data <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  data =&gt; <span class="hljs-built_in">console</span>.log(data),
+  err =&gt; <span class="hljs-built_in">console</span>.log(err)
+);
 </code></pre>
-<p>In the above example, it will give up after three tries and thus call <code>onError</code> if it continues to fail after the third try.  We can remedy that by adding <code><span class="token keyword">catch</span></code> to use an alternate source.</p>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">// Try three times to get the data and then return cached data if still fails</span>
-<span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;url&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">retry</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token function">cachedVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>In the above example, it will give up after three tries and thus call <code>onError</code> if it continues to fail after the third try.  We can remedy that by adding <code>catch</code> to use an alternate source.</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Try three times to get the data and then return cached data if still fails</span>
+<span class="hljs-keyword">var</span> source = get(<span class="hljs-string">&apos;url&apos;</span>).retry(<span class="hljs-number">3</span>).catch(cachedVersion());
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Displays the data from the URL or cached data</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  data =&gt; {
+    <span class="hljs-comment">// Displays the data from the URL or cached data</span>
+    <span class="hljs-built_in">console</span>.log(data);
+  }
+);
 </code></pre>
 <p>The above case retries immediately upon failure.  But what if you want to control when a retry happens?  We have the <code>retryWhen</code> operator which allows us to deeply control when the next try happens.  We incrementally back off trying again by using the following method:</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> source <span class="token operator">=</span> <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;url&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">retryWhen</span><span class="token punctuation">(</span>
-   attempts <span class="token operator">=</span><span class="token operator">&gt;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source = get(<span class="hljs-string">&apos;url&apos;</span>).retryWhen(
+   attempts =&gt;
     attempts
-      <span class="token punctuation">.</span><span class="token function">zip</span><span class="token punctuation">(</span>Observable<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>_<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> i<span class="token punctuation">)</span>
-      <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>i <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;delay retry by &apos;</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">&apos; second(s)&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">timer</span><span class="token punctuation">(</span>i <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      .zip(Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>), (_, i) =&gt; i)
+      .flatMap(i =&gt; {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;delay retry by &apos;</span> + i + <span class="hljs-string">&apos; second(s)&apos;</span>);
+        <span class="hljs-keyword">return</span> Rx.Observable.timer(i * <span class="hljs-number">1000</span>);
+      });
+);
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Displays the data from the URL or cached data</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; delay retry by 1 second(s)</span>
-<span class="token comment" spellcheck="true">// =&gt; delay retry by 2 second(s)</span>
-<span class="token comment" spellcheck="true">// =&gt; Data</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  data =&gt; {
+    <span class="hljs-comment">// Displays the data from the URL or cached data</span>
+    <span class="hljs-built_in">console</span>.log(data);
+  }
+);
+<span class="hljs-comment">// =&gt; delay retry by 1 second(s)</span>
+<span class="hljs-comment">// =&gt; delay retry by 2 second(s)</span>
+<span class="hljs-comment">// =&gt; Data</span>
 </code></pre>
 <h2 id="ensuring-cleanup-with-finally"><a name="ensuring-cleanup-with-finally" class="plugin-anchor" href="#ensuring-cleanup-with-finally"><span class="fa fa-link"></span></a>Ensuring Cleanup with Finally</h2>
-<p>We&apos;ve already covered the try/catch part of try/catch/finally, so what about finally?  We have the <code><span class="token keyword">finally</span></code> operator which calls a function after the source sequence terminates gracefully or exceptionally.  This is useful if you are using external resources or need to free up a particular variable upon completion.  </p>
+<p>We&apos;ve already covered the try/catch part of try/catch/finally, so what about finally?  We have the <code>finally</code> operator which calls a function after the source sequence terminates gracefully or exceptionally.  This is useful if you are using external resources or need to free up a particular variable upon completion.  </p>
 <p>In this example, we can ensure that our <code>WebSocket</code> will indeed be closed once the last message is processed.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> socket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocket</span><span class="token punctuation">(</span><span class="token string">&apos;ws://someurl&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;xmpp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> socket = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">&apos;ws://someurl&apos;</span>, <span class="hljs-string">&apos;xmpp&apos;</span>);
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token keyword">finally</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> socket<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.from(data)
+  .finally(() =&gt; socket.close());
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  data <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    socket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  data =&gt; {
+    socket.send(data);
+  }
+);
 </code></pre>
 <p>But,we can do a better job in terms of managing resources if need be by using the <code>using</code> method.</p>
 <h2 id="ensuring-resource-disposal"><a name="ensuring-resource-disposal" class="plugin-anchor" href="#ensuring-resource-disposal"><span class="fa fa-link"></span></a>Ensuring Resource Disposal</h2>
-<p>As stated above, <code><span class="token keyword">finally</span></code> can be used to ensure proper cleanup of any resources or perform any side effects as necessary.  There is a cleaner approach we can take by creating a disposable wrapper around our object with a <code>dispose</code> method so that when our scope is complete, then the resource is automatically disposed through the <code>using</code> operator.</p>
-<pre><code class="lang-js"><span class="token keyword">function</span> <span class="token function">DisposableWebSocket</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> protocol<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> socket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocket</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> protocol<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>As stated above, <code>finally</code> can be used to ensure proper cleanup of any resources or perform any side effects as necessary.  There is a cleaner approach we can take by creating a disposable wrapper around our object with a <code>dispose</code> method so that when our scope is complete, then the resource is automatically disposed through the <code>using</code> operator.</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DisposableWebSocket</span>(<span class="hljs-params">url, protocol</span>) </span>{
+  <span class="hljs-keyword">var</span> socket = <span class="hljs-keyword">new</span> WebSocket(url, protocol);
 
-  <span class="token comment" spellcheck="true">// Create a way to close the WebSocket upon completion</span>
-  <span class="token keyword">var</span> d <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Disposable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> socket<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="hljs-comment">// Create a way to close the WebSocket upon completion</span>
+  <span class="hljs-keyword">var</span> d = Rx.Disposable.create(() =&gt; socket.close());
 
-  d<span class="token punctuation">.</span>socket <span class="token operator">=</span> socket<span class="token punctuation">;</span>
+  d.socket = socket;
 
-  <span class="token keyword">return</span> d<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+  <span class="hljs-keyword">return</span> d;
+}
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">using</span><span class="token punctuation">(</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">new</span> <span class="token class-name">DisposableWebSocket</span><span class="token punctuation">(</span><span class="token string">&apos;ws://someurl&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;xmpp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  d <span class="token operator">=</span><span class="token operator">&gt;</span> 
-    Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-      <span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> d<span class="token punctuation">.</span>socket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.using(
+  () =&gt; <span class="hljs-keyword">new</span> DisposableWebSocket(<span class="hljs-string">&apos;ws://someurl&apos;</span>, <span class="hljs-string">&apos;xmpp&apos;</span>),
+  d =&gt; 
+    Rx.Observable.from(data)
+      .tap(data =&gt; d.socket.send(data));
+  }
+);
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe();
 </code></pre>
 <h2 id="delaying-errors-with-mergedelayerror"><a name="delaying-errors-with-mergedelayerror" class="plugin-anchor" href="#delaying-errors-with-mergedelayerror"><span class="fa fa-link"></span></a>Delaying Errors with <code>mergeDelayError</code></h2>
 <p>Another issue may arise when you are dealing with flattening sequences into a single sequence and there may be errors along the way.  We want a way to flatten without being interrupted by one of our sources being in error.  This is much like the other operator <code>mergeAll</code> but the main difference is, instead of immediately bubbling up the error, it holds off until the very end.</p>
 <p>To illustrate, we can create this little sample that has an errored sequence in the middle when it is trying to flatten the sequences.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> source1 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> source2 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">throwError</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">&apos;woops&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> source3 <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.of(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
+<span class="hljs-keyword">var</span> source2 = Rx.Observable.throwError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;woops&apos;</span>));
+<span class="hljs-keyword">var</span> source3 = Rx.Observable.of(<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>);
 
-<span class="token keyword">var</span> source <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">mergeDelayError</span><span class="token punctuation">(</span>source1<span class="token punctuation">,</span> source2<span class="token punctuation">,</span> source3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.mergeDelayError(source1, source2, source3);
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-  x <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onNext: %s&apos;</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  e <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onError: %s&apos;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;onCompleted&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+  x =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onNext: %s&apos;</span>, x),
+  e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="token comment" spellcheck="true">// =&gt; 1</span>
-<span class="token comment" spellcheck="true">// =&gt; 2</span>
-<span class="token comment" spellcheck="true">// =&gt; 3</span>
-<span class="token comment" spellcheck="true">// =&gt; 4</span>
-<span class="token comment" spellcheck="true">// =&gt; 5</span>
-<span class="token comment" spellcheck="true">// =&gt; 6</span>
-<span class="token comment" spellcheck="true">// =&gt; Error: Error: woops</span>
+<span class="hljs-comment">// =&gt; 1</span>
+<span class="hljs-comment">// =&gt; 2</span>
+<span class="hljs-comment">// =&gt; 3</span>
+<span class="hljs-comment">// =&gt; 4</span>
+<span class="hljs-comment">// =&gt; 5</span>
+<span class="hljs-comment">// =&gt; 6</span>
+<span class="hljs-comment">// =&gt; Error: Error: woops</span>
 </code></pre>
 <h2 id="further-reading"><a name="further-reading" class="plugin-anchor" href="#further-reading"><span class="fa fa-link"></span></a>Further Reading</h2>
 <ul>
@@ -5962,6 +5958,10 @@
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

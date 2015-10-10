@@ -42,17 +42,13 @@
         
     
         
-        <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-prism/prism.css">
-        
-    
-        
         <link rel="stylesheet" href="../../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
     
 
         
-    <div class="book" data-level="11.4" data-basepath="../../.." data-revision="Fri Oct 09 2015 08:58:32 GMT+0300 (FLE Daylight Time)">
+    <div class="book" data-level="11.4" data-basepath="../../.." data-revision="Sat Oct 10 2015 17:25:34 GMT+0300 (FLE Daylight Time)">
     
 
 <div class="book-summary">
@@ -5733,35 +5729,35 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-subject-class"><a name="-rx-subject-class" class="plugin-anchor" href="#-rx-subject-class"><span class="fa fa-link"></span></a><code>Rx<span class="token punctuation">.</span>Subject</code> class</h1>
+                        <h1 id="-rx-subject-class"><a name="-rx-subject-class" class="plugin-anchor" href="#-rx-subject-class"><span class="fa fa-link"></span></a><code>Rx.Subject</code> class</h1>
 <p>Represents an object that is both an observable sequence as well as an observer. Each notification is broadcasted to all subscribed observers.</p>
-<p>This class inherits both from the <code>Rx<span class="token punctuation">.</span>Observable</code> and <code>Rx<span class="token punctuation">.</span>Observer</code> classes.</p>
+<p>This class inherits both from the <code>Rx.Observable</code> and <code>Rx.Observer</code> classes.</p>
 <h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
 <p>The follow example shows the basic usage of an Rx.Subject.</p>
-<pre><code class="lang-js"><span class="token keyword">var</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = subject.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+    });
 
-subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+subject.onNext(<span class="hljs-number">42</span>);
 
-<span class="token comment" spellcheck="true">// =&gt; Next: 42</span>
+<span class="hljs-comment">// =&gt; Next: 42</span>
 
-subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">56</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+subject.onNext(<span class="hljs-number">56</span>);
 
-<span class="token comment" spellcheck="true">// =&gt; Next: 56</span>
+<span class="hljs-comment">// =&gt; Next: 56</span>
 
-subject<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+subject.onCompleted();
 
-<span class="token comment" spellcheck="true">// =&gt; Completed</span>
+<span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5771,7 +5767,7 @@ subject<span class="token punctuation">.</span><span class="token function">onCo
 <ul>
 <li><a href="#rxsubject"><code>constructor</code></a></li>
 </ul>
-<h2 id="-subject-class-methods"><a name="-subject-class-methods" class="plugin-anchor" href="#-subject-class-methods"><span class="fa fa-link"></span></a><code>Subject Class <span class="token class-name">Methods</span></code></h2>
+<h2 id="-subject-class-methods"><a name="-subject-class-methods" class="plugin-anchor" href="#-subject-class-methods"><span class="fa fa-link"></span></a><code>Subject Class Methods</code></h2>
 <ul>
 <li><a href="#rxsubjectcreateobserver-observable"><code>create</code></a></li>
 </ul>
@@ -5782,32 +5778,32 @@ subject<span class="token punctuation">.</span><span class="token function">onCo
 </ul>
 <h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
 <ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observable</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md" target="_blank"><code>Rx<span class="token punctuation">.</span>Observer</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md" target="_blank"><code>Rx.Observable</code></a></li>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md" target="_blank"><code>Rx.Observer</code></a></li>
 </ul>
 <h2 id="-subject-constructor"><a name="-subject-constructor" class="plugin-anchor" href="#-subject-constructor"><span class="fa fa-link"></span></a><em>Subject Constructor</em></h2>
-<h3 id="-a-id-rxsubject-a-rx-subject"><a name="-a-id-rxsubject-a-rx-subject" class="plugin-anchor" href="#-a-id-rxsubject-a-rx-subject"><span class="fa fa-link"></span></a><a id="rxsubject"></a><code>Rx<span class="token punctuation">.</span><span class="token function">Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxsubject-a-rx-subject"><a name="-a-id-rxsubject-a-rx-subject" class="plugin-anchor" href="#-a-id-rxsubject-a-rx-subject"><span class="fa fa-link"></span></a><a id="rxsubject"></a><code>Rx.Subject()</code></h3>
 <p><a href="#rxsubject">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L26-L31" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a subject.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> source<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = source.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+    });
 
-subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: 42</span>
+subject.onNext(<span class="hljs-number">42</span>);
+<span class="hljs-comment">// =&gt; Next: 42</span>
 
-subject<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; Completed</span>
+subject.onCompleted();
+<span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5815,7 +5811,7 @@ subject<span class="token punctuation">.</span><span class="token function">onCo
 </ul>
 <hr>
 <h2 id="-subject-class-methods"><a name="-subject-class-methods" class="plugin-anchor" href="#-subject-class-methods"><span class="fa fa-link"></span></a><em>Subject Class Methods</em></h2>
-<h3 id="-a-id-rxsubjectcreateobserver-observable-a-rx-subject-create-observer-observable"><a name="-a-id-rxsubjectcreateobserver-observable-a-rx-subject-create-observer-observable" class="plugin-anchor" href="#-a-id-rxsubjectcreateobserver-observable-a-rx-subject-create-observer-observable"><span class="fa fa-link"></span></a><a id="rxsubjectcreateobserver-observable"></a><code>Rx<span class="token punctuation">.</span>Subject<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer<span class="token punctuation">,</span> observable<span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxsubjectcreateobserver-observable-a-rx-subject-create-observer-observable"><a name="-a-id-rxsubjectcreateobserver-observable-a-rx-subject-create-observer-observable" class="plugin-anchor" href="#-a-id-rxsubjectcreateobserver-observable-a-rx-subject-create-observer-observable"><span class="fa fa-link"></span></a><a id="rxsubjectcreateobserver-observable"></a><code>Rx.Subject.create(observer, observable)</code></h3>
 <p><a href="#rxsubjectcreateobserver-observable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L101-L103" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Creates a subject from the specified observer and observable.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
@@ -5826,54 +5822,54 @@ subject<span class="token punctuation">.</span><span class="token function">onCo
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
 <p><em>(Subject)</em>: Subject implemented using the given observer and observable.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token comment" spellcheck="true">/* Using a Web Worker to send and receive data via an Rx.Subject */</span>
+<pre><code class="lang-js"><span class="hljs-comment">/* Using a Web Worker to send and receive data via an Rx.Subject */</span>
 
-<span class="token comment" spellcheck="true">/* worker.js */</span>
+<span class="hljs-comment">/* worker.js */</span>
 
-self<span class="token punctuation">.</span>onmessage <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    self<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+self.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+    self.postMessage(e.data);
+};
 
-<span class="token comment" spellcheck="true">/* client.js */</span>
-<span class="token keyword">var</span> worker <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span><span class="token string">&apos;worker.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">/* client.js */</span>
+<span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> Worker(<span class="hljs-string">&apos;worker.js&apos;</span>);
 
-<span class="token comment" spellcheck="true">// Create observer to handle sending messages</span>
-<span class="token keyword">var</span> observer <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observer<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        worker<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-comment">// Create observer to handle sending messages</span>
+<span class="hljs-keyword">var</span> observer = Rx.Observer.create(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+        worker.postMessage(data);
+    });
 
-<span class="token comment" spellcheck="true">// Create observable to handle the messages</span>
-<span class="token keyword">var</span> observable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>obs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="hljs-comment">// Create observable to handle the messages</span>
+<span class="hljs-keyword">var</span> observable = Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obs</span>) </span>{
 
-    worker<span class="token punctuation">.</span>onmessage <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        obs<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    worker.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+        obs.onNext(data);
+    };
 
-    worker<span class="token punctuation">.</span>onerror <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        obs<span class="token punctuation">.</span><span class="token function">onError</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    worker.onerror = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+        obs.onError(err);
+    };
 
-    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        worker<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        worker.close();
+    };
+});
 
-<span class="token keyword">var</span> subject <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Subject<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>observer<span class="token punctuation">,</span> observable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subject = Rx.Subject.create(observer, observable);
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = subject.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+    });
 
-subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: 42</span>
+subject.onNext(<span class="hljs-number">42</span>);
+<span class="hljs-comment">// =&gt; Next: 42</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5881,68 +5877,68 @@ subject<span class="token punctuation">.</span><span class="token function">onNe
 </ul>
 <hr>
 <h2 id="-subject-instance-methods"><a name="-subject-instance-methods" class="plugin-anchor" href="#-subject-instance-methods"><span class="fa fa-link"></span></a><em>Subject Instance Methods</em></h2>
-<h3 id="-a-id-rxsubjectprototypedispose-a-rx-subject-prototype-dispose"><a name="-a-id-rxsubjectprototypedispose-a-rx-subject-prototype-dispose" class="plugin-anchor" href="#-a-id-rxsubjectprototypedispose-a-rx-subject-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxsubjectprototypedispose"></a><code>Rx<span class="token punctuation">.</span>Subject<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxsubjectprototypedispose-a-rx-subject-prototype-dispose"><a name="-a-id-rxsubjectprototypedispose-a-rx-subject-prototype-dispose" class="plugin-anchor" href="#-a-id-rxsubjectprototypedispose-a-rx-subject-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxsubjectprototypedispose"></a><code>Rx.Subject.prototype.dispose()</code></h3>
 <p><a href="#rxsubjectprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L89-L92" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Unsubscribe all observers and release resources.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = subject.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+    });
 
-subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; Next: 42</span>
+subject.onNext(<span class="hljs-number">42</span>);
+<span class="hljs-comment">// =&gt; Next: 42</span>
 
-subject<span class="token punctuation">.</span><span class="token function">onCompleted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; Completed</span>
+subject.onCompleted();
+<span class="hljs-comment">// =&gt; Completed</span>
 
-subject<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+subject.dispose();
 
-<span class="token keyword">try</span> <span class="token punctuation">{</span>
-    subject<span class="token punctuation">.</span><span class="token function">onNext</span><span class="token punctuation">(</span><span class="token number">56</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-keyword">try</span> {
+    subject.onNext(<span class="hljs-number">56</span>);
+} <span class="hljs-keyword">catch</span> (e) {
+    <span class="hljs-built_in">console</span>.log(e.message);
+}
 
-<span class="token comment" spellcheck="true">// =&gt; Object has been disposed</span>
+<span class="hljs-comment">// =&gt; Object has been disposed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxsubjectprototypehasobservers-a-rx-subject-prototype-hasobservers"><a name="-a-id-rxsubjectprototypehasobservers-a-rx-subject-prototype-hasobservers" class="plugin-anchor" href="#-a-id-rxsubjectprototypehasobservers-a-rx-subject-prototype-hasobservers"><span class="fa fa-link"></span></a><a id="rxsubjectprototypehasobservers"></a><code>Rx<span class="token punctuation">.</span>Subject<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">hasObservers</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></h3>
+<h3 id="-a-id-rxsubjectprototypehasobservers-a-rx-subject-prototype-hasobservers"><a name="-a-id-rxsubjectprototypehasobservers-a-rx-subject-prototype-hasobservers" class="plugin-anchor" href="#-a-id-rxsubjectprototypehasobservers-a-rx-subject-prototype-hasobservers"><span class="fa fa-link"></span></a><a id="rxsubjectprototypehasobservers"></a><code>Rx.Subject.prototype.hasObservers()</code></h3>
 <p><a href="#rxsubjectprototypehasobservers">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L38-L40" title="View in source" target="_blank">&#x24C8;</a></p>
 <p>Indicates whether the subject has observers subscribed to it.</p>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Boolean)</em>: Returns <code><span class="token keyword">true</span></code> if the Subject has observers, else <code><span class="token keyword">false</span></code>.</p>
+<p><em>(Boolean)</em>: Returns <code>true</code> if the Subject has observers, else <code>false</code>.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="token keyword">var</span> subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Rx<span class="token punctuation">.</span>Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>subject<span class="token punctuation">.</span><span class="token function">hasObservers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; false</span>
+<span class="hljs-built_in">console</span>.log(subject.hasObservers());
+<span class="hljs-comment">// =&gt; false</span>
 
-<span class="token keyword">var</span> subscription <span class="token operator">=</span> subject<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Next: &apos;</span> <span class="token operator">+</span> x<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Error: &apos;</span> <span class="token operator">+</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Completed&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">var</span> subscription = subject.subscribe(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+    });
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>subject<span class="token punctuation">.</span><span class="token function">hasObservers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// =&gt; true</span>
+<span class="hljs-built_in">console</span>.log(subject.hasObservers());
+<span class="hljs-comment">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
 <ul>
@@ -5982,6 +5978,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
     
     <script src="../../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

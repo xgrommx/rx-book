@@ -2,6 +2,8 @@ module.exports = function (grunt) {
     var path = require("path");
 
     // Load NPM tasks
+    grunt.loadNpmTasks('grunt-gh-pages');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
@@ -10,6 +12,15 @@ module.exports = function (grunt) {
     // Init GRUNT configuraton
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        'gh-pages': {
+            options: {
+                base: '_book'
+            },
+            src: ['**']
+        },
+        'clean': {
+            files: '.grunt'
+        },
         'bower-install-simple': {
             options: {
                 color:       true,

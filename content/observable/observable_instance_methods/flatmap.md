@@ -1,7 +1,14 @@
-# flatMap
+## [`Rx.Observable.prototype.flatMap(selector, [resultSelector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectmany.js)
 
-`Rx.Observable.prototype.flatMap(selector, [resultSelector])`
-<a href="#rxobservableprototypeflatmapselector-resultselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4311-L4326 "View in source") 
+{% if book.isPdf %}
+
+![flatMap](http://reactivex.io/documentation/operators/images/flatMap.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 This is an alias for the `selectMany` method.
 
@@ -59,6 +66,14 @@ Rx.Observable.prototype.flatMap(collectionSelector: (T => Iterable<U>));
 Rx.Observable.prototype.flatMap(collectionSelector: (T => Iterable<U>), resultSelector: ((T, U, Int) => Z));
 ```
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

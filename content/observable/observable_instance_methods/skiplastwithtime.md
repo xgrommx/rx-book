@@ -1,7 +1,14 @@
-# skipLastWithTime
+## [`Rx.Observable.prototype.skipLastWithTime(duration)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skiplastwithtime.js)
 
-`Rx.Observable.prototype.skipLastWithTime(duration)`
-<a href="#rxobservableprototypeskiplastwithtimeduration">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skiplastwithtime.js "View in source") 
+{% if book.isPdf %}
+
+![skipLastWithTime](http://reactivex.io/documentation/operators/images/skipLastWithTime.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Bypasses a specified number of elements at the end of an observable sequence.
 
@@ -17,6 +24,12 @@ This operator accumulates a queue with a length enough to store the first `count
 #### Example
 
 [](http://jsbin.com/tiyedi/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/skiplastwithtime.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/skiplastwithtime.js)
+
+{% endif %}

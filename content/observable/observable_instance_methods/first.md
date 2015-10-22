@@ -1,9 +1,14 @@
-# first
+## [`Rx.Observable.prototype.first([predicate], [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/first.js)
+
+{% if book.isPdf %}
+
+![first](http://reactivex.io/documentation/operators/images/first.png)
+
+{% else %}
 
 <rx-marbles key="first"></rx-marbles>
 
-`Rx.Observable.prototype.first([predicate], [thisArg])`
-<a href="#rxobservableprototypefirstpredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L577-L582 "View in source") 
+{% endif %}
 
 Returns the first element of an observable sequence that satisfies the condition in the predicate if present else the first item in the sequence.
 
@@ -31,6 +36,14 @@ Returns the first element of an observable sequence that satisfies the condition
 
 [](http://jsbin.com/caceg/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).aggregates.js
+
+{% endif %}

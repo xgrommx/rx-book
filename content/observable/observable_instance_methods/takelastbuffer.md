@@ -1,7 +1,14 @@
-# takeLastBuffer
+## [`Rx.Observable.prototype.takeLastBuffer(count)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takelastbuffer.js)
 
-`Rx.Observable.prototype.takeLastBuffer(count)`
-<a href="#rxobservableprototypetakelastbuffercount">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takelastbuffer.js "View in source") 
+{% if book.isPdf %}
+
+![takeLastBuffer](http://reactivex.io/documentation/operators/images/takeLastBuffer.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an array with the specified number of contiguous elements from the end of an observable sequence.
 
@@ -14,6 +21,12 @@ Returns an array with the specified number of contiguous elements from the end o
 #### Example
 
 [](http://jsbin.com/kafiv/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -38,3 +51,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/takelastbuffer.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/takelastbuffer.js)
+
+{% endif %}

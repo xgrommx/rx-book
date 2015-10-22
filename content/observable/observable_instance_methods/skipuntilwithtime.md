@@ -1,7 +1,14 @@
-# skipUntilWithTime
+## [`Rx.Observable.prototype.skipUntilWithTime(startTime, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipuntilwithtime.js)
 
-`Rx.Observable.prototype.skipUntilWithTime(startTime, [scheduler])`
-<a href="#rxobservableprototypeskipuntilstarttime-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipuntil.js "View in source") 
+{% if book.isPdf %}
+
+![skipUntilWithTime](http://reactivex.io/documentation/operators/images/skipUntilWithTime.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Skips elements from the observable source sequence until the specified start time, using the specified scheduler to run timers.
 
@@ -17,6 +24,12 @@ Errors produced by the source sequence are always forwarded to the result sequen
 #### Example
 
 [](http://jsbin.com/bifef/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -41,3 +54,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/skipuntilwithtime.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/skipuntilwithtime.js)
+
+{% endif %}

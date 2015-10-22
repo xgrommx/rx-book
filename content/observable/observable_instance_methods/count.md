@@ -1,9 +1,14 @@
-# count
+## [`Rx.Observable.prototype.count([predicate])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/count.js)
+
+{% if book.isPdf %}
+
+![count](http://reactivex.io/documentation/operators/images/Count.png)
+
+{% else %}
 
 <rx-marbles key="count"></rx-marbles>
 
-`Rx.Observable.prototype.count([predicate])`
-<a href="#rxobservableprototypecountpredicate">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L214-L220 "View in source") 
+{% endif %}
 
 Returns an observable sequence containing a value that represents how many elements in the specified observable sequence satisfy a condition if provided, else the count of items.
 
@@ -26,6 +31,14 @@ Returns an observable sequence containing a value that represents how many eleme
 
 [](http://jsbin.com/vedid/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).aggregates.js
+
+{% endif %}

@@ -1,9 +1,14 @@
-# filter
+## [`Rx.Observable.prototype.filter(predicate, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/where.js)
+
+{% if book.isPdf %}
+
+![filter](http://reactivex.io/documentation/operators/images/filter.png)
+
+{% else %}
 
 <rx-marbles key="filter"></rx-marbles>
 
-`Rx.Observable.prototype.filter(predicate, [thisArg])`
-<a href="#rxobservableprototypefilterpredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4513-L4530 "View in source") 
+{% endif %}
 
 Filters the elements of an observable sequence based on a predicate.  This is an alias for the `where` method.
 
@@ -21,6 +26,14 @@ Filters the elements of an observable sequence based on a predicate.  This is an
 
 [](http://jsbin.com/biriy/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

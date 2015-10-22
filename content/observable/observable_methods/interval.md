@@ -1,7 +1,14 @@
-# interval
+## [`Rx.Observable.interval(period, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/interval.js)
 
-`Rx.Observable.interval(period, [scheduler])`
-<a href="#rxobservableintervalperiod-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/interval.js "View in source") 
+{% if book.isPdf %}
+
+![interval](http://reactivex.io/documentation/operators/images/interval.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an observable sequence that produces a value after each period.
 
@@ -15,6 +22,12 @@ Returns an observable sequence that produces a value after each period.
 #### Example
 
 [](http://jsbin.com/lozay/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/interval.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/interval.js)
+
+{% endif %}

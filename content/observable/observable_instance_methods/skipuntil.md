@@ -1,9 +1,14 @@
-# skipUntil
+## [`Rx.Observable.prototype.skipUntil(other)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipuntil.js)
+
+{% if book.isPdf %}
+
+![skipUntil](http://reactivex.io/documentation/operators/images/skipUntil.png)
+
+{% else %}
 
 <rx-marbles key="skipUntil"></rx-marbles>
 
-`Rx.Observable.prototype.skipUntil(other)`
-<a href="#rxobservableprototypeskipuntilother">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipuntil.js "View in source") 
+{% endif %}
 
 Returns the values from the source observable sequence only after the other observable sequence produces a value.
 
@@ -16,6 +21,12 @@ Returns the values from the source observable sequence only after the other obse
 #### Example
 
 [](http://jsbin.com/senon/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +51,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/skipuntil.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/skipuntil.js)
+
+{% endif %}

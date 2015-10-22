@@ -19,17 +19,17 @@ File Dependencies:
 ## Included Observable Operators ##
 
 ### `Observable Methods`
-- [`amb`](../core_objects/observable/observable_methods/amb.html)
-- [`generate`](../core_objects/observable/observable_methods/generate.html)
-- [`onErrorResumeNext`](../core_objects/observable/observable_methods/onerrorresumenext.html)
-- [`using`](../core_objects/observable/observable_methods/using.html)
+- [`amb`](../observable/observable_methods/amb.html)
+- [`generate`](../observable/observable_methods/generate.html)
+- [`onErrorResumeNext`](../observable/observable_methods/onerrorresumenext.html)
+- [`using`](../observable/observable_methods/using.html)
 
 ### `Observable Instance Methods`
-- [`amb`](../core_objects/observable/observable_instance_methods/amb.html)
-- [`bufferWithCount`](../core_objects/observable/observable_instance_methods/bufferwithcount.html)
-- [`distinct`](../core_objects/observable/observable_instance_methods/distinct.html)
-- [`observeOn`](../core_objects/observable/observable_instance_methods/observeon.html)
-- [`onErrorResumeNext`](../core_objects/observable/observable_instance_methods/onerrorresumenext.html)
-- [`subscribeOn`](../core_objects/observable/observable_instance_methods/subscribeon.html)
-- [`takeLastBuffer`](../core_objects/observable/observable_instance_methods/takelastbuffer.html)
-- [`windowWithCount`](../core_objects/observable/observable_instance_methods/windowwithcount.html)
+- [`amb`](../observable/observable_instance_methods/amb.html)
+- [`bufferWithCount`](../observable/observable_instance_methods/bufferwithcount.html)
+- [`distinct`](../observable/observable_instance_methods/distinct.html)
+- [`observeOn`](../observable/observable_instance_methods/observeon.html)
+- [`onErrorResumeNext`](../observable/observable_instance_methods/onerrorresumenext.html)
+- [`subscribeOn`](../observable/observable_instance_methods/subscribeon.html)
+- [`takeLastBuffer`](../observable/observable_instance_methods/takelastbuffer.html)
+- [`windowWithCount`](../observable/observable_instance_methods/windowwithcount.html)

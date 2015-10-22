@@ -1,11 +1,16 @@
-# using
+## [`Rx.Observable.using(resourceFactory, observableFactory)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/using.js)
 
-`Rx.Observable.using(resourceFactory, observableFactory)`
-<a href="#rxobservableusingresourcefactory-observablefactory">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/using.js "View in source") 
+{% if book.isPdf %}
+
+![using](http://reactivex.io/documentation/operators/images/using.png)
+
+{% else %}
+
+
+
+{% endif %}
 
  Constructs an observable sequence that depends on a resource object, whose lifetime is tied to the resulting observable sequence's lifetime.
-
-![using](https://github.com/Netflix/RxJava/wiki/images/rx-operators/using.png)
 
 ### Arguments
 1. `resourceFactory` *(`Function`)*: Factory function to obtain a resource object.
@@ -17,6 +22,12 @@
 #### Example
 
 [](http://jsbin.com/yewaf/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -38,3 +49,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/using.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/using.js)
+
+{% endif %}

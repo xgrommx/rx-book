@@ -1,9 +1,14 @@
-# take
+## [`Rx.Observable.prototype.take(count, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/take.js)
+
+{% if book.isPdf %}
+
+![take](http://reactivex.io/documentation/operators/images/take.png)
+
+{% else %}
 
 <rx-marbles key="take"></rx-marbles>
 
-`Rx.Observable.prototype.take(count, [scheduler])`
-<a href="#rxobservableprototypetakecount-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/take.js "View in source") 
+{% endif %}
 
 Returns a specified number of contiguous elements from the start of an observable sequence, using the specified scheduler for the edge case of `take(0)`.
   
@@ -17,6 +22,12 @@ Returns a specified number of contiguous elements from the start of an observabl
 #### Example
 
 [](http://jsbin.com/ticoya/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -41,3 +52,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/take.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/take.js)
+
+{% endif %}

@@ -1,7 +1,14 @@
-# forkJoin
+## [`Rx.Observable.prototype.forkJoin(second, resultSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/forkjoinproto.js)
 
-`Rx.Observable.prototype.forkJoin(second, resultSelector)`
-<a href="#rxobservableprototypeforkjoinsecond-resultselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.experimental.js#L304-L373 "View in source") 
+{% if book.isPdf %}
+
+![forkJoin](http://reactivex.io/documentation/operators/images/forkJoin.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Runs two observable sequences in parallel and combines their last elements.
 
@@ -16,6 +23,14 @@ Runs two observable sequences in parallel and combines their last elements.
 
 [](http://jsbin.com/vezova/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).experimental.js
+
+{% endif %}

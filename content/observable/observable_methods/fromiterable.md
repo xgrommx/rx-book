@@ -1,7 +1,4 @@
-# fromIterable
-
-`Rx.Observable.fromIterable(iterable, [scheduler])`
-<a href="#rxobservablefromiterableiterable-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromiterable.js "View in source") 
+## [`Rx.Observable.fromIterable(iterable, [scheduler])`]()
 
 Converts an ES6 iterable into an Observable sequence.
 
@@ -51,6 +48,12 @@ var subscription = source.subscribe(
 // => Completed
 ```
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -74,3 +77,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/fromiterable.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/fromiterable.js)
+
+{% endif %}

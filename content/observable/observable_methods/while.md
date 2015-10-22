@@ -1,11 +1,16 @@
-# while | whileDo
+## [`Rx.Observable.while(condition, source)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/while.js)
 
-`Rx.Observable.while(condition, source)`
-<a href="#rxobservablewhilecondition-source">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/while.js "View in source") 
+{% if book.isPdf %}
+
+![while](http://reactivex.io/documentation/operators/images/while.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Repeats source as long as condition holds emulating a while loop.  There is an alias for this method called 'whileDo' for browsers <IE9.
-
-![while](https://github.com/Netflix/RxJava/wiki/images/rx-operators/whileDo.png)
 
 ### Arguments
 1. `condition` *(`Function`)*: The condition which determines if the source will be repeated.
@@ -17,6 +22,12 @@ Repeats source as long as condition holds emulating a while loop.  There is an a
 #### Example
 
 [](http://jsbin.com/serat/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -38,3 +49,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/while.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/while.js)
+
+{% endif %}

@@ -1,7 +1,14 @@
-# groupBy
+## [`Rx.Observable.prototype.groupBy(keySelector, [elementSelector], [keySerializer])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/groupby.js)
 
-`Rx.Observable.prototype.groupBy(keySelector, [elementSelector], [keySerializer])`
-<a href="#rxobservableprototypegroupbykeyselector-elementselector-keyserializer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4187-L4191 "View in source") 
+{% if book.isPdf %}
+
+![groupBy](http://reactivex.io/documentation/operators/images/groupBy.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Groups the elements of an observable sequence according to a specified key selector function and comparer and selects the resulting elements by using a specified function.
 
@@ -17,6 +24,14 @@ Groups the elements of an observable sequence according to a specified key selec
 
 [](http://jsbin.com/yijuy/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

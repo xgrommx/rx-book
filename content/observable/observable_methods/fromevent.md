@@ -1,7 +1,14 @@
-# fromEvent
+## [`Rx.Observable.fromEvent(element, eventName, [selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromevent.js)
 
-`Rx.Observable.fromEvent(element, eventName, [selector])`
-<a href="#rxobservablefromeventelement-eventname-selector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromevent.js "View in source") 
+{% if book.isPdf %}
+
+![fromEvent](http://reactivex.io/documentation/operators/images/fromEvent.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Creates an observable sequence by adding an event listener to the matching DOMElement, jQuery element, Zepto Element, Angular element, Ember.js element or EventEmitter.
 Note that this uses the library approaches for jQuery, Zepto, AngularJS and Ember.js and falls back to native binding if not present.
@@ -50,6 +57,12 @@ eventEmitter.emit('data', 'baz', 'quux');
 // => Next: foo - baz, bar - quux
 ```
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -78,3 +91,5 @@ NuGet Packages:
 Unit Tests:
 - [`/tests/observable/fromevent-compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/fromevent-compat.js)
 - [`/tests/observable/fromevent.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/fromevent.js)
+
+{% endif %}

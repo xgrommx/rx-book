@@ -1,10 +1,16 @@
-# defer
-`Rx.Observable.defer(observableFactory)`
-<a href="#rxobservabledeferobservablefactory">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/defer.js "View in source")
+## [`Rx.Observable.defer(observableFactory)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/defer.js)
+
+{% if book.isPdf %}
+
+![defer](http://reactivex.io/documentation/operators/images/defer.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an observable sequence that invokes the specified factory function whenever a new observer subscribes.
-
-![defer](https://github.com/Netflix/RxJava/wiki/images/rx-operators/defer.png)
 
 #### Arguments
 1. `observableFactory` *(`Function`)*: Observable factory function to invoke for each observer that subscribes to the resulting sequence.
@@ -14,13 +20,55 @@ Returns an observable sequence that invokes the specified factory function whene
 
 #### Example
 
+{% if book.isPdf %}
+
+##### [Using an observable sequence](http://jsbin.com/vigitu/2/edit?js,console)
+
+```js
+/* Using an observable sequence */
+var source = Rx.Observable.defer(() => Rx.Observable.return(42));
+
+var subscription = source.subscribe(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+// => onNext: 42
+// => onCompleted
+```
+
+##### [Using a promise](http://jsbin.com/memuf/2/edit?js,console)
+
+```js
+/* Using a promise */
+var source = Rx.Observable.defer(() => RSVP.Promise.resolve(42));
+
+var subscription = source.subscribe(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+// => onNext: 42
+// => onCompleted
+```
+
+{% else %}
+
 ##### Using an observable sequence
 
-[](http://jsbin.com/vigitu/1/embed?js,console)
+[](http://jsbin.com/vigitu/2/embed?js,console)
 
 ##### Using a promise
 
-[](http://jsbin.com/memuf/1/embed?js,console)
+[](http://jsbin.com/memuf/2/embed?js,console)
+
+{% endif %}
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -48,4 +96,6 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/defer.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/defer.js)
+
+{% endif %}
 

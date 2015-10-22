@@ -1,7 +1,15 @@
-# observeOn
+## [`Rx.Observable.prototype.observeOn(scheduler)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/observeon.js)
 
-`Rx.Observable.prototype.observeOn(scheduler)`
-<a href="#rxobservableprototypeobserveonscheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/return.js "View in source") 
+{% if book.isPdf %}
+
+![observeOn](http://reactivex.io/documentation/operators/images/observeOn.png)
+
+{% else %}
+
+
+
+{% endif %}
+
 
 Wraps the source sequence in order to run its observer callbacks on the specified scheduler.
 
@@ -16,6 +24,12 @@ This only invokes observer callbacks on a scheduler. In case the subscription an
 #### Example
 
 [](http://jsbin.com/hehov/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +54,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/return.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/return.js)
+
+{% endif %}

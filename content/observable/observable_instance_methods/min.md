@@ -1,9 +1,14 @@
-# min
+## [`Rx.Observable.prototype.min([comparer])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/min.js)
+
+{% if book.isPdf %}
+
+![min](http://reactivex.io/documentation/operators/images/min.png)
+
+{% else %}
 
 <rx-marbles key="min"></rx-marbles>
 
-`Rx.Observable.prototype.min([comparer])`
-<a href="#rxobservableprototypemincomparer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/min.js "View in source") 
+{% endif %}
 
 Returns the minimum element in an observable sequence according to the optional comparer else a default greater than less than check.
 
@@ -22,6 +27,12 @@ Returns the minimum element in an observable sequence according to the optional 
 #### With a comparer
 
 [](http://jsbin.com/cayun/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -43,3 +54,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/min.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/min.js)
+
+{% endif %}

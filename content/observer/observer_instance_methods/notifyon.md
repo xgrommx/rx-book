@@ -1,7 +1,4 @@
-# notifyOn
-
-`Rx.Observer.prototype.notifyOn(scheduler)`
-<a href="#rxobserverprototypenotifyonscheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.js#L2862-L2872 "View in source") [&#x24C9;][1]
+## [`Rx.Observer.prototype.notifyOn(scheduler)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observer.js#L67)
 
 Schedules the invocation of observer methods on the given scheduler.
 
@@ -10,11 +7,39 @@ Schedules the invocation of observer methods on the given scheduler.
 
 #### Returns
 *(Observer)*: Observer whose messages are scheduled on the given scheduler.
- 
-#### Example
 
-[](http://jsbin.com/quwavu/1/embed?js,console)
+{% if book.isPdf %}
+
+#### [Example](http://jsbin.com/quwavu/3/edit?js,console)
+
+```js
+var observer = Rx.Observer.create(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+// Notify on timeout scheduler
+var timeoutObserver = observer.notifyOn(Rx.Scheduler.timeout);
+
+timeoutObserver.onNext(42);
+// => onNext: 42
+```
+
+{% else %}
+
+#### Example
+[](http://jsbin.com/quwavu/3/embed?js,console)
+
+{% endif %} 
+ 
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
 - rx.js
+
+{% endif %}

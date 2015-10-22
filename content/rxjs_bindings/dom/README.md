@@ -1,4 +1,4 @@
-## [`DOM`]()<sup>(plugin [`RxJS-DOM`](https://github.com/Reactive-Extensions/RxJS-DOM))</sup>
+## [`DOM`]() *(plugin [`RxJS-DOM`](https://github.com/Reactive-Extensions/RxJS-DOM))*
 
 Reactive Extensions (Rx) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators.
 

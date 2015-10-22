@@ -26,6 +26,6 @@ NuGet Dependencies:
 ## Included Observable Operators ##
 
 ### `Observable Instance Methods`
-- [`controlled`](../core_objects/observable/observable_instance_methods/controlled.html)
-- [`pausable`](../core_objects/observable/observable_instance_methods/pausable.html)
-- [`pausableBuffered`](../core_objects/observable/observable_instance_methods/pausablebuffered.html)
+- [`controlled`](../observable/observable_instance_methods/controlled.html)
+- [`pausable`](../observable/observable_instance_methods/pausable.html)
+- [`pausableBuffered`](../observable/observable_instance_methods/pausablebuffered.html)

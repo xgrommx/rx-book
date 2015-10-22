@@ -1,7 +1,14 @@
-# buffer
+## [`Rx.Observable.prototype.buffer()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/buffer.js)
 
-### `Rx.Observable.prototype.buffer()`
-[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.coincidence.js#L572-L585 "View in source")
+{% if book.isPdf %}
+
+![buffer](http://reactivex.io/documentation/operators/images/Buffer.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 The `buffer` periodically gather items emitted by an Observable into buffers and emit these buffers rather than emitting the items one at a time.
 
@@ -62,6 +69,12 @@ Returns an `Observable` that emits non-overlapping buffered items from the sourc
 
 [](http://jsbin.com/jacapa/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -84,3 +97,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/buffer.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/buffer.js)
+
+{% endif %}

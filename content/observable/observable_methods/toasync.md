@@ -1,11 +1,16 @@
-# toAsync
+## [`Rx.Observable.toAsync(func, [scheduler], [context])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toasync.js)
 
-`Rx.Observable.toAsync(func, [scheduler], [context])`
-<a href="#rxobservabletoasyncfunc-scheduler-context">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toasync.js "View in source") 
+{% if book.isPdf %}
+
+![toAsync](http://reactivex.io/documentation/operators/images/toAsync.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Converts the function into an asynchronous function. Each invocation of the resulting asynchronous function causes an invocation of the original synchronous function on the specified scheduler.
-
-![toAsync](https://github.com/Netflix/RxJava/wiki/images/rx-operators/toAsync.png)
 
 ### Arguments
 1. `func` *(`Function`)*: Function to convert to an asynchronous function.
@@ -18,6 +23,12 @@ Converts the function into an asynchronous function. Each invocation of the resu
 #### Example
 
 [](http://jsbin.com/zokawu/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -41,3 +52,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/toasync.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/toasync.js)
+
+{% endif %}

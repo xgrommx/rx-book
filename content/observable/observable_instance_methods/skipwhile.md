@@ -1,7 +1,14 @@
-# skipWhile
+## [`Rx.Observable.prototype.skipWhile([predicate], [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipwhile.js)
 
-`Rx.Observable.prototype.skipWhile([predicate], [thisArg])`
-<a href="#rxobservableprototypeskipwhilepredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skipwhile.js "View in source") 
+{% if book.isPdf %}
+
+![skipWhile](http://reactivex.io/documentation/operators/images/skipWhile.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Bypasses elements in an observable sequence as long as a specified condition is true and then returns the remaining elements.
 
@@ -18,6 +25,12 @@ Bypasses elements in an observable sequence as long as a specified condition is 
 #### Example
 
 [](http://jsbin.com/qalov/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -42,3 +55,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/skipwhile.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/skipwhile.js)
+
+{% endif %}

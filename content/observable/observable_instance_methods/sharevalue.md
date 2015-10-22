@@ -1,7 +1,14 @@
-# shareValue
+## [`Rx.Observable.prototype.shareValue(value)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sharevalue.js)
 
-`Rx.Observable.prototype.shareValue(value)`
-<a href="#rxobservableprototypesharevalue">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publishvalue.js "View in source") 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an observable sequence that shares a single subscription to the underlying sequence and starts with initialValue.
    
@@ -13,6 +20,12 @@ This operator is a specialization of `publishValue` which creates a subscription
 #### Example
 
 [](http://jsbin.com/pebufu/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -37,3 +50,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/publishvalue.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/publishvalue.js)
+
+{% endif %}

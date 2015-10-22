@@ -1,9 +1,14 @@
-# combineLatest
+## [`Rx.Observable.prototype.combineLatest(...args, resultSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/combinelatestproto.js)
+
+{% if book.isPdf %}
+
+![combineLatest](http://reactivex.io/documentation/operators/images/combineLatest.png)
+
+{% else %}
 
 <rx-marbles key="combineLatest"></rx-marbles>
 
-`Rx.Observable.prototype.combineLatest(...args, resultSelector)`
-<a href="#rxobservableprototypecombinelatestargs-resultselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3139-L3147 "View in source") 
+{% endif %}
 
 Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.  This can be in the form of an argument list of observables or an array.
 
@@ -18,6 +23,14 @@ Merges the specified observable sequences into one observable sequence by using 
 
 [](http://jsbin.com/divopa/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

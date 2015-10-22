@@ -1,7 +1,14 @@
-# minBy
+## [`Rx.Observable.prototype.minBy(keySelector, [comparer])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/minby.js)
 
-`Rx.Observable.prototype.minBy(keySelector, [comparer])`
-<a href="#rxobservableprototypeminbykeyselector-comparer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/minby.js "View in source") 
+{% if book.isPdf %}
+
+![minBy](http://reactivex.io/documentation/operators/images/minBy.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns the elements in an observable sequence with the minimum key value according to the specified comparer.
 
@@ -15,6 +22,12 @@ Returns the elements in an observable sequence with the minimum key value accord
 #### Example
 
 [](http://jsbin.com/hejov/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -36,3 +49,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/min.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/min.js)
+
+{% endif %}

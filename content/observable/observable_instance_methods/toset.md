@@ -1,7 +1,14 @@
-# toSet
+## [`Rx.Observable.prototype.toSet()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toset.js)
 
-`Rx.Observable.prototype.toSet()`
-[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toset.js "View in source")
+{% if book.isPdf %}
+
+![toSet](http://reactivex.io/documentation/operators/images/toSet.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Creates an observable sequence with a single item of a Set created from the observable sequence.  Note that this only works in an ES6 environment or polyfilled.
 
@@ -11,6 +18,12 @@ Creates an observable sequence with a single item of a Set created from the obse
 #### Example
 
 [](http://jsbin.com/biyaj/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -31,3 +44,6 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/toset.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/toset.js)
+
+
+{% endif %}

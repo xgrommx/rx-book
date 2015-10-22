@@ -1,7 +1,14 @@
-# every
+## [`Rx.Observable.prototype.every(predicate, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/every.js)
 
-`Rx.Observable.prototype.every(predicate, [thisArg])`
-<a href="#rxobservableprototypeeverypredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L179-L185 "View in source") 
+{% if book.isPdf %}
+
+![every](http://reactivex.io/documentation/operators/images/every.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Determines whether all elements of an observable sequence satisfy a condition.  This is an alias to `all`.
 
@@ -16,6 +23,14 @@ Determines whether all elements of an observable sequence satisfy a condition.  
 
 [](http://jsbin.com/kaxifo/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).aggregates.js
+
+{% endif %}

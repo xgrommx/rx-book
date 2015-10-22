@@ -1,9 +1,14 @@
-# average
+## [`Rx.Observable.prototype.average([selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/average.js)
+
+{% if book.isPdf %}
+
+![average](http://reactivex.io/documentation/operators/images/average.png)
+
+{% else %}
 
 <rx-marbles key="average"></rx-marbles>
 
-`Rx.Observable.prototype.average([selector])`
-<a href="#rxobservableprototypeaverageselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L313-L327 "View in source") 
+{% endif %}
 
 Computes the average of an observable sequence of values that are in the sequence or obtained by invoking a transform function on each element of the input sequence if present.
 
@@ -23,6 +28,12 @@ Computes the average of an observable sequence of values that are in the sequenc
 ##### With a selector
 
 [](http://jsbin.com/zenif/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -46,3 +57,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/average.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/average.js)
+
+{% endif %}

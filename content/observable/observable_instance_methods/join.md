@@ -1,7 +1,14 @@
-# join
+## [`Rx.Observable.prototype.join(right, leftDurationSelector, rightDurationSelector, resultSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/join.js)
 
-`Rx.Observable.prototype.join(right, leftDurationSelector, rightDurationSelector, resultSelector)`
-<a href="#rxobservableprototypejoinright-leftdurationselector-rightdurationselector-resultselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.coincidence.js#L332-L420 "View in source") 
+{% if book.isPdf %}
+
+![join](http://reactivex.io/documentation/operators/images/join_.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Correlates the elements of two sequences based on overlapping durations.
 
@@ -20,6 +27,14 @@ Correlates the elements of two sequences based on overlapping durations.
 
 [](http://jsbin.com/japur/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).coincidence.js
+
+{% endif %}

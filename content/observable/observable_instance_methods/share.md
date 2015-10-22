@@ -1,7 +1,14 @@
-# share
+## [`Rx.Observable.prototype.share()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/share.js)
 
-`Rx.Observable.prototype.share()`
-<a href="#rxobservableprototypeshare">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publish.js "View in source") 
+{% if book.isPdf %}
+
+![share](http://reactivex.io/documentation/operators/images/publishRefCount.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an observable sequence that shares a single subscription to the underlying sequence. 
 
@@ -19,6 +26,12 @@ This operator is a specialization of `publish` which creates a subscription when
 ##### With share
     
 [](http://jsbin.com/nejiw/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -43,3 +56,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/publish.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/publish.js)
+
+{% endif %}

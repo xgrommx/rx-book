@@ -1,7 +1,14 @@
-# groupJoin
+## [`Rx.Observable.prototype.groupJoin(right, leftDurationSelector, rightDurationSelector, resultSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/groupjoin.js)
 
-`Rx.Observable.prototype.groupJoin(right, leftDurationSelector, rightDurationSelector, resultSelector)`
-<a href="#rxobservableprototypegroupjoinright-leftdurationselector-rightdurationselector-resultselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.coincidence.js#L431-L563 "View in source") 
+{% if book.isPdf %}
+
+![groupJoin](http://reactivex.io/documentation/operators/images/groupJoin.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Correlates the elements of two sequences based on overlapping durations, and groups the results.
 
@@ -20,6 +27,14 @@ Correlates the elements of two sequences based on overlapping durations, and gro
 
 [](http://jsbin.com/gebas/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

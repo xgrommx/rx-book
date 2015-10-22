@@ -1,9 +1,14 @@
-# zip
+## [`Rx.Observable.prototype.zip(...args, [resultSelector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/zipproto.js)
+
+{% if book.isPdf %}
+
+![zip](http://reactivex.io/documentation/operators/images/zip.png)
+
+{% else %}
 
 <rx-marbles key="zip"></rx-marbles>
 
-`Rx.Observable.prototype.zip(...args, [resultSelector])`
-<a href="#rxobservableprototypezipargs-resultselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/zipproto.js "View in source") 
+{% endif %}
 
 Merges the specified observable sequences or Promises into one observable sequence by using the selector function whenever all of the observable sequences or an array have produced an element at a corresponding index.
 
@@ -25,6 +30,12 @@ The last element in the arguments must be a function to invoke for each series o
 ##### Using an array
 
 [](http://jsbin.com/wazuha/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -49,3 +60,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/zipproto.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/zipproto.js)
+
+{% endif %}

@@ -1,7 +1,4 @@
-# defaultSubComparer
-
-### <a id="rxhelpersdefaultsubcomparerx-y"></a>`Rx.helpers.defaultSubcomparer(x, y)`
-<a href="#rxhelpersdefaultsubcomparerx-y">#</a>[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/basicheader.js "View in source") [&#x24C9;][1]
+## [`Rx.helpers.defaultSubComparer(x, y)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L9)
 
 The default comparer to determine whether one object is greater, less than or equal to another.
 

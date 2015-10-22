@@ -15,7 +15,7 @@ Many of these concepts in the library map directly to RxJS concepts.  We'll go o
  - [`async.every`](#asyncevery)
  - [`async.concat`](#asynconcat)
 
- ## Control Flow
+## Control Flow
  - [`async.series`](#asyncseries)
  - [`async.parallel`](#asyncparallel)
  - [`async.whilst`](#asyncwhilst)
@@ -39,12 +39,10 @@ var async = require('async'),
 var files = ['file1.txt', 'file2.txt', 'file3.txt'];
 
 function saveFile (file, cb) {
-    fs.writeFile(file, 'Hello Node', function (err) {
-        cb(err);
-    });
+    fs.writeFile(file, 'Hello Node', err => cb(err));
 }
 
-async.each(files, saveFile, function (err) {
+async.each(files, saveFile, err => {
     // if any of the saves produced an error, err would equal that error
 });
 ```
@@ -63,19 +61,11 @@ var files = ['file1.txt', 'file2.txt', 'file3.txt'];
 var writeFile = Rx.Observable.fromNodeCallback(fs.writeFile);
 
 Rx.Observable
-    .for(files, function (file) {
-        return writeFile(file, 'Hello Node')
-    })
+    .for(files, file => writeFile(file, 'Hello Node'))
     .subscribe(
-        function () {
-            console.log('file written!');
-        },
-        function (err) {
-            console.log('err ' + err);
-        },
-        function () {
-            console.log('completed!')
-        }
+        () => console.log('file written!'),
+        err => console.log(`err ${err}`),
+        () => console.log('completed!')
     );
 ```
 
@@ -95,11 +85,7 @@ var async = require('async'),
 
 var files = ['file1.txt', 'file2.txt', 'file3.txt'];
 
-async.map(files, fs.stat, function (err, results) {
-    results.forEach(function (result) {
-        console.log('is file: ' + result.isFile());
-    });
-});
+async.map(files, fs.stat, (err, results) => results.forEach(result => console.log(`is file: ${result.isFile()}`)));
 ```
 
 #### RxJS version ####
@@ -118,14 +104,9 @@ Rx.Observable
     .for(files, stat)
     .toArray()
     .subscribe(
-        function (results) {
-            results.forEach(function (result) {
-                console.log('is file: ' + result.isFile());
-            });
-        },
-        function (err) {
-            console.log('err ' + err);
-        }
+        results =>
+            results.forEach(result => console.log(`is file: ${result.isFile()}`)),
+        err => console.log(`err: ${err}`)
     );
 ```
 
@@ -145,10 +126,8 @@ var async = require('async'),
 
 var files = ['file1.txt', 'file2.txt', 'file3.txt'];
 
-async.filter(files, fs.exists, function (err, results) {
-    results.forEach(function (result) {
-        console.log('exists: ' + result);
-    });
+async.filter(files, fs.exists, (err, results) => {
+    results.forEach(result => console.log(`exists: ${result}`));
 });
 ```
 
@@ -164,14 +143,11 @@ var exists = Rx.Observable.fromCallback(fs.exists);
 
 Rx.Observable
     .for(files, exists)
-    .where(function (x) { return x; })
+    .where(x => x)
     .toArray()
     .subscribe(
-        function (results) {
-            results.forEach(function (result) {
-                console.log('exists: ' + result);
-            });
-        }
+        results =>
+            results.forEach(result => console.log(`exists: ${result}`));
     );
 ```
 
@@ -191,10 +167,8 @@ var async = require('async'),
 
 var files = ['file1.txt', 'file2.txt', 'file3.txt'];
 
-async.reject(files, fs.exists, function (err, results) {
-    results.forEach(function (result) {
-        console.log('exists: ' + result);
-    });
+async.reject(files, fs.exists, (err, results) => {
+    results.forEach(result => console.log(`exists: ${result}`));
 });
 ```
 
@@ -210,13 +184,11 @@ var exists = Rx.Observable.fromCallback(fs.exists);
 
 Rx.Observable
     .for(files, exists)
-    .where(function (x) { return !x; })
+    .where(x => !x)
     .toArray()
     .subscribe(
-        function (results) {
-            results.forEach(function (result) {
-                console.log('exists: ' + result);
-            });
+        results => 
+            results.forEach(result => console.log(`exists: ${result}`));
         }
     );
 ```
@@ -236,14 +208,10 @@ var async = require('async'),
     fs = require('fs');
 
 function reduction (acc, x, cb) {
-    process.nextTick(function () {
-        cb(null, acc + x);
-    });
+    process.nextTick(() => cb(null, acc + x));
 }
 
-async.reduce([1,2,3], 0, fs.reduction, function (err, results) {
-    console.log(results);
-});
+async.reduce([1,2,3], 0, fs.reduction, (err, results) => console.log(results));
 
 // => 6
 ```
@@ -258,11 +226,8 @@ var Rx = require('rx'),
 
 Rx.Observable
     .fromArray([1,2,3], Rx.Scheduler.timeout)
-    .reduce(function (acc, x) { return acc + x; }, 0)
-    .subscribe(
-        function (results) {
-            console.log(results);
-        });
+    .reduce((acc, x) => acc + x, 0)
+    .subscribe(console.log.bind(console));
 // => 6
 ```
 
@@ -282,7 +247,7 @@ var async = require('async'),
 
 var files = ['file1','file2','file3'];
 
-async.detect(files, fs.exists, function (result){
+async.detect(files, fs.exists, result => {
     // result now equals the first file in the list that exists
 });
 ```
@@ -300,12 +265,10 @@ var files = ['file1','file2','file3'];
 var exists = Rx.Observable.fromCallback(fs.exists);
 
 Rx.Observable
-    .for(files, function (file) {
-        return { file: file, exists: exists(file) };
-    })
-    .first(function (x) { return x.exists; })
+    .for(files, file => ({ file: file, exists: exists(file) }))
+    .first(x => x.exists)
     .subscribe(
-        function (result) {
+        result => {
             // result now equals the first file in the list that exists
         });
 ```
@@ -326,7 +289,7 @@ var async = require('async'),
 
 var files = ['file1.txt', 'file2.txt', 'file3.txt'];
 
-async.some(files, fs.exists, function (result){
+async.some(files, fs.exists, result => {
     // if result is true then at least one of the files exists
 });
 ```
@@ -345,7 +308,7 @@ Rx.Observable
     .for(files, exists)
     .some()
     .subscribe(
-        function (results) {
+        results => {
             // if result is true then at least one of the files exists
         });
 ```
@@ -366,7 +329,7 @@ var async = require('async'),
 
 var files = ['file1.txt', 'file2.txt', 'file3.txt'];
 
-async.every(files, fs.exists, function (result) {
+async.every(files, fs.exists, result => {
     // if result is true then every file exists
 });
 ```
@@ -387,7 +350,7 @@ Rx.Observable
     .for(files, exists)
     .every()
     .subscribe(
-        function (results) {
+        results => {
             // if result is true then every file exists
         });
 ```
@@ -408,7 +371,7 @@ var async = require('async'),
 
 var directories = ['dir1', 'dir2', 'dir3'];
 
-async.concat(files, fs.readdir, function (err, files) {
+async.concat(files, fs.readdir, (err, files) => {
     // files is now a list of filenames that exist in the 3 directories
 });
 ```
@@ -425,12 +388,12 @@ var readdir = Rx.Observable.fromNodeCallback(fs.readdir);
 
 Rx.Observable
     .for(files, readdir)
-    .reduce(function (acc, x) { acc.push(x); return acc; }, [])
+    .reduce((acc, x) => { acc.push(x); return acc; }, [])
     .subscribe(
-        function (files) {
+        files => {
             // files is now a list of filenames that exist in the 3 directories
         },
-        function (err) {
+        err => {
             // handle error
         });
 ```
@@ -451,35 +414,21 @@ In this example we'll run some examples with both an array or an object.
 var async = require('async');
 
 async.series([
-    function(callback){
-        // do some stuff ...
-        callback(null, 'one');
-    },
-    function(callback){
-        // do some more stuff ...
-        callback(null, 'two');
-    }
+    callback => setTimeout(() => callback(null, 'one'), 200),
+    callback => setTimeout(() => callback(null, 'two'), 100)
 ],
 // optional callback
-function(err, results){
+(err, results) => {
     // results is now equal to ['one', 'two']
 });
 
 
 // an example using an object instead of an array
 async.series({
-    one: function(callback){
-        setTimeout(function(){
-            callback(null, 1);
-        }, 200);
-    },
-    two: function(callback){
-        setTimeout(function(){
-            callback(null, 2);
-        }, 100);
-    }
+    one: callback => setTimeout(() => callback(null, 1), 200),
+    two: callback => setTimeout(() => callback(null, 2), 100)
 },
-function(err, results) {
+(err, results) => {
     // results is now equal to: {one: 1, two: 2}
 });
 ```
@@ -494,8 +443,8 @@ var Rx = require('rx');
 function wrapArray (items) {
     return Rx.Observable
         .fromArray(items)
-        .flatMap(function (x) { return x; })
-        .reduce(function (acc, x) {
+        .flatMap(x => x)
+        .reduce((acc, x) => {
             var arr = acc.slice(0);
             arr.push(x);
             return arr;
@@ -507,12 +456,8 @@ wrapArray([
         Rx.Observable.return('two')
     ])
     .subscribe(
-        function (results) {
-            console.log(results);
-        },
-        function (err) {
-            console.log('Error: ' + err);
-        }
+        console.log.bind(console),
+        err => console.log(`Error: ${err}`)
     );
 
 // => ['one', 'two']
@@ -529,15 +474,15 @@ function wrapObject (obj) {
 
     return Rx.Observable
         .fromArray(keys)
-        .flatMap(function (key) {
+        .flatMap(key => {
 
-            return obj[key].map(function (x) {
+            return obj[key].map(x => {
                 var newObj = {};
                 newObj[key] = x;
                 return newObj;
             });
         })
-        .reduce(function (acc, x) {
+        .reduce((acc, x) => {
             var newObj = {};
             for (var prop in acc) {
                 if(!hasOwnProperty.call(acc)) {
@@ -557,12 +502,8 @@ wrapObject({
         two: Rx.Observable.return(2)
     })
     .subscribe(
-        function (results) {
-            console.log(results);
-        },
-        function (err) {
-            console.log('Error: ' + err);
-        }
+        console.log.bind(console),
+        err => console.log(`Error: ${err}`)
     );
 
 // => { one: 1, two: 2 }
@@ -584,20 +525,12 @@ In this example we'll run some examples with both an array or an object.
 var async = require('async');
 
 async.parallel([
-    function(callback){
-        setTimeout(function(){
-            callback(null, 'one');
-        }, 200);
-    },
-    function(callback){
-        setTimeout(function(){
-            callback(null, 'two');
-        }, 100);
-    }
+    callback => setTimeout(() => callback(null, 'one'), 200),
+    callback => setTimeout(() => callback(null, 'two'), 100)
 ],
 
 // optional callback
-function(err, results){
+(err, results) => {
     // the results array will equal ['one','two'] even though
     // the second function had a shorter timeout.
 });
@@ -606,18 +539,10 @@ function(err, results){
 
 // an example using an object instead of an array
 async.parallel({
-    one: function(callback){
-        setTimeout(function(){
-            callback(null, 1);
-        }, 200);
-    },
-    two: function(callback){
-        setTimeout(function(){
-            callback(null, 2);
-        }, 100);
-    }
+    one: callback => setTimeout(() => callback(null, 1), 200),
+    two: callback => setTimeout(() => callback(null, 2), 100)
 },
-function(err, results) {
+(err, results) => {
     // results is now equals to: {one: 1, two: 2}
 });
 ```
@@ -638,12 +563,8 @@ wrapArrayParallel([
         Rx.Observable.return('two')
     ])
     .subscribe(
-        function (results) {
-            console.log(results);
-        },
-        function (err) {
-            console.log('Error: ' + err);
-        }
+        console.log.bind(console),
+        err => console.log(`Error: ${err}`)
     );
 
 // => ['one', 'two']
@@ -656,14 +577,12 @@ var Rx = require('rx');
 
 function wrapObjectParallel (obj) {
     var keys = Object.keys(obj);
-    var mapped = keys.map(function (key) {
-        return obj[key];
-    });
+    var mapped = keys.map(key => obj[key]);
 
     return Rx.Observable.forkJoin.apply(null, mapped)
-        .map(function (arr) {
+        .map(arr => {
             var idx = 0;
-            return arr.reduce(function (acc, x) {
+            return arr.reduce((acc, x) => {
                 var key = keys[idx++];
 
                 var newObj = {};
@@ -685,12 +604,8 @@ wrapObjectParallel({
         two: Rx.Observable.return(2)
     })
     .subscribe(
-        function (results) {
-            console.log(results);
-        },
-        function (err) {
-            console.log('Error: ' + err);
-        }
+        console.log.bind(console),
+        err => console.log(`Error: ${err}`)
     );
 
 // => { one: 1, two: 2 }
@@ -712,12 +627,12 @@ var async = require('async');
 var count = 0;
 
 async.whilst(
-    function () { return count < 5; },
-    function (callback) {
+    () => count < 5,
+    callback => {
         count++;
         setTimeout(callback, 1000);
     },
-    function (err) {
+    err => {
         // 5 seconds have passed
     }
 );
@@ -733,17 +648,15 @@ var Rx = require('rx');
 var count = 0;
 
 Rx.Observable.while(
-        function () { return count < 5; },
+        () => count < 5,
         Rx.Observable.create(function (obs) {
-            setTimeout(function () {
-                observer.onNext(count++);
-            }, 1000)
+            setTimeout(() => observer.onNext(count++), 1000)
         }
     )
     .subscribe(
-        function (x) { /* do something with each value */ },
-        function (err) { /* handle errors */ },
-        function () { /* 5 seconds have passed */ }
+        x => { /* do something with each value */ },
+        err => { /* handle errors */ },
+        () => { /* 5 seconds have passed */ }
     );
 ```
 
@@ -763,12 +676,12 @@ var async = require('async');
 var count = 0;
 
 async.dowWilst(
-    function () { return count < 5; },
-    function (callback) {
+    () => count < 5,
+    callback => {
         count++;
         setTimeout(callback, 1000);
     },
-    function (err) {
+    err => {
         // 5 seconds have passed
     }
 );
@@ -784,11 +697,11 @@ var Rx = require('rx');
 var i = 0;
 
 var source = Rx.Observable.return(42).doWhile(
-    function () { return ++i < 2; })
+    () => ++i < 2)
     .subscribe(
-        function (x) { console.log(x); },
-        function (err) { /* handle errors */ },
-        function () { console.log('done'); }
+        consoel.log.bind(console),
+        err => { /* handle errors */ },
+        () => console.log('done')
     );
 ```
 
@@ -807,7 +720,7 @@ var async = require('async');
 
 var call_order = [];
 
-async.nextTick( function () {
+async.nextTick(() => {
     call_order.push('two');
     // call_order now equals ['one','two']
 });
@@ -824,7 +737,7 @@ var Rx = require('rx');
 
 var call_order = [];
 
-Rx.Scheduler.timeout.schedule(function () {
+Rx.Scheduler.timeout.schedule(() => {
     call_order.push('two');
     // call_order now equals ['one','two']
 });
@@ -852,8 +765,8 @@ var file = path.join(__dirname, 'file.txt'),
     dest = path.join(__dirname, 'file1.txt');
 
 async.waterfall([
-    function (callback) {
-        fs.exists(file, function (flag) {
+    callback => {
+        fs.exists(file, flag => {
             if (flag) {
                 callback(new Error('File does not exist.'))
             } else {
@@ -861,17 +774,13 @@ async.waterfall([
             }
         });
     },
-    function (callback) {
-        fs.rename(file, dest, function (err) {
-            callback(err);
-        });
+    callback => {
+        fs.rename(file, dest, err => callback(err));
     },
-    function (callback) {
-        fs.stat(dest, function (err, fsStat) {
-            callback(err, fsStat);
-        });
+    callback => {
+        fs.stat(dest, (err, fsStat) => callback(err, fsStat));
     }
-], function (err, fsStat) {
+], (err, fsStat) => {
     if (err) {
         console.log(err);
     } else {
@@ -888,8 +797,8 @@ We can easily accomplish the same task as above using our wrappers for `Rx.Obser
 var Rx = require('rx');
 
 var async = {
-    waterfall: function (series) {
-        return Rx.Observable.defer(function () {
+    waterfall: series => {
+        return Rx.Observable.defer(() => {
             var acc = series[0]();
             for (var i = 1, len = series.length; i < len; i++) {
 
@@ -897,9 +806,7 @@ var async = {
                 (function (func) {
 
                     // Call flatMapLatest on each function
-                    acc = acc.flatMapLatest(function (x) {
-                        return func(x);
-                    });
+                    acc = acc.flatMapLatest(x => func(x));
                 }(series[i]));
             }
 
@@ -923,28 +830,20 @@ var file = path.join(__dirname, 'file.txt'),
     stat = Rx.Observable.fromNodeCallback(fs.stat);
 
 var obs = async.waterfall([
-    function () {
-        return exists(file);
-    },
-    function (flag) {
+    () => exists(file),
+    (flag) => {
         // Rename or throw computation
         return flag ?
             rename(file, dest) :
             Rx.Observable.throw(new Error('File does not exist.'));
     },
-    function () {
-        return stat(dest);
-    }
+    () => stat(dest)
 ]);
 
 // Now subscribe to get the results or error
 obs.subscribe(
-    function (fsStat) {
-        console.log(JSON.stringify(fsStat));
-    },
-    function (err) {
-        console.log(err);
-    }
+    fsStat => console.log(JSON.stringify(fsStat)),
+    console.log.bind(console)
 );
 ```
 
@@ -964,22 +863,16 @@ In this example, we'll chain together two functions, one to add 1 to a supplied 
 var async = require('async');
 
 function add1(n, callback) {
-    setTimeout(function () {
-        callback(null, n + 1);
-    }, 10);
+    setTimeout(() => callback(null, n + 1), 10);
 }
 
 function mul3(n, callback) {
-    setTimeout(function () {
-        callback(null, n * 3);
-    }, 10);
+    setTimeout(() => callback(null, n * 3), 10);
 }
 
 var add1mul3 = async.compose(mul3, add1);
 
-add1mul3(4, function (err, result) {
-   console.log(result);
-});
+add1mul3(4, (err, result) => console.log(result));
 
 // => 15
 ```
@@ -992,38 +885,33 @@ Using RxJS, we can accomplish this using the usual composition operator `selectM
 var Rx = require('rx');
 
 function wrapTimeout (fn, arg) {
-    return Rx.Observable.create(function (obs) {
+    return Rx.Observable.create(obs => {
 
         // Ensure the composition of the this argument
-        var id = setTimeout(function () {
+        var id = setTimeout(() => {
             obs.onNext(fn.call(fn, arg));
             obs.onCompleted();
         }, 10);
 
         // Handle cleanup/early disposal
-        return function () {
-            clearTimeout(id);
-        };
+        return () => clearTimeout(id)
     });
 }
 
 function add1 (n) {
-    return wrapTimeout(function (x) { return x + 1; }, n);
+    return wrapTimeout(x => x + 1, n);
 }
 
 function mul3 (n) {
-    return wrapTimeout(function (x) { return x * 3; }, n);
+    return wrapTimeout(x => x * 3, n);
 }
 
 add1(4)
     .flatMap(mul3)
     .subscribe(
-        function (x) {
-            console.log(x);
-        },
-        function (err) {
-            console.log('Error: ' + e);
-        });
+        console.log.bind(console),
+        err => console.log(`Error: ${e}`)
+    );
 // => 15
 ```
 

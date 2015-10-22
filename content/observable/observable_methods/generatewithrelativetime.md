@@ -1,7 +1,14 @@
-# generateWithRelativeTime
+## [`Rx.Observable.generateWithRelativeTime(initialState, condition, iterate, resultSelector, timeSelector, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/generatewithrelativetime.js)
 
-`Rx.Observable.generateWithRelativeTime(initialState, condition, iterate, resultSelector, timeSelector, [scheduler])`
-<a href="#rxobservablegeneratewithrelativetimeinitialstate-condition-iterate-resultselector-timeselector-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/generatewithrelativetime.js "View in source") 
+{% if book.isPdf %}
+
+![generateWithRelativeTime](http://reactivex.io/documentation/operators/images/generateWithRelativeTime.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Generates an observable sequence by iterating a state from an initial state until the condition fails.
 
@@ -19,6 +26,12 @@ Generates an observable sequence by iterating a state from an initial state unti
 #### Example
 
 [](http://jsbin.com/jisopo/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -44,3 +57,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/generatewithrelativetime.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/generatewithrelativetime.js)
+
+{% endif %}

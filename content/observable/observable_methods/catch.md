@@ -1,6 +1,10 @@
-# catch
-`Rx.Observable.catch(...args)`
-<a href="#rxobservablecatchargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/catch.js "View in source") 
+## [`Rx.Observable.catch(...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/catch.js)
+
+{% if book.isPdf==true %}
+
+![catch](http://reactivex.io/documentation/operators/images/Catch.png)
+
+{% endif %}
 
 Continues an observable sequence that is terminated by an exception with the next observable sequence.  There is an alias for this method `catchException` for browsers <IE9
 
@@ -10,9 +14,37 @@ Continues an observable sequence that is terminated by an exception with the nex
 #### Returns
 *(`Observable`)*: An observable sequence containing elements from consecutive source sequences until a source sequence terminates successfully.
 
-#### Example
+{% if book.isPdf %}
 
-[](http://jsbin.com/qagidu/1/embed?js,console)
+#### [Example](http://jsbin.com/qagidu/2/edit?js,console)
+
+```js
+var obs1 = Rx.Observable.throw(new Error('error'));
+var obs2 = Rx.Observable.return(42);
+
+var source = Rx.Observable.catch(obs1, obs2);
+
+var subscription = source.subscribe(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+// => onNext: 42
+// => onCompleted
+```
+
+{% else %}
+
+#### Example
+[](http://jsbin.com/qagidu/2/embed?js,console)
+
+{% endif %}
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -37,3 +69,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/catchexceptionproto.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/catchexceptionproto.js)
+
+{% endif %}

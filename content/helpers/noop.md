@@ -1,7 +1,4 @@
-# noop
-
-### <a id="rxhelpersnoop"></a>`Rx.helpers.noop()`
-<a href="#rxhelpersnoop">#</a>[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/basicheader.js "View in source") [&#x24C9;][1]
+## [`Rx.helpers.noop()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L2)
 
 A function which does nothing
 

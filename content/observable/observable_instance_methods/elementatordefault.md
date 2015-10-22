@@ -1,7 +1,14 @@
-# elementAtOrDefault
+## [`Rx.Observable.prototype.elementAtOrDefault(index, [defaultValue])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/elementatordefault.js)
 
-`Rx.Observable.prototype.elementAtOrDefault(index, [defaultValue])`
-<a href="#rxobservableprototypeelementatordefaultindex-defaultvalue">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L489-L491 "View in source") 
+{% if book.isPdf %}
+
+![elementAtOrDefault](http://reactivex.io/documentation/operators/images/elementAtOrDefault.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns the element at a specified index in a sequence.
 
@@ -16,6 +23,14 @@ Returns the element at a specified index in a sequence.
 
 [](http://jsbin.com/towol/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).aggregates.js
+
+{% endif %}

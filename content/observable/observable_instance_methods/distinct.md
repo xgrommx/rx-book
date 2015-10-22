@@ -1,9 +1,14 @@
-# distinct
+## [`Rx.Observable.prototype.distinct([keySelector], [keySerializer])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/distinct.js)
+
+{% if book.isPdf %}
+
+![distinct](http://reactivex.io/documentation/operators/images/distinct.png)
+
+{% else %}
 
 <rx-marbles key="distinct"></rx-marbles>
 
-`Rx.Observable.prototype.distinct([keySelector], [keySerializer])`
-<a href="#rxobservableprototypedistinctkeyselector-keyserializer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4144-L4171 "View in source") 
+{% endif %}
 
 Returns an observable sequence that contains only distinct elements according to the keySelector and the comparer. Usage of this operator should be considered carefully due to the maintenance of an internal lookup structure which can grow large. 
 
@@ -24,6 +29,14 @@ Returns an observable sequence that contains only distinct elements according to
 
 [](http://jsbin.com/ducib/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

@@ -1,7 +1,14 @@
-# catch | catchException
+## [`Rx.Observable.prototype.catch(second | handler)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/catch.js)
 
-`Rx.Observable.prototype.catch(second | handler)`
-<a href="#rxobservableprototypecatchsecond--handler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3107-L3112 "View in source") 
+{% if book.isPdf %}
+
+![catch](http://reactivex.io/documentation/operators/images/Catch.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Continues an observable sequence that is terminated by an exception with the next observable sequence.  There is an alias for this method `catchException` for browsers <IE9
 
@@ -22,6 +29,14 @@ Continues an observable sequence that is terminated by an exception with the nex
 
 [](http://jsbin.com/nikay/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

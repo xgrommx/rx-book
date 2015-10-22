@@ -12,9 +12,7 @@ By drawing the diagram we can see that we will need some kind of delay after the
 will lead to the following code:
 
 ```js
-var dictionarySuggest = userInput
-  .throttle(250)
-  .flatMap(function (input) { return serverCall(input); });
+var dictionarySuggest = userInput.throttle(250).flatMap(input => serverCall(input));
 ```
 
 #### When to ignore this guideline ####
@@ -53,8 +51,7 @@ Rather than using the `observeOn` operator to change the execution context on wh
 #### Sample ####
 
 ```js
-Rx.Observable.range(0, 90000, Rx.Scheduler.requestAnimationFrame)
-  .subscribe(draw);
+Rx.Observable.range(0, 90000, Rx.Scheduler.requestAnimationFrame).subscribe(draw);
 ```
 
 In this sample, callbacks from the `range` operator will arrive by calling `window.requestAnimationFrame`.  The default overload of `range` would place the `onNext` call on the `Rx.Scheduler.currentThread` which is used when recursive scheduling is required immediately.  By providing the `Rx.Scheduler.requestAnimationFrame` scheduler, all messages from this observable sequence will originiate on the `window.requestAnimationFrame` callback.
@@ -71,11 +68,9 @@ By using the `observeOn` operator, an action is scheduled for each message that 
 
 ```js
 var result = xs.throttle(1000)
-  .flatMap(function (x) {
-    return ys.takeUntil(zs).sample(250).map(function (y) { return x + y });
-  })
+  .flatMap(x => ys.takeUntil(zs).sample(250).map(y => x + y))
   .merge(ws)
-  .filter(function (x) { return x < 10; })
+  .filter(x => x < 10)
   .observeOn(Rx.Scheduler.requestAnimationFrame);
 ```
 
@@ -113,9 +108,7 @@ in a `do`/`tap` operator.  There are overloads to this method which call the spe
 #### Sample ####
 
 ```js
-var result = xs
-  .filter(function (x) { return x.failed; })
-  .tap(function (x) { log(x); });
+var result = xs.filter(x => x.failed).tap(x => log(x));
 ```
 
 In this sample, messages are filtered for failure. The messages are logged before handing them out to the code subscribed to this observable sequence. The logging is a side-effect (e.g. placing the messages in the computer’s event log) and is explicitly done via a call to the `do`/`tap` operator.
@@ -138,13 +131,13 @@ There are several overloads of the `publish` operator. The most convenient overl
 #### Sample ####
 
 ```js
-var xs = Rx.Observable.create(function (observer) {
+var xs = Rx.Observable.create(observer => {
   console.log('Side effect');
   observer.onNext('hi!');
   observer.onCompleted();
 });
 
-xs.publish(function (sharedXs) {
+xs.publish(sharedXs => {
   sharedXs.subscribe(console.log);
   sharedXs.subscribe(console.log);
   return sharedXs;

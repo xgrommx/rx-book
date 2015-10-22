@@ -1,7 +1,14 @@
-# defaultIfEmpty
+## [`Rx.Observable.prototype.defaultIfEmpty([defaultValue])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/defaultifempty.js)
 
-`Rx.Observable.prototype.defaultIfEmpty([defaultValue])`
-<a href="#rxobservableprototypedefaultifemptydefaultvalue">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4111-L4128 "View in source") 
+{% if book.isPdf %}
+
+![defaultIfEmpty](http://reactivex.io/documentation/operators/images/defaultIfEmpty.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns the elements of the specified sequence or the specified value in a singleton sequence if the sequence is empty.
 
@@ -21,6 +28,14 @@ Returns the elements of the specified sequence or the specified value in a singl
 
 [](http://jsbin.com/yezodu/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

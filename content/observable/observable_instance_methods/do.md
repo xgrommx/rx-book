@@ -1,7 +1,17 @@
-# do | doAction
+## [`Rx.Observable.prototype.do(observer | [onNext], [onError], [onCompleted])`,
+`Rx.Observable.prototype.doAction(observer | [onNext], [onError], [onCompleted])`,
+`Rx.Observable.prototype.tap(observer | [onNext], [onError], [onCompleted])`
+](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/do.js)
 
-`Rx.Observable.prototype.do(observer | [onNext], [onError], [onCompleted])`
-<a href="#rxobservableprototypedoobserver--onnext-onerror-oncompleted">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3779-L3820 "View in source") 
+{% if book.isPdf %}
+
+![do](http://reactivex.io/documentation/operators/images/do.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Invokes an action for each element in the observable sequence and invokes an action upon graceful or exceptional termination of the observable sequence.
 This method can be used for debugging, logging, etc. of query behavior by intercepting the message stream to run arbitrary actions for messages on the pipeline.
@@ -26,6 +36,14 @@ There is an alias to this method `doAction` for browsers <IE9.
 
 [](http://jsbin.com/votaq/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

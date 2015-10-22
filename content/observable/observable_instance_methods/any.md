@@ -1,9 +1,14 @@
-# any
+## [`Rx.Observable.prototype.any([predicate], [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/some.js)
+
+{% if book.isPdf %}
+
+![any](http://reactivex.io/documentation/operators/images/contains.png)
+
+{% else %}
 
 <rx-marbles key="some"></rx-marbles>
 
-`Rx.Observable.prototype.any([predicate], [thisArg])`
-<a href="#rxobservableprototypeanypredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L144-L157 "View in source") 
+{% endif %}
 
 Determines whether any element of an observable sequence satisfies a condition if present, else if any items are in the sequence. There is an alias to this function called `some`.
 
@@ -23,6 +28,12 @@ Determines whether any element of an observable sequence satisfies a condition i
 ##### With a predicate
 
 [](http://jsbin.com/qaney/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -46,3 +57,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/some.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/some.js)
+
+{% endif %}

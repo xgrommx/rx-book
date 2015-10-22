@@ -1,4 +1,4 @@
-## [`AngularJS`](https://angularjs.org/)<sup>(plugin [`rx.angular.js`](https://github.com/Reactive-Extensions/rx.angular.js))</sup>
+## [`AngularJS`](https://angularjs.org/) *(plugin [`rx.angular.js`](https://github.com/Reactive-Extensions/rx.angular.js))*
 
 Reactive Extensions (Rx) is a library for composing asynchronous and event-based programs using observable sequences and Array#extras style operators.
 

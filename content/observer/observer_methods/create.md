@@ -1,7 +1,4 @@
-# create
-
-`Rx.Observer.create([onNext], [onError], [onCompleted])`
-<a href="#rxobservercreateonnext-onerror-oncompleted">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.js#L2862-L2872 "View in source") [&#x24C9;][1]
+## [`Rx.Observer.create([onNext], [onError], [onCompleted])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observer.js#L52)
 
 Creates an observer from the specified `onNext`, `onError`, and `onCompleted` actions.
 
@@ -13,10 +10,40 @@ Creates an observer from the specified `onNext`, `onError`, and `onCompleted` ac
 #### Returns
 *(Observer)*: The observer object implemented using the given actions.
 
+{% if book.isPdf == true %}
+
+#### [Example](http://jsbin.com/banep/2/edit?js,console)
+
+```js
+var source = Rx.Observable.return(42);
+
+var observer = Rx.Observer.create(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+var subscription = source.subscribe(observer);
+
+// => onNext: 42
+// => onCompleted
+```
+
+{% else %}
+
 #### Example
 
-[](http://jsbin.com/banep/1/embed?js,console)
+[](http://jsbin.com/banep/2/embed?js,console)
+
+{% endif %}
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
 - rx.js
+
+{% endif %}

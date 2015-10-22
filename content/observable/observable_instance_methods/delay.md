@@ -1,9 +1,14 @@
-# delay
+## [`Rx.Observable.prototype.delay(dueTime, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/delay.js)
+
+{% if book.isPdf %}
+
+![delay](http://reactivex.io/documentation/operators/images/delay.png)
+
+{% else %}
 
 <rx-marbles key="delay"></rx-marbles>
 
-`Rx.Observable.prototype.delay(dueTime, [scheduler])`
-<a href="#rxobservableprototypedelayduetime-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4111-L4128 "View in source") 
+{% endif %}
 
 Time shifts the observable sequence by dueTime. The relative time intervals between the values are preserved.
 
@@ -24,6 +29,14 @@ Time shifts the observable sequence by dueTime. The relative time intervals betw
 
 [](http://jsbin.com/haziv/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).time.js
+
+{% endif %}

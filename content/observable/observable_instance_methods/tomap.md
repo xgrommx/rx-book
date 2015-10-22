@@ -1,7 +1,14 @@
-# toMap
+## [`Rx.Observable.prototype.toMap(keySelector, [elementSelector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/tomap.js)
 
-`Rx.Observable.prototype.toMap(keySelector, [elementSelector])`
-[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/tomap.js "View in source")
+{% if book.isPdf %}
+
+![toMap](http://reactivex.io/documentation/operators/images/toMap.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Converts the observable sequence to a Map if it exists.  Note that this only works in an ES6 environment or polyfilled.
 
@@ -15,6 +22,12 @@ Converts the observable sequence to a Map if it exists.  Note that this only wor
 #### Example
 
 [](http://jsbin.com/vukig/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -35,3 +48,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/tomap.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/tomap.js)
+
+{% endif %}

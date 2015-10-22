@@ -1,4 +1,4 @@
-## [`Ractive.js`](http://www.ractivejs.org)<sup>(plugin [`ractive-adaptors-rxjs`](https://github.com/ractivejs/ractive-adaptors-rxjs))</sup>
+## [`Ractive.js`](http://www.ractivejs.org) *(plugin [`ractive-adaptors-rxjs`](https://github.com/ractivejs/ractive-adaptors-rxjs))*
 
 ##### Example
 

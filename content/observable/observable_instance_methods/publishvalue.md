@@ -1,7 +1,14 @@
-# publishValue
+## [`Rx.Observable.prototype.publishValue([selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publishvalue.js)
 
-`Rx.Observable.prototype.publishValue([selector])`
-<a href="#rxobservableprototypepublishvalueselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publishvalue.js "View in source") 
+{% if book.isPdf %}
+
+![publishValue](http://reactivex.io/documentation/operators/images/publishValue.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an observable sequence that is the result of invoking the selector on a connectable observable sequence that shares a single subscription to the underlying sequence and starts with initialValue.
    
@@ -16,6 +23,12 @@ This operator is a specialization of `multicast` using a `Rx.BehaviorSubject`.
 #### Example
 
 [](http://jsbin.com/butol/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/publishvalue.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/publishvalue.js)
+
+{% endif %}

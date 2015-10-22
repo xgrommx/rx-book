@@ -1,7 +1,14 @@
-# doOnNext
+## [`Rx.Observable.prototype.doOnNext(onNext, [thisArg])`, `Rx.Observable.prototype.tapOnNext(onNext, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/do.js)
 
-`Rx.Observable.prototype.doOnNext(onNext, [thisArg])`, `Rx.Observable.prototype.tapOnNext(onNext, [thisArg])`
-[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/do.js "View in source")
+{% if book.isPdf %}
+
+![doOnNext](http://reactivex.io/documentation/operators/images/doOnNext.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Invokes an action upon exceptional termination of the observable sequence.
 
@@ -23,6 +30,12 @@ This method can be used for debugging, logging, etc. of query behavior by interc
 ##### Using a thisArg
 
 [](http://jsbin.com/butumu/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -47,3 +60,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/do.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/do.js)
+
+{% endif %}

@@ -1,7 +1,14 @@
-# subscribeOnNext
+## [`Rx.Observable.prototype.subscribeOnNext(onNext, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js)
 
-`Rx.Observable.prototype.subscribeOnNext(onNext, [thisArg])`
-[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js "View in source")
+{% if book.isPdf %}
+
+
+
+{% else %}
+
+
+
+{% endif %}
 
 Subscribes a function to invoke for each element in the observable sequence.
 
@@ -21,6 +28,12 @@ Subscribes a function to invoke for each element in the observable sequence.
 ##### With a thisArg
 
 [](http://jsbin.com/coqew/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -45,3 +58,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/core/observable.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/core/observable.js)
+
+{% endif %}

@@ -1,7 +1,4 @@
-# fromPromise
-
-`Rx.Observable.fromPromise(promise)`
-<a href="#rxobservablefrompromisepromise">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/frompromise.js "View in source") 
+## [`Rx.Observable.fromPromise(promise)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/frompromise.js)
 
 Converts a Promises/A+ spec compliant Promise and/or ES6 compliant Promise to an Observable sequence.
 
@@ -20,6 +17,12 @@ Converts a Promises/A+ spec compliant Promise and/or ES6 compliant Promise to an
 ##### Create a promise which rejects with an error
 
 [](http://jsbin.com/zuyeyi/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -47,3 +50,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/fromnodecallback.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/frompromise.js)
+
+{% endif %}

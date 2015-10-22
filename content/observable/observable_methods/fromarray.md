@@ -1,11 +1,16 @@
-# fromArray
+## [`Rx.Observable.fromArray(array, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromarray.js)
 
-`Rx.Observable.fromArray(array, [scheduler])`
-<a href="#rxobservablefromarrayarray-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromarray.js "View in source")
+{% if book.isPdf %}
+
+![from](http://reactivex.io/documentation/operators/images/from.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Converts an array to an observable sequence, using an optional scheduler to enumerate the array.
-
-![from](https://github.com/Netflix/RxJava/wiki/images/rx-operators/from.png)
 
 #### Arguments
 1. `array` *(Array)*: An array to convert to an Observable sequence.
@@ -14,9 +19,39 @@ Converts an array to an observable sequence, using an optional scheduler to enum
 #### Returns
 *(`Observable`)*: The observable sequence whose elements are pulled from the given enumerable sequence.
 
+{% if book.isPdf %}
+
+#### [Example](http://jsbin.com/suqat/2/edit?js,console)
+
+```js
+var array = [1,2,3];
+
+var source = Rx.Observable.fromArray(array);
+
+var subscription = source.subscribe(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+// => onNext: 1
+// => onNext: 2
+// => onNext: 3
+// => onCompleted
+```
+
+{% else %}
+
 #### Example
 
-[](http://jsbin.com/suqat/1/embed?js,console)
+[](http://jsbin.com/suqat/2/embed?js,console)
+
+{% endif %}
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -44,3 +79,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/fromarray.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/fromarray.js)
+
+{% endif %}

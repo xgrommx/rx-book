@@ -1,17 +1,39 @@
-# onNext
-
-`Rx.Observer.prototype.onNext(value)`
-<a href="#rxobserverprototypeonnextvalue">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.js#L2862-L2872 "View in source") [&#x24C9;][1]
+## [`Rx.Observer.prototype.onNext(value)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/abstractobserver.js#L25)
 
 Notifies the observer of a new element in the sequence.
 
 #### Arguments
 1. `value` *(Any)*: Next element in the sequence. 
 
-#### Example
+{% if book.isPdf %}
 
-[](http://jsbin.com/navivu/1/embed?js,console)
+#### [Example](http://jsbin.com/navivu/2/edit?js,console)
+
+```js
+var observer = Rx.Observer.create(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+observer.onNext(42);
+// => onNext: 42
+```
+
+{% else %}
+
+#### Example
+[](http://jsbin.com/navivu/2/embed?js,console)
+
+{% endif %}
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
 - rx.js
+
+{% endif %}

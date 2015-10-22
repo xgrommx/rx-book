@@ -1,7 +1,14 @@
-# controlled
+## [`Rx.Observable.prototype.controlled([enableQueue])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/backpressure/controlled.js)
 
-`Rx.Observable.prototype.controlled([enableQueue])`
-<a href="#rxobservableprototypecontrolledenablequeue">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/backpressure/controlled.js "View in source") 
+{% if book.isPdf %}
+
+![controlled](http://reactivex.io/documentation/operators/images/bp.stopAndWait.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Attaches a controller to the observable sequence with the ability to queue.
 
@@ -14,6 +21,12 @@ Attaches a controller to the observable sequence with the ability to queue.
 #### Example
 
 [](http://jsbin.com/liraw/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -39,3 +52,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/controlled.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/controlled.js)
+
+{% endif %}

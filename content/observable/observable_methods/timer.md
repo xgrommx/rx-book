@@ -1,12 +1,17 @@
-# timer
+## [`Rx.Observable.timer(dueTime, [period], [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timer.js)
 
-`Rx.Observable.timer(dueTime, [period], [scheduler])`
-<a href="#rxobservabletimerduetime-period-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timer.js "View in source") 
+{% if book.isPdf %}
+
+![timer](http://reactivex.io/documentation/operators/images/timer.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an observable sequence that produces a value after dueTime has elapsed and then after each period.  Note for `rx.lite.js`, only 
 relative time is supported.
-
-![timer](https://github.com/Netflix/RxJava/wiki/images/rx-operators/timer.png)
 
 ### Arguments
 1. `dueTime` *(Date|Number)*: Absolute (specified as a Date object) or relative time (specified as an integer denoting milliseconds) at which to produce the first value.
@@ -19,6 +24,12 @@ relative time is supported.
 #### Example
 
 [](http://jsbin.com/hezadu/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -46,3 +57,5 @@ NuGet Packages:
 Unit Tests:
 - [/tests/observable/timer.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/timer.js)
 - [/tests/observable/timer-lite.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/timer-lite.js)
+
+{% endif %}

@@ -1,7 +1,14 @@
-# of
+## [`Rx.Observable.of(...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/of.js)
 
-`Rx.Observable.of(...args)`
-<a href="#rxobservableofargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/of.js "View in source") 
+{% if book.isPdf %}
+
+![of](http://reactivex.io/documentation/operators/images/of.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Converts arguments to an observable sequence.
 
@@ -14,6 +21,12 @@ Converts arguments to an observable sequence.
 #### Example
 
 [](http://jsbin.com/sibiy/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -41,3 +54,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/of.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/of.js)
+
+{% endif %}

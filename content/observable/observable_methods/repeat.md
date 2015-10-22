@@ -1,7 +1,14 @@
-# repeat
+## [`Rx.Observable.repeat(value, [repeatCount], [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/repeat.js)
 
-`Rx.Observable.repeat(value, [repeatCount], [scheduler])`
-<a href="#rxobservablerepeatvalue-repeatcount-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/repeat.js "View in source") 
+{% if book.isPdf %}
+
+![repeat](http://reactivex.io/documentation/operators/images/repeat.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Generates an observable sequence that repeats the given element the specified number of times, using the specified scheduler to send out observer messages.
 
@@ -16,6 +23,12 @@ Generates an observable sequence that repeats the given element the specified nu
 #### Example
 
 [](http://jsbin.com/hezux/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/repeat.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/repeat.js)
+
+{% endif %}

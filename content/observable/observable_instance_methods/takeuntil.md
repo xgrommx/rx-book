@@ -1,9 +1,14 @@
-# takeUntil
+## [`Rx.Observable.prototype.takeUntil(other)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takeuntil.js)
+
+{% if book.isPdf %}
+
+![takeUntil](http://reactivex.io/documentation/operators/images/takeUntil.png)
+
+{% else %}
 
 <rx-marbles key="takeUntil"></rx-marbles>
 
-`Rx.Observable.prototype.takeUntil(other)`
-<a href="#rxobservableprototypetakeuntilother">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takeuntil.js "View in source") 
+{% endif %}
 
 Returns the values from the source observable sequence until the other observable sequence or Promise produces a value.
 
@@ -16,6 +21,12 @@ Returns the values from the source observable sequence until the other observabl
 #### Example
 
 [](http://jsbin.com/zahor/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +51,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/takeuntil.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/takeuntil.js)
+
+{% endif %}

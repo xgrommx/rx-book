@@ -1,7 +1,14 @@
-# timestamp
+## [`Rx.Observable.prototype.timestamp([scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timestamp.js)
 
-`Rx.Observable.prototype.timestamp([scheduler])`
-<a href="#rxobservableprototypetimestampscheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timestamp.js "View in source") 
+{% if book.isPdf %}
+
+![timestamp](http://reactivex.io/documentation/operators/images/timestamp.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Records the timestamp for each value in an observable sequence.
 
@@ -14,6 +21,12 @@ Records the timestamp for each value in an observable sequence.
 #### Example
 
 [](http://jsbin.com/kadup/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -34,3 +47,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/timestamp.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/timestamp.js)
+
+{% endif %}

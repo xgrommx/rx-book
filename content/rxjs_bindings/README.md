@@ -1,7 +1,8 @@
 ## RxJS Bindings
 
-* [DOM](dom/README.md)
-* [jQuery](jquery/README.md)
-* [AngularJS](angular/README.md)
-* [Facebook React](react/README.md)
-* [Ractive.js](ractive/README.md)
+* [DOM](dom/index.html)
+* [jQuery](jquery/index.html)
+* [AngularJS](angular/index.html)
+* [Facebook React](react/index.html)
+* [Ractive.js](ractive/index.html)
+* [NodeJS](node/index.html)

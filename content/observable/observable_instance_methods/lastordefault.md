@@ -1,7 +1,14 @@
-# lastOrDefault
+## [`Rx.Observable.prototype.lastOrDefault([predicate], [defaultValue], [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/lastordefault.js)
 
-`Rx.Observable.prototype.lastOrDefault([predicate], [defaultValue], [thisArg])`
-<a href="#rxobservableprototypelastordefaultpredicate-defaultvalue-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L634-L639 "View in source") 
+{% if book.isPdf %}
+
+![lastOrDefault](http://reactivex.io/documentation/operators/images/lastOrDefault.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns the last element of an observable sequence that satisfies the condition in the predicate if specified, else the last element.
 
@@ -30,6 +37,14 @@ Returns the last element of an observable sequence that satisfies the condition 
 
 [](http://jsbin.com/vayal/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).aggregates.js
+
+{% endif %}

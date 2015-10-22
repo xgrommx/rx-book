@@ -1,7 +1,14 @@
-# takeLastWithTime
+## [`Rx.Observable.prototype.takeLastWithTime(duration, [timeScheduler], [loopScheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takelastwithtime.js)
 
-`Rx.Observable.prototype.takeLastWithTime(duration, [timeScheduler], [loopScheduler])`
-<a href="#rxobservableprototypetakelastwithtimeduration-timescheduler-loopscheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takelastwithtime.js "View in source") 
+{% if book.isPdf %}
+
+![takeLastWithTime](http://reactivex.io/documentation/operators/images/takeLastWithTime.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns elements within the specified duration from the end of the observable source sequence, using the specified schedulers to run timers and to drain the collected elements.
 
@@ -16,6 +23,12 @@ Returns elements within the specified duration from the end of the observable so
 #### Example
 
 [](http://jsbin.com/liwori/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -36,3 +49,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/takelastwithtime.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/takelastwithtime.js)
+
+{% endif %}

@@ -1,6 +1,7 @@
-var path = require("path");
-
 module.exports = function (grunt) {
+    var path = require("path");
+
+    // Load NPM tasks
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -8,6 +9,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks("grunt-bower-install-simple");
 
+    // Init GRUNT configuraton
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         'gh-pages': {
@@ -23,7 +25,7 @@ module.exports = function (grunt) {
             options: {
                 color:       true,
                 production:  false,
-                directory:   "theme/vendors"
+                directory:   "theme2/vendors"
             }
         },
         less: {
@@ -34,8 +36,8 @@ module.exports = function (grunt) {
                     optimization: 2
                 },
                 files: {
-                    "theme/assets/style.css": "theme/stylesheets/website.less",
-                    "theme/assets/print.css": "theme/stylesheets/ebook.less"
+                    "theme2/assets/style.css": "theme/stylesheets/website.less",
+                    "theme2/assets/print.css": "theme/stylesheets/ebook.less"
                 }
             }
         },
@@ -43,8 +45,8 @@ module.exports = function (grunt) {
             compile: {
                 options: {
                     name: "gitbook",
-                    baseUrl: "theme/javascript/",
-                    out: "theme/assets/app.js",
+                    baseUrl: "theme2/javascript/",
+                    out: "theme2/assets/app.js",
                     preserveLicenseComments: false,
                     optimize: "uglify",
                     include: ["requireLib"],
@@ -79,9 +81,9 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'theme/vendors/fontawesome/fonts/',
+                        cwd: 'theme2/vendors/fontawesome/fonts/',
                         src: ['**'],
-                        dest: 'theme/assets/fonts/fontawesome/',
+                        dest: 'theme2/assets/fonts/fontawesome/',
                         filter: 'isFile'
                     }
                 ]

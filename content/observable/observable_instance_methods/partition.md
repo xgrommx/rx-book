@@ -1,7 +1,4 @@
-# partition
-
-`Rx.Observable.prototype.partition(predicate, [thisArg])`
-[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/partition.js "View in source")
+## [`Rx.Observable.prototype.partition(predicate, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/partition.js)
 
 Returns two observables which partition the observations of the source by the given function.  The first will trigger observations for those values for which the predicate returns true. The second will trigger observations for those values where the predicate returns false. The predicate is executed once for each subscribed observer. Both also propagate all error observations arising from the source and each completes when the source completes.
 
@@ -18,6 +15,12 @@ Returns two observables which partition the observations of the source by the gi
 #### Example
 
 [](http://jsbin.com/kezoye/1/embed?js,output)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -38,3 +41,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/partition.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/partition.js)
+
+{% endif %}

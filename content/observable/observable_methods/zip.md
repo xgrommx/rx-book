@@ -1,11 +1,16 @@
-# zip
+## [`Rx.Observable.zip(...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/zip.js)
 
-`Rx.Observable.zip(...args)`
-<a href="#rxobservablezipargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/zip.js "View in source") 
+{% if book.isPdf %}
+
+![zip](http://reactivex.io/documentation/operators/images/zip.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Merges the specified observable sequences or Promises into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index.
-
-![zip](https://github.com/Netflix/RxJava/wiki/images/rx-operators/zip.png)
 
 #### Arguments
 1. `args` *(Array|arguments)*: Observable sources.
@@ -22,6 +27,12 @@ Merges the specified observable sequences or Promises into one observable sequen
 ##### Using promises and Observables */
 
 [](http://jsbin.com/tuset/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -47,3 +58,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/zip.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/zip.js)
+
+{% endif %}

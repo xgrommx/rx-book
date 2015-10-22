@@ -1,7 +1,14 @@
-# subscribeOnCompleted
+## [`Rx.Observable.prototype.subscribeOnCompleted(onCompleted, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js)
 
-`Rx.Observable.prototype.subscribeOnCompleted(onCompleted, [thisArg])`
-[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js "View in source")
+{% if book.isPdf %}
+
+
+
+{% else %}
+
+
+
+{% endif %}
 
 Subscribes a function to invoke upon graceful termination of the observable sequence.
 
@@ -21,6 +28,12 @@ Subscribes a function to invoke upon graceful termination of the observable sequ
 ##### With a thisArg
 
 [](http://jsbin.com/qinupu/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -45,3 +58,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/core/observable.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/core/observable.js)
+
+{% endif %}

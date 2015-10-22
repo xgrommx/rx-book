@@ -1,9 +1,14 @@
-# elementAt
+## [`Rx.Observable.prototype.elementAt(index)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/elementat.js)
+
+{% if book.isPdf %}
+
+![elementAt](http://reactivex.io/documentation/operators/images/elementAt.png)
+
+{% else %}
 
 <rx-marbles key="elementAt"></rx-marbles>
 
-`Rx.Observable.prototype.elementAt(index)`
-<a href="#rxobservableprototypeelementatindex">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L474-L476 "View in source") 
+{% endif %}
 
 Returns the element at a specified index in a sequence.
 
@@ -23,6 +28,14 @@ Returns the element at a specified index in a sequence.
 
 [](http://jsbin.com/coces/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).aggregates.js
+
+{% endif %}

@@ -1,7 +1,14 @@
-# takeUntilWithTime
+## [`Rx.Observable.prototype.takeUntilWithTime(other)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takeuntilwithtime.js)
 
-`Rx.Observable.prototype.takeUntil(other)`
-<a href="#rxobservableprototypetakeuntilwithtimeendtime-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takeuntil.js "View in source") 
+{% if book.isPdf %}
+
+![takeUntilWithTime](http://reactivex.io/documentation/operators/images/takeUntilWithTime.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns the values from the source observable sequence until the other observable sequence produces a value.
 
@@ -15,6 +22,12 @@ Returns the values from the source observable sequence until the other observabl
 #### Example
 
 [](http://jsbin.com/qabuce/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -35,3 +48,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/takeuntilwithtime.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/takeuntilwithtime.js)
+
+{% endif %}

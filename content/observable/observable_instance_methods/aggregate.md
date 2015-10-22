@@ -1,7 +1,14 @@
-# aggregate
+## [`Rx.Observable.prototype.aggregate([seed], accumulator)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/aggregate.js)
 
-`Rx.Observable.prototype.aggregate([seed], accumulator)`
-<a href="#rxobservableprototypeaggregateseed-accumulator">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/aggregate.js "View in source") 
+{% if book.isPdf %}
+
+![aggregate](http://reactivex.io/documentation/operators/images/aggregate.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Use `Rx.Observable.prototype.reduce` instead.
 
@@ -26,6 +33,12 @@ For aggregation behavior with incremental intermediate results, see `Rx.Observab
 
 [](http://jsbin.com/malif/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -48,3 +61,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/aggregate.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/aggregate.js)
+
+{% endif %}

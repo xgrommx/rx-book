@@ -1,4 +1,4 @@
-## [`jQuery`](http://jquery.com)<sup>(plugin [`rxjs-jquery`](https://github.com/Reactive-Extensions/rxjs-jquery))</sup>
+## [`jQuery`](http://jquery.com) *(plugin [`rxjs-jquery`](https://github.com/Reactive-Extensions/rxjs-jquery))*
 
 ##### Example
 

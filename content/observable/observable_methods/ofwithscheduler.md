@@ -1,7 +1,4 @@
-# ofWithScheduler
-
-`Rx.Observable.ofWithScheduler([scheduler], ...args)`
-<a href="#rxobservableofwithschedulerscheduler-args">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/of.js "View in source") 
+## [`Rx.Observable.ofWithScheduler([scheduler], ...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/of.js)
 
 Converts arguments to an observable sequence, using an optional scheduler to enumerate the arguments.
 
@@ -15,6 +12,12 @@ Converts arguments to an observable sequence, using an optional scheduler to enu
 #### Example
 
 [](http://jsbin.com/jabup/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -42,3 +45,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/of.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/of.js)
+
+{% endif %}

@@ -1,7 +1,14 @@
-# bufferWithTimeOrCount
+## [`Rx.Observable.prototype.bufferWithTimeOrCount(timeSpan, count, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/bufferwithtimeorcount.js)
 
-`Rx.Observable.prototype.bufferWithTimeOrCount(timeSpan, count, [scheduler])`
-<a href="#rxobservableprototypebufferwithtimeorcounttimespan-count-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js#L513-L518 "View in source") 
+{% if book.isPdf %}
+
+![bufferWithTimeOrCount](http://reactivex.io/documentation/operators/images/bufferWithTimeOrCount6.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Projects each element of an observable sequence into a buffer that is completed when either it's full or a given amount of time has elapsed.
 
@@ -17,6 +24,14 @@ Projects each element of an observable sequence into a buffer that is completed 
 
 [](http://jsbin.com/qaxid/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).time.js
+
+{% endif %}

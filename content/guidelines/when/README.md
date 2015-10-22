@@ -9,19 +9,17 @@ RxJS makes these computations first-class citizens. This provides a model that a
 ```js
 var input = document.getElementById('input');
 var dictionarySuggest = Rx.Observable.fromEvent(input, 'keyup')
-  .map(function () { return input.value; })
-  .filter(function (text) { return !!text; })
+  .map(() => input.value)
+  .filter(text => !!text)
   .distinctUntilChanged()
   .throttle(250)
   .flatMapLatest(searchWikipedia)
   .subscribe(
-    function (results) {
+    results => {
       list = [];
       list.concat(results.map(createItem));
     },
-    function (err) {
-      logError(err);
-    }
+    err => logError(err)
   );
 ```
 
@@ -31,13 +29,13 @@ RxJS creates an observable sequence that models an existing `keyup` event on the
 
 It then places several filters and projections on top of the event to make the event only fire if a unique value has come through. (The `keyup` event fires for every key stroke, so also if the user presses left or right arrow, moving the cursor but not changing the input text).
 
-Next it makes sure the event only gets fired after 250 milliseconds of activity by using the [`throttle`](../../core_objects/observable/observable_instance_methods/throttle.md) operator. (If the user is still typing characters, this saves a potentially expensive lookup that will be ignored immediately).
+Next it makes sure the event only gets fired after 250 milliseconds of activity by using the [`throttle`](../../observable/observable_instance_methods/throttle.html) operator. (If the user is still typing characters, this saves a potentially expensive lookup that will be ignored immediately).
 
 In traditionally written programs, this throttling would introduce separate callbacks through a timer. This timer could potentially throw exceptions (certain timers have a maximum amount of operations in flight).
 
 Once the user input has been filtered down it is time to perform the dictionary lookup. As this is usually an expensive operation (e.g. a request to a server on the other side of the world), this operation is itself asynchronous as well.
 
-The [`flatMap`/`selectMany`](../../core_objects/observable/observable_instance_methods/flatmap.md) operator allows for easy combining of multiple asynchronous operations. It doesn’t only combine success values; it also tracks any exceptions that happen in each individual operation.
+The [`flatMap`/`selectMany`](../../observable/observable_instance_methods/flatmap.html) operator allows for easy combining of multiple asynchronous operations. It doesn’t only combine success values; it also tracks any exceptions that happen in each individual operation.
 
 In traditionally written programs, this would introduce separate callbacks and a place for exceptions occurring.
 
@@ -74,17 +72,15 @@ var outFile = fs.openSync('Encrypted.txt', 'w+');
 
 readAsync(inFile, 2 << 15)
   .map(encrypt)
-  .flatMap(function (data) {
-    return appendAsync(outFile, data);
-  })
+  .flatMap(data => appendAsync(outFile, data))
   .subscribe(
-    function () { },
-    function (err) {
+    () => {},
+    err => {
       console.log('An error occurred while encrypting the file: %s', err.message);
       fs.closeSync(inFile);
       fs.closeSync(outFile);
     },
-    function () {
+    () => {
       console.log('Successfully encrypted the file.');
       fs.closeSync(inFile);
       fs.closeSync(outFile);

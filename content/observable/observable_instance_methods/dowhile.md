@@ -1,7 +1,14 @@
-# doWhile
+## [`Rx.Observable.prototype.doWhile(condition, source)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/dowhile.js)
 
-`Rx.Observable.prototype.doWhile(condition, source)`
-<a href="#rxobservableprototypedowhilecondition-source">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L2549-L2559 "View in source") 
+{% if book.isPdf %}
+
+![doWhile](http://reactivex.io/documentation/operators/images/doWhile.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Repeats source as long as condition holds emulating a do while loop.
 
@@ -16,6 +23,14 @@ Repeats source as long as condition holds emulating a do while loop.
 
 [](http://jsbin.com/tizad/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).experimental.js
+
+{% endif %}

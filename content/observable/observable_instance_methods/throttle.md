@@ -1,7 +1,14 @@
-# throttle
+## [`Rx.Observable.prototype.throttle(dueTime, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/debounce.js)
 
-`Rx.Observable.prototype.throttle(dueTime, [scheduler])`
-<a href="#rxobservableprototypethrottleduetime-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttle.js "View in source") 
+{% if book.isPdf %}
+
+![debounce](http://reactivex.io/documentation/operators/images/debounce.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Ignores values from an observable sequence which are followed by another value before dueTime.
 
@@ -15,6 +22,12 @@ Ignores values from an observable sequence which are followed by another value b
 #### Example
 
 [](http://jsbin.com/zatav/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -38,3 +51,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/throttle.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/throttle.js)
+
+{% endif %}

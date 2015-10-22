@@ -1,9 +1,16 @@
-# pluck
+## [`Rx.Observable.prototype.pluck(property)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/pluck.js)
 
-`Rx.Observable.prototype.pluck(property)`
-<a href="#rxobservableprototypepluckproperty">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/pluck.js "View in source") 
+{% if book.isPdf %}
 
-Projects each element of an observable sequence into a new form by incorporating the element's index.  This is an alias for the `select` method.
+![pluck](http://reactivex.io/documentation/operators/images/pluck.png)
+
+{% else %}
+
+
+
+{% endif %}
+
+Projects each element of an observable sequence into a new form by incorporating the element's index.
 
 #### Arguments
 1. `property` *(`String`)*: The property to pluck.
@@ -14,6 +21,12 @@ Projects each element of an observable sequence into a new form by incorporating
 #### Example
 
 [](http://jsbin.com/wigiy/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -35,3 +48,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/pluck.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/pluck.js)
+
+{% endif %}

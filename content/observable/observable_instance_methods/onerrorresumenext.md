@@ -1,7 +1,14 @@
-# onErrorResumeNext
+## [`Rx.Observable.prototype.onErrorResumeNext(second)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/onerrorresumenextproto.js)
 
-`Rx.Observable.prototype.onErrorResumeNext(second)`
-<a href="#rxobservableprototypeonerrorresumenextsecond">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/onerrorresumenext.js "View in source") 
+{% if book.isPdf %}
+
+![onErrorResumeNext](http://reactivex.io/documentation/operators/images/onErrorResumeNext.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Continues an observable sequence that is terminated normally or by an exception with the next observable sequence or Promise.
 
@@ -14,6 +21,12 @@ Continues an observable sequence that is terminated normally or by an exception 
 #### Example
 
 [](http://jsbin.com/jutum/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -38,3 +51,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/onerrorresumenext.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/onerrorresumenext.js)
+
+{% endif %}

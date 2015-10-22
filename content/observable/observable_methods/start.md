@@ -1,7 +1,14 @@
-# start
+## [`Rx.Observable.start(func, [scheduler], [context])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/start.js)
 
-`Rx.Observable.start(func, [scheduler], [context])`
-<a href="#rxobservablestartfunc-scheduler-context">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/start.js "View in source") 
+{% if book.isPdf %}
+
+![start](http://reactivex.io/documentation/operators/images/start.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Invokes the specified function asynchronously on the specified scheduler, surfacing the result through an observable sequence.
 
@@ -16,6 +23,12 @@ Invokes the specified function asynchronously on the specified scheduler, surfac
 #### Example
 
 [](http://jsbin.com/xitili/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -42,3 +55,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/start.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/start.js)
+
+{% endif %}

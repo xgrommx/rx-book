@@ -1,7 +1,10 @@
-# combineLatest
+## [`Rx.Observable.combineLatest(...args, resultSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/combinelatest.js)
 
-`Rx.Observable.combineLatest(...args, resultSelector)`
-[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/combinelatest.js "View in source")
+{% if book.isPdf==true %}
+
+![combineLatest](http://reactivex.io/documentation/operators/images/combineLatest.png)
+
+{% endif %}
 
 Merges the specified observable sequences into one observable sequence by using the selector function whenever any of the observable sequences produces an element.  This can be in the form of an argument list of observables or an array.
 
@@ -12,9 +15,49 @@ Merges the specified observable sequences into one observable sequence by using 
 #### Returns
 *(`Observable`)*: An observable sequence containing the result of combining elements of the sources using the specified result selector function.
 
-#### Example
+{% if book.isPdf %}
 
-[](http://jsbin.com/kewig/1/embed?js,console)
+#### [Example](http://jsbin.com/kewig/2/edit?js,console)
+
+```js
+/* Have staggering intervals */
+var source1 = Rx.Observable.interval(100)
+    .map(i => `First: ${i}`);
+
+var source2 = Rx.Observable.interval(150)
+    .map(i => `Second: ${i}`);
+
+// Combine latest of source1 and source2 whenever either gives a value
+var source = Rx.Observable.combineLatest(
+        source1,
+        source2,
+        (s1, s2) => `${s1}, ${s2}`
+    ).take(4);
+
+var subscription = source.subscribe(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+// => onNext: First: 0, Second: 0
+// => onNext: First: 1, Second: 0
+// => onNext: First: 1, Second: 1
+// => onNext: First: 2, Second: 1
+// => onCompleted
+```
+
+{% else %}
+
+#### Example
+[](http://jsbin.com/kewig/2/embed?js,console)
+
+{% endif %}
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +83,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/combinelatestproto.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/combinelatestproto.js)
+
+{% endif %}

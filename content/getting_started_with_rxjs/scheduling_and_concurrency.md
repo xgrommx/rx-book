@@ -65,7 +65,7 @@ seq.groupBy(...)
 
 To make things a little easier when you are creating your own operators, or using the standard built-in ones, which scheduler you should use.  The following table lays out each scenario with the suggested scheduler.
 
-<table>
+<table style="display: table">
 	<th>
 		Scenario
 	</th>

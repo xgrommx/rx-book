@@ -1,7 +1,14 @@
-# expand
+## [`Rx.Observable.prototype.expand(selector, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/expand.js)
 
-`Rx.Observable.prototype.expand(selector, [scheduler])`
-<a href="#expand">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.experimental.js#L179-L234 "View in source") 
+{% if book.isPdf %}
+
+![expand](http://reactivex.io/documentation/operators/images/expand.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Expands an observable sequence by recursively invoking selector.
 
@@ -16,6 +23,14 @@ Expands an observable sequence by recursively invoking selector.
 
 [](http://jsbin.com/xeyuf/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).experimental.js
+
+{% endif %}

@@ -12,6 +12,12 @@ The guidelines in this document are listed in no particular order. There is neit
 
 Please contact us through the [RxJS Issues](https://github.com/Reactive-Extensions/RxJS) for feedback on the guidelines, as well as questions on whether certain guidelines are applicable in specific situations.
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ## The introduction to Reactive Programming you've been missing
 (by [@andrestaltz](https://twitter.com/andrestaltz))
 
@@ -569,3 +575,6 @@ But Reactive Programming is not just Rx*. There is [Bacon.js](http://baconjs.git
 Rx works great for event-heavy frontends and apps. But it is not just a client-side thing, it works great also in the backend and close to databases. In fact, [RxJava is a key component for enabling server-side concurrency in Netflix's API](http://techblog.netflix.com/2013/02/rxjava-netflix-api.html). Rx is not a framework restricted to one specific type of application or language. It really is a paradigm that you can use when programming any event-driven software.
 
 If this tutorial helped you, [tweet it forward](https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fgist.github.com%2Fstaltz%2F868e7e9bc2a7b8c1f754%2F&amp;text=The%20introduction%20to%20Reactive%20Programming%20you%27ve%20been%20missing&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fgist.github.com%2Fstaltz%2F868e7e9bc2a7b8c1f754&amp;via=andrestaltz).
+
+
+{% endif %}

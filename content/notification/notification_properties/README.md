@@ -1,6 +1,6 @@
 # Notification Properties
 
-- [`exception`](#exception)
-- [`hasValue`](#hasvalue)
-- [`kind`](#kind)
-- [`value`](#value)
+- [`exception`](exception.html)
+- [`hasValue`](hasvalue.html)
+- [`kind`](kind.html)
+- [`value`](value.html)

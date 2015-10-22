@@ -1,12 +1,17 @@
-# throw | throwException
+## [`Rx.Observable.throw(exception, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throw.js)
 
-`Rx.Observable.throw(exception, [scheduler])`
-<a href="#rxobservablethrowexception-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js#L133-L152 "View in source") 
+{% if book.isPdf %}
+
+![throw](http://reactivex.io/documentation/operators/images/throw.c.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an observable sequence that terminates with an exception, using the specified scheduler to send out the single onError message.
 There is an alias to this method called `throwException` for browsers <IE9.
-
-![throw](https://github.com/Netflix/RxJava/wiki/images/rx-operators/throw.png)
 
 ### Arguments
 1. `dueTime` *(`Any`)*: Absolute (specified as a Date object) or relative time (specified as an integer denoting milliseconds) at which to produce the first value.
@@ -18,6 +23,12 @@ There is an alias to this method called `throwException` for browsers <IE9.
 #### Example
 
 [](http://jsbin.com/luyaho/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -42,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/throw.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/throw.js)
+
+{% endif %}

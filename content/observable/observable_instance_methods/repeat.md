@@ -1,7 +1,14 @@
-# repeat
+## [`Rx.Observable.prototype.repeat(repeatCount)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/repeatproto.js)
 
-`Rx.Observable.prototype.repeat(repeatCount)`
-<a href="#rxobservableprototyperepeatrepeatcount">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/repeatproto.js "View in source") 
+{% if book.isPdf %}
+
+![repeat](http://reactivex.io/documentation/operators/images/repeat.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Repeats the observable sequence a specified number of times. If the repeat count is not specified, the sequence repeats indefinitely.
  
@@ -14,6 +21,12 @@ Repeats the observable sequence a specified number of times. If the repeat count
 #### Example
 
 [](http://jsbin.com/raqico/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -38,3 +51,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/repeatproto.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/repeatproto.js)
+
+{% endif %}

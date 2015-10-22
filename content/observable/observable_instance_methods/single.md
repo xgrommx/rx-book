@@ -1,7 +1,14 @@
-# single
+## [`Rx.Observable.prototype.single([predicate], [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/single.js)
 
-`Rx.Observable.prototype.single([predicate], [thisArg])`
-<a href="#rxobservableprototypesinglepredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/single.js "View in source") 
+{% if book.isPdf %}
+
+![single](http://reactivex.io/documentation/operators/images/single.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns the only element of an observable sequence that satisfies the condition in the optional predicate, and reports an exception if there is not exactly one element in the observable sequence.
  
@@ -33,6 +40,12 @@ Returns the only element of an observable sequence that satisfies the condition 
 
 [](http://jsbin.com/wuqel/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -52,3 +65,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/single.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/single.js)
+
+{% endif %}

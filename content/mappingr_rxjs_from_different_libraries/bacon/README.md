@@ -24,9 +24,7 @@ For example we can get the clickable element, listen to the `click` event, and t
 ```js
 var clickable = $('#clickable').asEventStream('click');
 
-clickable.onValue(function (e) {
-	console.log('clicked!');
-});
+clickable.onValue(e => console.log('clicked!'));
 ```
 
 The support goes above just standard support, but also selectors and an optional argument selector which transforms the arguments of the event to a single object.
@@ -34,13 +32,9 @@ The support goes above just standard support, but also selectors and an optional
 ```js
 $("#my-div").asEventStream("click", ".more-specific-selector")
 
-$("#my-div").asEventStream("click", ".more-specific-selector", function(event, args) { 
-	return args[0]; 
-});
+$("#my-div").asEventStream("click", ".more-specific-selector", (event, args) => args[0]);
 
-$("#my-div").asEventStream("click", function (event, args) { 
-	return args[0] 
-});
+$("#my-div").asEventStream("click", (event, args) => args[0]);
 ```
 
 #### RxJS ####
@@ -53,7 +47,7 @@ For example, we can recreate the binding to the clickable element for the `click
 var clickable = $('#clickable');
 
 var clickableObservable = Rx.Observable.fromEvent(clickable, 'click')
-	.subscribe(function () { console.log('clicked!'); });
+	.subscribe(() => console.log('clicked!'));
 ```
 
 In addition, RxJS also supports for event argument transformers for additional data.  For example, if a Node.js `EventEmitter` emits more than one piece of data at a time, you can still capture it.
@@ -64,13 +58,8 @@ var Rx = require('rx'),
 
 var e = new EventEmitter();
 
-Rx.Observable.fromEvent(e, 'data', 
-	function (args) {
-		return { first: args[0], second: args[1] };
-	})
-	.subscribe(function (data) {
-		console.log(data.first + ',' + data.second);
-	});
+Rx.Observable.fromEvent(e, 'data', args => ({ first: args[0], second: args[1] }))
+	.subscribe(data => console.log(`${data.first}, ${data.second}`));
 
 e.emit('data', 'foo', 'bar');
 // => foo,bar
@@ -87,5 +76,5 @@ var minus = $("#minus").asEventStream("click").map(-1);
 // Combine both into one
 var both = plus.merge(minus);
 
-both.onValue (function (x) { /* returns 1 or -1 */ });
+both.onValue (x => { /* returns 1 or -1 */ });
 ```

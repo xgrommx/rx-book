@@ -1,7 +1,14 @@
-# subscribeOn
+## [`Rx.Observable.prototype.subscribeOn(scheduler)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/subscribeon.js)
 
-`Rx.Observable.prototype.subscribeOn(scheduler)`
-<a href="#rxobservableprototypesubscribeonscheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/subscribeon.js "View in source") 
+{% if book.isPdf %}
+
+![subscribeOn](http://reactivex.io/documentation/operators/images/subscribeOn.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Wraps the source sequence in order to run its subscription and unsubscription logic on the specified scheduler.
 
@@ -16,6 +23,12 @@ This only performs the side-effects of subscription and unsubscription on the sp
 #### Example
 
 [](http://jsbin.com/socik/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -37,3 +50,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/subscribeon.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/subscribeon.js)
+
+{% endif %}

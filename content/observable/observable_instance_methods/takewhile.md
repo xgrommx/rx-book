@@ -1,7 +1,14 @@
-# takeWhile
+## [`Rx.Observable.prototype.takeWhile(predicate, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takewhile.js)
 
-`Rx.Observable.prototype.takeWhile(predicate, [thisArg])`
-<a href="#rxobservableprototypetakewhilepredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takewhile.js "View in source") 
+{% if book.isPdf %}
+
+![takeWhile](http://reactivex.io/documentation/operators/images/takeWhile.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns elements from an observable sequence as long as a specified condition is true.
 
@@ -18,6 +25,12 @@ Returns elements from an observable sequence as long as a specified condition is
 #### Example
 
 [](http://jsbin.com/lopiv/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -42,3 +55,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/takewhile.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/takewhile.js)
+
+{% endif %}

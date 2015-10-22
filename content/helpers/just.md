@@ -1,7 +1,4 @@
-# just
-
-### <a id="rxhelpersidentityx"></a>`Rx.helpers.just(value)`
-<a href="#rxhelpersjustvalue">#</a>[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/basicheader.js "View in source") [&#x24C9;][1]
+## [`Rx.helpers.just(value)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L6)
 
 A function which takes an argument and returns a function, when invoked, returns the argument.
 

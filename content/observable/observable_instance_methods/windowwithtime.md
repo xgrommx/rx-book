@@ -1,7 +1,14 @@
-# windowWithTime
+## [`Rx.Observable.prototype.windowWithTime(timeSpan, [timeShift | scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/windowwithtime.js)
 
-`Rx.Observable.prototype.windowWithTime(timeSpan, [timeShift | scheduler])`
-<a href="#rxobservableprototypewindowwithtimetimespan-timeshift--scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/windowwithtime.js "View in source") 
+{% if book.isPdf %}
+
+![windowWithTime](http://reactivex.io/documentation/operators/images/windowWithTime5.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Projects each element of an observable sequence into zero or more buffers which are produced based on timing information.
 
@@ -23,6 +30,12 @@ Projects each element of an observable sequence into zero or more buffers which 
 
 [](http://jsbin.com/wowin/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -42,3 +55,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/windowwithtime.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/windowwithtime.js)
+
+{% endif %}

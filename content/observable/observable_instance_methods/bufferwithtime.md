@@ -1,7 +1,14 @@
-# bufferWithTime
+## [`Rx.Observable.prototype.bufferWithTime(timeSpan, [timeShift | scheduler], [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/bufferwithtime.js)
 
-`Rx.Observable.prototype.bufferWithTime(timeSpan, [timeShift | scheduler], [scheduler])`
-<a href="#rxobservableprototypebufferwithtimetimespan-timeshift--scheduler-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js#L483-L498 "View in source") 
+{% if book.isPdf %}
+
+![bufferWithTime](http://reactivex.io/documentation/operators/images/bufferWithTime5.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Projects each element of an observable sequence into zero or more buffers which are produced based on timing information.
 
@@ -23,6 +30,14 @@ Projects each element of an observable sequence into zero or more buffers which 
 
 [](http://jsbin.com/rafay/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).time.js
+
+{% endif %}

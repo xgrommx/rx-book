@@ -1,9 +1,14 @@
-# last
+## [`Rx.Observable.prototype.last([predicate], [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/last.js)
+
+{% if book.isPdf %}
+
+![last](http://reactivex.io/documentation/operators/images/last.png)
+
+{% else %}
 
 <rx-marbles key="last"></rx-marbles>
 
-`Rx.Observable.prototype.last([predicate], [thisArg])`
-<a href="#rxobservableprototypelastpredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L634-L639 "View in source") 
+{% endif %}
 
 Returns the last element of an observable sequence that satisfies the condition in the predicate if specified, else the last element.
 
@@ -31,6 +36,14 @@ Returns the last element of an observable sequence that satisfies the condition 
 
 [](http://jsbin.com/coyam/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).aggregates.js
+
+{% endif %}

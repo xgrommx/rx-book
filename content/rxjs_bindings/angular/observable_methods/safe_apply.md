@@ -24,6 +24,12 @@ angular.module('example', ['rx'])
     });
 ```
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -31,3 +37,5 @@ File:
 
 Dist:
 - rx.angular.js
+
+{% endif %}

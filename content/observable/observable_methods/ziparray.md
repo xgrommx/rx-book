@@ -1,11 +1,16 @@
-# zipArray
+## [`Rx.Observable.zipArray(...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/ziparray.js)
 
-`Rx.Observable.zipArray(...args)`
-<a href="#rxobservableprototypeziparrayargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/ziparray.js "View in source") 
+{% if book.isPdf %}
+
+![zipArray](http://reactivex.io/documentation/operators/images/zipArray.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Merges the specified observable sequences into one observable sequence by emitting a list with the elements of the observable sequences at corresponding indexes.
-
-![zipArray](https://github.com/Netflix/RxJava/wiki/images/rx-operators/zip.png)
 
 #### Arguments
 1. `args` *(Arguments | Array)*: Observable sources.
@@ -16,6 +21,12 @@ Merges the specified observable sequences into one observable sequence by emitti
 #### Example
 
 [](http://jsbin.com/luhuxo/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -41,3 +52,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/ziparay.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/ziparay.js)
+
+{% endif %}

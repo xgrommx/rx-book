@@ -1,1 +1,1 @@
-## [`Facebook React`](http://facebook.github.io/react)<sup>(plugin [`RxLifecycleMixin`](https://github.com/fdecampredon/react-rxjs-todomvc/blob/gh-pages/src/utils/rxLifecycleMixin.js))</sup>
+## [`Facebook React`](http://facebook.github.io/react) *(plugin [`RxLifecycleMixin`](https://github.com/fdecampredon/react-rxjs-todomvc/blob/gh-pages/src/utils/rxLifecycleMixin.js))*

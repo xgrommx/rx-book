@@ -28,11 +28,11 @@ NuGet Dependencies:
 ## Included Observable Operators ##
 
 ### `Observable Methods`
-- [`fromCallback`](../core_objects/observable/observable_methods/fromcallback.html)
-- [`fromEvent`](../core_objects/observable/observable_methods/fromevent.html)
-- [`fromEventPattern`](../core_objects/observable/observable_methods/fromeventpattern.html)
-- [`fromNodeCallback`](../core_objects/observable/observable_methods/fromnodecallback.html)
-- [`fromPromise`](../core_objects/observable/observable_methods/frompromise.html)
-- [`start`](../core_objects/observable/observable_methods/start.html)
-- [`startAsync`](../core_objects/observable/observable_methods/startasync.html)
-- [`toAsync`](../core_objects/observable/observable_methods/toasync.html)
+- [`fromCallback`](../observable/observable_methods/fromcallback.html)
+- [`fromEvent`](../observable/observable_methods/fromevent.html)
+- [`fromEventPattern`](../observable/observable_methods/fromeventpattern.html)
+- [`fromNodeCallback`](../observable/observable_methods/fromnodecallback.html)
+- [`fromPromise`](../observable/observable_methods/frompromise.html)
+- [`start`](../observable/observable_methods/start.html)
+- [`startAsync`](../observable/observable_methods/startasync.html)
+- [`toAsync`](../observable/observable_methods/toasync.html)

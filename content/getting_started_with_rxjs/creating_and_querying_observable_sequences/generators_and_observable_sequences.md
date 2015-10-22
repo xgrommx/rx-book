@@ -53,7 +53,7 @@ Since RxJS believes heavily in standards, we also look for ways to incorporate n
 
 ## Async/Await Style and RxJS ##
 
-One common complaint of JavaScript is the callback nature to asynchronous behavior.  Luckily, this can be solved quite easily with a library approach.  To that end, we introduce [`Rx.spawn`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/spawn.md) which allows you to write straight forward code manner and can yield not only Observable sequences, but also Promises, Callbacks, Arrays, etc.  This allows you to write your code in a very imperative manner without all the callbacks, but also brings the power of RxJS whether you want to call `timeout`, `retry`, `catch` or any other method for that matter.  Note that this only yields a single value, but in RxJS terms, this is still quite useful.  
+One common complaint of JavaScript is the callback nature to asynchronous behavior.  Luckily, this can be solved quite easily with a library approach.  To that end, we introduce [`Rx.Observable.spawn`](../../observable/observable_methods/spawn.md) which allows you to write straight forward code manner and can yield not only Observable sequences, but also Promises, Callbacks, Arrays, etc.  This allows you to write your code in a very imperative manner without all the callbacks, but also brings the power of RxJS whether you want to call `timeout`, `retry`, `catch` or any other method for that matter.  Note that this only yields a single value, but in RxJS terms, this is still quite useful.  
 
 For example, we could get the HTML from Bing.com and write it to the console, with a timeout of 5 seconds which will throw an error should it not respond in time.  We could also add in things like `retry` and `catch` so that we could for example try three times and then if it fails, give a default response or cached version.
 
@@ -62,7 +62,7 @@ var Rx = require('rx');
 var request = require('request');
 var get = Rx.Observable.fromNodeCallback(request);
 
-Rx.spawn(function* () {
+Rx.Observable.spawn(function* () {
   var data;
   try {
     data = yield get('http://bing.com').timeout(5000 /*ms*/);
@@ -71,7 +71,7 @@ Rx.spawn(function* () {
   } 
 
   console.log(data);
-})();
+}).subscribe();
 ```
 
 ## Mixing Operators with Generators ##

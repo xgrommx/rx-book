@@ -1,7 +1,14 @@
-# merge
+## [`Rx.Observable.merge([scheduler], ...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/merge.js)
 
-`Rx.Observable.merge([scheduler], ...args)`
-<a href="#rxobservablemergescheduler-args">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/merge.js "View in source") 
+{% if book.isPdf %}
+
+![merge](http://reactivex.io/documentation/operators/images/merge.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Merges all the observable sequences and Promises into a single observable sequence.  
 
@@ -15,6 +22,12 @@ Merges all the observable sequences and Promises into a single observable sequen
 #### Example
 
 [](http://jsbin.com/yicit/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -39,3 +52,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/merge.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/merge.js)
+
+{% endif %}

@@ -1,9 +1,14 @@
-# all
+## [`Rx.Observable.prototype.all(predicate, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/every.js)
+
+{% if book.isPdf==true %}
+
+![all](http://reactivex.io/documentation/operators/images/all.png)
+
+{% else %}
 
 <rx-marbles key="every"></rx-marbles>
 
-`Rx.Observable.prototype.all(predicate, [thisArg])`
-<a href="#rxobservableprototypeallpredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/all.js "View in source") 
+{% endif %}
 
 Determines whether all elements of an observable sequence satisfy a condition.  There is an alias for this method called `every`.
 
@@ -14,9 +19,9 @@ Determines whether all elements of an observable sequence satisfy a condition.  
 #### Returns
 *(`Observable`)*: An observable sequence containing a single element determining whether all elements in the source sequence pass the test in the specified predicate.
 
-#### Example
+{% if book.isPdf==true %}
 
-{% if book.isPdf %}
+#### [Example](http://jsbin.com/vabol/1/edit?js,console)
 
 ```js
 var source = Rx.Observable.fromArray([1,2,3,4,5])
@@ -41,9 +46,17 @@ var subscription = source.subscribe(
 
 {% else %}
 
+#### Example
+
 [](http://jsbin.com/vabol/1/embed?js,console)
 
 {% endif %}
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -67,3 +80,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/every.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/every.js)
+
+{% endif %}

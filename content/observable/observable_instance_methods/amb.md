@@ -1,8 +1,14 @@
-# amb
+## [`Rx.Observable.prototype.amb(...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/ambproto.js)
+
+{% if book.isPdf %}
+
+![amb](http://reactivex.io/documentation/operators/images/amb.png)
+
+{% else %}
 
 <rx-marbles key="amb"></rx-marbles>
 
-### `Rx.Observable.amb(...args)` [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/amb.js "View in source")
+{% endif %}
 
 Propagates the observable sequence or Promise that reacts first. "amb" stands for [ambiguous](http://blogs.msdn.com/b/jeffva/archive/2009/11/18/amb-materialize-and-dematerialize.aspx).
 
@@ -15,6 +21,12 @@ Propagates the observable sequence or Promise that reacts first. "amb" stands fo
 #### Example
 
 [](http://jsbin.com/joviwu/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 #### Location
 
@@ -38,3 +50,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/ambproto.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/ambproto.js)
+
+{% endif %}

@@ -1,14 +1,36 @@
-# onCompleted
-
-`Rx.Observer.prototype.onCompleted()`
-<a href="#rxobserverprototypeoncompleted">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.js#L2862-L2872 "View in source") [&#x24C9;][1]
+## [`Rx.Observer.prototype.onCompleted()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/abstractobserver.js#L43)
 
 Notifies the observer of the end of the sequence.
 
-#### Example
+{% if book.isPdf %}
 
-[](http://jsbin.com/yuqade/1/embed?js,console)
+#### [Example](http://jsbin.com/yuqade/2/edit?js,console)
+
+```js
+var observer = Rx.Observer.create(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+observer.onCompleted();
+// => onCompleted
+```
+
+{% else %}
+
+#### Example
+[](http://jsbin.com/yuqade/2/embed?js,console)
+
+{% endif %}
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
 - rx.js
+
+{% endif %}

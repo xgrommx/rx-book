@@ -1,7 +1,4 @@
-# fromEventPattern
-
-`Rx.Observable.fromEventPattern(addHandler, removeHandler, [selector])`
-<a href="#rxobservablefromeventpatternaddhander-removehandler-selector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromeventpattern.js "View in source") 
+## [`Rx.Observable.fromEventPattern(addHandler, removeHandler, [selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromeventpattern.js)
 
 Creates an observable sequence by using the addHandler and removeHandler functions to add and remove the handlers, with an optional selector function to project the event arguments.
 
@@ -88,6 +85,12 @@ e.emit('data', 'foo', 'bar');
 // => Next: foo,bar
 ```
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -114,3 +117,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/fromeventpattern.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/fromeventpattern.js)
+
+{% endif %}

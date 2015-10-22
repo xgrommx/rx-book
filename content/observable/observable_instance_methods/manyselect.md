@@ -1,7 +1,14 @@
-# manySelect
+## [`Rx.Observable.prototype.manySelect(selector, [scheduler])`, `Rx.Observable.prototype.extend(selector, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/manyselect.js)
 
-`Rx.Observable.prototype.manySelect(selector, [scheduler])`
-<a href="#rxobservableprototypemanyselectselector-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L634-L639 "View in source") 
+{% if book.isPdf %}
+
+![manySelect](http://reactivex.io/documentation/operators/images/manySelect.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Comonadic bind operator.
 
@@ -16,6 +23,14 @@ Comonadic bind operator.
 
 [](http://jsbin.com/yaxav/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).experimental.js
+
+{% endif %}

@@ -1,7 +1,14 @@
-# toArray
+## [`Rx.Observable.prototype.toArray()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toarray.js)
 
-`Rx.Observable.prototype.toArray()`
-<a href="#rxobservableprototypetoarray">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toarray.js "View in source") 
+{% if book.isPdf %}
+
+![toArray](http://reactivex.io/documentation/operators/images/toArray.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Creates a list from an observable sequence.
 
@@ -11,6 +18,12 @@ Creates a list from an observable sequence.
 #### Example
 
 [](http://jsbin.com/cobaq/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -35,3 +48,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/toarray.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/toarray.js)
+
+{% endif %}

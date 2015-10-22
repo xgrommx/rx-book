@@ -4,7 +4,7 @@ This topic lists all major operators implemented by the [`Observable`](https://g
 
 ## Operators by Categories ##
 
-<table>
+<table style="display: table">
 
    <th>Usage</th><th>Operators</th>
    <tr>

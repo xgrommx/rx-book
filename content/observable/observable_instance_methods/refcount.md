@@ -1,7 +1,14 @@
-# refCount
+## [`ConnectableObservable.prototype.refCount()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/connectableobservable.js)
 
-`ConnectableObservable.prototype.refCount()`
-<a href="#connectableobservableprototyperefcount">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publish.js "View in source") 
+{% if book.isPdf %}
+
+![refCount](http://reactivex.io/documentation/operators/images/publishRefCount.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an observable sequence that stays connected to the source as long as there is at least one subscription to the observable sequence.
    
@@ -11,6 +18,12 @@ Returns an observable sequence that stays connected to the source as long as the
 #### Example
 
 [](http://jsbin.com/sotos/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -34,3 +47,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/publish.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/publish.js)
+
+{% endif %}

@@ -1,7 +1,14 @@
-# timeoutWithSelector
+## [`Rx.Observable.prototype.timeoutwithselector([firstTimeout], timeoutDurationSelector, [other])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timeoutwithselector.js)
 
-`Rx.Observable.prototype.timeoutwithselector([firstTimeout], timeoutDurationSelector, [other])`
-<a href="#rxobservableprototypetimeoutwithselectorfirsttimeout-timeoutdurationselector-other">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timeoutwithselector.js "View in source") 
+{% if book.isPdf %}
+
+![timeoutWithSelector](http://reactivex.io/documentation/operators/images/timeoutWithSelector3.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns the source observable sequence, switching to the other observable sequence if a timeout is signaled.
 
@@ -27,6 +34,12 @@ Returns the source observable sequence, switching to the other observable sequen
 
 [](http://jsbin.com/cuced/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -46,3 +59,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/timeoutwithselector.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/timeoutwithselector.js)
+
+{% endif %}

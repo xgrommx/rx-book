@@ -1,4 +1,4 @@
 # Notification Instance Methods
 
-- [`accept`](#rxnotificationprototypeacceptobserver--onnext-onerror-oncompleted)
-- [`toObservable`](#rxnotificationprototypetoobservablescheduler)
+- [`accept`](accept.html)
+- [`toObservable`](toobservable.html)

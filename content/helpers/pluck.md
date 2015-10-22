@@ -1,7 +1,4 @@
-# pluck
-
-### <a id="rxhelperspluckproperty"></a>`Rx.helpers.pluck(property)`
-<a href="#rxhelperspluckproperty">#</a>[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/basicheader.js "View in source") [&#x24C9;][1]
+## [`Rx.helpers.pluck(property)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L5)
 
 Plucks a property from the object.
 

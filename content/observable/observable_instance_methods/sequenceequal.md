@@ -1,9 +1,14 @@
-# sequenceEqual
+## [`Rx.Observable.prototype.sequenceEqual(second, [comparer])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sequenceequal.js)
+
+{% if book.isPdf %}
+
+![sequenceEqual](http://reactivex.io/documentation/operators/images/sequenceEqual.png)
+
+{% else %}
 
 <rx-marbles key="sequenceEqual"></rx-marbles>
 
-`Rx.Observable.prototype.sequenceEqual(second, [comparer])`
-<a href="#rxobservableprototypesequenceequalsecond-comparer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sequenceequal.js "View in source") 
+{% endif %}
 
 Determines whether two sequences are equal by comparing the elements pairwise using a specified equality comparer.
 
@@ -17,6 +22,12 @@ Determines whether two sequences are equal by comparing the elements pairwise us
 #### Example
 
 [](http://jsbin.com/feyos/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -37,3 +48,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/sequenceequal.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/sequenceequal.js)
+
+{% endif %}

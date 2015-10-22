@@ -1,9 +1,14 @@
-# findIndex
+## [`Rx.Observable.prototype.findIndex(predicate, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/findindex.js)
+
+{% if book.isPdf %}
+
+![findIndex](http://reactivex.io/documentation/operators/images/findIndex.png)
+
+{% else %}
 
 <rx-marbles key="findIndex"></rx-marbles>
 
-`Rx.Observable.prototype.findIndex(predicate, [thisArg])`
-<a href="#rxobservableprototypefindindexpredicate-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js#L712-L714 "View in source") 
+{% endif %}
 
 Searches for an element that matches the conditions defined by the specified predicate, and returns the first occurrence within the entire Observable sequence.
  
@@ -21,6 +26,14 @@ Searches for an element that matches the conditions defined by the specified pre
 
 [](http://jsbin.com/nodec/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).aggregates.js
+
+{% endif %}

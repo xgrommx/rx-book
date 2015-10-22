@@ -23,11 +23,11 @@ NuGet Dependencies:
 ## Included Observable Operators ##
 
 ## `Observable Instance Methods`
-- [`buffer`](../core_objects/observable/observable_instance_methods/buffer.html)
-- [`groupBy`](../core_objects/observable/observable_instance_methods/groupby.html)
-- [`groupByUntil`](../core_objects/observable/observable_instance_methods/groupbyuntil.html)
-- [`groupJoin`](../core_objects/observable/observable_instance_methods/groupjoin.html)
-- [`join`](../core_objects/observable/observable_instance_methods/join.html)
-- [`pairwise`](../core_objects/observable/observable_instance_methods/pairwise.html)
-- [`partition`](../core_objects/observable/observable_instance_methods/partition.html)
-- [`window`](../core_objects/observable/observable_instance_methods/window.html)
+- [`buffer`](../observable/observable_instance_methods/buffer.html)
+- [`groupBy`](../observable/observable_instance_methods/groupby.html)
+- [`groupByUntil`](../observable/observable_instance_methods/groupbyuntil.html)
+- [`groupJoin`](../observable/observable_instance_methods/groupjoin.html)
+- [`join`](../observable/observable_instance_methods/join.html)
+- [`pairwise`](../observable/observable_instance_methods/pairwise.html)
+- [`partition`](../observable/observable_instance_methods/partition.html)
+- [`window`](../observable/observable_instance_methods/window.html)

@@ -1,7 +1,14 @@
-# groupByUntil
+## [`Rx.Observable.prototype.groupByUntil(keySelector, [elementSelector], durationSelector, [keySerializer])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/groupbyuntil.js)
 
-`Rx.Observable.prototype.groupByUntil(keySelector, [elementSelector], durationSelector, [keySerializer])`
-<a href="#rxobservableprototypegroupbyuntilkeyselector-elementselector-durationselector-keyserializer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L4212-L4301 "View in source") 
+{% if book.isPdf %}
+
+![groupByUntil](http://reactivex.io/documentation/operators/images/groupByUntil.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Groups the elements of an observable sequence according to a specified key selector function and comparer and selects the resulting elements by using a specified function.
 
@@ -20,6 +27,14 @@ If a group's lifetime expires, a new group with the same key value can be create
 
 [](http://jsbin.com/fohafa/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

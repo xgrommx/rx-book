@@ -1,9 +1,14 @@
-# sum
+## [`Rx.Observable.prototype.sum([keySelector], [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sum.js)
+
+{% if book.isPdf %}
+
+![sum](http://reactivex.io/documentation/operators/images/sum.png)
+
+{% else %}
 
 <rx-marbles key="sum"></rx-marbles>
 
-`Rx.Observable.prototype.sum([keySelector], [thisArg])`
-<a href="#rxobservableprototypesumkeyselector-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sum.js "View in source") 
+{% endif %}
 
 Computes the sum of a sequence of values that are obtained by invoking an optional transform function on each element of the input sequence, else if not specified computes the sum on each item in the sequence.
 
@@ -26,6 +31,12 @@ Computes the sum of a sequence of values that are obtained by invoking an option
 
 [](http://jsbin.com/jelice/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -46,3 +57,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/sum.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/sum.js)
+
+{% endif %}

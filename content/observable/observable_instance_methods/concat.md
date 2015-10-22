@@ -1,9 +1,14 @@
-# concat
+## [`Rx.Observable.prototype.concat(...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/concatproto.js)
+
+{% if book.isPdf %}
+
+![concat](http://reactivex.io/documentation/operators/images/concat.png)
+
+{% else %}
 
 <rx-marbles key="concat"></rx-marbles>
 
-`Rx.Observable.prototype.concat(...args)`
-<a href="#rxobservableprototypeconcatargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3223-L3227 "View in source") 
+{% endif %}
 
 Concatenates all the observable sequences.  This takes in either an array or variable arguments to concatenate.
 
@@ -17,6 +22,14 @@ Concatenates all the observable sequences.  This takes in either an array or var
 
 [](http://jsbin.com/coyapo/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

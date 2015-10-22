@@ -1,7 +1,14 @@
-# dematerialize
+## [`Rx.Observable.prototype.dematerialize()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/dematerialize.js)
 
-`Rx.Observable.prototype.dematerialize()`
-<a href="#rxobservableprototypedematerialize">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3711-L3718 "View in source") 
+{% if book.isPdf %}
+
+![dematerialize](http://reactivex.io/documentation/operators/images/dematerialize.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Dematerializes the explicit notification values of an observable sequence as implicit notifications.
 
@@ -12,6 +19,14 @@ Dematerializes the explicit notification values of an observable sequence as imp
 
 [](http://jsbin.com/yusem/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

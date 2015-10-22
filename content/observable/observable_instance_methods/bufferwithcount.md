@@ -1,7 +1,14 @@
-# bufferWithCount
+## [`Rx.Observable.prototype.bufferWithCount(count, [skip])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/bufferwithcount.js)
 
-`Rx.Observable.prototype.bufferWithCount(count, [skip])`
-<a href="#rxobservableprototypebufferwithcountcount-skip">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3694-L3703 "View in source") 
+{% if book.isPdf %}
+
+![bufferWithCount](http://reactivex.io/documentation/operators/images/bufferWithCount3.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Projects each element of an observable sequence into zero or more buffers which are produced based on element count information.
 
@@ -21,6 +28,12 @@ Projects each element of an observable sequence into zero or more buffers which 
 ##### Using a skip
 
 [](http://jsbin.com/vewabo/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -47,3 +60,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/bufferwithcount.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/bufferwithcount.js)
+
+{% endif %}

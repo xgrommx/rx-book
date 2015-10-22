@@ -1,7 +1,14 @@
-# singleOrDefault
+## [`Rx.Observable.prototype.singleOrDefault(predicate, [defaultValue], [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/singleordefault.js)
 
-`Rx.Observable.prototype.singleOrDefault(predicate, [defaultValue], [thisArg])`
-<a href="#rxobservableprototypesingleordefaultpredicate-defaultvalue-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/singleordefault.js "View in source") 
+{% if book.isPdf %}
+
+![singleOrDefault](http://reactivex.io/documentation/operators/images/singleOrDefault.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns the first element of an observable sequence that satisfies the condition in the predicate, or a default value if no such element exists.
 
@@ -26,6 +33,12 @@ Returns the first element of an observable sequence that satisfies the condition
 
 [](http://jsbin.com/giqun/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -45,3 +58,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/singleordefault.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/singleordefault.js)
+
+{% endif %}

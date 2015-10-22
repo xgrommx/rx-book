@@ -1,9 +1,14 @@
-# max
+## [`Rx.Observable.prototype.max([comparer])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/max.js)
+
+{% if book.isPdf %}
+
+![max](http://reactivex.io/documentation/operators/images/max.png)
+
+{% else %}
 
 <rx-marbles key="max"></rx-marbles>
 
-`Rx.Observable.prototype.max([comparer])`
-<a href="#rxobservableprototypemaxcomparer">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/max.js "View in source") 
+{% endif %}
 
 Returns the maximum value in an observable sequence according to the specified comparer.
 
@@ -22,6 +27,12 @@ Returns the maximum value in an observable sequence according to the specified c
 ##### With a comparer
 
 [](http://jsbin.com/kejay/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -42,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/max.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/max.js)
+
+{% endif %}

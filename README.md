@@ -9,7 +9,7 @@ Reactive Extensions represents all these data sequences as observable sequences.
 RxJS has no dependencies which complements and interoperates smoothly with both synchronous data streams such as iterable objects in JavaScript and single-value asynchronous computations such as Promises as the following diagram shows:
 
 <center>
-<table>
+<table style="display: table">
     <thead>
         <tr>
             <th></th>
@@ -37,7 +37,7 @@ To put it more concretely, if you know how to program against Arrays using the A
 <center>
 <h3>Example code showing how similar high-order functions can be applied to an Array and an Observable</h3>
 
-<table>
+<table style="display: table">
     <thead>
         <tr>
             <th style="text-align:center;" colspan="2">Iterable</th>
@@ -50,9 +50,9 @@ To put it more concretely, if you know how to program against Arrays using the A
                 <pre>
 <code>
 getDataFromLocalMemory()
-    .filter (function (s) { return s != null; })
-    .map( function (s) { return s + 'transformed'; })
-    .forEach(function (s) { console.log('next => ' + s); })
+    .filter (s => s != null)
+    .map(s => `${s} transformed`)
+    .forEach(s => console.log(`next => ${s}`))
 </code>
                 </pre>
             </td>
@@ -60,9 +60,9 @@ getDataFromLocalMemory()
                 <pre>
 <code>
 getDataFromNetwork()
-    .filter (function (s) { return s != null; })
-    .map( function (s) { return s + 'transformed'; })
-    .subscribe(function (s) { console.log('next => ' + s); })
+    .filter (s => s != null)
+    .map(s => `${s} transformed`)
+    .subscribe(s => console.log(`next => ${s}`))
 </code>
                 </pre>
             </td>

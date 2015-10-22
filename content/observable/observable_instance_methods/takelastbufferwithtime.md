@@ -1,7 +1,14 @@
-# takeLastBufferWithTime
+## [`Rx.Observable.prototype.takeLastBufferWithTime(duration, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takelastbufferwithtime.js)
 
-`Rx.Observable.prototype.takeLastBufferWithTime(duration, [scheduler])`
-<a href="#rxobservableprototypetakelastbufferwithtimeduration-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takelastbufferwithtime.js "View in source") 
+{% if book.isPdf %}
+
+![takeLastBufferWithTime](http://reactivex.io/documentation/operators/images/takeLastBufferWithTime.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an array with the elements within the specified duration from the end of the observable source sequence, using the specified scheduler to run timers.
 
@@ -17,6 +24,12 @@ This operator accumulates a queue with a length enough to store elements receive
 #### Example
 
 [](http://jsbin.com/komepa/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -37,3 +50,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/takelastbufferwithtime.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/takelastbufferwithtime.js)
+
+{% endif %}

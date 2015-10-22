@@ -1,7 +1,14 @@
-# selectMany
+## [`Rx.Observable.prototype.selectMany(selector, [resultSelector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectmany.js)
 
-`Rx.Observable.prototype.selectMany(selector, [resultSelector])`
-<a href="#rxobservableprototypeselectmanyselector-resultselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/selectmany.js "View in source") 
+{% if book.isPdf %}
+
+![flatMap](http://reactivex.io/documentation/operators/images/flatMap.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 One of the following:
 
@@ -43,6 +50,12 @@ source.selectMany(Promise.resolve(42));
 
 [](http://jsbin.com/zocine/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -64,3 +77,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/selectmany.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/selectmany.js)
+
+{% endif %}

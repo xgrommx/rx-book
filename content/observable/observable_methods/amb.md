@@ -1,16 +1,14 @@
-# amb
+## [`Rx.Observable.amb(...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/amb.js) 
 
-{% if book.isPdf %}
+{% if book.isPdf==true %}
 
-![amb](../../images/amb.png)
+![amb](http://reactivex.io/documentation/operators/images/amb.png)
 
 {% else %}
 
 <rx-marbles key="amb"></rx-marbles>
 
 {% endif %}
-`Rx.Observable.amb(...args)`
-<a href="#rxobservableambargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/amb.js "View in source")
 
 Propagates the observable sequence or Promise that reacts first.
 
@@ -22,12 +20,11 @@ Propagates the observable sequence or Promise that reacts first.
 
 #### Example
 
-##### Using Observable sequences
+{% if book.isPdf==true %}
 
-{% if book.isPdf %}
+##### [Using Observable sequences](http://jsbin.com/vanaci/3/edit?js,console)
 
 ```js
-/* Using Observable sequences */
 var source = Rx.Observable.amb(
     Rx.Observable.timer(500).select(() => 'foo'),
     Rx.Observable.timer(200).select(() => 'bar')
@@ -42,18 +39,9 @@ var subscription = source.subscribe(
 // => onCompleted 
 ```
 
-{% else %}
-
-[](http://jsbin.com/vanaci/2/embed?js,console)
-
-{% endif %}
-
-##### Using Promises and Observables
-
-{% if book.isPdf %}
+##### [Using Promises and Observables](http://jsbin.com/bukag/2/edit?js,console)
 
 ```js
-/* Using Promises and Observables */
 var source = Rx.Observable.amb(
     RSVP.Promise.resolve('foo'),
     Rx.Observable.timer(200).select(() => 'bar')
@@ -70,9 +58,19 @@ var subscription = source.subscribe(
 
 {% else %}
 
+##### Using Observable sequences
+[](http://jsbin.com/vanaci/3/embed?js,console)
+
+##### Using Promises and Observables
 [](http://jsbin.com/bukag/2/embed?js,console)
 
 {% endif %}
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -94,3 +92,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/ambproto.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/ambproto.js)
+
+{% endif %}

@@ -1,7 +1,4 @@
-# pairwise
-
-`Rx.Observable.prototype.pairwise()`
-[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/pairwise.js "View in source")
+## [`Rx.Observable.prototype.pairwise()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/pairwise.js)
 
 Triggers on the second and subsequent triggerings of the input observable. The Nth triggering of the input observable passes the arguments from the N-1th and Nth triggering as a pair.
 
@@ -11,6 +8,12 @@ Triggers on the second and subsequent triggerings of the input observable. The N
 #### Example
 
 [](http://jsbin.com/yovebu/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -31,3 +34,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/pairwise.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/pairwise.js)
+
+{% endif %}

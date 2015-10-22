@@ -1,7 +1,14 @@
-# multicast
+## [`Rx.Observable.prototype.multicast(subject | subjectSelector, [selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/multicast.js)
 
-`Rx.Observable.prototype.multicast(subject | subjectSelector, [selector])`
-<a href="#rxobservableprototypemulticastsubject--subjectselector-selector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/multicast.js "View in source") 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
+
+
+{% endif %}
 
 Multicasts the source sequence notifications through an instantiated subject into all uses of the sequence within a selector function. Each
 subscription to the resulting sequence causes a separate multicast invocation, exposing the sequence resulting from the selector function's
@@ -18,6 +25,12 @@ invocation. For specializations with fixed subject types, see `publish`, `share`
 #### Example
 
 [](http://jsbin.com/javay/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -42,3 +55,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/multicast.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/multicast.js)
+
+{% endif %}

@@ -9,7 +9,7 @@
         "ga",
         "toggle-chapters"
     ],
-    "theme": "theme",
+    "theme": "theme2",
     "pluginsConfig": {
         "fontSettings": {
             "theme": "white",
@@ -20,6 +20,6 @@
         }
     },
     "variables": {
-        "isPdf": true
+        "isPdf": false
     }
 }

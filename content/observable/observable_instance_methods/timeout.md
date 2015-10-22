@@ -1,7 +1,14 @@
-# timeout
+## [`Rx.Observable.prototype.timeout(dueTime, [other], [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timeout.js)
 
-`Rx.Observable.prototype.timeout(dueTime, [other], [scheduler])`
-<a href="#rxobservableprototypetimeoutduetime-other-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timeout.js "View in source") 
+{% if book.isPdf %}
+
+![timeout](http://reactivex.io/documentation/operators/images/timeout.1.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns the source observable sequence or the other observable sequence if dueTime elapses.
 
@@ -23,6 +30,12 @@ Returns the source observable sequence or the other observable sequence if dueTi
 
 [](http://jsbin.com/lobar/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -42,3 +55,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/timeout.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/timeout.js)
+
+{% endif %}

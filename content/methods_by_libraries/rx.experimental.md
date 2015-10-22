@@ -24,16 +24,16 @@ NuGet Dependencies:
 ## Included Observable Operators ##
 
 ### `Observable Methods`
-- [`case | switchCase`](../core_objects/observable/observable_methods/case.html)
-- [`for | forIn`](../core_objects/observable/observable_methods/for.html)
-- [`forkJoin`](../core_objects/observable/observable_methods/forkjoin.html)
-- [`if | ifThen`](../core_objects/observable/observable_methods/if.html)
-- [`while | whileDo`](../core_objects/observable/observable_methods/while.html)
+- [`case | switchCase`](../observable/observable_methods/case.html)
+- [`for | forIn`](../observable/observable_methods/for.html)
+- [`forkJoin`](../observable/observable_methods/forkjoin.html)
+- [`if | ifThen`](../observable/observable_methods/if.html)
+- [`while | whileDo`](../observable/observable_methods/while.html)
 
 ### `Observable Instance Methods`
-- [`doWhile`](../core_objects/observable/observable_instance_methods/dowhile.html)
-- [`expand`](../core_objects/observable/observable_instance_methods/expand.html)
-- [`extend`](../core_objects/observable/observable_instance_methods/manyselect.html)
-- [`forkJoin`](../core_objects/observable/observable_instance_methods/forkjoin.html)
-- [`let | letBind`](../core_objects/observable/observable_instance_methods/let.html)
-- [`manySelect`](../core_objects/observable/observable_instance_methods/manyselect.html)
+- [`doWhile`](../observable/observable_instance_methods/dowhile.html)
+- [`expand`](../observable/observable_instance_methods/expand.html)
+- [`extend`](../observable/observable_instance_methods/manyselect.html)
+- [`forkJoin`](../observable/observable_instance_methods/forkjoin.html)
+- [`let | letBind`](../observable/observable_instance_methods/let.html)
+- [`manySelect`](../observable/observable_instance_methods/manyselect.html)

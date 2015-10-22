@@ -1,9 +1,14 @@
-# sample
+## [`Rx.Observable.prototype.sample(interval | sampleObservable)`, `Rx.Observable.prototype.throttleLatest(interval | sampleObservable)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sample.js)
+
+{% if book.isPdf %}
+
+![sample](http://reactivex.io/documentation/operators/images/sample.png)
+
+{% else %}
 
 <rx-marbles key="sample"></rx-marbles>
 
-`Rx.Observable.prototype.sample(interval | sampleObservable)`
-<a href="#rxobservableprototypesampleinterval--sampleobservable">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sample.js "View in source") 
+{% endif %}
 
 Samples the observable sequence at each interval.
 
@@ -24,6 +29,12 @@ Samples the observable sequence at each interval.
 ##### With a sampler
 
 [](http://jsbin.com/bezex/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -48,3 +59,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/sample.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/sample.js)
+
+{% endif %}

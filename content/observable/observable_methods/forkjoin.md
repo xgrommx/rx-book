@@ -1,11 +1,15 @@
-# forkJoin
+## [`Rx.Observable.forkJoin(...args)`]()
 
-`Rx.Observable.forkJoin(...args)`
-<a href="#rxobservableforkjoinargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/forkjoin.js "View in source")
+{% if book.isPdf %}
+
+![forkJoin](http://reactivex.io/documentation/operators/images/forkJoin.png)
+
+{% else %}
+
+
+{% endif %}
 
 Runs all observable sequences in parallel and collect their last elements.
-
-![forkJoin](https://github.com/Netflix/RxJava/wiki/images/rx-operators/forkJoin.png)
 
 #### Arguments
 1. `args` *(Arguments | Array)*: An array or arguments of Observable sequences or Promises to collect the last elements for.
@@ -13,9 +17,41 @@ Runs all observable sequences in parallel and collect their last elements.
 #### Returns
 *(`Observable`)*: An observable sequence with an array collecting the last elements of all the input sequences.
 
+{% if book.isPdf %}
+
+#### [Example](http://jsbin.com/sudura/2/edit?js,console)
+
+```js
+/* Using observables and Promises */
+var source = Rx.Observable.forkJoin(
+    Rx.Observable.return(42),
+    Rx.Observable.range(0, 10),
+    Rx.Observable.fromArray([1,2,3]),
+    RSVP.Promise.resolve(56)
+);
+
+var subscription = source.subscribe(
+  x => console.log(`onNext: ${x}`),
+  e => console.log(`onError: ${e}`),
+  () => console.log('onCompleted'));
+
+// => onNext: [42, 9, 3, 56]
+// => onCompleted
+```
+
+{% else %}
+
 #### Example
 
-[](http://jsbin.com/sudura/1/embed?js,console)
+[](http://jsbin.com/sudura/2/embed?js,console)
+
+{% endif %}
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -39,3 +75,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/forkjoin.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/forkjoin.js)
+
+{% endif %}

@@ -1,11 +1,20 @@
-# flatMapLatest
+## [`Rx.Observable.prototype.flatMapLatest(selector, [thisArg])`,
+    `Rx.Observable.prototype.switchMap(selector, [thisArg])`,
+    `Rx.Observable.prototype.selectSwitch(selector, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectswitch.js)
 
-`Rx.Observable.prototype.flatMapLatest(selector, [thisArg])`
-<a href="#rxobservableprototypeflatmplatestaselector-thisArg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/flatmaplatest.js "View in source") 
+{% if book.isPdf %}
 
-This is an alias for the `selectSwitch` method.
+![flatMapLatest](http://reactivex.io/documentation/operators/images/flatMapLatest.png)
 
- Projects each element of an observable sequence into a new sequence of observable sequences by incorporating the element's index and then transforms an observable sequence of observable sequences into an observable sequence producing values only from the most recent observable sequence.
+{% else %}
+
+
+
+{% endif %}
+
+Transform the items emitted by an Observable into Observables, and mirror those items emitted by the most-recently transformed Observable.
+
+The `flatMapLatest` operator is similar to the `flatMap` and `concatMap` methods described above, however, rather than emitting all of the items emitted by all of the Observables that the operator generates by transforming items from the source `Observable`, `switchMap` instead emits items from each such transformed `Observable` only until the next such `Observable` is emitted, then it ignores the previous one and begins emitting items emitted by the new one.
 
 #### Arguments
 1. `selector` *(`Function`)*:  A transform function to apply to each source element.  The callback has the following information:
@@ -13,24 +22,54 @@ This is an alias for the `selectSwitch` method.
     2. the index of the element
     3. the Observable object being subscribed
 2. `[thisArg]` *(`Any`)*: Object to use as `this` when executing the predicate.
- 
+
 #### Returns
-*(`Observable`)*: An observable sequence whose elements are the result of invoking the transform function on each element of source producing an Observable of Observable sequences and that at any point in time produces the elements of the most recent inner observable sequence that has been received.    
+*(`Observable`)*: An observable sequence which transforms the items emitted by an Observable into Observables, and mirror those items emitted by the most-recently transformed Observable.
 
 #### Example
+```js
+var source = Rx.Observable
+  .range(1, 3)
+  .flatMapLatest(function(x) {
+    return Rx.Observable.from([x + 'a', x + 'b']);
+  });
 
-[](http://jsbin.com/vigofe/1/embed?js,console)
+var subscription = source.subscribe(
+  function (x) {
+    console.log('Next: %s', x);
+  },
+  function (err) {
+    console.log('Error: %s', err);
+  },
+  function () {
+    console.log('Completed');
+  });
+
+// Next: 1a
+// Next: 2a
+// Next: 3a
+// Next: 3b
+// Completed
+```
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
 File:
-- [`/src/core/observable/flatmaplatest.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/flatmaplatest.js)
+- [`/src/core/linq/observable/selectswitch.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectswitch.js)
 
 Dist:
+- [`rx.all.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js)
+- [`rx.all.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js)
 - [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js)
 - [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
+- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js)
+- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js)
 
 Prerequisites:
 - None
@@ -39,8 +78,11 @@ NPM Packages:
 - [`rx`](https://www.npmjs.org/package/rx)
 
 NuGet Packages:
+- [`RxJS-All`](http://www.nuget.org/packages/RxJS-All/)
 - [`RxJS-Main`](http://www.nuget.org/packages/RxJS-Main/)
 - [`RxJS-Lite`](http://www.nuget.org/packages/RxJS-Lite/)
 
 Unit Tests:
 - [`/tests/observable/flatmaplatest.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/flatmaplatest.js)
+
+{% endif %}

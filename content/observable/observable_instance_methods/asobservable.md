@@ -1,7 +1,4 @@
-# asObservable
-
-`Rx.Observable.prototype.asObservable()`
-<a href="#rxobservableprototypeasobservable">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3675-L3680 "View in source") 
+## [`Rx.Observable.prototype.asObservable()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/asobservable.js)
 
 Hides the identity of an observable sequence.
 
@@ -14,6 +11,12 @@ Hides the identity of an observable sequence.
 #### Example
 
 [](http://jsbin.com/nirudu/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 #### Location
 
@@ -36,3 +39,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/asobservable.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/asobservable.js)
+
+{% endif %}

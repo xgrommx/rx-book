@@ -1,7 +1,15 @@
-# fromNodeCallback
+## [`Rx.Observable.fromNodeCallback(func, [scheduler], [context], [selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromnodecallback.js)
 
-`Rx.Observable.fromNodeCallback(func, [scheduler], [context], [selector])`
-<a href="#rxobservablefromnodecallbackfunc-scheduler-context-selector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromnodecallback.js "View in source") 
+{% if book.isPdf %}
+
+![fromNodeCallback](http://reactivex.io/documentation/operators/images/fromNodeCallback.png)
+
+{% else %}
+
+
+
+{% endif %}
+
 
 Converts a Node.js callback style function to an observable sequence.  This must be in function (err, ...) format.
 
@@ -40,6 +48,12 @@ var subscription = source.subscribe(
 // => Completed
 ```
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -66,3 +80,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/fromnodecallback.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/fromnodecallback.js)
+
+{% endif %}

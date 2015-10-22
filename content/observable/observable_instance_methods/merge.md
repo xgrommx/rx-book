@@ -1,9 +1,14 @@
-# merge
+## [`Rx.Observable.prototype.merge(maxConcurrent | other)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergeproto.js)
+
+{% if book.isPdf %}
+
+![merge](http://reactivex.io/documentation/operators/images/merge.png)
+
+{% else %}
 
 <rx-marbles key="merge"></rx-marbles>
 
-`Rx.Observable.prototype.merge(maxConcurrent | other)`
-<a href="#rxobservableprototypemergemaxconcurrent--other">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergeproto.js "View in source") 
+{% endif %}
 
 Merges an observable sequence of observable sequences into an observable sequence, limiting the number of concurrent subscriptions to inner sequences.
 Or merges two observable sequences into a single observable sequence.
@@ -24,6 +29,12 @@ Or merges two observable sequences into a single observable sequence.
 #### Use max concurrency
 
 [](http://jsbin.com/tehod/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -48,3 +59,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/mergeproto.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/mergeproto.js)
+
+{% endif %}

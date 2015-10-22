@@ -1,7 +1,14 @@
-# finally | finallyAction
+## [`Rx.Observable.prototype.finally(action)`, `Rx.Observable.prototype.ensure(action)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/finally.js)
 
-`Rx.Observable.prototype.finally(action)`
-<a href="#rxobservableprototypefinallyaction">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js#L3832-L3846 "View in source") 
+{% if book.isPdf %}
+
+![finally](http://reactivex.io/documentation/operators/images/finally.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Invokes a specified action after the source observable sequence terminates gracefully or exceptionally.  There is an alias called `finallyAction` for browsers <IE9
 
@@ -19,6 +26,14 @@ Invokes a specified action after the source observable sequence terminates grace
 
 [](http://jsbin.com/woture/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx)
+
+{% endif %}

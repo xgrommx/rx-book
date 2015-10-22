@@ -1,9 +1,14 @@
-# delayWithSelector
+## [`Rx.Observable.delayWithSelector([subscriptionDelay], delayDurationSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/delaywithselector.js)
+
+{% if book.isPdf %}
+
+![delayWithSelector](http://reactivex.io/documentation/operators/images/delayWithSelector.png)
+
+{% else %}
 
 <rx-marbles key="delayWithSelector"></rx-marbles>
 
-`Rx.Observable.delayWithSelector.delay([subscriptionDelay], delayDurationSelector)`
-<a href="#rxobservabledelaywithselectordelaysubscriptiondelay-delaydurationselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js#L832-L882 "View in source") 
+{% endif %}
 
 Time shifts the observable sequence by dueTime. The relative time intervals between the values are preserved.
 
@@ -24,6 +29,14 @@ Time shifts the observable sequence by dueTime. The relative time intervals betw
 
 [](http://jsbin.com/soheg/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).time.js
+
+{% endif %}

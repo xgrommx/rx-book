@@ -1,7 +1,14 @@
-# timeInterval
+## [`Rx.Observable.prototype.timeInterval([scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timeinterval.js)
 
-`Rx.Observable.prototype.timeInterval([scheduler])`
-<a href="#rxobservableprototypetimeintervalscheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timeinterval.js "View in source") 
+{% if book.isPdf %}
+
+![timeInterval](http://reactivex.io/documentation/operators/images/timeInterval.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Records the time interval between consecutive values in an observable sequence.
 
@@ -14,6 +21,12 @@ Records the time interval between consecutive values in an observable sequence.
 #### Example
 
 [](http://jsbin.com/ragoq/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -34,3 +47,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/timeinterval.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/timeinterval.js)
+
+{% endif %}

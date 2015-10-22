@@ -1,7 +1,14 @@
-# select
+## [`Rx.Observable.prototype.select(selector, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/select.js)
 
-`Rx.Observable.prototype.select(selector, [thisArg])`
-<a href="#rxobservableprototypeselectselector-thisarg">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/select.js "View in source") 
+{% if book.isPdf %}
+
+![map](http://reactivex.io/documentation/operators/images/map.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Projects each element of an observable sequence into a new form by incorporating the element's index.  This is an alias for the `map` method.
 
@@ -18,6 +25,12 @@ Projects each element of an observable sequence into a new form by incorporating
 #### Example
 
 [](http://jsbin.com/ribev/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -42,3 +55,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/select.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/select.js)
+
+{% endif %}

@@ -1,7 +1,14 @@
-# if | ifThen
+## [`Rx.Observable.if(condition, thenSource, [elseSource])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/if.js)
 
-`Rx.Observable.if(condition, thenSource, [elseSource])`
-<a href="#rxobservableifcondition-thensource-elsesource">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/if.js "View in source") 
+{% if book.isPdf %}
+
+![if](http://reactivex.io/documentation/operators/images/if.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Determines whether an observable collection contains values. There is an alias for this method called `ifThen` for browsers <IE9
 
@@ -22,6 +29,12 @@ Determines whether an observable collection contains values. There is an alias f
 ##### The next example uses an elseSource
 
 [](http://jsbin.com/fegak/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -45,3 +58,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/if.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/if.js)
+
+{% endif %}

@@ -1,9 +1,14 @@
-# skipLast
+## [`Rx.Observable.prototype.skipLast(count)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skiplast.js)
+
+{% if book.isPdf %}
+
+![skipLast](http://reactivex.io/documentation/operators/images/skipLast.png)
+
+{% else %}
 
 <rx-marbles key="skipLast"></rx-marbles>
 
-`Rx.Observable.prototype.skipLast(count)`
-<a href="#rxobservableprototypeskiplastcount">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skiplast.js "View in source") 
+{% endif %}
 
 Bypasses a specified number of elements at the end of an observable sequence.
 
@@ -18,6 +23,12 @@ This operator accumulates a queue with a length enough to store the first `count
 #### Example
 
 [](http://jsbin.com/dawusu/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -42,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/skiplast.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/skiplast.js)
+
+{% endif %}

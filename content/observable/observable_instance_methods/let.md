@@ -1,7 +1,14 @@
-# let | letBind
+## [`Rx.Observable.prototype.let(func)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/let.js)
 
-`Rx.Observable.prototype.let(func)`
-<a href="#rxobservableprototypeletfunc">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.experimental.js#L76-L78 "View in source") 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an observable sequence that is the result of invoking the selector on the source sequence, without sharing subscriptions.
 
@@ -17,6 +24,14 @@ This operator allows for a fluent style of writing queries that use the same seq
 
 [](http://jsbin.com/jetido/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 #### Location
 
 - [`rx`](https://www.npmjs.org/package/rx).experimental.js
+
+{% endif %}

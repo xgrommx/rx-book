@@ -1,7 +1,4 @@
-# identity
-
-### <a id="rxhelpersidentityx"></a>`Rx.helpers.identity(x)`
-<a href="#rxhelpersidentityx">#</a>[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/basicheader.js "View in source") [&#x24C9;][1]
+## [`Rx.helpers.identity(x)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L4)
 
 A function which returns its value unmodified.
 

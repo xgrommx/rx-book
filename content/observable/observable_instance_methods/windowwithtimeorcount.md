@@ -1,7 +1,14 @@
-# windowWithTimeOrCount
+## [`Rx.Observable.prototype.windowWithTimeOrCount(timeSpan, count, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/windowwithtimeorcount.js)
 
-`Rx.Observable.prototype.windowWithTimeOrCount(timeSpan, count, [scheduler])`
-<a href="#rxobservableprototypewindowwithtimeorcounttimespan-count-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/windowwithtimeorcount.js "View in source") 
+{% if book.isPdf %}
+
+![windowWithTimeOrCount](http://reactivex.io/documentation/operators/images/windowWithTimeOrCount6.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Projects each element of an observable sequence into a window that is completed when either it's full or a given amount of time has elapsed.
 
@@ -16,6 +23,12 @@ Projects each element of an observable sequence into a window that is completed 
 #### Example
 
 [](http://jsbin.com/yorom/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -36,3 +49,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/windowwithtimeorcount.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/windowwithtimeorcount.js)
+
+{% endif %}

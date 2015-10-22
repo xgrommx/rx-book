@@ -24,17 +24,17 @@ NuGet Dependencies:
 ## Included Observable Operators ##
 
 ### `Observable Instance Methods`
-- [`connect`](../core_objects/observable/observable_instance_methods/connect.html)
-- [`publish`](../core_objects/observable/observable_instance_methods/publish.html)
-- [`publishLast`](../core_objects/observable/observable_instance_methods/publishlast.html)
-- [`publishValue`](../core_objects/observable/observable_instance_methods/publishvalue.html)
-- [`refCount`](../core_objects/observable/observable_instance_methods/refcount.html)
-- [`replay`](../core_objects/observable/observable_instance_methods/replay.html)
-- [`share`](../core_objects/observable/observable_instance_methods/share.html)
-- [`shareLast`](../core_objects/observable/observable_instance_methods/sharelast.html)
-- [`shareReplay`](../core_objects/observable/observable_instance_methods/sharereplay.html)
-- [`shareValue`](../core_objects/observable/observable_instance_methods/sharevalue.html)
-- [`singleInstance`](../core_objects/observable/observable_instance_methods/singleinstance.html)
+- [`connect`](../observable/observable_instance_methods/connect.html)
+- [`publish`](../observable/observable_instance_methods/publish.html)
+- [`publishLast`](../observable/observable_instance_methods/publishlast.html)
+- [`publishValue`](../observable/observable_instance_methods/publishvalue.html)
+- [`refCount`](../observable/observable_instance_methods/refcount.html)
+- [`replay`](../observable/observable_instance_methods/replay.html)
+- [`share`](../observable/observable_instance_methods/share.html)
+- [`shareLast`](../observable/observable_instance_methods/sharelast.html)
+- [`shareReplay`](../observable/observable_instance_methods/sharereplay.html)
+- [`shareValue`](../observable/observable_instance_methods/sharevalue.html)
+- [`singleInstance`](../observable/observable_instance_methods/singleinstance.html)
 
 ## Included Classes ##
 

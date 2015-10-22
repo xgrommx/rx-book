@@ -1,7 +1,14 @@
-# range
+## [`Rx.Observable.range(start, count, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/range.js)
 
-`Rx.Observable.range(start, count, [scheduler])`
-<a href="#rxobservablerangestart-count-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/range.js "View in source") 
+{% if book.isPdf %}
+
+![range](http://reactivex.io/documentation/operators/images/range.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Generates an observable sequence of integral numbers within a specified range, using the specified scheduler to send out observer messages.
 
@@ -16,6 +23,12 @@ Generates an observable sequence of integral numbers within a specified range, u
 #### Example
 
 [](http://jsbin.com/bapay/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/range.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/range.js)
+
+{% endif %}

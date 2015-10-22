@@ -1,7 +1,14 @@
-# startAsync
+## [`Rx.Observable.startAsync(functionAsync)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/startasync.js)
 
-`Rx.Observable.startAsync(functionAsync)`
-<a href="#rxobservablestartasyncfunctionasync">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/startasync.js "View in source") 
+{% if book.isPdf %}
+
+![startAsync](http://reactivex.io/documentation/operators/images/startAsync.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Invokes the asynchronous function, surfacing the result through an observable sequence.
 
@@ -14,6 +21,12 @@ Invokes the asynchronous function, surfacing the result through an observable se
 #### Example
 
 [](http://jsbin.com/jucoh/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/startasync.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/startasync.js)
+
+{% endif %}

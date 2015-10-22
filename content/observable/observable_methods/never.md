@@ -1,7 +1,14 @@
-# never
+## [`Rx.Observable.never()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/never.js)
 
-`Rx.Observable.never()`
-<a href="#rxobservablenever">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/never.js "View in source") 
+{% if book.isPdf %}
+
+![never](http://reactivex.io/documentation/operators/images/never.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns a non-terminating observable sequence, which can be used to denote an infinite duration (e.g. when using reactive joins). 
 
@@ -11,6 +18,12 @@ Returns a non-terminating observable sequence, which can be used to denote an in
 #### Example
 
 [](http://jsbin.com/nuyawe/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -35,3 +48,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/never.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/never.js)
+
+{% endif %}

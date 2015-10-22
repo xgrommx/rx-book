@@ -1,11 +1,16 @@
-# when
+## [`Rx.Observable.when(...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/when.js)
 
-`Rx.Observable.when(...args)`
-<a href="#rxobservablewhenargs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/when.js "View in source") 
+{% if book.isPdf %}
+
+![when](http://reactivex.io/documentation/operators/images/and_then_when.C.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 A series of plans (specified as an Array of as a series of arguments) created by use of the Then operator on patterns.
-
-![when](https://github.com/Netflix/RxJava/wiki/images/rx-operators/and_then_when.png)
 
 ### Arguments
 1. `args` *(arguments|Array)*: A series of plans (specified as an Array of as a series of arguments) created by use of the then operator on patterns.
@@ -16,6 +21,12 @@ A series of plans (specified as an Array of as a series of arguments) created by
 #### Example
 
 [](http://jsbin.com/vobuh/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -37,3 +48,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/when.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/when.js)
+
+{% endif %}

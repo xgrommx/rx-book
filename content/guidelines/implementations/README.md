@@ -7,34 +7,32 @@ Many operations can be composed from existing operators. This will lead to small
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.flatMap = function (selector) {
-  return this.map(selector).mergeAll();
-};
+Rx.Observable.prototype.flatMap = selector => this.map(selector).mergeAll();
 ```
 
-In this sample, the `flatMap` operator uses two existing operators: [`map`](../../core_objects/observable/observable_instance_methods/map.md) and [`mergeAll`](../../core_objects/observable/observable_instance_methods/mergeall.md). The [`map`](../../core_objects/observable/observable_instance_methods/map.md) operator already deals with any issues around the selector function throwing an exception. The [`mergeAll`](../../core_objects/observable/observable_instance_methods/mergeall.md) operator already deals with concurrency issues of multiple observable sequences firing at the same time.
+In this sample, the `flatMap` operator uses two existing operators: [`map`](../../observable/observable_instance_methods/map.html) and [`mergeAll`](../../observable/observable_instance_methods/mergeall.html). The [`map`](../../observable/observable_instance_methods/map.html) operator already deals with any issues around the selector function throwing an exception. The [`mergeAll`](../../observable/observable_instance_methods/mergeall.html) operator already deals with concurrency issues of multiple observable sequences firing at the same time.
 
 #### When to ignore this guideline ####
 
 - No appropriate set of base operators is available to implement this operator.
-- Performance analysis proves that the implementation using existing operators has performance issues.  Such can be caused by [`materialize`](../../core_objects/observable/observable_instance_methods/materialize.md).
+- Performance analysis proves that the implementation using existing operators has performance issues.  Such can be caused by [`materialize`](../../observable/observable_instance_methods/materialize.html).
 
-### Implement custom operators using [`Observable.create`](../../core_objects/observable/observable_methods/create.md) ###
+### Implement custom operators using [`Observable.create`](../../observable/observable_methods/create.html) ###
 
 When it is not possible to follow guideline 5.1, use the Observable.Create(WithDisposable) method to create an observable sequence as it provides several protections make the observable sequence follow the RxJS contract.
 
-- When the observable sequence has finished (either by firing [`onError`](../../core_objects/observer/observer_instance_methods/onerror.md) or [`onCompleted`](../../core_objects/observer/observer_instance_methods/oncompleted.md)), any subscription will automatically be unsubscribed.
+- When the observable sequence has finished (either by firing [`onError`](../..observer/observer_instance_methods/onerror.html) or [`onCompleted`](../../observer/observer_instance_methods/oncompleted.html)), any subscription will automatically be unsubscribed.
 - Any subscribed observer instance will only see a single OnError or OnCompleted message. No more messages are sent through. This ensures the Rx grammar of onNext* (onError|onCompleted)?
 
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.map = function (selector, thisArg) {
+Rx.Observable.prototype.map = (selector, thisArg) => {
   var source = this;
-  return Rx.Observable.create(function (observer) {
+  return Rx.Observable.create(observer => {
     var idx = 0;
     return source.subscribe(
-      function (x) {
+      x => {
         var result;
         try {
           result = selector.call(thisArg, x, idx++, source);
@@ -72,12 +70,12 @@ Common kinds of user code that should be protected:
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.map = function (selector, thisArg) {
+Rx.Observable.prototype.map = (selector, thisArg) => {
   var source = this;
-  return Rx.Observable.create(function (observer) {
+  return Rx.Observable.create(observer => {
     var idx = 0;
     return source.subscribe(
-      function (x) {
+      x => {
         var result;
         try {
           result = selector.call(thisArg, x, idx++, source);
@@ -113,7 +111,7 @@ As multiple observable sequences are composed, subscribe to a specific observabl
 var CLOSED = 3;
 
 function readWebSocket(socket) {
-  return Rx.Observable.create(function (observer) {
+  return Rx.Observable.create(observer => {
     if (socket.readyState === CLOSED) {
       observer.onError(new Error('The websocket is no longer open.'));
       return;
@@ -136,13 +134,13 @@ As normal control flow in JavaScript uses abort semantics for exceptions (the st
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.minimumBuffer = function (bufferSize) {
+Rx.Observable.prototype.minimumBuffer = bufferSize => {
   var source = this;
-  return Rx.Observable.create(function (observer) {
+  return Rx.Observable.create(observer => {
     var data = [];
 
     return source.subscribe(
-      function (value) {
+      value => {
         data = data.concat(value);
         if (data.length > bufferSize) {
           observer.onNext(data.slice(0));
@@ -150,7 +148,7 @@ Rx.Observable.prototype.minimumBuffer = function (bufferSize) {
         }
       },
       observer.onError.bind(observer),
-      function () {
+      () => {
         if (data.length > 0) {
           observer.onNext(data.slice(0));
         }
@@ -174,9 +172,9 @@ As there are many different notions of concurrency, and no scenario fits all, it
 #### Sample ####
 
 ```js
-Rx.Observable.just = function (value, scheduler) {
-  return Rx.Observable.create(function (observer) {
-    return scheduler.schedule(function () {
+Rx.Observable.just = (value, scheduler) => {
+  return Rx.Observable.create(observer => {
+    return scheduler.schedule(() => {
       observer.onNext(value);
       observer.onCompleted();
     });
@@ -200,12 +198,12 @@ In most cases there is a good default that can be chosen for an operator that ha
 #### Sample ####
 
 ```js
-Rx.Observable.just = function (value, scheduler) {
+Rx.Observable.just = (value, scheduler) => {
   // Pick a default scheduler, in this case, immediately
   Rx.helpers.isScheduler(scheduler) || (scheduler = Rx.Scheduler.immediate);
 
-  return Rx.Observable.create(function (observer) {
-    return scheduler.schedule(function () {
+  return Rx.Observable.create(observer => {
+    return scheduler.schedule(() => {
       observer.onNext(value);
       observer.onCompleted();
     });
@@ -226,12 +224,12 @@ Adding the scheduler as the last argument is a must for all operators introducin
 #### Sample ####
 
 ```js
-Rx.Observable.just = function (value, scheduler) {
+Rx.Observable.just = (value, scheduler) => {
   // Pick a default scheduler, in this case, immediately
   Rx.helpers.isScheduler(scheduler) || (scheduler = Rx.Scheduler.immediate);
 
-  return Rx.Observable.create(function (observer) {
-    return scheduler.schedule(function () {
+  return Rx.Observable.create(observer => {
+    return scheduler.schedule(() => {
       observer.onNext(value);
       observer.onCompleted();
     });
@@ -252,12 +250,12 @@ By adding concurrency, we change the timeliness of an observable sequence. Messa
 #### Sample 1 ####
 
 ```js
-Rx.Observable.prototype.map = function (selector, thisArg) {
+Rx.Observable.prototype.map = (selector, thisArg) => {
   var source = this;
-  return Rx.Observable.create(function (observer) {
+  return Rx.Observable.create(observer => {
     var idx = 0;
     return source.subscribe(
-      function (x) {
+      x => {
         var result;
         try {
           result = selector.call(thisArg, x, idx++, source);
@@ -280,12 +278,12 @@ In this sample, the select operator does not use a scheduler to send out the `on
 #### Sample 2 ####
 
 ```js
-Rx.Observable.just = function (value, scheduler) {
+Rx.Observable.just = (value, scheduler) => {
   // Pick a default scheduler, in this case, immediately
   Rx.helpers.isScheduler(scheduler) || (scheduler = Rx.Scheduler.immediate);
 
-  return Rx.Observable.create(function (observer) {
-    return scheduler.schedule(function () {
+  return Rx.Observable.create(observer => {
+    return scheduler.schedule(() => {
       observer.onNext(value);
       observer.onCompleted();
     });
@@ -319,49 +317,49 @@ ScheduledDisposable        | Uses a scheduler to dispose an underlying disposabl
 #### Sample ####
 
 ```js
-Observable.prototype.zip = function () {
+Observable.prototype.zip = () => {
   var parent = this,
       sources = slice.call(arguments),
       resultSelector = sources.pop();
 
   sources.unshift(parent);
-  return new AnonymousObservable(function (observer) {
+  return new AnonymousObservable(observer => {
     var n = sources.length,
-      queues = arrayInitialize(n, function () { return []; }),
-      isDone = arrayInitialize(n, function () { return false; });
+      queues = arrayInitialize(n, () => []),
+      isDone = arrayInitialize(n, () => false);
 
     function next(i) {
       var res, queuedValues;
-      if (queues.every(function (x) { return x.length > 0; })) {
+      if (queues.every(x => x.length > 0)) {
         try {
-          queuedValues = queues.map(function (x) { return x.shift(); });
+          queuedValues = queues.map(x => x.shift());
           res = resultSelector.apply(parent, queuedValues);
         } catch (ex) {
           observer.onError(ex);
           return;
         }
         observer.onNext(res);
-      } else if (isDone.filter(function (x, j) { return j !== i; }).every(identity)) {
+      } else if (isDone.filter((x, j) => j !== i).every(identity)) {
         observer.onCompleted();
       }
     };
 
     function done(i) {
       isDone[i] = true;
-      if (isDone.every(function (x) { return x; })) {
+      if (isDone.every(x => x)) {
         observer.onCompleted();
       }
     }
 
     var subscriptions = new Array(n);
     for (var idx = 0; idx < n; idx++) {
-      (function (i) {
+      (i => {
         var source = sources[i], sad = new SingleAssignmentDisposable();
         Rx.helpers.isPromise(source) && (source = Rx.Observable.fromPromise(source));
-        sad.setDisposable(source.subscribe(function (x) {
+        sad.setDisposable(source.subscribe(x => {
           queues[i].push(x);
           next(i);
-        }, observer.onError.bind(observer), function () {
+        }, observer.onError.bind(observer), () => {
           done(i);
         }));
         subscriptions[i] = sad;
@@ -388,9 +386,7 @@ By making an operator blocking we lose these asynchronous characteristics. We al
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.sum = function () {
-  return this.reduce(function (acc, x) { return acc + x; }, 0);
-};
+Rx.Observable.prototype.sum = () => this.reduce((acc, x) => acc + x, 0);
 ```
 
 In this sample, the `sum` operator has a return type of `Observable<Number>` instead of `Number`. By doing this, the operator does not block. It also allows the result value to be used in further composition.
@@ -411,9 +407,9 @@ There are two recommended ways to avoid this issue:
 #### Sample 1 ####
 
 ```js
-Rx.Observable.repeat = function (value, scheduler) {
-  return Rx.Observable.create(function (observer) {
-    return scheduler.scheduleRecursive(function (self) {
+Rx.Observable.repeat = (value, scheduler) => {
+  return Rx.Observable.create(observer => {
+    return scheduler.scheduleRecursive(self => {
       observer.onNext(value);
       self();
     });
@@ -426,7 +422,7 @@ In this sample, the recursive `scheduleRecursive` method is used to allow the sc
 #### Sample 2 ####
 
 ```js
-Rx.Observable.repeat = function (value) {
+Rx.Observable.repeat = value => {
   return Rx.Observable.from(
     function* () {
       while(true) { yield value; }
@@ -447,21 +443,19 @@ As guideline 5.3 specifies that the `Observable.create` operator should not thro
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.map = function (selector, thisArg) {
+Rx.Observable.prototype.map = (selector, thisArg) => {
   if (this == null) {
     throw new TypeError('Must be an instance of an Observable');
   }
   if (selector == null) {
     throw new TypeError('selector cannot be null/undefined');
   }
-  var selectorFn = typeof selector !== 'function' ?
-    function () { return selector; } :
-    selector;
+  var selectorFn = typeof selector !== 'function' ? () => selector : selector;
   var source = this;
-  return Rx.Observable.create(function (observer) {
+  return Rx.Observable.create(observer => {
     var idx = 0;
     return source.subscribe(
-      function (x) {
+      x => {
         var result;
         try {
           result = selectorFn.call(thisArg, x, idx++, source);
@@ -492,7 +486,7 @@ The observable `subscribe` method returns a `Disposable` instance that can be us
 #### Sample ####
 
 ```js
-var subscription = xs.subscribe(function (x) { console.log(x); });
+var subscription = xs.subscribe(console.log.bind(console));
 subscription.dispose();
 subscription.dispose();
 ```

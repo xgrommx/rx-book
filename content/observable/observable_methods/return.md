@@ -1,7 +1,14 @@
-# return | returnValue
+## [`Rx.Observable.return(value, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/return.js)
 
-`Rx.Observable.return(value, [scheduler])`
-<a href="#rxobservablereturnvalue-scheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/return.js "View in source") 
+{% if book.isPdf %}
+
+![return](http://reactivex.io/documentation/operators/images/just.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Returns an observable sequence that contains a single element, using the specified scheduler to send out observer messages.
 There is an alias called `returnValue` for browsers <IE9.
@@ -16,6 +23,12 @@ There is an alias called `returnValue` for browsers <IE9.
 #### Example
 
 [](http://jsbin.com/yupil/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/return.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/return.js)
+
+{% endif %}

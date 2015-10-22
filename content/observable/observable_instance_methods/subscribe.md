@@ -1,7 +1,15 @@
-# subscribe
+## [`Rx.Observable.prototype.subscribe([observer] | [onNext], [onError], [onCompleted])`,
+`Rx.Observable.prototype.forEach([observer] | [onNext], [onError], [onCompleted])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js)
 
-`Rx.Observable.prototype.subscribe([observer] | [onNext], [onError], [onCompleted])`
-<a href="#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js "View in source") 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
+
+
+{% endif %}
 
 Prepends a sequence of values to an observable sequence with an optional scheduler and an argument list of values to prepend.
 
@@ -28,6 +36,12 @@ Prepends a sequence of values to an observable sequence with an optional schedul
 
 [](http://jsbin.com/kafij/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -50,3 +64,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/core/observable.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/core/observable.js)
+
+{% endif %}

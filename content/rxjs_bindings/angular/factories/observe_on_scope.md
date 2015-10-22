@@ -26,6 +26,12 @@ angular.module('observeOnScopeApp', ['rx'])
     });
 ```
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -33,3 +39,5 @@ File:
 
 Dist:
 - rx.angular.js
+
+{% endif %}

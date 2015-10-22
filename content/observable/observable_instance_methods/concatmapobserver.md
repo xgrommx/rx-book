@@ -1,7 +1,14 @@
-# concatMapObserver
+## [`Rx.Observable.prototype.concatMapObserver(onNext, onError, onCompleted, [thisArg])`, `Rx.Observable.prototype.selectConcatObserver(onNext, onError, onCompleted, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/concatmapobserver.js)
 
-`Rx.Observable.prototype.concatMapObserver(onNext, onError, onCompleted, [thisArg])`, `Rx.Observable.prototype.selectConcatObserver(onNext, onError, onCompleted, [thisArg])`
-[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/concatmapobserver.js "View in source")
+{% if book.isPdf %}
+
+![concatMapObserver](http://reactivex.io/documentation/operators/images/concatMapObserver.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Projects each notification of an observable sequence to an observable sequence and concats the resulting observable sequences into one observable sequence.
 
@@ -19,6 +26,12 @@ Projects each notification of an observable sequence to an observable sequence a
 #### Example
 
 [](http://jsbin.com/dasivu/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/concatmapobserver.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/concatmapobserver.js)
+
+{% endif %}

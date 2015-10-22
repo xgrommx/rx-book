@@ -1,9 +1,14 @@
-# pausable
+## [`Rx.Observable.prototype.pausable(pauser)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/backpressure/pausable.js)
+
+{% if book.isPdf %}
+
+![pausable](http://reactivex.io/documentation/operators/images/bp.pausable.png)
+
+{% else %}
 
 <rx-marbles key="pausable"></rx-marbles>
 
-`Rx.Observable.prototype.pausable(pauser)`
-<a href="#rxobservableprototypepausablepauser">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/backpressure/pausable.js "View in source") 
+{% endif %}
 
 Pauses the underlying observable sequence based upon the observable sequence which yields true/false.  Note that this only works on hot observables.
 
@@ -16,6 +21,12 @@ Pauses the underlying observable sequence based upon the observable sequence whi
 #### Example
 
 [](http://jsbin.com/cicema/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -41,3 +52,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/pausable.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/pausable.js)
+
+{% endif %}

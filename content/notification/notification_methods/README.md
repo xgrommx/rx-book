@@ -1,5 +1,5 @@
 # Notification Methods
 
-- [`createOnCompleted`](#rxnotificationcreateoncompleted)
-- [`createOnError`](#rxnotificationcreateonerrorexception)
-- [`createOnNext`](#rxnotificationcreateonnextvalue)
+- [`createOnCompleted`](createoncompleted.html)
+- [`createOnError`](createonerror.html)
+- [`createOnNext`](createonnext.html)

@@ -1,9 +1,14 @@
-# takeLast
+## [`Rx.Observable.prototype.takeLast(count)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takelast.js)
+
+{% if book.isPdf %}
+
+![takeLast.n](http://reactivex.io/documentation/operators/images/takeLast.n.png)
+
+{% else %}
 
 <rx-marbles key="takeLast"></rx-marbles>
 
-`Rx.Observable.prototype.takeLast(count)`
-<a href="#rxobservableprototypetakelastcount">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/takelast.js "View in source") 
+{% endif %}
 
 Returns a specified number of contiguous elements from the end of an observable sequence, using an optional scheduler to drain the queue.
   
@@ -18,6 +23,12 @@ This operator accumulates a buffer with a length enough to store elements count 
 #### Example
 
 [](http://jsbin.com/pulit/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -42,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/takelast.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/takelast.js)
+
+{% endif %}

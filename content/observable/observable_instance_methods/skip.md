@@ -1,9 +1,14 @@
-# skip
+## [`Rx.Observable.prototype.skip(count)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skip.js)
+
+{% if book.isPdf %}
+
+![skip](http://reactivex.io/documentation/operators/images/skip.png)
+
+{% else %}
 
 <rx-marbles key="skip"></rx-marbles>
 
-`Rx.Observable.prototype.skip(count)`
-<a href="#rxobservableprototypeskipcount">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skip.js "View in source") 
+{% endif %}
 
 Bypasses a specified number of elements in an observable sequence and then returns the remaining elements.
 
@@ -16,6 +21,12 @@ Bypasses a specified number of elements in an observable sequence and then retur
 #### Example
 
 [](http://jsbin.com/povos/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +51,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/skip.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/skip.js)
+
+{% endif %}

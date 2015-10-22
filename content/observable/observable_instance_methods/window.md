@@ -1,7 +1,14 @@
-# window
+## [`Rx.Observable.prototype.window([windowOpenings], [windowBoundaries], windowClosingSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/window.js)
 
-`Rx.Observable.prototype.window([windowOpenings], [windowBoundaries], windowClosingSelector)`
-<a href="#rxobservableprototypewindowwindowopenings-windowboundaries-windowclosingselector">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/window.js "View in source") 
+{% if book.isPdf %}
+
+![window](http://reactivex.io/documentation/operators/images/window.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Projects each element of an observable sequence into zero or more windows.
 
@@ -38,6 +45,12 @@ Rx.Observable.prototype.window(windowBoundaries);
 
 [](http://jsbin.com/sequx/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -57,3 +70,5 @@ NuGet Packages:
 
 Unit Tests:
 - [`/tests/observable/window.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/window.js)
+
+{% endif %}

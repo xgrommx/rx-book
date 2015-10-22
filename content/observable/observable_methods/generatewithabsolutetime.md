@@ -1,7 +1,14 @@
-# generateWithAbsoluteTime
+## [`Rx.Observable.generateWithAbsoluteTime(initialState, condition, iterate, resultSelector, timeSelector, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/generatewithabsolutetime.js)
 
-`Rx.Observable.generateWithAbsoluteTime(initialState, condition, iterate, resultSelector, timeSelector, [scheduler])`
-<a href="#rxobservablegeneratewithabsolutetimeinitialstate-condition-iterate-resultselector-timeselector-schedule">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/generatewithabsolutetime.js "View in source") 
+{% if book.isPdf %}
+
+![generateWithAbsoluteTime](http://reactivex.io/documentation/operators/images/generateWithAbsoluteTime.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 Generates an observable sequence by iterating a state from an initial state until the condition fails.
 
@@ -19,6 +26,12 @@ Generates an observable sequence by iterating a state from an initial state unti
 #### Example
 
 [](http://jsbin.com/pugoy/1/embed?js,console)
+
+{% if book.isPdf %}
+
+
+
+{% else %}
 
 ### Location
 
@@ -40,3 +53,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/generatewithabsolutetime.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/generatewithabsolutetime.js)
+
+{% endif %}

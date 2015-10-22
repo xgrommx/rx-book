@@ -1,7 +1,14 @@
-# concatMap
+## [`Rx.Observable.prototype.concatMap(selector, [resultSelector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/concatmap.js)
 
-`Rx.Observable.prototype.concatMap(selector, [resultSelector])`
-<a href="#rxobservableprototypeconcatmapselector-resultselector">#</a> [&#x24C8;]((https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable/concatmap.js "View in source") 
+{% if book.isPdf %}
+
+![concatMap](http://reactivex.io/documentation/operators/images/concatMap.png)
+
+{% else %}
+
+
+
+{% endif %}
 
 This is an alias for the `selectConcat` method.  This can be one of the following:
 
@@ -41,6 +48,12 @@ source.concatMap(Promise.resolve(42));
 
 [](http://jsbin.com/yaboy/1/embed?js,console)
 
+{% if book.isPdf %}
+
+
+
+{% else %}
+
 ### Location
 
 File:
@@ -64,3 +77,5 @@ NuGet Packages:
 
 Unit Tests:
 - [/tests/observable/concatmap.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/concatmap.js)
+
+{% endif %}

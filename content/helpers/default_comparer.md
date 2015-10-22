@@ -1,7 +1,4 @@
-# defaultComparer
-
-### <a id="rxhelpersdefaultcomparerx-y"></a>`Rx.helpers.defaultComparer(x, y)`
-<a href="#rxhelpersdefaultcomparerx-y">#</a>[&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/basicheader.js "View in source") [&#x24C9;][1]
+## [`Rx.helpers.defaultComparer(x, y)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/headers/basicheader.js#L8)
 
 The default equality comparer, used when a comparer is not supplied to a function.  Uses an internal deep equality check.
 

@@ -90,6 +90,7 @@
     * React
         * [https://github.com/fdecampredon/rx-react](https://github.com/fdecampredon/rx-react)
         * [https://github.com/yolkjs/yolk](https://github.com/yolkjs/yolk)
+        * [https://github.com/aparticka/react-bacon-component](https://github.com/aparticka/react-bacon-component)
     * Flux
         * [https://github.com/fdecampredon/rx-flux](https://github.com/fdecampredon/rx-flux)
         * [https://github.com/d6u/River](https://github.com/d6u/River)
@@ -375,13 +376,14 @@
 * [https://github.com/christyharagan/koa-rx-router](https://github.com/christyharagan/koa-rx-router)
 * [https://github.com/rajeshsegu/request-rx](https://github.com/rajeshsegu/request-rx)
 * [https://github.com/achydenius/rxjs-web-midi](https://github.com/achydenius/rxjs-web-midi)
+* [https://github.com/itechdom/rx-examples](https://github.com/itechdom/rx-examples)
 
 #### Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)
 
 ## Other resources for similar libraries
 
-###
+#### Flyd
 * [https://github.com/exound/lmount](https://github.com/exound/lmount)
 * [https://github.com/jayrbolton/vvvview](https://github.com/jayrbolton/vvvview)
 * [https://github.com/paldepind/functional-frontend-architecture](https://github.com/paldepind/functional-frontend-architecture)
@@ -512,6 +514,9 @@
 * [https://github.com/saikocat/missing-frp-learn](https://github.com/saikocat/missing-frp-learn)
 * [https://github.com/winitzki/kefir-react-es6](https://github.com/winitzki/kefir-react-es6)
 
+#### Deku
+* [https://github.com/Artesonraju/deku-kefir-personal](https://github.com/Artesonraju/deku-kefir-personal)
+
 #### Other
 * [https://github.com/elsehow/kefir-get](https://github.com/elsehow/kefir-get)
 * [https://github.com/systeminsights/kefir-contrib-crud](https://github.com/systeminsights/kefir-contrib-crud)
@@ -539,6 +544,7 @@
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)
 * [https://github.com/JamesTimms/FRPGameEngine](https://github.com/JamesTimms/FRPGameEngine)
+* [https://github.com/SodiumFRP/sodium-kotlin](https://github.com/SodiumFRP/sodium-kotlin)
 
 ## Jnoid
 * [https://github.com/it-vecherka/jnoid](https://github.com/it-vecherka/jnoid)

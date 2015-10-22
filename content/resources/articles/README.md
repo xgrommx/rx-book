@@ -26,6 +26,7 @@
 * [Hot and Cold Observables](http://davesexton.com/blog/post/Hot-and-Cold-Observables.aspx)
 * [To Use Subject Or Not To Use Subject?](http://davesexton.com/blog/post/To-Use-Subject-Or-Not-To-Use-Subject.aspx)
 * [Deferring Observable code until subscription in RxJava](http://blog.danlew.net/2015/07/23/deferring-observable-code-until-subscription-in-rxjava)
+* [Retrofit 2.0: The biggest update yet on the best HTTP Client Library for Android](http://inthecheesefactory.com/blog/retrofit-2.0/en)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

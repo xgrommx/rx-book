@@ -47,6 +47,7 @@
 
 ## Cycle
 * [From jQuery to Cycle](http://widdersh.in/cycle-talk)
+* [Et si l'utilisateur était une fonction ?](http://real34.github.io/slides/si-utilisateur-etait-fonction)
 
 ## RxJava
 * [Applying RxJava to Existing Applications at Philly ETE 2015](https://speakerdeck.com/benjchristensen/applying-rxjava-to-existing-applications-at-philly-ete-2015)

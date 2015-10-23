@@ -269,6 +269,10 @@
 * [https://github.com/staltz/flux-challenge/tree/master/submissions/staltz](https://github.com/staltz/flux-challenge/tree/master/submissions/staltz)
 * [https://github.com/TylorS/cycle-snabbdom](https://github.com/TylorS/cycle-snabbdom)
 * [https://github.com/collardeau/kairos](https://github.com/collardeau/kairos)
+* [https://github.com/secobarbital/iouo.me](https://github.com/secobarbital/iouo.me)
+* [https://github.com/secobarbital/cycle-vtree-switcher](https://github.com/secobarbital/cycle-vtree-switcher)
+* [https://github.com/secobarbital/cycle-hashchange-driver](https://github.com/secobarbital/cycle-hashchange-driver)
+* [https://github.com/secobarbital/cycle-pushstate-driver](https://github.com/secobarbital/cycle-pushstate-driver)
 
 ## Pub/Sub
 * [https://github.com/rxmqjs/rxmq.js](https://github.com/rxmqjs/rxmq.js)

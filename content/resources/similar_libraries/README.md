@@ -91,6 +91,7 @@
         * [https://github.com/fdecampredon/rx-react](https://github.com/fdecampredon/rx-react)
         * [https://github.com/yolkjs/yolk](https://github.com/yolkjs/yolk)
         * [https://github.com/aparticka/react-bacon-component](https://github.com/aparticka/react-bacon-component)
+        * [https://github.com/doctolib/react-observable-mixin](https://github.com/doctolib/react-observable-mixin)
     * Flux
         * [https://github.com/fdecampredon/rx-flux](https://github.com/fdecampredon/rx-flux)
         * [https://github.com/d6u/River](https://github.com/d6u/River)

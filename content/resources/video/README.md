@@ -103,4 +103,6 @@
     {% video %}https://www.youtube.com/watch?v=ZD3QAi0FlyE{% endvideo %}
     ***
 * #### Reactive Streams in Angular 1 and 2 Ben Lesh
-    {% video %}https://www.youtube.com/watch?v=KOOT7BArVHQ{% endvideo %}    
+    {% video %}https://www.youtube.com/watch?v=KOOT7BArVHQ{% endvideo %}
+* #### "Controlling Time and Space: understanding the many formulations of FRP" by Evan Czaplicki
+    {% video %}https://www.youtube.com/watch?v=Agu6jipKfYw{% endvideo %}        

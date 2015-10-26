@@ -35,7 +35,7 @@
 * [dgelong - A JavaScript Implementation of Useful First-class Citizens](https://github.com/alexeyraspopov/dgelong)
 * [dv.js - Dynamic Value. Basic FRP with Javascript](https://github.com/mcmlxxxiii/dv.js)
 * [Highland - The high-level streams library for Node.js and the browser](http://highlandjs.org)
-* [Asynquence](https://github.com/getify/asynquence)
+* [Asynquence - Promise-style async sequence flow-control](https://github.com/getify/asynquence)
 
 ## Frameworks
 * [Reflex - Functional reactive UI library](https://github.com/Gozala/reflex)
@@ -92,6 +92,7 @@
         * [https://github.com/yolkjs/yolk](https://github.com/yolkjs/yolk)
         * [https://github.com/aparticka/react-bacon-component](https://github.com/aparticka/react-bacon-component)
         * [https://github.com/doctolib/react-observable-mixin](https://github.com/doctolib/react-observable-mixin)
+        * [https://github.com/ccorcos/elmish](https://github.com/ccorcos/elmish)
     * Flux
         * [https://github.com/fdecampredon/rx-flux](https://github.com/fdecampredon/rx-flux)
         * [https://github.com/d6u/River](https://github.com/d6u/River)
@@ -273,6 +274,7 @@
 * [https://github.com/secobarbital/cycle-vtree-switcher](https://github.com/secobarbital/cycle-vtree-switcher)
 * [https://github.com/secobarbital/cycle-hashchange-driver](https://github.com/secobarbital/cycle-hashchange-driver)
 * [https://github.com/secobarbital/cycle-pushstate-driver](https://github.com/secobarbital/cycle-pushstate-driver)
+* [https://github.com/justinwoo/housing-costs-maps](https://github.com/justinwoo/housing-costs-maps)
 
 ## Pub/Sub
 * [https://github.com/rxmqjs/rxmq.js](https://github.com/rxmqjs/rxmq.js)
@@ -382,6 +384,8 @@
 * [https://github.com/rajeshsegu/request-rx](https://github.com/rajeshsegu/request-rx)
 * [https://github.com/achydenius/rxjs-web-midi](https://github.com/achydenius/rxjs-web-midi)
 * [https://github.com/itechdom/rx-examples](https://github.com/itechdom/rx-examples)
+* [https://github.com/gchudnov/rx-image](https://github.com/gchudnov/rx-image)
+* [https://github.com/akauppi/svg.rx.js](https://github.com/akauppi/svg.rx.js)
 
 #### Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

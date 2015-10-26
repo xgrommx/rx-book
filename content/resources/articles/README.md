@@ -54,6 +54,7 @@
 ## Cycle
 * [A Dead-Simple Todo List with RxJS](http://blog.edanschwartz.com/2015/09/18/dead-simple-rxjs-todo-list)
 * [How to use Cycle.js to create a scroll-table](http://qiita.com/kimagure/items/d29ed7b7bdaaf6977b9a)
+* [Mounting D3 Datamaps to containers in Cycle.js using drivers](http://qiita.com/kimagure/items/3020b0a7d08da3b5ce34)
 
 ## Bacon
 * [Functional Reactive Programming in JavaScript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)

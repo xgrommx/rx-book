@@ -87,6 +87,7 @@
     * [https://github.com/rolaveric/angular-falcor](https://github.com/rolaveric/angular-falcor)
     * [http://plnkr.co/edit/wj4lRtAwNMry8ToNzLrm?p=info](http://plnkr.co/edit/wj4lRtAwNMry8ToNzLrm?p=info) (angular 2 + redux + rxjs)
     * [https://github.com/ng-book/angular2-rxjs-chat](https://github.com/ng-book/angular2-rxjs-chat) (angular 2)
+    * [http://plnkr.co/edit/WT6JK3o1XZ8PuWJcPVV2?p=preview](http://plnkr.co/edit/WT6JK3o1XZ8PuWJcPVV2?p=preview) (angular 2)
 
 #### React
 * Standalone plugins
@@ -209,6 +210,8 @@
 * [http://codepen.io/filippomangione/pen/JYOZBY](http://codepen.io/filippomangione/pen/JYOZBY)
 
 #### Cycle
+* [https://github.com/ohanhi/hyperscript-helpers](https://github.com/ohanhi/hyperscript-helpers)
+* [https://github.com/benji6/cycle-audio-graph](https://github.com/benji6/cycle-audio-graph)
 * [https://github.com/Mercateo/component-check](https://github.com/Mercateo/component-check)
 * [https://github.com/Cmdv/cycle-universal-boilerplate](https://github.com/Cmdv/cycle-universal-boilerplate)
 * [https://github.com/bouzuya/cycle-todo](https://github.com/bouzuya/cycle-todo)

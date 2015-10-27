@@ -36,6 +36,9 @@
 * [dv.js - Dynamic Value. Basic FRP with Javascript](https://github.com/mcmlxxxiii/dv.js)
 * [Highland - The high-level streams library for Node.js and the browser](http://highlandjs.org)
 * [Asynquence - Promise-style async sequence flow-control](https://github.com/getify/asynquence)
+* [furp - FRP with LiveScript](https://github.com/brainrape/furp)
+* [derivablejs - Functional Reactive State for JavaScript and TypeScript](https://github.com/ds300/derivablejs)
+* [happen.js - Functional Reactive & Dataflow programming in Javascript done right, done fast](https://github.com/philipnilsson/happen.js)
 
 ## Frameworks
 * [Reflex - Functional reactive UI library](https://github.com/Gozala/reflex)
@@ -199,10 +202,15 @@
 #### Knockout
 * [https://github.com/Igorbek/knockout.rx](https://github.com/Igorbek/knockout.rx)
 
+#### Polymer
+* [https://gist.github.com/paulcbetts/2877b05a57d0a4e0ab54](https://gist.github.com/paulcbetts/2877b05a57d0a4e0ab54)
+
 #### Riot
 * [http://codepen.io/filippomangione/pen/JYOZBY](http://codepen.io/filippomangione/pen/JYOZBY)
 
 #### Cycle
+* [https://github.com/Cmdv/cycle-universal-boilerplate](https://github.com/Cmdv/cycle-universal-boilerplate)
+* [https://github.com/bouzuya/cycle-todo](https://github.com/bouzuya/cycle-todo)
 * [https://github.com/TylorS/cycle-starter](https://github.com/TylorS/cycle-starter)
 * [https://github.com/CyclicMaterials](https://github.com/CyclicMaterials)
 * [https://github.com/cyclejs/cycle-react-native](https://github.com/cyclejs/cycle-react-native)
@@ -275,6 +283,7 @@
 * [https://github.com/secobarbital/cycle-hashchange-driver](https://github.com/secobarbital/cycle-hashchange-driver)
 * [https://github.com/secobarbital/cycle-pushstate-driver](https://github.com/secobarbital/cycle-pushstate-driver)
 * [https://github.com/justinwoo/housing-costs-maps](https://github.com/justinwoo/housing-costs-maps)
+* [https://gist.github.com/dmitriid/baa371845e617a2dc18e](https://gist.github.com/dmitriid/baa371845e617a2dc18e)
 
 ## Pub/Sub
 * [https://github.com/rxmqjs/rxmq.js](https://github.com/rxmqjs/rxmq.js)

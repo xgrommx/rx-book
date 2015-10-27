@@ -209,6 +209,7 @@
 * [http://codepen.io/filippomangione/pen/JYOZBY](http://codepen.io/filippomangione/pen/JYOZBY)
 
 #### Cycle
+* [https://github.com/Mercateo/component-check](https://github.com/Mercateo/component-check)
 * [https://github.com/Cmdv/cycle-universal-boilerplate](https://github.com/Cmdv/cycle-universal-boilerplate)
 * [https://github.com/bouzuya/cycle-todo](https://github.com/bouzuya/cycle-todo)
 * [https://github.com/TylorS/cycle-starter](https://github.com/TylorS/cycle-starter)

@@ -96,7 +96,6 @@
         * [https://github.com/yolkjs/yolk](https://github.com/yolkjs/yolk)
         * [https://github.com/aparticka/react-bacon-component](https://github.com/aparticka/react-bacon-component)
         * [https://github.com/doctolib/react-observable-mixin](https://github.com/doctolib/react-observable-mixin)
-        * [https://github.com/ccorcos/elmish](https://github.com/ccorcos/elmish)
     * Flux
         * [https://github.com/fdecampredon/rx-flux](https://github.com/fdecampredon/rx-flux)
         * [https://github.com/d6u/River](https://github.com/d6u/River)
@@ -109,6 +108,8 @@
         * [https://github.com/ulrikaugustsson/scanux](https://github.com/ulrikaugustsson/scanux)
         * [https://github.com/jdlehman/rx-store](https://github.com/jdlehman/rx-store)
 * Examples
+    * [https://github.com/bordoley/RelaX](https://github.com/bordoley/RelaX)
+    * [https://github.com/weslleyaraujo/react-flux-puzzle](https://github.com/weslleyaraujo/react-flux-puzzle)
     * [https://github.com/bennyhobart/rxjs-react-todomvc](https://github.com/bennyhobart/rxjs-react-todomvc)
     * [https://github.com/foxdonut/react-rxjs-todolist](https://github.com/foxdonut/react-rxjs-todolist)
     * [https://github.com/mauriciosoares/todomvc-react-rxjs](https://github.com/mauriciosoares/todomvc-react-rxjs)
@@ -441,6 +442,7 @@
 * [https://github.com/gilbox/elegant-react-hot-demo](https://github.com/gilbox/elegant-react-hot-demo)
 * [https://github.com/gilbox/react-repl](https://github.com/gilbox/react-repl)
 * [https://github.com/alexeygolev/elm-architecture-using-ramda-and-flyd](https://github.com/alexeygolev/elm-architecture-using-ramda-and-flyd)
+* [https://github.com/ccorcos/elmish](https://github.com/ccorcos/elmish)
 
 ### Most
 

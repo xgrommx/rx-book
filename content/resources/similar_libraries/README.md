@@ -691,6 +691,7 @@
 * [https://github.com/ivacf/archi](https://github.com/ivacf/archi)
 * [https://github.com/ekamp/RxCurrently](https://github.com/ekamp/RxCurrently)
 * [https://github.com/konmik/nucleus](https://github.com/konmik/nucleus)
+* [https://github.com/Gitteroid/GitterRxJavaSDK](https://github.com/Gitteroid/GitterRxJavaSDK)
 
 ## Tutorials
 * [https://github.com/jhusain/learnrxjava](https://github.com/jhusain/learnrxjava)

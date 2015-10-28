@@ -108,6 +108,7 @@
         * [https://github.com/ulrikaugustsson/scanux](https://github.com/ulrikaugustsson/scanux)
         * [https://github.com/jdlehman/rx-store](https://github.com/jdlehman/rx-store)
 * Examples
+    * [https://gist.github.com/sectore/a8147ce68fc3966ce142](https://gist.github.com/sectore/a8147ce68fc3966ce142)
     * [https://github.com/bordoley/RelaX](https://github.com/bordoley/RelaX)
     * [https://github.com/weslleyaraujo/react-flux-puzzle](https://github.com/weslleyaraujo/react-flux-puzzle)
     * [https://github.com/bennyhobart/rxjs-react-todomvc](https://github.com/bennyhobart/rxjs-react-todomvc)
@@ -400,6 +401,7 @@
 * [https://github.com/itechdom/rx-examples](https://github.com/itechdom/rx-examples)
 * [https://github.com/gchudnov/rx-image](https://github.com/gchudnov/rx-image)
 * [https://github.com/akauppi/svg.rx.js](https://github.com/akauppi/svg.rx.js)
+* [https://github.com/psycotica0/bdd_game](https://github.com/psycotica0/bdd_game)
 
 #### Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

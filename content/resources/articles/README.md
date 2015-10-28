@@ -27,6 +27,21 @@
 * [To Use Subject Or Not To Use Subject?](http://davesexton.com/blog/post/To-Use-Subject-Or-Not-To-Use-Subject.aspx)
 * [Deferring Observable code until subscription in RxJava](http://blog.danlew.net/2015/07/23/deferring-observable-code-until-subscription-in-rxjava)
 * [Retrofit 2.0: The biggest update yet on the best HTTP Client Library for Android](http://inthecheesefactory.com/blog/retrofit-2.0/en)
+* [Linq Over Events — Playing with the Rx Framework](http://theburningmonk.com/2010/02/linq-over-events-playing-with-the-rx-framework)
+* [Drag and Drop using Reactive Extensions for Javascript](http://theburningmonk.com/2011/03/drag-and-drop-using-reactive-extensions-for-javascript)
+* [Reactive Extensions for Javascript – Observable vs ConnectableObservable](http://theburningmonk.com/2011/03/reactive-extensions-for-javascript-observable-vs-connectableobservable)
+* [Reactive Extensions for Javascript – Causing side effects with Do](http://theburningmonk.com/2011/03/reactive-extensions-for-javascript-causing-side-effects-with-do)
+* [Reactive Extensions for Javascript – Wikipedia lookup demo](http://theburningmonk.com/2011/03/reactive-extensions-for-javascript-wikipedia-lookup-demo)
+* [Reactive Extensions for Javascript – Multiple observers for multiple observables](http://theburningmonk.com/2011/03/reactive-extensions-for-javascript-multiple-observers-for-multiple-observables)
+* [Rx framework — IObservable<T>.Retry](http://theburningmonk.com/2010/03/rx-framework-iobservablet-retry)
+* [Rx framework — IObservable<T>.Repeat](http://theburningmonk.com/2010/03/rx-framework-iobservable-repeat)
+* [Rx framework — IObservable<T>.Catch and IObservable<T>.OnErrorResumeNext](http://theburningmonk.com/2010/03/rx-framework-iobservable-catch-and-iobservable-onerrorresumenext)
+* [Rx framework — IObservable<T>.Concat](http://theburningmonk.com/2010/03/rx-framework-iobservable-concat)
+* [http://theburningmonk.com/2010/03/rx-framework-iobservable-combinelatest](Rx framework — IObservable<T>.CombineLatest)
+* [Rx framework — IObservable<T>.Merge](http://theburningmonk.com/2010/02/rx-framework-iobservable-merge)
+* []()
+
+
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

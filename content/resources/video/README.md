@@ -104,5 +104,10 @@
     ***
 * #### Reactive Streams in Angular 1 and 2 Ben Lesh
     {% video %}https://www.youtube.com/watch?v=KOOT7BArVHQ{% endvideo %}
+    ***
 * #### "Controlling Time and Space: understanding the many formulations of FRP" by Evan Czaplicki
-    {% video %}https://www.youtube.com/watch?v=Agu6jipKfYw{% endvideo %}        
+    {% video %}https://www.youtube.com/watch?v=Agu6jipKfYw{% endvideo %}
+    ***
+* #### RxJS used to build a game (enhanced game features)
+    {% video %}https://www.youtube.com/watch?v=AJAKUqy5Uqc{% endvideo %}
+    ***            

@@ -37,9 +37,8 @@
 * [Rx framework — IObservable<T>.Repeat](http://theburningmonk.com/2010/03/rx-framework-iobservable-repeat)
 * [Rx framework — IObservable<T>.Catch and IObservable<T>.OnErrorResumeNext](http://theburningmonk.com/2010/03/rx-framework-iobservable-catch-and-iobservable-onerrorresumenext)
 * [Rx framework — IObservable<T>.Concat](http://theburningmonk.com/2010/03/rx-framework-iobservable-concat)
-* [http://theburningmonk.com/2010/03/rx-framework-iobservable-combinelatest](Rx framework — IObservable<T>.CombineLatest)
+* [Rx framework — IObservable<T>.CombineLatest](http://theburningmonk.com/2010/03/rx-framework-iobservable-combinelatest)
 * [Rx framework — IObservable<T>.Merge](http://theburningmonk.com/2010/02/rx-framework-iobservable-merge)
-* []()
 
 
 

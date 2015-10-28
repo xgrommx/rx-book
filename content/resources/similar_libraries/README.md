@@ -765,6 +765,7 @@
 * [https://github.com/envicase/ReactiveMvvm](https://github.com/envicase/ReactiveMvvm)
 * [https://github.com/JohanLarsson/Gu.Reactive](https://github.com/JohanLarsson/Gu.Reactive)
 * [https://github.com/tamirdresher/RxInAction](https://github.com/tamirdresher/RxInAction)
+* [https://github.com/ApocalypticOctopus/Rx.Community.Extensions](https://github.com/ApocalypticOctopus/Rx.Community.Extensions)
 
 # C++
 * [https://github.com/Reactive-Extensions/RxCpp](https://github.com/Reactive-Extensions/RxCpp)

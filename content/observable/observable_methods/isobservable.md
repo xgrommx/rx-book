@@ -1,0 +1,1 @@
+## [`Rx.Observable.isObservable(observable)`]()

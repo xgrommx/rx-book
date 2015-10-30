@@ -6,7 +6,7 @@
 
 {% endif %}
 
-Continues an observable sequence that is terminated by an exception with the next observable sequence.  There is an alias for this method `catchException` for browsers <IE9
+Continues an observable sequence that is terminated by an exception with the next observable sequence.
 
 #### Arguments
 1. `args` *(`Array` | `arguments`)*: Observable sequences to catch exceptions for.

@@ -17,6 +17,13 @@
         },
         "ga": {
             "token": "UA-63403975-1"
+        },
+        "github-buttons": {
+            "repo": "azu/JavaScript-Plugin-Architecture",
+            "types": [
+                "star",
+                "watch"
+            ]
         }
     },
     "variables": {

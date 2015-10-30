@@ -1,4 +1,4 @@
-## [`Rx.Observable.for(sources, resultSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/for.js)
+## [`Rx.Observable.for(sources, resultSelector, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/for.js)
 
 {% if book.isPdf %}
 
@@ -14,7 +14,12 @@ There is an alias for this method called `forIn` for browsers <IE9
 
 #### Arguments
 1. `sources` *(Array)*: An array of values to turn into an observable sequence.
-2. `resultSelector` *(`Function`)*: A function to apply to each item in the sources array to turn it into an observable sequence.
+2. `resultSelector` *(`Function`)*: A function to apply to each item in the sources array to turn it into an observable sequence. The resultSelector is called with the following information:
+    1. the value of the element
+    2. the index of the element
+    3. the Observable object being subscribed
+
+3. `[thisArg]` *(`Any`)*: Object to use as `this` when executing `resultSelector`.
 
 #### Returns
 *(`Observable`)*: An observable sequence from the concatenated observable sequences or Promises.

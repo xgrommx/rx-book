@@ -10,7 +10,7 @@
 
 {% endif %}
 
-Propagates the observable sequence or Promise that reacts first.
+Propagates the observable sequence or Promise that reacts first. "amb" stands for [ambiguous](http://blogs.msdn.com/b/jeffva/archive/2009/11/18/amb-materialize-and-dematerialize.aspx).
 
 #### Arguments
 1. `args` *(Array|arguments)*: Observable sources or Promises competing to react first either as an array or arguments.

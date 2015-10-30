@@ -1,9 +1,9 @@
 ## [`Rx.Observable.fromPromise(promise)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/frompromise.js)
 
-Converts a Promises/A+ spec compliant Promise and/or ES6 compliant Promise to an Observable sequence.
+Converts a Promises/A+ spec compliant Promise and/or ES2015 compliant Promise to an Observable sequence.
 
 #### Arguments
-1. `promise` *(Promise)*: Promises/A+ spec compliant Promise to an Observable sequence.
+1. `promise` *(`Promise`)*: Promises/A+ spec compliant Promise to an Observable sequence.
 
 #### Returns
 *(`Observable`)*: An Observable sequence which wraps the existing promise success and failure.

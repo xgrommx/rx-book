@@ -1,4 +1,4 @@
-## [`Rx.Observable.forkJoin(...args)`]()
+## [`Rx.Observable.forkJoin(...args [resultSelector])`]()
 
 {% if book.isPdf %}
 
@@ -12,10 +12,11 @@
 Runs all observable sequences in parallel and collect their last elements.
 
 #### Arguments
-1. `args` *(Arguments | Array)*: An array or arguments of Observable sequences or Promises to collect the last elements for.
+1. `args` *(`Arguments` | `Array`)*: An array or arguments of Observable sequences or Promises to collect the last elements for.
+2. `resultSelector`: *(`Function`)* - The result selector from all the values produced. If not specified, `forkJoin` will return the results as an array.
 
 #### Returns
-*(`Observable`)*: An observable sequence with an array collecting the last elements of all the input sequences.
+*(`Observable`)*: An observable sequence with an array collecting the last elements of all the input sequences or the result of the result selector if specified.
 
 {% if book.isPdf %}
 
@@ -37,6 +38,40 @@ var subscription = source.subscribe(
 
 // => onNext: [42, 9, 3, 56]
 // => onCompleted
+```
+
+{% else %}
+
+#### Example
+
+[](http://jsbin.com/sudura/2/embed?js,console)
+
+{% endif %}
+
+{% if book.isPdf %}
+
+#### [Example]()
+
+```js
+var source = Rx.Observable.forkJoin(
+  Rx.Observable.just(42),
+  Rx.Observable.just(56),
+  function (x, y) { return x + y; }
+);
+
+var subscription = source.subscribe(
+  function (x) {
+    console.log('Next: %s', x);
+  },
+  function (err) {
+    console.log('Error: %s', err);
+  },
+  function () {
+    console.log('Completed');
+  });
+
+// => Next: 98
+// => Completed
 ```
 
 {% else %}

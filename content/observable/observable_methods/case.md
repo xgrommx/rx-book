@@ -6,7 +6,7 @@
 
 {% endif %}
 
-Uses selector to determine which source in sources to use.  There is an alias 'switchCase' for browsers <IE9.
+Uses selector to determine which source in sources to use.  There is an alias `switchCase` for browsers <IE9.
 
 ### Arguments
 1. `selector` *(`Function`)*: The function which extracts the value for to test in a case statement.

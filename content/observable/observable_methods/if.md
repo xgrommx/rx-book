@@ -10,7 +10,7 @@
 
 {% endif %}
 
-Determines whether an observable collection contains values. There is an alias for this method called `ifThen` for browsers <IE9
+Determines whether an observable collection contains values.
 
 #### Arguments
 1. `condition` *(`Function`)*: The condition which determines if the thenSource or elseSource will be run.

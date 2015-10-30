@@ -13,7 +13,7 @@
 A series of plans (specified as an Array of as a series of arguments) created by use of the Then operator on patterns.
 
 ### Arguments
-1. `args` *(arguments|Array)*: A series of plans (specified as an Array of as a series of arguments) created by use of the then operator on patterns.
+1. `args` *(`arguments`|`Array`)*: A series of plans (specified as an Array of as a series of arguments) created by use of the then operator on patterns.
 
 #### Returns
 *(`Observable`)*: Observable sequence with the results form matching several patterns. 

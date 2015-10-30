@@ -1,4 +1,4 @@
-## [`Rx.Observable.fromNodeCallback(func, [scheduler], [context], [selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromnodecallback.js)
+## [`Rx.Observable.fromNodeCallback(func, [context], [selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromnodecallback.js)
 
 {% if book.isPdf %}
 
@@ -15,9 +15,8 @@ Converts a Node.js callback style function to an observable sequence.  This must
 
 #### Arguments
 1. `func` *(`Function`)*: Function with a callback as the last parameter to convert to an Observable sequence.
-2. `[scheduler=Rx.Scheduler.timeout]` *(`Scheduler`)*: Scheduler to run the function on. If not specified, defaults to `Rx.Scheduler.timeout`.
-3. `[context]` *(`Any`)*: The context for the func parameter to be executed.  If not specified, defaults to undefined.
-4. `[selector]` *(`Function`)*: A selector which takes the arguments from callback sans the error to produce a single item to yield on next.
+2. `[context]` *(`Any`)*: The context for the func parameter to be executed.  If not specified, defaults to undefined.
+3. `[selector]` *(`Function`)*: A selector which takes the arguments from callback sans the error to produce a single item to yield on next.
 
 #### Returns
 *(`Function`)*: A function which when applied, returns an observable sequence with the callback arguments as an array if no selector given, else the object created by the selector function on success, or an error if the first parameter is not falsy.

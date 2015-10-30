@@ -20,7 +20,7 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
     expand($chapter);
 
     if ($children.length > 0) {
-      $children.slideDown();
+      $children.show();
     }
   });
 

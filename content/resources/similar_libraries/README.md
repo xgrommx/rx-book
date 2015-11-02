@@ -93,7 +93,6 @@
 * Standalone plugins
     * React
         * [https://github.com/fdecampredon/rx-react](https://github.com/fdecampredon/rx-react)
-        * [https://github.com/yolkjs/yolk](https://github.com/yolkjs/yolk)
         * [https://github.com/aparticka/react-bacon-component](https://github.com/aparticka/react-bacon-component)
         * [https://github.com/doctolib/react-observable-mixin](https://github.com/doctolib/react-observable-mixin)
     * Flux
@@ -294,6 +293,9 @@
 ## Pub/Sub
 * [https://github.com/rxmqjs/rxmq.js](https://github.com/rxmqjs/rxmq.js)
 * [https://github.com/mchmielarski/busbup](https://github.com/mchmielarski/busbup)
+
+## Yolk
+* [https://github.com/yolkjs/yolk](https://github.com/yolkjs/yolk)
 
 ## Visualizing streams
 * [https://github.com/staltz/rxmarbles](https://github.com/staltz/rxmarbles)

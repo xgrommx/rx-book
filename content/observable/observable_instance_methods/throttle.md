@@ -22,34 +22,3 @@ Ignores values from an observable sequence which are followed by another value b
 #### Example
 
 [](http://jsbin.com/zatav/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/observable/throttle.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/throttle.js)
-
-Dist:
-- [`rx.time.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js)
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-Prerequisites:
-- If using `rx.time.js`
-    - [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-Time`](http://www.nuget.org/packages/RxJS-Time/)
-
-Unit Tests:
-- [`/tests/observable/throttle.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/throttle.js)
-
-{% endif %}

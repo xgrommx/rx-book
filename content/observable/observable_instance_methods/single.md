@@ -39,31 +39,3 @@ Returns the only element of an observable sequence that satisfies the condition 
 ##### More than one match
 
 [](http://jsbin.com/wuqel/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/observable/single.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/single.js)
-
-Dist:
-- [`rx.aggregates.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js)
-
-Prerequisites:
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js) | [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js) | [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-Aggregates`](http://www.nuget.org/packages/RxJS-Aggregates/)
-
-Unit Tests:
-- [`/tests/observable/single.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/single.js)
-
-{% endif %}

@@ -41,36 +41,3 @@ var subscription = source.subscribe(
 // => Next: First: 3, Second: 10
 // => Completed
 ```
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/linq/observable/withlatestfrom.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/withlatestfrom.js)
-
-Dist:
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js)
-- [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js)
-
-Prerequisites:
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js) | [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js) | [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-All`](http://www.nuget.org/packages/RxJS-All/)
-- [`RxJS-Main`](http://www.nuget.org/packages/RxJS-Main/)
-- [`RxJS-Lite`](http://www.nuget.org/packages/RxJS-Lite/)
-
-Unit Tests:
-- [`/tests/observable/withlatestfrom.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/withlatestfrom.js)
-
-{% endif %}

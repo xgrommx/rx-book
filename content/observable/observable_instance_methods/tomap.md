@@ -23,30 +23,3 @@ Converts the observable sequence to a Map if it exists.  Note that this only wor
 
 [](http://jsbin.com/vukig/1/embed?js,console)
 
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/linq/observable/tomap.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/tomap.js)
-
-Dist:
-- [`rx.all.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js)
-- [`rx.all.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js)
-- [`rx.aggregates.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.aggregates.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-All`](http://www.nuget.org/packages/RxJS-All/)
-- [`RxJS-Aggregates`](http://www.nuget.org/packages/RxJS-Aggregates/)
-
-Unit Tests:
-- [`/tests/observable/tomap.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/tomap.js)
-
-{% endif %}

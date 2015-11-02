@@ -9,30 +9,3 @@ Triggers on the second and subsequent triggerings of the input observable. The N
 
 [](http://jsbin.com/yovebu/1/embed?js,console)
 
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/linq/observable/pairwise.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/pairwise.js)
-
-Dist:
-- [`rx.all.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js)
-- [`rx.all.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js)
-- [`rx.coincidence.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.coincidence.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-All`](http://www.nuget.org/packages/RxJS-All/)
-- [`RxJS-Coincidence`](http://www.nuget.org/packages/RxJS-Coincidence/)
-
-Unit Tests:
-- [`/tests/observable/pairwise.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/pairwise.js)
-
-{% endif %}

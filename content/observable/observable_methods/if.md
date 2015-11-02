@@ -29,34 +29,3 @@ Determines whether an observable collection contains values.
 ##### The next example uses an elseSource
 
 [](http://jsbin.com/fegak/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [/src/core/observable/if.js](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/if.js)
-
-Dist:
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-- [rx.time.js](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js)
-
-Prerequisites:
-- [`rx`](https://www.npmjs.org/package/rx).experimental.js
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js) | [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js) | [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-Experimental`](http://www.nuget.org/packages/RxJS-Experimental)
-
-Unit Tests:
-- [/tests/observable/if.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/if.js)
-
-{% endif %}

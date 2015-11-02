@@ -10,7 +10,7 @@
 
 {% endif %}
 
-Returns an observable sequence that contains only distinct elements according to the keySelector and the comparer. Usage of this operator should be considered carefully due to the maintenance of an internal lookup structure which can grow large. 
+Returns an observable sequence that contains only distinct contiguous elements according to the keySelector and the comparer.
 
 #### Arguments
 1. `[keySelector]` *(`Function`)*: A function to compute the comparison key for each element.
@@ -63,15 +63,3 @@ var subscription = source.subscribe(
 // => Next: { value: 24 }
 // => Completed 
 ```
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx)
-
-{% endif %}

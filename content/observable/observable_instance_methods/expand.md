@@ -22,15 +22,3 @@ Expands an observable sequence by recursively invoking selector.
 #### Example
 
 [](http://jsbin.com/xeyuf/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).experimental.js
-
-{% endif %}

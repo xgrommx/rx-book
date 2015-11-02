@@ -22,31 +22,3 @@ Determines whether two sequences are equal by comparing the elements pairwise us
 #### Example
 
 [](http://jsbin.com/feyos/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/observable/sequenceequal.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sequenceequal.js)
-
-Dist:
-- [`rx.aggregates.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js)
-
-Prerequisites:
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js) | [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js) | [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-Aggregates`](http://www.nuget.org/packages/RxJS-Aggregates/)
-
-Unit Tests:
-- [`/tests/observable/sequenceequal.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/sequenceequal.js)
-
-{% endif %}

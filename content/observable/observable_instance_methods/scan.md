@@ -30,35 +30,3 @@ For aggregation behavior with no intermediate results, see `Rx.Observable.aggreg
 ##### With a seed
 
 [](http://jsbin.com/retuh/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/observable/scan.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/scan.js)
-
-Dist:
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js)
-- [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-Prerequisites:
-- None
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-Main`](http://www.nuget.org/packages/RxJS-Main/)
-- [`RxJS-Lite`](http://www.nuget.org/packages/RxJS-Lite/)
-
-Unit Tests:
-- [`/tests/observable/scan.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/scan.js)
-
-{% endif %}

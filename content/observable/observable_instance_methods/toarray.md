@@ -18,35 +18,3 @@ Creates a list from an observable sequence.
 #### Example
 
 [](http://jsbin.com/cobaq/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/observable/toarray.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toarray.js)
-
-Dist:
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js)
-- [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-Prerequisites:
-- None
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-Main`](http://www.nuget.org/packages/RxJS-Main/)
-- [`RxJS-Lite`](http://www.nuget.org/packages/RxJS-Lite/)
-
-Unit Tests:
-- [`/tests/observable/toarray.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/toarray.js)
-
-{% endif %}

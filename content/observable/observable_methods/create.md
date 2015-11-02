@@ -75,36 +75,3 @@ var subscription = source.subscribe(
 [](http://jsbin.com/puveyi/2/embed?js,console)
 
 {% endif %}
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/observable/create.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/create.js)
-
-Dist:
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.js)
-- [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.compat.js)
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-Prerequisites:
-- None
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-Main`](http://www.nuget.org/packages/RxJS-Main/)
-- [`RxJS-Lite`](http://www.nuget.org/packages/RxJS-Lite/)
-
-Unit Tests:
-- [`/tests/observable/create.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/create.js)
-- [`/tests/observable/createwithdisposable.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/createwithdisposable.js)
-
-{% endif %}

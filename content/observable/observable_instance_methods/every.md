@@ -6,11 +6,11 @@
 
 {% else %}
 
-
+<rx-marbles key="every"></rx-marbles>
 
 {% endif %}
 
-Determines whether all elements of an observable sequence satisfy a condition.  This is an alias to `all`.
+Determines whether all elements of an observable sequence satisfy a condition.
 
 #### Arguments
 1. `predicate` *(`Function`)*: A function to test each element for a condition.
@@ -22,15 +22,3 @@ Determines whether all elements of an observable sequence satisfy a condition.  
 #### Example
 
 [](http://jsbin.com/kaxifo/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).aggregates.js
-
-{% endif %}

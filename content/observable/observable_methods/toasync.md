@@ -23,34 +23,3 @@ Converts the function into an asynchronous function. Each invocation of the resu
 #### Example
 
 [](http://jsbin.com/zokawu/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [/src/core/observable/toasync.js](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/toasync.js)
-
-Dist:
-- [`rx.async.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.js)
-- [`rx.async.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.compat.js)
-
-Prerequisites:
-- [`rx`](https://www.npmjs.org/package/rx).async.js | rx.async.compat.js
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-- [`rx.binding.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`rx`](https://www.npmjs.org/package/rx)JS-Binding
-
-Unit Tests:
-- [/tests/observable/toasync.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/toasync.js)
-
-{% endif %}

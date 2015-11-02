@@ -25,15 +25,3 @@ Filters the elements of an observable sequence based on a predicate.  This is an
 #### Example
 
 [](http://jsbin.com/biriy/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx)
-
-{% endif %}

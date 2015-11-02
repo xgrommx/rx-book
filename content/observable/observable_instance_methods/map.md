@@ -25,15 +25,3 @@ Projects each element of an observable sequence into a new form by incorporating
 #### Example
 
 [](http://jsbin.com/sureq/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx)
-
-{% endif %}

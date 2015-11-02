@@ -10,8 +10,6 @@
 
 {% endif %}
 
-The `buffer` periodically gather items emitted by an Observable into buffers and emit these buffers rather than emitting the items one at a time.
-
 The `buffer` method periodically gathers items emitted by a source Observable into buffers, and emits these buffers as its own emissions.
 
 Note that if the source Observable issues an `onError` notification, `buffer` will pass on this notification immediately without first emitting the buffer it is in the process of assembling, even if that buffer contains items that were emitted by the source Observable before it issued the error notification.
@@ -68,34 +66,3 @@ Returns an `Observable` that emits non-overlapping buffered items from the sourc
 #### Example
 
 [](http://jsbin.com/jacapa/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/linq/observable/buffer.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/buffer.js)
-
-Dist:
-- [`rx.all.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js)
-- [`rx.all.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js)
-- [`rx.coincidence.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.coincidence.js)
-
-Prerequisites:
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js) | [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js) | [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-All`](http://www.nuget.org/packages/RxJS-All/)
-- [`RxJS-Coincidence`](http://www.nuget.org/packages/RxJS-Coincidence/)
-
-Unit Tests:
-- [`/tests/observable/buffer.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/buffer.js)
-
-{% endif %}

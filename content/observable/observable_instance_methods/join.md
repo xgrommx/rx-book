@@ -26,15 +26,3 @@ Correlates the elements of two sequences based on overlapping durations.
 #### Example
 
 [](http://jsbin.com/japur/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).coincidence.js
-
-{% endif %}

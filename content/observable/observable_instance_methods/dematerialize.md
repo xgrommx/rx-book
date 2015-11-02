@@ -18,15 +18,3 @@ Dematerializes the explicit notification values of an observable sequence as imp
 #### Example
 
 [](http://jsbin.com/yusem/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx)
-
-{% endif %}

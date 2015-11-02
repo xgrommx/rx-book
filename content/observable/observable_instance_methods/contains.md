@@ -28,15 +28,3 @@ Determines whether an observable sequence contains a specified element with an o
 ##### With a comparer
 
 [](http://jsbin.com/cijina/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).aggregates.js
-
-{% endif %}

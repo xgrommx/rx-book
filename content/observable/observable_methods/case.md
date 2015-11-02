@@ -48,31 +48,3 @@ var subscription = source.subscribe(
 [](http://jsbin.com/ladamu/2/embed?js,console)
 
 {% endif %}
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/observable/case.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/case.js)
-
-Dist:
-- [`rx.experimental.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.experimental.js)
-
-Prerequisites:
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.compat.js) | [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js) | [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-Experimental`](http://www.nuget.org/packages/RxJS-Experimental)
-
-Unit Tests:
-- [`/tests/observable/case.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/case.js)
-
-{% endif %}

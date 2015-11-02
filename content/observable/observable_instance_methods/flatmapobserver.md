@@ -43,32 +43,3 @@ var subscription = source.subscribe(
 // => Next: 3
 // => Completed
 ```
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/linq/observable/selectmanyobserver.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectmanyobserver.js)
-
-Dist:
-- [`rx.all.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js)
-- [`rx.all.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js)
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js)
-- [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-All`](http://www.nuget.org/packages/RxJS-All/)
-- [`RxJS-Main`](http://www.nuget.org/packages/RxJS-Main/)
-
-Unit Tests:
-- [`/tests/observable/selectmanyobserver.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/selectmanyobserver.js)
-
-{% endif %}

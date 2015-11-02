@@ -28,15 +28,3 @@ Time shifts the observable sequence by dueTime. The relative time intervals betw
 ##### Without subscriptionDelay
 
 [](http://jsbin.com/soheg/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).time.js
-
-{% endif %}

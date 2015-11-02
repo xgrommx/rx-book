@@ -24,15 +24,3 @@ Determines whether an observable sequence is empty.
 ##### Empty
 
 [](http://jsbin.com/viqew/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).aggregates.js
-
-{% endif %}

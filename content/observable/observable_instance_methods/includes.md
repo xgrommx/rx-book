@@ -1,4 +1,4 @@
-## [`Rx.Observable.prototype.includes(searchElement, [fromIndex])`, `Rx.Observable.prototype.contains(searchElement, [fromIndex])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/includes.js)
+## [`Rx.Observable.prototype.includes(searchElement, [fromIndex])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/includes.js)
 
 Determines whether an observable sequence includes a specified element with an optional from index.
 
@@ -47,34 +47,3 @@ var subscription = source.subscribe(
 // => Next: true
 // => Completed
 ```
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/linq/observable/includes.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/includes.js)
-
-Dist:
-- [`rx.all.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js)
-- [`rx.all.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js)
-- [`rx.aggregates.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.aggregates.js)
-
-Prerequisites:
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js) | [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js) | [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-All`](http://www.nuget.org/packages/RxJS-All/)
-- [`RxJS-Aggregates`](http://www.nuget.org/packages/RxJS-Aggregates/)
-
-Unit Tests:
-- [`/tests/observable/includes.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/includes.js)
-
-{% endif %}

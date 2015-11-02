@@ -24,38 +24,3 @@ relative time is supported.
 #### Example
 
 [](http://jsbin.com/hezadu/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [/src/core/observable/timer.js](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timer.js)
-- [/src/core/observable/timer-lite.js](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timer-lite.js)
-
-Dist:
-- [rx.time.js](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js)
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-Prerequisites:
-- [`rx`](https://www.npmjs.org/package/rx).time.js
-    - [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-- [`rx`](https://www.npmjs.org/package/rx).lite.js | rx.lite.compat.js
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`rx`](https://www.npmjs.org/package/rx)JS-Time
-- [`RxJS-Lite`](http://www.nuget.org/packages/RxJS-Lite/)
-
-Unit Tests:
-- [/tests/observable/timer.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/timer.js)
-- [/tests/observable/timer-lite.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/timer-lite.js)
-
-{% endif %}

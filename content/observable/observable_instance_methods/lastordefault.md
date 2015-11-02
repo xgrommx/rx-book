@@ -36,15 +36,3 @@ Returns the last element of an observable sequence that satisfies the condition 
 ##### With predicate
 
 [](http://jsbin.com/vayal/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).aggregates.js
-
-{% endif %}

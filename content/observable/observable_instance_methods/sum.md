@@ -30,32 +30,3 @@ Computes the sum of a sequence of values that are obtained by invoking an option
 ##### With a selector
 
 [](http://jsbin.com/jelice/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [/src/core/observable/sum.js](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sum.js)
-
-Dist:
-- [rx.aggregates.js](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.aggregates.js)
-
-Prerequisites:
-- [`rx`](https://www.npmjs.org/package/rx).aggregates.js
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js) | [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js) | [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-Aggregates`](http://www.nuget.org/packages/RxJS-Aggregates/)
-
-Unit Tests:
-- [/tests/observable/sum.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/sum.js)
-
-{% endif %}

@@ -27,15 +27,3 @@ Returns the elements of the specified sequence or the specified value in a singl
 ##### With a defaultValue
 
 [](http://jsbin.com/yezodu/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx)
-
-{% endif %}

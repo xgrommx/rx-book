@@ -36,38 +36,3 @@ spawned.subscribe(
 // => next 212
 // => completed
 ```
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [/src/core/linq/observable/spawn.js](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/spawn.js)
-
-Dist:
-- [`rx.async.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.js)
-- [`rx.async.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.async.compat.js)
-- [`rx.all.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.js)
-- [`rx.all.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.all.compat.js)
-
-Prerequisites:
-- If using `rx.async.js` | `rx.async.compat.js`
-    - [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-    - [`rx.binding.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js)
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-All`](http://www.nuget.org/packages/RxJS-All/)
-- [`RxJS-Async`](http://www.nuget.org/packages/RxJS-Async)
-
-Unit Tests:
-- [/tests/observable/spawn.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/spawn.js)
-
-{% endif %}

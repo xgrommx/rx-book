@@ -18,15 +18,3 @@ Ignores all elements in an observable sequence leaving only the termination mess
 #### Example
 
 [](http://jsbin.com/dekug/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx)
-
-{% endif %}

@@ -28,15 +28,3 @@ Continues an observable sequence that is terminated by an exception with the nex
 ##### Using a handler function
 
 [](http://jsbin.com/nikay/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx)
-
-{% endif %}

@@ -29,15 +29,3 @@ Projects each element of an observable sequence into zero or more buffers which 
 ##### Using a skip
 
 [](http://jsbin.com/rafay/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).time.js
-
-{% endif %}

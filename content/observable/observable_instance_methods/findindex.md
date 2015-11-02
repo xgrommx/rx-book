@@ -26,14 +26,24 @@ Searches for an element that matches the conditions defined by the specified pre
 
 [](http://jsbin.com/nodec/1/embed?js,console)
 
-{% if book.isPdf %}
+```js
+/* Not found */
+var array = [1,2,3,4];
 
+var source = Rx.Observable.from(array)
+  .findIndex(function (x, i, obs) { return x === 5; });
 
+var subscription = source.subscribe(
+  function (x) {
+    console.log('Next: %s', x);
+  },
+  function (err) {
+    console.log('Error: %s', err);
+  },
+  function () {
+    console.log('Completed');
+  });
 
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).aggregates.js
-
-{% endif %}
+// => Next: -1
+// => Completed
+```

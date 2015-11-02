@@ -21,36 +21,3 @@ Pauses the underlying observable sequence based upon the observable sequence whi
 #### Example
 
 [](http://jsbin.com/cicema/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [/src/core/backpressure/pausable.js](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/backpressure/pausable.js)
-
-Dist:
-- [rx.backpressure.js](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.backpressure.js)
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-
-Prerequisites:
-- If using `rx.backpressure.js`
-    - [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-    - [`rx.binding.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-BackPressure`](http://www.nuget.org/packages/RxJS-BackPressure/)
-- [`RxJS-Lite`](http://www.nuget.org/packages/RxJS-Lite/)
-
-Unit Tests:
-- [/tests/observable/pausable.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/pausable.js)
-
-{% endif %}

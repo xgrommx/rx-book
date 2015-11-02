@@ -1,6 +1,4 @@
-## [`Rx.Observable.prototype.flatMapLatest(selector, [thisArg])`,
-    `Rx.Observable.prototype.switchMap(selector, [thisArg])`,
-    `Rx.Observable.prototype.selectSwitch(selector, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectswitch.js)
+## [`Rx.Observable.prototype.flatMapLatest(selector, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectswitch.js)
 
 {% if book.isPdf %}
 
@@ -51,38 +49,3 @@ var subscription = source.subscribe(
 // Next: 3b
 // Completed
 ```
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/linq/observable/selectswitch.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectswitch.js)
-
-Dist:
-- [`rx.all.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js)
-- [`rx.all.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js)
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js)
-- [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.lite.compat.js)
-
-Prerequisites:
-- None
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-All`](http://www.nuget.org/packages/RxJS-All/)
-- [`RxJS-Main`](http://www.nuget.org/packages/RxJS-Main/)
-- [`RxJS-Lite`](http://www.nuget.org/packages/RxJS-Lite/)
-
-Unit Tests:
-- [`/tests/observable/flatmaplatest.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/flatmaplatest.js)
-
-{% endif %}

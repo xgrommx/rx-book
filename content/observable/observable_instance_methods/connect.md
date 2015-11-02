@@ -18,15 +18,3 @@ Connects the observable wrapper to its source. All subscribed observers will rec
 #### Example
 
 [](http://jsbin.com/timob/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx.binding.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.binding.js)
-
-{% endif %}

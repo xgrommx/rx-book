@@ -23,15 +23,3 @@ This operator allows for a fluent style of writing queries that use the same seq
 #### Example
 
 [](http://jsbin.com/jetido/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).experimental.js
-
-{% endif %}

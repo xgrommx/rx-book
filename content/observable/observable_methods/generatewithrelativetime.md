@@ -26,36 +26,3 @@ Generates an observable sequence by iterating a state from an initial state unti
 #### Example
 
 [](http://jsbin.com/jisopo/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [/src/core/observable/generatewithrelativetime.js](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/generatewithrelativetime.js)
-
-Dist:
-- [`rx.lite.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.js)
-- [`rx.lite.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.lite.compat.js)
-- [rx.time.js](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js)
-
-Prerequisites:
-- if rx.time.js
-    - [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-- [`rx`](https://www.npmjs.org/package/rx).lite.js | rx.lite.compat.js
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`rx`](https://www.npmjs.org/package/rx)JS-Time
-- [`RxJS-Lite`](http://www.nuget.org/packages/RxJS-Lite/)
-
-Unit Tests:
-- [/tests/observable/generatewithrelativetime.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/generatewithrelativetime.js)
-
-{% endif %}

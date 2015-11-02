@@ -26,32 +26,3 @@ Projects each notification of an observable sequence to an observable sequence a
 #### Example
 
 [](http://jsbin.com/dasivu/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [`/src/core/linq/observable/concatmapobserver.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/concatmapobserver.js)
-
-Dist:
-- [`rx.all.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.js)
-- [`rx.all.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.all.compat.js)
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js)
-- [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`RxJS-All`](http://www.nuget.org/packages/RxJS-All/)
-- [`RxJS-Main`](http://www.nuget.org/packages/RxJS-Main/)
-
-Unit Tests:
-- [`/tests/observable/concatmapobserver.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/concatmapobserver.js)
-
-{% endif %}

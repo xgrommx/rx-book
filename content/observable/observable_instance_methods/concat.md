@@ -13,7 +13,7 @@
 Concatenates all the observable sequences.  This takes in either an array or variable arguments to concatenate.
 
 #### Arguments
-1. `args` *(arguments | Array)*: An array or arguments of Observable sequences.
+1. `args` *(`arguments` | `Array`)*: An array or arguments of Observable sequences.
 
 #### Returns
 *(`Observable`)*: An observable sequence that contains the elements of each given sequence, in sequential order. 
@@ -22,14 +22,25 @@ Concatenates all the observable sequences.  This takes in either an array or var
 
 [](http://jsbin.com/coyapo/1/embed?js,console)
 
-{% if book.isPdf %}
+```js
+/* Using Promises and Observable sequences */
+var source1 = Rx.Observable.return(42);
+var source2 = RSVP.Promise.resolve(56);
 
+var source = Rx.Observable.concat(source1, source2);
 
+var subscription = source.subscribe(
+    function (x) {
+        console.log('Next: ' + x);
+    },
+    function (err) {
+        console.log('Error: ' + err);
+    },
+    function () {
+        console.log('Completed');
+    });
 
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx)
-
-{% endif %}
+// => Next: 42
+// => Next: 56
+// => Completed
+```

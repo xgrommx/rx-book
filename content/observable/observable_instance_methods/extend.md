@@ -22,15 +22,3 @@ Comonadic bind operator.
 #### Example
 
 [](http://jsbin.com/yaxav/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).experimental.js
-
-{% endif %}

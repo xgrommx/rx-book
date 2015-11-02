@@ -23,15 +23,3 @@ Projects each element of an observable sequence into a buffer that is completed 
 #### Example
 
 [](http://jsbin.com/qaxid/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-#### Location
-
-- [`rx`](https://www.npmjs.org/package/rx).time.js
-
-{% endif %}

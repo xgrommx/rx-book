@@ -26,32 +26,3 @@ Generates an observable sequence by iterating a state from an initial state unti
 #### Example
 
 [](http://jsbin.com/pugoy/1/embed?js,console)
-
-{% if book.isPdf %}
-
-
-
-{% else %}
-
-### Location
-
-File:
-- [/src/core/observable/generatewithabsolutetime.js](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/generatewithabsolutetime.js)
-
-Dist:
-- [rx.time.js](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.time.js)
-
-Prerequisites:
-- [`rx`](https://www.npmjs.org/package/rx).time.js
-- [`rx.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.js) | [`rx.compat.js`](https://github.com/Reactive-Extensions/RxJS/blob/master/dist/rx.compat.js)
-
-NPM Packages:
-- [`rx`](https://www.npmjs.org/package/rx)
-
-NuGet Packages:
-- [`rx`](https://www.npmjs.org/package/rx)JS-Time
-
-Unit Tests:
-- [/tests/observable/generatewithabsolutetime.js](https://github.com/Reactive-Extensions/RxJS/blob/master/tests/observable/generatewithabsolutetime.js)
-
-{% endif %}

@@ -35,7 +35,7 @@ require(["gitbook", "jquery"], function(gitbook, $) {
 
 		var query = getQuery(link.search);
 		iframe.style.width = query.width || '100%';
-		iframe.style.minHeight = query.height || '300px';
+		iframe.style.minHeight = query.height || '500px';
 		if (query.height) {
 			iframe.style.maxHeight = query.height;
 		}

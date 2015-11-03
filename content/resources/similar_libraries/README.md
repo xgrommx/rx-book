@@ -95,6 +95,7 @@
         * [https://github.com/fdecampredon/rx-react](https://github.com/fdecampredon/rx-react)
         * [https://github.com/aparticka/react-bacon-component](https://github.com/aparticka/react-bacon-component)
         * [https://github.com/doctolib/react-observable-mixin](https://github.com/doctolib/react-observable-mixin)
+        * [https://github.com/alexeyraspopov/retransmitter](https://github.com/alexeyraspopov/retransmitter)
     * Flux
         * [https://github.com/fdecampredon/rx-flux](https://github.com/fdecampredon/rx-flux)
         * [https://github.com/d6u/River](https://github.com/d6u/River)
@@ -107,6 +108,7 @@
         * [https://github.com/ulrikaugustsson/scanux](https://github.com/ulrikaugustsson/scanux)
         * [https://github.com/jdlehman/rx-store](https://github.com/jdlehman/rx-store)
 * Examples
+    * [https://github.com/brabadu/tanok](https://github.com/brabadu/tanok) Elm architecture
     * [https://gist.github.com/sectore/a8147ce68fc3966ce142](https://gist.github.com/sectore/a8147ce68fc3966ce142)
     * [https://github.com/bordoley/RelaX](https://github.com/bordoley/RelaX)
     * [https://github.com/weslleyaraujo/react-flux-puzzle](https://github.com/weslleyaraujo/react-flux-puzzle)
@@ -209,6 +211,9 @@
 
 #### Riot
 * [http://codepen.io/filippomangione/pen/JYOZBY](http://codepen.io/filippomangione/pen/JYOZBY)
+
+#### Vue
+* [https://github.com/vuejs/vue-rx](https://github.com/vuejs/vue-rx)
 
 #### Cycle
 * [https://github.com/ohanhi/hyperscript-helpers](https://github.com/ohanhi/hyperscript-helpers)
@@ -404,6 +409,8 @@
 * [https://github.com/gchudnov/rx-image](https://github.com/gchudnov/rx-image)
 * [https://github.com/akauppi/svg.rx.js](https://github.com/akauppi/svg.rx.js)
 * [https://github.com/psycotica0/bdd_game](https://github.com/psycotica0/bdd_game)
+* [https://github.com/Widdershin/rx-undoable](https://github.com/Widdershin/rx-undoable)
+* [https://github.com/doctolib/rx](https://github.com/doctolib/rx)
 
 #### Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

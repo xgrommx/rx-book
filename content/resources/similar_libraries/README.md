@@ -703,6 +703,7 @@
 * [https://github.com/ekamp/RxCurrently](https://github.com/ekamp/RxCurrently)
 * [https://github.com/konmik/nucleus](https://github.com/konmik/nucleus)
 * [https://github.com/Gitteroid/GitterRxJavaSDK](https://github.com/Gitteroid/GitterRxJavaSDK)
+* [https://github.com/reark/reark](https://github.com/reark/reark)
 
 ## Tutorials
 * [https://github.com/jhusain/learnrxjava](https://github.com/jhusain/learnrxjava)

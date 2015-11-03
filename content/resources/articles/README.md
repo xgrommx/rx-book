@@ -39,6 +39,8 @@
 * [Rx framework — IObservable<T>.Concat](http://theburningmonk.com/2010/03/rx-framework-iobservable-concat)
 * [Rx framework — IObservable<T>.CombineLatest](http://theburningmonk.com/2010/03/rx-framework-iobservable-combinelatest)
 * [Rx framework — IObservable<T>.Merge](http://theburningmonk.com/2010/02/rx-framework-iobservable-merge)
+* [RxJava Observable tranformation: concatMap() vs flatMap()](http://fernandocejas.com/2015/01/11/rxjava-observable-tranformation-concatmap-vs-flatmap)
+* [RxJava: defer execution of a function with new operator fromCallable()](http://artemzin.com/blog/rxjava-defer-execution-of-function-via-fromcallable)
 
 
 

@@ -96,6 +96,7 @@
         * [https://github.com/aparticka/react-bacon-component](https://github.com/aparticka/react-bacon-component)
         * [https://github.com/doctolib/react-observable-mixin](https://github.com/doctolib/react-observable-mixin)
         * [https://github.com/alexeyraspopov/retransmitter](https://github.com/alexeyraspopov/retransmitter)
+        * [https://github.com/acdlite/recompose/tree/master/src/packages/rx-recompose](https://github.com/acdlite/recompose/tree/master/src/packages/rx-recompose)
     * Flux
         * [https://github.com/fdecampredon/rx-flux](https://github.com/fdecampredon/rx-flux)
         * [https://github.com/d6u/River](https://github.com/d6u/River)
@@ -108,6 +109,8 @@
         * [https://github.com/ulrikaugustsson/scanux](https://github.com/ulrikaugustsson/scanux)
         * [https://github.com/jdlehman/rx-store](https://github.com/jdlehman/rx-store)
 * Examples
+    * [https://github.com/jamesknelson/numbat-ui-example](https://github.com/jamesknelson/numbat-ui-example)
+    * [https://github.com/yanglinz/reddio](https://github.com/yanglinz/reddio)
     * [https://github.com/brabadu/tanok](https://github.com/brabadu/tanok) Elm architecture
     * [https://gist.github.com/sectore/a8147ce68fc3966ce142](https://gist.github.com/sectore/a8147ce68fc3966ce142)
     * [https://github.com/bordoley/RelaX](https://github.com/bordoley/RelaX)
@@ -294,6 +297,7 @@
 * [https://github.com/secobarbital/cycle-pushstate-driver](https://github.com/secobarbital/cycle-pushstate-driver)
 * [https://github.com/justinwoo/housing-costs-maps](https://github.com/justinwoo/housing-costs-maps)
 * [https://gist.github.com/dmitriid/baa371845e617a2dc18e](https://gist.github.com/dmitriid/baa371845e617a2dc18e)
+* [https://github.com/justinwoo/cycle-elm-etch-sketch](https://github.com/justinwoo/cycle-elm-etch-sketch)
 
 ## Pub/Sub
 * [https://github.com/rxmqjs/rxmq.js](https://github.com/rxmqjs/rxmq.js)
@@ -331,6 +335,7 @@
 * [https://github.com/supersymme3/learnrx-exercises](https://github.com/supersymme3/learnrx-exercises)
 
 ## Other
+* [https://github.com/kt3kstudio/long-dream-core](https://github.com/kt3kstudio/long-dream-core)
 * [https://github.com/fdecampredon/react-observe-todomvc](https://github.com/fdecampredon/react-observe-todomvc)
 * [https://github.com/trxcllnt/rxjs-easing](https://github.com/trxcllnt/rxjs-easing)
 * [https://github.com/staltz/rxtween](https://github.com/staltz/rxtween)
@@ -626,6 +631,8 @@
 * [https://github.com/yasuyuky/elmtrn](https://github.com/yasuyuky/elmtrn)
 
 # Java
+* [https://gist.github.com/cesarferreira/510aa2456dc0879f559f](https://gist.github.com/cesarferreira/510aa2456dc0879f559f)
+* [https://github.com/eleventigers/awesome-rxjava](https://github.com/eleventigers/awesome-rxjava)
 * [https://github.com/ReactiveX/RxJava](https://github.com/ReactiveX/RxJava)
 * [https://github.com/davidmoten/rxjava-extras](https://github.com/davidmoten/rxjava-extras)
 * [https://github.com/davidmoten/rxjava-jdbc](https://github.com/davidmoten/rxjava-jdbc)
@@ -778,6 +785,7 @@
 * [https://github.com/JohanLarsson/Gu.Reactive](https://github.com/JohanLarsson/Gu.Reactive)
 * [https://github.com/tamirdresher/RxInAction](https://github.com/tamirdresher/RxInAction)
 * [https://github.com/ApocalypticOctopus/Rx.Community.Extensions](https://github.com/ApocalypticOctopus/Rx.Community.Extensions)
+* [https://github.com/akarnokd/RxReactiveStreamsCSharp](https://github.com/akarnokd/RxReactiveStreamsCSharp)
 
 # C++
 * [https://github.com/Reactive-Extensions/RxCpp](https://github.com/Reactive-Extensions/RxCpp)

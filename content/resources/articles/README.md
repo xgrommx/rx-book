@@ -41,6 +41,26 @@
 * [Rx framework — IObservable<T>.Merge](http://theburningmonk.com/2010/02/rx-framework-iobservable-merge)
 * [RxJava Observable tranformation: concatMap() vs flatMap()](http://fernandocejas.com/2015/01/11/rxjava-observable-tranformation-concatmap-vs-flatmap)
 * [RxJava: defer execution of a function with new operator fromCallable()](http://artemzin.com/blog/rxjava-defer-execution-of-function-via-fromcallable)
+* [Введение в RxJava, часть первая – Вступление: Почему Rx?](http://habrahabr.ru/post/269417) (ru)
+* [Введение в RxJava, часть первая – Вступление: Ключевые типы](http://habrahabr.ru/post/270023) (ru)
+* [Как сделать самоподгружаемый RecyclerView с помощью RxJava](http://habrahabr.ru/post/268991) (ru)
+* [Reactive Extensions. Api client with Cache-Aside & Refresh-Ahead strategy. Part 1.](http://asizikov.github.io/2015/07/26/rx-api-with-cache-one)
+* [Reactive Extensions. Api client with Cache-Aside & Refresh-Ahead strategy. Part 2.](http://asizikov.github.io/2015/08/14/rx-api-with-cache-two)
+* [Rxで指定した条件を満たすまでbufferする](http://qiita.com/k-kagurazaka@github/items/9e811f49a0ba4108ddb2)
+* [Reactive Programming with RxJava in Android](https://www.ykode.com/2015/02/20/android-frp-rxjava-retrolambda.html)
+* [Adding Retrofit To Kotlin And RxJava Android Application](https://www.ykode.com/2015/10/25/android-rxjava-kotlin-retrofit.html)
+* [Build Android UI In Code Painlessly With Anko And Kotlin](https://www.ykode.com/2015/10/24/android-rxjava-anko.html)
+* [Porting RxJava Android Application To Kotlin](https://www.ykode.com/2015/10/23/android-rxjava-kotlin-beta.html)
+* [Android From Scratch - Bare Minimum Android Project With Kotlin](https://www.ykode.com/2015/10/20/android-from-scratch-kotlin.html)
+* [Reactive Programming with RxJava in Android](https://www.ykode.com/2015/02/20/android-frp-rxjava-retrolambda.html)
+* [What's the RxJava equivalent of the Observable.expand() in RxJs?](http://stackoverflow.com/questions/26928099/whats-the-rxjava-equivalent-of-the-observable-expand-in-rxjs)
+* [How can I do a recursive read-dir with RxJs (or any FRP lib)?](https://www.reddit.com/r/javascript/comments/3abv2k/how_can_i_do_a_recursive_readdir_with_rxjs_or_any)
+* [Functional Reactive Programming on Android With RxJava](https://mttkay.github.io/blog/2013/08/25/functional-reactive-programming-on-android-with-rxjava)
+* [Introducing Rx (Linq to Events)](http://themechanicalbride.blogspot.com/2009/07/introducing-rx-linq-to-events.html)
+* [Rx: Materialize() – Stream Notifcations](https://mdavey.wordpress.com/2010/01/29/rx-materialize-stream-notifcations)
+* []()
+* []()
+* []()
 
 
 
@@ -93,10 +113,12 @@
 * [Functional Reactive Programming with Bacon.js](http://sean.voisen.org/blog/2013/09/intro-to-functional-reactive-programming)
 * [Bacon.js for Dummies](http://neethack.com/2013/02/bacon-dot-js-for-dummies)
 * [FRP (functional reactive programming) на Bacon.js](http://habrahabr.ru/post/198656) (ru)
+* [Functional Reactive Applications](http://www.christianalfoni.com/articles/2015_04_01_Functional-Reactive-Applications)
 
 ## Kefir
 * [Learning to think in frp: my experience coding a game with Kefir.js](http://codeperfectionist.com/articles/learning-to-think-in-frp-my-experience-coding-a-game-with-kefir-js)
 * [Courier: a reactive React client architecture](http://baatz.io/posts/courier-reactive-react-architecture)
+* [Reactive programming with Kefir.js and React](https://medium.com/@carloM/reactive-programming-with-kefir-js-and-react-a0e8bb3af636)
 
 ## Mixed
 * [Functional reactive programming in JavaScript](http://christophermeiklejohn.com/frp/javascript/clojurescript/2013/06/13/functional-reactive-programming.html)

@@ -58,6 +58,7 @@
 * [Functional Reactive Programming on Android With RxJava](https://mttkay.github.io/blog/2013/08/25/functional-reactive-programming-on-android-with-rxjava)
 * [Introducing Rx (Linq to Events)](http://themechanicalbride.blogspot.com/2009/07/introducing-rx-linq-to-events.html)
 * [Rx: Materialize() – Stream Notifcations](https://mdavey.wordpress.com/2010/01/29/rx-materialize-stream-notifcations)
+* [Angular services with RxJS; decrapify your services](https://medium.com/@MertzAlertz/services-with-rxjs-50ff96ee0d2a)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -86,6 +87,8 @@
 * [A Dead-Simple Todo List with RxJS](http://blog.edanschwartz.com/2015/09/18/dead-simple-rxjs-todo-list)
 * [How to use Cycle.js to create a scroll-table](http://qiita.com/kimagure/items/d29ed7b7bdaaf6977b9a)
 * [Mounting D3 Datamaps to containers in Cycle.js using drivers](http://qiita.com/kimagure/items/3020b0a7d08da3b5ce34)
+* [How to make a Cycle.js + Elm hybrid Etch-a-Sketch app](http://qiita.com/kimagure/items/d6ac01e6258ecd363ffe)
+* [Plug and Play All Your Observable Streams With Cycle.js](https://medium.com/@fkrautwald/plug-and-play-all-your-observable-streams-with-cycle-js-e543fc287872)
 
 ## Bacon
 * [Functional Reactive Programming in JavaScript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)

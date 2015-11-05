@@ -58,11 +58,6 @@
 * [Functional Reactive Programming on Android With RxJava](https://mttkay.github.io/blog/2013/08/25/functional-reactive-programming-on-android-with-rxjava)
 * [Introducing Rx (Linq to Events)](http://themechanicalbride.blogspot.com/2009/07/introducing-rx-linq-to-events.html)
 * [Rx: Materialize() – Stream Notifcations](https://mdavey.wordpress.com/2010/01/29/rx-materialize-stream-notifcations)
-* []()
-* []()
-* []()
-
-
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

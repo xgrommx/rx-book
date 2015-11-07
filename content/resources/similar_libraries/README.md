@@ -303,6 +303,9 @@
 * [https://github.com/rxmqjs/rxmq.js](https://github.com/rxmqjs/rxmq.js)
 * [https://github.com/mchmielarski/busbup](https://github.com/mchmielarski/busbup)
 
+## WebRx
+* [https://github.com/patsissons/WebRx.React/tree/develop](https://github.com/patsissons/WebRx.React/tree/develop)
+
 ## Yolk
 * [https://github.com/yolkjs/yolk](https://github.com/yolkjs/yolk)
 
@@ -494,6 +497,7 @@
 * [https://github.com/elsehow/frplux](https://github.com/elsehow/frplux)
 * [https://github.com/miciek/web-snake-react-bacon](https://github.com/miciek/web-snake-react-bacon)
 * [https://github.com/milankinen/megablob](https://github.com/milankinen/megablob)
+* [https://github.com/VesaKarvonen/atomi-poc](https://github.com/VesaKarvonen/atomi-poc)
 
 #### Other
 * [https://github.com/erlikh/baconjs-experiments](https://github.com/erlikh/baconjs-experiments)
@@ -629,6 +633,7 @@
 * [https://github.com/TheSeamau5/simple-animations](https://github.com/TheSeamau5/simple-animations)
 * [https://github.com/tennety/elm-game-of-life](https://github.com/tennety/elm-game-of-life)
 * [https://github.com/yasuyuky/elmtrn](https://github.com/yasuyuky/elmtrn)
+* [https://github.com/ohanhi/elm-native](https://github.com/ohanhi/elm-native)
 
 # Java
 * [https://gist.github.com/cesarferreira/510aa2456dc0879f559f](https://gist.github.com/cesarferreira/510aa2456dc0879f559f)

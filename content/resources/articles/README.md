@@ -59,6 +59,12 @@
 * [Introducing Rx (Linq to Events)](http://themechanicalbride.blogspot.com/2009/07/introducing-rx-linq-to-events.html)
 * [Rx: Materialize() – Stream Notifcations](https://mdavey.wordpress.com/2010/01/29/rx-materialize-stream-notifcations)
 * [Angular services with RxJS; decrapify your services](https://medium.com/@MertzAlertz/services-with-rxjs-50ff96ee0d2a)
+* [Sharing in RX: Publish, Replay, and Multicast](http://northhorizon.net/2011/sharing-in-rx)
+* [Many articles about Rx](http://enumeratethis.com/category/rx)
+* [Blog about Rx](http://community.bartdesmet.net/blogs/bart/archive/tags/Rx/default.aspx)
+* [Dave Sexton's Blog](http://davesexton.com/blog)
+* [Modelling Market Data Services in Rx with MergeSubject<T>](http://enumeratethis.com/2011/03/26/modelling-market-data-services-in-rx-with-mergesubjectt)
+* [neue.cc blog](http://neue.cc/category/programming/rx)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

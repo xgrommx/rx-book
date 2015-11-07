@@ -28,6 +28,7 @@
 * [Functional Reactive Programming for front-end developers](http://slides.com/erykpiast/frp)
 * [Building fully reactive user interfaces with Rx Observables and Yolk.js](http://toothsome-sisters.surge.sh)
 * [Going Reactive with React](https://speakerdeck.com/fdecampredon/going-reactive-with-react)
+* [Rx.js make async programming simpler](http://www.slideshare.net/alexandermostovenko/odessa-rx)
 
 ## Bacon
 * [Reactive Programming in Practice – (Using Bacon JS)](http://slidedeck.io/eamodeorubio/reactive-baconjs)

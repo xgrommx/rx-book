@@ -110,10 +110,7 @@
     ***
 * #### RxJS used to build a game (enhanced game features)
     {% video %}https://www.youtube.com/watch?v=AJAKUqy5Uqc{% endvideo %}
-    ***
-    * #### RxJS used to build a game (enhanced game features)
-    {% video %}https://www.youtube.com/watch?v=AJAKUqy5Uqc{% endvideo %}
-    ***   
+    *** 
 * #### The functional reactive frontend
     {% video %}https://www.youtube.com/watch?v=ptOmAIqNlFI{% endvideo %}
     ***

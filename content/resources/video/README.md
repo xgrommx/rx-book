@@ -110,4 +110,34 @@
     ***
 * #### RxJS used to build a game (enhanced game features)
     {% video %}https://www.youtube.com/watch?v=AJAKUqy5Uqc{% endvideo %}
-    ***            
+    ***
+    * #### RxJS used to build a game (enhanced game features)
+    {% video %}https://www.youtube.com/watch?v=AJAKUqy5Uqc{% endvideo %}
+    ***   
+* #### The functional reactive frontend
+    {% video %}https://www.youtube.com/watch?v=ptOmAIqNlFI{% endvideo %}
+    ***
+* #### .NET Conf UY v2015 - Building Reactive Services using Functional Programming by Rachel Reese
+    {% video %}https://www.youtube.com/watch?v=l1tZ8She768{% endvideo %}
+    ***
+* #### Lambda Jam 2015 - Conal Elliott - The Essence and Origins of Functional Reactive Programming
+    {% video %}https://www.youtube.com/watch?v=j3Q32brCUAI{% endvideo %}
+    ***    
+* #### Reactive Programming
+    {% video %}https://www.youtube.com/watch?v=GHtARIwwc30{% endvideo %}
+    ***      
+* #### I have a stream – Einsichten in Reactive Programming
+    {% video %}https://www.youtube.com/watch?v=qHKfwlQGI_o{% endvideo %}
+    ***      
+* #### Reactive.community: Ben Christensen, Reactive Extensions (Rx) at Netflix
+    {% video %}https://www.youtube.com/watch?v=ET_SMMXkE5s{% endvideo %}
+    ***      
+* #### An Introduction to Functional Reactive Programming using [Sir Francis]Bacon.js
+    {% video %}https://www.youtube.com/watch?v=7PK5h3BVGds{% endvideo %}
+    ***         
+* #### Real-Time Deadlines in Functional-Reactive Programming
+    {% video %}https://www.youtube.com/watch?v=waJ4n1sGiRQ{% endvideo %}
+    ***                     
+* #### Akka.NET with F# Getting functional with Reactive systems - Russ Cam (@forloop)
+    {% video %}https://www.youtube.com/watch?v=6G4-bToLMWY{% endvideo %}
+    ***      

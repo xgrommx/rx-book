@@ -65,6 +65,8 @@
 * [Dave Sexton's Blog](http://davesexton.com/blog)
 * [Modelling Market Data Services in Rx with MergeSubject<T>](http://enumeratethis.com/2011/03/26/modelling-market-data-services-in-rx-with-mergesubjectt)
 * [neue.cc blog](http://neue.cc/category/programming/rx)
+* [Reactive (Dataflow) Programming in Java and Clojure with Quasar and Pulsar](http://blog.paralleluniverse.co/2014/02/20/reactive)
+* [Comparing Core Async and Rx by Example](http://www.jayway.com/2014/09/16/comparing-core-async-and-rx-by-example)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -135,6 +137,7 @@
 * [http://tech.pro/blog/6888/promises--fp--beautiful-streams](http://tech.pro/blog/6888/promises--fp--beautiful-streams)
 * [Articles about FRP](http://theburningmonk.com/tags/reactive-programming)
 * [Flatmap that shit!](http://www.flatmapthatshit.com)
+* [CSP vs. FRP](http://potetm.github.io/2014/01/07/frp.html)
 
 ## Unity
 * [Многопоточность в Unity средствами реактивных расширений](http://habrahabr.ru/company/nixsolutions/blog/268781) (ru)

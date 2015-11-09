@@ -88,6 +88,7 @@
     * [http://plnkr.co/edit/wj4lRtAwNMry8ToNzLrm?p=info](http://plnkr.co/edit/wj4lRtAwNMry8ToNzLrm?p=info) (angular 2 + redux + rxjs)
     * [https://github.com/ng-book/angular2-rxjs-chat](https://github.com/ng-book/angular2-rxjs-chat) (angular 2)
     * [http://plnkr.co/edit/WT6JK3o1XZ8PuWJcPVV2?p=preview](http://plnkr.co/edit/WT6JK3o1XZ8PuWJcPVV2?p=preview) (angular 2)
+    * [http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview](http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview) (angular 2 + redux)
 
 #### React
 * Standalone plugins

@@ -137,4 +137,7 @@
     ***                     
 * #### Akka.NET with F# Getting functional with Reactive systems - Russ Cam (@forloop)
     {% video %}https://www.youtube.com/watch?v=6G4-bToLMWY{% endvideo %}
-    ***      
+    ***
+ * #### Bacon.js for Breakfast: An intro to functional reactive programming
+    {% video %}https://www.youtube.com/watch?v=SNMVh73rU_4{% endvideo %}
+    ***            

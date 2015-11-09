@@ -30,6 +30,7 @@
 * [Going Reactive with React](https://speakerdeck.com/fdecampredon/going-reactive-with-react)
 * [Rx.js make async programming simpler](http://www.slideshare.net/alexandermostovenko/odessa-rx)
 * [Tanok - Elm Arhictecture in JS](https://speakerdeck.com/brabadu/tanok-elm-arhictecture-in-js)
+* [Reactive Programming in JavaScript by Ayumu Sato](https://speakerdeck.com/ahomu/reactive-programming-in-javascript)
 
 ## Bacon
 * [Reactive Programming in Practice – (Using Bacon JS)](http://slidedeck.io/eamodeorubio/reactive-baconjs)

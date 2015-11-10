@@ -138,6 +138,10 @@
 * [Articles about FRP](http://theburningmonk.com/tags/reactive-programming)
 * [Flatmap that shit!](http://www.flatmapthatshit.com)
 * [CSP vs. FRP](http://potetm.github.io/2014/01/07/frp.html)
+* [Containers Are Dead. Long Live Observable Combinators](https://medium.com/@milankinen/containers-are-dead-long-live-observable-combinators-2cb0c1f06c96)
+* [Combining Flux and FRP: Hello ffux!](https://medium.com/@milankinen/combining-flux-and-frp-hello-ffux-b04ff20fcbc6)
+* [Good bye Flux, welcome Bacon/Rx?](https://medium.com/@milankinen/good-bye-flux-welcome-bacon-rx-23c71abfb1a7)
+* [Isomorphic apps = normal React+FRP apps](https://medium.com/@milankinen/isomorphic-apps-normal-react-frp-apps-63a2177f7eac)
 
 ## Unity
 * [Многопоточность в Unity средствами реактивных расширений](http://habrahabr.ru/company/nixsolutions/blog/268781) (ru)

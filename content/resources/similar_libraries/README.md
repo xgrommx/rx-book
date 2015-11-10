@@ -98,6 +98,7 @@
         * [https://github.com/doctolib/react-observable-mixin](https://github.com/doctolib/react-observable-mixin)
         * [https://github.com/alexeyraspopov/retransmitter](https://github.com/alexeyraspopov/retransmitter)
         * [https://github.com/acdlite/recompose/tree/master/src/packages/rx-recompose](https://github.com/acdlite/recompose/tree/master/src/packages/rx-recompose)
+        * [https://github.com/milankinen/react-combinators](https://github.com/milankinen/react-combinators)
     * Flux
         * [https://github.com/fdecampredon/rx-flux](https://github.com/fdecampredon/rx-flux)
         * [https://github.com/d6u/River](https://github.com/d6u/River)
@@ -220,6 +221,7 @@
 * [https://github.com/vuejs/vue-rx](https://github.com/vuejs/vue-rx)
 
 #### Cycle
+* [https://github.com/Widdershin/cycle-live-todo](https://github.com/Widdershin/cycle-live-todo)
 * [https://github.com/ohanhi/hyperscript-helpers](https://github.com/ohanhi/hyperscript-helpers)
 * [https://github.com/benji6/cycle-audio-graph](https://github.com/benji6/cycle-audio-graph)
 * [https://github.com/Mercateo/component-check](https://github.com/Mercateo/component-check)
@@ -635,6 +637,7 @@
 * [https://github.com/tennety/elm-game-of-life](https://github.com/tennety/elm-game-of-life)
 * [https://github.com/yasuyuky/elmtrn](https://github.com/yasuyuky/elmtrn)
 * [https://github.com/ohanhi/elm-native](https://github.com/ohanhi/elm-native)
+* [https://github.com/eeue56/elm-http-server](https://github.com/eeue56/elm-http-server)
 
 # Java
 * [https://gist.github.com/cesarferreira/510aa2456dc0879f559f](https://gist.github.com/cesarferreira/510aa2456dc0879f559f)

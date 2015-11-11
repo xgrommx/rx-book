@@ -67,6 +67,7 @@
 * [neue.cc blog](http://neue.cc/category/programming/rx)
 * [Reactive (Dataflow) Programming in Java and Clojure with Quasar and Pulsar](http://blog.paralleluniverse.co/2014/02/20/reactive)
 * [Comparing Core Async and Rx by Example](http://www.jayway.com/2014/09/16/comparing-core-async-and-rx-by-example)
+* [Mike Taulty's Blog](http://mtaulty.com/CommunityServer/blogs/mike_taultys_blog/archive/2010/08/18/reactive-extensions-for-net-stuff-happens.aspx)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

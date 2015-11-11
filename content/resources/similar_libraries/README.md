@@ -39,6 +39,8 @@
 * [furp - FRP with LiveScript](https://github.com/brainrape/furp)
 * [derivablejs - Functional Reactive State for JavaScript and TypeScript](https://github.com/ds300/derivablejs)
 * [happen.js - Functional Reactive & Dataflow programming in Javascript done right, done fast](https://github.com/philipnilsson/happen.js)
+* [quiver-signal - FRP signal type for Quiver front end](https://github.com/quiverjs/quiver-signal)
+* [frpjs - Functional Reactive Programming Library for JavaScript](https://github.com/santoshrajan/frpjs)
 
 ## Frameworks
 * [Reflex - Functional reactive UI library](https://github.com/Gozala/reflex)
@@ -422,6 +424,7 @@
 * [https://github.com/psycotica0/bdd_game](https://github.com/psycotica0/bdd_game)
 * [https://github.com/Widdershin/rx-undoable](https://github.com/Widdershin/rx-undoable)
 * [https://github.com/doctolib/rx](https://github.com/doctolib/rx)
+* [https://github.com/ospatil/rx-textsearch](https://github.com/ospatil/rx-textsearch)
 
 #### Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)
@@ -501,6 +504,8 @@
 * [https://github.com/miciek/web-snake-react-bacon](https://github.com/miciek/web-snake-react-bacon)
 * [https://github.com/milankinen/megablob](https://github.com/milankinen/megablob)
 * [https://github.com/VesaKarvonen/atomi-poc](https://github.com/VesaKarvonen/atomi-poc)
+* [https://github.com/aparticka/redux-bacon](https://github.com/aparticka/redux-bacon)
+* [https://github.com/aparticka/react-bacon-component](https://github.com/aparticka/react-bacon-component)
 
 #### Other
 * [https://github.com/erlikh/baconjs-experiments](https://github.com/erlikh/baconjs-experiments)
@@ -581,6 +586,7 @@
 * [https://github.com/dzdrazil/stream-router](https://github.com/dzdrazil/stream-router)
 * [https://github.com/fixplz/up](https://github.com/fixplz/up)
 * [https://github.com/fixplz/kefir-store](https://github.com/fixplz/kefir-store)
+* [https://github.com/redpelicans/formo](https://github.com/redpelicans/formo)
 
 ## Dialects
 
@@ -795,6 +801,7 @@
 * [https://github.com/tamirdresher/RxInAction](https://github.com/tamirdresher/RxInAction)
 * [https://github.com/ApocalypticOctopus/Rx.Community.Extensions](https://github.com/ApocalypticOctopus/Rx.Community.Extensions)
 * [https://github.com/akarnokd/RxReactiveStreamsCSharp](https://github.com/akarnokd/RxReactiveStreamsCSharp)
+* [https://github.com/kswoll/sexy-react](https://github.com/kswoll/sexy-react)
 
 # C++
 * [https://github.com/Reactive-Extensions/RxCpp](https://github.com/Reactive-Extensions/RxCpp)

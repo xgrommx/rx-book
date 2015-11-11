@@ -31,6 +31,7 @@
 * [Rx.js make async programming simpler](http://www.slideshare.net/alexandermostovenko/odessa-rx)
 * [Tanok - Elm Arhictecture in JS](https://speakerdeck.com/brabadu/tanok-elm-arhictecture-in-js)
 * [Reactive Programming in JavaScript by Ayumu Sato](https://speakerdeck.com/ahomu/reactive-programming-in-javascript)
+* [RxJS Evolved](http://www.slideshare.net/trxcllnt/rxjs-evolved)
 
 ## Bacon
 * [Reactive Programming in Practice – (Using Bacon JS)](http://slidedeck.io/eamodeorubio/reactive-baconjs)
@@ -58,5 +59,6 @@
 * [FRP on Android](http://slides.com/yaroslavheriatovych/frponandroid)
 * [Vert.x and RxJava ](http://slides.com/denisstoyanov/eclipsecon2014)
 * [Reactive Programming with RxJava](https://speakerdeck.com/duarten/reactive-programming-with-rxjava-1)
+* [Exploring the possibilities of Unidirectional Data Flow Architectures on Android](https://docs.google.com/presentation/d/1IFfO3BBsQSiVCBw3tSzA83QIp3X9hqCN0upoCWLSdMs/edit#slide=id.gcc8e9fbdc_0_161)
 
 

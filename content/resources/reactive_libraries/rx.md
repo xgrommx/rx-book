@@ -1,6 +1,7 @@
 # [RxJS](https://github.com/Reactive-Extensions/RxJS)
 
 ### [Angular](https://github.com/angular/angular.js)
+***
 * #### Standalone plugins
     * [rx.angular.js - Reactive Extensions Bindings for AngularJS](https://github.com/Reactive-Extensions/rx.angular.js)
     * [ngMagicStream - Models as Streams in Angular using RxJS](https://github.com/MM-Group/ngMagicStream)
@@ -26,6 +27,7 @@
     * [http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview](http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview) (angular 2 + redux)
 
 ### [React](https://github.com/facebook/react)
+***
 * #### Standalone plugins
     * ##### React
         * [rx-react - ReactJS bindings for RxJS](https://github.com/fdecampredon/rx-react)
@@ -123,49 +125,60 @@
     * [https://github.com/jtangelder/rxApp](https://github.com/jtangelder/rxApp)
 
 ### [MongoDB](https://github.com/mongodb/mongo)
+***
 * [https://github.com/data-avail/da-mongo-rx](https://github.com/data-avail/da-mongo-rx)
 
 ### [Meteor](https://github.com/meteor/meteor)
+***
 * [https://github.com/bobiblazeski/rxjs-react](https://github.com/bobiblazeski/rxjs-react)
 
 ### [Node](https://github.com/nodejs/node)
+***
 * [https://github.com/Reactive-Extensions/rxjs-node](https://github.com/Reactive-Extensions/rxjs-node)
 
 ### [Ember](https://github.com/emberjs/ember.js)
+***
 * [https://github.com/blesh/RxEmber](https://github.com/blesh/RxEmber)
 
 ### [Can](https://github.com/canjs/canjs)
+***
 * [https://github.com/canjs/can.rx](https://github.com/canjs/can.rx)
 
 ### [Mercury](https://github.com/Raynos/mercury)
+***
 * [https://github.com/pH200/mercury-rx](https://github.com/pH200/mercury-rx)
 
 ### [Mithril](https://github.com/lhorie/mithril.js)
+***
 * [https://github.com/ariutta/mithril-rxjs-demos](https://github.com/ariutta/mithril-rxjs-demos)
 
 ### [Knockout](https://github.com/knockout/knockout)
+***
 * [https://github.com/Igorbek/knockout.rx](https://github.com/Igorbek/knockout.rx)
 
 ### [Polymer](https://github.com/Polymer/polymer)
+***
 * [https://gist.github.com/paulcbetts/2877b05a57d0a4e0ab54](https://gist.github.com/paulcbetts/2877b05a57d0a4e0ab54)
 
 ### [Riot](https://github.com/riot/riot)
+***
 * [http://codepen.io/filippomangione/pen/JYOZBY](http://codepen.io/filippomangione/pen/JYOZBY)
 
 ### [Vue](https://github.com/vuejs/vue)
+***
 * [https://github.com/vuejs/vue-rx](https://github.com/vuejs/vue-rx)
 
 ### Pub/Sub
+***
 * [https://github.com/rxmqjs/rxmq.js](https://github.com/rxmqjs/rxmq.js)
 * [https://github.com/mchmielarski/busbup](https://github.com/mchmielarski/busbup)
 
 ### [WebRx](https://github.com/WebRxJS/WebRx)
+***
 * [https://github.com/patsissons/WebRx.React/tree/develop](https://github.com/patsissons/WebRx.React/tree/develop)
 
-### [Yolk](https://github.com/garbles/yolk)
-* [https://github.com/yolkjs/yolk](https://github.com/yolkjs/yolk)
-
 ## Visualizing streams
+***
 * [https://github.com/staltz/rxmarbles](https://github.com/staltz/rxmarbles)
 * [https://github.com/jaredly/rxvision](https://github.com/jaredly/rxvision)
 * [https://github.com/justinwoo/rx-lightbulbs](https://github.com/justinwoo/rx-lightbulbs)
@@ -178,6 +191,7 @@
 ## Dialects
 
 ### [Purescript](https://github.com/purescript/purescript)
+***
 * [https://github.com/anttih/purescript-rx](https://github.com/anttih/purescript-rx)
 * [https://github.com/bodil/purescript-signal](https://github.com/bodil/purescript-signal)
 

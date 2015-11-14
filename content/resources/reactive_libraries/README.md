@@ -43,6 +43,7 @@
 * [frpjs - Functional Reactive Programming Library for JavaScript](https://github.com/santoshrajan/frpjs)
 
 ## Frameworks
+* [Yolk - A library for building asynchronous user interfaces](https://github.com/garbles/yolk)
 * [Reflex - Functional reactive UI library](https://github.com/Gozala/reflex)
 * [Zorium - The CoffeeScript Web Framework](https://zorium.org)
 * [Cycle - A fully reactive JavaScript framework for Human-Computer Interaction](http://cycle.js.org)

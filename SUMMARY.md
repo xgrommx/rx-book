@@ -326,6 +326,7 @@
         * [Cycle](content/resources/reactive_libraries/cycle.md)
         * [Bacon](content/resources/reactive_libraries/bacon.md)
         * [Kefir](content/resources/reactive_libraries/kefir.md)
+        * [Flyd](content/resources/reactive_libraries/flyd.md)
     * [Presentations](content/resources/presentations/README.md)
     * [Video](content/resources/video/README.md)
 {% endif %}

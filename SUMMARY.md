@@ -324,6 +324,8 @@
     * [Reactive Libraries](content/resources/reactive_libraries/README.md)
         * [RxJS](content/resources/reactive_libraries/rx.md)
         * [Cycle](content/resources/reactive_libraries/cycle.md)
+        * [Bacon](content/resources/reactive_libraries/bacon.md)
+        * [Kefir](content/resources/reactive_libraries/kefir.md)
     * [Presentations](content/resources/presentations/README.md)
     * [Video](content/resources/video/README.md)
 {% endif %}

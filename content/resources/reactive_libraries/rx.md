@@ -1,4 +1,4 @@
-# [RxJS](https://github.com/Reactive-Extensions/RxJS)
+# [RxJS - The Reactive Extensions for JavaScript](https://github.com/Reactive-Extensions/RxJS)
 
 ### [Angular](https://github.com/angular/angular.js)
 ***

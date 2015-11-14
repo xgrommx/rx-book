@@ -5,7 +5,7 @@
         <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>last | RxJS - Javascript library for functional reactive programming.</title>
+        <title>Bacon | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.4.2">
@@ -20,10 +20,10 @@
         
     
     
-    <link rel="next" href="../../../content/observable/observable_instance_methods/let.html" />
+    <link rel="next" href="../../../content/resources/reactive_libraries/kefir.html" />
     
     
-    <link rel="prev" href="../../../content/observable/observable_instance_methods/join.html" />
+    <link rel="prev" href="../../../content/resources/reactive_libraries/cycle.html" />
     
 
         <!-- head:end -->
@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.54" data-basepath="../../.." data-revision="Sat Nov 14 2015 21:26:47 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="16.2.3" data-basepath="../../.." data-revision="Sat Nov 14 2015 21:26:47 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -2272,7 +2272,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.2.54" data-path="content/observable/observable_instance_methods/last.html">
+        <li class="chapter " data-level="8.2.54" data-path="content/observable/observable_instance_methods/last.html">
             
                 
                     <a href="../../../content/observable/observable_instance_methods/last.html">
@@ -5081,7 +5081,7 @@
             
         </li>
     
-        <li class="chapter " data-level="16.2.3" data-path="content/resources/reactive_libraries/bacon.html">
+        <li class="chapter active" data-level="16.2.3" data-path="content/resources/reactive_libraries/bacon.html">
             
                 
                     <a href="../../../content/resources/reactive_libraries/bacon.html">
@@ -5326,28 +5326,72 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-last-predicate-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-last-js"><a name="-rx-observable-prototype-last-predicate-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-last-js" class="plugin-anchor" href="#-rx-observable-prototype-last-predicate-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-last-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/last.js" target="_blank"><code>Rx.Observable.prototype.last([predicate], [thisArg])</code></a></h2>
-<p><rx-marbles key="last">&lt;/rx-marbles&gt;</rx-marbles></p>
-<p>Returns the last element of an observable sequence that satisfies the condition in the predicate if specified, else the last element.</p>
-<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>predicate</code> <em>(<code>Function</code>)</em>: A predicate function to evaluate for elements in the source sequence. The callback is called with the following information:<ol>
-<li>the value of the element</li>
-<li>the index of the element</li>
-<li>the Observable object being subscribed</li>
-</ol>
-</li>
-<li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the predicate.</li>
-</ol>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: Sequence containing the last element in the observable sequence that satisfies the condition in the predicate.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<h5 id="no-match"><a name="no-match" class="plugin-anchor" href="#no-match"><span class="fa fa-link"></span></a>No Match</h5>
-<p><a href="http://jsbin.com/mukum/1/embed?js,console" target="_blank"></a></p>
-<h5 id="without-predicate"><a name="without-predicate" class="plugin-anchor" href="#without-predicate"><span class="fa fa-link"></span></a>Without predicate</h5>
-<p><a href="http://jsbin.com/zacije/1/embed?js,console" target="_blank"></a></p>
-<h5 id="with-predicate"><a name="with-predicate" class="plugin-anchor" href="#with-predicate"><span class="fa fa-link"></span></a>With predicate</h5>
-<p><a href="http://jsbin.com/coyam/1/embed?js,console" target="_blank"></a></p>
+                        <h1 id="-bacon-a-small-functional-reactive-programming-lib-for-javascript-http-baconjs-github-io"><a name="-bacon-a-small-functional-reactive-programming-lib-for-javascript-http-baconjs-github-io" class="plugin-anchor" href="#-bacon-a-small-functional-reactive-programming-lib-for-javascript-http-baconjs-github-io"><span class="fa fa-link"></span></a><a href="http://baconjs.github.io" target="_blank">Bacon - A small functional reactive programming lib for JavaScript</a></h1>
+<h3 id="-angular-https-github-com-angular-angular-js"><a name="-angular-https-github-com-angular-angular-js" class="plugin-anchor" href="#-angular-https-github-com-angular-angular-js"><span class="fa fa-link"></span></a><a href="https://github.com/angular/angular.js" target="_blank">Angular</a></h3>
+<hr>
+<ul>
+<li><a href="https://github.com/lauripiispanen/angular-bacon" target="_blank">https://github.com/lauripiispanen/angular-bacon</a></li>
+<li><a href="https://github.com/rap1ds/angular-bacon" target="_blank">https://github.com/rap1ds/angular-bacon</a></li>
+<li><a href="https://github.com/xgrommx/angular-bacon-bridge" target="_blank">https://github.com/xgrommx/angular-bacon-bridge</a></li>
+<li><a href="https://github.com/javamonn/todo-angular-flux" target="_blank">https://github.com/javamonn/todo-angular-flux</a></li>
+<li><a href="https://github.com/bangjs/bangjs" target="_blank">https://github.com/bangjs/bangjs</a></li>
+<li><a href="https://github.com/javamonn/todo-angular-flux" target="_blank">https://github.com/javamonn/todo-angular-flux</a></li>
+<li><a href="https://github.com/simon-engledew/bacon-angular-draggables" target="_blank">https://github.com/simon-engledew/bacon-angular-draggables</a></li>
+</ul>
+<h3 id="-react-https-github-com-facebook-react"><a name="-react-https-github-com-facebook-react" class="plugin-anchor" href="#-react-https-github-com-facebook-react"><span class="fa fa-link"></span></a><a href="https://github.com/facebook/react" target="_blank">React</a></h3>
+<hr>
+<ul>
+<li><a href="https://github.com/jamesmacaulay/react-bacon" target="_blank">https://github.com/jamesmacaulay/react-bacon</a></li>
+<li><a href="https://github.com/niklasvh/react-bacon-flux-poc" target="_blank">https://github.com/niklasvh/react-bacon-flux-poc</a></li>
+<li><a href="https://github.com/mattsenior/react-bacon-mori" target="_blank">https://github.com/mattsenior/react-bacon-mori</a></li>
+<li><a href="https://github.com/Willmo36/FluxBacon" target="_blank">https://github.com/Willmo36/FluxBacon</a></li>
+<li><a href="https://github.com/theadam/conflux.js" target="_blank">https://github.com/theadam/conflux.js</a></li>
+<li><a href="https://gist.github.com/rattrayalex/dee40d86813bcaa9de80" target="_blank">https://gist.github.com/rattrayalex/dee40d86813bcaa9de80</a></li>
+<li><a href="https://github.com/ethagnawl/Hello-FRP" target="_blank">https://github.com/ethagnawl/Hello-FRP</a></li>
+<li><a href="https://github.com/idmitriev/hypr" target="_blank">https://github.com/idmitriev/hypr</a></li>
+<li><a href="https://github.com/milankinen/react-bacon-isomorphic" target="_blank">https://github.com/milankinen/react-bacon-isomorphic</a></li>
+<li><a href="https://github.com/skellyb/fluxstream" target="_blank">https://github.com/skellyb/fluxstream</a></li>
+<li><a href="https://github.com/milankinen/react-bacon-todomvc" target="_blank">https://github.com/milankinen/react-bacon-todomvc</a></li>
+<li><a href="https://github.com/sdkennedy/baconflux" target="_blank">https://github.com/sdkennedy/baconflux</a></li>
+<li><a href="https://github.com/rikukissa/bacon-flux-react" target="_blank">https://github.com/rikukissa/bacon-flux-react</a></li>
+<li><a href="https://github.com/checkraiser/frp-test" target="_blank">https://github.com/checkraiser/frp-test</a></li>
+<li><a href="https://github.com/elsehow/frplux" target="_blank">https://github.com/elsehow/frplux</a></li>
+<li><a href="https://github.com/miciek/web-snake-react-bacon" target="_blank">https://github.com/miciek/web-snake-react-bacon</a></li>
+<li><a href="https://github.com/milankinen/megablob" target="_blank">https://github.com/milankinen/megablob</a></li>
+<li><a href="https://github.com/VesaKarvonen/atomi-poc" target="_blank">https://github.com/VesaKarvonen/atomi-poc</a></li>
+<li><a href="https://github.com/aparticka/redux-bacon" target="_blank">https://github.com/aparticka/redux-bacon</a></li>
+<li><a href="https://github.com/aparticka/react-bacon-component" target="_blank">https://github.com/aparticka/react-bacon-component</a></li>
+</ul>
+<h3 id="other"><a name="other" class="plugin-anchor" href="#other"><span class="fa fa-link"></span></a>Other</h3>
+<hr>
+<ul>
+<li><a href="https://github.com/erlikh/baconjs-experiments" target="_blank">https://github.com/erlikh/baconjs-experiments</a></li>
+<li><a href="https://github.com/josepot/bacon-snake" target="_blank">https://github.com/josepot/bacon-snake</a></li>
+<li><a href="https://github.com/andrewhao/rxlocation" target="_blank">https://github.com/andrewhao/rxlocation</a></li>
+<li><a href="https://github.com/moredip/reactive-colors" target="_blank">https://github.com/moredip/reactive-colors</a></li>
+<li><a href="https://github.com/ahomu/Talkie" target="_blank">https://github.com/ahomu/Talkie</a></li>
+<li><a href="https://github.com/plemarquand/bacon-unsub" target="_blank">https://github.com/plemarquand/bacon-unsub</a></li>
+<li><a href="https://github.com/eamodeorubio/reactive-baconjs" target="_blank">https://github.com/eamodeorubio/reactive-baconjs</a></li>
+<li><a href="https://github.com/puppybits/Bacon.CursorProperty.js" target="_blank">https://github.com/puppybits/Bacon.CursorProperty.js</a></li>
+<li><a href="https://github.com/suominentoni/bacon-ui-examples" target="_blank">https://github.com/suominentoni/bacon-ui-examples</a></li>
+<li><a href="https://github.com/rikukissa/flappy-bird" target="_blank">https://github.com/rikukissa/flappy-bird</a></li>
+<li><a href="https://github.com/rbelouin/bacon-routes" target="_blank">https://github.com/rbelouin/bacon-routes</a></li>
+<li><a href="https://github.com/simon-engledew/bacon-angular-draggables" target="_blank">https://github.com/simon-engledew/bacon-angular-draggables</a></li>
+<li><a href="https://github.com/CRogers/baconsnake" target="_blank">https://github.com/CRogers/baconsnake</a></li>
+<li><a href="https://github.com/josepot/bacon-snake" target="_blank">https://github.com/josepot/bacon-snake</a></li>
+<li><a href="https://github.com/philipnilsson/Snake-Bacon" target="_blank">https://github.com/philipnilsson/Snake-Bacon</a></li>
+<li><a href="https://github.com/DanGorst/frp-with-bacon" target="_blank">https://github.com/DanGorst/frp-with-bacon</a></li>
+<li><a href="https://github.com/StreakYC/bacon-cast" target="_blank">https://github.com/StreakYC/bacon-cast</a></li>
+<li><a href="https://github.com/SamiJ/match3bacons" target="_blank">https://github.com/SamiJ/match3bacons</a></li>
+<li><a href="https://github.com/Nyamazing/bacon-trans" target="_blank">https://github.com/Nyamazing/bacon-trans</a></li>
+<li><a href="https://github.com/ericponto/bacon-for-breakfast-midwestjs" target="_blank">https://github.com/ericponto/bacon-for-breakfast-midwestjs</a></li>
+<li><a href="https://github.com/erlikh/baconjs-experiments" target="_blank">https://github.com/erlikh/baconjs-experiments</a></li>
+</ul>
+<h3 id="build-tools"><a name="build-tools" class="plugin-anchor" href="#build-tools"><span class="fa fa-link"></span></a>Build tools</h3>
+<hr>
+<ul>
+<li><a href="https://github.com/sighjs/sigh" target="_blank">https://github.com/sighjs/sigh</a></li>
+</ul>
 
                     
                     </section>
@@ -5358,10 +5402,10 @@
         </div>
 
         
-        <a href="../../../content/observable/observable_instance_methods/join.html" class="navigation navigation-prev " aria-label="Previous page: join"><i class="fa fa-angle-left"></i></a>
+        <a href="../../../content/resources/reactive_libraries/cycle.html" class="navigation navigation-prev " aria-label="Previous page: Cycle"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../../content/observable/observable_instance_methods/let.html" class="navigation navigation-next " aria-label="Next page: let | letBind"><i class="fa fa-angle-right"></i></a>
+        <a href="../../../content/resources/reactive_libraries/kefir.html" class="navigation navigation-next " aria-label="Next page: Kefir"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

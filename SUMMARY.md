@@ -321,7 +321,7 @@
 {% if book.isPdf==false %}
 * [Resources](content/resources/README.md)
     * [Articles](content/resources/articles/README.md)   
-    * [Similar Libraries](content/resources/reactive_libraries/README.md)
+    * [Reactive Libraries](content/resources/reactive_libraries/README.md)
         * [RxJS](content/resources/reactive_libraries/rx.md)
         * [Cycle](content/resources/reactive_libraries/cycle.md)
     * [Presentations](content/resources/presentations/README.md)

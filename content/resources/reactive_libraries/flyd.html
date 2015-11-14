@@ -5,7 +5,7 @@
         <!-- head:start -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>partition | RxJS - Javascript library for functional reactive programming.</title>
+        <title>Flyd | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.4.2">
@@ -20,10 +20,10 @@
         
     
     
-    <link rel="next" href="../../../content/observable/observable_instance_methods/pausable.html" />
+    <link rel="next" href="../../../content/resources/presentations/index.html" />
     
     
-    <link rel="prev" href="../../../content/observable/observable_instance_methods/pairwise.html" />
+    <link rel="prev" href="../../../content/resources/reactive_libraries/kefir.html" />
     
 
         <!-- head:end -->
@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.69" data-basepath="../../.." data-revision="Sat Nov 14 2015 21:39:20 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="16.2.5" data-basepath="../../.." data-revision="Sat Nov 14 2015 21:39:20 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -2489,7 +2489,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.2.69" data-path="content/observable/observable_instance_methods/partition.html">
+        <li class="chapter " data-level="8.2.69" data-path="content/observable/observable_instance_methods/partition.html">
             
                 
                     <a href="../../../content/observable/observable_instance_methods/partition.html">
@@ -5111,7 +5111,7 @@
             
         </li>
     
-        <li class="chapter " data-level="16.2.5" data-path="content/resources/reactive_libraries/flyd.html">
+        <li class="chapter active" data-level="16.2.5" data-path="content/resources/reactive_libraries/flyd.html">
             
                 
                     <a href="../../../content/resources/reactive_libraries/flyd.html">
@@ -5341,22 +5341,58 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-partition-predicate-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-partition-js"><a name="-rx-observable-prototype-partition-predicate-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-partition-js" class="plugin-anchor" href="#-rx-observable-prototype-partition-predicate-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-partition-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/partition.js" target="_blank"><code>Rx.Observable.prototype.partition(predicate, [thisArg])</code></a></h2>
-<p>Returns two observables which partition the observations of the source by the given function.  The first will trigger observations for those values for which the predicate returns true. The second will trigger observations for those values where the predicate returns false. The predicate is executed once for each subscribed observer. Both also propagate all error observations arising from the source and each completes when the source completes.</p>
-<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>predicate</code> <em>(<code>Function</code>)</em>: Selector function to invoke for each produced element, resulting in another sequence to which the selector will be invoked recursively again. The callback is called with the following information:<ol>
-<li>the value of the element</li>
-<li>the index of the element</li>
-<li>the Observable object being subscribed</li>
-</ol>
-</li>
-<li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the predicate.</li>
-</ol>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Array</code>)</em>:  An array of observables. The first triggers when the predicate returns true, and the second triggers when the predicate returns false.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<p><a href="http://jsbin.com/kezoye/1/embed?js,output" target="_blank"></a></p>
+                        <h1 id="-flyd-the-minimalistic-but-powerful-modular-functional-reactive-programming-library-in-javascript-https-github-com-paldepind-flyd"><a name="-flyd-the-minimalistic-but-powerful-modular-functional-reactive-programming-library-in-javascript-https-github-com-paldepind-flyd" class="plugin-anchor" href="#-flyd-the-minimalistic-but-powerful-modular-functional-reactive-programming-library-in-javascript-https-github-com-paldepind-flyd"><span class="fa fa-link"></span></a><a href="https://github.com/paldepind/flyd" target="_blank">Flyd - The minimalistic but powerful, modular, functional reactive programming library in JavaScript</a></h1>
+<h3 id="-react-https-github-com-facebook-react"><a name="-react-https-github-com-facebook-react" class="plugin-anchor" href="#-react-https-github-com-facebook-react"><span class="fa fa-link"></span></a><a href="https://github.com/facebook/react" target="_blank">React</a></h3>
+<hr>
+<ul>
+<li><a href="https://github.com/theadam/react-flyd" target="_blank">https://github.com/theadam/react-flyd</a></li>
+<li><a href="https://github.com/gilbox/elegant-react" target="_blank">https://github.com/gilbox/elegant-react</a></li>
+<li><a href="https://github.com/gilbox/elegant-react-og" target="_blank">https://github.com/gilbox/elegant-react-og</a></li>
+<li><a href="https://github.com/gilbox/elegant-react-hot-demo" target="_blank">https://github.com/gilbox/elegant-react-hot-demo</a></li>
+<li><a href="https://github.com/gilbox/react-repl" target="_blank">https://github.com/gilbox/react-repl</a></li>
+<li><a href="https://github.com/alexeygolev/elm-architecture-using-ramda-and-flyd" target="_blank">https://github.com/alexeygolev/elm-architecture-using-ramda-and-flyd</a></li>
+<li><a href="https://github.com/ccorcos/elmish" target="_blank">https://github.com/ccorcos/elmish</a></li>
+<li><a href="https://github.com/winitzki/flyd-react-sample" target="_blank">https://github.com/winitzki/flyd-react-sample</a></li>
+<li><a href="https://github.com/winitzki/flyd-react-minesweeper" target="_blank">https://github.com/winitzki/flyd-react-minesweeper</a></li>
+<li><a href="https://github.com/winitzki/flyd-react-es6" target="_blank">https://github.com/winitzki/flyd-react-es6</a></li>
+<li><a href="https://github.com/jwoudenberg/flyd-lift-react" target="_blank">https://github.com/jwoudenberg/flyd-lift-react</a></li>
+</ul>
+<h3 id="tutorials"><a name="tutorials" class="plugin-anchor" href="#tutorials"><span class="fa fa-link"></span></a>Tutorials</h3>
+<hr>
+<ul>
+<li><a href="https://versal.com/c/xnedrc/learn/lessons/1" target="_blank">https://versal.com/c/xnedrc/learn/lessons/1</a></li>
+</ul>
+<h3 id="other"><a name="other" class="plugin-anchor" href="#other"><span class="fa fa-link"></span></a>Other</h3>
+<hr>
+<ul>
+<li><a href="https://github.com/exound/lmount" target="_blank">https://github.com/exound/lmount</a></li>
+<li><a href="https://github.com/jayrbolton/vvvview" target="_blank">https://github.com/jayrbolton/vvvview</a></li>
+<li><a href="https://github.com/paldepind/functional-frontend-architecture" target="_blank">https://github.com/paldepind/functional-frontend-architecture</a></li>
+<li><a href="https://github.com/raine/flyd-playground" target="_blank">https://github.com/raine/flyd-playground</a></li>
+<li><a href="https://github.com/ybybzj/r-stream" target="_blank">https://github.com/ybybzj/r-stream</a></li>
+<li><a href="https://github.com/somata/somata-flyd" target="_blank">https://github.com/somata/somata-flyd</a></li>
+<li><a href="https://github.com/paldepind/flyd-aftersilence" target="_blank">https://github.com/paldepind/flyd-aftersilence</a></li>
+<li><a href="https://github.com/raine/flyd-keyboard" target="_blank">https://github.com/raine/flyd-keyboard</a></li>
+<li><a href="https://github.com/ThomWright/flyd-connect" target="_blank">https://github.com/ThomWright/flyd-connect</a></li>
+<li><a href="https://github.com/ThomWright/flyd-cacheUntil" target="_blank">https://github.com/ThomWright/flyd-cacheUntil</a></li>
+<li><a href="https://github.com/ThomWright/flyd-onAnimationFrame" target="_blank">https://github.com/ThomWright/flyd-onAnimationFrame</a></li>
+<li><a href="https://github.com/ThomWright/flyd-timeInterval" target="_blank">https://github.com/ThomWright/flyd-timeInterval</a></li>
+<li><a href="https://github.com/paldepind/flyd-switchlatest" target="_blank">https://github.com/paldepind/flyd-switchlatest</a></li>
+<li><a href="https://github.com/raine/flyd-droprepeats" target="_blank">https://github.com/raine/flyd-droprepeats</a></li>
+<li><a href="https://github.com/rektide/flyd2asyncgen" target="_blank">https://github.com/rektide/flyd2asyncgen</a></li>
+<li><a href="https://github.com/paldepind/flyd-forwardto" target="_blank">https://github.com/paldepind/flyd-forwardto</a></li>
+<li><a href="https://github.com/paldepind/flyd-filter" target="_blank">https://github.com/paldepind/flyd-filter</a></li>
+<li><a href="https://github.com/paldepind/flyd-obj" target="_blank">https://github.com/paldepind/flyd-obj</a></li>
+<li><a href="https://github.com/paldepind/flyd-every" target="_blank">https://github.com/paldepind/flyd-every</a></li>
+<li><a href="https://github.com/paldepind/flyd-flatmaplatest" target="_blank">https://github.com/paldepind/flyd-flatmaplatest</a></li>
+<li><a href="https://github.com/paldepind/flyd-scanmerge" target="_blank">https://github.com/paldepind/flyd-scanmerge</a></li>
+<li><a href="https://github.com/paldepind/flyd-takeuntil" target="_blank">https://github.com/paldepind/flyd-takeuntil</a></li>
+<li><a href="https://github.com/paldepind/flyd-lift" target="_blank">https://github.com/paldepind/flyd-lift</a></li>
+<li><a href="https://github.com/paldepind/flyd-inlast" target="_blank">https://github.com/paldepind/flyd-inlast</a></li>
+<li><a href="https://github.com/paldepind/flyd-sampleon" target="_blank">https://github.com/paldepind/flyd-sampleon</a></li>
+<li><a href="https://github.com/paldepind/flyd-keepwhen" target="_blank">https://github.com/paldepind/flyd-keepwhen</a></li>
+<li><a href="https://github.com/paldepind/flyd-flatmap" target="_blank">https://github.com/paldepind/flyd-flatmap</a></li>
+</ul>
 
                     
                     </section>
@@ -5367,10 +5403,10 @@
         </div>
 
         
-        <a href="../../../content/observable/observable_instance_methods/pairwise.html" class="navigation navigation-prev " aria-label="Previous page: pairwise"><i class="fa fa-angle-left"></i></a>
+        <a href="../../../content/resources/reactive_libraries/kefir.html" class="navigation navigation-prev " aria-label="Previous page: Kefir"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../../content/observable/observable_instance_methods/pausable.html" class="navigation navigation-next " aria-label="Next page: pausable"><i class="fa fa-angle-right"></i></a>
+        <a href="../../../content/resources/presentations/index.html" class="navigation navigation-next " aria-label="Next page: Presentations"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

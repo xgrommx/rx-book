@@ -1,11 +1,11 @@
 # [RxJS](https://github.com/Reactive-Extensions/RxJS)
 
 ### [Angular](https://github.com/angular/angular.js)
-* Standalone plugins
+* #### Standalone plugins
     * [rx.angular.js - Reactive Extensions Bindings for AngularJS](https://github.com/Reactive-Extensions/rx.angular.js)
     * [ngMagicStream - Models as Streams in Angular using RxJS](https://github.com/MM-Group/ngMagicStream)
     * [reactiveproperty-angular - ReactiveProperty for AngularJS](https://github.com/zoetrope/reactiveproperty-angular)
-* Examples
+* #### Examples
     * [https://github.com/fxck/ng2-rx-redux](https://github.com/fxck/ng2-rx-redux) (angular 2 + rx5 + redux)
     * [https://github.com/cvuorinen/reactive-life](https://github.com/cvuorinen/reactive-life)
     * [https://github.com/mjw56/ng2-rx](https://github.com/mjw56/ng2-rx) (angular 2)
@@ -26,15 +26,15 @@
     * [http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview](http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview) (angular 2 + redux)
 
 ### [React](https://github.com/facebook/react)
-* Standalone plugins
-    * React
+* #### Standalone plugins
+    * ##### React
         * [rx-react - ReactJS bindings for RxJS](https://github.com/fdecampredon/rx-react)
         * [react-bacon-component - Utility for attaching Bacon.js to React components](https://github.com/aparticka/react-bacon-component)
         * [react-observable-mixin - Container like observable mixin for ReactJS](https://github.com/doctolib/react-observable-mixin)
         * [retransmitter - Async-friendly stateful React containers](https://github.com/alexeyraspopov/retransmitter)
         * [rx-recompose - RxJS utilities for Recompose](https://github.com/acdlite/recompose/tree/master/src/packages/rx-recompose)
         * [react-combinators - Seamless combination of React and reactive programming](https://github.com/milankinen/react-combinators)
-    * Flux
+    * ##### Flux
         * [rx-flux - A Flux architecture implementation based on RxJS](https://github.com/fdecampredon/rx-flux)
         * [River - Reactive stream composer for React application](https://github.com/d6u/River)
         * [redux-core - Minimal Redux](https://github.com/jas-chen/redux-core)
@@ -45,7 +45,7 @@
         * [realm - A boilerplate for creating scalable apps with react, rxjs and a little bit of magic. Heavily inspired by flux, redux and elm architecture](https://github.com/jschr/realm)
         * [scanux - A simple Flux implementation](https://github.com/ulrikaugustsson/scanux)
         * [rx-store - Reactive JS library for managing state](https://github.com/jdlehman/rx-store)
-* Examples
+* #### Examples
     * [https://github.com/jamesknelson/numbat-ui-example](https://github.com/jamesknelson/numbat-ui-example)
     * [https://github.com/yanglinz/reddio](https://github.com/yanglinz/reddio)
     * [https://github.com/brabadu/tanok](https://github.com/brabadu/tanok) Elm architecture

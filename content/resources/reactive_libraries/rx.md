@@ -177,6 +177,10 @@
 ***
 * [https://github.com/patsissons/WebRx.React/tree/develop](https://github.com/patsissons/WebRx.React/tree/develop)
 
+### [Yolk - A library for building asynchronous user interfaces.](https://github.com/garbles/yolk)
+***
+* [https://github.com/yolkjs/yolk](https://github.com/yolkjs/yolk)
+
 ## Visualizing streams
 ***
 * [https://github.com/staltz/rxmarbles](https://github.com/staltz/rxmarbles)

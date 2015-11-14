@@ -322,6 +322,7 @@
 * [Resources](content/resources/README.md)
     * [Articles](content/resources/articles/README.md)   
     * [Similar Libraries](content/resources/similar_libraries/README.md)
+        * [RxJS](content/resources/similar_libraries/rx.md)
     * [Presentations](content/resources/presentations/README.md)
     * [Video](content/resources/video/README.md)
 {% endif %}

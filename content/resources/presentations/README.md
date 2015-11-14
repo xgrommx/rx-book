@@ -32,6 +32,8 @@
 * [Tanok - Elm Arhictecture in JS](https://speakerdeck.com/brabadu/tanok-elm-arhictecture-in-js)
 * [Reactive Programming in JavaScript by Ayumu Sato](https://speakerdeck.com/ahomu/reactive-programming-in-javascript)
 * [RxJS Evolved](http://www.slideshare.net/trxcllnt/rxjs-evolved)
+* [Pimp your Redux app  with RxJS](https://slidr.io/sectore/pimp-your-redux-app-w-rxjs-hamburg-reactjs-meetup)
+* [Fully Reactive User Interfaces](http://slides.com/theefer/reactive-uis)
 
 ## Bacon
 * [Reactive Programming in Practice – (Using Bacon JS)](http://slidedeck.io/eamodeorubio/reactive-baconjs)
@@ -49,6 +51,8 @@
 * [Let it Flow - Introduction to Functional Reactive Programming](http://www.slideshare.net/ArturSkowroski/let-it-flow-introduction-to-functional-reactive-programming)
 * [OMG Streams](http://pselle.github.io/omgstreams)
 * [FRP and you](http://cofarrell.bitbucket.org/frp)
+* [Functional Reactive Programming / Compositional Event Systems](http://www.slideshare.net/borgesleonardo/functional-reactive-programming-compositional-event-systems)
+* [Reactive design: languages, and paradigms](http://www.slideshare.net/deanwampler/reactive-design-languages-and-paradigms)
 
 ## Cycle
 * [From jQuery to Cycle](http://widdersh.in/cycle-talk)
@@ -60,5 +64,8 @@
 * [Vert.x and RxJava ](http://slides.com/denisstoyanov/eclipsecon2014)
 * [Reactive Programming with RxJava](https://speakerdeck.com/duarten/reactive-programming-with-rxjava-1)
 * [Exploring the possibilities of Unidirectional Data Flow Architectures on Android](https://docs.google.com/presentation/d/1IFfO3BBsQSiVCBw3tSzA83QIp3X9hqCN0upoCWLSdMs/edit#slide=id.gcc8e9fbdc_0_161)
+
+## Elm
+* [Elm kyivfprog 2015](http://www.slideshare.net/alexandermostovenko/elm-kyivfprog-2015)
 
 

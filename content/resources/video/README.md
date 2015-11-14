@@ -138,6 +138,12 @@
 * #### Akka.NET with F# Getting functional with Reactive systems - Russ Cam (@forloop)
     {% video %}https://www.youtube.com/watch?v=6G4-bToLMWY{% endvideo %}
     ***
- * #### Bacon.js for Breakfast: An intro to functional reactive programming
+* #### Bacon.js for Breakfast: An intro to functional reactive programming
     {% video %}https://www.youtube.com/watch?v=SNMVh73rU_4{% endvideo %}
-    ***            
+    ***
+* #### Angular 2 Data Flow
+    {% video %}https://vimeo.com/144625829{% endvideo %}
+    ***
+* #### Angular 2 Data Flow – Jeff Cross, Rob Wormald and Alex Rickabaugh
+    {% video %}https://www.youtube.com/watch?v=bVI5gGTEQ_U{% endvideo %}
+    ***

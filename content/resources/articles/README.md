@@ -68,6 +68,8 @@
 * [Reactive (Dataflow) Programming in Java and Clojure with Quasar and Pulsar](http://blog.paralleluniverse.co/2014/02/20/reactive)
 * [Comparing Core Async and Rx by Example](http://www.jayway.com/2014/09/16/comparing-core-async-and-rx-by-example)
 * [Mike Taulty's Blog](http://mtaulty.com/CommunityServer/blogs/mike_taultys_blog/archive/2010/08/18/reactive-extensions-for-net-stuff-happens.aspx)
+* [Event stream manipulation using Rx – Part 1](https://blogs.endjin.com/2014/04/event-stream-manipulation-using-rx-part-1)
+* [Event stream manipulation using Rx – Part 2](https://blogs.endjin.com/2014/05/event-stream-manipulation-using-rx-part-2)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -143,6 +145,7 @@
 * [Combining Flux and FRP: Hello ffux!](https://medium.com/@milankinen/combining-flux-and-frp-hello-ffux-b04ff20fcbc6)
 * [Good bye Flux, welcome Bacon/Rx?](https://medium.com/@milankinen/good-bye-flux-welcome-bacon-rx-23c71abfb1a7)
 * [Isomorphic apps = normal React+FRP apps](https://medium.com/@milankinen/isomorphic-apps-normal-react-frp-apps-63a2177f7eac)
+* [A simpler web architecture using Flux, CSP, and FRP concepts](http://codrspace.com/allenkim67/a-simpler-web-architecture-using-flux-csp-and-frp-concepts)
 
 ## Unity
 * [Многопоточность в Unity средствами реактивных расширений](http://habrahabr.ru/company/nixsolutions/blog/268781) (ru)

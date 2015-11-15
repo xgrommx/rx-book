@@ -147,3 +147,5 @@
 * #### Angular 2 Data Flow – Jeff Cross, Rob Wormald and Alex Rickabaugh
     {% video %}https://www.youtube.com/watch?v=bVI5gGTEQ_U{% endvideo %}
     ***
+* #### Philip Roberts: Enemy of the state: An introduction to Functional Reactive Programming and Bacon.js
+    {% video %}https://vimeo.com/68987289{% endvideo %}

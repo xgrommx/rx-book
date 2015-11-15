@@ -70,6 +70,11 @@
 * [Mike Taulty's Blog](http://mtaulty.com/CommunityServer/blogs/mike_taultys_blog/archive/2010/08/18/reactive-extensions-for-net-stuff-happens.aspx)
 * [Event stream manipulation using Rx – Part 1](https://blogs.endjin.com/2014/04/event-stream-manipulation-using-rx-part-1)
 * [Event stream manipulation using Rx – Part 2](https://blogs.endjin.com/2014/05/event-stream-manipulation-using-rx-part-2)
+* [Functional Reactive Programming on Android With RxJava](http://mttkay.github.io/blog/2013/08/25/functional-reactive-programming-on-android-with-rxjava)
+* [Isolated Storage as Cache using Reactive Extensions](http://mark.mymonster.nl/2011/08/18/isolated-storage-as-cache-using-reactive-extensions)
+* [Cache as Fallback using Reactive Extensions](http://mark.mymonster.nl/2011/08/20/cache-as-fallback-using-reactive-extensions)
+* [Some material about Rx (http://www.minddriven.de)](http://www.minddriven.de/index.php/tag/reactive-extensions-for-net)
+* [Financial Charts & Reactive Extensions](http://enumeratethis.com/2011/07/26/financial-charts-reactive-extensions)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

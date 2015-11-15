@@ -34,6 +34,7 @@
 * [RxJS Evolved](http://www.slideshare.net/trxcllnt/rxjs-evolved)
 * [Pimp your Redux app  with RxJS](https://slidr.io/sectore/pimp-your-redux-app-w-rxjs-hamburg-reactjs-meetup)
 * [Fully Reactive User Interfaces](http://slides.com/theefer/reactive-uis)
+* [A Playful Introduction to Rx](http://www.slideshare.net/andreycheptsov/a-playful-introduction-to-rx)
 
 ## Bacon
 * [Reactive Programming in Practice – (Using Bacon JS)](http://slidedeck.io/eamodeorubio/reactive-baconjs)
@@ -53,6 +54,8 @@
 * [FRP and you](http://cofarrell.bitbucket.org/frp)
 * [Functional Reactive Programming / Compositional Event Systems](http://www.slideshare.net/borgesleonardo/functional-reactive-programming-compositional-event-systems)
 * [Reactive design: languages, and paradigms](http://www.slideshare.net/deanwampler/reactive-design-languages-and-paradigms)
+* [A journey in the world of Reactive Programming with JavaScript](http://bytes.inso.cc/talks/funjs-reactive) (*)
+* [Reactive Programming](http://www.slideshare.net/maruyama097/reactive-31970656)
 
 ## Cycle
 * [From jQuery to Cycle](http://widdersh.in/cycle-talk)

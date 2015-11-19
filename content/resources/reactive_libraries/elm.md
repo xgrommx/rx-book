@@ -41,3 +41,4 @@
 * [https://github.com/Nazanin1369/elm-memoryGame](https://github.com/Nazanin1369/elm-memoryGame)
 * [https://github.com/eeue56/elm-http-server](https://github.com/eeue56/elm-http-server)
 * [https://github.com/ohanhi/elm-native](https://github.com/ohanhi/elm-native)
+* [https://github.com/w0rm/elm-flatris](https://github.com/w0rm/elm-flatris) (flat tetris game)

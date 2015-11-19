@@ -75,6 +75,7 @@
 * [Cache as Fallback using Reactive Extensions](http://mark.mymonster.nl/2011/08/20/cache-as-fallback-using-reactive-extensions)
 * [Some material about Rx (http://www.minddriven.de)](http://www.minddriven.de/index.php/tag/reactive-extensions-for-net)
 * [Financial Charts & Reactive Extensions](http://enumeratethis.com/2011/07/26/financial-charts-reactive-extensions)
+* [Angular 2 Observable Data Services](http://coryrylan.com/blog/angular-2-observable-data-services)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

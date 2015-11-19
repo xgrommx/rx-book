@@ -88,6 +88,7 @@
 * [https://github.com/falsandtru/lazychain](https://github.com/falsandtru/lazychain)
 
 # Java
+* [https://github.com/skimarxall/RxFlux](https://github.com/skimarxall/RxFlux)
 * [https://gist.github.com/cesarferreira/510aa2456dc0879f559f](https://gist.github.com/cesarferreira/510aa2456dc0879f559f)
 * [https://github.com/eleventigers/awesome-rxjava](https://github.com/eleventigers/awesome-rxjava)
 * [https://github.com/ReactiveX/RxJava](https://github.com/ReactiveX/RxJava)
@@ -171,6 +172,7 @@
 * [https://github.com/reark/reark](https://github.com/reark/reark)
 * [https://github.com/3pillarlabs/rx_android_workshop](https://github.com/3pillarlabs/rx_android_workshop)
 * [https://github.com/aaronzirbes/rx-java-playground](https://github.com/aaronzirbes/rx-java-playground)
+* [https://github.com/mulab/rx-realm](https://github.com/mulab/rx-realm)
 
 ## Tutorials
 * [https://github.com/jhusain/learnrxjava](https://github.com/jhusain/learnrxjava)
@@ -295,3 +297,7 @@
 # Other
 * [https://github.com/kalcifer/absolem](https://github.com/kalcifer/absolem)
 * [https://github.com/f5io/ohflux](https://github.com/f5io/ohflux)
+
+# Haskell
+* [https://github.com/ivanperez-keera/Yampa](https://github.com/ivanperez-keera/Yampa)
+* [https://github.com/raimohanska/reactive-bacon](https://github.com/raimohanska/reactive-bacon)

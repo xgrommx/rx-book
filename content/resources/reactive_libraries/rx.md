@@ -210,6 +210,7 @@
 * [https://github.com/erwanthomas/learnrx-bdd](https://github.com/erwanthomas/learnrx-bdd)
 * [Introduction to the Reactive Extensions for JavaScript](http://weblogs.asp.net/podwysocki/introduction-to-the-reactive-extensions-for-javascript-conditionals)
 * [https://github.com/supersymme3/learnrx-exercises](https://github.com/supersymme3/learnrx-exercises)
+* [https://github.com/JulienMoumne/rx-training-games](https://github.com/JulienMoumne/rx-training-games)
 
 ## Other
 * [https://github.com/kt3kstudio/long-dream-core](https://github.com/kt3kstudio/long-dream-core)

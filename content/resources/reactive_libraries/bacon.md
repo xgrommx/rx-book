@@ -57,6 +57,10 @@
 * [https://github.com/ericponto/bacon-for-breakfast-midwestjs](https://github.com/ericponto/bacon-for-breakfast-midwestjs)
 * [https://github.com/erlikh/baconjs-experiments](https://github.com/erlikh/baconjs-experiments)
 
+### Tutorials
+***
+* [https://github.com/mikaelbr/bacon-love](https://github.com/mikaelbr/bacon-love)
+
 ### Build tools
 ***
 * [https://github.com/sighjs/sigh](https://github.com/sighjs/sigh)

@@ -1,5 +1,8 @@
 # Video
 
+* #### Expert to Expert: Brian Beckman and Erik Meijer - Inside the .NET Reactive Framework (Rx)
+    {% video %}https://www.youtube.com/watch?v=looJcaeboBY{% endvideo %}
+    ***
 * #### Matthew Podwysocki - Streaming and event-based programming using FRP and RxJS (FutureJS 2014)
     {% video %}https://www.youtube.com/watch?v=zlERo_JMGCw{% endvideo %}
     ***
@@ -149,3 +152,24 @@
     ***
 * #### Philip Roberts: Enemy of the state: An introduction to Functional Reactive Programming and Bacon.js
     {% video %}https://vimeo.com/68987289{% endvideo %}
+    ***
+* #### Wellington FP - Why Functional Reactive Programming FRP?
+    {% video %}https://www.youtube.com/watch?v=gaG3tIb3Lbk{% endvideo %} 
+    ***
+* #### Jeffrey Van Gogh: The Reactive Extensions for JavaScript
+    {% video %}https://www.youtube.com/watch?v=ClHpkn_qxos{% endvideo %}
+    ***
+* #### Bacon.js - Functional Reactive Programming - Thomas Holmes - ATLRUG 2014
+    {% video %}https://www.youtube.com/watch?v=eFEvGS6pOWk{% endvideo %}    
+    ***
+* #### Functional Reactive Programming with RxJava • Ben Christensen
+    {% video %}https://www.youtube.com/watch?v=_t06LRX0DV0{% endvideo %}
+    ***
+* #### Juha Paananen. FRP with Bacon.js
+    {% video %}https://www.youtube.com/watch?v=3HS3i8LW8dQ{% endvideo %}   
+    ***
+* #### "PureScript (Maybe This Time We Get JavaScript Right)" by Bodil Stokke
+    {% video %}https://www.youtube.com/watch?v=yIlDBPiMb0o{% endvideo %}
+    ***
+* #### PolyConf 15: Post FRP Frontend Programming / Bodil Stokke
+    {% video %}https://www.youtube.com/watch?v=X5YBsy6PaDw{% endvideo %}  

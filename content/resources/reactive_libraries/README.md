@@ -173,6 +173,7 @@
 * [https://github.com/3pillarlabs/rx_android_workshop](https://github.com/3pillarlabs/rx_android_workshop)
 * [https://github.com/aaronzirbes/rx-java-playground](https://github.com/aaronzirbes/rx-java-playground)
 * [https://github.com/mulab/rx-realm](https://github.com/mulab/rx-realm)
+* [https://github.com/RefineriaWeb/base_app_android](https://github.com/RefineriaWeb/base_app_android)
 
 ## Tutorials
 * [https://github.com/jhusain/learnrxjava](https://github.com/jhusain/learnrxjava)

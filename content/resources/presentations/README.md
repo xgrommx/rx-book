@@ -67,6 +67,7 @@
 * [Vert.x and RxJava ](http://slides.com/denisstoyanov/eclipsecon2014)
 * [Reactive Programming with RxJava](https://speakerdeck.com/duarten/reactive-programming-with-rxjava-1)
 * [Exploring the possibilities of Unidirectional Data Flow Architectures on Android](https://docs.google.com/presentation/d/1IFfO3BBsQSiVCBw3tSzA83QIp3X9hqCN0upoCWLSdMs/edit#slide=id.gcc8e9fbdc_0_161)
+* [Demystifying RxJava Subscribers (Øredev 2015)](https://speakerdeck.com/jakewharton/demystifying-rxjava-subscribers-oredev-2015)
 
 ## Elm
 * [Elm kyivfprog 2015](http://www.slideshare.net/alexandermostovenko/elm-kyivfprog-2015)

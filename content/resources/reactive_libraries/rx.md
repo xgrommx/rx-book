@@ -48,6 +48,7 @@
         * [scanux - A simple Flux implementation](https://github.com/ulrikaugustsson/scanux)
         * [rx-store - Reactive JS library for managing state](https://github.com/jdlehman/rx-store)
 * #### Examples
+    * [https://github.com/foxdonut/adventures-reactive-web-dev](https://github.com/foxdonut/adventures-reactive-web-dev)
     * [https://github.com/jamesknelson/numbat-ui-example](https://github.com/jamesknelson/numbat-ui-example)
     * [https://github.com/yanglinz/reddio](https://github.com/yanglinz/reddio)
     * [https://github.com/brabadu/tanok](https://github.com/brabadu/tanok) Elm architecture
@@ -295,6 +296,8 @@
 * [https://github.com/Widdershin/rx-undoable](https://github.com/Widdershin/rx-undoable)
 * [https://github.com/doctolib/rx](https://github.com/doctolib/rx)
 * [https://github.com/ospatil/rx-textsearch](https://github.com/ospatil/rx-textsearch)
+* [https://github.com/ajbertra91/footballCardGame](https://github.com/ajbertra91/footballCardGame)
+* [https://github.com/alexlrobertson/understanding-rx](https://github.com/alexlrobertson/understanding-rx)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

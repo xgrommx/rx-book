@@ -76,6 +76,11 @@
 * [Some material about Rx (http://www.minddriven.de)](http://www.minddriven.de/index.php/tag/reactive-extensions-for-net)
 * [Financial Charts & Reactive Extensions](http://enumeratethis.com/2011/07/26/financial-charts-reactive-extensions)
 * [Angular 2 Observable Data Services](http://coryrylan.com/blog/angular-2-observable-data-services)
+* [Game of Life in RxJS](https://dhavaldalal.wordpress.com/2015/11/15/game-of-life-in-rxjs)
+* [Rx glitches aren't actually a problem](http://staltz.com/rx-glitches-arent-actually-a-problem.html)
+* [The Essence of LINQ – MinLINQ](http://blogs.bartdesmet.net/blogs/bart/archive/2010/01/01/the-essence-of-linq-minlinq.aspx)
+* [Duality of IEnumerable/IObservable](http://josemigueltorres.net/index.php/ienumerableiobservable-duality)
+* [Introduction to the Reactive frmawork - Part II](http://codebetter.com/matthewpodwysocki/2009/11/03/introduction-to-the-reactive-framework-part-ii)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

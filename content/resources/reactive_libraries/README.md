@@ -174,6 +174,7 @@
 * [https://github.com/aaronzirbes/rx-java-playground](https://github.com/aaronzirbes/rx-java-playground)
 * [https://github.com/mulab/rx-realm](https://github.com/mulab/rx-realm)
 * [https://github.com/RefineriaWeb/base_app_android](https://github.com/RefineriaWeb/base_app_android)
+* [https://github.com/yongjhih/RxBolts](https://github.com/yongjhih/RxBolts)
 
 ## Tutorials
 * [https://github.com/jhusain/learnrxjava](https://github.com/jhusain/learnrxjava)

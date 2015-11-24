@@ -25,6 +25,7 @@
     * [https://github.com/ng-book/angular2-rxjs-chat](https://github.com/ng-book/angular2-rxjs-chat) (angular 2)
     * [http://plnkr.co/edit/WT6JK3o1XZ8PuWJcPVV2?p=preview](http://plnkr.co/edit/WT6JK3o1XZ8PuWJcPVV2?p=preview) (angular 2)
     * [http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview](http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview) (angular 2 + redux)
+    * [https://github.com/r-park/todo-angular-rx](https://github.com/r-park/todo-angular-rx) (angular 1.5)
 
 ### [React](https://github.com/facebook/react)
 ***
@@ -48,6 +49,7 @@
         * [scanux - A simple Flux implementation](https://github.com/ulrikaugustsson/scanux)
         * [rx-store - Reactive JS library for managing state](https://github.com/jdlehman/rx-store)
 * #### Examples
+    * [https://github.com/winsonwq/erc](https://github.com/winsonwq/erc)
     * [https://github.com/foxdonut/adventures-reactive-web-dev](https://github.com/foxdonut/adventures-reactive-web-dev)
     * [https://github.com/jamesknelson/numbat-ui-example](https://github.com/jamesknelson/numbat-ui-example)
     * [https://github.com/yanglinz/reddio](https://github.com/yanglinz/reddio)

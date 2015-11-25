@@ -81,6 +81,9 @@
 * [The Essence of LINQ – MinLINQ](http://blogs.bartdesmet.net/blogs/bart/archive/2010/01/01/the-essence-of-linq-minlinq.aspx)
 * [Duality of IEnumerable/IObservable](http://josemigueltorres.net/index.php/ienumerableiobservable-duality)
 * [Introduction to the Reactive frmawork - Part II](http://codebetter.com/matthewpodwysocki/2009/11/03/introduction-to-the-reactive-framework-part-ii)
+* [Official blog](blogs.msdn.com/b/rxteam)
+* [Your Mouse is a Database](https://queue.acm.org/detail.cfm?id=2169076&dwn=0)
+* [Going Reactive: An Architectural Journey](https://realm.io/news/gotocph-mattias-kappler-reactive-architecture-android)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

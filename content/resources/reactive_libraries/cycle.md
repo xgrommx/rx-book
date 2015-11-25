@@ -80,3 +80,4 @@
 * [https://github.com/justinwoo/housing-costs-maps](https://github.com/justinwoo/housing-costs-maps)
 * [https://gist.github.com/dmitriid/baa371845e617a2dc18e](https://gist.github.com/dmitriid/baa371845e617a2dc18e)
 * [https://github.com/justinwoo/cycle-elm-etch-sketch](https://github.com/justinwoo/cycle-elm-etch-sketch)
+* [https://github.com/CyclicMaterials/cycle-hammer-driver](https://github.com/CyclicMaterials/cycle-hammer-driver)

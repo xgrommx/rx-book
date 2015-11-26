@@ -44,6 +44,7 @@
     "lodash": "^3.10.1",
     "merge-stream": "^1.0.0",
     "mousetrap": "^1.5.3",
+    "run-sequence": "^1.1.5",
     "vinyl-source-stream": "^1.1.0"
   }
 }

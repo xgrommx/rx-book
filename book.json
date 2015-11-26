@@ -7,8 +7,7 @@
         "anchors",
         "video",
         "ga",
-        "toggle-chapters",
-        "structured-toc"
+        "toggle-chapters"
     ],
     "theme": "theme2",
     "pluginsConfig": {

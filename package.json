@@ -10,21 +10,39 @@
   "license": "Apache 2",
   "dependencies": {
     "gitbook-plugin-anchors": "^0.3.0",
+    "gitbook-plugin-atoc": "0.0.4",
+    "gitbook-plugin-catalog": "^0.1.2",
+    "gitbook-plugin-chart": "0.0.2",
+    "gitbook-plugin-comment": "^0.2.0",
+    "gitbook-plugin-editlink": "^1.0.1",
+    "gitbook-plugin-github": "^2.0.0",
+    "gitbook-plugin-github-buttons": "^1.2.2",
+    "gitbook-plugin-gtoc": "^0.2.0",
+    "gitbook-plugin-include-codeblock": "^1.5.0",
+    "gitbook-plugin-include-highlight": "^0.1.0",
     "gitbook-plugin-jsbin": "0.0.5",
+    "gitbook-plugin-light-it": "^0.3.0",
+    "gitbook-plugin-quiz": "^0.1.0",
+    "gitbook-plugin-search": "^1.1.0",
+    "gitbook-plugin-search-pro": "^1.0.5",
+    "gitbook-plugin-splitter": "0.0.6",
+    "gitbook-plugin-structured-toc": "^0.1.0",
+    "gitbook-plugin-todo": "^0.1.0",
     "gitbook-plugin-video": "0.0.2"
   },
   "devDependencies": {
-    "gitbook-plugin-structured-toc": "^0.1.0",
-    "grunt": "~0.4.1",
-    "grunt-bower-install-simple": "0.9.2",
-    "grunt-cli": "0.1.11",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-copy": "0.5.0",
-    "grunt-contrib-less": "~0.5.0",
-    "grunt-contrib-requirejs": "0.4.1",
-    "grunt-gh-pages": "0.9.1"
-  },
-  "peerDependencies": {
-    "grunt": "~0.4.1"
+    "browserify": "^12.0.1",
+    "font-awesome": "^4.4.0",
+    "gulp": "^3.9.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-less": "^3.0.5",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "merge-stream": "^1.0.0",
+    "mousetrap": "^1.5.3",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

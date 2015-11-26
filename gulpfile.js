@@ -8,6 +8,7 @@ var browserify = require('browserify');
 var mergeStream = require('merge-stream');
 var source = require('vinyl-source-stream');
 var ghPages = require('gulp-gh-pages');
+var shell = require('gulp-shell');
 
 gulp.task('css', function() {
     var merged = mergeStream();
@@ -46,8 +47,15 @@ gulp.task('default', ['css', 'js', 'assets'], function() {
 
 });
 
-gulp.task('deploy', function() {
+gulp.task('build', shell.task(['gitbook build']));
+gulp.task('serve', shell.task(['gitbook serve']));
+gulp.task('pdf', shell.task(['gitbook pdf']));
+gulp.task('update', shell.task(['git add . && git commit -m "Book has been updated" && git push origin master']));
+
+gulp.task('deploy', ['build'], function() {
   return gulp.src('./_book/**/*')
     .pipe(ghPages());
 });
+
+gulp.task('deploy:update', ['deploy', 'update']);
 

@@ -58,5 +58,5 @@ gulp.task('deploy', ['build'], function() {
     .pipe(ghPages());
 });
 
-gulp.task('deploy:update', runSequence('deploy', 'update'));
+gulp.task('upload', runSequence('deploy', 'update'));
 

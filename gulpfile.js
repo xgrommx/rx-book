@@ -51,7 +51,7 @@ gulp.task('default', ['css', 'js', 'assets'], function() {
 gulp.task('build', shell.task(['gitbook build']));
 gulp.task('serve', shell.task(['gitbook serve']));
 gulp.task('pdf', shell.task(['gitbook pdf']));
-gulp.task('update', shell.task(['git add . && git commit -m "Book has been updated" && git push origin master']));
+gulp.task('update', shell.task(['git add . & git commit -m "Book has been updated" & git push origin master']));
 
 gulp.task('deploy', ['build'], function() {
   return gulp.src('./_book/**/*')

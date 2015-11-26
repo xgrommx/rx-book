@@ -3,9 +3,9 @@
 ### [Angular](https://github.com/angular/angular.js)
 ***
 * #### Standalone plugins
-    * [rx.angular.js - Reactive Extensions Bindings for AngularJS](https://github.com/Reactive-Extensions/rx.angular.js)
-    * [ngMagicStream - Models as Streams in Angular using RxJS](https://github.com/MM-Group/ngMagicStream)
-    * [reactiveproperty-angular - ReactiveProperty for AngularJS](https://github.com/zoetrope/reactiveproperty-angular)
+    * [**rx.angular.js** - Reactive Extensions Bindings for AngularJS](https://github.com/Reactive-Extensions/rx.angular.js)
+    * [**ngMagicStream** - Models as Streams in Angular using RxJS](https://github.com/MM-Group/ngMagicStream)
+    * [**reactiveproperty-angular** - ReactiveProperty for AngularJS](https://github.com/zoetrope/reactiveproperty-angular)
 * #### Examples
     * [https://github.com/fxck/ng2-rx-redux](https://github.com/fxck/ng2-rx-redux) (angular 2 + rx5 + redux)
     * [https://github.com/cvuorinen/reactive-life](https://github.com/cvuorinen/reactive-life)
@@ -31,23 +31,23 @@
 ***
 * #### Standalone plugins
     * ##### React
-        * [rx-react - ReactJS bindings for RxJS](https://github.com/fdecampredon/rx-react)
-        * [react-bacon-component - Utility for attaching Bacon.js to React components](https://github.com/aparticka/react-bacon-component)
-        * [react-observable-mixin - Container like observable mixin for ReactJS](https://github.com/doctolib/react-observable-mixin)
-        * [retransmitter - Async-friendly stateful React containers](https://github.com/alexeyraspopov/retransmitter)
-        * [rx-recompose - RxJS utilities for Recompose](https://github.com/acdlite/recompose/tree/master/src/packages/rx-recompose)
-        * [react-combinators - Seamless combination of React and reactive programming](https://github.com/milankinen/react-combinators)
+        * [**rx-react** - ReactJS bindings for RxJS](https://github.com/fdecampredon/rx-react)
+        * [**react-bacon-component** - Utility for attaching Bacon.js to React components](https://github.com/aparticka/react-bacon-component)
+        * [**react-observable-mixin** - Container like observable mixin for ReactJS](https://github.com/doctolib/react-observable-mixin)
+        * [**retransmitter** - Async-friendly stateful React containers](https://github.com/alexeyraspopov/retransmitter)
+        * [**rx-recompose** - RxJS utilities for Recompose](https://github.com/acdlite/recompose/tree/master/src/packages/rx-recompose)
+        * [**react-combinators** - Seamless combination of React and reactive programming](https://github.com/milankinen/react-combinators)
     * ##### Flux
-        * [rx-flux - A Flux architecture implementation based on RxJS](https://github.com/fdecampredon/rx-flux)
-        * [River - Reactive stream composer for React application](https://github.com/d6u/River)
-        * [redux-core - Minimal Redux](https://github.com/jas-chen/redux-core)
-        * [rx-redux - A reimplementation of redux using RxJS](https://github.com/jas-chen/rx-redux)
+        * [**rx-flux** - A Flux architecture implementation based on RxJS](https://github.com/fdecampredon/rx-flux)
+        * [**River** - Reactive stream composer for React application](https://github.com/d6u/River)
+        * [**redux-core** - Minimal Redux](https://github.com/jas-chen/redux-core)
+        * [**rx-redux** - A reimplementation of redux using RxJS](https://github.com/jas-chen/rx-redux)
         * [thisless-react - Reactive React application flow with React, RxJS and Redux](https://github.com/jas-chen/thisless-react)
-        * [Flow - A Reactive Extension flux like library based on Rx](https://github.com/tautalos/Flow)
-        * [flux-rx - Flux components which can be used to implement Flux within a React.js application. Combines Rx.JS and Immutable.JS for Dispatcher/Store implementations](https://github.com/JChapman202/flux-rx)
-        * [realm - A boilerplate for creating scalable apps with react, rxjs and a little bit of magic. Heavily inspired by flux, redux and elm architecture](https://github.com/jschr/realm)
-        * [scanux - A simple Flux implementation](https://github.com/ulrikaugustsson/scanux)
-        * [rx-store - Reactive JS library for managing state](https://github.com/jdlehman/rx-store)
+        * [**Flow** - A Reactive Extension flux like library based on Rx](https://github.com/tautalos/Flow)
+        * [**flux-rx** - Flux components which can be used to implement Flux within a React.js application. Combines Rx.JS and Immutable.JS for Dispatcher/Store implementations](https://github.com/JChapman202/flux-rx)
+        * [**realm** - A boilerplate for creating scalable apps with react, rxjs and a little bit of magic. Heavily inspired by flux, redux and elm architecture](https://github.com/jschr/realm)
+        * [**scanux** - A simple Flux implementation](https://github.com/ulrikaugustsson/scanux)
+        * [**rx-store** - Reactive JS library for managing state](https://github.com/jdlehman/rx-store)
 * #### Examples
     * [https://github.com/winsonwq/erc](https://github.com/winsonwq/erc)
     * [https://github.com/foxdonut/adventures-reactive-web-dev](https://github.com/foxdonut/adventures-reactive-web-dev)

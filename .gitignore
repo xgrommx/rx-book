@@ -20,3 +20,4 @@ _book
 *.mobi
 *.pdf
 *.7z
+.publish

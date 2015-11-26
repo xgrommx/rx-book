@@ -47,7 +47,7 @@ gulp.task('default', ['css', 'js', 'assets'], function() {
 });
 
 gulp.task('deploy', function() {
-  return gulp.src('./dist/**/*')
+  return gulp.src('./_book/**/*')
     .pipe(ghPages());
 });
 

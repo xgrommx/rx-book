@@ -7,9 +7,17 @@
         "anchors",
         "video",
         "ga",
-        "toggle-chapters"
+        "toggle-chapters",
+        "editlink",
+        "include-codeblock",
+        "splitter",
+        "github-buttons",
+        "chart",
+        "todo",
+        "quiz",
+        "include-highlight"
     ],
-    "theme": "theme2",
+    "theme": "theme",
     "pluginsConfig": {
         "fontSettings": {
             "theme": "white",
@@ -18,12 +26,16 @@
         "ga": {
             "token": "UA-63403975-1"
         },
+        "editlink": {
+            "base": "https://github.com/xgrommx/rx-book/tree/master",
+            "label": "Edit This Page"
+        },
         "github-buttons": {
-            "repo": "azu/JavaScript-Plugin-Architecture",
+            "repo": "xgrommx/rx-book",
             "types": [
-                "star",
-                "watch"
-            ]
+                "star"
+            ],
+            "size": "small"
         }
     },
     "variables": {

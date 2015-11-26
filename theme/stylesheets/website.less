@@ -1,8 +1,8 @@
 @import "base/normalize.less";
 @import "base/preboot.less";
-@import "../vendors/fontawesome/less/font-awesome.less";
+@import "base/mixins.less";
+@import "../../node_modules/font-awesome/less/font-awesome.less";
 
-@import "mixins.less";
 
 @import "website/variables.less";
 @import "website/languages.less";
@@ -10,10 +10,9 @@
 @import "website/dropdown.less";
 @import "website/alerts.less";
 @import "website/summary.less";
-@import "website/font-settings.less";
 @import "website/body.less";
 @import "website/buttons.less";
-@import "website/markdown.less";
+@import "website/markup.less";
 @import "website/navigation.less";
 @import "website/glossary.less";
 
@@ -44,4 +43,5 @@ body {
     font-family: @font-family-base;
     font-size: @font-size-base;
     letter-spacing: .2px;
+    .text-adjust(100%);
 }

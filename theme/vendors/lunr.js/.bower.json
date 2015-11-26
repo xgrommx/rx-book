@@ -1,0 +1,21 @@
+{
+  "name": "lunr.js",
+  "version": "0.5.2",
+  "main": "lunr.js",
+  "ignore": [
+    "tests/",
+    "perf/",
+    "build/",
+    "docs/"
+  ],
+  "homepage": "https://github.com/olivernn/lunr.js",
+  "_release": "0.5.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.5.2",
+    "commit": "630e349ae377e14e3d48018aec7771dffcced50c"
+  },
+  "_source": "git://github.com/olivernn/lunr.js.git",
+  "_target": "0.5.2",
+  "_originalSource": "lunr.js"
+}

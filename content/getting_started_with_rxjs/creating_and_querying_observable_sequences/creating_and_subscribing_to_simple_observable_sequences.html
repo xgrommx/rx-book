@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,11 +5356,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="creating-and-subscribing-to-simple-observable-sequences"><a name="creating-and-subscribing-to-simple-observable-sequences" class="plugin-anchor" href="#creating-and-subscribing-to-simple-observable-sequences"><span class="fa fa-link"></span></a>Creating and Subscribing to Simple Observable Sequences #</h1>
-
+                        <h1 id="creating-and-subscribing-to-simple-observable-sequences"><a name="creating-and-subscribing-to-simple-observable-sequences" class="plugin-anchor" href="#creating-and-subscribing-to-simple-observable-sequences"><span class="fa fa-link"></span></a>Creating and Subscribing to Simple Observable Sequences</h1>
 <p>You do not need to implement the <code>Observable</code> class manually to create an observable sequence. Similarly, you do not need to implement <code>Observer</code> either to subscribe to a sequence. By installing the Reactive Extension libraries, you can take advantage of the <code>Observable</code> type which provides many operators for you to create a simple sequence with zero, one or more elements. In addition, RxJS provides an overloaded <code>subscribe</code> method which allows you to pass in <code>onNext</code>, <code>onError</code> and <code>onCompleted</code> function handlers.</p>
-<h2 id="creating-a-sequence-from-scratch"><a name="creating-a-sequence-from-scratch" class="plugin-anchor" href="#creating-a-sequence-from-scratch"><span class="fa fa-link"></span></a>Creating a sequence from scratch ##</h2>
-
+<h2 id="creating-a-sequence-from-scratch"><a name="creating-a-sequence-from-scratch" class="plugin-anchor" href="#creating-a-sequence-from-scratch"><span class="fa fa-link"></span></a>Creating a sequence from scratch</h2>
 <p>Before getting into many operators, let&apos;s look at how to create an <code>Observable</code> from scratch using the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/create.md" target="_blank"><code>Rx.Observable.create</code></a> method.</p>
 <p>First, we need to ensure we reference the core <code>rx.js</code> file.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -5390,8 +5388,7 @@ subscription.dispose();
 <span class="hljs-comment">// =&gt; disposed</span>
 </code></pre>
 <p>For most operations, this is completely overkill, but shows the very basics of how most RxJS operators work.</p>
-<h2 id="creating-and-subscribing-to-a-simple-sequence"><a name="creating-and-subscribing-to-a-simple-sequence" class="plugin-anchor" href="#creating-and-subscribing-to-a-simple-sequence"><span class="fa fa-link"></span></a>Creating and subscribing to a simple sequence ##</h2>
-
+<h2 id="creating-and-subscribing-to-a-simple-sequence"><a name="creating-and-subscribing-to-a-simple-sequence" class="plugin-anchor" href="#creating-and-subscribing-to-a-simple-sequence"><span class="fa fa-link"></span></a>Creating and subscribing to a simple sequence</h2>
 <p>The following sample uses the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/range.md" target="_blank"><code>range</code></a> operator of the <code>Observable</code> type to create a simple observable collection of numbers. The observer subscribes to this collection using the Subscribe method of the Observable class, and provides actions that are delegates which handle <code>onNext</code>, <code>onError</code> and <code>onCompleted</code>.  In our example, it creates a sequence of integers that starts with x and produces y sequential numbers afterwards.</p>
 <p>As soon as the subscription happens, the values are sent to the observer. The <code>onNext</code> function then prints out the values.</p>
 <pre><code class="lang-js"><span class="hljs-comment">// Creates an observable sequence of 5 integers, starting from 1</span>
@@ -5436,8 +5433,7 @@ subscription.dispose();
 </code></pre>
 <p>In addition to creating an observable sequence from scratch, you can convert existing Arrays,  events, callbacks and promises into observable sequences. The other topics in this section will show you how to do this.</p>
 <p>Notice that this topic only shows you a few operators that can create an observable sequence from scratch. To learn more about other LINQ operators, see Querying Observable Sequences using LINQ Operators.</p>
-<h2 id="using-a-timer"><a name="using-a-timer" class="plugin-anchor" href="#using-a-timer"><span class="fa fa-link"></span></a>Using a timer ##</h2>
-
+<h2 id="using-a-timer"><a name="using-a-timer" class="plugin-anchor" href="#using-a-timer"><span class="fa fa-link"></span></a>Using a timer</h2>
 <p>The following sample uses the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timer.md" target="_blank"><code>timer</code></a> operator to create a sequence. The sequence will push out the first value after 5 second has elapsed, then it will push out subsequent values every 1 second. For illustration purpose, we chain the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/timestamp.md" target="_blank"><code>timestamp</code></a> operator to the query so that each value pushed out will be appended by the time when it is published. By doing so, when we subscribe to this source sequence, we can receive both its value and timestamp.</p>
 <p>First, we need to ensure we reference the proper files if in the browser.  Note that the RxJS NPM Package already includes all operators by default.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;rx.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -5461,8 +5457,7 @@ subscription.dispose();
 <span class="hljs-comment">// 2: 1382560704820</span>
 </code></pre>
 <p>By using the <code>timestamp</code> operator, we have verified that the first item is indeed pushed out 5 seconds after the sequence has started, and each item is published 1 second later.</p>
-<h2 id="converting-arrays-and-iterables-to-an-observable-sequence"><a name="converting-arrays-and-iterables-to-an-observable-sequence" class="plugin-anchor" href="#converting-arrays-and-iterables-to-an-observable-sequence"><span class="fa fa-link"></span></a>Converting Arrays and Iterables to an Observable Sequence ##</h2>
-
+<h2 id="converting-arrays-and-iterables-to-an-observable-sequence"><a name="converting-arrays-and-iterables-to-an-observable-sequence" class="plugin-anchor" href="#converting-arrays-and-iterables-to-an-observable-sequence"><span class="fa fa-link"></span></a>Converting Arrays and Iterables to an Observable Sequence</h2>
 <p>Using the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/from.md" target="_blank"><code>Rx.Observable.from</code></a> operator, you can convert an array to observable sequence.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> array = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
 
@@ -5564,8 +5559,7 @@ subscription.dispose();
 <span class="hljs-comment">// =&gt; onNext: 5</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
-<h2 id="cold-vs-hot-observables"><a name="cold-vs-hot-observables" class="plugin-anchor" href="#cold-vs-hot-observables"><span class="fa fa-link"></span></a>Cold vs. Hot Observables ##</h2>
-
+<h2 id="cold-vs-hot-observables"><a name="cold-vs-hot-observables" class="plugin-anchor" href="#cold-vs-hot-observables"><span class="fa fa-link"></span></a>Cold vs. Hot Observables</h2>
 <p>Cold observables start running upon subscription, i.e., the observable sequence only starts pushing values to the observers when Subscribe is called. Values are also not shared among subscribers. This is different from hot observables such as mouse move events or stock tickers which are already producing values even before a subscription is active. When an observer subscribes to a hot observable sequence, it will get the current value in the stream. The hot observable sequence is shared among all subscribers, and each subscriber is pushed the next value in the sequence. For example, even if no one has subscribed to a particular stock ticker, the ticker will continue to update its value based on market movement. When a subscriber registers interest in this ticker, it will automatically get the latest tick.</p>
 <p>The following example demonstrates a cold observable sequence. In this example, we use the Interval operator to create a simple observable sequence of numbers pumped out at specific intervals, in this case, every 1 second.</p>
 <p>Two observers then subscribe to this sequence and print out its values. You will notice that the sequence is reset for each subscriber, in which the second subscription will restart the sequence from the first value.</p>

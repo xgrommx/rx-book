@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="15.6.2.2" data-basepath="../../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="15.6.2.2" data-basepath="../../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5357,47 +5357,39 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="toeventemitter"><a name="toeventemitter" class="plugin-anchor" href="#toeventemitter"><span class="fa fa-link"></span></a>toEventEmitter</h1>
-
-<h3 id="rxnodetoeventemitterobservable-eventname"><a name="rxnodetoeventemitterobservable-eventname" class="plugin-anchor" href="#rxnodetoeventemitterobservable-eventname"><span class="fa fa-link"></span></a><a id="rxnodetoeventemitterobservable-eventname"></a>`Rx.Node.toEventEmitter(observable, eventName)`</h3>
-<a href="#rxnodetoeventemitterobservable-eventname">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.node.js#L66-L84 &quot;View in source&quot;) 
-
-Converts the given observable sequence to an event emitter with the given event name. 
-The errors are handled on the &apos;error&apos; event and completion on the &apos;end&apos; event.
-
+<h3 id="-a-id-rxnodetoeventemitterobservable-eventname-a-rx-node-toeventemitter-observable-eventname"><a name="-a-id-rxnodetoeventemitterobservable-eventname-a-rx-node-toeventemitter-observable-eventname" class="plugin-anchor" href="#-a-id-rxnodetoeventemitterobservable-eventname-a-rx-node-toeventemitter-observable-eventname"><span class="fa fa-link"></span></a><a id="rxnodetoeventemitterobservable-eventname"></a><code>Rx.Node.toEventEmitter(observable, eventName)</code></h3>
+<p><a href="#rxnodetoeventemitterobservable-eventname">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.node.js#L66-L84" title="View in source" target="_blank">&#x24C8;</a> </p>
+<p>Converts the given observable sequence to an event emitter with the given event name. 
+The errors are handled on the &apos;error&apos; event and completion on the &apos;end&apos; event.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `observable` *(Obsesrvable)*: The observable sequence to convert to an EventEmitter.
-2. `eventName` *(String)*: The event name to subscribe.
-
+<ol>
+<li><code>observable</code> <em>(Obsesrvable)</em>: The observable sequence to convert to an EventEmitter.</li>
+<li><code>eventName</code> <em>(String)</em>: The event name to subscribe.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(EventEmitter)*: An EventEmitter which emits the given eventName for each onNext call in addition to &apos;error&apos; and &apos;end&apos; events.
-
+<p><em>(EventEmitter)</em>: An EventEmitter which emits the given eventName for each onNext call in addition to &apos;error&apos; and &apos;end&apos; events.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var Rx = require(&apos;Rx&apos;);
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;Rx&apos;</span>);
 
-var source = Rx.Observable.return(42);
+<span class="hljs-keyword">var</span> source = Rx.Observable.return(<span class="hljs-number">42</span>);
 
-var emitter = Rx.Node.toEventEmitter(source, &apos;data&apos;);
+<span class="hljs-keyword">var</span> emitter = Rx.Node.toEventEmitter(source, <span class="hljs-string">&apos;data&apos;</span>);
 
-emitter.on(&apos;data&apos;, function (data) {
-    console.log(&apos;Data: &apos; + data); 
+emitter.on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Data: &apos;</span> + data); 
 });
 
-emitter.on(&apos;end&apos;, function () {
-    console.log(&apos;End&apos;);
+emitter.on(<span class="hljs-string">&apos;end&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;End&apos;</span>);
 });
 
-// Ensure to call publish to fire events from the observable
+<span class="hljs-comment">// Ensure to call publish to fire events from the observable</span>
 emitter.publish();
 
-// =&gt; Data: 42
-// =&gt; End
-```
-
-
-
+<span class="hljs-comment">// =&gt; Data: 42</span>
+<span class="hljs-comment">// =&gt; End</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.node.js</li>
 </ul>

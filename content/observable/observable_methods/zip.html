@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.1.43" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.1.43" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,26 +5356,17 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservablezipargs-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablezipjs"><a name="rxobservablezipargs-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablezipjs" class="plugin-anchor" href="#rxobservablezipargs-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablezipjs"><span class="fa fa-link"></span></a>[`Rx.Observable.zip(...args, [resultSelector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/zip.js)</h2>
-
-
-
-
-
-
-
+                        <h2 id="-rx-observable-zip-args-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-zip-js"><a name="-rx-observable-zip-args-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-zip-js" class="plugin-anchor" href="#-rx-observable-zip-args-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-zip-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/zip.js" target="_blank"><code>Rx.Observable.zip(...args, [resultSelector])</code></a></h2>
 <p>Merges the specified observable sequences or Promises into one observable sequence by using the selector function whenever all of the observable sequences have produced an element at a corresponding index. If the result selector function is omitted, a list with the elements of the observable sequences at corresponding indexes will be yielded.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `args` *(`Array`|`arguments`)*: Observable sources.
-2. `[resultSelector]` *(Function)*: A function which takes the inputs at the specified index and combines them together.  If omitted, a list with the elements of the observable sequences at corresponding indexes will be yielded.
-
+<ol>
+<li><code>args</code> <em>(<code>Array</code>|<code>arguments</code>)</em>: Observable sources.</li>
+<li><code>[resultSelector]</code> <em>(Function)</em>: A function which takes the inputs at the specified index and combines them together.  If omitted, a list with the elements of the observable sequences at corresponding indexes will be yielded.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(`Observable`)*: An observable sequence containing the result of combining elements of the sources using the specified result selector function.
-
+<p><em>(<code>Observable</code>)</em>: An observable sequence containing the result of combining elements of the sources using the specified result selector function.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
 <h5 id="without-a-result-selector"><a name="without-a-result-selector" class="plugin-anchor" href="#without-a-result-selector"><span class="fa fa-link"></span></a>Without a result selector</h5>
-
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> range = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
 
 <span class="hljs-keyword">var</span> source = Observable.zip(
@@ -5401,10 +5392,8 @@
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
 <h5 id="using-arguments"><a name="using-arguments" class="plugin-anchor" href="#using-arguments"><span class="fa fa-link"></span></a>Using arguments</h5>
-
 <p><a href="http://jsbin.com/jaliqo/1/embed?js,console" target="_blank"></a></p>
 <h5 id="using-promises-and-observables"><a name="using-promises-and-observables" class="plugin-anchor" href="#using-promises-and-observables"><span class="fa fa-link"></span></a>Using promises and Observables */</h5>
-
 <p><a href="http://jsbin.com/tuset/1/embed?js,console" target="_blank"></a></p>
 
                     

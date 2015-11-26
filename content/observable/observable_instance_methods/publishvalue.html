@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.76" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.76" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,24 +5356,16 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservableprototypepublishvalueselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablepublishvaluejs"><a name="rxobservableprototypepublishvalueselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablepublishvaluejs" class="plugin-anchor" href="#rxobservableprototypepublishvalueselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablepublishvaluejs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.publishValue([selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publishvalue.js)</h2>
-
-
-
-
-
-
-
+                        <h2 id="-rx-observable-prototype-publishvalue-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-publishvalue-js"><a name="-rx-observable-prototype-publishvalue-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-publishvalue-js" class="plugin-anchor" href="#-rx-observable-prototype-publishvalue-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-publishvalue-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/publishvalue.js" target="_blank"><code>Rx.Observable.prototype.publishValue([selector])</code></a></h2>
 <p>Returns an observable sequence that is the result of invoking the selector on a connectable observable sequence that shares a single subscription to the underlying sequence and starts with initialValue.</p>
 <p>This operator is a specialization of <code>multicast</code> using a <code>Rx.BehaviorSubject</code>.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `[selector]` *(`Function`)*: Selector function which can use the multicasted source sequence as many times as needed, without causing multiple subscriptions to the source sequence. Subscribers to the given source will receive immediately receive the initial value, followed by all notifications of the source from the time of the subscription on.
-
+<ol>
+<li><code>[selector]</code> <em>(<code>Function</code>)</em>: Selector function which can use the multicasted source sequence as many times as needed, without causing multiple subscriptions to the source sequence. Subscribers to the given source will receive immediately receive the initial value, followed by all notifications of the source from the time of the subscription on.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(ConnectableObservable)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.
-
+<p><em>(ConnectableObservable)</em>: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
 <p><a href="http://jsbin.com/butol/1/embed?js,console" target="_blank"></a></p>
 
                     

@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.13" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.13" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,28 +5356,22 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservableprototypeconcatmapobserveronnext-onerror-oncompleted-thisarg-rxobservableprototypeselectconcatobserveronnext-onerror-oncompleted-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableconcatmapobserverjs"><a name="rxobservableprototypeconcatmapobserveronnext-onerror-oncompleted-thisarg-rxobservableprototypeselectconcatobserveronnext-onerror-oncompleted-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableconcatmapobserverjs" class="plugin-anchor" href="#rxobservableprototypeconcatmapobserveronnext-onerror-oncompleted-thisarg-rxobservableprototypeselectconcatobserveronnext-onerror-oncompleted-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableconcatmapobserverjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.concatMapObserver(onNext, onError, onCompleted, [thisArg])`, `Rx.Observable.prototype.selectConcatObserver(onNext, onError, onCompleted, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/concatmapobserver.js)</h2>
-
-
-
-
-
-
-
+                        <h2 id="-rx-observable-prototype-concatmapobserver-onnext-onerror-oncompleted-thisarg-rx-observable-prototype-selectconcatobserver-onnext-onerror-oncompleted-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-concatmapobserver-js"><a name="-rx-observable-prototype-concatmapobserver-onnext-onerror-oncompleted-thisarg-rx-observable-prototype-selectconcatobserver-onnext-onerror-oncompleted-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-concatmapobserver-js" class="plugin-anchor" href="#-rx-observable-prototype-concatmapobserver-onnext-onerror-oncompleted-thisarg-rx-observable-prototype-selectconcatobserver-onnext-onerror-oncompleted-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-concatmapobserver-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/concatmapobserver.js" target="_blank"><code>Rx.Observable.prototype.concatMapObserver(onNext, onError, onCompleted, [thisArg])</code>, <code>Rx.Observable.prototype.selectConcatObserver(onNext, onError, onCompleted, [thisArg])</code></a></h2>
 <p>Projects each notification of an observable sequence to an observable sequence and concats the resulting observable sequences into one observable sequence.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `onNext` *(`Function`)*:  A transform function to apply to each element. The selector is called with the following information:
-    1. the value of the element
-    2. the index of the element
-2. `onError` *(`Function`)*: A transform function to apply when an error occurs in the source sequence.
-3. `onCompleted` *(`Function`)*: A transform function to apply when the end of the source sequence is reached.
-4. `[thisArg]` *(`Any`)*: Object to use as `this` when executing the transform functions.
-
+<ol>
+<li><code>onNext</code> <em>(<code>Function</code>)</em>:  A transform function to apply to each element. The selector is called with the following information:<ol>
+<li>the value of the element</li>
+<li>the index of the element</li>
+</ol>
+</li>
+<li><code>onError</code> <em>(<code>Function</code>)</em>: A transform function to apply when an error occurs in the source sequence.</li>
+<li><code>onCompleted</code> <em>(<code>Function</code>)</em>: A transform function to apply when the end of the source sequence is reached.</li>
+<li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the transform functions.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(`Observable`)*: An observable sequence whose elements are the result of invoking the one-to-many transform function corresponding to each notification in the input sequence.
-
+<p><em>(<code>Observable</code>)</em>: An observable sequence whose elements are the result of invoking the one-to-many transform function corresponding to each notification in the input sequence.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
 <p><a href="http://jsbin.com/dasivu/1/embed?js,console" target="_blank"></a></p>
 
                     

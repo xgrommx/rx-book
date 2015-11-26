@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.45" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.45" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,28 +5356,19 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservableprototypegroupbyuntilkeyselector-elementselector-durationselector-comparerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablegroupbyuntiljs"><a name="rxobservableprototypegroupbyuntilkeyselector-elementselector-durationselector-comparerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablegroupbyuntiljs" class="plugin-anchor" href="#rxobservableprototypegroupbyuntilkeyselector-elementselector-durationselector-comparerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablegroupbyuntiljs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.groupByUntil(keySelector, [elementSelector], durationSelector, [comparer])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/groupbyuntil.js)</h2>
-
-
-
-
-
-
-
+                        <h2 id="-rx-observable-prototype-groupbyuntil-keyselector-elementselector-durationselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-groupbyuntil-js"><a name="-rx-observable-prototype-groupbyuntil-keyselector-elementselector-durationselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-groupbyuntil-js" class="plugin-anchor" href="#-rx-observable-prototype-groupbyuntil-keyselector-elementselector-durationselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-groupbyuntil-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/groupbyuntil.js" target="_blank"><code>Rx.Observable.prototype.groupByUntil(keySelector, [elementSelector], durationSelector, [comparer])</code></a></h2>
 <p>Groups the elements of an observable sequence according to a specified key selector function and comparer and selects the resulting elements by using a specified function.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `keySelector` *(`Function`)*: A function to extract the key for each element.
-2. `[elementSelector]` *(`Function`)*: A function to map each source element to an element in an observable group.
-3. `durationSelector` *(`Function`)*: A function to signal the expiration of a group.
-4. `[comparer]` *(`Any`)*: Used to compare objects. If not specified, the default comparer is used.
-
+<ol>
+<li><code>keySelector</code> <em>(<code>Function</code>)</em>: A function to extract the key for each element.</li>
+<li><code>[elementSelector]</code> <em>(<code>Function</code>)</em>: A function to map each source element to an element in an observable group.</li>
+<li><code>durationSelector</code> <em>(<code>Function</code>)</em>: A function to signal the expiration of a group.</li>
+<li><code>[comparer]</code> <em>(<code>Any</code>)</em>: Used to compare objects. If not specified, the default comparer is used.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(`Observable`)*: A sequence of observable groups, each of which corresponds to a unique key value, containing all elements that share that same key value.
-
-If a group&apos;s lifetime expires, a new group with the same key value can be created once an element with such a key value is encoutered.
-
+<p><em>(<code>Observable</code>)</em>: A sequence of observable groups, each of which corresponds to a unique key value, containing all elements that share that same key value.</p>
+<p>If a group&apos;s lifetime expires, a new group with the same key value can be created once an element with such a key value is encoutered.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
 <p><a href="http://jsbin.com/fohafa/1/embed?js,console" target="_blank"></a></p>
 
                     

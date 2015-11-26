@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.120" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.120" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,30 +5356,20 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservableprototypetimeoutduetime-other-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabletimeoutjs"><a name="rxobservableprototypetimeoutduetime-other-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabletimeoutjs" class="plugin-anchor" href="#rxobservableprototypetimeoutduetime-other-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabletimeoutjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.timeout(dueTime, [other], [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timeout.js)</h2>
-
-
-
-
-
-
-
+                        <h2 id="-rx-observable-prototype-timeout-duetime-other-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-timeout-js"><a name="-rx-observable-prototype-timeout-duetime-other-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-timeout-js" class="plugin-anchor" href="#-rx-observable-prototype-timeout-duetime-other-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-timeout-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/timeout.js" target="_blank"><code>Rx.Observable.prototype.timeout(dueTime, [other], [scheduler])</code></a></h2>
 <p>Returns the source observable sequence or the other observable sequence if dueTime elapses.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `dueTime` *(Date | Number)*: Absolute (specified as a Date object) or relative time (specified as an integer denoting milliseconds) when a timeout occurs.
-2. `[other]` *(`Observable`)*: Sequence or Promise to return in case of a timeout. If not specified, a timeout error throwing sequence will be used.
-3. `[scheduler=Rx.Observable.timeout]` *(`Scheduler`)*: Scheduler to run the timeout timers on. If not specified, the timeout scheduler is used.
-
+<ol>
+<li><code>dueTime</code> <em>(Date | Number)</em>: Absolute (specified as a Date object) or relative time (specified as an integer denoting milliseconds) when a timeout occurs.</li>
+<li><code>[other]</code> <em>(<code>Observable</code>)</em>: Sequence or Promise to return in case of a timeout. If not specified, a timeout error throwing sequence will be used.</li>
+<li><code>[scheduler=Rx.Observable.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the timeout timers on. If not specified, the timeout scheduler is used.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(`Observable`)*: An observable sequence with time interval information on values.
-
+<p><em>(<code>Observable</code>)</em>: An observable sequence with time interval information on values.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
 <h5 id="with-no-other"><a name="with-no-other" class="plugin-anchor" href="#with-no-other"><span class="fa fa-link"></span></a>With no other</h5>
-
 <p><a href="http://jsbin.com/vorogi/1/embed?js,console" target="_blank"></a></p>
 <h5 id="with-another"><a name="with-another" class="plugin-anchor" href="#with-another"><span class="fa fa-link"></span></a>With another</h5>
-
 <p><a href="http://jsbin.com/lobar/1/embed?js,console" target="_blank"></a></p>
 
                     

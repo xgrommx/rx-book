@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="3.3.7" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="3.3.7" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,8 +5356,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="error-handling-in-the-reactive-extensions"><a name="error-handling-in-the-reactive-extensions" class="plugin-anchor" href="#error-handling-in-the-reactive-extensions"><span class="fa fa-link"></span></a>Error Handling in the Reactive Extensions #</h1>
-
+                        <h1 id="error-handling-in-the-reactive-extensions"><a name="error-handling-in-the-reactive-extensions" class="plugin-anchor" href="#error-handling-in-the-reactive-extensions"><span class="fa fa-link"></span></a>Error Handling in the Reactive Extensions</h1>
 <p>One of the most difficult tasks in asynchronous programming is dealing with errors.  Unlike interactive style programming, we cannot simply use the try/catch/finally approach that we use when dealing with blocking code.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">try</span> {
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> obj <span class="hljs-keyword">in</span> objs) {
@@ -5385,8 +5384,7 @@
 <li>swallow the error and try to restart the failed Observable after some back-off interval</li>
 </ul>
 <p>We&apos;ll cover each of those scenarios and more in this section.</p>
-<h2 id="catching-errors"><a name="catching-errors" class="plugin-anchor" href="#catching-errors"><span class="fa fa-link"></span></a>Catching Errors ##</h2>
-
+<h2 id="catching-errors"><a name="catching-errors" class="plugin-anchor" href="#catching-errors"><span class="fa fa-link"></span></a>Catching Errors</h2>
 <p>The first topic is catching errors as they happen with our streams. In the Reactive Extensions, any error is propogated through the <code>onError</code> channel which halts the sequence.  We can compensate for this by using the <code>catch</code> operator, at both the class and instance level.  </p>
 <p>Using the class level <code>catch</code> method, we can catch errors as they happen with the current sequence and then move to the next sequence should there be an error.  For example, we could try getting data from several URLs, it doesn&apos;t matter which since they all have the same data, and then if that fails, default to a cached version, so an error should never propagate.  One thing to note is that if <code>get(&apos;url&apos;)</code> calls succeed, then it will not move onto the next sequence in the list.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.catch(
@@ -5427,8 +5425,7 @@
 );
 </code></pre>
 <p>This isn&apos;t the only way to handle errors as there are plenty of others as you&apos;ll see below.</p>
-<h2 id="ignoring-errors-with-onerrorresumenext"><a name="ignoring-errors-with-onerrorresumenext" class="plugin-anchor" href="#ignoring-errors-with-onerrorresumenext"><span class="fa fa-link"></span></a>Ignoring Errors with `onErrorResumeNext` ##</h2>
-
+<h2 id="ignoring-errors-with-onerrorresumenext"><a name="ignoring-errors-with-onerrorresumenext" class="plugin-anchor" href="#ignoring-errors-with-onerrorresumenext"><span class="fa fa-link"></span></a>Ignoring Errors with <code>onErrorResumeNext</code></h2>
 <p>The Reactive Extensions borrowed from a number of languages in our design.  One of those features is bringing <a href="https://msdn.microsoft.com/en-us/library/5hsw66as.aspx" target="_blank"><code>On Error Resume Next</code></a> from Microsoft Visual Basic.  This operation specifies that when a run-time error occurs, control goes to the statement immediately following the statement where the error occurred, and execution continues from that point.  There are some instances with stream processing that you simply want to skip a stream which produces an error and move to the next stream.  We can achieve this with a class based and instance based <code>onErrorResumeNext</code> method.</p>
 <p>The class based <code>onErrorResumeNext</code> continues a stream that is terminated normally or by an <code>Error</code> with the next stream or <code>Promise</code>.  Unlike <code>catch</code>, <code>onErrorResumeNext</code> will continue to the next sequence regardless of whether the previous was in error or not.  To make this more concrete, let&apos;s use a simple example of mixing error sequences with normal sequences.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.onErrorResumeNext(
@@ -5447,8 +5444,7 @@
 <span class="hljs-comment">// =&gt; 78</span>
 </code></pre>
 <p>The instance based <code>onErrorResumeNext</code> is similar to the class based version, the only difference being that it is attached to the prototype, but can take another sequence or <code>Promise</code> and continue.</p>
-<h2 id="retrying-sequences"><a name="retrying-sequences" class="plugin-anchor" href="#retrying-sequences"><span class="fa fa-link"></span></a>Retrying Sequences ##</h2>
-
+<h2 id="retrying-sequences"><a name="retrying-sequences" class="plugin-anchor" href="#retrying-sequences"><span class="fa fa-link"></span></a>Retrying Sequences</h2>
 <p>When catching errors isn&apos;t enough and we want to retry our logic, we can do so with <code>retry</code> or <code>retryWhen</code> operators.  With the <code>retry</code> operator, we can try a certain operation a number of times before an error is thrown.  This is useful when you need to get data from a resource which may have intermittent failures due to load or any other issue.</p>
 <p>Let&apos;s take a look at a simple example of trying to get some data from a URL and giving up after three tries.</p>
 <pre><code class="lang-js"><span class="hljs-comment">// Try three times to get the data and then give up</span>
@@ -5491,8 +5487,7 @@
 <span class="hljs-comment">// =&gt; delay retry by 2 second(s)</span>
 <span class="hljs-comment">// =&gt; Data</span>
 </code></pre>
-<h2 id="ensuring-cleanup-with-finally"><a name="ensuring-cleanup-with-finally" class="plugin-anchor" href="#ensuring-cleanup-with-finally"><span class="fa fa-link"></span></a>Ensuring Cleanup with Finally ##</h2>
-
+<h2 id="ensuring-cleanup-with-finally"><a name="ensuring-cleanup-with-finally" class="plugin-anchor" href="#ensuring-cleanup-with-finally"><span class="fa fa-link"></span></a>Ensuring Cleanup with Finally</h2>
 <p>We&apos;ve already covered the try/catch part of try/catch/finally, so what about finally?  We have the <code>finally</code> operator which calls a function after the source sequence terminates gracefully or exceptionally.  This is useful if you are using external resources or need to free up a particular variable upon completion.  </p>
 <p>In this example, we can ensure that our <code>WebSocket</code> will indeed be closed once the last message is processed.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> socket = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">&apos;ws://someurl&apos;</span>, <span class="hljs-string">&apos;xmpp&apos;</span>);
@@ -5507,8 +5502,7 @@
 );
 </code></pre>
 <p>But,we can do a better job in terms of managing resources if need be by using the <code>using</code> method.</p>
-<h2 id="ensuring-resource-disposal"><a name="ensuring-resource-disposal" class="plugin-anchor" href="#ensuring-resource-disposal"><span class="fa fa-link"></span></a>Ensuring Resource Disposal ##</h2>
-
+<h2 id="ensuring-resource-disposal"><a name="ensuring-resource-disposal" class="plugin-anchor" href="#ensuring-resource-disposal"><span class="fa fa-link"></span></a>Ensuring Resource Disposal</h2>
 <p>As stated above, <code>finally</code> can be used to ensure proper cleanup of any resources or perform any side effects as necessary.  There is a cleaner approach we can take by creating a disposable wrapper around our object with a <code>dispose</code> method so that when our scope is complete, then the resource is automatically disposed through the <code>using</code> operator.</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DisposableWebSocket</span>(<span class="hljs-params">url, protocol</span>) </span>{
   <span class="hljs-keyword">var</span> socket = <span class="hljs-keyword">new</span> WebSocket(url, protocol);
@@ -5531,8 +5525,7 @@
 
 <span class="hljs-keyword">var</span> subscription = source.subscribe();
 </code></pre>
-<h2 id="delaying-errors-with-mergedelayerror"><a name="delaying-errors-with-mergedelayerror" class="plugin-anchor" href="#delaying-errors-with-mergedelayerror"><span class="fa fa-link"></span></a>Delaying Errors with `mergeDelayError` ##</h2>
-
+<h2 id="delaying-errors-with-mergedelayerror"><a name="delaying-errors-with-mergedelayerror" class="plugin-anchor" href="#delaying-errors-with-mergedelayerror"><span class="fa fa-link"></span></a>Delaying Errors with <code>mergeDelayError</code></h2>
 <p>Another issue may arise when you are dealing with flattening sequences into a single sequence and there may be errors along the way.  We want a way to flatten without being interrupted by one of our sources being in error.  This is much like the other operator <code>mergeAll</code> but the main difference is, instead of immediately bubbling up the error, it holds off until the very end.</p>
 <p>To illustrate, we can create this little sample that has an errored sequence in the middle when it is trying to flatten the sequences.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.of(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
@@ -5554,7 +5547,7 @@
 <span class="hljs-comment">// =&gt; 6</span>
 <span class="hljs-comment">// =&gt; Error: Error: woops</span>
 </code></pre>
-<p></p><h2 id="further-reading"><a name="further-reading" class="plugin-anchor" href="#further-reading"><span class="fa fa-link"></span></a>Further Reading ##</h2><p></p>
+<h2 id="further-reading"><a name="further-reading" class="plugin-anchor" href="#further-reading"><span class="fa fa-link"></span></a>Further Reading</h2>
 <ul>
 <li><a href="generators.md">Using Generators For Try/Catch Operations</a></li>
 <li><a href="testing.md">Testing and Debugging Your RxJS Application</a></li>

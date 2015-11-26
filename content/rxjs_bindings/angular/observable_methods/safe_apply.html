@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="15.3.2.1" data-basepath="../../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="15.3.2.1" data-basepath="../../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,36 +5356,28 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="rx"><a name="rx" class="plugin-anchor" href="#rx"><span class="fa fa-link"></span></a><a id="rx"></a>`rx`</h3>
-<a href="#rx">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/rx.angular.js/blob/master/src/factory.js#L1-L6 &quot;View in source&quot;) 
-
-Creates a factory for using RxJS.
-
+                        <h3 id="-a-id-rx-a-rx"><a name="-a-id-rx-a-rx" class="plugin-anchor" href="#-a-id-rx-a-rx"><span class="fa fa-link"></span></a><a id="rx"></a><code>rx</code></h3>
+<p><a href="#rx">#</a> <a href="https://github.com/Reactive-Extensions/rx.angular.js/blob/master/src/factory.js#L1-L6" title="View in source" target="_blank">&#x24C8;</a> </p>
+<p>Creates a factory for using RxJS.</p>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(Rx)*: The root of RxJS
-
+<p><em>(Rx)</em>: The root of RxJS</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-angular.module(&apos;example&apos;, [&apos;rx&apos;])
-    .controller(&apos;AppCtrl&apos;, function($scope, rx) {
+<pre><code class="lang-js">angular.module(<span class="hljs-string">&apos;example&apos;</span>, [<span class="hljs-string">&apos;rx&apos;</span>])
+    .controller(<span class="hljs-string">&apos;AppCtrl&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$scope, rx</span>) </span>{
 
-        $scope.counter = 0;
+        $scope.counter = <span class="hljs-number">0</span>;
 
-        rx.Observable.interval(1000)
+        rx.Observable.interval(<span class="hljs-number">1000</span>)
             .safeApply(
                 $scope, 
-                function (x) {
+                <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
                     $scope.counter = x;
                 })
             .subscribe();
 
     });
-```
-
-
-
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <p>File:</p>
 <ul>
 <li>/src/factory.js</li>

@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.19" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.19" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,19 +5356,18 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservableprototypedelaysubscriptionduetime-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledelaysubscriptionjs"><a name="rxobservableprototypedelaysubscriptionduetime-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledelaysubscriptionjs" class="plugin-anchor" href="#rxobservableprototypedelaysubscriptionduetime-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledelaysubscriptionjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.delaySubscription(dueTime, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/delaysubscription.js)</h2>
-
+                        <h2 id="-rx-observable-prototype-delaysubscription-duetime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-delaysubscription-js"><a name="-rx-observable-prototype-delaysubscription-duetime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-delaysubscription-js" class="plugin-anchor" href="#-rx-observable-prototype-delaysubscription-duetime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-delaysubscription-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/delaysubscription.js" target="_blank"><code>Rx.Observable.prototype.delaySubscription(dueTime, [scheduler])</code></a></h2>
 <p>Time shifts the observable sequence by delaying the subscription with the specified relative time duration, using the specified scheduler to run timers.</p>
 <p>This operator is more efficient than <code>delay</code> but postpones all side-effects of subscription and affects error propagation timing.</p>
 <p>The side-effects of subscribing to the source sequence will be run on the specified scheduler. Observer callbacks will not be affected.</p>
-<p></p><h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4><p></p>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>dueTime</code> <em>(<code>Number | Date</code>)</em>: Relative (Number) or Absolute (Date) time shift of the subscription.</li>
 <li><code>[scheduler]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the subscription delay timer on. If not specified, the default scheduler is used.</li>
 </ol>
-<p></p><h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<em>(<code>Observable</code>)</em>: Time-shifted sequence.<p></p>
-<p></p><h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4><p></p>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<p><em>(<code>Observable</code>)</em>: Time-shifted sequence.</p>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> start = <span class="hljs-built_in">Date</span>.now()
 
 <span class="hljs-keyword">var</span> source = Rx.Observable

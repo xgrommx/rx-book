@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="5.1" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="5.1" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,22 +5356,18 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="rxjs-for-baconjs-users"><a name="rxjs-for-baconjs-users" class="plugin-anchor" href="#rxjs-for-baconjs-users"><span class="fa fa-link"></span></a>RxJS for Bacon.js Users #</h1>
-
+                        <h1 id="rxjs-for-bacon-js-users"><a name="rxjs-for-bacon-js-users" class="plugin-anchor" href="#rxjs-for-bacon-js-users"><span class="fa fa-link"></span></a>RxJS for Bacon.js Users</h1>
 <p><a href="https://github.com/baconjs/bacon.js" target="_blank">Bacon.js</a> is a popular Functional Reactive Programming (FRP) library which was inspired by RxJS, ReactiveBanana among other libraries.  If you&apos;re not familiar with FRP, Conal Elliott summed it up nicely on <a href="http://stackoverflow.com/questions/1028250/what-is-functional-reactive-programming/1030631#1030631" target="_blank">StackOverflow</a> so no need to repeat that here.</p>
 <p>Bacon.js has two main concepts, Event Streams and Properties, which we will map to RxJS concepts.</p>
-<h3 id="contents"><a name="contents" class="plugin-anchor" href="#contents"><span class="fa fa-link"></span></a>Contents ###</h3>
-- [Event Streams](#eventstreams)
-
-<h3 id="common-api-methods"><a name="common-api-methods" class="plugin-anchor" href="#common-api-methods"><span class="fa fa-link"></span></a>Common API Methods ###</h3>
-
-<h2 id="event-streams"><a name="event-streams" class="plugin-anchor" href="#event-streams"><span class="fa fa-link"></span></a>Event Streams ##</h2>
-
+<h3 id="contents"><a name="contents" class="plugin-anchor" href="#contents"><span class="fa fa-link"></span></a>Contents</h3>
+<ul>
+<li><a href="#eventstreams">Event Streams</a></li>
+</ul>
+<h3 id="common-api-methods"><a name="common-api-methods" class="plugin-anchor" href="#common-api-methods"><span class="fa fa-link"></span></a>Common API Methods</h3>
+<h2 id="event-streams"><a name="event-streams" class="plugin-anchor" href="#event-streams"><span class="fa fa-link"></span></a>Event Streams</h2>
 <p>In Bacon.js (and RxJS for that matter), an EventStream represents a stream of events. It is an Observable object, meaning that you can listen to events in the stream using, for instance, the onValue method with a callback.  </p>
-<h3 id="creating-event-streams"><a name="creating-event-streams" class="plugin-anchor" href="#creating-event-streams"><span class="fa fa-link"></span></a>Creating Event Streams ###</h3>
-
-<h4 id="baconjs"><a name="baconjs" class="plugin-anchor" href="#baconjs"><span class="fa fa-link"></span></a>Bacon.js ####</h4>
-
+<h3 id="creating-event-streams"><a name="creating-event-streams" class="plugin-anchor" href="#creating-event-streams"><span class="fa fa-link"></span></a>Creating Event Streams</h3>
+<h4 id="bacon-js"><a name="bacon-js" class="plugin-anchor" href="#bacon-js"><span class="fa fa-link"></span></a>Bacon.js</h4>
 <p>Because Bacon.js is optimized for jQuery and Zepto, you can use the <code>$.fn.asEventStream</code> method to easily bind to create event streams. </p>
 <p>For example we can get the clickable element, listen to the <code>click</code> event, and then we can subscribe via the <code>onValue</code> method to capture the clicks.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> clickable = $(<span class="hljs-string">&apos;#clickable&apos;</span>).asEventStream(<span class="hljs-string">&apos;click&apos;</span>);
@@ -5385,8 +5381,7 @@ $(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span clas
 
 $(<span class="hljs-string">&quot;#my-div&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>, (event, args) =&gt; args[<span class="hljs-number">0</span>]);
 </code></pre>
-<h4 id="rxjs"><a name="rxjs" class="plugin-anchor" href="#rxjs"><span class="fa fa-link"></span></a>RxJS ####</h4>
-
+<h4 id="rxjs"><a name="rxjs" class="plugin-anchor" href="#rxjs"><span class="fa fa-link"></span></a>RxJS</h4>
 <p>It&apos;s very similar in RxJS core.  Until recently, this feature was reserved for external libraries such as <a href="https://github.com/Reactive-Extensions/RxJS-jQuery" target="_blank">RxJS-jQuery</a>, <a href="https://github.com/Reactive-Extensions/RxJS-DOM" target="_blank">RxJS-DOM</a>, <a href="https://github.com/Reactive-Extensions/RxJS-Dojo" target="_blank">RxJS-Dojo</a> and <a href="https://github.com/Reactive-Extensions/RxJS-MooTools" target="_blank">RxJS-MooTools</a>.  RxJS 2.2 introduced two ways to bind to events with <code>fromEvent</code> and <code>fromEventPattern</code> so that bridge libraries are strictly not as necessary as they used to be.  </p>
 <p>For example, we can recreate the binding to the clickable element for the <code>click</code> event, and then call <code>subscribe</code> with a function which listens for each time the clickable is clicked.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> clickable = $(<span class="hljs-string">&apos;#clickable&apos;</span>);
@@ -5406,8 +5401,7 @@ Rx.Observable.fromEvent(e, <span class="hljs-string">&apos;data&apos;</span>, ar
 e.emit(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-string">&apos;foo&apos;</span>, <span class="hljs-string">&apos;bar&apos;</span>);
 <span class="hljs-comment">// =&gt; foo,bar</span>
 </code></pre>
-<h3 id="querying-streams"><a name="querying-streams" class="plugin-anchor" href="#querying-streams"><span class="fa fa-link"></span></a>Querying Streams ###</h3>
-
+<h3 id="querying-streams"><a name="querying-streams" class="plugin-anchor" href="#querying-streams"><span class="fa fa-link"></span></a>Querying Streams</h3>
 <p>Event Streams support higher ordered functions much as RxJS does such as <code>map</code>, <code>filter</code> and more, although supports a more Underscore/Lo-Dash style than the callback selector style found in RxJS.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> plus = $(<span class="hljs-string">&quot;#plus&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>).map(<span class="hljs-number">1</span>);
 <span class="hljs-keyword">var</span> minus = $(<span class="hljs-string">&quot;#minus&quot;</span>).asEventStream(<span class="hljs-string">&quot;click&quot;</span>).map(-<span class="hljs-number">1</span>);

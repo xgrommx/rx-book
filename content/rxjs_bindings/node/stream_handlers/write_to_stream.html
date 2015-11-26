@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="15.6.3.5" data-basepath="../../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="15.6.3.5" data-basepath="../../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5357,35 +5357,27 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="writetostream"><a name="writetostream" class="plugin-anchor" href="#writetostream"><span class="fa fa-link"></span></a>writeToStream</h1>
-
-<h3 id="rxnodewritetostreamobservable-stream-encoding"><a name="rxnodewritetostreamobservable-stream-encoding" class="plugin-anchor" href="#rxnodewritetostreamobservable-stream-encoding"><span class="fa fa-link"></span></a><a id="rxnodewritetostreamobservable-stream-encoding"></a>`Rx.Node.writeToStream(observable, stream, [encoding])`</h3>
-<a href="#rxnodewritetostreamobservable-stream-encoding">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.node.js#L124-L138 &quot;View in source&quot;) 
-
-Writes an observable sequence to a stream.
-
+<h3 id="-a-id-rxnodewritetostreamobservable-stream-encoding-a-rx-node-writetostream-observable-stream-encoding"><a name="-a-id-rxnodewritetostreamobservable-stream-encoding-a-rx-node-writetostream-observable-stream-encoding" class="plugin-anchor" href="#-a-id-rxnodewritetostreamobservable-stream-encoding-a-rx-node-writetostream-observable-stream-encoding"><span class="fa fa-link"></span></a><a id="rxnodewritetostreamobservable-stream-encoding"></a><code>Rx.Node.writeToStream(observable, stream, [encoding])</code></h3>
+<p><a href="#rxnodewritetostreamobservable-stream-encoding">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.node.js#L124-L138" title="View in source" target="_blank">&#x24C8;</a> </p>
+<p>Writes an observable sequence to a stream.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `observable` *(Obsesrvable)*: Observable sequence to write to a stream.
-2. `stream` *(Stream)*: The stream to write to.
-3. `[encoding]` *(String)*: The encoding of the item to write.
-
+<ol>
+<li><code>observable</code> <em>(Obsesrvable)</em>: Observable sequence to write to a stream.</li>
+<li><code>stream</code> <em>(Stream)</em>: The stream to write to.</li>
+<li><code>[encoding]</code> <em>(String)</em>: The encoding of the item to write.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(Disposable)*: The subscription handle.
-
+<p><em>(Disposable)</em>: The subscription handle.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var Rx = require(&apos;Rx&apos;);
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;Rx&apos;</span>);
 
-var source = Rx.Observable.range(0, 5);
+<span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
 
-var subscription = Rx.Node.writeToStream(source, process.stdout, &apos;utf8&apos;);
+<span class="hljs-keyword">var</span> subscription = Rx.Node.writeToStream(source, process.stdout, <span class="hljs-string">&apos;utf8&apos;</span>);
 
-// =&gt; 01234
-```
-
-
-
+<span class="hljs-comment">// =&gt; 01234</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.node.js</li>
 </ul>

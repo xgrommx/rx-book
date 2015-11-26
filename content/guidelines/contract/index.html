@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="2.3" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="2.3" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5357,65 +5357,53 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="the-rxjs-contract"><a name="the-rxjs-contract" class="plugin-anchor" href="#the-rxjs-contract"><span class="fa fa-link"></span></a>The RxJS Contract</h1>
-
 <h3 id="assume-the-rxjs-grammar"><a name="assume-the-rxjs-grammar" class="plugin-anchor" href="#assume-the-rxjs-grammar"><span class="fa fa-link"></span></a>Assume the RxJS Grammar</h3>
-
 <p>Messages sent to instances of the <code>Observer</code> object follow the following grammar:
     onNext* (onCompleted | onError)?</p>
 <p>This grammar allows observable sequences to send any amount (0 or more) of <code>onNext</code> messages to the subscribed observer instance, optionally followed by a single success (<code>onCompleted</code>) or failure (<code>onError</code>) message.</p>
 <p>The single message indicating that an observable sequence has finished ensures that consumers of the observable sequence can deterministically establish that it is safe to perform cleanup operations.</p>
 <p>A single failure further ensures that abort semantics can be maintained for operators that work on multiple observable sequences.</p>
-<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample ####</h4>
-```js
-var count = 0;
+<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
 xs.subscribe(
   () =&gt; count++,
-  err =&gt; console.log(&apos;Error: %s&apos;, err.message),
-  () =&gt; console.log(&apos;OnNext has been called %d times&apos;, count)
+  err =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: %s&apos;</span>, err.message),
+  () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;OnNext has been called %d times&apos;</span>, count)
 );
-```
-
-In this sample we safely assume that the total amount of calls to the OnNext method won&#x2019;t change once the OnCompleted method is called as the observable sequence follows the Rx grammar.
-
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
-
+</code></pre>
+<p>In this sample we safely assume that the total amount of calls to the OnNext method won&#x2019;t change once the OnCompleted method is called as the observable sequence follows the Rx grammar.</p>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>Ignore this guideline only when working with a non-conforming implementation of the Observable object.</p>
-<h3 id="assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message"><a name="assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message" class="plugin-anchor" href="#assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message"><span class="fa fa-link"></span></a>Assume resources are cleaned up after an `onError` or `onCompleted` message</h3>
-
+<h3 id="assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message"><a name="assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message" class="plugin-anchor" href="#assume-resources-are-cleaned-up-after-an-onerror-or-oncompleted-message"><span class="fa fa-link"></span></a>Assume resources are cleaned up after an <code>onError</code> or <code>onCompleted</code> message</h3>
 <p>Paragraph 3.1 states that no more messages should arrive after an <code>onError</code> or <code>onCompleted</code> message. This makes it possible to cleanup any resource used by the subscription the moment an <code>onError</code> or <code>onCompleted</code> arrives. Cleaning up resources immediately will make sure that any side-effect occurs in a predictable fashion. It also makes sure that the runtime can reclaim these resources.</p>
-<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample ####</h4>
-```js
-var fs = require(&apos;fs&apos;);
-var Rx = require(&apos;rx&apos;);
+<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
+<span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 
-function appendAsync(fd, buffer) { /* impl */ }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">appendAsync</span>(<span class="hljs-params">fd, buffer</span>) </span>{ <span class="hljs-comment">/* impl */</span> }
 
-function openFile(path, flags) {
-  var fd = fs.openSync(path, flags);
-  return Rx.Disposable.create(() =&gt; fs.closeSync(fd));
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">openFile</span>(<span class="hljs-params">path, flags</span>) </span>{
+  <span class="hljs-keyword">var</span> fd = fs.openSync(path, flags);
+  <span class="hljs-keyword">return</span> Rx.Disposable.create(() =&gt; fs.closeSync(fd));
 }
 
 Rx.Observable.
   using(
-    () =&gt; openFile(&apos;temp.txt&apos;, &apos;w+&apos;),
-    fd =&gt; Rx.Observable.range(0, 10000).map(v =&gt; Buffer(v)).flatMap(buffer =&gt; appendAsync(fd, buffer))
+    () =&gt; openFile(<span class="hljs-string">&apos;temp.txt&apos;</span>, <span class="hljs-string">&apos;w+&apos;</span>),
+    fd =&gt; Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>).map(v =&gt; Buffer(v)).flatMap(buffer =&gt; appendAsync(fd, buffer))
   ).subscribe();
-```
-
-In this sample the Using operator creates a resource that will be disposed upon unsubscription. The Rx contract for cleanup ensures that unsubscription will be called automatically once an `onError` or `onCompleted` message is sent.
-
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
-
+</code></pre>
+<p>In this sample the Using operator creates a resource that will be disposed upon unsubscription. The Rx contract for cleanup ensures that unsubscription will be called automatically once an <code>onError</code> or <code>onCompleted</code> message is sent.</p>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>There are currently no known cases where to ignore this guideline.</p>
-<h3 id="assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe"><a name="assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe" class="plugin-anchor" href="#assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe"><span class="fa fa-link"></span></a>Assume a best effort to stop all outstanding work on Unsubscribe ###</h3>
-
+<h3 id="assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe"><a name="assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe" class="plugin-anchor" href="#assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe"><span class="fa fa-link"></span></a>Assume a best effort to stop all outstanding work on Unsubscribe</h3>
 <p>When unsubscribe is called on an observable subscription, the observable sequence will make a best effort attempt to stop all outstanding work. This means that any queued work that has not been started will not start.</p>
 <p>Any work that is already in progress might still complete as it is not always safe to abort work that is in progress. Results from this work will not be signaled to any previously subscribed observer instances.</p>
-<p></p><h4 id="sample-1"><a name="sample-1" class="plugin-anchor" href="#sample-1"><span class="fa fa-link"></span></a>Sample 1</h4><p></p>
+<h4 id="sample-1"><a name="sample-1" class="plugin-anchor" href="#sample-1"><span class="fa fa-link"></span></a>Sample 1</h4>
 <pre><code class="lang-js">Observable.timer(<span class="hljs-number">2000</span>).subscribe(...).dispose()
 </code></pre>
 <p>In this sample subscribing to the observable sequence generated by Timer will queue an action on the <code>Scheduler.timeout</code> scheduler to send out an <code>onNext</code> message in 2 seconds. The subscription then gets canceled immediately. As the scheduled action has not started yet, it will be removed from the scheduler.</p>
-<p></p><h4 id="sample-2"><a name="sample-2" class="plugin-anchor" href="#sample-2"><span class="fa fa-link"></span></a>Sample 2</h4><p></p>
+<h4 id="sample-2"><a name="sample-2" class="plugin-anchor" href="#sample-2"><span class="fa fa-link"></span></a>Sample 2</h4>
 <pre><code class="lang-js">Rx.Observable.startAsync(() =&gt; Q.delay(<span class="hljs-number">2000</span>)).subscribe(...).dispose();
 </code></pre>
 <p>In this sample the <code>startAsync</code> operator will immediately schedule the execution of the lambda provided as its argument. The subscription registers the observer instance as a listener to this execution. As the lambda is already running once the subscription is disposed, it will keep running and its return value is ignored.</p>

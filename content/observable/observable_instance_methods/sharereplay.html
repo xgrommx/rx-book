@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.85" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.85" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,26 +5356,18 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservableprototypesharereplaybuffersize-window-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablesharereplayjs"><a name="rxobservableprototypesharereplaybuffersize-window-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablesharereplayjs" class="plugin-anchor" href="#rxobservableprototypesharereplaybuffersize-window-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablesharereplayjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.shareReplay([bufferSize], [window], [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sharereplay.js)</h2>
-
-
-
-
-
-
-
+                        <h2 id="-rx-observable-prototype-sharereplay-buffersize-window-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-sharereplay-js"><a name="-rx-observable-prototype-sharereplay-buffersize-window-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-sharereplay-js" class="plugin-anchor" href="#-rx-observable-prototype-sharereplay-buffersize-window-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-sharereplay-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/sharereplay.js" target="_blank"><code>Rx.Observable.prototype.shareReplay([bufferSize], [window], [scheduler])</code></a></h2>
 <p>Returns an observable sequence that shares a single subscription to the underlying sequence replaying notifications subject to a maximum time length for the replay buffer.</p>
 <p>This operator is a specialization of <code>replay</code> that connects to the connectable observable sequence when the number of observers goes from zero to one, and disconnects when there are no more observers.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `[bufferSize]` *(`Number`)*: Maximum element count of the replay buffer.
-2. `[window]` *(`Number`)*: Maximum time length of the replay buffer in milliseconds.
-3. `[scheduler]` *(`Scheduler`)*: Scheduler where connected observers within the selector function will be invoked on.
-
+<ol>
+<li><code>[bufferSize]</code> <em>(<code>Number</code>)</em>: Maximum element count of the replay buffer.</li>
+<li><code>[window]</code> <em>(<code>Number</code>)</em>: Maximum time length of the replay buffer in milliseconds.</li>
+<li><code>[scheduler]</code> <em>(<code>Scheduler</code>)</em>: Scheduler where connected observers within the selector function will be invoked on.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(`Observable`)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.
-
+<p><em>(<code>Observable</code>)</em>: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
 <p><a href="http://jsbin.com/cihow/1/embed?js,console" target="_blank"></a></p>
 
                     

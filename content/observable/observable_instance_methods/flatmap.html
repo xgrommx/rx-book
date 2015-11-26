@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.37" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.37" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,14 +5356,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservableprototypeflatmapselector-resultselector-rxobservableprototypeselectmanyselector-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableselectmanyjs"><a name="rxobservableprototypeflatmapselector-resultselector-rxobservableprototypeselectmanyselector-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableselectmanyjs" class="plugin-anchor" href="#rxobservableprototypeflatmapselector-resultselector-rxobservableprototypeselectmanyselector-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableselectmanyjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.flatMap(selector, [resultSelector])`, `Rx.Observable.prototype.selectMany(selector, [resultSelector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectmany.js)</h2>
-
-
-
-
-
-
-
+                        <h2 id="-rx-observable-prototype-flatmap-selector-resultselector-rx-observable-prototype-selectmany-selector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-selectmany-js"><a name="-rx-observable-prototype-flatmap-selector-resultselector-rx-observable-prototype-selectmany-selector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-selectmany-js" class="plugin-anchor" href="#-rx-observable-prototype-flatmap-selector-resultselector-rx-observable-prototype-selectmany-selector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-selectmany-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/selectmany.js" target="_blank"><code>Rx.Observable.prototype.flatMap(selector, [resultSelector])</code>, <code>Rx.Observable.prototype.selectMany(selector, [resultSelector])</code></a></h2>
 <p>One of the following:</p>
 <p>Projects each element of an observable sequence to an observable sequence and merges the resulting observable sequences or Promises or array/iterable into one observable sequence.</p>
 <pre><code class="lang-js">source.selectMany(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, i</span>) </span>{ <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">0</span>, x); });
@@ -5381,23 +5374,26 @@ source.selectMany(<span class="hljs-built_in">Promise</span>.resolve(<span class
 source.selectMany([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]);
 </code></pre>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `selector` *(`Function` | `Iterable` | `Promise`)*:  An Object to project to the sequence or a transform function to apply to each element or an observable sequence to project each element from the source sequence onto.  The selector is called with the following information:
-    1. the value of the element
-    2. the index of the element
-    3. the Observable object being subscribed
-
-2. `[resultSelector]` *(`Function`)*: A transform function to apply to each element of the intermediate sequence.  The resultSelector is called with the following information:
-    1. the value of the outer element
-    2. the value of the inner element
-    3. the index of the outer element
-    4. the index of the inner element
-
+<ol>
+<li><p><code>selector</code> <em>(<code>Function</code> | <code>Iterable</code> | <code>Promise</code>)</em>:  An Object to project to the sequence or a transform function to apply to each element or an observable sequence to project each element from the source sequence onto.  The selector is called with the following information:</p>
+<ol>
+<li>the value of the element</li>
+<li>the index of the element</li>
+<li>the Observable object being subscribed</li>
+</ol>
+</li>
+<li><p><code>[resultSelector]</code> <em>(<code>Function</code>)</em>: A transform function to apply to each element of the intermediate sequence.  The resultSelector is called with the following information:</p>
+<ol>
+<li>the value of the outer element</li>
+<li>the value of the inner element</li>
+<li>the index of the outer element</li>
+<li>the index of the inner element</li>
+</ol>
+</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(`Observable`)*: An observable sequence whose elements are the result of invoking the one-to-many transform function collectionSelector on each element of the input sequence and then mapping each of those sequence elements and their corresponding source element to a result element.
-
-
+<p><em>(<code>Observable</code>)</em>: An observable sequence whose elements are the result of invoking the one-to-many transform function collectionSelector on each element of the input sequence and then mapping each of those sequence elements and their corresponding source element to a result element.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
 <p><a href="http://jsbin.com/besiw/1/embed?js,console" target="_blank"></a></p>
 <pre><code class="lang-js"><span class="hljs-comment">/* Using a promise */</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.of(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)

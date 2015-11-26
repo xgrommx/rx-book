@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.1.25" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.1.25" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,21 +5356,20 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservablemergedelayerrorargshttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablemergedelayerrorjs"><a name="rxobservablemergedelayerrorargshttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablemergedelayerrorjs" class="plugin-anchor" href="#rxobservablemergedelayerrorargshttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablemergedelayerrorjs"><span class="fa fa-link"></span></a>[`Rx.Observable.mergeDelayError(...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergedelayerror.js)</h2>
-
+                        <h2 id="-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js"><a name="-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js" class="plugin-anchor" href="#-rx-observable-mergedelayerror-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-mergedelayerror-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/mergedelayerror.js" target="_blank"><code>Rx.Observable.mergeDelayError(...args)</code></a></h2>
 <p>Flattens an Observable that emits Observables into one Observable, in a way that allows an Observer to
 receive all successfully emitted items from all of the source Observables without being interrupted by
 an error notification from one of them.</p>
 <p>This behaves like <code>Observable.prototype.mergeAll</code> except that if any of the merged Observables notify of an
 error via the Observer&apos;s <code>onError</code>, <code>mergeDelayError</code> will refrain from propagating that
 error notification until all of the merged Observables have finished emitting items.</p>
-<p></p><h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4><p></p>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>args</code> <em>(Array|arguments)</em>: Arguments or an array of Observable sequences to merge.</li>
 </ol>
-<p></p><h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<em>(<code>Observable</code>)</em>: An Observable that emits all of the items emitted by the Observables emitted by the Observable<p></p>
-<p></p><h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4><p></p>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<p><em>(<code>Observable</code>)</em>: An Observable that emits all of the items emitted by the Observables emitted by the Observable</p>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.of(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
 <span class="hljs-keyword">var</span> source2 = Rx.Observable.throwError(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;woops&apos;</span>));
 <span class="hljs-keyword">var</span> source3 = Rx.Observable.of(<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>);

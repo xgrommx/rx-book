@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.18" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.18" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,16 +5356,12 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservableprototypedelayduetime-scheduler-rxobservableprototypedelaysubscriptiondelay-delaydurationselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledelayjs"><a name="rxobservableprototypedelayduetime-scheduler-rxobservableprototypedelaysubscriptiondelay-delaydurationselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledelayjs" class="plugin-anchor" href="#rxobservableprototypedelayduetime-scheduler-rxobservableprototypedelaysubscriptiondelay-delaydurationselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledelayjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.delay(dueTime, [scheduler])`, `Rx.Observable.prototype.delay([subscriptionDelay], delayDurationSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/delay.js)</h2>
-
-
-
+                        <h2 id="-rx-observable-prototype-delay-duetime-scheduler-rx-observable-prototype-delay-subscriptiondelay-delaydurationselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-delay-js"><a name="-rx-observable-prototype-delay-duetime-scheduler-rx-observable-prototype-delay-subscriptiondelay-delaydurationselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-delay-js" class="plugin-anchor" href="#-rx-observable-prototype-delay-duetime-scheduler-rx-observable-prototype-delay-subscriptiondelay-delaydurationselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-delay-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/delay.js" target="_blank"><code>Rx.Observable.prototype.delay(dueTime, [scheduler])</code>, <code>Rx.Observable.prototype.delay([subscriptionDelay], delayDurationSelector)</code></a></h2>
 <p><rx-marbles key="delay">&lt;/rx-marbles&gt;</rx-marbles></p>
 <p>Time shifts the observable sequence by dueTime. The relative time intervals between the values are preserved.</p>
 <p>--OR--</p>
 <p>Time shifts the observable sequence based on a subscription delay and a delay selector function for each element.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-
 <p>For delays with an absolute or relative time:</p>
 <ol>
 <li><code>dueTime</code> <em>(Date | Number)</em>: Absolute (specified as a Date object) or relative time (specified as an integer denoting milliseconds) by which to shift the observable sequence.</li>
@@ -5377,15 +5373,11 @@
 <li><code>delayDurationSelector</code> <em>(<code>Function</code>)</em>: Selector function to retrieve a sequence indicating the delay for each given element.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(`Observable`)*: Time-shifted sequence.
-
+<p><em>(<code>Observable</code>)</em>: Time-shifted sequence.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
 <h5 id="using-an-absolute-time-to-delay-by-a-second"><a name="using-an-absolute-time-to-delay-by-a-second" class="plugin-anchor" href="#using-an-absolute-time-to-delay-by-a-second"><span class="fa fa-link"></span></a>Using an absolute time to delay by a second</h5>
-
 <p><a href="http://jsbin.com/hulit/1/embed?js,console" target="_blank"></a></p>
 <h5 id="using-an-relatove-time-to-delay-by-a-second"><a name="using-an-relatove-time-to-delay-by-a-second" class="plugin-anchor" href="#using-an-relatove-time-to-delay-by-a-second"><span class="fa fa-link"></span></a>Using an relatove time to delay by a second</h5>
-
 <p><a href="http://jsbin.com/haziv/1/embed?js,console" target="_blank"></a></p>
 <pre><code class="lang-js"><span class="hljs-comment">/* With subscriptionDelay */</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable

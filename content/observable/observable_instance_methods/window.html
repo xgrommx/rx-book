@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.127" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.127" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,14 +5356,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservableprototypewindowwindowopenings-windowboundaries-windowclosingselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablewindowjs"><a name="rxobservableprototypewindowwindowopenings-windowboundaries-windowclosingselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablewindowjs" class="plugin-anchor" href="#rxobservableprototypewindowwindowopenings-windowboundaries-windowclosingselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablewindowjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.window([windowOpenings], [windowBoundaries], windowClosingSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/window.js)</h2>
-
-
-
-
-
-
-
+                        <h2 id="-rx-observable-prototype-window-windowopenings-windowboundaries-windowclosingselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-window-js"><a name="-rx-observable-prototype-window-windowopenings-windowboundaries-windowclosingselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-window-js" class="plugin-anchor" href="#-rx-observable-prototype-window-windowopenings-windowboundaries-windowclosingselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-window-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/window.js" target="_blank"><code>Rx.Observable.prototype.window([windowOpenings], [windowBoundaries], windowClosingSelector)</code></a></h2>
 <p>Projects each element of an observable sequence into zero or more windows.</p>
 <pre><code class="lang-js"><span class="hljs-comment">// With window closing selector</span>
 Rx.Observable.prototype.window(windowClosingSelector);
@@ -5375,23 +5368,19 @@ Rx.Observable.prototype.window(windowOpenings, windowClosingSelector);
 Rx.Observable.prototype.window(windowBoundaries);
 </code></pre>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `[windowOpenings]` *(`Observable`)*: Observable sequence whose elements denote the creation of new windows 
-2.`[windowBoundaries]` *(`Observable`)*: Sequence of window boundary markers. The current window is closed and a new window is opened upon receiving a boundary marker. 
-3. `windowClosingSelector` *(`Function`)*: A function invoked to define the closing of each produced window.
-
+<ol>
+<li><code>[windowOpenings]</code> <em>(<code>Observable</code>)</em>: Observable sequence whose elements denote the creation of new windows 
+2.<code>[windowBoundaries]</code> <em>(<code>Observable</code>)</em>: Sequence of window boundary markers. The current window is closed and a new window is opened upon receiving a boundary marker. </li>
+<li><code>windowClosingSelector</code> <em>(<code>Function</code>)</em>: A function invoked to define the closing of each produced window.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(`Observable`)*: An observable sequence of windows.
-
+<p><em>(<code>Observable</code>)</em>: An observable sequence of windows.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
 <h5 id="with-window-boundaries"><a name="with-window-boundaries" class="plugin-anchor" href="#with-window-boundaries"><span class="fa fa-link"></span></a>With window boundaries</h5>
-
 <p><a href="http://jsbin.com/kuqake/1/embed?js,console" target="_blank"></a>  </p>
 <h5 id="with-window-opening-and-window-closing-selector"><a name="with-window-opening-and-window-closing-selector" class="plugin-anchor" href="#with-window-opening-and-window-closing-selector"><span class="fa fa-link"></span></a>With window opening and window closing selector</h5>
-
 <p><a href="http://jsbin.com/maloda/1/embed?js,console" target="_blank"></a></p>
 <h5 id="with-openings-and-closings"><a name="with-openings-and-closings" class="plugin-anchor" href="#with-openings-and-closings"><span class="fa fa-link"></span></a>With openings and closings</h5>
-
 <p><a href="http://jsbin.com/sequx/1/embed?js,console" target="_blank"></a></p>
 
                     

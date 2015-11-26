@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="12.3" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="12.3" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,11 +5356,9 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="rxvirtualtimescheduler-class"><a name="rxvirtualtimescheduler-class" class="plugin-anchor" href="#rxvirtualtimescheduler-class"><span class="fa fa-link"></span></a>`Rx.VirtualTimeScheduler` class #</h1>
-
+                        <h1 id="-rx-virtualtimescheduler-class"><a name="-rx-virtualtimescheduler-class" class="plugin-anchor" href="#-rx-virtualtimescheduler-class"><span class="fa fa-link"></span></a><code>Rx.VirtualTimeScheduler</code> class</h1>
 <p>Base class for providing scheduling in virtual time.  This inherits from the <code>Rx.Scheduler</code> class.</p>
-<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage ##</h2>
-
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
 <p>The following shows an example of using the <code>Rx.VirtualTimeScheduler</code>. In order for this to work, you must implement the <code>add</code>, <code>toDateTimeOffset</code> and <code>toRelative</code> methods as described below.</p>
 <pre><code class="lang-js"><span class="hljs-comment">/* Comparer required for scheduling priority */</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> (<span class="hljs-params">x, y</span>) </span>{
@@ -5418,474 +5416,409 @@ scheduler.start();
 <span class="hljs-comment">// =&gt; 3</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
-<h2 id="virtualtimescheduler-constructor"><a name="virtualtimescheduler-constructor" class="plugin-anchor" href="#virtualtimescheduler-constructor"><span class="fa fa-link"></span></a>`VirtualTimeScheduler Constructor` ##</h2>
-- [`constructor`](#rxvirtualtimeschedulerinitialclock-comparer)
-
-<h2 id="virtualtimescheduler-instance-methods"><a name="virtualtimescheduler-instance-methods" class="plugin-anchor" href="#virtualtimescheduler-instance-methods"><span class="fa fa-link"></span></a>`VirtualTimeScheduler Instance Methods` ##</h2>
-- [`advanceBy`](#rxvirtualtimeschedulerprototypeadvancebytime)
-- [`advanceTo`](#rxvirtualtimeschedulerprototypeadvancetotime)
-- [`scheduleAbsolute`](#rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action)
-- [`scheduleAbsoluteWithState`](#rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action)
-- [`scheduleRelative`](#rxvirtualtimeschedulerprototypeschedulerelativeduetime-action)
-- [`scheduleRelativeWithState`](#rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action)
-- [`sleep`](#rxvirtualtimeschedulerprototypesleeptime)
-- [`start`](#rxvritualtimeschedulerprototypestart)
-- [`stop`](#rxvritualtimeschedulerprototypestop)
-
-<h2 id="virtualtimescheduler-instance-properties"><a name="virtualtimescheduler-instance-properties" class="plugin-anchor" href="#virtualtimescheduler-instance-properties"><span class="fa fa-link"></span></a>`VirtualTimeScheduler Instance Properties` ##</h2>
-- [`isEnabled`](#isenabled)
-
-<h2 id="virtualtimescheduler-protected-abstract-methods"><a name="virtualtimescheduler-protected-abstract-methods" class="plugin-anchor" href="#virtualtimescheduler-protected-abstract-methods"><span class="fa fa-link"></span></a>`VirtualTimeScheduler Protected Abstract Methods` ##</h2>
-- [`add`](#rxvirtualtimeschedulerprototypeaddabsolute-relative)
-- [`toDateTimeOffset`](#rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute)
-- [`toRelative`](#rxvirtualtimeschedulerprototypetorelativetimespan)
-
-<h2 id="virtualtimescheduler-protected-methods"><a name="virtualtimescheduler-protected-methods" class="plugin-anchor" href="#virtualtimescheduler-protected-methods"><span class="fa fa-link"></span></a>`VirtualTimeScheduler Protected Methods` ##</h2>
-- [`getNext`](#rxvirtualtimeschedulerprototypegetnext)
-
-<h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes ##</h2>
-- [`Rx.Scheduler`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md)
-
-<h2 id="virtualtimescheduler-constructor"><a name="virtualtimescheduler-constructor" class="plugin-anchor" href="#virtualtimescheduler-constructor"><span class="fa fa-link"></span></a>_VirtualTimeScheduler Constructor_ ##</h2>
-
-<h3 id="rxvirtualtimeschedulerinitialclock-comparer"><a name="rxvirtualtimeschedulerinitialclock-comparer" class="plugin-anchor" href="#rxvirtualtimeschedulerinitialclock-comparer"><span class="fa fa-link"></span></a><a id="rxvirtualtimescheduler"></a>`Rx.VirtualTimeScheduler(initialClock, comparer)`</h3>
-<a href="#rxvirtualtimescheduler">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L38-L44 &quot;View in source&quot;)
-
-Creates a new virtual time scheduler with the specified initial clock value and absolute time comparer.
-
+<h2 id="-virtualtimescheduler-constructor"><a name="-virtualtimescheduler-constructor" class="plugin-anchor" href="#-virtualtimescheduler-constructor"><span class="fa fa-link"></span></a><code>VirtualTimeScheduler Constructor</code></h2>
+<ul>
+<li><a href="#rxvirtualtimeschedulerinitialclock-comparer"><code>constructor</code></a></li>
+</ul>
+<h2 id="-virtualtimescheduler-instance-methods"><a name="-virtualtimescheduler-instance-methods" class="plugin-anchor" href="#-virtualtimescheduler-instance-methods"><span class="fa fa-link"></span></a><code>VirtualTimeScheduler Instance Methods</code></h2>
+<ul>
+<li><a href="#rxvirtualtimeschedulerprototypeadvancebytime"><code>advanceBy</code></a></li>
+<li><a href="#rxvirtualtimeschedulerprototypeadvancetotime"><code>advanceTo</code></a></li>
+<li><a href="#rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action"><code>scheduleAbsolute</code></a></li>
+<li><a href="#rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action"><code>scheduleAbsoluteWithState</code></a></li>
+<li><a href="#rxvirtualtimeschedulerprototypeschedulerelativeduetime-action"><code>scheduleRelative</code></a></li>
+<li><a href="#rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action"><code>scheduleRelativeWithState</code></a></li>
+<li><a href="#rxvirtualtimeschedulerprototypesleeptime"><code>sleep</code></a></li>
+<li><a href="#rxvritualtimeschedulerprototypestart"><code>start</code></a></li>
+<li><a href="#rxvritualtimeschedulerprototypestop"><code>stop</code></a></li>
+</ul>
+<h2 id="-virtualtimescheduler-instance-properties"><a name="-virtualtimescheduler-instance-properties" class="plugin-anchor" href="#-virtualtimescheduler-instance-properties"><span class="fa fa-link"></span></a><code>VirtualTimeScheduler Instance Properties</code></h2>
+<ul>
+<li><a href="#isenabled"><code>isEnabled</code></a></li>
+</ul>
+<h2 id="-virtualtimescheduler-protected-abstract-methods"><a name="-virtualtimescheduler-protected-abstract-methods" class="plugin-anchor" href="#-virtualtimescheduler-protected-abstract-methods"><span class="fa fa-link"></span></a><code>VirtualTimeScheduler Protected Abstract Methods</code></h2>
+<ul>
+<li><a href="#rxvirtualtimeschedulerprototypeaddabsolute-relative"><code>add</code></a></li>
+<li><a href="#rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute"><code>toDateTimeOffset</code></a></li>
+<li><a href="#rxvirtualtimeschedulerprototypetorelativetimespan"><code>toRelative</code></a></li>
+</ul>
+<h2 id="-virtualtimescheduler-protected-methods"><a name="-virtualtimescheduler-protected-methods" class="plugin-anchor" href="#-virtualtimescheduler-protected-methods"><span class="fa fa-link"></span></a><code>VirtualTimeScheduler Protected Methods</code></h2>
+<ul>
+<li><a href="#rxvirtualtimeschedulerprototypegetnext"><code>getNext</code></a></li>
+</ul>
+<h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
+<ul>
+<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/scheduler.md" target="_blank"><code>Rx.Scheduler</code></a></li>
+</ul>
+<h2 id="-virtualtimescheduler-constructor"><a name="-virtualtimescheduler-constructor" class="plugin-anchor" href="#-virtualtimescheduler-constructor"><span class="fa fa-link"></span></a><em>VirtualTimeScheduler Constructor</em></h2>
+<h3 id="-a-id-rxvirtualtimescheduler-a-rx-virtualtimescheduler-initialclock-comparer"><a name="-a-id-rxvirtualtimescheduler-a-rx-virtualtimescheduler-initialclock-comparer" class="plugin-anchor" href="#-a-id-rxvirtualtimescheduler-a-rx-virtualtimescheduler-initialclock-comparer"><span class="fa fa-link"></span></a><a id="rxvirtualtimescheduler"></a><code>Rx.VirtualTimeScheduler(initialClock, comparer)</code></h3>
+<p><a href="#rxvirtualtimescheduler">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L38-L44" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Creates a new virtual time scheduler with the specified initial clock value and absolute time comparer.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `initialClock` *(Function)*: Initial value for the clock.
-2. `comparer` *(Function)*: Comparer to determine causality of events based on absolute time.
-
+<ol>
+<li><code>initialClock</code> <em>(Function)</em>: Initial value for the clock.</li>
+<li><code>comparer</code> <em>(Function)</em>: Comparer to determine causality of events based on absolute time.</li>
+</ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-function comparer (x, y) {
-    if (x &gt; y) { return 1; }
-    if (x &lt; y) { return -1; }
-    return 0;
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">comparer</span> (<span class="hljs-params">x, y</span>) </span>{
+    <span class="hljs-keyword">if</span> (x &gt; y) { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
+    <span class="hljs-keyword">if</span> (x &lt; y) { <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>; }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 
-var scheduler = new Rx.VirtualTimeScheduler(
-    0,          /* initial clock of 0 */
-    comparer    /* comparer for determining order */
+<span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> Rx.VirtualTimeScheduler(
+    <span class="hljs-number">0</span>,          <span class="hljs-comment">/* initial clock of 0 */</span>
+    comparer    <span class="hljs-comment">/* comparer for determining order */</span>
 );
-```
-
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h2 id="virtualtimescheduler-instance-methods"><a name="virtualtimescheduler-instance-methods" class="plugin-anchor" href="#virtualtimescheduler-instance-methods"><span class="fa fa-link"></span></a>_VirtualTimeScheduler Instance Methods_ ##</h2>
-
-<h3 id="rxvirtualtimeschedulerprototypeadvancebytime"><a name="rxvirtualtimeschedulerprototypeadvancebytime" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypeadvancebytime"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeadvancebytime"></a>`Rx.VirtualTimeScheduler.prototype.advanceBy(time)`</h3>
-<a href="#rxvirtualtimeschedulerprototypeadvancebytime">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L166-L176 &quot;View in source&quot;)
-
-Advances the scheduler&apos;s clock by the specified relative time, running all work scheduled for that timespan.
-
+<h2 id="-virtualtimescheduler-instance-methods"><a name="-virtualtimescheduler-instance-methods" class="plugin-anchor" href="#-virtualtimescheduler-instance-methods"><span class="fa fa-link"></span></a><em>VirtualTimeScheduler Instance Methods</em></h2>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypeadvancebytime-a-rx-virtualtimescheduler-prototype-advanceby-time"><a name="-a-id-rxvirtualtimeschedulerprototypeadvancebytime-a-rx-virtualtimescheduler-prototype-advanceby-time" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeadvancebytime-a-rx-virtualtimescheduler-prototype-advanceby-time"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeadvancebytime"></a><code>Rx.VirtualTimeScheduler.prototype.advanceBy(time)</code></h3>
+<p><a href="#rxvirtualtimeschedulerprototypeadvancebytime">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L166-L176" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Advances the scheduler&apos;s clock by the specified relative time, running all work scheduled for that timespan.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `time` *(Any)*: Relative time to advance the scheduler&apos;s clock by.
-
+<ol>
+<li><code>time</code> <em>(Any)</em>: Relative time to advance the scheduler&apos;s clock by.</li>
+</ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var scheduler = new MyVirtualScheduler(
-    200 /* initial time */
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
+    <span class="hljs-number">200</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleAbsolute(250, function () {
-    console.log(&apos;hello&apos;);
+scheduler.scheduleAbsolute(<span class="hljs-number">250</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
 
-scheduler.advanceBy(300);
-// =&gt; hello
+scheduler.advanceBy(<span class="hljs-number">300</span>);
+<span class="hljs-comment">// =&gt; hello</span>
 
-console.log(scheduler.clock);
-// =&gt; 500
-```
-
+<span class="hljs-built_in">console</span>.log(scheduler.clock);
+<span class="hljs-comment">// =&gt; 500</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="rxvirtualtimeschedulerprototypeadvancetotime"><a name="rxvirtualtimeschedulerprototypeadvancetotime" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypeadvancetotime"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeadvancetotime"></a>`Rx.VirtualTimeScheduler.prototype.advanceTo(time)`</h3>
-<a href="#rxvirtualtimeschedulerprototypeadvancetotime">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L136-L160 &quot;View in source&quot;)
-
-Advances the scheduler&apos;s clock to the specified time, running all work till that point.
-
+<h3 id="-a-id-rxvirtualtimeschedulerprototypeadvancetotime-a-rx-virtualtimescheduler-prototype-advanceto-time"><a name="-a-id-rxvirtualtimeschedulerprototypeadvancetotime-a-rx-virtualtimescheduler-prototype-advanceto-time" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeadvancetotime-a-rx-virtualtimescheduler-prototype-advanceto-time"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeadvancetotime"></a><code>Rx.VirtualTimeScheduler.prototype.advanceTo(time)</code></h3>
+<p><a href="#rxvirtualtimeschedulerprototypeadvancetotime">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L136-L160" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Advances the scheduler&apos;s clock to the specified time, running all work till that point.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `time` *(Any)*: Absolute time to advance the scheduler&apos;s clock to.
-
+<ol>
+<li><code>time</code> <em>(Any)</em>: Absolute time to advance the scheduler&apos;s clock to.</li>
+</ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var scheduler = new MyVirtualScheduler(
-    0 /* initial time */
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
+    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleAbsolute(100, function () {
-    console.log(&apos;hello&apos;);
+scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
 
-scheduler.scheduleAbsolute(200, function () {
-    console.log(&apos;world&apos;);
+scheduler.scheduleAbsolute(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;world&apos;</span>);
 });
 
-scheduler.advanceBy(300);
-// =&gt; hello
-// =&gt; world
+scheduler.advanceBy(<span class="hljs-number">300</span>);
+<span class="hljs-comment">// =&gt; hello</span>
+<span class="hljs-comment">// =&gt; world</span>
 
-console.log(scheduler.clock);
-// =&gt; 300
-```
-
+<span class="hljs-built_in">console</span>.log(scheduler.clock);
+<span class="hljs-comment">// =&gt; 300</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action"><a name="rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action"></a>`Rx.VirtualTimeScheduler.prototype.scheduleAbsolute(dueTime, action)`</h3>
-<a href="#rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L216-L218 &quot;View in source&quot;)
-
-Schedules an action to be executed at dueTime.
-
+<h3 id="-a-id-rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolute-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolute-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolute-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action"></a><code>Rx.VirtualTimeScheduler.prototype.scheduleAbsolute(dueTime, action)</code></h3>
+<p><a href="#rxvirtualtimeschedulerprototypescheduleabsoluteduetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L216-L218" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Schedules an action to be executed at dueTime.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `dueTime` *(Any)*: Absolute time at which to execute the action.
-2. `action` *(Function)*: Action to be executed.
-
+<ol>
+<li><code>dueTime</code> <em>(Any)</em>: Absolute time at which to execute the action.</li>
+<li><code>action</code> <em>(Function)</em>: Action to be executed.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(Disposable)*: The disposable object used to cancel the scheduled action (best effort).
-
+<p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var scheduler = new MyVirtualScheduler(
-    0 /* initial time */
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
+    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleAbsolute(100, function () {
-    console.log(&apos;hello&apos;);
+scheduler.scheduleAbsolute(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
 
-scheduler.scheduleAbsolute(200, function () {
-    console.log(&apos;world&apos;);
+scheduler.scheduleAbsolute(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;world&apos;</span>);
 });
 
-scheduler.advanceBy(300);
-// =&gt; hello
-// =&gt; world
+scheduler.advanceBy(<span class="hljs-number">300</span>);
+<span class="hljs-comment">// =&gt; hello</span>
+<span class="hljs-comment">// =&gt; world</span>
 
-console.log(scheduler.clock);
-// =&gt; 300
-```
-
+<span class="hljs-built_in">console</span>.log(scheduler.clock);
+<span class="hljs-comment">// =&gt; 300</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action"><a name="rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action"></a>`Rx.VirtualTimeScheduler.prototype.scheduleAbsoluteWithState(state, dueTime, action)`</h3>
-<a href="#rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L227-L236 &quot;View in source&quot;)
-
-Schedules an action to be executed at dueTime.
-
+<h3 id="-a-id-rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolutewithstate-state-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolutewithstate-state-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-scheduleabsolutewithstate-state-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action"></a><code>Rx.VirtualTimeScheduler.prototype.scheduleAbsoluteWithState(state, dueTime, action)</code></h3>
+<p><a href="#rxvirtualtimeschedulerprototypescheduleabsolutewithstatestate-duetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L227-L236" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Schedules an action to be executed at dueTime.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `state`: *(Any)*: State passed to the action to be executed.
-1. `dueTime` *(Any)*: Absolute time at which to execute the action.
-2. `action` *(Function)*: Action to be executed.
-
+<ol>
+<li><code>state</code>: <em>(Any)</em>: State passed to the action to be executed.</li>
+<li><code>dueTime</code> <em>(Any)</em>: Absolute time at which to execute the action.</li>
+<li><code>action</code> <em>(Function)</em>: Action to be executed.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(Disposable)*: The disposable object used to cancel the scheduled action (best effort).
-
+<p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var scheduler = new MyVirtualScheduler(
-    0 /* initial time */
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
+    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleAbsoluteWithState(&apos;world&apos;, 100, function (x) {
-    console.log(&apos;hello &apos; + x);
+scheduler.scheduleAbsoluteWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
 });
 
-scheduler.scheduleAbsoluteWithState(200, function () {
-    console.log(&apos;goodnight &apos; + x);
-}, &apos;moon&apos;);
+scheduler.scheduleAbsoluteWithState(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;goodnight &apos;</span> + x);
+}, <span class="hljs-string">&apos;moon&apos;</span>);
 
 scheduler.start();
-// =&gt; hello world
-// =&gt; goodnight moon
+<span class="hljs-comment">// =&gt; hello world</span>
+<span class="hljs-comment">// =&gt; goodnight moon</span>
 
-console.log(scheduler.clock);
-// =&gt; 200
-```
-
+<span class="hljs-built_in">console</span>.log(scheduler.clock);
+<span class="hljs-comment">// =&gt; 200</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="rxvirtualtimeschedulerprototypeschedulerelativeduetime-action"><a name="rxvirtualtimeschedulerprototypeschedulerelativeduetime-action" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypeschedulerelativeduetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeschedulerelativeduetime-action"></a>`Rx.VirtualTimeScheduler.prototype.scheduleRelative(dueTime, action)`</h3>
-<a href="#rxvirtualtimeschedulerprototypeschedulerelativeduetime-action">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L100-L102 &quot;View in source&quot;)
-
-Schedules an action to be executed at dueTime.
-
+<h3 id="-a-id-rxvirtualtimeschedulerprototypeschedulerelativeduetime-action-a-rx-virtualtimescheduler-prototype-schedulerelative-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypeschedulerelativeduetime-action-a-rx-virtualtimescheduler-prototype-schedulerelative-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeschedulerelativeduetime-action-a-rx-virtualtimescheduler-prototype-schedulerelative-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeschedulerelativeduetime-action"></a><code>Rx.VirtualTimeScheduler.prototype.scheduleRelative(dueTime, action)</code></h3>
+<p><a href="#rxvirtualtimeschedulerprototypeschedulerelativeduetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L100-L102" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Schedules an action to be executed at dueTime.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `dueTime` *(Any)*: Relative time after which to execute the action.
-2. `action` *(Function)*: Action to be executed.
-
+<ol>
+<li><code>dueTime</code> <em>(Any)</em>: Relative time after which to execute the action.</li>
+<li><code>action</code> <em>(Function)</em>: Action to be executed.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(Disposable)*: The disposable object used to cancel the scheduled action (best effort).
-
+<p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var scheduler = new MyVirtualScheduler(
-    100 /* initial time */
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
+    <span class="hljs-number">100</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleRelative(100, function () {
-    console.log(&apos;hello&apos;);
+scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello&apos;</span>);
 });
 
-scheduler.scheduleRelative(200, function () {
-    console.log(&apos;world&apos;);
+scheduler.scheduleRelative(<span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;world&apos;</span>);
 });
 
 scheduler.start();
-// =&gt; hello
-// =&gt; world
+<span class="hljs-comment">// =&gt; hello</span>
+<span class="hljs-comment">// =&gt; world</span>
 
-console.log(scheduler.clock);
-// =&gt; 400
-```
-
+<span class="hljs-built_in">console</span>.log(scheduler.clock);
+<span class="hljs-comment">// =&gt; 400</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action"><a name="rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action"></a>`Rx.VirtualTimeScheduler.prototype.scheduleRelativeWithState(state, dueTime, action)`</h3>
-<a href="#rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L89-L92 &quot;View in source&quot;)
-
-Schedules an action to be executed at dueTime.
-
+<h3 id="-a-id-rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-schedulerelativewithstate-state-duetime-action"><a name="-a-id-rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-schedulerelativewithstate-state-duetime-action" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action-a-rx-virtualtimescheduler-prototype-schedulerelativewithstate-state-duetime-action"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action"></a><code>Rx.VirtualTimeScheduler.prototype.scheduleRelativeWithState(state, dueTime, action)</code></h3>
+<p><a href="#rxvirtualtimeschedulerprototypeschedulerelativewithstatestate-duetime-action">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L89-L92" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Schedules an action to be executed at dueTime.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `state`: *(Any)*: State passed to the action to be executed.
-1. `dueTime` *(Any)*: Relative time after which to execute the action.
-2. `action` *(Function)*: Action to be executed.
-
+<ol>
+<li><code>state</code>: <em>(Any)</em>: State passed to the action to be executed.</li>
+<li><code>dueTime</code> <em>(Any)</em>: Relative time after which to execute the action.</li>
+<li><code>action</code> <em>(Function)</em>: Action to be executed.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(Disposable)*: The disposable object used to cancel the scheduled action (best effort).
-
+<p><em>(Disposable)</em>: The disposable object used to cancel the scheduled action (best effort).</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var scheduler = new MyVirtualScheduler(
-    0 /* initial time */
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
+    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleRelativeWithState(&apos;world&apos;, 100, function (x) {
-    console.log(&apos;hello &apos; + x);
+scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
 });
 
-scheduler.scheduleRelativeWithState(&apos;moon&apos;, 200, function () {
-    console.log(&apos;goodnight &apos; + x);
+scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;moon&apos;</span>, <span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;goodnight &apos;</span> + x);
 });
 
 scheduler.start();
-// =&gt; hello world
-// =&gt; goodnight moon
+<span class="hljs-comment">// =&gt; hello world</span>
+<span class="hljs-comment">// =&gt; goodnight moon</span>
 
-console.log(scheduler.clock);
-// =&gt; 300
-```
-
+<span class="hljs-built_in">console</span>.log(scheduler.clock);
+<span class="hljs-comment">// =&gt; 300</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="rxvirtualtimeschedulerprototypesleeptime"><a name="rxvirtualtimeschedulerprototypesleeptime" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypesleeptime"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypesleeptime"></a>`Rx.VirtualTimeScheduler.prototype.sleep(time)`</h3>
-<a href="#rxvritualtimeschedulerprototypesleeptime">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L182-L190 &quot;View in source&quot;)
-
-Advances the scheduler&apos;s clock by the specified relative time.
-
+<h3 id="-a-id-rxvritualtimeschedulerprototypesleeptime-a-rx-virtualtimescheduler-prototype-sleep-time"><a name="-a-id-rxvritualtimeschedulerprototypesleeptime-a-rx-virtualtimescheduler-prototype-sleep-time" class="plugin-anchor" href="#-a-id-rxvritualtimeschedulerprototypesleeptime-a-rx-virtualtimescheduler-prototype-sleep-time"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypesleeptime"></a><code>Rx.VirtualTimeScheduler.prototype.sleep(time)</code></h3>
+<p><a href="#rxvritualtimeschedulerprototypesleeptime">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L182-L190" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Advances the scheduler&apos;s clock by the specified relative time.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `time` *(Any)*: Relative time to advance the scheduler&apos;s clock by.
-
+<ol>
+<li><code>time</code> <em>(Any)</em>: Relative time to advance the scheduler&apos;s clock by.</li>
+</ol>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var scheduler = new MyVirtualScheduler(
-    0 /* initial time */
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
+    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.sleep(400);
+scheduler.sleep(<span class="hljs-number">400</span>);
 
-console.log(scheduler.clock);
-// =&gt; 400
-```
-
+<span class="hljs-built_in">console</span>.log(scheduler.clock);
+<span class="hljs-comment">// =&gt; 400</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="rxvirtualtimeschedulerprototypestart"><a name="rxvirtualtimeschedulerprototypestart" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypestart"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypestart"></a>`Rx.VirtualTimeScheduler.prototype.start()`</h3>
-<a href="#rxvritualtimeschedulerprototypestart">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L107-L123 &quot;View in source&quot;)
-
-Starts the virtual time scheduler.
-
+<h3 id="-a-id-rxvritualtimeschedulerprototypestart-a-rx-virtualtimescheduler-prototype-start"><a name="-a-id-rxvritualtimeschedulerprototypestart-a-rx-virtualtimescheduler-prototype-start" class="plugin-anchor" href="#-a-id-rxvritualtimeschedulerprototypestart-a-rx-virtualtimescheduler-prototype-start"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypestart"></a><code>Rx.VirtualTimeScheduler.prototype.start()</code></h3>
+<p><a href="#rxvritualtimeschedulerprototypestart">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L107-L123" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Starts the virtual time scheduler.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var scheduler = new MyVirtualScheduler(
-    0 /* initial time */
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
+    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleRelativeWithState(&apos;world&apos;, 100, function (x) {
-    console.log(&apos;hello &apos; + x);
+scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;world&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello &apos;</span> + x);
 });
 
-scheduler.scheduleRelativeWithState(&apos;moon&apos;, 200, function () {
-    console.log(&apos;goodnight &apos; + x);
+scheduler.scheduleRelativeWithState(<span class="hljs-string">&apos;moon&apos;</span>, <span class="hljs-number">200</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;goodnight &apos;</span> + x);
 });
 
 scheduler.start();
-// =&gt; hello world
-// =&gt; goodnight moon
+<span class="hljs-comment">// =&gt; hello world</span>
+<span class="hljs-comment">// =&gt; goodnight moon</span>
 
-console.log(scheduler.clock);
-// =&gt; 400
-```
-
+<span class="hljs-built_in">console</span>.log(scheduler.clock);
+<span class="hljs-comment">// =&gt; 400</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="rxvirtualtimeschedulerprototypestop"><a name="rxvirtualtimeschedulerprototypestop" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypestop"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypestop"></a>`Rx.VirtualTimeScheduler.prototype.stop()`</h3>
-<a href="#rxvritualtimeschedulerprototypestop">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L128-L130 &quot;View in source&quot;)
-
-Stops the virtual time scheduler.
-
+<h3 id="-a-id-rxvritualtimeschedulerprototypestop-a-rx-virtualtimescheduler-prototype-stop"><a name="-a-id-rxvritualtimeschedulerprototypestop-a-rx-virtualtimescheduler-prototype-stop" class="plugin-anchor" href="#-a-id-rxvritualtimeschedulerprototypestop-a-rx-virtualtimescheduler-prototype-stop"><span class="fa fa-link"></span></a><a id="rxvritualtimeschedulerprototypestop"></a><code>Rx.VirtualTimeScheduler.prototype.stop()</code></h3>
+<p><a href="#rxvritualtimeschedulerprototypestop">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/concurrency/virtualtimescheduler.js#L128-L130" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Stops the virtual time scheduler.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-```js
-var scheduler = new MyVirtualScheduler(
-    0 /* initial time */
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> scheduler = <span class="hljs-keyword">new</span> MyVirtualScheduler(
+    <span class="hljs-number">0</span> <span class="hljs-comment">/* initial time */</span>
 );
 
-scheduler.scheduleRelative(100, function () {
-    console.log(&apos;hello world&apos;);
+scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello world&apos;</span>);
 });
 
-scheduler.scheduleRelative(100, function () {
+scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     scheduler.stop();
 });
 
-scheduler.scheduleRelative(100, function () {
-    console.log(&apos;hello world&apos;);
+scheduler.scheduleRelative(<span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;hello world&apos;</span>);
 });
 
 scheduler.start();
-// =&gt; hello world
-```
-
+<span class="hljs-comment">// =&gt; hello world</span>
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h2 id="virtualtimescheduler-abstract-protected-methods"><a name="virtualtimescheduler-abstract-protected-methods" class="plugin-anchor" href="#virtualtimescheduler-abstract-protected-methods"><span class="fa fa-link"></span></a>_VirtualTimeScheduler Abstract Protected Methods_ ##</h2>
-
-<h3 id="rxvirtualtimeschedulerprototypeaddabsolute-relative"><a name="rxvirtualtimeschedulerprototypeaddabsolute-relative" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypeaddabsolute-relative"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeaddabsolute-relative"></a>`Rx.VirtualTimeScheduler.prototype.add(absolute, relative)`</h3>
-<a href="#rxvirtualtimeschedulerprototypeaddabsolute-relative">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L54 &quot;View in source&quot;)
-
-Adds a relative time value to an absolute time value.  This method is used in several methods including `scheduleRelativeWithState`, `advanceBy` and `sleep`.
-
+<h2 id="-virtualtimescheduler-abstract-protected-methods"><a name="-virtualtimescheduler-abstract-protected-methods" class="plugin-anchor" href="#-virtualtimescheduler-abstract-protected-methods"><span class="fa fa-link"></span></a><em>VirtualTimeScheduler Abstract Protected Methods</em></h2>
+<h3 id="-a-id-rxvirtualtimeschedulerprototypeaddabsolute-relative-a-rx-virtualtimescheduler-prototype-add-absolute-relative"><a name="-a-id-rxvirtualtimeschedulerprototypeaddabsolute-relative-a-rx-virtualtimescheduler-prototype-add-absolute-relative" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypeaddabsolute-relative-a-rx-virtualtimescheduler-prototype-add-absolute-relative"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypeaddabsolute-relative"></a><code>Rx.VirtualTimeScheduler.prototype.add(absolute, relative)</code></h3>
+<p><a href="#rxvirtualtimeschedulerprototypeaddabsolute-relative">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L54" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Adds a relative time value to an absolute time value.  This method is used in several methods including <code>scheduleRelativeWithState</code>, <code>advanceBy</code> and <code>sleep</code>.</p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
-1. `absolute` *(Any)*: Absolute virtual time value.
-2. `relative` *(Any)*: Relative virtual time value.
-
+<ol>
+<li><code>absolute</code> <em>(Any)</em>: Absolute virtual time value.</li>
+<li><code>relative</code> <em>(Any)</em>: Relative virtual time value.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(Any)*: Resulting absolute virtual time sum value.
-
+<p><em>(Any)</em>: Resulting absolute virtual time sum value.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
-One possible implementation could be as simple as the following:
-
-```js
-scheduler.add = function (absolute, relative) {
-    return absolute + relative;
+<p>One possible implementation could be as simple as the following:</p>
+<pre><code class="lang-js">scheduler.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">absolute, relative</span>) </span>{
+    <span class="hljs-keyword">return</span> absolute + relative;
 };
-```
-
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute"><a name="rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute"></a>`Rx.VirtualTimeScheduler.prototype.toDateTimeOffset(absolute)`</h3>
-<a href="#rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L61 &quot;View in source&quot;)
-
-Converts an absolute time to a number.  This is used directly in the `now` method on the `Rx.Scheduler`
-
+<h3 id="-a-id-rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute-a-rx-virtualtimescheduler-prototype-todatetimeoffset-absolute"><a name="-a-id-rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute-a-rx-virtualtimescheduler-prototype-todatetimeoffset-absolute" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute-a-rx-virtualtimescheduler-prototype-todatetimeoffset-absolute"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute"></a><code>Rx.VirtualTimeScheduler.prototype.toDateTimeOffset(absolute)</code></h3>
+<p><a href="#rxvirtualtimeschedulerprototypetodatetimeoffsetabsolute">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L61" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Converts an absolute time to a number.  This is used directly in the <code>now</code> method on the <code>Rx.Scheduler</code></p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
-1. `absolute` *(Any)*: The absolute time to convert.
-
+<ol>
+<li><code>absolute</code> <em>(Any)</em>: The absolute time to convert.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(Number)*: The absolute time in ms.
-
+<p><em>(Number)</em>: The absolute time in ms.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
-One possible implementation could be as simple as the following:
-
-```js
-// String -&gt; Number
-scheduler.toDateTimeOffset = function (absolute) {
-    return return absolute.length;
+<p>One possible implementation could be as simple as the following:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// String -&gt; Number</span>
+scheduler.toDateTimeOffset = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">absolute</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">return</span> absolute.length;
 };
-```
-
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>
 <hr>
-<h3 id="rxvirtualtimeschedulerprototypetorelativetimespan"><a name="rxvirtualtimeschedulerprototypetorelativetimespan" class="plugin-anchor" href="#rxvirtualtimeschedulerprototypetorelativetimespan"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypetorelativetimespan"></a>`Rx.VirtualTimeScheduler.prototype.toRelative(timeSpan)`</h3>
-<a href="#rxvirtualtimeschedulerprototypetorelativetimespan">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L61 &quot;View in source&quot;)
-
-Converts the time span number/Date to a relative virtual time value.
-
+<h3 id="-a-id-rxvirtualtimeschedulerprototypetorelativetimespan-a-rx-virtualtimescheduler-prototype-torelative-timespan"><a name="-a-id-rxvirtualtimeschedulerprototypetorelativetimespan-a-rx-virtualtimescheduler-prototype-torelative-timespan" class="plugin-anchor" href="#-a-id-rxvirtualtimeschedulerprototypetorelativetimespan-a-rx-virtualtimescheduler-prototype-torelative-timespan"><span class="fa fa-link"></span></a><a id="rxvirtualtimeschedulerprototypetorelativetimespan"></a><code>Rx.VirtualTimeScheduler.prototype.toRelative(timeSpan)</code></h3>
+<p><a href="#rxvirtualtimeschedulerprototypetorelativetimespan">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/asyncsubject.js#L61" title="View in source" target="_blank">&#x24C8;</a></p>
+<p>Converts the time span number/Date to a relative virtual time value.</p>
 <h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
-1. `timeSpan` *(Any)*: The time span number value to convert.  This is used directly in `scheduleWithRelativeAndState` and `scheduleWithAbsoluteAndState`.
-
+<ol>
+<li><code>timeSpan</code> <em>(Any)</em>: The time span number value to convert.  This is used directly in <code>scheduleWithRelativeAndState</code> and <code>scheduleWithAbsoluteAndState</code>.</li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(Number)*: Corresponding relative virtual time value.
-
+<p><em>(Number)</em>: Corresponding relative virtual time value.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
-One possible implementation could be as simple as the following:
-
-```js
-// Number -&gt; Number
-scheduler.toRelative = function (timeSpan) {
-    return timeSpan;
+<p>One possible implementation could be as simple as the following:</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Number -&gt; Number</span>
+scheduler.toRelative = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">timeSpan</span>) </span>{
+    <span class="hljs-keyword">return</span> timeSpan;
 };
-```
-
+</code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
-
 <ul>
 <li>rx.virtualtime.js</li>
 </ul>

@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="15.1.1.2" data-basepath="../../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="15.1.1.2" data-basepath="../../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,31 +5356,29 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p></p><h3 id="rxdomrequestajaxcoldurl-settings"><a name="rxdomrequestajaxcoldurl-settings" class="plugin-anchor" href="#rxdomrequestajaxcoldurl-settings"><span class="fa fa-link"></span></a><a id="rxdomrequestajaxcoldurl--settings"></a>`Rx.DOM.Request.ajaxCold(url | settings)`</h3>
-<a href="#rxdomrequestajaxcoldurl--settings">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L145-L204" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]<p></p>
+                        <h3 id="-a-id-rxdomrequestajaxcoldurl-settings-a-rx-dom-request-ajaxcold-url-settings"><a name="-a-id-rxdomrequestajaxcoldurl-settings-a-rx-dom-request-ajaxcold-url-settings" class="plugin-anchor" href="#-a-id-rxdomrequestajaxcoldurl-settings-a-rx-dom-request-ajaxcold-url-settings"><span class="fa fa-link"></span></a><a id="rxdomrequestajaxcoldurl--settings"></a><code>Rx.DOM.Request.ajaxCold(url | settings)</code></h3>
+<p><a href="#rxdomrequestajaxcoldurl--settings">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L145-L204" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
 <p>Creates a cold observable for an Ajax request with either a settings object with url, headers, etc or a string for a URL.</p>
 <h4 id="syntax"><a name="syntax" class="plugin-anchor" href="#syntax"><span class="fa fa-link"></span></a>Syntax</h4>
-```js
-// Using string URL
+<pre><code class="lang-js"><span class="hljs-comment">// Using string URL</span>
 Rx.DOM.Request.ajaxCold(url);
 
-// Using settings object
+<span class="hljs-comment">// Using settings object</span>
 Rx.DOM.Request.ajaxCold(settings);
-```
+</code></pre>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-1. `url` *(String)*: A string of the URL to make the Ajax call.
-1. `settings` *(Object)*: An object with the following properties
-
-        - `url` *(String)*: URL of the request
-          - `method` *(String)*: Method of the request, such as GET, POST, PUT, PATCH, DELETE
-          - `async` *(Boolean)*: Whether the request is async
-          - `headers` *(Object)*: Optional headers
-
+<ol>
+<li><code>url</code> <em>(String)</em>: A string of the URL to make the Ajax call.</li>
+<li><p><code>settings</code> <em>(Object)</em>: An object with the following properties</p>
+<pre><code> - `url` *(String)*: URL of the request
+   - `method` *(String)*: Method of the request, such as GET, POST, PUT, PATCH, DELETE
+   - `async` *(Boolean)*: Whether the request is async
+   - `headers` *(Object)*: Optional headers
+</code></pre></li>
+</ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-*(Observable)*: An observable sequence containing the `XMLHttpRequest`.
-
+<p><em>(Observable)</em>: An observable sequence containing the <code>XMLHttpRequest</code>.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-
 <p>The following example uses a simple URL to retrieve a list of products. </p>
 <pre><code class="lang-js">Rx.DOM.Request.ajaxCold(<span class="hljs-string">&apos;/products&apos;</span>)
     .subscribe( 

@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.131" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.131" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:32:35 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,17 +5356,16 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="rxobservableprototypewithlatestfromargs-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablewithlatestfromjs"><a name="rxobservableprototypewithlatestfromargs-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablewithlatestfromjs" class="plugin-anchor" href="#rxobservableprototypewithlatestfromargs-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablewithlatestfromjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.withLatestFrom(...args, resultSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/withlatestfrom.js)</h2>
-
+                        <h2 id="-rx-observable-prototype-withlatestfrom-args-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-withlatestfrom-js"><a name="-rx-observable-prototype-withlatestfrom-args-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-withlatestfrom-js" class="plugin-anchor" href="#-rx-observable-prototype-withlatestfrom-args-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-withlatestfrom-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/withlatestfrom.js" target="_blank"><code>Rx.Observable.prototype.withLatestFrom(...args, resultSelector)</code></a></h2>
 <p>Merges the specified observable sequences into one observable sequence by using the selector function only when the source observable sequence (the instance) produces an element. The other observables can be in the form of an argument list of observables or an array.</p>
-<p></p><h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4><p></p>
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
 <ol>
 <li><code>args</code> <em>(arguments | Array)</em>: An array or arguments of Observable sequences.</li>
 <li><code>resultSelector</code> <em>(<code>Function</code>)</em>: Function to invoke when the instance source observable produces an element.</li>
 </ol>
-<p></p><h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<em>(<code>Observable</code>)</em>: An observable sequence containing the result of combining elements of the sources using the specified result selector function.<p></p>
-<p></p><h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4><p></p>
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<p><em>(<code>Observable</code>)</em>: An observable sequence containing the result of combining elements of the sources using the specified result selector function.</p>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-comment">/* Have staggering intervals */</span>
 <span class="hljs-keyword">var</span> source1 = Rx.Observable.interval(<span class="hljs-number">140</span>)
     .map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;First: &apos;</span> + i; });

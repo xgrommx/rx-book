@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.99" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.99" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,24 +5356,28 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-subscribe-observer-onnext-onerror-oncompleted"><a name="-rx-observable-prototype-subscribe-observer-onnext-onerror-oncompleted" class="plugin-anchor" href="#-rx-observable-prototype-subscribe-observer-onnext-onerror-oncompleted"><span class="fa fa-link"></span></a>[<code>Rx.Observable.prototype.subscribe([observer] | [onNext], [onError], [onCompleted])</code>,</h2>
-<p><code>Rx.Observable.prototype.forEach([observer] | [onNext], [onError], [onCompleted])</code>](<a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js" target="_blank">https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js</a>)</p>
+                        <p></p><h2 id="rxobservableprototypesubscribeobserver-onnext-onerror-oncompleted"><a name="rxobservableprototypesubscribeobserver-onnext-onerror-oncompleted" class="plugin-anchor" href="#rxobservableprototypesubscribeobserver-onnext-onerror-oncompleted"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.subscribe([observer] | [onNext], [onError], [onCompleted])`,</h2>
+<code>Rx.Observable.prototype.forEach([observer] | [onNext], [onError], [onCompleted])</code>](<a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js" target="_blank">https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/observable.js</a>)<p></p>
 <p>Prepends a sequence of values to an observable sequence with an optional scheduler and an argument list of values to prepend.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>[observer]</code> <em>(Observer)</em>: The object that is to receive notifications.</li>
-<li><code>[onNext]</code> <em>(<code>Function</code>)</em>: Function to invoke for each element in the observable sequence.</li>
-<li><code>[onError]</code> <em>(<code>Function</code>)</em>: Function to invoke upon exceptional termination of the observable sequence.</li>
-<li><code>[onCompleted]</code> <em>(<code>Function</code>)</em>: Function to invoke upon graceful termination of the observable sequence.</li>
-</ol>
+1. `[observer]` *(Observer)*: The object that is to receive notifications.
+1. `[onNext]` *(`Function`)*: Function to invoke for each element in the observable sequence.
+2. `[onError]` *(`Function`)*: Function to invoke upon exceptional termination of the observable sequence.
+3. `[onCompleted]` *(`Function`)*: Function to invoke upon graceful termination of the observable sequence.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Disposable)</em>:  The source sequence whose subscriptions and unsubscriptions happen on the specified scheduler. </p>
+*(Disposable)*:  The source sequence whose subscriptions and unsubscriptions happen on the specified scheduler. 
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <h5 id="with-no-arguments"><a name="with-no-arguments" class="plugin-anchor" href="#with-no-arguments"><span class="fa fa-link"></span></a>With no arguments</h5>
+
 <p><a href="http://jsbin.com/zepugu/1/embed?js,console" target="_blank"></a></p>
 <h5 id="with-an-observer"><a name="with-an-observer" class="plugin-anchor" href="#with-an-observer"><span class="fa fa-link"></span></a>With an observer</h5>
+
 <p><a href="http://jsbin.com/jegup/1/embed?js,console" target="_blank"></a></p>
 <h5 id="using-functions"><a name="using-functions" class="plugin-anchor" href="#using-functions"><span class="fa fa-link"></span></a>Using functions</h5>
+
 <p><a href="http://jsbin.com/kafij/1/embed?js,console" target="_blank"></a></p>
 
                     

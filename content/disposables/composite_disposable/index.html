@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="13.1" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="13.1" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,9 +5356,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-compositedisposable-class"><a name="-rx-compositedisposable-class" class="plugin-anchor" href="#-rx-compositedisposable-class"><span class="fa fa-link"></span></a><code>Rx.CompositeDisposable</code> class</h1>
+                        <h1 id="rxcompositedisposable-class"><a name="rxcompositedisposable-class" class="plugin-anchor" href="#rxcompositedisposable-class"><span class="fa fa-link"></span></a>`Rx.CompositeDisposable` class #</h1>
+
 <p>Represents a group of disposable resources that are disposed together.</p>
-<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage ##</h2>
+
 <p>The follow example shows the basic usage of an Rx.CompositeDisposable.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
 
@@ -5372,234 +5374,285 @@ disposables.dispose();
 <span class="hljs-comment">// =&gt; two</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
-<h2 id="-compositedisposable-constructor"><a name="-compositedisposable-constructor" class="plugin-anchor" href="#-compositedisposable-constructor"><span class="fa fa-link"></span></a><code>CompositeDisposable Constructor</code></h2>
-<ul>
-<li><a href="#rxcompositedisposablergs"><code>constructor</code></a></li>
-</ul>
-<h2 id="-compositedisposable-instance-methods"><a name="-compositedisposable-instance-methods" class="plugin-anchor" href="#-compositedisposable-instance-methods"><span class="fa fa-link"></span></a><code>CompositeDisposable Instance Methods</code></h2>
-<ul>
-<li><a href="#rxcompositedisposableprototypeadditem"><code>add</code></a></li>
-<li><a href="#rxcompositedisposableprototypeclear"><code>clear</code></a></li>
-<li><a href="#rxcompositedisposableprototypecontainsitem"><code>contains</code></a></li>
-<li><a href="#rxcompositedisposableprototypedispose"><code>dispose</code></a></li>
-<li><a href="#rxcompositedisposableprototyperemoveitem"><code>remove</code></a></li>
-<li><a href="#rxcompositedisposableprototypetoarray"><code>toArray</code></a></li>
-</ul>
-<h2 id="-compositedisposable-instance-properties"><a name="-compositedisposable-instance-properties" class="plugin-anchor" href="#-compositedisposable-instance-properties"><span class="fa fa-link"></span></a><code>CompositeDisposable Instance Properties</code></h2>
-<ul>
-<li><a href="#isdisposed"><code>isDisposed</code></a></li>
-<li><a href="#length"><code>length</code></a></li>
-</ul>
-<h2 id="-compositedisposable-constructor"><a name="-compositedisposable-constructor" class="plugin-anchor" href="#-compositedisposable-constructor"><span class="fa fa-link"></span></a><em>CompositeDisposable Constructor</em></h2>
-<h3 id="-a-id-rxcompositedisposableargs-a-rx-compositedisposable-args"><a name="-a-id-rxcompositedisposableargs-a-rx-compositedisposable-args" class="plugin-anchor" href="#-a-id-rxcompositedisposableargs-a-rx-compositedisposable-args"><span class="fa fa-link"></span></a><a id="rxcompositedisposableargs"></a><code>Rx.CompositeDisposable(...args)</code></h3>
-<p><a href="#rxcompositedisposablergs">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L5-L9" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Initializes a new instance of the <code>Rx.CompositeDisposable</code> class from a group of disposables.</p>
+<h2 id="compositedisposable-constructor"><a name="compositedisposable-constructor" class="plugin-anchor" href="#compositedisposable-constructor"><span class="fa fa-link"></span></a>`CompositeDisposable Constructor` ##</h2>
+- [`constructor`](#rxcompositedisposablergs)
+
+<h2 id="compositedisposable-instance-methods"><a name="compositedisposable-instance-methods" class="plugin-anchor" href="#compositedisposable-instance-methods"><span class="fa fa-link"></span></a>`CompositeDisposable Instance Methods` ##</h2>
+- [`add`](#rxcompositedisposableprototypeadditem)
+- [`clear`](#rxcompositedisposableprototypeclear)
+- [`contains`](#rxcompositedisposableprototypecontainsitem)
+- [`dispose`](#rxcompositedisposableprototypedispose)
+- [`remove`](#rxcompositedisposableprototyperemoveitem)
+- [`toArray`](#rxcompositedisposableprototypetoarray)
+
+<h2 id="compositedisposable-instance-properties"><a name="compositedisposable-instance-properties" class="plugin-anchor" href="#compositedisposable-instance-properties"><span class="fa fa-link"></span></a>`CompositeDisposable Instance Properties` ##</h2>
+- [`isDisposed`](#isdisposed)
+- [`length`](#length)
+
+<h2 id="compositedisposable-constructor"><a name="compositedisposable-constructor" class="plugin-anchor" href="#compositedisposable-constructor"><span class="fa fa-link"></span></a>_CompositeDisposable Constructor_ ##</h2>
+
+<h3 id="rxcompositedisposableargs"><a name="rxcompositedisposableargs" class="plugin-anchor" href="#rxcompositedisposableargs"><span class="fa fa-link"></span></a><a id="rxcompositedisposableargs"></a>`Rx.CompositeDisposable(...args)`</h3>
+<a href="#rxcompositedisposablergs">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L5-L9 &quot;View in source&quot;)
+
+Initializes a new instance of the `Rx.CompositeDisposable` class from a group of disposables.
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>args</code> <em>(Array|arguments)</em>: Disposables that will be disposed together.</li>
-</ol>
+1. `args` *(Array|arguments)*: Disposables that will be disposed together.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
+```js
+var d1 = Rx.Disposable.create(() =&gt; console.log(&apos;one&apos;));
 
-<span class="hljs-keyword">var</span> d2 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;two&apos;</span>));
+var d2 = Rx.Disposable.create(() =&gt; console.log(&apos;two&apos;));
 
-<span class="hljs-comment">// Initialize with two disposables</span>
-<span class="hljs-keyword">var</span> disposables = <span class="hljs-keyword">new</span> Rx.CompositeDisposable(d1, d2);
+// Initialize with two disposables
+var disposables = new Rx.CompositeDisposable(d1, d2);
 
 disposables.dispose();
-<span class="hljs-comment">// =&gt; one</span>
-<span class="hljs-comment">// =&gt; two</span>
-</code></pre>
+// =&gt; one
+// =&gt; two
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-compositedisposable-instance-methods"><a name="-compositedisposable-instance-methods" class="plugin-anchor" href="#-compositedisposable-instance-methods"><span class="fa fa-link"></span></a><em>CompositeDisposable Instance Methods</em></h2>
-<h3 id="-a-id-rxcompositedisposableprototypeadditem-a-rx-compositedisposable-prototype-add-item"><a name="-a-id-rxcompositedisposableprototypeadditem-a-rx-compositedisposable-prototype-add-item" class="plugin-anchor" href="#-a-id-rxcompositedisposableprototypeadditem-a-rx-compositedisposable-prototype-add-item"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototypeadditem"></a><code>Rx.CompositeDisposable.prototype.add(item)</code></h3>
-<p><a href="#rxcompositedisposableprototypeadditem">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L17-L24" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Adds a disposable to the CompositeDisposable or disposes the disposable if the CompositeDisposable is disposed.</p>
-<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>item</code> <em>(Disposable)</em>: Disposable to add.</li>
-</ol>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposables = <span class="hljs-keyword">new</span> Rx.CompositeDisposable();
+<h2 id="compositedisposable-instance-methods"><a name="compositedisposable-instance-methods" class="plugin-anchor" href="#compositedisposable-instance-methods"><span class="fa fa-link"></span></a>_CompositeDisposable Instance Methods_ ##</h2>
 
-<span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
+<h3 id="rxcompositedisposableprototypeadditem"><a name="rxcompositedisposableprototypeadditem" class="plugin-anchor" href="#rxcompositedisposableprototypeadditem"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototypeadditem"></a>`Rx.CompositeDisposable.prototype.add(item)`</h3>
+<a href="#rxcompositedisposableprototypeadditem">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L17-L24 &quot;View in source&quot;)
+
+Adds a disposable to the CompositeDisposable or disposes the disposable if the CompositeDisposable is disposed.
+
+<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
+1. `item` *(Disposable)*: Disposable to add.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
+```js
+var disposables = new Rx.CompositeDisposable();
+
+var d1 = Rx.Disposable.create(() =&gt; console.log(&apos;one&apos;));
 
 disposables.add(d1);
 
 disposables.dispose();
-<span class="hljs-comment">// =&gt; one</span>
-</code></pre>
+// =&gt; one
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxcompositedisposableprototypeclear-a-rx-compositedisposable-prototype-clear"><a name="-a-id-rxcompositedisposableprototypeclear-a-rx-compositedisposable-prototype-clear" class="plugin-anchor" href="#-a-id-rxcompositedisposableprototypeclear-a-rx-compositedisposable-prototype-clear"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototypeclear"></a><code>Rx.CompositeDisposable.prototype.clear()</code></h3>
-<p><a href="#rxcompositedisposableprototypeclear">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L65-L72" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Removes and disposes all disposables from the CompositeDisposable, but does not dispose the CompositeDisposable.</p>
+<h3 id="rxcompositedisposableprototypeclear"><a name="rxcompositedisposableprototypeclear" class="plugin-anchor" href="#rxcompositedisposableprototypeclear"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototypeclear"></a>`Rx.CompositeDisposable.prototype.clear()`</h3>
+<a href="#rxcompositedisposableprototypeclear">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L65-L72 &quot;View in source&quot;)
+
+Removes and disposes all disposables from the CompositeDisposable, but does not dispose the CompositeDisposable.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
 
-<span class="hljs-keyword">var</span> disposables = <span class="hljs-keyword">new</span> Rx.CompositeDisposable(d1);
+```js
+var d1 = Rx.Disposable.create(() =&gt; console.log(&apos;one&apos;));
 
-<span class="hljs-built_in">console</span>.log(disposables.length);
-<span class="hljs-comment">// =&gt; 1</span>
+var disposables = new Rx.CompositeDisposable(d1);
+
+console.log(disposables.length);
+// =&gt; 1
 
 disposables.clear();
-<span class="hljs-comment">// =&gt; one</span>
+// =&gt; one
 
-<span class="hljs-built_in">console</span>.log(disposables.length);
-<span class="hljs-comment">// =&gt; 0</span>
-</code></pre>
+console.log(disposables.length);
+// =&gt; 0
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxcompositedisposableprototypecontainsitem-a-rx-compositedisposable-prototype-contains-item"><a name="-a-id-rxcompositedisposableprototypecontainsitem-a-rx-compositedisposable-prototype-contains-item" class="plugin-anchor" href="#-a-id-rxcompositedisposableprototypecontainsitem-a-rx-compositedisposable-prototype-contains-item"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototypecontainsitem"></a><code>Rx.CompositeDisposable.prototype.contains(item)</code></h3>
-<p><a href="#rxcompositedisposableprototypecontainsitem">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L79-L81" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Determines whether the CompositeDisposable contains a specific disposable.</p>
+<h3 id="rxcompositedisposableprototypecontainsitem"><a name="rxcompositedisposableprototypecontainsitem" class="plugin-anchor" href="#rxcompositedisposableprototypecontainsitem"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototypecontainsitem"></a>`Rx.CompositeDisposable.prototype.contains(item)`</h3>
+<a href="#rxcompositedisposableprototypecontainsitem">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L79-L81 &quot;View in source&quot;)
+
+Determines whether the CompositeDisposable contains a specific disposable.
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>item</code> <em>(Disposable)</em>: Disposable to search for.</li>
-</ol>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Boolean)</em>: <code>true</code> if the disposable was found; otherwise, <code>false</code>.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposables = <span class="hljs-keyword">new</span> Rx.CompositeDisposable();
+1. `item` *(Disposable)*: Disposable to search for.
 
-<span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+*(Boolean)*: `true` if the disposable was found; otherwise, `false`.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
+```js
+var disposables = new Rx.CompositeDisposable();
+
+var d1 = Rx.Disposable.create(() =&gt; console.log(&apos;one&apos;));
 
 disposables.add(d1);
 
-<span class="hljs-built_in">console</span>.log(disposables.contains(d1));
-<span class="hljs-comment">// =&gt; true</span>
-</code></pre>
+console.log(disposables.contains(d1));
+// =&gt; true
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxcompositedisposableprototypedispose-a-rx-compositedisposable-prototype-dispose"><a name="-a-id-rxcompositedisposableprototypedispose-a-rx-compositedisposable-prototype-dispose" class="plugin-anchor" href="#-a-id-rxcompositedisposableprototypedispose-a-rx-compositedisposable-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototypedispose"></a><code>Rx.CompositeDisposable.prototype.dispose()</code></h3>
-<p><a href="#rxcompositedisposableprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L49-L60" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Disposes all disposables in the group and removes them from the group.</p>
+<h3 id="rxcompositedisposableprototypedispose"><a name="rxcompositedisposableprototypedispose" class="plugin-anchor" href="#rxcompositedisposableprototypedispose"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototypedispose"></a>`Rx.CompositeDisposable.prototype.dispose()`</h3>
+<a href="#rxcompositedisposableprototypedispose">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L49-L60 &quot;View in source&quot;)
+
+Disposes all disposables in the group and removes them from the group.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
 
-<span class="hljs-keyword">var</span> d2 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;two&apos;</span>));
+```js
+var d1 = Rx.Disposable.create(() =&gt; console.log(&apos;one&apos;));
 
-<span class="hljs-keyword">var</span> disposables = <span class="hljs-keyword">new</span> Rx.CompositeDisposable(d1, d2);
+var d2 = Rx.Disposable.create(() =&gt; console.log(&apos;two&apos;));
+
+var disposables = new Rx.CompositeDisposable(d1, d2);
 
 disposables.dispose();
-<span class="hljs-comment">// =&gt; one</span>
-<span class="hljs-comment">// =&gt; two</span>
+// =&gt; one
+// =&gt; two
 
-<span class="hljs-built_in">console</span>.log(disposables.length);
-<span class="hljs-comment">// =&gt; 0</span>
-</code></pre>
+console.log(disposables.length);
+// =&gt; 0
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxcompositedisposableprototyperemoveitem-a-rx-compositedisposable-prototype-remove-item"><a name="-a-id-rxcompositedisposableprototyperemoveitem-a-rx-compositedisposable-prototype-remove-item" class="plugin-anchor" href="#-a-id-rxcompositedisposableprototyperemoveitem-a-rx-compositedisposable-prototype-remove-item"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototyperemoveitem"></a><code>Rx.CompositeDisposable.prototype.remove(item)</code></h3>
-<p><a href="#rxcompositedisposableprototyperemoveitem">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L31-L44" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Removes and disposes the first occurrence of a disposable from the CompositeDisposable.</p>
+<h3 id="rxcompositedisposableprototyperemoveitem"><a name="rxcompositedisposableprototyperemoveitem" class="plugin-anchor" href="#rxcompositedisposableprototyperemoveitem"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototyperemoveitem"></a>`Rx.CompositeDisposable.prototype.remove(item)`</h3>
+<a href="#rxcompositedisposableprototyperemoveitem">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L31-L44 &quot;View in source&quot;)
+
+Removes and disposes the first occurrence of a disposable from the CompositeDisposable.
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>item</code> <em>(Disposable)</em>: Disposable to remove.</li>
-</ol>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Boolean)</em>: <code>true</code> if the disposable was found and disposed; otherwise, <code>false</code>.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposables = <span class="hljs-keyword">new</span> Rx.CompositeDisposable();
+1. `item` *(Disposable)*: Disposable to remove.
 
-<span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+*(Boolean)*: `true` if the disposable was found and disposed; otherwise, `false`.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
+```js
+var disposables = new Rx.CompositeDisposable();
+
+var d1 = Rx.Disposable.create(() =&gt; console.log(&apos;one&apos;));
 
 disposables.add(d1);
 
-<span class="hljs-built_in">console</span>.log(disposables.remove(d1));
-<span class="hljs-comment">// =&gt; true</span>
-</code></pre>
+console.log(disposables.remove(d1));
+// =&gt; true
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxcompositedisposableprototypetoarray-a-rx-compositedisposable-prototype-rxcompositedisposableprototypetoarray"><a name="-a-id-rxcompositedisposableprototypetoarray-a-rx-compositedisposable-prototype-rxcompositedisposableprototypetoarray" class="plugin-anchor" href="#-a-id-rxcompositedisposableprototypetoarray-a-rx-compositedisposable-prototype-rxcompositedisposableprototypetoarray"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototypetoarray"></a><code>Rx.CompositeDisposable.prototype.rxcompositedisposableprototypetoarray()</code></h3>
-<p><a href="#rxcompositedisposableprototypetoarray">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L87-L89" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Converts the existing CompositeDisposable to an array of disposables</p>
+<h3 id="rxcompositedisposableprototyperxcompositedisposableprototypetoarray"><a name="rxcompositedisposableprototyperxcompositedisposableprototypetoarray" class="plugin-anchor" href="#rxcompositedisposableprototyperxcompositedisposableprototypetoarray"><span class="fa fa-link"></span></a><a id="rxcompositedisposableprototypetoarray"></a>`Rx.CompositeDisposable.prototype.rxcompositedisposableprototypetoarray()`</h3>
+<a href="#rxcompositedisposableprototypetoarray">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L87-L89 &quot;View in source&quot;)
+
+Converts the existing CompositeDisposable to an array of disposables
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Array)</em>: An array of disposable objects.</p>
+*(Array)*: An array of disposable objects.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;one&apos;</span>));
 
-<span class="hljs-keyword">var</span> d2 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;two&apos;</span>));
+```js
+var d1 = Rx.Disposable.create(() =&gt; console.log(&apos;one&apos;));
 
-<span class="hljs-keyword">var</span> disposables = <span class="hljs-keyword">new</span> Rx.CompositeDisposable(d1, d2);
+var d2 = Rx.Disposable.create(() =&gt; console.log(&apos;two&apos;));
 
-<span class="hljs-keyword">var</span> array = disposables.toArray();
+var disposables = new Rx.CompositeDisposable(d1, d2);
 
-<span class="hljs-built_in">console</span>.log(array.length);
-<span class="hljs-comment">// =&gt; 2</span>
-</code></pre>
+var array = disposables.toArray();
+
+console.log(array.length);
+// =&gt; 2
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-compositedisposable-instance-properties"><a name="-compositedisposable-instance-properties" class="plugin-anchor" href="#-compositedisposable-instance-properties"><span class="fa fa-link"></span></a><em>CompositeDisposable Instance Properties</em></h2>
-<h3 id="-a-id-isdisposed-a-isdisposed"><a name="-a-id-isdisposed-a-isdisposed" class="plugin-anchor" href="#-a-id-isdisposed-a-isdisposed"><span class="fa fa-link"></span></a><a id="isdisposed"></a><code>isDisposed</code></h3>
-<p><a href="#isdisposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L7" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Gets a value that indicates whether the object is disposed.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposables = <span class="hljs-keyword">new</span> Rx.CompositeDisposable();
+<h2 id="compositedisposable-instance-properties"><a name="compositedisposable-instance-properties" class="plugin-anchor" href="#compositedisposable-instance-properties"><span class="fa fa-link"></span></a>_CompositeDisposable Instance Properties_ ##</h2>
 
-<span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<h3 id="isdisposed"><a name="isdisposed" class="plugin-anchor" href="#isdisposed"><span class="fa fa-link"></span></a><a id="isdisposed"></a>`isDisposed`</h3>
+<a href="#isdisposed">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L7 &quot;View in source&quot;)
+
+Gets a value that indicates whether the object is disposed.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+```js
+var disposables = new Rx.CompositeDisposable();
+
+var d1 = Rx.Disposable.create(() =&gt; console.log(&apos;disposed&apos;));
 
 disposables.add(d1);
 
-<span class="hljs-built_in">console</span>.log(disposables.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console.log(disposables.isDisposed);
+// =&gt; false
 
 disposables.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+// =&gt; disposed
 
-<span class="hljs-built_in">console</span>.log(disposables.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
-</code></pre>
+console.log(disposables.isDisposed);
+// =&gt; true
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-length-a-length"><a name="-a-id-length-a-length" class="plugin-anchor" href="#-a-id-length-a-length"><span class="fa fa-link"></span></a><a id="length"></a><code>length</code></h3>
-<p><a href="#length">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L8" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Gets the number of disposables in the CompositeDisposable.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposables = <span class="hljs-keyword">new</span> Rx.CompositeDisposable();
+<h3 id="length"><a name="length" class="plugin-anchor" href="#length"><span class="fa fa-link"></span></a><a id="length"></a>`length`</h3>
+<a href="#length">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/compositedisposable.js#L8 &quot;View in source&quot;)
 
-<span class="hljs-keyword">var</span> d1 = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+Gets the number of disposables in the CompositeDisposable.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+```js
+var disposables = new Rx.CompositeDisposable();
+
+var d1 = Rx.Disposable.create(() =&gt; console.log(&apos;disposed&apos;));
 
 disposables.add(d1);
 
-<span class="hljs-built_in">console</span>.log(disposables.length);
-<span class="hljs-comment">// =&gt; 1</span>
+console.log(disposables.length);
+// =&gt; 1
 
 disposables.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+// =&gt; disposed
 
-<span class="hljs-built_in">console</span>.log(disposables.length);
-<span class="hljs-comment">// =&gt; 0</span>
-</code></pre>
+console.log(disposables.length);
+// =&gt; 0
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>

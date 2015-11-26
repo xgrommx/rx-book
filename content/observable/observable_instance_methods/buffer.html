@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.5" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.5" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,45 +5356,64 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-buffer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-buffer-js"><a name="-rx-observable-prototype-buffer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-buffer-js" class="plugin-anchor" href="#-rx-observable-prototype-buffer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-buffer-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/buffer.js" target="_blank"><code>Rx.Observable.prototype.buffer()</code></a></h2>
+                        <h2 id="rxobservableprototypebufferhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablebufferjs"><a name="rxobservableprototypebufferhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablebufferjs" class="plugin-anchor" href="#rxobservableprototypebufferhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablebufferjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.buffer()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/buffer.js)</h2>
+
+
+
+
+
+
+
 <p>The <code>buffer</code> method periodically gathers items emitted by a source Observable into buffers, and emits these buffers as its own emissions.</p>
 <p>Note that if the source Observable issues an <code>onError</code> notification, <code>buffer</code> will pass on this notification immediately without first emitting the buffer it is in the process of assembling, even if that buffer contains items that were emitted by the source Observable before it issued the error notification.</p>
 <p>There are a number of ways with which you can regulate how <code>buffer</code> gathers items from the source Observable into buffers:</p>
 <h4 id="with-buffer-closing-selector"><a name="with-buffer-closing-selector" class="plugin-anchor" href="#with-buffer-closing-selector"><span class="fa fa-link"></span></a>With buffer closing selector</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.buffer(bufferClosingSelector);
-</code></pre>
-<p>Returns an Observable that emits buffers of items it collects from the source <code>Observable</code>. The resulting <code>Observable</code> emits connected, non-overlapping buffers. It emits the current buffer and replaces it with a new buffer whenever the <code>Observable</code> produced by the specified <code>bufferClosingSelector</code> emits an item.</p>
+```js
+Rx.Observable.prototype.buffer(bufferClosingSelector);
+```
+
+Returns an Observable that emits buffers of items it collects from the source `Observable`. The resulting `Observable` emits connected, non-overlapping buffers. It emits the current buffer and replaces it with a new buffer whenever the `Observable` produced by the specified `bufferClosingSelector` emits an item.
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>bufferClosingSelector</code> <em>(<code>Function</code>)</em>: A function invoked to define the closing of each produced window.</li>
-</ol>
+1. `bufferClosingSelector` *(`Function`)*: A function invoked to define the closing of each produced window.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence of windows.</p>
+*(`Observable`)*: An observable sequence of windows.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p><a href="http://jsbin.com/peyeni/1/embed?js,console" target="_blank"></a></p>
 <h4 id="with-buffer-opening-and-buffer-closing-selector"><a name="with-buffer-opening-and-buffer-closing-selector" class="plugin-anchor" href="#with-buffer-opening-and-buffer-closing-selector"><span class="fa fa-link"></span></a>With buffer opening and buffer closing selector</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.buffer(bufferOpenings, bufferClosingSelector);
-</code></pre>
-<p>This version of <code>buffer</code> monitors an <code>Observable</code>, <code>bufferOpenings</code>, that emits Observable objects. Each time it observes such an emitted object, it creates a new bundle to begin collecting items emitted by the source Observable and it passes the <code>bufferOpenings</code> Observable into the <code>bufferClosingSelector</code> function. That function returns an <code>Observable</code>. <code>buffer</code> monitors that <code>Observable</code> and when it detects an emitted object, it closes its bundle and emits it as its own emission.</p>
-<ol>
-<li><code>bufferOpenings</code> <em>(<code>Observable</code>)</em>: Observable sequence whose elements denote the creation of new windows.</li>
-<li><code>bufferClosingSelector</code> <em>(<code>Function</code>)</em>: A function invoked to define the closing of each produced window.</li>
-</ol>
+```js
+Rx.Observable.prototype.buffer(bufferOpenings, bufferClosingSelector);
+```
+
+This version of `buffer` monitors an `Observable`, `bufferOpenings`, that emits Observable objects. Each time it observes such an emitted object, it creates a new bundle to begin collecting items emitted by the source Observable and it passes the `bufferOpenings` Observable into the `bufferClosingSelector` function. That function returns an `Observable`. `buffer` monitors that `Observable` and when it detects an emitted object, it closes its bundle and emits it as its own emission.
+
+1. `bufferOpenings` *(`Observable`)*: Observable sequence whose elements denote the creation of new windows.
+2. `bufferClosingSelector` *(`Function`)*: A function invoked to define the closing of each produced window.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence of windows.</p>
+*(`Observable`)*: An observable sequence of windows.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p><a href="http://jsbin.com/meqizo/1/embed?js,console" target="_blank"></a></p>
 <h4 id="with-boundaries"><a name="with-boundaries" class="plugin-anchor" href="#with-boundaries"><span class="fa fa-link"></span></a>With boundaries</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.buffer(bufferBoundaries);
-</code></pre>
-<p>Returns an <code>Observable</code> that emits non-overlapping buffered items from the source <code>Observable</code> each time the specified boundary <code>Observable</code> emits an item.</p>
+```js
+Rx.Observable.prototype.buffer(bufferBoundaries);
+```
+
+Returns an `Observable` that emits non-overlapping buffered items from the source `Observable` each time the specified boundary `Observable` emits an item.
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>bufferBoundaries</code> <em>(<code>Observable</code>)</em>: Sequence of buffer boundary markers. The current buffer is closed and a new buffer is opened upon receiving a boundary marker.</li>
-</ol>
+1. `bufferBoundaries` *(`Observable`)*: Sequence of buffer boundary markers. The current buffer is closed and a new buffer is opened upon receiving a boundary marker.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence of windows.</p>
+*(`Observable`)*: An observable sequence of windows.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p><a href="http://jsbin.com/jacapa/1/embed?js,console" target="_blank"></a></p>
 
                     

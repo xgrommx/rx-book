@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.23" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.23" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,23 +5356,33 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-do-observer-onnext-onerror-oncompleted-rx-observable-prototype-doaction-observer-onnext-onerror-oncompleted-rx-observable-prototype-tap-observer-onnext-onerror-oncompleted-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-do-js"><a name="-rx-observable-prototype-do-observer-onnext-onerror-oncompleted-rx-observable-prototype-doaction-observer-onnext-onerror-oncompleted-rx-observable-prototype-tap-observer-onnext-onerror-oncompleted-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-do-js" class="plugin-anchor" href="#-rx-observable-prototype-do-observer-onnext-onerror-oncompleted-rx-observable-prototype-doaction-observer-onnext-onerror-oncompleted-rx-observable-prototype-tap-observer-onnext-onerror-oncompleted-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-do-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/do.js" target="_blank"><code>Rx.Observable.prototype.do(observer | [onNext], [onError], [onCompleted])</code>, <code>Rx.Observable.prototype.doAction(observer | [onNext], [onError], [onCompleted])</code>, <code>Rx.Observable.prototype.tap(observer | [onNext], [onError], [onCompleted])</code></a></h2>
+                        <h2 id="rxobservableprototypedoobserver-onnext-onerror-oncompleted-rxobservableprototypedoactionobserver-onnext-onerror-oncompleted-rxobservableprototypetapobserver-onnext-onerror-oncompletedhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledojs"><a name="rxobservableprototypedoobserver-onnext-onerror-oncompleted-rxobservableprototypedoactionobserver-onnext-onerror-oncompleted-rxobservableprototypetapobserver-onnext-onerror-oncompletedhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledojs" class="plugin-anchor" href="#rxobservableprototypedoobserver-onnext-onerror-oncompleted-rxobservableprototypedoactionobserver-onnext-onerror-oncompleted-rxobservableprototypetapobserver-onnext-onerror-oncompletedhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledojs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.do(observer | [onNext], [onError], [onCompleted])`, `Rx.Observable.prototype.doAction(observer | [onNext], [onError], [onCompleted])`, `Rx.Observable.prototype.tap(observer | [onNext], [onError], [onCompleted])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/do.js)</h2>
+
+
+
+
+
+
+
 <p>Invokes an action for each element in the observable sequence and invokes an action upon graceful or exceptional termination of the observable sequence.</p>
 <p>This method can be used for debugging, logging, etc. of query behavior by intercepting the message stream to run arbitrary actions for messages on the pipeline.</p>
 <p>There is an alias to this method <code>doAction</code> for browsers &lt;IE9 and <code>tap</code> as well.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>[observer]</code> <em>(Observer)</em>: An observer to invoke for each element in the observable sequence.</li>
-<li><code>[onNext]</code> <em>(<code>Function</code>)</em>: Function to invoke for each element in the observable sequence.</li>
-<li><code>[onError]</code> <em>(<code>Function</code>)</em>: Function to invoke upon exceptional termination of the observable sequence. Used if only the first parameter is also a function.</li>
-<li><code>[oncompleted]</code> <em>(<code>Function</code>)</em>: Function to invoke upon graceful termination of the observable sequence. Used if only the first parameter is also a function.</li>
-</ol>
+1. `[observer]` *(Observer)*: An observer to invoke for each element in the observable sequence.
+1. `[onNext]` *(`Function`)*: Function to invoke for each element in the observable sequence.
+2. `[onError]` *(`Function`)*: Function to invoke upon exceptional termination of the observable sequence. Used if only the first parameter is also a function.
+3. `[oncompleted]` *(`Function`)*: Function to invoke upon graceful termination of the observable sequence. Used if only the first parameter is also a function.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: The source sequence with the side-effecting behavior applied.</p>
+*(`Observable`)*: The source sequence with the side-effecting behavior applied.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <h5 id="using-a-function"><a name="using-a-function" class="plugin-anchor" href="#using-a-function"><span class="fa fa-link"></span></a>Using a function</h5>
+
 <p><a href="http://jsbin.com/viquwa/1/embed?js,console" target="_blank"></a></p>
 <h5 id="using-an-observer"><a name="using-an-observer" class="plugin-anchor" href="#using-an-observer"><span class="fa fa-link"></span></a>Using an observer</h5>
+
 <p><a href="http://jsbin.com/votaq/1/embed?js,console" target="_blank"></a></p>
 
                     

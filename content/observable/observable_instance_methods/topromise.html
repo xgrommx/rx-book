@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.124" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.124" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,15 +5356,17 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-topromise-promisector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-topromise-js"><a name="-rx-observable-prototype-topromise-promisector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-topromise-js" class="plugin-anchor" href="#-rx-observable-prototype-topromise-promisector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-topromise-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/topromise.js" target="_blank"><code>Rx.Observable.prototype.toPromise(promiseCtor)</code></a></h2>
+                        <h2 id="rxobservableprototypetopromisepromisectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabletopromisejs"><a name="rxobservableprototypetopromisepromisectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabletopromisejs" class="plugin-anchor" href="#rxobservableprototypetopromisepromisectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabletopromisejs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.toPromise(promiseCtor)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/topromise.js)</h2>
+
 <p>Converts an existing observable sequence to an ES6 Compatible Promise.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>promiseCtor</code> <em>(<code>Function</code>)</em>: The constructor of the promise. If not provided, it looks for it in Rx.config.Promise.</li>
-</ol>
+1. `promiseCtor` *(`Function`)*: The constructor of the promise. If not provided, it looks for it in Rx.config.Promise.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Promise</code>)</em>: An ES6 compatible promise with the last value from the observable sequence.</p>
+*(`Promise`)*: An ES6 compatible promise with the last value from the observable sequence.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> promise = Rx.Observable.return(<span class="hljs-number">42</span>).toPromise(RSVP.Promise);
 
 promise.then(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));
@@ -5372,6 +5374,7 @@ promise.then(<span class="hljs-built_in">console</span>.log.bind(<span class="hl
 <span class="hljs-comment">// =&gt; 42</span>
 </code></pre>
 <h4 id="example-with-config"><a name="example-with-config" class="plugin-anchor" href="#example-with-config"><span class="fa fa-link"></span></a>Example with config</h4>
+
 <pre><code class="lang-js">Rx.config.Promise = RSVP.Promise;
 <span class="hljs-keyword">var</span> promise = Rx.Observable.return(<span class="hljs-number">42</span>).toPromise();
 

@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="13.3" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="13.3" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,9 +5356,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-refcountdisposable-class"><a name="-rx-refcountdisposable-class" class="plugin-anchor" href="#-rx-refcountdisposable-class"><span class="fa fa-link"></span></a><code>Rx.RefCountDisposable</code> class</h1>
+                        <h1 id="rxrefcountdisposable-class"><a name="rxrefcountdisposable-class" class="plugin-anchor" href="#rxrefcountdisposable-class"><span class="fa fa-link"></span></a>`Rx.RefCountDisposable` class #</h1>
+
 <p>Represents a disposable resource that only disposes its underlying disposable resource when all <code>getDisposable</code> dependent disposable objects have been disposed.</p>
-<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage ##</h2>
+
 <p>The follow example shows the basic usage of an <code>Rx.RefCountDisposable</code>.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
 
@@ -5381,124 +5383,147 @@ refCountDisposable.dispose();
 <span class="hljs-comment">// =&gt; true</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
-<h2 id="-refcountdisposable-constructor"><a name="-refcountdisposable-constructor" class="plugin-anchor" href="#-refcountdisposable-constructor"><span class="fa fa-link"></span></a><code>RefCountDisposable Constructor</code></h2>
-<ul>
-<li><a href="#rxrefcountdisposabledisposable"><code>constructor</code></a></li>
-</ul>
-<h2 id="-refcountdisposable-instance-methods"><a name="-refcountdisposable-instance-methods" class="plugin-anchor" href="#-refcountdisposable-instance-methods"><span class="fa fa-link"></span></a><code>RefCountDisposable Instance Methods</code></h2>
-<ul>
-<li><a href="#rxrefcountdisposableprototypedispose"><code>dispose</code></a></li>
-<li><a href="#rxrefcountdisposableprototypegetdisposable"><code>getDisposable</code></a></li>
-</ul>
-<h2 id="-refcountdisposable-instance-properties"><a name="-refcountdisposable-instance-properties" class="plugin-anchor" href="#-refcountdisposable-instance-properties"><span class="fa fa-link"></span></a><code>RefCountDisposable Instance Properties</code></h2>
-<ul>
-<li><a href="#isdisposed"><code>isDisposed</code></a></li>
-</ul>
-<h2 id="-refcountdisposable-constructor"><a name="-refcountdisposable-constructor" class="plugin-anchor" href="#-refcountdisposable-constructor"><span class="fa fa-link"></span></a><em>RefCountDisposable Constructor</em></h2>
-<h3 id="-a-id-rxrefcountdisposable-a-rx-refcountdisposable-disposable"><a name="-a-id-rxrefcountdisposable-a-rx-refcountdisposable-disposable" class="plugin-anchor" href="#-a-id-rxrefcountdisposable-a-rx-refcountdisposable-disposable"><span class="fa fa-link"></span></a><a id="rxrefcountdisposable"></a><code>Rx.RefCountDisposable(disposable)</code></h3>
-<p><a href="#rxrefcountdisposable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L7-L10" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Initializes a new instance of the <code>Rx.RefCountDisposable</code> class with the specified disposable</p>
+<h2 id="refcountdisposable-constructor"><a name="refcountdisposable-constructor" class="plugin-anchor" href="#refcountdisposable-constructor"><span class="fa fa-link"></span></a>`RefCountDisposable Constructor` ##</h2>
+- [`constructor`](#rxrefcountdisposabledisposable)
+
+<h2 id="refcountdisposable-instance-methods"><a name="refcountdisposable-instance-methods" class="plugin-anchor" href="#refcountdisposable-instance-methods"><span class="fa fa-link"></span></a>`RefCountDisposable Instance Methods` ##</h2>
+- [`dispose`](#rxrefcountdisposableprototypedispose)
+- [`getDisposable`](#rxrefcountdisposableprototypegetdisposable)
+
+<h2 id="refcountdisposable-instance-properties"><a name="refcountdisposable-instance-properties" class="plugin-anchor" href="#refcountdisposable-instance-properties"><span class="fa fa-link"></span></a>`RefCountDisposable Instance Properties` ##</h2>
+- [`isDisposed`](#isdisposed)
+
+<h2 id="refcountdisposable-constructor"><a name="refcountdisposable-constructor" class="plugin-anchor" href="#refcountdisposable-constructor"><span class="fa fa-link"></span></a>_RefCountDisposable Constructor_ ##</h2>
+
+<h3 id="rxrefcountdisposabledisposable"><a name="rxrefcountdisposabledisposable" class="plugin-anchor" href="#rxrefcountdisposabledisposable"><span class="fa fa-link"></span></a><a id="rxrefcountdisposable"></a>`Rx.RefCountDisposable(disposable)`</h3>
+<a href="#rxrefcountdisposable">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L7-L10 &quot;View in source&quot;)
+
+Initializes a new instance of the `Rx.RefCountDisposable` class with the specified disposable
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>disposable</code> <em>(Disposable)</em>: Underlying disposable.</li>
-</ol>
+1. `disposable` *(Disposable)*: Underlying disposable.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+```js
+var disposable = Rx.Disposable.create(() =&gt; console.log(&apos;disposed&apos;));
 
-<span class="hljs-keyword">var</span> refCountDisposable = <span class="hljs-keyword">new</span> Rx.RefCountDisposable(disposable);
+var refCountDisposable = new Rx.RefCountDisposable(disposable);
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
-</code></pre>
+console.log(refCountDisposable.isDisposed);
+// =&gt; false
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-refcountdisposable-instance-methods"><a name="-refcountdisposable-instance-methods" class="plugin-anchor" href="#-refcountdisposable-instance-methods"><span class="fa fa-link"></span></a><em>RefCountDisposable Instance Methods</em></h2>
-<h3 id="-a-id-rxrefcountdisposableprototypedispose-a-rx-refcountdisposable-prototype-dispose"><a name="-a-id-rxrefcountdisposableprototypedispose-a-rx-refcountdisposable-prototype-dispose" class="plugin-anchor" href="#-a-id-rxrefcountdisposableprototypedispose-a-rx-refcountdisposable-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxrefcountdisposableprototypedispose"></a><code>Rx.RefCountDisposable.prototype.dispose()</code></h3>
-<p><a href="#rxrefcountdisposableprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L30-L35" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Disposes the underlying disposable only when all dependent disposables have been disposed.</p>
+<h2 id="refcountdisposable-instance-methods"><a name="refcountdisposable-instance-methods" class="plugin-anchor" href="#refcountdisposable-instance-methods"><span class="fa fa-link"></span></a>_RefCountDisposable Instance Methods_ ##</h2>
+
+<h3 id="rxrefcountdisposableprototypedispose"><a name="rxrefcountdisposableprototypedispose" class="plugin-anchor" href="#rxrefcountdisposableprototypedispose"><span class="fa fa-link"></span></a><a id="rxrefcountdisposableprototypedispose"></a>`Rx.RefCountDisposable.prototype.dispose()`</h3>
+<a href="#rxrefcountdisposableprototypedispose">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L30-L35 &quot;View in source&quot;)
+
+Disposes the underlying disposable only when all dependent disposables have been disposed.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
 
-<span class="hljs-keyword">var</span> refCountDisposable = <span class="hljs-keyword">new</span> Rx.RefCountDisposable(disposable);
+```js
+var disposable = Rx.Disposable.create(() =&gt; console.log(&apos;disposed&apos;));
 
-<span class="hljs-comment">// Try disposing before the underlying is disposed</span>
+var refCountDisposable = new Rx.RefCountDisposable(disposable);
+
+// Try disposing before the underlying is disposed
 refCountDisposable.dispose();
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console.log(refCountDisposable.isDisposed);
+// =&gt; false
 
-<span class="hljs-comment">// Dispose the underlying disposable</span>
+// Dispose the underlying disposable
 disposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+// =&gt; disposed
 
-<span class="hljs-comment">// Now dispose the primary</span>
+// Now dispose the primary
 refCountDisposable.dispose();
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
-</code></pre>
+console.log(refCountDisposable.isDisposed);
+// =&gt; true
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxrefcountdisposableprototypegetdisposable-a-rx-refcountdisposable-prototype-getdisposable"><a name="-a-id-rxrefcountdisposableprototypegetdisposable-a-rx-refcountdisposable-prototype-getdisposable" class="plugin-anchor" href="#-a-id-rxrefcountdisposableprototypegetdisposable-a-rx-refcountdisposable-prototype-getdisposable"><span class="fa fa-link"></span></a><a id="rxrefcountdisposableprototypegetdisposable"></a><code>Rx.RefCountDisposable.prototype.getDisposable()</code></h3>
-<p><a href="#rxrefcountdisposableprototypegetdisposable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L18-L20" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Returns a dependent disposable that when disposed decreases the refcount on the underlying disposable.</p>
+<h3 id="rxrefcountdisposableprototypegetdisposable"><a name="rxrefcountdisposableprototypegetdisposable" class="plugin-anchor" href="#rxrefcountdisposableprototypegetdisposable"><span class="fa fa-link"></span></a><a id="rxrefcountdisposableprototypegetdisposable"></a>`Rx.RefCountDisposable.prototype.getDisposable()`</h3>
+<a href="#rxrefcountdisposableprototypegetdisposable">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L18-L20 &quot;View in source&quot;)
+
+Returns a dependent disposable that when disposed decreases the refcount on the underlying disposable.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Disposable)</em>: A dependent disposable contributing to the reference count that manages the underlying disposable&apos;s lifetime.</p>
+*(Disposable)*: A dependent disposable contributing to the reference count that manages the underlying disposable&apos;s lifetime.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
 
-<span class="hljs-keyword">var</span> refCountDisposable = <span class="hljs-keyword">new</span> Rx.RefCountDisposable(disposable);
+```js
+var disposable = Rx.Disposable.create(() =&gt; console.log(&apos;disposed&apos;));
 
-<span class="hljs-keyword">var</span> d = refCountDisposable.getDisposable();
+var refCountDisposable = new Rx.RefCountDisposable(disposable);
 
-<span class="hljs-built_in">console</span>.log(d === disposable);
-<span class="hljs-comment">// =&gt; false</span>
+var d = refCountDisposable.getDisposable();
 
-<span class="hljs-comment">// Clean up disposables</span>
+console.log(d === disposable);
+// =&gt; false
+
+// Clean up disposables
 disposable.dispose();
 d.dispose();
 
-<span class="hljs-comment">// Now try to dispose the main</span>
+// Now try to dispose the main
 refCountDisposable.dispose();
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
-</code></pre>
+console.log(refCountDisposable.isDisposed);
+// =&gt; true
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-refcountdisposable-instance-properties"><a name="-refcountdisposable-instance-properties" class="plugin-anchor" href="#-refcountdisposable-instance-properties"><span class="fa fa-link"></span></a><em>RefCountDisposable Instance Properties</em></h2>
-<h3 id="-a-id-isdisposed-a-isdisposed"><a name="-a-id-isdisposed-a-isdisposed" class="plugin-anchor" href="#-a-id-isdisposed-a-isdisposed"><span class="fa fa-link"></span></a><a id="isdisposed"></a><code>isDisposed</code></h3>
-<p><a href="#isdisposed">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L8" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Gets a value that indicates whether the object is disposed.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+<h2 id="refcountdisposable-instance-properties"><a name="refcountdisposable-instance-properties" class="plugin-anchor" href="#refcountdisposable-instance-properties"><span class="fa fa-link"></span></a>_RefCountDisposable Instance Properties_ ##</h2>
 
-<span class="hljs-keyword">var</span> refCountDisposable = <span class="hljs-keyword">new</span> Rx.RefCountDisposable(disposable);
+<h3 id="isdisposed"><a name="isdisposed" class="plugin-anchor" href="#isdisposed"><span class="fa fa-link"></span></a><a id="isdisposed"></a>`isDisposed`</h3>
+<a href="#isdisposed">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/rxrefcountdisposable.js#L8 &quot;View in source&quot;)
+
+Gets a value that indicates whether the object is disposed.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+```js
+var disposable = Rx.Disposable.create(() =&gt; console.log(&apos;disposed&apos;));
+
+var refCountDisposable = new Rx.RefCountDisposable(disposable);
 
 disposable.dispose();
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; false</span>
+console.log(refCountDisposable.isDisposed);
+// =&gt; false
 
 refCountDisposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
+// =&gt; disposed
 
-<span class="hljs-built_in">console</span>.log(refCountDisposable.isDisposed);
-<span class="hljs-comment">// =&gt; true</span>
-</code></pre>
+console.log(refCountDisposable.isDisposed);
+// =&gt; true
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>

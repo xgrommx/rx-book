@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.126" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.126" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,7 +5356,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-transduce-transducer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-transduce-js"><a name="-rx-observable-prototype-transduce-transducer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-transduce-js" class="plugin-anchor" href="#-rx-observable-prototype-transduce-transducer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-transduce-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/transduce.js" target="_blank"><code>Rx.Observable.prototype.transduce(transducer)</code></a></h2>
+                        <h2 id="rxobservableprototypetransducetransducerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabletransducejs"><a name="rxobservableprototypetransducetransducerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabletransducejs" class="plugin-anchor" href="#rxobservableprototypetransducetransducerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabletransducejs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.transduce(transducer)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/transduce.js)</h2>
+
 <p>Executes a transducer to transform the observable sequence.  </p>
 <p>Transducers are composable algorithmic transformations. They are independent from the context of their input and output sources and specify only the essence of the transformation in terms of an individual element. Because transducers are decoupled from input or output sources, they can be used in many different processes such as Observable sequences. Transducers compose directly, without awareness of input or creation of intermediate aggregates.</p>
 <p>Such examples of transducers libraries are <a href="https://github.com/cognitect-labs/transducers-js" target="_blank">transducers-js</a> from Cognitect and <a href="https://github.com/jlongster/transducers.js" target="_blank">transducers.js</a> from James Long.</p>
@@ -5376,13 +5377,15 @@
   }
 };
 </code></pre>
-<h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3>
+<p></p><h3 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h3><p></p>
 <ol>
 <li><code>transducer</code> <em>(<code>Transducer</code>)</em>: A transducer to execute.</li>
 </ol>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence that results from the transducer execution.</p>
+*(`Observable`)*: An observable sequence that results from the transducer execution.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p>Below is an example using <a href="https://github.com/cognitect-labs/transducers-js" target="_blank">transducers-js</a>.</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">even</span> (<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>; }
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul10</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x * <span class="hljs-number">10</span>; }

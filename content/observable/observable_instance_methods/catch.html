@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.9" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.9" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,19 +5356,29 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-catch-second-handler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-catch-js"><a name="-rx-observable-prototype-catch-second-handler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-catch-js" class="plugin-anchor" href="#-rx-observable-prototype-catch-second-handler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-catch-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/catch.js" target="_blank"><code>Rx.Observable.prototype.catch(second | handler)</code></a></h2>
+                        <h2 id="rxobservableprototypecatchsecond-handlerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablecatchjs"><a name="rxobservableprototypecatchsecond-handlerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablecatchjs" class="plugin-anchor" href="#rxobservableprototypecatchsecond-handlerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablecatchjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.catch(second | handler)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/catch.js)</h2>
+
+
+
+
+
+
+
 <p>Continues an observable sequence that is terminated by an exception with the next observable sequence.  There is an alias for this method <code>catchException</code> for browsers &lt;IE9</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>second</code> <em>(<code>Observable</code>)</em>: A second observable sequence used to produce results when an error occurred in the first sequence.</li>
-<li><code>handler</code> <em>(<code>Function</code>)</em>: Exception handler function that returns an observable sequence given the error that occurred in the first sequence</li>
-</ol>
+1. `second` *(`Observable`)*: A second observable sequence used to produce results when an error occurred in the first sequence.
+1. `handler` *(`Function`)*: Exception handler function that returns an observable sequence given the error that occurred in the first sequence
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence containing the first sequence&apos;s elements, followed by the elements of the handler sequence in case an exception occurred.</p>
+*(`Observable`)*: An observable sequence containing the first sequence&apos;s elements, followed by the elements of the handler sequence in case an exception occurred.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <h5 id="using-a-second-observable"><a name="using-a-second-observable" class="plugin-anchor" href="#using-a-second-observable"><span class="fa fa-link"></span></a>Using a second observable</h5>
+
 <p><a href="http://jsbin.com/paxiz/1/embed?js,console" target="_blank"></a></p>
 <h5 id="using-a-handler-function"><a name="using-a-handler-function" class="plugin-anchor" href="#using-a-handler-function"><span class="fa fa-link"></span></a>Using a handler function</h5>
+
 <p><a href="http://jsbin.com/nikay/1/embed?js,console" target="_blank"></a></p>
 
                     

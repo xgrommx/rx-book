@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.16" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.16" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,11 +5356,13 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-debounce-duetime-scheduler-rx-observable-prototype-throttle-duetime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-debounce-js-view-in-source"><a name="-rx-observable-prototype-debounce-duetime-scheduler-rx-observable-prototype-throttle-duetime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-debounce-js-view-in-source" class="plugin-anchor" href="#-rx-observable-prototype-debounce-duetime-scheduler-rx-observable-prototype-throttle-duetime-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-debounce-js-view-in-source"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/debounce.js" title="View in source" target="_blank"><code>Rx.Observable.prototype.debounce(dueTime, [scheduler])</code>, <code>Rx.Observable.prototype.throttle(dueTime, [scheduler])</code></a></h2>
+                        <h2 id="rxobservableprototypedebounceduetime-scheduler-rxobservableprototypethrottleduetime-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledebouncejs-view-in-source"><a name="rxobservableprototypedebounceduetime-scheduler-rxobservableprototypethrottleduetime-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledebouncejs-view-in-source" class="plugin-anchor" href="#rxobservableprototypedebounceduetime-scheduler-rxobservableprototypethrottleduetime-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledebouncejs-view-in-source"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.debounce(dueTime, [scheduler])`, `Rx.Observable.prototype.throttle(dueTime, [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/debounce.js &quot;View in source&quot;)</h2>
+
 <p>Emits an item from the source Observable after a particular timespan has passed without the Observable omitting any other items.</p>
 <p>--OR--</p>
 <p>Ignores values from an observable sequence which are followed by another value within a computed debounced duration.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
+
 <p>If using a relative due time:</p>
 <ol>
 <li><code>dueTime</code> <em>(<code>Number</code>)</em>: Duration of the throttle period for each value (specified as an integer denoting milliseconds).</li>
@@ -5370,9 +5372,9 @@
 <ol>
 <li><code>durationSelector</code> <em>(<code>Function</code>)</em>: Selector function to retrieve a sequence indicating the throttle duration for each given element.</li>
 </ol>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: The debounced sequence.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<p></p><h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<em>(<code>Observable</code>)</em>: The debounced sequence.<p></p>
+<p></p><h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4><p></p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> times = [
     { value: <span class="hljs-number">0</span>, time: <span class="hljs-number">100</span> },
     { value: <span class="hljs-number">1</span>, time: <span class="hljs-number">600</span> },

@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.39" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.39" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,10 +5356,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-flatmapfirst-selector-thisarg-rx-observable-prototype-selectswitchfirst-selector-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-flatmapfirst-js"><a name="-rx-observable-prototype-flatmapfirst-selector-thisarg-rx-observable-prototype-selectswitchfirst-selector-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-flatmapfirst-js" class="plugin-anchor" href="#-rx-observable-prototype-flatmapfirst-selector-thisarg-rx-observable-prototype-selectswitchfirst-selector-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-flatmapfirst-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/flatmapfirst.js" target="_blank"><code>Rx.Observable.prototype.flatMapFirst(selector, [thisArg])</code>,<code>Rx.Observable.prototype.selectSwitchFirst(selector, [thisArg])</code></a></h2>
+                        <h2 id="rxobservableprototypeflatmapfirstselector-thisarg-rxobservableprototypeselectswitchfirstselector-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableflatmapfirstjs"><a name="rxobservableprototypeflatmapfirstselector-thisarg-rxobservableprototypeselectswitchfirstselector-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableflatmapfirstjs" class="plugin-anchor" href="#rxobservableprototypeflatmapfirstselector-thisarg-rxobservableprototypeselectswitchfirstselector-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableflatmapfirstjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.flatMapFirst(selector, [thisArg])`,`Rx.Observable.prototype.selectSwitchFirst(selector, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/flatmapfirst.js)</h2>
+
 <p>Transform the items emitted by an Observable into Observables, and mirror those items emitted by the most-recently transformed Observable.</p>
 <p>The <code>flatMapFirst</code> operator is similar to the <code>flatMap</code> and <code>concatMap</code> methods described above, however, rather than emitting all of the items emitted by all of the Observables that the operator generates by transforming items from the source <code>Observable</code>, <code>flatMapFirst</code> instead propagates the first <code>Observable</code> exclusively until it completes before it begins subscribes to the next <code>Observable</code>.  Observables that come before the current <code>Observable</code> completes will be dropped and will not propagate.</p>
-<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
+<p></p><h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4><p></p>
 <ol>
 <li><code>selector</code> <em>(<code>Function</code>)</em>:  A transform function to apply to each source element.  The callback has the following information:<ol>
 <li>the value of the element</li>
@@ -5369,9 +5370,9 @@
 </li>
 <li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the predicate.</li>
 </ol>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An Observable sequence that is the result of concatenating non-overlapping items emitted by an Observable of Observables.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<p></p><h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<em>(<code>Observable</code>)</em>: An Observable sequence that is the result of concatenating non-overlapping items emitted by an Observable of Observables.<p></p>
+<p></p><h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4><p></p>
 <pre><code class="lang-js"><span class="hljs-comment">//Generate an event every 100 milliseconds</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.generateWithRelativeTime(
    <span class="hljs-number">0</span>,

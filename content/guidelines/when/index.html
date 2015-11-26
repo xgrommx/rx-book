@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="2.2" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="2.2" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5357,16 +5357,20 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="when-to-use-rxjs"><a name="when-to-use-rxjs" class="plugin-anchor" href="#when-to-use-rxjs"><span class="fa fa-link"></span></a>When to use RxJS</h1>
+
 <h3 id="use-rxjs-for-orchestrating-asynchronous-and-event-based-computations"><a name="use-rxjs-for-orchestrating-asynchronous-and-event-based-computations" class="plugin-anchor" href="#use-rxjs-for-orchestrating-asynchronous-and-event-based-computations"><span class="fa fa-link"></span></a>Use RxJS for orchestrating asynchronous and event-based computations</h3>
-<p>Code that deals with more than one event or asynchronous computation gets complicated quickly as it needs to build a state-machine to deal with ordering issues. Next to this, the code needs to deal with successful and failure termination of each separate computation. This leads to code that doesn&#x2019;t follow normal control-flow, is hard to understand and hard to maintain.</p>
-<p>RxJS makes these computations first-class citizens. This provides a model that allows for readable and composable APIs to deal with these asynchronous computations.</p>
-<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> input = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;input&apos;</span>);
-<span class="hljs-keyword">var</span> dictionarySuggest = Rx.Observable.fromEvent(input, <span class="hljs-string">&apos;keyup&apos;</span>)
+Code that deals with more than one event or asynchronous computation gets complicated quickly as it needs to build a state-machine to deal with ordering issues. Next to this, the code needs to deal with successful and failure termination of each separate computation. This leads to code that doesn&#x2019;t follow normal control-flow, is hard to understand and hard to maintain.
+
+RxJS makes these computations first-class citizens. This provides a model that allows for readable and composable APIs to deal with these asynchronous computations.
+
+<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample ####</h4>
+```js
+var input = document.getElementById(&apos;input&apos;);
+var dictionarySuggest = Rx.Observable.fromEvent(input, &apos;keyup&apos;)
   .map(() =&gt; input.value)
   .filter(text =&gt; !!text)
   .distinctUntilChanged()
-  .throttle(<span class="hljs-number">250</span>)
+  .throttle(250)
   .flatMapLatest(searchWikipedia)
   .subscribe(
     results =&gt; {
@@ -5375,25 +5379,38 @@
     },
     err =&gt; logError(err)
   );
-</code></pre>
-<p>This sample models a common UI paradigm of receiving completion suggestions while the user is typing input.</p>
-<p>RxJS creates an observable sequence that models an existing <code>keyup</code> event on the input.</p>
-<p>It then places several filters and projections on top of the event to make the event only fire if a unique value has come through. (The <code>keyup</code> event fires for every key stroke, so also if the user presses left or right arrow, moving the cursor but not changing the input text).</p>
-<p>Next it makes sure the event only gets fired after 250 milliseconds of activity by using the <a href="../../observable/observable_instance_methods/throttle.html"><code>throttle</code></a> operator. (If the user is still typing characters, this saves a potentially expensive lookup that will be ignored immediately).</p>
-<p>In traditionally written programs, this throttling would introduce separate callbacks through a timer. This timer could potentially throw exceptions (certain timers have a maximum amount of operations in flight).</p>
-<p>Once the user input has been filtered down it is time to perform the dictionary lookup. As this is usually an expensive operation (e.g. a request to a server on the other side of the world), this operation is itself asynchronous as well.</p>
-<p>The <a href="../../observable/observable_instance_methods/flatmap.html"><code>flatMap</code>/<code>selectMany</code></a> operator allows for easy combining of multiple asynchronous operations. It doesn&#x2019;t only combine success values; it also tracks any exceptions that happen in each individual operation.</p>
-<p>In traditionally written programs, this would introduce separate callbacks and a place for exceptions occurring.</p>
-<p>If the user types a new character while the dictionary operation is still in progress, we do not want to see the results of that operation anymore. The user has typed more characters leading to a more specific word, seeing old results would be confusing.</p>
-<p>The <code>flatMapLatest</code> operation makes sure that the dictionary operation is ignored once a new <code>keyup</code> has been detected.</p>
-<p>Finally we subscribe to the resulting observable sequence. Only at this time our execution plan will be used. We pass two functions to the <code>subscribe</code> call:</p>
-<ol>
-<li>Receives the result from our computation.</li>
-<li>Receives exceptions in case of a failure occurring anywhere along the computation.</li>
-</ol>
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
-<p>If the application/library in question has very few asynchronous/event-based operations or has very few places where these operations need to be composed, the cost of depending on RxJS (redistributing the library as well as the learning curve) might outweigh the cost of manually coding these operations.</p>
+```
+
+This sample models a common UI paradigm of receiving completion suggestions while the user is typing input.
+
+RxJS creates an observable sequence that models an existing `keyup` event on the input.
+
+It then places several filters and projections on top of the event to make the event only fire if a unique value has come through. (The `keyup` event fires for every key stroke, so also if the user presses left or right arrow, moving the cursor but not changing the input text).
+
+Next it makes sure the event only gets fired after 250 milliseconds of activity by using the [`throttle`](../../observable/observable_instance_methods/throttle.html) operator. (If the user is still typing characters, this saves a potentially expensive lookup that will be ignored immediately).
+
+In traditionally written programs, this throttling would introduce separate callbacks through a timer. This timer could potentially throw exceptions (certain timers have a maximum amount of operations in flight).
+
+Once the user input has been filtered down it is time to perform the dictionary lookup. As this is usually an expensive operation (e.g. a request to a server on the other side of the world), this operation is itself asynchronous as well.
+
+The [`flatMap`/`selectMany`](../../observable/observable_instance_methods/flatmap.html) operator allows for easy combining of multiple asynchronous operations. It doesn&#x2019;t only combine success values; it also tracks any exceptions that happen in each individual operation.
+
+In traditionally written programs, this would introduce separate callbacks and a place for exceptions occurring.
+
+If the user types a new character while the dictionary operation is still in progress, we do not want to see the results of that operation anymore. The user has typed more characters leading to a more specific word, seeing old results would be confusing.
+
+The `flatMapLatest` operation makes sure that the dictionary operation is ignored once a new `keyup` has been detected.
+
+Finally we subscribe to the resulting observable sequence. Only at this time our execution plan will be used. We pass two functions to the `subscribe` call:
+1. Receives the result from our computation.
+2. Receives exceptions in case of a failure occurring anywhere along the computation.
+
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
+
+If the application/library in question has very few asynchronous/event-based operations or has very few places where these operations need to be composed, the cost of depending on RxJS (redistributing the library as well as the learning curve) might outweigh the cost of manually coding these operations.
+
 <h3 id="use-rxjs-to-deal-with-asynchronous-sequences-of-data"><a name="use-rxjs-to-deal-with-asynchronous-sequences-of-data" class="plugin-anchor" href="#use-rxjs-to-deal-with-asynchronous-sequences-of-data"><span class="fa fa-link"></span></a>Use RxJS to deal with asynchronous sequences of data</h3>
+
 <p>Several other libraries exist to aid asynchronous operations in the JavaScript ecosystem. Even though these libraries are powerful, they usually work best on operations that return a single message. They usually do not support operations that produce multiple messages over the lifetime of the operation.</p>
 <p>RxJS follows the following grammar: <code>onNext</code>* (<code>onCompleted</code>|<code>onError</code>)?. This allows for multiple messages to come in over time. This makes RxJS suitable for both operations that produce a single message, as well as operations that produce multiple messages.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
@@ -5429,7 +5446,8 @@ readAsync(inFile, <span class="hljs-number">2</span> &lt;&lt; <span class="hljs-
 <p>Reading the whole file into memory, encrypting it and writing out the whole file would be an expensive operation.</p>
 <p>Instead, we rely on the fact that RxJS can produce many messages.</p>
 <p>We read the file asynchronously in blocks of 64K. This produces an observable sequence of byte arrays. We then encrypt each block separately (for this sample we assume the encryption operation can work on separate parts of the file). Once the block is encrypted, it is immediately sent further down the pipeline to be saved to the other file.  The <code>writeAsync</code> operation is an asynchronous operation that can process multiple messages.</p>
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
+
 <p>If the application/library in question has very few operations with multiple messages, the cost of depending on RxJS (redistributing the library as well as the learning curve) might outweigh the cost of manually coding these operations.</p>
 
                     

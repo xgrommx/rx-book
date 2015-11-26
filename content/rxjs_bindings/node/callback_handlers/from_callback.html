@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="15.6.1.1" data-basepath="../../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="15.6.1.1" data-basepath="../../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5357,46 +5357,55 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="fromcallback"><a name="fromcallback" class="plugin-anchor" href="#fromcallback"><span class="fa fa-link"></span></a>fromCallback</h1>
-<h3 id="-a-id-rxnodefromcallbackfunc-scheduler-context-a-rx-node-fromcallback-func-scheduler-context"><a name="-a-id-rxnodefromcallbackfunc-scheduler-context-a-rx-node-fromcallback-func-scheduler-context" class="plugin-anchor" href="#-a-id-rxnodefromcallbackfunc-scheduler-context-a-rx-node-fromcallback-func-scheduler-context"><span class="fa fa-link"></span></a><a id="rxnodefromcallbackfunc-scheduler-context"></a><code>Rx.Node.fromCallback(func, [scheduler], [context])</code></h3>
-<p><a href="#rxnodefromcallbackfunc-scheduler-context">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/rx.node.js#L27-L29" title="View in source" target="_blank">&#x24C8;</a> </p>
-<p><strong>Deprecated in favor of <code>Rx.Observable.fromCallback</code> in rx.async.js.</strong></p>
-<p>Converts a callback function to an observable sequence. </p>
+
+<h3 id="rxnodefromcallbackfunc-scheduler-context"><a name="rxnodefromcallbackfunc-scheduler-context" class="plugin-anchor" href="#rxnodefromcallbackfunc-scheduler-context"><span class="fa fa-link"></span></a><a id="rxnodefromcallbackfunc-scheduler-context"></a>`Rx.Node.fromCallback(func, [scheduler], [context])`</h3>
+<a href="#rxnodefromcallbackfunc-scheduler-context">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/rx.node.js#L27-L29 &quot;View in source&quot;) 
+
+**Deprecated in favor of `Rx.Observable.fromCallback` in rx.async.js.**
+
+Converts a callback function to an observable sequence. 
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>func</code> <em>(Function)</em>: Callback function</li>
-<li><code>[scheduler = Rx.Scheduler.timeout]</code> <em>(Scheduler)</em>: Scheduler used to execute the callback.</li>
-<li><code>[context]</code> <em>(Any)</em>: The context to execute the callback.</li>
-</ol>
+1. `func` *(Function)*: Callback function
+2. `[scheduler = Rx.Scheduler.timeout]` *(Scheduler)*: Scheduler used to execute the callback.
+3. `[context]` *(Any)*: The context to execute the callback.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Function)</em>: Function, when called with arguments, creates an Observable sequence from the callback.</p>
+*(Function)*: Function, when called with arguments, creates an Observable sequence from the callback.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>);
-<span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;Rx&apos;</span>);
+```js
+var fs = require(&apos;fs&apos;);
+var Rx = require(&apos;Rx&apos;);
 
-<span class="hljs-comment">// Wrap exists</span>
-<span class="hljs-keyword">var</span> exists = Rx.Node.fromCallback(fs.exists);
+// Wrap exists
+var exists = Rx.Node.fromCallback(fs.exists);
 
-<span class="hljs-comment">// Call exists</span>
-<span class="hljs-keyword">var</span> source = exists(<span class="hljs-string">&apos;/etc/passwd&apos;</span>);
+// Call exists
+var source = exists(&apos;/etc/passwd&apos;);
 
-<span class="hljs-keyword">var</span> observer = Rx.Observer.create(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
+var observer = Rx.Observer.create(
+    function (x) {
+        console.log(&apos;Next: &apos; + x);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);   
+    function (err) {
+        console.log(&apos;Error: &apos; + err);   
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);   
+    function () {
+        console.log(&apos;Completed&apos;);   
     }
 );
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(observer);
+var subscription = source.subscribe(observer);
 
-<span class="hljs-comment">// =&gt; Next: true</span>
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+// =&gt; Next: true
+// =&gt; Completed
+```
+
+
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.node.js</li>
 </ul>

@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="13.2" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="13.2" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,9 +5356,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-disposable-class"><a name="-rx-disposable-class" class="plugin-anchor" href="#-rx-disposable-class"><span class="fa fa-link"></span></a><code>Rx.Disposable</code> class</h1>
+                        <h1 id="rxdisposable-class"><a name="rxdisposable-class" class="plugin-anchor" href="#rxdisposable-class"><span class="fa fa-link"></span></a>`Rx.Disposable` class #</h1>
+
 <p>Provides a set of static methods for creating Disposables, which defines a method to release allocated resources.</p>
-<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage ##</h2>
+
 <p>The follow example shows the basic usage of an <code>Rx.Disposable</code>.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
 
@@ -5366,69 +5368,88 @@ disposable.dispose();
 <span class="hljs-comment">// =&gt; disposed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
-<h2 id="-disposable-class-methods"><a name="-disposable-class-methods" class="plugin-anchor" href="#-disposable-class-methods"><span class="fa fa-link"></span></a><code>Disposable Class Methods</code></h2>
-<ul>
-<li><a href="#rxdisposablecreateaction"><code>create</code></a></li>
-</ul>
-<h2 id="-disposable-class-properties"><a name="-disposable-class-properties" class="plugin-anchor" href="#-disposable-class-properties"><span class="fa fa-link"></span></a><code>Disposable Class Properties</code></h2>
-<ul>
-<li><a href="#rxdisposableempty"><code>empty</code></a></li>
-</ul>
-<h2 id="-disposable-instance-methods"><a name="-disposable-instance-methods" class="plugin-anchor" href="#-disposable-instance-methods"><span class="fa fa-link"></span></a><code>Disposable Instance Methods</code></h2>
-<ul>
-<li><a href="#rxdisposableprototypedispose"><code>dispose</code></a></li>
-</ul>
-<h2 id="-class-methods"><a name="-class-methods" class="plugin-anchor" href="#-class-methods"><span class="fa fa-link"></span></a><em>Class Methods</em></h2>
-<h3 id="-a-id-rxdisposablecreateaction-a-rx-disposable-create-action"><a name="-a-id-rxdisposablecreateaction-a-rx-disposable-create-action" class="plugin-anchor" href="#-a-id-rxdisposablecreateaction-a-rx-disposable-create-action"><span class="fa fa-link"></span></a><a id="rxdisposablecreateaction"></a><code>Rx.Disposable.create(action)</code></h3>
-<p><a href="#rxdisposablecreateaction">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/disposable.js#L25" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Creates a disposable object that invokes the specified action when disposed.</p>
+<h2 id="disposable-class-methods"><a name="disposable-class-methods" class="plugin-anchor" href="#disposable-class-methods"><span class="fa fa-link"></span></a>`Disposable Class Methods` ##</h2>
+- [`create`](#rxdisposablecreateaction)
+
+<h2 id="disposable-class-properties"><a name="disposable-class-properties" class="plugin-anchor" href="#disposable-class-properties"><span class="fa fa-link"></span></a>`Disposable Class Properties` ##</h2>
+- [`empty`](#rxdisposableempty)
+
+<h2 id="disposable-instance-methods"><a name="disposable-instance-methods" class="plugin-anchor" href="#disposable-instance-methods"><span class="fa fa-link"></span></a>`Disposable Instance Methods` ##</h2>
+- [`dispose`](#rxdisposableprototypedispose)
+
+<h2 id="class-methods"><a name="class-methods" class="plugin-anchor" href="#class-methods"><span class="fa fa-link"></span></a>_Class Methods_ ##</h2>
+
+<h3 id="rxdisposablecreateaction"><a name="rxdisposablecreateaction" class="plugin-anchor" href="#rxdisposablecreateaction"><span class="fa fa-link"></span></a><a id="rxdisposablecreateaction"></a>`Rx.Disposable.create(action)`</h3>
+<a href="#rxdisposablecreateaction">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/disposable.js#L25 &quot;View in source&quot;)
+
+Creates a disposable object that invokes the specified action when disposed.
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>action</code> <em>(Function)</em>: Function to run during the first call to <code>dispose</code>. The action is guaranteed to be run at most once.</li>
-</ol>
+1. `action` *(Function)*: Function to run during the first call to `dispose`. The action is guaranteed to be run at most once.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Disposable)</em>: The disposable object that runs the given action upon disposal.</p>
+*(Disposable)*: The disposable object that runs the given action upon disposal.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+```js
+var disposable = Rx.Disposable.create(() =&gt; console.log(&apos;disposed&apos;));
 
 disposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
-</code></pre>
+// =&gt; disposed
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-disposable-class-properties"><a name="-disposable-class-properties" class="plugin-anchor" href="#-disposable-class-properties"><span class="fa fa-link"></span></a><em>Disposable Class Properties</em></h2>
-<h3 id="-a-id-rxdisposableempty-a-rx-disposable-empty"><a name="-a-id-rxdisposableempty-a-rx-disposable-empty" class="plugin-anchor" href="#-a-id-rxdisposableempty-a-rx-disposable-empty"><span class="fa fa-link"></span></a><a id="rxdisposableempty"></a><code>Rx.Disposable.empty</code></h3>
-<p><a href="#rxdisposableempty">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/disposable.js#L130" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Gets the disposable that does nothing when disposed.</p>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Disposable)</em>: The disposable that does nothing when disposed.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.empty;
+<h2 id="disposable-class-properties"><a name="disposable-class-properties" class="plugin-anchor" href="#disposable-class-properties"><span class="fa fa-link"></span></a>_Disposable Class Properties_ ##</h2>
 
-disposable.dispose(); <span class="hljs-comment">// Does nothing</span>
-</code></pre>
+<h3 id="rxdisposableempty"><a name="rxdisposableempty" class="plugin-anchor" href="#rxdisposableempty"><span class="fa fa-link"></span></a><a id="rxdisposableempty"></a>`Rx.Disposable.empty`</h3>
+<a href="#rxdisposableempty">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/disposable.js#L130 &quot;View in source&quot;)
+
+Gets the disposable that does nothing when disposed.
+
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+*(Disposable)*: The disposable that does nothing when disposed.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
+```js
+var disposable = Rx.Disposable.empty;
+
+disposable.dispose(); // Does nothing
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-disposable-instance-methods"><a name="-disposable-instance-methods" class="plugin-anchor" href="#-disposable-instance-methods"><span class="fa fa-link"></span></a><em>Disposable Instance Methods</em></h2>
-<h3 id="-a-id-rxdisposableprototypedispose-a-rx-disposable-prototype-dispose"><a name="-a-id-rxdisposableprototypedispose-a-rx-disposable-prototype-dispose" class="plugin-anchor" href="#-a-id-rxdisposableprototypedispose-a-rx-disposable-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxdisposableprototypedispose"></a><code>Rx.Disposable.prototype.dispose()</code></h3>
-<p><a href="#rxdisposableprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/disposable.js#L13-L18" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Performs the task of cleaning up resources.</p>
+<h2 id="disposable-instance-methods"><a name="disposable-instance-methods" class="plugin-anchor" href="#disposable-instance-methods"><span class="fa fa-link"></span></a>_Disposable Instance Methods_ ##</h2>
+
+<h3 id="rxdisposableprototypedispose"><a name="rxdisposableprototypedispose" class="plugin-anchor" href="#rxdisposableprototypedispose"><span class="fa fa-link"></span></a><a id="rxdisposableprototypedispose"></a>`Rx.Disposable.prototype.dispose()`</h3>
+<a href="#rxdisposableprototypedispose">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/disposables/disposable.js#L13-L18 &quot;View in source&quot;)
+
+Performs the task of cleaning up resources.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> disposable = Rx.Disposable.create(() =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;disposed&apos;</span>));
+
+```js
+var disposable = Rx.Disposable.create(() =&gt; console.log(&apos;disposed&apos;));
 
 disposable.dispose();
-<span class="hljs-comment">// =&gt; disposed</span>
-</code></pre>
+// =&gt; disposed
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>

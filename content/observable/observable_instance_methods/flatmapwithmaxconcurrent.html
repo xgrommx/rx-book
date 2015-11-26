@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.42" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.42" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,7 +5356,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-flatmapwithmaxconcurrent-maxconcurrent-selector-resultselector-thisarg-rx-observable-prototype-selectwithmaxconcurrent-maxconcurrent-selector-resultselector-thisarg-ttps-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-flatmapwithmaxconcurrent-js"><a name="-rx-observable-prototype-flatmapwithmaxconcurrent-maxconcurrent-selector-resultselector-thisarg-rx-observable-prototype-selectwithmaxconcurrent-maxconcurrent-selector-resultselector-thisarg-ttps-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-flatmapwithmaxconcurrent-js" class="plugin-anchor" href="#-rx-observable-prototype-flatmapwithmaxconcurrent-maxconcurrent-selector-resultselector-thisarg-rx-observable-prototype-selectwithmaxconcurrent-maxconcurrent-selector-resultselector-thisarg-ttps-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-flatmapwithmaxconcurrent-js"><span class="fa fa-link"></span></a><a href="ttps://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/flatmapwithmaxconcurrent.js" target="_blank"><code>Rx.Observable.prototype.flatMapWithMaxConcurrent(maxConcurrent, selector, [resultSelector], [thisArg])</code>, <code>Rx.Observable.prototype.selectWithMaxConcurrent(maxConcurrent, selector, [resultSelector], [thisArg])</code></a></h2>
+                        <h2 id="rxobservableprototypeflatmapwithmaxconcurrentmaxconcurrent-selector-resultselector-thisarg-rxobservableprototypeselectwithmaxconcurrentmaxconcurrent-selector-resultselector-thisargttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableflatmapwithmaxconcurrentjs"><a name="rxobservableprototypeflatmapwithmaxconcurrentmaxconcurrent-selector-resultselector-thisarg-rxobservableprototypeselectwithmaxconcurrentmaxconcurrent-selector-resultselector-thisargttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableflatmapwithmaxconcurrentjs" class="plugin-anchor" href="#rxobservableprototypeflatmapwithmaxconcurrentmaxconcurrent-selector-resultselector-thisarg-rxobservableprototypeselectwithmaxconcurrentmaxconcurrent-selector-resultselector-thisargttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableflatmapwithmaxconcurrentjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.flatMapWithMaxConcurrent(maxConcurrent, selector, [resultSelector], [thisArg])`, `Rx.Observable.prototype.selectWithMaxConcurrent(maxConcurrent, selector, [resultSelector], [thisArg])`](ttps://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/flatmapwithmaxconcurrent.js)</h2>
+
 <p>This is an alias for the <code>selectWithMaxConcurrent</code> method.  This can be one of the following:</p>
 <p>Projects each element of the source observable sequence to the other observable sequence and merges the resulting observable sequences into one observable sequence with the given concurrency limit.</p>
 <pre><code class="lang-js">source.flatMapWithMaxConcurrent(<span class="hljs-number">10</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, i</span>) </span>{ <span class="hljs-keyword">return</span> Rx.Observable.range(<span class="hljs-number">0</span>, x); });
@@ -5373,7 +5374,7 @@ source.flatMapWithMaxConcurrent(<span class="hljs-number">1</span>, <span class=
 source.flatMapWithMaxConcurrent(<span class="hljs-number">1</span>, <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-number">42</span>));
 source.flatMapWithMaxConcurrent(<span class="hljs-number">1</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]);
 </code></pre>
-<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
+<p></p><h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4><p></p>
 <ol>
 <li><code>maxConcurrent</code> <em>(<code>Number</code>)</em>: Maximum number of inner observable sequences being subscribed to concurrently.</li>
 <li><p><code>selector</code> <em>(<code>Function</code> | <code>Iterable</code> | <code>Promise</code>)</em>:  An Object to project to the sequence or a transform function to apply to each element or an observable sequence to project each element from the source sequence onto.  The selector is called with the following information:</p>
@@ -5394,9 +5395,9 @@ source.flatMapWithMaxConcurrent(<span class="hljs-number">1</span>, [<span class
 <li><p><code>[thisArg]</code> <em>(<code>Any</code>)</em>: If <code>resultSelector</code> is not <code>Function</code>, Object to use as <code>this</code> when executing <code>selector</code>.</p>
 </li>
 </ol>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence whose elements are the result of invoking the one-to-many transform function collectionSelector on each element of the input sequence and then mapping each of those sequence elements and their corresponding source element to a result element.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<p></p><h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<em>(<code>Observable</code>)</em>: An observable sequence whose elements are the result of invoking the one-to-many transform function collectionSelector on each element of the input sequence and then mapping each of those sequence elements and their corresponding source element to a result element.<p></p>
+<p></p><h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4><p></p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>)
   .flatMapWithMaxConcurrent(<span class="hljs-number">2</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, i</span>) </span>{
     <span class="hljs-keyword">return</span> Rx.Observable

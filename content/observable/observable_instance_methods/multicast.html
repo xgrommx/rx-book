@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.65" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.65" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,19 +5356,27 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-multicast-subject-subjectselector-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-multicast-js"><a name="-rx-observable-prototype-multicast-subject-subjectselector-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-multicast-js" class="plugin-anchor" href="#-rx-observable-prototype-multicast-subject-subjectselector-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-multicast-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/multicast.js" target="_blank"><code>Rx.Observable.prototype.multicast(subject | subjectSelector, [selector])</code></a></h2>
+                        <h2 id="rxobservableprototypemulticastsubject-subjectselector-selectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablemulticastjs"><a name="rxobservableprototypemulticastsubject-subjectselector-selectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablemulticastjs" class="plugin-anchor" href="#rxobservableprototypemulticastsubject-subjectselector-selectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablemulticastjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.multicast(subject | subjectSelector, [selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/multicast.js)</h2>
+
+
+
+
+
+
+
 <p>Multicasts the source sequence notifications through an instantiated subject into all uses of the sequence within a selector function. Each
 subscription to the resulting sequence causes a separate multicast invocation, exposing the sequence resulting from the selector function&apos;s
 invocation. For specializations with fixed subject types, see <code>publish</code>, <code>share</code>, <code>publishValue</code>, <code>shareValue</code>, <code>publishLast</code>, <code>replay</code>, and <code>shareReplay</code>.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>subjectSelector</code> <em>(<code>Function</code>)</em>:  Factory function to create an intermediate subject through which the source sequence&apos;s elements will be multicast to the selector function.</li>
-<li><code>subject</code> <em>(Subject)</em>: Subject to push source elements into.</li>
-<li><code>[selector]</code> <em>(<code>Function</code>)</em>: Optional selector function which can use the multicasted source sequence subject to the policies enforced by the created subject. Specified only if <code>subjectSelector</code> is provided.</li>
-</ol>
+1. `subjectSelector` *(`Function`)*:  Factory function to create an intermediate subject through which the source sequence&apos;s elements will be multicast to the selector function.
+1. `subject` *(Subject)*: Subject to push source elements into.
+2. `[selector]` *(`Function`)*: Optional selector function which can use the multicasted source sequence subject to the policies enforced by the created subject. Specified only if `subjectSelector` is provided.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.</p>
+*(`Observable`)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence within a selector function.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p><a href="http://jsbin.com/javay/1/embed?js,console" target="_blank"></a></p>
 
                     

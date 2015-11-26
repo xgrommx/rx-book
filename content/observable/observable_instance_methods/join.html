@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.51" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.51" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,22 +5356,28 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-join-right-leftdurationselector-rightdurationselector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-join-js"><a name="-rx-observable-prototype-join-right-leftdurationselector-rightdurationselector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-join-js" class="plugin-anchor" href="#-rx-observable-prototype-join-right-leftdurationselector-rightdurationselector-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-join-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/join.js" target="_blank"><code>Rx.Observable.prototype.join(right, leftDurationSelector, rightDurationSelector, resultSelector)</code></a></h2>
+                        <h2 id="rxobservableprototypejoinright-leftdurationselector-rightdurationselector-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablejoinjs"><a name="rxobservableprototypejoinright-leftdurationselector-rightdurationselector-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablejoinjs" class="plugin-anchor" href="#rxobservableprototypejoinright-leftdurationselector-rightdurationselector-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablejoinjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.join(right, leftDurationSelector, rightDurationSelector, resultSelector)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/join.js)</h2>
+
+
+
+
+
+
+
 <p>Correlates the elements of two sequences based on overlapping durations.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>right</code> <em>(<code>Observable</code>)</em>: The right observable sequence to join elements for.</li>
-<li><code>leftDurationSelector</code> <em>(<code>Function</code>)</em>: A function to select the duration (expressed as an observable sequence) of each element of the left observable sequence, used to determine overlap.</li>
-<li><code>rightDurationSelector</code> <em>(<code>Function</code>)</em>: A function to select the duration (expressed as an observable sequence) of each element of the right observable sequence, used to determine overlap.</li>
-<li><code>resultSelector</code> <em>(<code>Any</code>)</em>: A function invoked to compute a result element for any two overlapping elements of the left and right observable sequences. The parameters are as follows:<ol>
-<li><em>(<code>Any</code>)</em> Element from the left source for which the overlap occurs.</li>
-<li><em>(<code>Any</code>)</em> Element from the right source for which the overlap occurs.</li>
-</ol>
-</li>
-</ol>
+1. `right` *(`Observable`)*: The right observable sequence to join elements for.
+2. `leftDurationSelector` *(`Function`)*: A function to select the duration (expressed as an observable sequence) of each element of the left observable sequence, used to determine overlap.
+3. `rightDurationSelector` *(`Function`)*: A function to select the duration (expressed as an observable sequence) of each element of the right observable sequence, used to determine overlap.
+4. `resultSelector` *(`Any`)*: A function invoked to compute a result element for any two overlapping elements of the left and right observable sequences. The parameters are as follows:
+    1. *(`Any`)* Element from the left source for which the overlap occurs.
+    2. *(`Any`)* Element from the right source for which the overlap occurs.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence that contains result elements computed from source elements that have an overlapping duration.</p>
+*(`Observable`)*: An observable sequence that contains result elements computed from source elements that have an overlapping duration.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p><a href="http://jsbin.com/japur/1/embed?js,console" target="_blank"></a></p>
 
                     

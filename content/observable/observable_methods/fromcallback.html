@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.1.12" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.1.12" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,18 +5356,25 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-fromcallback-func-scheduler-context-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-fromcallback-js"><a name="-rx-observable-fromcallback-func-scheduler-context-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-fromcallback-js" class="plugin-anchor" href="#-rx-observable-fromcallback-func-scheduler-context-selector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-fromcallback-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromcallback.js" target="_blank"><code>Rx.Observable.fromCallback(func, [scheduler], [context], [selector])</code></a></h2>
+                        <h2 id="rxobservablefromcallbackfunc-scheduler-context-selectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablefromcallbackjs"><a name="rxobservablefromcallbackfunc-scheduler-context-selectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablefromcallbackjs" class="plugin-anchor" href="#rxobservablefromcallbackfunc-scheduler-context-selectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablefromcallbackjs"><span class="fa fa-link"></span></a>[`Rx.Observable.fromCallback(func, [scheduler], [context], [selector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/fromcallback.js)</h2>
+
+
+
+
+
+
+
 <p>Converts a callback function to an observable sequence. </p>
-<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
+<p></p><h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4><p></p>
 <ol>
 <li><code>func</code> <em>(<code>Function</code>)</em>: Function with a callback as the last parameter to convert to an Observable sequence.</li>
 <li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the function on. If not specified, defaults to <code>Rx.Scheduler.timeout</code>.</li>
 <li><code>[context]</code> <em>(<code>Any</code>)</em>: The context for the func parameter to be executed.  If not specified, defaults to undefined.</li>
 <li><code>[selector]</code> <em>(<code>Function</code>)</em>: A selector which takes the arguments from the callback to produce a single item to yield on next.</li>
 </ol>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Function</code>)</em>: A function, when executed with the required parameters minus the callback, produces an Observable sequence with a single value of the arguments to the callback as an array if no selector given, else the object created by the selector function.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<p></p><h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<em>(<code>Function</code>)</em>: A function, when executed with the required parameters minus the callback, produces an Observable sequence with a single value of the arguments to the callback as an array if no selector given, else the object created by the selector function.<p></p>
+<p></p><h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4><p></p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;fs&apos;</span>),
     Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 

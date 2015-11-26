@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="4.2" data-basepath="../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="4.2" data-basepath="../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,9 +5356,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="how-do-i-work-with-jquery-and-rxjs"><a name="how-do-i-work-with-jquery-and-rxjs" class="plugin-anchor" href="#how-do-i-work-with-jquery-and-rxjs"><span class="fa fa-link"></span></a>How do I work with jQuery and RxJS</h1>
+                        <h1 id="how-do-i-work-with-jquery-and-rxjs"><a name="how-do-i-work-with-jquery-and-rxjs" class="plugin-anchor" href="#how-do-i-work-with-jquery-and-rxjs"><span class="fa fa-link"></span></a>How do I work with jQuery and RxJS #</h1>
+
 <p>The <a href="http://jquery.com" target="_blank">jQuery</a> project and RxJS play very well together as libraries.  In fact, we supply bindings directly for RxJS to jQuery should you want to wrap animations, events, Ajax calls and more using Observables in <a href="https://github.com/Reactive-Extensions/RxJS-jQuery" target="_blank">RxJS-jQuery</a>.  The bindings library provides many handy features for bridging the world to Observables.  If you&apos;re interested in that library, go ahead and use it.  </p>
-<h2 id="using-rxjs-with-rx-jquery"><a name="using-rxjs-with-rx-jquery" class="plugin-anchor" href="#using-rxjs-with-rx-jquery"><span class="fa fa-link"></span></a>Using RxJS with Rx-jQuery</h2>
+<h2 id="using-rxjs-with-rx-jquery"><a name="using-rxjs-with-rx-jquery" class="plugin-anchor" href="#using-rxjs-with-rx-jquery"><span class="fa fa-link"></span></a>Using RxJS with Rx-jQuery ##</h2>
+
 <p>Getting started with the bindings is easy.  Each method is enumerated on the main page from the jQuery method to its RxJS counterpart.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;results&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">&quot;http://code.jquery.com/jquery-1.9.1.js&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -5378,9 +5380,11 @@
     }, <span class="hljs-number">1500</span> );
 }).subscribe();
 </code></pre>
-<h2 id="using-rxjs-with-jquery"><a name="using-rxjs-with-jquery" class="plugin-anchor" href="#using-rxjs-with-jquery"><span class="fa fa-link"></span></a>Using RxJS with jQuery</h2>
+<h2 id="using-rxjs-with-jquery"><a name="using-rxjs-with-jquery" class="plugin-anchor" href="#using-rxjs-with-jquery"><span class="fa fa-link"></span></a>Using RxJS with jQuery ##</h2>
+
 <p>Let&apos;s start though by assuming you just have RxJS and wanted to get started with jQuery without the bridge library.  There is already plenty you can do without even needing a bridge library with the support built in for events and promises.</p>
-<h3 id="binding-to-an-event"><a name="binding-to-an-event" class="plugin-anchor" href="#binding-to-an-event"><span class="fa fa-link"></span></a>Binding to an event</h3>
+<h3 id="binding-to-an-event"><a name="binding-to-an-event" class="plugin-anchor" href="#binding-to-an-event"><span class="fa fa-link"></span></a>Binding to an event ###</h3>
+
 <p>Using RxJS with jQuery to bind to an event using plain old RxJS is easy.  For example, we could bind to the <code>mousemove</code> event from the DOM document easily.</p>
 <p>First, we&apos;ll reference the files we need.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;results&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
@@ -5412,7 +5416,8 @@ jQuery.fn.toObservable = <span class="hljs-function"><span class="hljs-keyword">
 
 <span class="hljs-keyword">var</span> subscription = observable.subscribe(e =&gt; $(<span class="hljs-string">&apos;#results&apos;</span>).text(e.clientX + <span class="hljs-string">&apos;,&apos;</span> + e.clientY));
 </code></pre>
-<h3 id="using-rxjs-with-ajax-calls"><a name="using-rxjs-with-ajax-calls" class="plugin-anchor" href="#using-rxjs-with-ajax-calls"><span class="fa fa-link"></span></a>Using RxJS with Ajax calls</h3>
+<h3 id="using-rxjs-with-ajax-calls"><a name="using-rxjs-with-ajax-calls" class="plugin-anchor" href="#using-rxjs-with-ajax-calls"><span class="fa fa-link"></span></a>Using RxJS with Ajax calls ###</h3>
+
 <p>Bridging to jQuery Ajax calls using <a href="http://api.jquery.com/jQuery.ajax/" target="_blank"><code>$.ajax</code></a> is easy as well with the built-in <a href="https://github.com/promises-aplus/promises-spec" target="_blank">Promises A+</a> support.  Since jQuery 1.5, the <code>$.ajax</code> method has implemented a promise interface (even if not 100% pure) which allows us to bridge to an observable sequence via the <code>Rx.Observable.fromPromise</code> method.</p>
 <p>For example, we could query Wikipedia by calling the <code>$.ajax</code> method and then calling the <a href="http://api.jquery.com/deferred.promise/" target="_blank"><code>promise</code></a> method which then exposes the minimum promise interface needed.</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">searchWikipedia</span> (<span class="hljs-params">term</span>) </span>{
@@ -5442,7 +5447,8 @@ jQuery.fn.toObservable = <span class="hljs-function"><span class="hljs-keyword">
 
     });
 </code></pre>
-<h3 id="using-rxjs-with-callbacks-to-handle-simple-animations"><a name="using-rxjs-with-callbacks-to-handle-simple-animations" class="plugin-anchor" href="#using-rxjs-with-callbacks-to-handle-simple-animations"><span class="fa fa-link"></span></a>Using RxJS with Callbacks to Handle Simple Animations</h3>
+<h3 id="using-rxjs-with-callbacks-to-handle-simple-animations"><a name="using-rxjs-with-callbacks-to-handle-simple-animations" class="plugin-anchor" href="#using-rxjs-with-callbacks-to-handle-simple-animations"><span class="fa fa-link"></span></a>Using RxJS with Callbacks to Handle Simple Animations ###</h3>
+
 <p>RxJS can also be used to bind to simple callbacks, such as the <a href="http://api.jquery.com/animate/" target="_blank"><code>.animate()</code></a> method.  We can use <code>Rx.Observable.fromCallback</code> to supply the required arguments with the last argument is to be the callback.  In this example, we&apos;ll take the animation example from above and use nothing but core RxJS to accomplish the same thing.</p>
 <p>You&apos;ll note that we need a notion of <code>this</code> for the <code>block.animate</code> to properly work, so we have two choices, either use <code>Function.prototype.bind</code> available in most modern browsers...</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> animate = Rx.Observable.fromCallback(block.animate.bind(block));

@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="14.3" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="14.3" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,124 +5356,157 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-subscription-class"><a name="-rx-subscription-class" class="plugin-anchor" href="#-rx-subscription-class"><span class="fa fa-link"></span></a><code>Rx.Subscription</code> class</h1>
+                        <h1 id="rxsubscription-class"><a name="rxsubscription-class" class="plugin-anchor" href="#rxsubscription-class"><span class="fa fa-link"></span></a>`Rx.Subscription` class #</h1>
+
 <p>Records information about subscriptions to and unsubscriptions from observable sequences.</p>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.testing.js</li>
 </ul>
-<h2 id="-subscription-constructor"><a name="-subscription-constructor" class="plugin-anchor" href="#-subscription-constructor"><span class="fa fa-link"></span></a><code>Subscription Constructor</code></h2>
-<ul>
-<li><a href="#rxsubscriptionsubscribe-unsubscribe"><code>constructor</code></a></li>
-</ul>
-<h2 id="-subscription-instance-methods"><a name="-subscription-instance-methods" class="plugin-anchor" href="#-subscription-instance-methods"><span class="fa fa-link"></span></a><code>Subscription Instance Methods</code></h2>
-<ul>
-<li><a href="#rxsubscriptionprototypeequalsother"><code>equals</code></a></li>
-<li><a href="#rxsubscriptionprototypetostring"><code>toString</code></a></li>
-</ul>
-<h2 id="-subscription-instance-properties"><a name="-subscription-instance-properties" class="plugin-anchor" href="#-subscription-instance-properties"><span class="fa fa-link"></span></a><code>Subscription Instance Properties</code></h2>
-<ul>
-<li><a href="#subscribe"><code>subscribe</code></a></li>
-<li><a href="#unsubscribe"><code>unsubscribe</code></a></li>
-</ul>
-<h2 id="-subscription-constructor"><a name="-subscription-constructor" class="plugin-anchor" href="#-subscription-constructor"><span class="fa fa-link"></span></a><em>Subscription Constructor</em></h2>
-<h3 id="-a-id-rxsubscriptionsubscribe-unsubscribe-a-rx-subscription-subscribe-unsubscribe"><a name="-a-id-rxsubscriptionsubscribe-unsubscribe-a-rx-subscription-subscribe-unsubscribe" class="plugin-anchor" href="#-a-id-rxsubscriptionsubscribe-unsubscribe-a-rx-subscription-subscribe-unsubscribe"><span class="fa fa-link"></span></a><a id="rxsubscriptionsubscribe-unsubscribe"></a><code>Rx.Subscription(subscribe, unsubscribe)</code></h3>
-<p><a href="#rxsubscriptionsubscribe-unsubscribe">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L8-L11" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Creates a new subscription object with the given virtual subscription and unsubscription time.</p>
+<h2 id="subscription-constructor"><a name="subscription-constructor" class="plugin-anchor" href="#subscription-constructor"><span class="fa fa-link"></span></a>`Subscription Constructor` ##</h2>
+- [`constructor`](#rxsubscriptionsubscribe-unsubscribe)
+
+<h2 id="subscription-instance-methods"><a name="subscription-instance-methods" class="plugin-anchor" href="#subscription-instance-methods"><span class="fa fa-link"></span></a>`Subscription Instance Methods` ##</h2>
+- [`equals`](#rxsubscriptionprototypeequalsother)
+- [`toString`](#rxsubscriptionprototypetostring)
+
+<h2 id="subscription-instance-properties"><a name="subscription-instance-properties" class="plugin-anchor" href="#subscription-instance-properties"><span class="fa fa-link"></span></a>`Subscription Instance Properties` ##</h2>
+- [`subscribe`](#subscribe)
+- [`unsubscribe`](#unsubscribe)
+
+<h2 id="subscription-constructor"><a name="subscription-constructor" class="plugin-anchor" href="#subscription-constructor"><span class="fa fa-link"></span></a>_Subscription Constructor_ ##</h2>
+
+<h3 id="rxsubscriptionsubscribe-unsubscribe"><a name="rxsubscriptionsubscribe-unsubscribe" class="plugin-anchor" href="#rxsubscriptionsubscribe-unsubscribe"><span class="fa fa-link"></span></a><a id="rxsubscriptionsubscribe-unsubscribe"></a>`Rx.Subscription(subscribe, unsubscribe)`</h3>
+<a href="#rxsubscriptionsubscribe-unsubscribe">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L8-L11 &quot;View in source&quot;)
+
+Creates a new subscription object with the given virtual subscription and unsubscription time.
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>subscribe</code> <em>(Number)</em>: Virtual time at which the subscription occurred.</li>
-<li><code>[unsubscribe = Number.MAX_VALUE]</code> <em>(Number)</em>: Virtual time at which the unsubscription occurred.</li>
-</ol>
+1. `subscribe` *(Number)*: Virtual time at which the subscription occurred.
+2. `[unsubscribe = Number.MAX_VALUE]` *(Number)*: Virtual time at which the unsubscription occurred.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subscription = <span class="hljs-keyword">new</span> Rx.Subscription(<span class="hljs-number">200</span>, <span class="hljs-number">1000</span>);
+```js
+var subscription = new Rx.Subscription(200, 1000);
 
-<span class="hljs-built_in">console</span>.log(recorded.time);
-<span class="hljs-comment">// =&gt; 200</span>
+console.log(recorded.time);
+// =&gt; 200
 
-<span class="hljs-built_in">console</span>.log(recorded.unsubscribe);
-<span class="hljs-comment">// =&gt; 1000</span>
-</code></pre>
+console.log(recorded.unsubscribe);
+// =&gt; 1000
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h2 id="-subscription-instance-methods"><a name="-subscription-instance-methods" class="plugin-anchor" href="#-subscription-instance-methods"><span class="fa fa-link"></span></a><em>Subscription Instance Methods</em></h2>
-<h3 id="-a-id-rxsubscriptionprototypeequalsother-a-rx-subscription-prototype-equals-other"><a name="-a-id-rxsubscriptionprototypeequalsother-a-rx-subscription-prototype-equals-other" class="plugin-anchor" href="#-a-id-rxsubscriptionprototypeequalsother-a-rx-subscription-prototype-equals-other"><span class="fa fa-link"></span></a><a id="rxsubscriptionprototypeequalsother"></a><code>Rx.Subscription.prototype.equals(other)</code></h3>
-<p><a href="#rxsubscriptionprototypeequalsother">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L18-L20" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Checks whether the given subscription is equal to the current instance.</p>
+<h2 id="subscription-instance-methods"><a name="subscription-instance-methods" class="plugin-anchor" href="#subscription-instance-methods"><span class="fa fa-link"></span></a>_Subscription Instance Methods_ ##</h2>
+
+<h3 id="rxsubscriptionprototypeequalsother"><a name="rxsubscriptionprototypeequalsother" class="plugin-anchor" href="#rxsubscriptionprototypeequalsother"><span class="fa fa-link"></span></a><a id="rxsubscriptionprototypeequalsother"></a>`Rx.Subscription.prototype.equals(other)`</h3>
+<a href="#rxsubscriptionprototypeequalsother">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L18-L20 &quot;View in source&quot;)
+
+Checks whether the given subscription is equal to the current instance.
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>other</code> <em>(Subscription)</em>: Subscription object to check for equality.</li>
-</ol>
+1. `other` *(Subscription)*: Subscription object to check for equality.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Boolean)</em>: Returns <code>true</code> if the Subscription equals the other, else <code>false</code>.</p>
+*(Boolean)*: Returns `true` if the Subscription equals the other, else `false`.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> s1 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>, <span class="hljs-number">500</span>);
-<span class="hljs-keyword">var</span> s2 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>);
-<span class="hljs-keyword">var</span> s3 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>, <span class="hljs-number">500</span>);
 
-<span class="hljs-built_in">console</span>.log(s1.equals(s2));
-<span class="hljs-comment">// =&gt; false</span>
+```js
+var s1 = new Subscription(201, 500);
+var s2 = new Subscription(201);
+var s3 = new Subscription(201, 500);
 
-<span class="hljs-built_in">console</span>.log(s1.equals(s3));
-<span class="hljs-comment">// =&gt; true</span>
-</code></pre>
+console.log(s1.equals(s2));
+// =&gt; false
+
+console.log(s1.equals(s3));
+// =&gt; true
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxsubscriptionprototypetostring-a-rx-subscription-prototype-tostring"><a name="-a-id-rxsubscriptionprototypetostring-a-rx-subscription-prototype-tostring" class="plugin-anchor" href="#-a-id-rxsubscriptionprototypetostring-a-rx-subscription-prototype-tostring"><span class="fa fa-link"></span></a><a id="rxsubscriptionprototypetostring"></a><code>Rx.Subscription.prototype.toString()</code></h3>
-<p><a href="#rxsubscriptionprototypeequalsother">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L30-L32" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Returns a string representation of the current Subscription value.</p>
+<h3 id="rxsubscriptionprototypetostring"><a name="rxsubscriptionprototypetostring" class="plugin-anchor" href="#rxsubscriptionprototypetostring"><span class="fa fa-link"></span></a><a id="rxsubscriptionprototypetostring"></a>`Rx.Subscription.prototype.toString()`</h3>
+<a href="#rxsubscriptionprototypeequalsother">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L30-L32 &quot;View in source&quot;)
+
+Returns a string representation of the current Subscription value.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(String)</em>: String representation of the current Subscription value.</p>
+*(String)*: String representation of the current Subscription value.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> s1 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>);
 
-<span class="hljs-built_in">console</span>.log(s1.toString());
-<span class="hljs-comment">// =&gt; (201, Infinite)</span>
+```js
+var s1 = new Subscription(201);
 
-<span class="hljs-keyword">var</span> s2 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>, <span class="hljs-number">1000</span>);
-<span class="hljs-built_in">console</span>.log(s2.toString());
-<span class="hljs-comment">// =&gt; (201, 1000)</span>
-</code></pre>
+console.log(s1.toString());
+// =&gt; (201, Infinite)
+
+var s2 = new Subscription(201, 1000);
+console.log(s2.toString());
+// =&gt; (201, 1000)
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h2 id="-subscription-instance-properties"><a name="-subscription-instance-properties" class="plugin-anchor" href="#-subscription-instance-properties"><span class="fa fa-link"></span></a><em>Subscription Instance Properties</em></h2>
-<h3 id="-a-id-subscribe-a-subscribe"><a name="-a-id-subscribe-a-subscribe" class="plugin-anchor" href="#-a-id-subscribe-a-subscribe"><span class="fa fa-link"></span></a><a id="subscribe"></a><code>subscribe</code></h3>
-<p><a href="#subscribe">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L8" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Gets the subscription virtual time.</p>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Number)</em>: The subscription virtual time.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> s1 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>);
+<h2 id="subscription-instance-properties"><a name="subscription-instance-properties" class="plugin-anchor" href="#subscription-instance-properties"><span class="fa fa-link"></span></a>_Subscription Instance Properties_ ##</h2>
 
-<span class="hljs-built_in">console</span>.log(s1.subscribe);
-<span class="hljs-comment">// =&gt; 201</span>
-</code></pre>
+<h3 id="subscribe"><a name="subscribe" class="plugin-anchor" href="#subscribe"><span class="fa fa-link"></span></a><a id="subscribe"></a>`subscribe`</h3>
+<a href="#subscribe">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L8 &quot;View in source&quot;)
+
+Gets the subscription virtual time.
+
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+*(Number)*: The subscription virtual time.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
+```js
+var s1 = new Subscription(201);
+
+console.log(s1.subscribe);
+// =&gt; 201
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.testing.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-unsubscribe-a-unsubscribe"><a name="-a-id-unsubscribe-a-unsubscribe" class="plugin-anchor" href="#-a-id-unsubscribe-a-unsubscribe"><span class="fa fa-link"></span></a><a id="unsubscribe"></a><code>unsubscribe</code></h3>
-<p><a href="#value">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L9" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Gets the unsubscription virtual time.</p>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Number)</em>: The unsubscription virtual time.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> s1 = <span class="hljs-keyword">new</span> Subscription(<span class="hljs-number">201</span>, <span class="hljs-number">500</span>);
+<h3 id="unsubscribe"><a name="unsubscribe" class="plugin-anchor" href="#unsubscribe"><span class="fa fa-link"></span></a><a id="unsubscribe"></a>`unsubscribe`</h3>
+<a href="#value">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/testing/subscription.js#L9 &quot;View in source&quot;)
 
-<span class="hljs-built_in">console</span>.log(r1.unsubscribe);
-<span class="hljs-comment">// =&gt; foo</span>
-</code></pre>
+Gets the unsubscription virtual time.
+
+<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+*(Number)*: The unsubscription virtual time.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
+```js
+var s1 = new Subscription(201, 500);
+
+console.log(r1.unsubscribe);
+// =&gt; foo
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.testing.js</li>
 </ul>

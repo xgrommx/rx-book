@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.34" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.34" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,22 +5356,24 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-find-predicate-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-find-js"><a name="-rx-observable-prototype-find-predicate-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-find-js" class="plugin-anchor" href="#-rx-observable-prototype-find-predicate-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-find-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/find.js" target="_blank"><code>Rx.Observable.prototype.find(predicate, [thisArg])</code></a></h2>
+                        <h2 id="rxobservableprototypefindpredicate-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablefindjs"><a name="rxobservableprototypefindpredicate-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablefindjs" class="plugin-anchor" href="#rxobservableprototypefindpredicate-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablefindjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.find(predicate, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/find.js)</h2>
+
+
+
 <p><rx-marbles key="find">&lt;/rx-marbles&gt;</rx-marbles></p>
 <p>Searches for an element that matches the conditions defined by the specified predicate, and returns the first occurrence within the entire Observable sequence.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>predicate</code> <em>(<code>Function</code>)</em>: A function to test each source element for a condition;  The callback is called with the following information:<ol>
-<li>the value of the element</li>
-<li>the index of the element</li>
-<li>the Observable object being subscribed</li>
-</ol>
-</li>
-<li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the predicate.</li>
-</ol>
+1. `predicate` *(`Function`)*: A function to test each source element for a condition;  The callback is called with the following information:
+    1. the value of the element
+    2. the index of the element
+    3. the Observable object being subscribed
+2. `[thisArg]` *(`Any`)*: Object to use as `this` when executing the predicate.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An Observable sequence with the first element that matches the conditions defined by the specified predicate, if found; otherwise, undefined.</p>
+*(`Observable`)*: An Observable sequence with the first element that matches the conditions defined by the specified predicate, if found; otherwise, undefined.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p><a href="http://jsbin.com/xuculo/1/embed?js,console" target="_blank"></a></p>
 <pre><code class="lang-js"><span class="hljs-comment">/* Not found */</span>
 <span class="hljs-keyword">var</span> array = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];

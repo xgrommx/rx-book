@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="3.6" data-basepath="../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="3.6" data-basepath="../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,7 +5356,8 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="testing-your-rx-application"><a name="testing-your-rx-application" class="plugin-anchor" href="#testing-your-rx-application"><span class="fa fa-link"></span></a>Testing your Rx application</h1>
+                        <h1 id="testing-your-rx-application"><a name="testing-your-rx-application" class="plugin-anchor" href="#testing-your-rx-application"><span class="fa fa-link"></span></a>Testing your Rx application #</h1>
+
 <p>Let&apos;s face it, testing asynchronous code is a pain.  In JavaScript, with so many asynchronous things to coordinate, testing is too hard for anyone to wrap their minds around.  Luckily the Reactive Extensions for JavaScript makes this easy.</p>
 <p>If you have an observable sequence that publishes values over an extended period of time, testing it in real time can be a stretch. The RxJS library provides the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md" target="_blank"><code>TestScheduler</code></a> type to assist testing this kind of time-dependent code without actually waiting for time to pass. The <code>TestScheduler</code> inherits <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/schedulers/virtualtimescheduler.md" target="_blank"><code>VirtualScheduler</code></a> and allows you to create, publish and subscribe to sequences in emulated time. For example, you can compact a publication which takes 5 days to complete into a 2 minute run, while maintaining the correct scale. You can also take a sequence which actually has happened in the past (e.g., a sequence of stock ticks for a previous year) and compute or subscribe to it as if it is pushing out new values in real time.</p>
 <p>The factory methods <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypestartwithtimingcreate-created-subscribed-disposed" target="_blank"><code>startWithTiming</code></a>, <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypestartwithcreatecreate" target="_blank"><code>startWithCreate</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/testing/testscheduler.md#rxtestschedulerprototypestartwithdisposecreate-disposed" target="_blank"><code>startWithDispose</code></a> executes all scheduled tasks until the queue is empty, or you can specify a time to so that queued-up tasks are only executed to the specified time.</p>
@@ -5429,7 +5430,8 @@ test(<span class="hljs-string">&apos;buffer should join strings&apos;</span>, ()
     ]);
 });
 </code></pre>
-<h2 id="debugging-your-rx-application"><a name="debugging-your-rx-application" class="plugin-anchor" href="#debugging-your-rx-application"><span class="fa fa-link"></span></a>Debugging your Rx application</h2>
+<h2 id="debugging-your-rx-application"><a name="debugging-your-rx-application" class="plugin-anchor" href="#debugging-your-rx-application"><span class="fa fa-link"></span></a>Debugging your Rx application ##</h2>
+
 <p>You can use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypedoobserver--onnext-onerror-oncompleted" target="_blank"><code>do</code></a> operator to debug your Rx application. The <code>do</code> operator allows you to specify various actions to be taken for each item of observable sequence (e.g., print or log the item, etc.). This is especially helpful when you are chaining many operators and you want to know what values are produced at each level.</p>
 <p>In the following example, we are going to reuse the Buffer example which generates integers every second, while putting them into buffers that can hold 5 items each. In our original example in the <a href="querying.md">Querying Observable Sequences</a> topic, we subscribe only to the final <code>Observable</code> sequence when the buffer is full (and before it is emptied). In this example, however, we will use the <code>do</code> operator to print out the values when they are being pushed out by the original sequence (an integer every second). When the buffer is full, we use the <code>do</code> operator to print the status, before handing over all this as the final sequence for the observer to subscribe.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> seq1 = Rx.Observable.interval(<span class="hljs-number">1000</span>)
@@ -5469,6 +5471,7 @@ test(<span class="hljs-string">&apos;buffer should join strings&apos;</span>, ()
 <p>By using the <code>timestamp</code> operator, we have verified that the first item is indeed pushed out 5 seconds after the sequence, and each item is published 1 second later.</p>
 <p>You can remove any <code>do</code> and <code>map</code> or <code>select</code> calls after you finish debugging.</p>
 <h2 id="long-stack-traces-support"><a name="long-stack-traces-support" class="plugin-anchor" href="#long-stack-traces-support"><span class="fa fa-link"></span></a>Long Stack Traces Support</h2>
+
 <p>When dealing with large RxJS applications, debugging and finding where the error occurred can be a difficult operation. As you chain more and more operators together, the longer the stack trace gets, and the harder it is to find out where things went wrong. Inspiration for this feature came from the <a href="https://github.com/kriskowal/q" target="_blank">Q library</a> from <a href="https://github.com/kriskowal" target="_blank">@kriskowal</a> which helped us get started.</p>
 <p>RxJS comes with optional support for &quot;long stack traces&quot; where the stack property of Error from onError calls is rewritten to be traced along asynchronous jumps instead of stopping at the most recent one. As an example:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
@@ -5515,7 +5518,8 @@ source.subscribeOnError(err =&gt; <span class="hljs-built_in">console</span>.log
 <p>Now, it is more clear that the error did occur exactly at line 6 with throwing an error and only shows the user code in this point. This is very helpful for debugging, as otherwise you end up getting only the first line, plus a bunch of RxJS internals, with no sign of where the operation started.</p>
 <p>This feature does come with a serious performance and memory overhead, however, If you&apos;re working with lots of RxJS code, or trying to scale a server to many users, you should probably keep it off. In development, this is perfectly fine for finding those pesky errors!</p>
 <p>In a future release, we may also release support for a node.js environment variable so that you can set it and unset it fairly easily.</p>
-<h2 id="see-also"><a name="see-also" class="plugin-anchor" href="#see-also"><span class="fa fa-link"></span></a>See Also</h2>
+<h2 id="see-also"><a name="see-also" class="plugin-anchor" href="#see-also"><span class="fa fa-link"></span></a>See Also ##</h2>
+
 <p><strong>Concepts</strong></p>
 <ul>
 <li><a href="creating.md">Creating and Subscribing to Simple Observable Sequences</a></li>

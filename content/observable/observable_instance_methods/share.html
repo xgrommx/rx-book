@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.84" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.84" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,15 +5356,26 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-share-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-share-js"><a name="-rx-observable-prototype-share-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-share-js" class="plugin-anchor" href="#-rx-observable-prototype-share-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-share-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/share.js" target="_blank"><code>Rx.Observable.prototype.share()</code></a></h2>
+                        <h2 id="rxobservableprototypesharehttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablesharejs"><a name="rxobservableprototypesharehttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablesharejs" class="plugin-anchor" href="#rxobservableprototypesharehttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablesharejs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.share()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/share.js)</h2>
+
+
+
+
+
+
+
 <p>Returns an observable sequence that shares a single subscription to the underlying sequence. </p>
 <p>This operator is a specialization of <code>publish</code> which creates a subscription when the number of observers goes from zero to one, then shares that subscription with all subsequent observers until the number of observers returns to zero, at which point the subscription is disposed.</p>
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence.</p>
+*(`Observable`)*: An observable sequence that contains the elements of a sequence produced by multicasting the source sequence.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <h5 id="without-share"><a name="without-share" class="plugin-anchor" href="#without-share"><span class="fa fa-link"></span></a>Without share</h5>
+
 <p><a href="http://jsbin.com/copixu/1/embed?js,console" target="_blank"></a>  </p>
 <h5 id="with-share"><a name="with-share" class="plugin-anchor" href="#with-share"><span class="fa fa-link"></span></a>With share</h5>
+
 <p><a href="http://jsbin.com/nejiw/1/embed?js,console" target="_blank"></a></p>
 
                     

@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="15.1.2.1" data-basepath="../../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="15.1.2.1" data-basepath="../../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,10 +5356,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="-a-id-rxdomrequestjsonprequesturl-settings-a-rx-dom-request-jsonprequest-url-settings"><a name="-a-id-rxdomrequestjsonprequesturl-settings-a-rx-dom-request-jsonprequest-url-settings" class="plugin-anchor" href="#-a-id-rxdomrequestjsonprequesturl-settings-a-rx-dom-request-jsonprequest-url-settings"><span class="fa fa-link"></span></a><a id="rxdomrequestjsonprequesturl--settings"></a><code>Rx.DOM.Request.jsonpRequest(url | settings)</code></h3>
-<p><a href="#rxdomrequestjsonprequesturl--settings">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L366-L368" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]</p>
+                        <p></p><h3 id="rxdomrequestjsonprequesturl-settings"><a name="rxdomrequestjsonprequesturl-settings" class="plugin-anchor" href="#rxdomrequestjsonprequesturl-settings"><span class="fa fa-link"></span></a><a id="rxdomrequestjsonprequesturl--settings"></a>`Rx.DOM.Request.jsonpRequest(url | settings)`</h3>
+<a href="#rxdomrequestjsonprequesturl--settings">#</a><a href="https://github.com/Reactive-Extensions/RxJS-DOM/blob/master/rx.dom.js#L366-L368" title="View in source" target="_blank">&#x24C8;</a> [&#x24C9;][1]<p></p>
 <p>Creates a hot observable JSONP Request with the specified settings or a string URL.  <strong>Note when using the method with a URL, it must contain JSONPRequest=?.</strong></p>
 <h4 id="syntax"><a name="syntax" class="plugin-anchor" href="#syntax"><span class="fa fa-link"></span></a>Syntax</h4>
+
 <p>This method has two versions, one with a string URL, the other with a settings object.</p>
 <pre><code class="lang-js"><span class="hljs-comment">// With a string URL</span>
 Rx.DOM.Request.jsonpRequest(url);
@@ -5368,15 +5369,16 @@ Rx.DOM.Request.jsonpRequest(url);
 Rx.DOM.Request.jsonpRequest(settings);
 </code></pre>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>url</code> <em>(String)</em>: A string of the URL to make the JSONP call.</li>
-<li><code>settings</code> <em>(Object)</em>: An object with the following properties:<pre><code> - `url` *(String)*: URL of the request
-   - `jsonp` *(String)*: The named callback parameter for the JSONP call
-</code></pre></li>
-</ol>
+1. `url` *(String)*: A string of the URL to make the JSONP call.
+1. `settings` *(Object)*: An object with the following properties:
+        - `url` *(String)*: URL of the request
+          - `jsonp` *(String)*: The named callback parameter for the JSONP call
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Observable)</em>: A hot observable containing the results from the JSONP call.</p>
+*(Observable)*: A hot observable containing the results from the JSONP call.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p>The following example uses a simple URL to retrieve a list of entries from Wikipedia. </p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> url = <span class="hljs-string">&apos;http://en.wikipedia.org/w/api.php?action=opensearch&apos;</span>
     + <span class="hljs-string">&apos;&amp;format=json&apos;</span> 

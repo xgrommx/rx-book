@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="3.4" data-basepath="../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="3.4" data-basepath="../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,10 +5356,12 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="using-subjects"><a name="using-subjects" class="plugin-anchor" href="#using-subjects"><span class="fa fa-link"></span></a>Using Subjects</h1>
+                        <h1 id="using-subjects"><a name="using-subjects" class="plugin-anchor" href="#using-subjects"><span class="fa fa-link"></span></a>Using Subjects #</h1>
+
 <p>The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/subject.md" target="_blank"><code>Subject</code></a> class inherits both <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md" target="_blank"><code>Observable</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md" target="_blank"><code>Observer</code></a>, in the sense that it is both an observer and an observable. You can use a subject to subscribe all the observers, and then subscribe the subject to a backend data source. In this way, the subject can act as a proxy for a group of subscribers and a source. You can use subjects to implement a custom observable with caching, buffering and time shifting. In addition, you can use subjects to broadcast data to multiple subscribers.</p>
 <p>By default, subjects do not perform any synchronization across threads. They do not take a scheduler but rather assume that all serialization and grammatical correctness are handled by the caller of the subject.  A subject simply broadcasts to all subscribed observers in the thread-safe list of subscribers. Doing so has the advantage of reducing overhead and improving performance.</p>
-<h2 id="using-subjects"><a name="using-subjects" class="plugin-anchor" href="#using-subjects"><span class="fa fa-link"></span></a>Using Subjects</h2>
+<h2 id="using-subjects"><a name="using-subjects" class="plugin-anchor" href="#using-subjects"><span class="fa fa-link"></span></a>Using Subjects ##</h2>
+
 <p>In the following example, we create a subject, subscribe to that subject and then use the same subject to publish values to the observer. By doing so, we combine the publication and subscription into the same source.</p>
 <p>In addition to taking an <code>Observer</code>, the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted" target="_blank"><code>subscribe</code></a> method can also take a function for onNext, which means that the action will be executed every time an item is published. In our sample, whenever onNext is invoked, the item will be written to the console.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
@@ -5416,7 +5418,8 @@ setTimeout(() =&gt; {
 <span class="hljs-comment">// =&gt; onCompleted</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
-<h2 id="different-types-of-subjects"><a name="different-types-of-subjects" class="plugin-anchor" href="#different-types-of-subjects"><span class="fa fa-link"></span></a>Different types of Subjects</h2>
+<h2 id="different-types-of-subjects"><a name="different-types-of-subjects" class="plugin-anchor" href="#different-types-of-subjects"><span class="fa fa-link"></span></a>Different types of Subjects ##</h2>
+
 <p>The <code>Subject</code> object in the RxJS library is a basic implementation, but you can create your own using  the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/subject.md#rxsubjectcreateobserver-observable" target="_blank"><code>Subject.create</code></a> method. There are other implementations of Subjects that offer different functionalities. All of these types store some (or all of) values pushed to them via onNext, and broadcast it back to its observers. In this way, they convert a Cold Observable into a Hot one. This means that if you Subscribe to any of these more than once (i.e. subscribe -&gt; unsubscribe -&gt; subscribe again), you will see at least one of the same value again. For more information on hot and cold observables, see the last section of the <a href="creating.md">Creating and Subscribing to Simple Observable Sequences</a> topic.</p>
 <p><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/replaysubject.md" target="_blank"><code>ReplaySubject</code></a> stores all the values that it has published. Therefore, when you subscribe to it, you automatically receive an entire history of values that it has published, even though your subscription might have come in after certain values have been pushed out. <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/behaviorsubject.md" target="_blank"><code>BehaviourSubject</code></a> is similar to <code>ReplaySubject</code>, except that it only stored the last value it published. <code>BehaviourSubject</code> also requires a default value upon initialization. This value is sent to observers when no other value has been received by the subject yet. This means that all subscribers will receive a value instantly on <code>subscribe</code>, unless the <code>Subject</code> has already completed. <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/subjects/asyncsubject.md" target="_blank"><code>AsyncSubject</code></a> is similar to the Replay and Behavior subjects, however it will only store the last value, and only publish it when the sequence is completed. You can use the <code>AsyncSubject</code> type for situations when the source observable is hot and might complete before any observer can subscribe to it. In this case, <code>AsyncSubject</code> can still provide the last value and publish it to any future subscribers.</p>
 

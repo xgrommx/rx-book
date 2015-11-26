@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="11.4" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="11.4" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,10 +5356,12 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="-rx-subject-class"><a name="-rx-subject-class" class="plugin-anchor" href="#-rx-subject-class"><span class="fa fa-link"></span></a><code>Rx.Subject</code> class</h1>
+                        <h1 id="rxsubject-class"><a name="rxsubject-class" class="plugin-anchor" href="#rxsubject-class"><span class="fa fa-link"></span></a>`Rx.Subject` class #</h1>
+
 <p>Represents an object that is both an observable sequence as well as an observer. Each notification is broadcasted to all subscribed observers.</p>
 <p>This class inherits both from the <code>Rx.Observable</code> and <code>Rx.Observer</code> classes.</p>
-<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><span class="fa fa-link"></span></a>Usage ##</h2>
+
 <p>The follow example shows the basic usage of an Rx.Subject.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
 
@@ -5387,187 +5389,210 @@ subject.onCompleted();
 <span class="hljs-comment">// =&gt; Completed</span>
 </code></pre>
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
-<h2 id="-subject-constructor"><a name="-subject-constructor" class="plugin-anchor" href="#-subject-constructor"><span class="fa fa-link"></span></a><code>Subject Constructor</code></h2>
-<ul>
-<li><a href="#rxsubject"><code>constructor</code></a></li>
-</ul>
-<h2 id="-subject-class-methods"><a name="-subject-class-methods" class="plugin-anchor" href="#-subject-class-methods"><span class="fa fa-link"></span></a><code>Subject Class Methods</code></h2>
-<ul>
-<li><a href="#rxsubjectcreateobserver-observable"><code>create</code></a></li>
-</ul>
-<h2 id="-subject-instance-methods"><a name="-subject-instance-methods" class="plugin-anchor" href="#-subject-instance-methods"><span class="fa fa-link"></span></a><code>Subject Instance Methods</code></h2>
-<ul>
-<li><a href="#rxsubjectprototypedispose"><code>dispose</code></a></li>
-<li><a href="#rxsubjectprototypehasobservers"><code>hasObservers</code></a></li>
-</ul>
-<h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes</h2>
-<ul>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md" target="_blank"><code>Rx.Observable</code></a></li>
-<li><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md" target="_blank"><code>Rx.Observer</code></a></li>
-</ul>
-<h2 id="-subject-constructor"><a name="-subject-constructor" class="plugin-anchor" href="#-subject-constructor"><span class="fa fa-link"></span></a><em>Subject Constructor</em></h2>
-<h3 id="-a-id-rxsubject-a-rx-subject"><a name="-a-id-rxsubject-a-rx-subject" class="plugin-anchor" href="#-a-id-rxsubject-a-rx-subject"><span class="fa fa-link"></span></a><a id="rxsubject"></a><code>Rx.Subject()</code></h3>
-<p><a href="#rxsubject">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L26-L31" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Creates a subject.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
+<h2 id="subject-constructor"><a name="subject-constructor" class="plugin-anchor" href="#subject-constructor"><span class="fa fa-link"></span></a>`Subject Constructor` ##</h2>
+- [`constructor`](#rxsubject)
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
+<h2 id="subject-class-methods"><a name="subject-class-methods" class="plugin-anchor" href="#subject-class-methods"><span class="fa fa-link"></span></a>`Subject Class Methods` ##</h2>
+- [`create`](#rxsubjectcreateobserver-observable)
+
+<h2 id="subject-instance-methods"><a name="subject-instance-methods" class="plugin-anchor" href="#subject-instance-methods"><span class="fa fa-link"></span></a>`Subject Instance Methods` ##</h2>
+- [`dispose`](#rxsubjectprototypedispose)
+- [`hasObservers`](#rxsubjectprototypehasobservers)
+
+<h2 id="inherited-classes"><a name="inherited-classes" class="plugin-anchor" href="#inherited-classes"><span class="fa fa-link"></span></a>Inherited Classes ##</h2>
+- [`Rx.Observable`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md)
+- [`Rx.Observer`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md)
+
+<h2 id="subject-constructor"><a name="subject-constructor" class="plugin-anchor" href="#subject-constructor"><span class="fa fa-link"></span></a>_Subject Constructor_ ##</h2>
+
+<h3 id="rxsubject"><a name="rxsubject" class="plugin-anchor" href="#rxsubject"><span class="fa fa-link"></span></a><a id="rxsubject"></a>`Rx.Subject()`</h3>
+<a href="#rxsubject">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L26-L31 &quot;View in source&quot;)
+
+Creates a subject.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+```js
+var subject = new Rx.Subject();
+
+var subscription = source.subscribe(
+    function (x) {
+        console.log(&apos;Next: &apos; + x);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
+    function (err) {
+        console.log(&apos;Error: &apos; + err);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+    function () {
+        console.log(&apos;Completed&apos;);
     });
 
-subject.onNext(<span class="hljs-number">42</span>);
-<span class="hljs-comment">// =&gt; Next: 42</span>
+subject.onNext(42);
+// =&gt; Next: 42
 
 subject.onCompleted();
-<span class="hljs-comment">// =&gt; Completed</span>
-</code></pre>
+// =&gt; Completed
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-subject-class-methods"><a name="-subject-class-methods" class="plugin-anchor" href="#-subject-class-methods"><span class="fa fa-link"></span></a><em>Subject Class Methods</em></h2>
-<h3 id="-a-id-rxsubjectcreateobserver-observable-a-rx-subject-create-observer-observable"><a name="-a-id-rxsubjectcreateobserver-observable-a-rx-subject-create-observer-observable" class="plugin-anchor" href="#-a-id-rxsubjectcreateobserver-observable-a-rx-subject-create-observer-observable"><span class="fa fa-link"></span></a><a id="rxsubjectcreateobserver-observable"></a><code>Rx.Subject.create(observer, observable)</code></h3>
-<p><a href="#rxsubjectcreateobserver-observable">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L101-L103" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Creates a subject from the specified observer and observable.</p>
+<h2 id="subject-class-methods"><a name="subject-class-methods" class="plugin-anchor" href="#subject-class-methods"><span class="fa fa-link"></span></a>_Subject Class Methods_ ##</h2>
+
+<h3 id="rxsubjectcreateobserver-observable"><a name="rxsubjectcreateobserver-observable" class="plugin-anchor" href="#rxsubjectcreateobserver-observable"><span class="fa fa-link"></span></a><a id="rxsubjectcreateobserver-observable"></a>`Rx.Subject.create(observer, observable)`</h3>
+<a href="#rxsubjectcreateobserver-observable">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L101-L103 &quot;View in source&quot;)
+
+Creates a subject from the specified observer and observable.
+
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>observer</code> <em>(Observer)</em>: The observer used to send messages to the subject.</li>
-<li><code>observable</code> <em>(Observable)</em>: The observable used to subscribe to messages sent from the subject.</li>
-</ol>
+1. `observer` *(Observer)*: The observer used to send messages to the subject.
+2. `observable` *(Observable)*: The observable used to subscribe to messages sent from the subject.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Subject)</em>: Subject implemented using the given observer and observable.</p>
+*(Subject)*: Subject implemented using the given observer and observable.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-comment">/* Using a Web Worker to send and receive data via an Rx.Subject */</span>
 
-<span class="hljs-comment">/* worker.js */</span>
+```js
+/* Using a Web Worker to send and receive data via an Rx.Subject */
 
-self.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+/* worker.js */
+
+self.onmessage = function(e) {
     self.postMessage(e.data);
 };
 
-<span class="hljs-comment">/* client.js */</span>
-<span class="hljs-keyword">var</span> worker = <span class="hljs-keyword">new</span> Worker(<span class="hljs-string">&apos;worker.js&apos;</span>);
+/* client.js */
+var worker = new Worker(&apos;worker.js&apos;);
 
-<span class="hljs-comment">// Create observer to handle sending messages</span>
-<span class="hljs-keyword">var</span> observer = Rx.Observer.create(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+// Create observer to handle sending messages
+var observer = Rx.Observer.create(
+    function (data) {
         worker.postMessage(data);
     });
 
-<span class="hljs-comment">// Create observable to handle the messages</span>
-<span class="hljs-keyword">var</span> observable = Rx.Observable.create(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obs</span>) </span>{
+// Create observable to handle the messages
+var observable = Rx.Observable.create(function (obs) {
 
-    worker.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+    worker.onmessage = function (data) {
         obs.onNext(data);
     };
 
-    worker.onerror = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+    worker.onerror = function (err) {
         obs.onError(err);
     };
 
-    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    return function () {
         worker.close();
     };
 });
 
-<span class="hljs-keyword">var</span> subject = Rx.Subject.create(observer, observable);
+var subject = Rx.Subject.create(observer, observable);
 
-<span class="hljs-keyword">var</span> subscription = subject.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
+var subscription = subject.subscribe(
+    function (x) {
+        console.log(&apos;Next: &apos; + x);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
+    function (err) {
+        console.log(&apos;Error: &apos; + err);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+    function () {
+        console.log(&apos;Completed&apos;);
     });
 
-subject.onNext(<span class="hljs-number">42</span>);
-<span class="hljs-comment">// =&gt; Next: 42</span>
-</code></pre>
+subject.onNext(42);
+// =&gt; Next: 42
+
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h2 id="-subject-instance-methods"><a name="-subject-instance-methods" class="plugin-anchor" href="#-subject-instance-methods"><span class="fa fa-link"></span></a><em>Subject Instance Methods</em></h2>
-<h3 id="-a-id-rxsubjectprototypedispose-a-rx-subject-prototype-dispose"><a name="-a-id-rxsubjectprototypedispose-a-rx-subject-prototype-dispose" class="plugin-anchor" href="#-a-id-rxsubjectprototypedispose-a-rx-subject-prototype-dispose"><span class="fa fa-link"></span></a><a id="rxsubjectprototypedispose"></a><code>Rx.Subject.prototype.dispose()</code></h3>
-<p><a href="#rxsubjectprototypedispose">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L89-L92" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Unsubscribe all observers and release resources.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
+<h2 id="subject-instance-methods"><a name="subject-instance-methods" class="plugin-anchor" href="#subject-instance-methods"><span class="fa fa-link"></span></a>_Subject Instance Methods_ ##</h2>
 
-<span class="hljs-keyword">var</span> subscription = subject.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
+<h3 id="rxsubjectprototypedispose"><a name="rxsubjectprototypedispose" class="plugin-anchor" href="#rxsubjectprototypedispose"><span class="fa fa-link"></span></a><a id="rxsubjectprototypedispose"></a>`Rx.Subject.prototype.dispose()`</h3>
+<a href="#rxsubjectprototypedispose">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L89-L92 &quot;View in source&quot;)
+
+Unsubscribe all observers and release resources.
+
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+```js
+var subject = new Rx.Subject();
+
+var subscription = subject.subscribe(
+    function (x) {
+        console.log(&apos;Next: &apos; + x.toString());
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
+    function (err) {
+        console.log(&apos;Error: &apos; + err);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+    function () {
+        console.log(&apos;Completed&apos;);
     });
 
-subject.onNext(<span class="hljs-number">42</span>);
-<span class="hljs-comment">// =&gt; Next: 42</span>
+subject.onNext(42);
+// =&gt; Next: 42
 
 subject.onCompleted();
-<span class="hljs-comment">// =&gt; Completed</span>
+// =&gt; Completed
 
 subject.dispose();
 
-<span class="hljs-keyword">try</span> {
-    subject.onNext(<span class="hljs-number">56</span>);
-} <span class="hljs-keyword">catch</span> (e) {
-    <span class="hljs-built_in">console</span>.log(e.message);
+try {
+    subject.onNext(56);
+} catch (e) {
+    console.log(e.message);
 }
 
-<span class="hljs-comment">// =&gt; Object has been disposed</span>
-</code></pre>
+// =&gt; Object has been disposed
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>
 <hr>
-<h3 id="-a-id-rxsubjectprototypehasobservers-a-rx-subject-prototype-hasobservers"><a name="-a-id-rxsubjectprototypehasobservers-a-rx-subject-prototype-hasobservers" class="plugin-anchor" href="#-a-id-rxsubjectprototypehasobservers-a-rx-subject-prototype-hasobservers"><span class="fa fa-link"></span></a><a id="rxsubjectprototypehasobservers"></a><code>Rx.Subject.prototype.hasObservers()</code></h3>
-<p><a href="#rxsubjectprototypehasobservers">#</a> <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L38-L40" title="View in source" target="_blank">&#x24C8;</a></p>
-<p>Indicates whether the subject has observers subscribed to it.</p>
+<h3 id="rxsubjectprototypehasobservers"><a name="rxsubjectprototypehasobservers" class="plugin-anchor" href="#rxsubjectprototypehasobservers"><span class="fa fa-link"></span></a><a id="rxsubjectprototypehasobservers"></a>`Rx.Subject.prototype.hasObservers()`</h3>
+<a href="#rxsubjectprototypehasobservers">#</a> [&#x24C8;](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/subjects/subject.js#L38-L40 &quot;View in source&quot;)
+
+Indicates whether the subject has observers subscribed to it.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(Boolean)</em>: Returns <code>true</code> if the Subject has observers, else <code>false</code>.</p>
+*(Boolean)*: Returns `true` if the Subject has observers, else `false`.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
+```js
+var subject = new Rx.Subject();
 
-<span class="hljs-built_in">console</span>.log(subject.hasObservers());
-<span class="hljs-comment">// =&gt; false</span>
+console.log(subject.hasObservers());
+// =&gt; false
 
-<span class="hljs-keyword">var</span> subscription = subject.subscribe(
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x.toString());
+var subscription = subject.subscribe(
+    function (x) {
+        console.log(&apos;Next: &apos; + x.toString());
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Error: &apos;</span> + err);
+    function (err) {
+        console.log(&apos;Error: &apos; + err);
     },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Completed&apos;</span>);
+    function () {
+        console.log(&apos;Completed&apos;);
     });
 
-<span class="hljs-built_in">console</span>.log(subject.hasObservers());
-<span class="hljs-comment">// =&gt; true</span>
-</code></pre>
+console.log(subject.hasObservers());
+// =&gt; true
+```
+
 <h3 id="location"><a name="location" class="plugin-anchor" href="#location"><span class="fa fa-link"></span></a>Location</h3>
+
 <ul>
 <li>rx.js</li>
 </ul>

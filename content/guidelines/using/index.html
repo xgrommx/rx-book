@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="2.4" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="2.4" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5357,7 +5357,9 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="using-rx"><a name="using-rx" class="plugin-anchor" href="#using-rx"><span class="fa fa-link"></span></a>Using Rx</h1>
-<h3 id="consider-drawing-a-marble-diagram"><a name="consider-drawing-a-marble-diagram" class="plugin-anchor" href="#consider-drawing-a-marble-diagram"><span class="fa fa-link"></span></a>Consider drawing a Marble-diagram</h3>
+
+<h3 id="consider-drawing-a-marble-diagram"><a name="consider-drawing-a-marble-diagram" class="plugin-anchor" href="#consider-drawing-a-marble-diagram"><span class="fa fa-link"></span></a>Consider drawing a Marble-diagram ###</h3>
+
 <p>Draw a marble-diagram of the observable sequence you want to create. By drawing the diagram, you will get a clearer picture on what operator(s) to use.</p>
 <p>A marble-diagram is a diagram that shows event occurring over time. A marble diagram contains both input and output sequences(s).</p>
 <p><img src="https://raw.githubusercontent.com/Reactive-Extensions/RxJS/master/doc/designguidelines/images/throttleWithTimeout.png" alt="throttleWithSelector"></p>
@@ -5365,9 +5367,11 @@
 will lead to the following code:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> dictionarySuggest = userInput.throttle(<span class="hljs-number">250</span>).flatMap(input =&gt; serverCall(input));
 </code></pre>
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
+
 <p>This guideline can be ignored if you feel comfortable enough with the observable sequence you want to write. However, even the Rx team members will still grab the whiteboard to draw a marble-diagram once in a while.</p>
-<h3 id="consider-passing-multiple-arguments-to-subscribe"><a name="consider-passing-multiple-arguments-to-subscribe" class="plugin-anchor" href="#consider-passing-multiple-arguments-to-subscribe"><span class="fa fa-link"></span></a>Consider passing multiple arguments to <code>subscribe</code></h3>
+<h3 id="consider-passing-multiple-arguments-to-subscribe"><a name="consider-passing-multiple-arguments-to-subscribe" class="plugin-anchor" href="#consider-passing-multiple-arguments-to-subscribe"><span class="fa fa-link"></span></a>Consider passing multiple arguments to `subscribe` ###</h3>
+
 <p>For convenience, Rx provides an overload to the <code>subscribe</code> method that takes functions instead of an Observer argument.</p>
 <p>The Observer object would require implementing all three methods (<code>onNext</code>, <code>onError</code> &amp; <code>onCompleted</code>). The extensions to the <code>subscribe</code> method allow developers to use defaults chosen for each of these methods.</p>
 <p>E.g. when calling the <code>subscribe</code> method that only has an <code>onNext</code> argument, the <code>onError</code> behavior will be to rethrow the exception on the thread that the message comes out from the observable sequence. The <code>onCompleted</code> behavior in this case is to do nothing.</p>
@@ -5380,23 +5384,29 @@ will lead to the following code:</p>
 <li><code>subscribeOnError</code>: for <code>onError</code> messages only</li>
 <li><code>subscribeOnCompleted</code>: for <code>onCompleted</code> messages only.</li>
 </ul>
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
+
 <ul>
 <li>When the observable sequence is guaranteed not to complete, e.g. an event such as keyup.</li>
 <li>When the observable sequence is guaranteed not to have <code>onError</code> messages (e.g. an event, a  materialized observable sequence etc&#x2026;).</li>
 <li>When the default behavior is the desirable behavior.</li>
 </ul>
-<h3 id="consider-passing-a-specific-scheduler-to-concurrency-introducing-operators"><a name="consider-passing-a-specific-scheduler-to-concurrency-introducing-operators" class="plugin-anchor" href="#consider-passing-a-specific-scheduler-to-concurrency-introducing-operators"><span class="fa fa-link"></span></a>Consider passing a specific scheduler to concurrency introducing operators</h3>
+<h3 id="consider-passing-a-specific-scheduler-to-concurrency-introducing-operators"><a name="consider-passing-a-specific-scheduler-to-concurrency-introducing-operators" class="plugin-anchor" href="#consider-passing-a-specific-scheduler-to-concurrency-introducing-operators"><span class="fa fa-link"></span></a>Consider passing a specific scheduler to concurrency introducing operators ###</h3>
+
 <p>Rather than using the <code>observeOn</code> operator to change the execution context on which the observable sequence produces messages, it is better to create concurrency in the right place to begin with. As operators parameterize introduction of concurrency by providing a scheduler argument overload, passing the right scheduler will lead to fewer places where the ObserveOn operator has to be used.</p>
-<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
+<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample ####</h4>
+
 <pre><code class="lang-js">Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">90000</span>, Rx.Scheduler.requestAnimationFrame).subscribe(draw);
 </code></pre>
 <p>In this sample, callbacks from the <code>range</code> operator will arrive by calling <code>window.requestAnimationFrame</code>.  The default overload of <code>range</code> would place the <code>onNext</code> call on the <code>Rx.Scheduler.currentThread</code> which is used when recursive scheduling is required immediately.  By providing the <code>Rx.Scheduler.requestAnimationFrame</code> scheduler, all messages from this observable sequence will originiate on the <code>window.requestAnimationFrame</code> callback.</p>
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
+
 <p>When combining several events that originate on different execution contexts, use guideline 4.4 to put  all messages on a specific execution context as late as possible.</p>
-<h3 id="call-the-observeon-operator-as-late-and-in-as-few-places-as-possible"><a name="call-the-observeon-operator-as-late-and-in-as-few-places-as-possible" class="plugin-anchor" href="#call-the-observeon-operator-as-late-and-in-as-few-places-as-possible"><span class="fa fa-link"></span></a>Call the <code>observeOn</code> operator as late and in as few places as possible</h3>
+<h3 id="call-the-observeon-operator-as-late-and-in-as-few-places-as-possible"><a name="call-the-observeon-operator-as-late-and-in-as-few-places-as-possible" class="plugin-anchor" href="#call-the-observeon-operator-as-late-and-in-as-few-places-as-possible"><span class="fa fa-link"></span></a>Call the `observeOn` operator as late and in as few places as possible ###</h3>
+
 <p>By using the <code>observeOn</code> operator, an action is scheduled for each message that comes through the original observable sequence. This potentially changes timing information as well as puts additional stress on the system. Placing this operator later in the query will reduce both concerns.</p>
-<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
+<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample ####</h4>
+
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> result = xs.throttle(<span class="hljs-number">1000</span>)
   .flatMap(x =&gt; ys.takeUntil(zs).sample(<span class="hljs-number">250</span>).map(y =&gt; x + y))
   .merge(ws)
@@ -5404,34 +5414,44 @@ will lead to the following code:</p>
   .observeOn(Rx.Scheduler.requestAnimationFrame);
 </code></pre>
 <p>This sample combines many observable sequences running on many different execution contexts. The query filters out a lot of messages. Placing the <code>observeOn</code> operator earlier in the query would do extra work on messages that would be filtered out anyway. Calling the <code>observeOn</code> operator at the end of the query will create the least performance impact.</p>
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
+
 <p>Ignore this guideline if your use of the observable sequence is not bound to a specific execution context. In that case do not use the <code>observeOn</code> operator.</p>
-<h3 id="consider-limiting-buffers"><a name="consider-limiting-buffers" class="plugin-anchor" href="#consider-limiting-buffers"><span class="fa fa-link"></span></a>Consider limiting buffers</h3>
+<h3 id="consider-limiting-buffers"><a name="consider-limiting-buffers" class="plugin-anchor" href="#consider-limiting-buffers"><span class="fa fa-link"></span></a>Consider limiting buffers ###</h3>
+
 <p>RxJS comes with several operators and classes that create buffers over observable sequences, e.g. the <code>replay</code> operator. As these buffers work on any observable sequence, the size of these buffers will depend on the observable sequence it is operating on. If the buffer is unbounded, this can lead to memory pressure. Many buffering operators provide policies to limit the buffer, either in time or size. Providing this limit will address memory pressure issues.</p>
-<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
+<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample ####</h4>
+
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> result = xs.replay(<span class="hljs-literal">null</span>, <span class="hljs-number">10000</span>, <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> <span class="hljs-comment">/* 1 hr */</span>).refCount();
 </code></pre>
 <p>In this sample, the <code>replay</code> operator creates a buffer. We have limited that buffer to contain at most 10,000 messages and keep these messages around for a maximum of 1 hour.</p>
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
+
 <p>When the amount of messages created by the observable sequence that populates the buffer is small or when the buffer size is limited.</p>
-<h3 id="make-side-effects-explicit-using-the-do-tap-operator"><a name="make-side-effects-explicit-using-the-do-tap-operator" class="plugin-anchor" href="#make-side-effects-explicit-using-the-do-tap-operator"><span class="fa fa-link"></span></a>Make side-effects explicit using the <code>do</code>/<code>tap</code> operator</h3>
+<h3 id="make-side-effects-explicit-using-the-dotap-operator"><a name="make-side-effects-explicit-using-the-dotap-operator" class="plugin-anchor" href="#make-side-effects-explicit-using-the-dotap-operator"><span class="fa fa-link"></span></a>Make side-effects explicit using the `do`/`tap` operator ###</h3>
+
 <p>As many Rx operators take functions as arguments, it is possible to pass any valid user code in these arguments. This code can change global state (e.g. change global variables, write to disk etc...).</p>
 <p>The composition in Rx runs through each operator for each subscription (with the exception of the sharing operators, such as <code>publish</code>). This will make every side-effect occur for each subscription.</p>
 <p>If this behavior is the desired behavior, it is best to make this explicit by putting the side-effecting code
 in a <code>do</code>/<code>tap</code> operator.  There are overloads to this method which call the specified method only, for example <code>doOnNext</code>/<code>tapOnNext</code>, <code>doOnError</code>/<code>tapOnError</code>,<code>doOnCompleted</code>/<code>tapOnCompleted</code></p>
-<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
+<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample ####</h4>
+
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> result = xs.filter(x =&gt; x.failed).tap(x =&gt; log(x));
 </code></pre>
 <p>In this sample, messages are filtered for failure. The messages are logged before handing them out to the code subscribed to this observable sequence. The logging is a side-effect (e.g. placing the messages in the computer&#x2019;s event log) and is explicitly done via a call to the <code>do</code>/<code>tap</code> operator.</p>
-<h3 id="assume-messages-can-come-through-until-unsubscribe-has-completed"><a name="assume-messages-can-come-through-until-unsubscribe-has-completed" class="plugin-anchor" href="#assume-messages-can-come-through-until-unsubscribe-has-completed"><span class="fa fa-link"></span></a>Assume messages can come through until unsubscribe has completed</h3>
+<h3 id="assume-messages-can-come-through-until-unsubscribe-has-completed"><a name="assume-messages-can-come-through-until-unsubscribe-has-completed" class="plugin-anchor" href="#assume-messages-can-come-through-until-unsubscribe-has-completed"><span class="fa fa-link"></span></a>Assume messages can come through until unsubscribe has completed ###</h3>
+
 <p>As RxJS uses a push model, messages can be sent from different execution contexts. Messages can be in flight while calling unsubscribe. These messages can still come through while the call to unsubscribe is in progress. After control has returned, no more messages will arrive. The unsubscription process can still be in progress on a different context.</p>
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
+
 <p>Once the <code>onCompleted</code> or <code>onError</code> method has been received, the RxJS grammar guarantees that the subscription can be considered to be finished.</p>
-<h3 id="use-the-publish-operator-to-share-side-effects"><a name="use-the-publish-operator-to-share-side-effects" class="plugin-anchor" href="#use-the-publish-operator-to-share-side-effects"><span class="fa fa-link"></span></a>Use the <code>publish</code> operator to share side-effects</h3>
+<h3 id="use-the-publish-operator-to-share-side-effects"><a name="use-the-publish-operator-to-share-side-effects" class="plugin-anchor" href="#use-the-publish-operator-to-share-side-effects"><span class="fa fa-link"></span></a>Use the `publish` operator to share side-effects ###</h3>
+
 <p>As many observable sequences are cold <a href="http://channel9.msdn.com/Blogs/J.Van.Gogh/Rx-API-in-depth-Hot-and-Cold-observables" target="_blank">(see cold vs. hot on Channel 9)</a>, each subscription will have a
 separate set of side-effects. Certain situations require that these side-effects occur only once. The <code>publish</code> operator provides a mechanism to share subscriptions by broadcasting a single subscription to multiple subscribers.</p>
 <p>There are several overloads of the <code>publish</code> operator. The most convenient overloads are the ones that provide a function with a wrapped observable sequence argument that shares the side-effects.</p>
-<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
+<h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample ####</h4>
+
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> xs = Rx.Observable.create(observer =&gt; {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Side effect&apos;</span>);
   observer.onNext(<span class="hljs-string">&apos;hi!&apos;</span>);
@@ -5445,7 +5465,8 @@ xs.publish(sharedXs =&gt; {
 }).subscribe();
 </code></pre>
 <p>In this sample, xs is an observable sequence that has side-effects (writing to the console). Normally each separate subscription will trigger these side-effects. The <code>publish</code> operator uses a single subscription to xs for all subscribers to sharedXs.</p>
-<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
+<h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline ####</h4>
+
 <p>Only use the <code>publish</code> operator to share side-effects when sharing is required. In most situations you can create separate subscriptions without any problems: either the subscriptions do not have side-effects or the side effects can execute multiple times without any issues.</p>
 
                     

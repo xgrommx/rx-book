@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.22" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.22" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,17 +5356,20 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-distinctuntilchanged-keyselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-distinctuntilchanged-js"><a name="-rx-observable-prototype-distinctuntilchanged-keyselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-distinctuntilchanged-js" class="plugin-anchor" href="#-rx-observable-prototype-distinctuntilchanged-keyselector-comparer-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-distinctuntilchanged-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/distinctuntilchanged.js" target="_blank"><code>Rx.Observable.prototype.distinctUntilChanged([keySelector], [comparer])</code></a></h2>
+                        <h2 id="rxobservableprototypedistinctuntilchangedkeyselector-comparerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledistinctuntilchangedjs"><a name="rxobservableprototypedistinctuntilchangedkeyselector-comparerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledistinctuntilchangedjs" class="plugin-anchor" href="#rxobservableprototypedistinctuntilchangedkeyselector-comparerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservabledistinctuntilchangedjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.distinctUntilChanged([keySelector], [comparer])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/distinctuntilchanged.js)</h2>
+
+
+
 <p><rx-marbles key="distinctUntilChanged">&lt;/rx-marbles&gt;</rx-marbles></p>
 <p>Returns an observable sequence that contains only distinct contiguous elements according to the keySelector and the comparer.</p>
-<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
+<p></p><h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4><p></p>
 <ol>
 <li><code>[keySelector]</code> <em>(<code>Function</code>)</em>: A function to compute the comparison key for each element.</li>
 <li><code>[comparer]</code> <em>(<code>Function</code>)</em>: Equality comparer for computed key values. If not provided, defaults to an equality comparer function.</li>
 </ol>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence only containing the distinct elements, based on a computed key value, from the source sequence.</p>
-<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<p></p><h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<em>(<code>Observable</code>)</em>: An observable sequence only containing the distinct elements, based on a computed key value, from the source sequence.<p></p>
+<p></p><h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4><p></p>
 <pre><code class="lang-js"><span class="hljs-comment">/* Without key selector */</span>
 <span class="hljs-keyword">var</span> source = Rx.Observable.fromArray([
         <span class="hljs-number">42</span>, <span class="hljs-number">42</span>, <span class="hljs-number">24</span>, <span class="hljs-number">24</span>

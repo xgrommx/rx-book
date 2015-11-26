@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.1.9" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.1.9" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,28 +5356,36 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-for-sources-resultselector-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-for-js"><a name="-rx-observable-for-sources-resultselector-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-for-js" class="plugin-anchor" href="#-rx-observable-for-sources-resultselector-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-for-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/for.js" target="_blank"><code>Rx.Observable.for(sources, resultSelector, [thisArg])</code></a></h2>
+                        <h2 id="rxobservableforsources-resultselector-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableforjs"><a name="rxobservableforsources-resultselector-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableforjs" class="plugin-anchor" href="#rxobservableforsources-resultselector-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableforjs"><span class="fa fa-link"></span></a>[`Rx.Observable.for(sources, resultSelector, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/for.js)</h2>
+
+
+
+
+
+
 <p>Concatenates the observable sequences or Promises obtained by running the specified result selector for each element in source.
 There is an alias for this method called <code>forIn</code> for browsers &lt;IE9</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>sources</code> <em>(Array)</em>: An array of values to turn into an observable sequence.</li>
-<li><p><code>resultSelector</code> <em>(<code>Function</code>)</em>: A function to apply to each item in the sources array to turn it into an observable sequence. The resultSelector is called with the following information:</p>
-<ol>
-<li>the value of the element</li>
-<li>the index of the element</li>
-<li>the Observable object being subscribed</li>
-</ol>
-</li>
-<li><p><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing <code>resultSelector</code>.</p>
-</li>
-</ol>
+1. `sources` *(Array)*: An array of values to turn into an observable sequence.
+2. `resultSelector` *(`Function`)*: A function to apply to each item in the sources array to turn it into an observable sequence. The resultSelector is called with the following information:
+    1. the value of the element
+    2. the index of the element
+    3. the Observable object being subscribed
+
+3. `[thisArg]` *(`Any`)*: Object to use as `this` when executing `resultSelector`.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence from the concatenated observable sequences or Promises.</p>
+*(`Observable`)*: An observable sequence from the concatenated observable sequences or Promises.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
+
+
 <h5 id="using-observables"><a name="using-observables" class="plugin-anchor" href="#using-observables"><span class="fa fa-link"></span></a>Using Observables</h5>
+
 <p><a href="http://jsbin.com/bocec/2/embed?js,console" target="_blank"></a></p>
 <h5 id="using-promises"><a name="using-promises" class="plugin-anchor" href="#using-promises"><span class="fa fa-link"></span></a>Using Promises</h5>
+
 <p><a href="http://jsbin.com/febuc/2/embed?js,console" target="_blank"></a></p>
 
                     

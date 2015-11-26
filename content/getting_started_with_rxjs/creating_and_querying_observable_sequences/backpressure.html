@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="3.3.9" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="3.3.9" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,17 +5356,21 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="backpressure"><a name="backpressure" class="plugin-anchor" href="#backpressure"><span class="fa fa-link"></span></a>Backpressure</h1>
+                        <h1 id="backpressure"><a name="backpressure" class="plugin-anchor" href="#backpressure"><span class="fa fa-link"></span></a>Backpressure #</h1>
+
 <p>When it comes to streaming data, streams can be overly chatty in which the consumer cannot keep up with the producer.  To that end, we need mechanisms to control the source so that the consumer does not get overwhelmed.  These mechanisms can come in either the form of lossy or loss-less operations, each of which depends on the requirements.  For example, if you miss a few mouse movements, it may not be a problem, however, if you miss a few bank transactions, that could be a definite problem.  This section covers which techniques you can use to handle backpressure in either lossy or loss-less ways.</p>
 <p>For example, imagine using the <code>zip</code> operator to zip together two infinite Observables, one of which emits items twice as frequently as the other. A naive implementation of the zip operator would have to maintain an ever-expanding buffer of items emitted by the faster Observable to eventually combine with items emitted by the slower one. This could cause RxJS to seize an unwieldy amount of system resources.</p>
-<h2 id="hot-and-cold-observables-and-multicast"><a name="hot-and-cold-observables-and-multicast" class="plugin-anchor" href="#hot-and-cold-observables-and-multicast"><span class="fa fa-link"></span></a>Hot and Cold Observables and Multicast</h2>
+<h2 id="hot-and-cold-observables-and-multicast"><a name="hot-and-cold-observables-and-multicast" class="plugin-anchor" href="#hot-and-cold-observables-and-multicast"><span class="fa fa-link"></span></a>Hot and Cold Observables and Multicast ##</h2>
+
 <p>A cold Observable emits a particular sequence of items, but can begin emitting this sequence when its Observer finds it to be convenient, and at whatever rate the Observer desires, without disrupting the integrity of the sequence. For example if you convert a iterable such as array, Map, Set, or generator into an Observable, that Observable will emit the same sequence of items no matter when it is later subscribed to or how frequently those items are observed. Examples of items emitted by a cold Observable might include the results of a database query, file retrieval, or web request.</p>
 <p>A hot Observable begins generating items to emit immediately when it is created. Subscribers typically begin observing the sequence of items emitted by a hot Observable from somewhere in the middle of the sequence, beginning with the first item emitted by the Observable subsequent to the establishment of the subscription. Such an Observable emits items at its own pace, and it is up to its observers to keep up. Examples of items emitted by a hot Observable might include mouse &amp; keyboard events, system events, or stock prices.</p>
 <p>When a cold Observable is multi-cast (when it is converted into a <code>ConnectableObservable</code> and its <code>connect</code> method is called), it effectively becomes hot and for the purposes of backpressure and flow-control it should be treated as a hot Observable.</p>
 <p>Cold Observables are ideal subjects for the reactive pull model of backpressure described below. Hot observables are typically not designed to cope well with a reactive pull model, and are better candidates for some of the other flow control strategies discussed on this page, such as the use of the <code>pausableBuffered</code> or <code>pausable</code> operators, throttling, buffers, or windows.</p>
-<h2 id="lossy-backpressure"><a name="lossy-backpressure" class="plugin-anchor" href="#lossy-backpressure"><span class="fa fa-link"></span></a>Lossy Backpressure</h2>
+<h2 id="lossy-backpressure"><a name="lossy-backpressure" class="plugin-anchor" href="#lossy-backpressure"><span class="fa fa-link"></span></a>Lossy Backpressure ##</h2>
+
 <p>There are a number of ways that an observable sequence can be controlled so that the consumer does not get overwhelmed through lossy operations, meaning that packets will be dropped in between pause and resume actions.</p>
-<h3 id="debounce"><a name="debounce" class="plugin-anchor" href="#debounce"><span class="fa fa-link"></span></a>Debounce</h3>
+<h3 id="debounce"><a name="debounce" class="plugin-anchor" href="#debounce"><span class="fa fa-link"></span></a>Debounce ###</h3>
+
 <p>The first technique for lossy backpressure is called <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/debounce.md" target="_blank"><code>debounce</code></a> which only emits an item from the source Observable after a particular timespan has passed without the Observable emitting any other items.  This is useful in scenarios such as if the user is typing too fast and you do not want to yield every keystroke, and instead wait half a second after the person stopped typing before yielding the value.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> debounced = Rx.Observable.fromEvent(input, <span class="hljs-string">&apos;keyup&apos;</span>)
   .map(e =&gt; e.target.value)
@@ -5374,7 +5378,8 @@
 
 debounced.subscribeOnNext(value =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Input value: %s&apos;</span>, value));
 </code></pre>
-<h3 id="throttling"><a name="throttling" class="plugin-anchor" href="#throttling"><span class="fa fa-link"></span></a>Throttling</h3>
+<h3 id="throttling"><a name="throttling" class="plugin-anchor" href="#throttling"><span class="fa fa-link"></span></a>Throttling ###</h3>
+
 <p>Another technique to deal with an observable sequence which is producing too much for the consumer is through throttling with the use of the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/throttlefirst.md" target="_blank"><code>throttleFirst</code></a> method which emits the first items emitted by an Observable within periodic time intervals.  Throttling can be especially useful for rate limiting execution of handlers on events like resize and scroll.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> throttled = Rx.Observable.fromEvent(<span class="hljs-built_in">window</span>, <span class="hljs-string">&apos;resize&apos;</span>)
   .throttleFirst(<span class="hljs-number">250</span> <span class="hljs-comment">/* ms */</span>);
@@ -5384,14 +5389,16 @@ throttled.subscribeOnNext(e =&gt; {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Window inner width: %d&apos;</span>, <span class="hljs-built_in">window</span>.innerWidth);
 });
 </code></pre>
-<h3 id="sampling-observables"><a name="sampling-observables" class="plugin-anchor" href="#sampling-observables"><span class="fa fa-link"></span></a>Sampling Observables</h3>
+<h3 id="sampling-observables"><a name="sampling-observables" class="plugin-anchor" href="#sampling-observables"><span class="fa fa-link"></span></a>Sampling Observables ###</h3>
+
 <p>You can also at certain intervals extract values from the observable sequence using the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/sample.md" target="_blank"><code>sample</code></a> method.  This is useful if you want values from say a stock ticker every five seconds or so without having to consume the entire observable sequence.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> sampled = getStockData()
   .sample(<span class="hljs-number">5000</span> <span class="hljs-comment">/* ms */</span>);
 
 sampled.subscribeOnNext(data =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Stock data: %o&apos;</span>, data));
 </code></pre>
-<h3 id="pausable-observables"><a name="pausable-observables" class="plugin-anchor" href="#pausable-observables"><span class="fa fa-link"></span></a>Pausable Observables</h3>
+<h3 id="pausable-observables"><a name="pausable-observables" class="plugin-anchor" href="#pausable-observables"><span class="fa fa-link"></span></a>Pausable Observables ###</h3>
+
 <p>The ability to pause and resume is also a powerful concept which is offered in RxJS in both lossy and loss-less versions.  In the case of lossy backpressure, the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/pausable.md" target="_blank"><code>pausable</code></a> operator can be used to stop listening and then resume listening at a later time by calling <code>pause</code> and <code>resume</code> respectively on the observable sequence.  For example we can take some observable sequence and call <code>pausable</code>, then call <code>pause</code> to pause the sequence and <code>resume</code> within 5 seconds.  Note that any data that comes in between the pause and resume are lost.  Note that this only works for hot observables and is unsuitable for cold observables as they will restart upon resume.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> pausable = getSomeObservableSource()
   .pausable();
@@ -5403,9 +5410,11 @@ pausable.pause();
 <span class="hljs-comment">// Resume in five seconds</span>
 setTimeout(() =&gt; pausable.resume(), <span class="hljs-number">5000</span>);
 </code></pre>
-<h2 id="loss-less-backpressure"><a name="loss-less-backpressure" class="plugin-anchor" href="#loss-less-backpressure"><span class="fa fa-link"></span></a>Loss-less Backpressure</h2>
+<h2 id="loss-less-backpressure"><a name="loss-less-backpressure" class="plugin-anchor" href="#loss-less-backpressure"><span class="fa fa-link"></span></a>Loss-less Backpressure ##</h2>
+
 <p>In addition to supporting lossy backpressure mechanisms, RxJS also supports ways of getting the data in such a way that it is able to be fully consumed by the consumer at its own pace.  There are a number of strategies at work including using buffers that work with timespans, count or both, pausable buffers, reactive pull, etc.</p>
-<h3 id="buffers-and-windows"><a name="buffers-and-windows" class="plugin-anchor" href="#buffers-and-windows"><span class="fa fa-link"></span></a>Buffers and Windows</h3>
+<h3 id="buffers-and-windows"><a name="buffers-and-windows" class="plugin-anchor" href="#buffers-and-windows"><span class="fa fa-link"></span></a>Buffers and Windows ###</h3>
+
 <p>The first strategy of dealing with an overly chatty producer is through the use of buffers.  This allows the consumer to set either the number of items they wish to wait for at a time, or a particular timespan, or both, whichever comes first.  This is useful in a number of cases, for example if you want some data within a window for comparison purposes in addition to chunking up data as you need it.</p>
 <p>The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/bufferwithcount.md" target="_blank"><code>bufferWithCount</code></a> method allows us to specify the number of items that you wish to capture in a buffer array before yielding it to the consumer.  An impractical yet fun use of this is to calculate whether the user has input the Konami Code for example.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> codes = [
@@ -5441,7 +5450,8 @@ setTimeout(() =&gt; pausable.resume(), <span class="hljs-number">5000</span>);
   .bufferWithTimeOrCount(<span class="hljs-number">5000</span> <span class="hljs-comment">/* ms */</span>, <span class="hljs-number">100</span> <span class="hljs-comment">/* items */</span>)
   .subscribeOnNext(data =&gt; data.forEach(d =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Stock: %o&apos;</span>, d)));
 </code></pre>
-<h3 id="pausable-buffers"><a name="pausable-buffers" class="plugin-anchor" href="#pausable-buffers"><span class="fa fa-link"></span></a>Pausable Buffers</h3>
+<h3 id="pausable-buffers"><a name="pausable-buffers" class="plugin-anchor" href="#pausable-buffers"><span class="fa fa-link"></span></a>Pausable Buffers ###</h3>
+
 <p>The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/pausable.md" target="_blank"><code>pausable</code></a> method is great at dealing with hot observables where you would want to pause and resume while dropping data, however, you may want to preserve that data between the <code>pause</code> and <code>resume</code> calls.  To that end, we have introduced the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/pausablebuffered.md" target="_blank"><code>pausableBuffered</code></a> method which keeps a running buffer between <code>pause</code> is called and is drained when <code>resume</code> is called.  This then leaves the discretion up to the developer to decide when to pause and resume and in the mean time, no data is lost.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = getStockData()
   .pausableBuffered();
@@ -5456,7 +5466,8 @@ setTimeout(() =&gt; {
   source.resume();
 }, <span class="hljs-number">5000</span>);
 </code></pre>
-<h3 id="controlled-observables"><a name="controlled-observables" class="plugin-anchor" href="#controlled-observables"><span class="fa fa-link"></span></a>Controlled Observables</h3>
+<h3 id="controlled-observables"><a name="controlled-observables" class="plugin-anchor" href="#controlled-observables"><span class="fa fa-link"></span></a>Controlled Observables ###</h3>
+
 <p>In more advanced scenarios, you may want to control the absolute number of items that you receive at a given time, and the rest is buffered via the <code>controlled</code> method.  For example, you can pull 10 items, followed by 20 items, and is up to the discretion of the developer.  This is more in-line with the efforts from the <a href="http://www.reactive-streams.org/" target="_blank">Reactive Streams</a> effort to effectively turn the push stream into a push/pull stream.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source = getStockData()
   .controlled();
@@ -5468,7 +5479,8 @@ source.request(<span class="hljs-number">2</span>);
 <span class="hljs-comment">// Keep getting more after 5 seconds</span>
 setInterval(=&gt; source.request(<span class="hljs-number">2</span>), <span class="hljs-number">5000</span>);
 </code></pre>
-<h3 id="future-work"><a name="future-work" class="plugin-anchor" href="#future-work"><span class="fa fa-link"></span></a>Future Work</h3>
+<h3 id="future-work"><a name="future-work" class="plugin-anchor" href="#future-work"><span class="fa fa-link"></span></a>Future Work ###</h3>
+
 <p>This is of course only the beginning of the work with backpressure as there are many other strategies that can be considered.  In future versions of RxJS, the idea of the controlled observable will be baked into the subscription itself which then allows the backpressure to be an essential part of the contract or requesting n number of items.</p>
 
                     

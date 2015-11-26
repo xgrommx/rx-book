@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.1.11" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.1.11" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,29 +5356,44 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-from-iterable-mapfn-thisarg-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-from-js"><a name="-rx-observable-from-iterable-mapfn-thisarg-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-from-js" class="plugin-anchor" href="#-rx-observable-from-iterable-mapfn-thisarg-scheduler-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-from-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/from.js" target="_blank"><code>Rx.Observable.from(iterable, [mapFn], [thisArg], [scheduler])</code></a></h2>
+                        <h2 id="rxobservablefromiterable-mapfn-thisarg-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablefromjs"><a name="rxobservablefromiterable-mapfn-thisarg-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablefromjs" class="plugin-anchor" href="#rxobservablefromiterable-mapfn-thisarg-schedulerhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablefromjs"><span class="fa fa-link"></span></a>[`Rx.Observable.from(iterable, [mapFn], [thisArg], [scheduler])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/from.js)</h2>
+
+
+
+
+
+
 <p>This method creates a new Observable sequence from an array-like or iterable object.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>iterable</code> <em>(<code>Array</code> | <code>Arguments</code> | <code>Iterable</code>)</em>: An array-like or iterable object to convert to an Observable sequence.</li>
-<li><code>[mapFn]</code> <em>(<code>Function</code>)</em>: Map function to call on every element of the array.</li>
-<li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: The context to use calling the mapFn if provided.</li>
-<li><code>[scheduler=Rx.Scheduler.currentThread]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the enumeration of the input sequence on.</li>
-</ol>
+1. `iterable` *(`Array` | `Arguments` | `Iterable`)*: An array-like or iterable object to convert to an Observable sequence.
+2. `[mapFn]` *(`Function`)*: Map function to call on every element of the array.
+3. `[thisArg]` *(`Any`)*: The context to use calling the mapFn if provided.
+4. `[scheduler=Rx.Scheduler.currentThread]` *(`Scheduler`)*: Scheduler to run the enumeration of the input sequence on.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: The observable sequence whose elements are pulled from the given iterable sequence.</p>
+*(`Observable`)*: The observable sequence whose elements are pulled from the given iterable sequence.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
+
+
 <h5 id="array-like-object-arguments-to-observable"><a name="array-like-object-arguments-to-observable" class="plugin-anchor" href="#array-like-object-arguments-to-observable"><span class="fa fa-link"></span></a>Array-like object (arguments) to Observable</h5>
+
 <p><a href="http://jsbin.com/dekire/2/embed?js,console" target="_blank"></a></p>
 <h5 id="set"><a name="set" class="plugin-anchor" href="#set"><span class="fa fa-link"></span></a>Set</h5>
+
 <p><a href="http://jsbin.com/dapoju/4/embed?js,console" target="_blank"></a></p>
 <h5 id="map"><a name="map" class="plugin-anchor" href="#map"><span class="fa fa-link"></span></a>Map</h5>
+
 <p><a href="http://jsbin.com/yukiyu/4/embed?js,console" target="_blank"></a></p>
 <h5 id="string"><a name="string" class="plugin-anchor" href="#string"><span class="fa fa-link"></span></a>String</h5>
+
 <p><a href="http://jsbin.com/bemuqa/3/embed?js,console" target="_blank"></a></p>
 <h5 id="array"><a name="array" class="plugin-anchor" href="#array"><span class="fa fa-link"></span></a>Array</h5>
+
 <p><a href="http://jsbin.com/tiluno/2/embed?js,console" target="_blank"></a></p>
 <h5 id="generate-a-sequence-of-numbers"><a name="generate-a-sequence-of-numbers" class="plugin-anchor" href="#generate-a-sequence-of-numbers"><span class="fa fa-link"></span></a>Generate a sequence of numbers</h5>
+
 <p><a href="http://jsbin.com/piyehe/2/embed?js,console" target="_blank"></a></p>
 
                     

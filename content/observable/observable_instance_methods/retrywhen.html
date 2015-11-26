@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.81" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.81" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,16 +5356,17 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-retrywhen-notifier-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-retrywhen-js"><a name="-rx-observable-prototype-retrywhen-notifier-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-retrywhen-js" class="plugin-anchor" href="#-rx-observable-prototype-retrywhen-notifier-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-retrywhen-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/retrywhen.js" target="_blank"><code>Rx.Observable.prototype.retryWhen(notifier)</code></a></h2>
+                        <h2 id="rxobservableprototyperetrywhennotifierhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableretrywhenjs"><a name="rxobservableprototyperetrywhennotifierhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableretrywhenjs" class="plugin-anchor" href="#rxobservableprototyperetrywhennotifierhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableretrywhenjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.retryWhen(notifier)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/retrywhen.js)</h2>
+
 <p>Repeats the source observable sequence on error when the notifier emits a next value. If the source observable errors and the notifier completes, it will complete the source sequence</p>
-<h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
+<p></p><h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4><p></p>
 <ol>
 <li><code>notificationHandler</code> <em>(<code>Function</code>)</em>: A handler that is passed an observable sequence of errors raised by the source observable and returns
 and observable that either continues, completes or errors. This behavior is then applied to the source observable.</li>
 </ol>
-<h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence producing the elements of the given sequence repeatedly until it terminates successfully or is notified to error or complete.</p>
-<h4 id="example-delayed-retry"><a name="example-delayed-retry" class="plugin-anchor" href="#example-delayed-retry"><span class="fa fa-link"></span></a>Example: delayed retry</h4>
+<p></p><h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
+<em>(<code>Observable</code>)</em>: An observable sequence producing the elements of the given sequence repeatedly until it terminates successfully or is notified to error or complete.<p></p>
+<p></p><h4 id="example-delayed-retry"><a name="example-delayed-retry" class="plugin-anchor" href="#example-delayed-retry"><span class="fa fa-link"></span></a>Example: delayed retry</h4><p></p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)
@@ -5401,7 +5402,7 @@ and observable that either continues, completes or errors. This behavior is then
 <span class="hljs-comment">// =&gt; Next: 1</span>
 <span class="hljs-comment">// =&gt; Error: &apos;ex&apos;</span>
 </code></pre>
-<h4 id="example-erroring-an-observable-after-2-failures"><a name="example-erroring-an-observable-after-2-failures" class="plugin-anchor" href="#example-erroring-an-observable-after-2-failures"><span class="fa fa-link"></span></a>Example: Erroring an observable after 2 failures</h4>
+<p></p><h4 id="example-erroring-an-observable-after-2-failures"><a name="example-erroring-an-observable-after-2-failures" class="plugin-anchor" href="#example-erroring-an-observable-after-2-failures"><span class="fa fa-link"></span></a>Example: Erroring an observable after 2 failures</h4><p></p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)
@@ -5437,7 +5438,7 @@ and observable that either continues, completes or errors. This behavior is then
 <span class="hljs-comment">// =&gt; Next: 1</span>
 <span class="hljs-comment">// =&gt; Error: &apos;ex&apos;</span>
 </code></pre>
-<h4 id="example-completing-an-observable-after-2-failures"><a name="example-completing-an-observable-after-2-failures" class="plugin-anchor" href="#example-completing-an-observable-after-2-failures"><span class="fa fa-link"></span></a>Example: Completing an observable after 2 failures</h4>
+<p></p><h4 id="example-completing-an-observable-after-2-failures"><a name="example-completing-an-observable-after-2-failures" class="plugin-anchor" href="#example-completing-an-observable-after-2-failures"><span class="fa fa-link"></span></a>Example: Completing an observable after 2 failures</h4><p></p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;
 
 <span class="hljs-keyword">var</span> source = Rx.Observable.interval(<span class="hljs-number">1000</span>)

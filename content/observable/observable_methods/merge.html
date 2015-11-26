@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.1.24" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.1.24" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,16 +5356,24 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-merge-scheduler-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-merge-js"><a name="-rx-observable-merge-scheduler-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-merge-js" class="plugin-anchor" href="#-rx-observable-merge-scheduler-args-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-merge-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/merge.js" target="_blank"><code>Rx.Observable.merge([scheduler], ...args)</code></a></h2>
+                        <h2 id="rxobservablemergescheduler-argshttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablemergejs"><a name="rxobservablemergescheduler-argshttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablemergejs" class="plugin-anchor" href="#rxobservablemergescheduler-argshttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablemergejs"><span class="fa fa-link"></span></a>[`Rx.Observable.merge([scheduler], ...args)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/merge.js)</h2>
+
+
+
+
+
+
+
 <p>Merges all the observable sequences and Promises into a single observable sequence.  </p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>[scheduler]</code> <em>(Scheduler=Rx.Scheduler.timeout)</em>: Scheduler to run the timer on. If not specified, Rx.Scheduler.immediate is used.</li>
-<li><code>args</code> <em>(Array|arguments)</em>: Observable sequences to merge into a single sequence.</li>
-</ol>
+1. `[scheduler]` *(Scheduler=Rx.Scheduler.timeout)*: Scheduler to run the timer on. If not specified, Rx.Scheduler.immediate is used.
+1. `args` *(Array|arguments)*: Observable sequences to merge into a single sequence.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence that produces a value after each period.</p>
+*(`Observable`)*: An observable sequence that produces a value after each period.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p><a href="http://jsbin.com/yicit/1/embed?js,console" target="_blank"></a></p>
 
                     

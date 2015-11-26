@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.91" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.91" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,17 +5356,25 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-skiplastwithtime-duration-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-skiplastwithtime-js"><a name="-rx-observable-prototype-skiplastwithtime-duration-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-skiplastwithtime-js" class="plugin-anchor" href="#-rx-observable-prototype-skiplastwithtime-duration-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-skiplastwithtime-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skiplastwithtime.js" target="_blank"><code>Rx.Observable.prototype.skipLastWithTime(duration)</code></a></h2>
+                        <h2 id="rxobservableprototypeskiplastwithtimedurationhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableskiplastwithtimejs"><a name="rxobservableprototypeskiplastwithtimedurationhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableskiplastwithtimejs" class="plugin-anchor" href="#rxobservableprototypeskiplastwithtimedurationhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableskiplastwithtimejs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.skipLastWithTime(duration)`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/skiplastwithtime.js)</h2>
+
+
+
+
+
+
+
 <p>Bypasses a specified number of elements at the end of an observable sequence.</p>
 <p>This operator accumulates a queue with a length enough to store the first <code>count</code> elements. As more elements are received, elements are taken from the front of the queue and produced on the result sequence. This causes elements to be delayed. </p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>duration</code> <em>(<code>Number</code>)</em>: Duration for skipping elements from the end of the sequence.</li>
-<li><code>[scheduler=Rx.Scheduler.timeout]</code> <em>(<code>Scheduler</code>)</em>: Scheduler to run the timer on. If not specified, defaults to timeout scheduler.</li>
-</ol>
+1. `duration` *(`Number`)*: Duration for skipping elements from the end of the sequence.
+1. `[scheduler=Rx.Scheduler.timeout]` *(`Scheduler`)*: Scheduler to run the timer on. If not specified, defaults to timeout scheduler.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence with the elements skipped during the specified duration from the end of the source sequence.</p>
+*(`Observable`)*: An observable sequence with the elements skipped during the specified duration from the end of the source sequence.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p><a href="http://jsbin.com/tiyedi/1/embed?js,console" target="_blank"></a></p>
 
                     

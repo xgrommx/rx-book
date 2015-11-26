@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.132" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.132" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,21 +5356,27 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-zip-args-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-zipproto-js"><a name="-rx-observable-prototype-zip-args-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-zipproto-js" class="plugin-anchor" href="#-rx-observable-prototype-zip-args-resultselector-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-zipproto-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/zipproto.js" target="_blank"><code>Rx.Observable.prototype.zip(...args, [resultSelector])</code></a></h2>
+                        <h2 id="rxobservableprototypezipargs-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablezipprotojs"><a name="rxobservableprototypezipargs-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablezipprotojs" class="plugin-anchor" href="#rxobservableprototypezipargs-resultselectorhttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservablezipprotojs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.zip(...args, [resultSelector])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/zipproto.js)</h2>
+
+
+
 <p><rx-marbles key="zip">&lt;/rx-marbles&gt;</rx-marbles></p>
 <p>Merges the specified observable sequences or Promises into one observable sequence by using the selector function whenever all of the observable sequences or an array have produced an element at a corresponding index.</p>
 <p>The last element in the arguments must be a function to invoke for each series of elements at corresponding indexes in the sources.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>args</code> <em>(<code>Arguments</code> | <code>Array</code>)</em>: Arguments or an array of observable sequences.</li>
-<li><code>[resultSelector]</code> <em>(<code>Any</code>)</em>: Function to invoke for each series of elements at corresponding indexes in the sources, used only if the first parameter is not an array.</li>
-</ol>
+1. `args` *(`Arguments` | `Array`)*: Arguments or an array of observable sequences.
+2. `[resultSelector]` *(`Any`)*: Function to invoke for each series of elements at corresponding indexes in the sources, used only if the first parameter is not an array.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence containing the result of combining elements of the sources using the specified result selector function. </p>
+*(`Observable`)*: An observable sequence containing the result of combining elements of the sources using the specified result selector function. 
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <h5 id="using-arguments"><a name="using-arguments" class="plugin-anchor" href="#using-arguments"><span class="fa fa-link"></span></a>Using arguments</h5>
+
 <p><a href="http://jsbin.com/pijaho/1/embed?js,console" target="_blank"></a></p>
 <h5 id="using-an-array"><a name="using-an-array" class="plugin-anchor" href="#using-an-array"><span class="fa fa-link"></span></a>Using an array</h5>
+
 <p><a href="http://jsbin.com/wazuha/1/embed?js,console" target="_blank"></a></p>
 
                     

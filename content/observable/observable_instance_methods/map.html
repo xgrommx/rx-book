@@ -48,7 +48,7 @@
     
 
         
-    <div class="book" data-level="8.2.57" data-basepath="../../.." data-revision="Wed Nov 25 2015 19:42:43 GMT+0200 (FLE Standard Time)">
+    <div class="book" data-level="8.2.57" data-basepath="../../.." data-revision="Thu Nov 26 2015 03:28:22 GMT+0200 (FLE Standard Time)">
     
 
 <div class="book-summary">
@@ -5356,22 +5356,24 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="-rx-observable-prototype-map-selector-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-select-js"><a name="-rx-observable-prototype-map-selector-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-select-js" class="plugin-anchor" href="#-rx-observable-prototype-map-selector-thisarg-https-github-com-reactive-extensions-rxjs-blob-master-src-core-linq-observable-select-js"><span class="fa fa-link"></span></a><a href="https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/select.js" target="_blank"><code>Rx.Observable.prototype.map(selector, [thisArg])</code></a></h2>
+                        <h2 id="rxobservableprototypemapselector-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableselectjs"><a name="rxobservableprototypemapselector-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableselectjs" class="plugin-anchor" href="#rxobservableprototypemapselector-thisarghttpsgithubcomreactive-extensionsrxjsblobmastersrccorelinqobservableselectjs"><span class="fa fa-link"></span></a>[`Rx.Observable.prototype.map(selector, [thisArg])`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/select.js)</h2>
+
+
+
 <p><rx-marbles key="map">&lt;/rx-marbles&gt;</rx-marbles></p>
 <p>Projects each element of an observable sequence into a new form by incorporating the element&apos;s index.  This is an alias for the <code>select</code> method.</p>
 <h4 id="arguments"><a name="arguments" class="plugin-anchor" href="#arguments"><span class="fa fa-link"></span></a>Arguments</h4>
-<ol>
-<li><code>selector</code> <em>(<code>Function</code>)</em>:  Transform function to apply to each source element.  The selector is called with the following information:<ol>
-<li>the value of the element</li>
-<li>the index of the element</li>
-<li>the Observable object being subscribed</li>
-</ol>
-</li>
-<li><code>[thisArg]</code> <em>(<code>Any</code>)</em>: Object to use as <code>this</code> when executing the predicate.</li>
-</ol>
+1. `selector` *(`Function`)*:  Transform function to apply to each source element.  The selector is called with the following information:
+    1. the value of the element
+    2. the index of the element
+    3. the Observable object being subscribed
+2. `[thisArg]` *(`Any`)*: Object to use as `this` when executing the predicate.
+
 <h4 id="returns"><a name="returns" class="plugin-anchor" href="#returns"><span class="fa fa-link"></span></a>Returns</h4>
-<p><em>(<code>Observable</code>)</em>: An observable sequence which results from the comonadic bind operation.</p>
+*(`Observable`)*: An observable sequence which results from the comonadic bind operation.
+
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+
 <p><a href="http://jsbin.com/sureq/1/embed?js,console" target="_blank"></a></p>
 
                     

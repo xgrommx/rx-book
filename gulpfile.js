@@ -9,6 +9,7 @@ var mergeStream = require('merge-stream');
 var source = require('vinyl-source-stream');
 var ghPages = require('gulp-gh-pages');
 var shell = require('gulp-shell');
+var runSequence = require('run-sequence');
 
 gulp.task('css', function() {
     var merged = mergeStream();
@@ -57,5 +58,5 @@ gulp.task('deploy', ['build'], function() {
     .pipe(ghPages());
 });
 
-gulp.task('deploy:update', ['deploy', 'update']);
+gulp.task('deploy:update', runSequence('deploy', 'update'));
 

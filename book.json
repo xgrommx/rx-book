@@ -2,6 +2,9 @@
     "generator": "site",
     "title": "RxJS - Javascript library for functional reactive programming.",
     "description": null,
+    "structure": {
+        "readme": "INTRO.md"
+    },
     "plugins": [
         "jsbin",
         "anchors",

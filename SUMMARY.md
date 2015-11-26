@@ -1,6 +1,6 @@
 ## Summary
 
-* [Why RxJS?](WhyRx.md)
+* [Why RxJS?](why_rx.md)
 * [RxJS Design Guidelines](content/guidelines/README.md)
    * [Introduction](content/guidelines/introduction/README.md)
    * [When To Use RxJS](content/guidelines/when/README.md)

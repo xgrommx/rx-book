@@ -84,6 +84,7 @@
 * [Official blog](blogs.msdn.com/b/rxteam)
 * [Your Mouse is a Database](https://queue.acm.org/detail.cfm?id=2169076&dwn=0)
 * [Going Reactive: An Architectural Journey](https://realm.io/news/gotocph-mattias-kappler-reactive-architecture-android)
+* [Android MVP, Retrofit & Rx](http://appfoundry.be/blog/2015/09/14/mvprx)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

@@ -49,6 +49,7 @@
         * [**scanux** - A simple Flux implementation](https://github.com/ulrikaugustsson/scanux)
         * [**rx-store** - Reactive JS library for managing state](https://github.com/jdlehman/rx-store)
 * #### Examples
+    * [https://github.com/almasakchabayev/react-rx-falcor](https://github.com/almasakchabayev/react-rx-falcor)
     * [https://github.com/winsonwq/erc](https://github.com/winsonwq/erc)
     * [https://github.com/foxdonut/adventures-reactive-web-dev](https://github.com/foxdonut/adventures-reactive-web-dev)
     * [https://github.com/jamesknelson/numbat-ui-example](https://github.com/jamesknelson/numbat-ui-example)
@@ -277,7 +278,7 @@
 * [https://github.com/chcokr/firebase-rx](https://github.com/chcokr/firebase-rx)
 * [https://github.com/data-avail/da-rabbitmq-rx](https://github.com/data-avail/da-rabbitmq-rx)
 * [https://github.com/staltz/combineLatestObj](https://github.com/staltz/combineLatestObj)
-* [https://github.com/bcoop713/routerx](https://github.com/bcoop713/routerx)
+* [**routerx** - A stupid simple functional reactive router built for use with Rx.js apps](https://github.com/bcoop713/routerx) 
 * [https://github.com/hpinsley/RxPlay](https://github.com/hpinsley/RxPlay)
 * [https://github.com/zhangchiqing/milestones](https://github.com/zhangchiqing/milestones)
 * [https://github.com/tategakibunko/inga](https://github.com/tategakibunko/inga)

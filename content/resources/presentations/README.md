@@ -42,6 +42,7 @@
 * [Reactive Programming in practice (using Bacon js)](http://eamodeorubio.github.io/reactive-baconjs)
 * [Functional Reactive Programming and Bacon.js](http://latentflip.com/bacon-talk-realtimeconfeu)
 * [FrontendLab: Programming UI with FRP and Bacon js](http://www.slideshare.net/Geeks_Lab/programming-ui-with-frp-and-bacon-js)(ru)
+* [Codemotion 2015 - Functional Reactive Programming: FP, Javascript con extra de bacon](https://speakerdeck.com/onielfadev/codemotion-2015-functional-reactive-programming-fp-javascript-con-extra-de-bacon)
 
 ## Other
 * [Functional Programming Patterns ](http://www.slideshare.net/ScottWlaschin/fp-patterns-buildstufflt)

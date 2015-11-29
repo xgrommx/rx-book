@@ -43,6 +43,9 @@
 * [https://github.com/ohanhi/elm-native](https://github.com/ohanhi/elm-native)
 * [https://github.com/w0rm/elm-flatris](https://github.com/w0rm/elm-flatris) (flat tetris game)
 * [https://github.com/artuuge/elm-collisions](https://github.com/artuuge/elm-collisions)
+* [https://github.com/davidwatkins73/elm-reactive](https://github.com/davidwatkins73/elm-reactive)
+* [https://github.com/evancz/automaton](https://github.com/evancz/automaton)
+* [https://github.com/vilterp/lemur](https://github.com/vilterp/lemur)
 
 ## Resources
 * [http://planet.elm-lang.org](http://planet.elm-lang.org)

@@ -115,6 +115,7 @@
 * [Mounting D3 Datamaps to containers in Cycle.js using drivers](http://qiita.com/kimagure/items/3020b0a7d08da3b5ce34)
 * [How to make a Cycle.js + Elm hybrid Etch-a-Sketch app](http://qiita.com/kimagure/items/d6ac01e6258ecd363ffe)
 * [Plug and Play All Your Observable Streams With Cycle.js](https://medium.com/@fkrautwald/plug-and-play-all-your-observable-streams-with-cycle-js-e543fc287872)
+* [Detect touch gestures with Cycle.js and Hammer.js](https://cyclicmaterials.github.io/2015/11/26/release-cycle-hammer-driver-0.1.1.html)
 
 ## Bacon
 * [Functional Reactive Programming in JavaScript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)

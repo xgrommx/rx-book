@@ -153,7 +153,7 @@
 * [Articles about FRP](http://blog.risingstack.com/tag/frp)
 * [Abstracting away the grunt work with Plumber](http://bytes.inso.cc/2014/01/21/abstracting-away-the-grunt-work-with-plumber)
 * [Understanding the functional revolution in front-end applications](http://blog.reactandbethankful.com/posts/2015/09/15/understanding-the-functional-revolution)
-* [http://tech.pro/blog/6888/promises--fp--beautiful-streams](http://tech.pro/blog/6888/promises--fp--beautiful-streams)
+* [Promises + FP = Beautiful Streams](https://medium.com/@yelouafi/promises-fp-beautiful-streams-6f0235c5b179#.n246dpnow)
 * [Articles about FRP](http://theburningmonk.com/tags/reactive-programming)
 * [Flatmap that shit!](http://www.flatmapthatshit.com)
 * [CSP vs. FRP](http://potetm.github.io/2014/01/07/frp.html)

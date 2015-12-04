@@ -85,6 +85,9 @@
 * [Your Mouse is a Database](https://queue.acm.org/detail.cfm?id=2169076&dwn=0)
 * [Going Reactive: An Architectural Journey](https://realm.io/news/gotocph-mattias-kappler-reactive-architecture-android)
 * [Android MVP, Retrofit & Rx](http://appfoundry.be/blog/2015/09/14/mvprx)
+* [Managing state in Angular 2 using RxJs](https://medium.com/@marcosloic/managing-state-in-angular-2-using-rxjs-b849d6bbd5a5#.2azpykj4r)
+* [Experimentation with RxJava](http://blog.joanzapata.com/experimentation-with-rx)
+* [Jugando con decoradores de ES6 y RxJS: Streamify](https://carlosvillu.com/jugando-con-decoradores-de-es6-y-rxjs-streamify)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

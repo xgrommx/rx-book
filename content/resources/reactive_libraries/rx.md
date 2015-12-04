@@ -6,6 +6,7 @@
     * [**rx.angular.js** - Reactive Extensions Bindings for AngularJS](https://github.com/Reactive-Extensions/rx.angular.js)
     * [**ngMagicStream** - Models as Streams in Angular using RxJS](https://github.com/MM-Group/ngMagicStream)
     * [**reactiveproperty-angular** - ReactiveProperty for AngularJS](https://github.com/zoetrope/reactiveproperty-angular)
+    * [**angular-observe** - Angular directive for representing the different states of an Observable](https://github.com/ggoodman/angular-observe)
 * #### Examples
     * [https://github.com/fxck/ng2-rx-redux](https://github.com/fxck/ng2-rx-redux) (angular 2 + rx5 + redux)
     * [https://github.com/cvuorinen/reactive-life](https://github.com/cvuorinen/reactive-life)
@@ -37,6 +38,7 @@
         * [**retransmitter** - Async-friendly stateful React containers](https://github.com/alexeyraspopov/retransmitter)
         * [**rx-recompose** - RxJS utilities for Recompose](https://github.com/acdlite/recompose/tree/master/src/packages/rx-recompose)
         * [**react-combinators** - Seamless combination of React and reactive programming](https://github.com/milankinen/react-combinators)
+        * [**react-rx-subscriber** - React component enhancer to easily subscribe to Rx Observables](https://github.com/BurntCaramel/react-rx-subscriber)
     * ##### Flux
         * [**rx-flux** - A Flux architecture implementation based on RxJS](https://github.com/fdecampredon/rx-flux)
         * [**River** - Reactive stream composer for React application](https://github.com/d6u/River)
@@ -301,6 +303,9 @@
 * [https://github.com/ospatil/rx-textsearch](https://github.com/ospatil/rx-textsearch)
 * [https://github.com/ajbertra91/footballCardGame](https://github.com/ajbertra91/footballCardGame)
 * [https://github.com/alexlrobertson/understanding-rx](https://github.com/alexlrobertson/understanding-rx)
+* [https://github.com/JayKan/RxJS-Playground](https://github.com/JayKan/RxJS-Playground)
+* [https://github.com/gschambers/router-rx](https://github.com/gschambers/router-rx)
+* [**cv-decorators** - List of ES6 decorators](https://github.com/carlosvillu/cv-decorators)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

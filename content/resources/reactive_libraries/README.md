@@ -251,6 +251,7 @@
 * [https://github.com/ApocalypticOctopus/Rx.Community.Extensions](https://github.com/ApocalypticOctopus/Rx.Community.Extensions)
 * [https://github.com/akarnokd/RxReactiveStreamsCSharp](https://github.com/akarnokd/RxReactiveStreamsCSharp)
 * [https://github.com/kswoll/sexy-react](https://github.com/kswoll/sexy-react)
+* [https://github.com/ExRam/ExRam.ReactiveCollections](https://github.com/ExRam/ExRam.ReactiveCollections)
 
 # C++
 * [https://github.com/Reactive-Extensions/RxCpp](https://github.com/Reactive-Extensions/RxCpp)

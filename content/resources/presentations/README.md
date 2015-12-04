@@ -35,6 +35,7 @@
 * [Pimp your Redux app  with RxJS](https://slidr.io/sectore/pimp-your-redux-app-w-rxjs-hamburg-reactjs-meetup)
 * [Fully Reactive User Interfaces](http://slides.com/theefer/reactive-uis)
 * [A Playful Introduction to Rx](http://www.slideshare.net/andreycheptsov/a-playful-introduction-to-rx)
+* [Reactive Programming with Rx](http://www.slideshare.net/InfoQ/reactive-programming-with-rx) *
 
 ## Bacon
 * [Reactive Programming in Practice – (Using Bacon JS)](http://slidedeck.io/eamodeorubio/reactive-baconjs)

@@ -88,6 +88,7 @@
 * [Managing state in Angular 2 using RxJs](https://medium.com/@marcosloic/managing-state-in-angular-2-using-rxjs-b849d6bbd5a5#.2azpykj4r)
 * [Experimentation with RxJava](http://blog.joanzapata.com/experimentation-with-rx)
 * [Jugando con decoradores de ES6 y RxJS: Streamify](https://carlosvillu.com/jugando-con-decoradores-de-es6-y-rxjs-streamify)
+* [Пагинация списков в Android с RxJava. Часть II](http://habrahabr.ru/post/271875)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

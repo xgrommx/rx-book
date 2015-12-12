@@ -502,7 +502,7 @@ There are different ways of solving this, and we will stay with the simplest one
 ```javascript
 var suggestion1Stream = close1ClickStream.startWith('startup click') // we added this
   .combineLatest(responseStream,             
-    function(click, listUsers) {l
+    function(click, listUsers) {
       return listUsers[Math.floor(Math.random()*listUsers.length)];
     }
   )

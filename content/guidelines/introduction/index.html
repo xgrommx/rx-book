@@ -8,7 +8,7 @@
         <title>Introduction | RxJS - Javascript library for functional reactive programming.</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.6.2">
+        <meta name="generator" content="GitBook 2.6.5">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -75,7 +75,7 @@
         data-chapter-title="Introduction"
         data-filepath="content/guidelines/introduction/README.md"
         data-basepath="../../.."
-        data-revision="Fri Dec 04 2015 21:09:37 GMT+0200 (FLE Standard Time)"
+        data-revision="Wed Dec 16 2015 03:05:15 GMT+0200 (EET)"
         data-innerlanguage="">
     
 
@@ -5634,7 +5634,7 @@ where f is the uppercase function
 <p>There are different ways of solving this, and we will stay with the simplest one, which is simulating a click to the &apos;close 1&apos; button on startup:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> suggestion1Stream = close1ClickStream.startWith(<span class="hljs-string">&apos;startup click&apos;</span>) <span class="hljs-comment">// we added this</span>
   .combineLatest(responseStream,             
-    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">click, listUsers</span>) </span>{l
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">click, listUsers</span>) </span>{
       <span class="hljs-keyword">return</span> listUsers[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*listUsers.length)];
     }
   )

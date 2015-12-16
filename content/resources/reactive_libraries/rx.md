@@ -50,7 +50,9 @@
         * [**realm** - A boilerplate for creating scalable apps with react, rxjs and a little bit of magic. Heavily inspired by flux, redux and elm architecture](https://github.com/jschr/realm)
         * [**scanux** - A simple Flux implementation](https://github.com/ulrikaugustsson/scanux)
         * [**rx-store** - Reactive JS library for managing state](https://github.com/jdlehman/rx-store)
+        * [**gleedux** - Bringing joy and happiness to Redux using RxJS](https://github.com/Aaronius/gleedux)
 * #### Examples
+    * [https://github.com/zxbodya/rx-react-container](https://github.com/zxbodya/rx-react-container)
     * [https://github.com/almasakchabayev/react-rx-falcor](https://github.com/almasakchabayev/react-rx-falcor)
     * [https://github.com/winsonwq/erc](https://github.com/winsonwq/erc)
     * [https://github.com/foxdonut/adventures-reactive-web-dev](https://github.com/foxdonut/adventures-reactive-web-dev)
@@ -204,6 +206,7 @@
 ***
 * [https://github.com/anttih/purescript-rx](https://github.com/anttih/purescript-rx)
 * [https://github.com/bodil/purescript-signal](https://github.com/bodil/purescript-signal)
+* [https://gist.github.com/roman/98c0999ba003b6a8f6c5](https://gist.github.com/roman/98c0999ba003b6a8f6c5)
 
 ## Tutorials
 * [https://github.com/staltz/rxjs-training](https://github.com/staltz/rxjs-training)
@@ -306,6 +309,8 @@
 * [https://github.com/JayKan/RxJS-Playground](https://github.com/JayKan/RxJS-Playground)
 * [https://github.com/gschambers/router-rx](https://github.com/gschambers/router-rx)
 * [**cv-decorators** - List of ES6 decorators](https://github.com/carlosvillu/cv-decorators)
+* [https://github.com/codeflyer/hack-rxjs](https://github.com/codeflyer/hack-rxjs)
+* [https://github.com/petuomin/advent-of-code-rxjs](https://github.com/petuomin/advent-of-code-rxjs)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

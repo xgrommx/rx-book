@@ -46,6 +46,7 @@
 * [https://github.com/davidwatkins73/elm-reactive](https://github.com/davidwatkins73/elm-reactive)
 * [https://github.com/evancz/automaton](https://github.com/evancz/automaton)
 * [https://github.com/vilterp/lemur](https://github.com/vilterp/lemur)
+* [https://github.com/pykello/alien-panic](https://github.com/pykello/alien-panic)
 
 ## Resources
 * [http://planet.elm-lang.org](http://planet.elm-lang.org)

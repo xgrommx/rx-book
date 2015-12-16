@@ -41,6 +41,7 @@
 * [happen.js - Functional Reactive & Dataflow programming in Javascript done right, done fast](https://github.com/philipnilsson/happen.js)
 * [quiver-signal - FRP signal type for Quiver front end](https://github.com/quiverjs/quiver-signal)
 * [frpjs - Functional Reactive Programming Library for JavaScript](https://github.com/santoshrajan/frpjs)
+* [nexus - An FRP cell application framework](https://github.com/DaQuirm/nexus)
 
 ## Frameworks
 * [Yolk - A library for building asynchronous user interfaces](https://github.com/garbles/yolk)
@@ -50,6 +51,7 @@
 * [WebRx - WebRx is a browser-based MVVM-Framework that combines functional-reactive programming with declarative Data-Binding, Templating and Client-Side Routing.](http://webrxjs.org)
 * [Falcor - A JavaScript library for efficient data fetching](http://netflix.github.io/falcor)
 * [jsblocks - Better MV-ish Framework](https://github.com/astoilkov/jsblocks) (doesn't use Rx but use frp)
+* [reaxtor - Falcor + Rx + virtual-dom](https://github.com/trxcllnt/reaxtor)
 
 ## Resources
 * [https://github.com/christianramsey/rx-react-flux](https://github.com/christianramsey/rx-react-flux)
@@ -304,3 +306,6 @@
 # Haskell
 * [https://github.com/ivanperez-keera/Yampa](https://github.com/ivanperez-keera/Yampa)
 * [https://github.com/raimohanska/reactive-bacon](https://github.com/raimohanska/reactive-bacon)
+
+# F
+* [https://github.com/intellifactory/reactive](https://github.com/intellifactory/reactive)

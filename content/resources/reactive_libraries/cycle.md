@@ -82,3 +82,6 @@
 * [https://github.com/justinwoo/cycle-elm-etch-sketch](https://github.com/justinwoo/cycle-elm-etch-sketch)
 * [https://github.com/CyclicMaterials/cycle-hammer-driver](https://github.com/CyclicMaterials/cycle-hammer-driver)
 * [https://github.com/Widdershin/cycle-hot-reloading-example](https://github.com/Widdershin/cycle-hot-reloading-example)
+* [https://gist.github.com/staltz/f460cc137fdef0181df3](https://gist.github.com/staltz/f460cc137fdef0181df3)
+* [https://github.com/Cmdv/cycle-webpack-boilerplate](https://github.com/Cmdv/cycle-webpack-boilerplate)
+* [https://github.com/kibin/cycle-example-who-to-follow](https://github.com/kibin/cycle-example-who-to-follow)

@@ -56,6 +56,7 @@
 * [https://github.com/Nyamazing/bacon-trans](https://github.com/Nyamazing/bacon-trans)
 * [https://github.com/ericponto/bacon-for-breakfast-midwestjs](https://github.com/ericponto/bacon-for-breakfast-midwestjs)
 * [https://github.com/erlikh/baconjs-experiments](https://github.com/erlikh/baconjs-experiments)
+* [https://github.com/laurilehmijoki/learn-reactive-programming-with-bacon.js](https://github.com/laurilehmijoki/learn-reactive-programming-with-bacon.js)
 
 ### Tutorials
 ***

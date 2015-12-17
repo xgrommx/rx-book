@@ -27,6 +27,8 @@
     * [http://plnkr.co/edit/WT6JK3o1XZ8PuWJcPVV2?p=preview](http://plnkr.co/edit/WT6JK3o1XZ8PuWJcPVV2?p=preview) (angular 2)
     * [http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview](http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview) (angular 2 + redux)
     * [https://github.com/r-park/todo-angular-rx](https://github.com/r-park/todo-angular-rx) (angular 1.5)
+    * [https://github.com/veyo-care/angular-2-redux](https://github.com/veyo-care/angular-2-redux)
+    * [**store** - RxJS powered Redux for Angular2 apps](https://github.com/ngrx/store)
 
 ### [React](https://github.com/facebook/react)
 ***

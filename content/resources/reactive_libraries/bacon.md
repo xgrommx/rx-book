@@ -32,6 +32,8 @@
 * [https://github.com/VesaKarvonen/atomi-poc](https://github.com/VesaKarvonen/atomi-poc)
 * [https://github.com/aparticka/redux-bacon](https://github.com/aparticka/redux-bacon)
 * [https://github.com/aparticka/react-bacon-component](https://github.com/aparticka/react-bacon-component)
+* [https://github.com/spkerkela/mmh-js](https://github.com/spkerkela/mmh-js)
+* [https://github.com/polytypic/bacon.react](https://github.com/polytypic/bacon.react)
 
 ### Other
 ***

@@ -25,6 +25,7 @@
 * [https://github.com/ahomu/Loxe](https://github.com/ahomu/Loxe)
 * [https://github.com/saikocat/missing-frp-learn](https://github.com/saikocat/missing-frp-learn)
 * [https://github.com/winitzki/kefir-react-es6](https://github.com/winitzki/kefir-react-es6)
+* [https://github.com/iofjuupasli/kefir-react-example](https://github.com/iofjuupasli/kefir-react-example)
 
 ### [Deku](https://github.com/dekujs/deku)
 ***
@@ -49,6 +50,10 @@
 * [https://github.com/fixplz/up](https://github.com/fixplz/up)
 * [https://github.com/fixplz/kefir-store](https://github.com/fixplz/kefir-store)
 * [https://github.com/redpelicans/formo](https://github.com/redpelicans/formo)
+* [https://github.com/somata/somata-kefir](https://github.com/somata/somata-kefir)
+* [https://github.com/iofjuupasli/kefir-bus-property](https://github.com/iofjuupasli/kefir-bus-property)
+* [https://github.com/iofjuupasli/kefir-proxy](https://github.com/iofjuupasli/kefir-proxy)
+* [https://github.com/iofjuupasli/kefir-cron](https://github.com/iofjuupasli/kefir-cron)
 
 ## Dialects
 

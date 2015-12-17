@@ -313,6 +313,7 @@
 * [**cv-decorators** - List of ES6 decorators](https://github.com/carlosvillu/cv-decorators)
 * [https://github.com/codeflyer/hack-rxjs](https://github.com/codeflyer/hack-rxjs)
 * [https://github.com/petuomin/advent-of-code-rxjs](https://github.com/petuomin/advent-of-code-rxjs)
+* [https://github.com/Widdershin/rx-audible](https://github.com/Widdershin/rx-audible)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

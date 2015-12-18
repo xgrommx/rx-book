@@ -29,6 +29,7 @@
     * [https://github.com/r-park/todo-angular-rx](https://github.com/r-park/todo-angular-rx) (angular 1.5)
     * [https://github.com/veyo-care/angular-2-redux](https://github.com/veyo-care/angular-2-redux)
     * [**store** - RxJS powered Redux for Angular2 apps](https://github.com/ngrx/store)
+    * [https://github.com/ariesxje/ng2-rxjs-tryout](https://github.com/ariesxje/ng2-rxjs-tryout)
 
 ### [React](https://github.com/facebook/react)
 ***
@@ -53,7 +54,9 @@
         * [**scanux** - A simple Flux implementation](https://github.com/ulrikaugustsson/scanux)
         * [**rx-store** - Reactive JS library for managing state](https://github.com/jdlehman/rx-store)
         * [**gleedux** - Bringing joy and happiness to Redux using RxJS](https://github.com/Aaronius/gleedux)
+        * [**luna** - a reactive redux library written using Rxjs with built-in thunk and async action support](https://github.com/escherpad/luna)
 * #### Examples
+    * [https://github.com/mattpodwysocki/rx-fluxish](https://github.com/mattpodwysocki/rx-fluxish)
     * [https://github.com/zxbodya/rx-react-container](https://github.com/zxbodya/rx-react-container)
     * [https://github.com/almasakchabayev/react-rx-falcor](https://github.com/almasakchabayev/react-rx-falcor)
     * [https://github.com/winsonwq/erc](https://github.com/winsonwq/erc)

@@ -7,6 +7,7 @@
     * [**ngMagicStream** - Models as Streams in Angular using RxJS](https://github.com/MM-Group/ngMagicStream)
     * [**reactiveproperty-angular** - ReactiveProperty for AngularJS](https://github.com/zoetrope/reactiveproperty-angular)
     * [**angular-observe** - Angular directive for representing the different states of an Observable](https://github.com/ggoodman/angular-observe)
+    * [**store** - RxJS powered Redux for Angular2 apps](https://github.com/ngrx/store)
 * #### Examples
     * [https://github.com/fxck/ng2-rx-redux](https://github.com/fxck/ng2-rx-redux) (angular 2 + rx5 + redux)
     * [https://github.com/cvuorinen/reactive-life](https://github.com/cvuorinen/reactive-life)
@@ -28,7 +29,6 @@
     * [http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview](http://plnkr.co/edit/pUfJ0b3Kay59PfkPEBlo?p=preview) (angular 2 + redux)
     * [https://github.com/r-park/todo-angular-rx](https://github.com/r-park/todo-angular-rx) (angular 1.5)
     * [https://github.com/veyo-care/angular-2-redux](https://github.com/veyo-care/angular-2-redux)
-    * [**store** - RxJS powered Redux for Angular2 apps](https://github.com/ngrx/store)
     * [https://github.com/ariesxje/ng2-rxjs-tryout](https://github.com/ariesxje/ng2-rxjs-tryout)
 
 ### [React](https://github.com/facebook/react)
@@ -47,7 +47,7 @@
         * [**River** - Reactive stream composer for React application](https://github.com/d6u/River)
         * [**redux-core** - Minimal Redux](https://github.com/jas-chen/redux-core)
         * [**rx-redux** - A reimplementation of redux using RxJS](https://github.com/jas-chen/rx-redux)
-        * [thisless-react - Reactive React application flow with React, RxJS and Redux](https://github.com/jas-chen/thisless-react)
+        * [**thisless-react** - Reactive React application flow with React, RxJS and Redux](https://github.com/jas-chen/thisless-react)
         * [**Flow** - A Reactive Extension flux like library based on Rx](https://github.com/tautalos/Flow)
         * [**flux-rx** - Flux components which can be used to implement Flux within a React.js application. Combines Rx.JS and Immutable.JS for Dispatcher/Store implementations](https://github.com/JChapman202/flux-rx)
         * [**realm** - A boilerplate for creating scalable apps with react, rxjs and a little bit of magic. Heavily inspired by flux, redux and elm architecture](https://github.com/jschr/realm)

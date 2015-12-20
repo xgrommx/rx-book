@@ -86,3 +86,5 @@
 * [https://github.com/Cmdv/cycle-webpack-boilerplate](https://github.com/Cmdv/cycle-webpack-boilerplate)
 * [https://github.com/kibin/cycle-example-who-to-follow](https://github.com/kibin/cycle-example-who-to-follow)
 * [https://github.com/spudly/cyclejs-todo-app](https://github.com/spudly/cyclejs-todo-app)
+* [https://github.com/motorcyclejs/core](https://github.com/motorcyclejs/core)
+* [https://github.com/futurice/op-hackathon-templates](https://github.com/futurice/op-hackathon-templates)

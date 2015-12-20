@@ -89,6 +89,8 @@
 * [Experimentation with RxJava](http://blog.joanzapata.com/experimentation-with-rx)
 * [Jugando con decoradores de ES6 y RxJS: Streamify](https://carlosvillu.com/jugando-con-decoradores-de-es6-y-rxjs-streamify)
 * [Пагинация списков в Android с RxJava. Часть II](http://habrahabr.ru/post/271875)
+* [Fluorine: Flux beyond Redux with RxJS](https://medium.com/@PhilPlckthun/fluorine-flux-beyond-redux-with-rxjs-79c80c7663b4#.hnqug6ip5)
+* [RxJS is great. So why have I moved on?](https://medium.com/@puppybits/rxjs-is-great-so-why-have-i-moved-on-534c513e7af3#.5jddxnvb9)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

@@ -55,6 +55,7 @@
         * [**rx-store** - Reactive JS library for managing state](https://github.com/jdlehman/rx-store)
         * [**gleedux** - Bringing joy and happiness to Redux using RxJS](https://github.com/Aaronius/gleedux)
         * [**luna** - a reactive redux library written using Rxjs with built-in thunk and async action support](https://github.com/escherpad/luna)
+        * [**fluorine** - State Accumulation from a single stream of actions](https://github.com/philplckthun/fluorine)
 * #### Examples
     * [https://github.com/mattpodwysocki/rx-fluxish](https://github.com/mattpodwysocki/rx-fluxish)
     * [https://github.com/zxbodya/rx-react-container](https://github.com/zxbodya/rx-react-container)
@@ -204,6 +205,7 @@
 * [https://github.com/amilosevic/rxdiag](https://github.com/amilosevic/rxdiag)
 * [https://github.com/grisendo/Percussion](https://github.com/grisendo/Percussion)
 * [https://github.com/Astn/rxjs-marble-diagram](https://github.com/Astn/rxjs-marble-diagram)
+* [https://github.com/iamssen/rxjs-marble-renderer](https://github.com/iamssen/rxjs-marble-renderer)
 
 ## Dialects
 
@@ -317,6 +319,7 @@
 * [https://github.com/codeflyer/hack-rxjs](https://github.com/codeflyer/hack-rxjs)
 * [https://github.com/petuomin/advent-of-code-rxjs](https://github.com/petuomin/advent-of-code-rxjs)
 * [https://github.com/Widdershin/rx-audible](https://github.com/Widdershin/rx-audible)
+* [https://github.com/jeremymwells/rxstream](https://github.com/jeremymwells/rxstream)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

@@ -177,6 +177,7 @@
 * [https://github.com/mulab/rx-realm](https://github.com/mulab/rx-realm)
 * [https://github.com/RefineriaWeb/base_app_android](https://github.com/RefineriaWeb/base_app_android)
 * [https://github.com/yongjhih/RxBolts](https://github.com/yongjhih/RxBolts)
+* [https://github.com/LiveTyping/u2020-mvp](https://github.com/LiveTyping/u2020-mvp)
 
 ## Tutorials
 * [https://github.com/jhusain/learnrxjava](https://github.com/jhusain/learnrxjava)
@@ -255,6 +256,7 @@
 * [https://github.com/kswoll/sexy-react](https://github.com/kswoll/sexy-react)
 * [https://github.com/ExRam/ExRam.ReactiveCollections](https://github.com/ExRam/ExRam.ReactiveCollections)
 * [https://github.com/Anna-Rx/Anna](https://github.com/Anna-Rx/Anna)
+* [https://github.com/akarnokd/RxAdvancedFlow](https://github.com/akarnokd/RxAdvancedFlow)
 
 # C++
 * [https://github.com/Reactive-Extensions/RxCpp](https://github.com/Reactive-Extensions/RxCpp)
@@ -267,6 +269,7 @@
 
 # Swift
 * [https://github.com/ReactiveX/RxSwift](https://github.com/ReactiveX/RxSwift)
+* [https://github.com/ReSwift/ReduxRx](https://github.com/ReSwift/ReduxRx)
 
 # FSharp
 * [https://github.com/fsprojects/FSharp.Control.Reactive](https://github.com/fsprojects/FSharp.Control.Reactive)

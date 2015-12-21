@@ -57,6 +57,7 @@
         * [**luna** - a reactive redux library written using Rxjs with built-in thunk and async action support](https://github.com/escherpad/luna)
         * [**fluorine** - State Accumulation from a single stream of actions](https://github.com/philplckthun/fluorine)
 * #### Examples
+    * [https://github.com/brynbellomy/luxor](https://github.com/brynbellomy/luxor)
     * [https://github.com/mattpodwysocki/rx-fluxish](https://github.com/mattpodwysocki/rx-fluxish)
     * [https://github.com/zxbodya/rx-react-container](https://github.com/zxbodya/rx-react-container)
     * [https://github.com/almasakchabayev/react-rx-falcor](https://github.com/almasakchabayev/react-rx-falcor)

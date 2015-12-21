@@ -208,6 +208,7 @@
 * [https://github.com/benoitletondor/Rx4Square](https://github.com/benoitletondor/Rx4Square)
 * [https://github.com/importre/popular](https://github.com/importre/popular)
 * [https://github.com/satorufujiwara/kotlin-android-example](https://github.com/satorufujiwara/kotlin-android-example)
+* [https://github.com/ian-ellis/kotlin-mvvm](https://github.com/ian-ellis/kotlin-mvvm)
 
 # .NET
 * [https://github.com/TORISOUP/PhotonRx](https://github.com/TORISOUP/PhotonRx)

@@ -172,3 +172,6 @@
 
 ## Unity
 * [Многопоточность в Unity средствами реактивных расширений](http://habrahabr.ru/company/nixsolutions/blog/268781) (ru)
+
+## Flyd
+* [Fluid configuration of d3.js bandlines with FRP](http://bl.ocks.org/monfera/35be5626a47110312c35)

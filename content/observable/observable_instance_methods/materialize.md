@@ -1,4 +1,4 @@
-## [`Rx.Observable.prototype.matrialize()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/materialize.js)
+## [`Rx.Observable.prototype.materialize()`](https://github.com/Reactive-Extensions/RxJS/blob/master/src/core/linq/observable/materialize.js)
   
 Materializes the implicit notifications of an observable sequence as explicit notification values.
 

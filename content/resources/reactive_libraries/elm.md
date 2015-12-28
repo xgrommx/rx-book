@@ -47,6 +47,7 @@
 * [https://github.com/evancz/automaton](https://github.com/evancz/automaton)
 * [https://github.com/vilterp/lemur](https://github.com/vilterp/lemur)
 * [https://github.com/pykello/alien-panic](https://github.com/pykello/alien-panic)
+* [https://github.com/KualiCo/ReConfigurator](https://github.com/KualiCo/ReConfigurator)
 
 ## Resources
 * [http://planet.elm-lang.org](http://planet.elm-lang.org)

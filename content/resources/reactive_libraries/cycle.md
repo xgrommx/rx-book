@@ -85,3 +85,4 @@
 * [https://gist.github.com/staltz/f460cc137fdef0181df3](https://gist.github.com/staltz/f460cc137fdef0181df3)
 * [https://github.com/Cmdv/cycle-webpack-boilerplate](https://github.com/Cmdv/cycle-webpack-boilerplate)
 * [https://github.com/kibin/cycle-example-who-to-follow](https://github.com/kibin/cycle-example-who-to-follow)
+* [https://github.com/cgeorg/cycle-socket.io](https://github.com/cgeorg/cycle-socket.io)

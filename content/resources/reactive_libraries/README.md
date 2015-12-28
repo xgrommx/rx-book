@@ -99,7 +99,7 @@
 * [https://github.com/darylteo/rxjava-promises](https://github.com/darylteo/rxjava-promises)
 * [https://github.com/ReactiveX/RxNetty](https://github.com/ReactiveX/RxNetty)
 * [https://github.com/fabioCollini/IntroToRetrofitRxJava](https://github.com/fabioCollini/IntroToRetrofitRxJava)
-* [https://github.com/Froussios/Intro-To-RxJava](https://github.com/Froussios/Intro-To-RxJava)
+* [https://github.com/Froussios/Intro-To-RxJava](https://github.com/Froussios/Intro-To-RxJava) (learning material)
 * [https://github.com/jmhofer/rxjava-libgdx](https://github.com/jmhofer/rxjava-libgdx)
 * [https://github.com/meez/mod-rxjava](https://github.com/meez/mod-rxjava)
 * [https://github.com/samuelgruetter/rx-playground](https://github.com/samuelgruetter/rx-playground)

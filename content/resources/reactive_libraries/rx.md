@@ -56,8 +56,8 @@
         * [**gleedux** - Bringing joy and happiness to Redux using RxJS](https://github.com/Aaronius/gleedux)
         * [**luna** - a reactive redux library written using Rxjs with built-in thunk and async action support](https://github.com/escherpad/luna)
         * [**fluorine** - State Accumulation from a single stream of actions](https://github.com/philplckthun/fluorine)
+        * [**luxor** - Flux-ish action/store framework. Built with Typescript and Rx.js](https://github.com/brynbellomy/luxor)
 * #### Examples
-    * [https://github.com/brynbellomy/luxor](https://github.com/brynbellomy/luxor)
     * [https://github.com/mattpodwysocki/rx-fluxish](https://github.com/mattpodwysocki/rx-fluxish)
     * [https://github.com/zxbodya/rx-react-container](https://github.com/zxbodya/rx-react-container)
     * [https://github.com/almasakchabayev/react-rx-falcor](https://github.com/almasakchabayev/react-rx-falcor)
@@ -321,6 +321,7 @@
 * [https://github.com/petuomin/advent-of-code-rxjs](https://github.com/petuomin/advent-of-code-rxjs)
 * [https://github.com/Widdershin/rx-audible](https://github.com/Widdershin/rx-audible)
 * [https://github.com/jeremymwells/rxstream](https://github.com/jeremymwells/rxstream)
+* [https://github.com/jadbox/rxjs-cluster](https://github.com/jadbox/rxjs-cluster)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

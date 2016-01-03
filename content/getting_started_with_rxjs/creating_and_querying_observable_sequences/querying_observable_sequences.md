@@ -49,7 +49,7 @@ Another comparison can be done with the [`catch`](https://github.com/Reactive-Ex
 
 ```js
 var source1 = Rx.Observable.range(1, 3);
-var source2 = Rx.Observable.range(4, 3);
+var source2 = Rx.Observable.range(4, 6);
 
 source1.catch(source2)
    .subscribe(console.log.bind(console));

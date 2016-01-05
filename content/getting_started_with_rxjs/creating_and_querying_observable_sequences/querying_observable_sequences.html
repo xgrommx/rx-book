@@ -75,7 +75,7 @@
         data-chapter-title="Querying Observable Sequences"
         data-filepath="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/querying_observable_sequences.md"
         data-basepath="../../.."
-        data-revision="Fri Dec 18 2015 06:38:50 GMT+0200 (EET)"
+        data-revision="Tue Jan 05 2016 19:15:30 GMT+0200 (EET)"
         data-innerlanguage="">
     
 
@@ -5343,7 +5343,7 @@ source1.merge(source2)
 </code></pre>
 <p>Another comparison can be done with the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypecatchsecond--handler" target="_blank"><code>catch</code></a> operator. In this case, if source1 completes without any error, then source2 will not start. Therefore, if you run the following sample code, you will get 1,2,3 only since source2 (which produces 4,5,6) is ignored.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);
-<span class="hljs-keyword">var</span> source2 = Rx.Observable.range(<span class="hljs-number">4</span>, <span class="hljs-number">3</span>);
+<span class="hljs-keyword">var</span> source2 = Rx.Observable.range(<span class="hljs-number">4</span>, <span class="hljs-number">6</span>);
 
 source1.catch(source2)
    .subscribe(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));

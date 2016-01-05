@@ -77,6 +77,8 @@
 
 #### Other
 * [https://github.com/s2js/fabulous](https://github.com/s2js/fabulous)
+* [https://github.com/TylorS/most-subject](https://github.com/TylorS/most-subject)
+* [https://github.com/axefrog/most-replay](https://github.com/axefrog/most-replay)
 
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)

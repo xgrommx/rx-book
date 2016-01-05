@@ -58,6 +58,7 @@
         * [**fluorine** - State Accumulation from a single stream of actions](https://github.com/philplckthun/fluorine)
         * [**luxor** - Flux-ish action/store framework. Built with Typescript and Rx.js](https://github.com/brynbellomy/luxor)
 * #### Examples
+    * [https://github.com/incrediblesound/RxReact-ToDo](https://github.com/incrediblesound/RxReact-ToDo)
     * [https://github.com/mattpodwysocki/rx-fluxish](https://github.com/mattpodwysocki/rx-fluxish)
     * [https://github.com/zxbodya/rx-react-container](https://github.com/zxbodya/rx-react-container)
     * [https://github.com/almasakchabayev/react-rx-falcor](https://github.com/almasakchabayev/react-rx-falcor)
@@ -142,6 +143,9 @@
 ### [MongoDB](https://github.com/mongodb/mongo)
 ***
 * [https://github.com/data-avail/da-mongo-rx](https://github.com/data-avail/da-mongo-rx)
+
+### [PostgreSQL]()
+* [https://github.com/jadbox/rxjs-massive](https://github.com/jadbox/rxjs-massive)
 
 ### [Meteor](https://github.com/meteor/meteor)
 ***
@@ -230,6 +234,7 @@
 * [https://github.com/JulienMoumne/rx-training-games](https://github.com/JulienMoumne/rx-training-games)
 
 ## Other
+* [https://github.com/alexvictoor/RxJsKata](https://github.com/alexvictoor/RxJsKata)
 * [https://github.com/kt3kstudio/long-dream-core](https://github.com/kt3kstudio/long-dream-core)
 * [https://github.com/fdecampredon/react-observe-todomvc](https://github.com/fdecampredon/react-observe-todomvc)
 * [https://github.com/trxcllnt/rxjs-easing](https://github.com/trxcllnt/rxjs-easing)

@@ -92,6 +92,7 @@
 * [Fluorine: Flux beyond Redux with RxJS](https://medium.com/@PhilPlckthun/fluorine-flux-beyond-redux-with-rxjs-79c80c7663b4#.hnqug6ip5)
 * [RxJS is great. So why have I moved on?](https://medium.com/@puppybits/rxjs-is-great-so-why-have-i-moved-on-534c513e7af3#.5jddxnvb9)
 * [Functional Reactive Programming with RxSwift](https://realm.io/news/slug-max-alexander-functional-reactive-rxswift)
+* [Experimentation with Rx](http://blog.joanzapata.com/experimentation-with-rx)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -123,6 +124,7 @@
 * [How to make a Cycle.js + Elm hybrid Etch-a-Sketch app](http://qiita.com/kimagure/items/d6ac01e6258ecd363ffe)
 * [Plug and Play All Your Observable Streams With Cycle.js](https://medium.com/@fkrautwald/plug-and-play-all-your-observable-streams-with-cycle-js-e543fc287872)
 * [Detect touch gestures with Cycle.js and Hammer.js](https://cyclicmaterials.github.io/2015/11/26/release-cycle-hammer-driver-0.1.1.html)
+* [Why I chose to use Cycle.js](https://medium.com/@_cmdv_/why-i-chose-to-use-cycle-js-9156173c2752#.rpfz3uuzw)
 
 ## Bacon
 * [Functional Reactive Programming in JavaScript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)

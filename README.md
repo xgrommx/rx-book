@@ -1,1 +1,1 @@
-## Online book for RxJS documentation yeah
+## Online book for RxJS documentation

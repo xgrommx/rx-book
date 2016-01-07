@@ -42,6 +42,8 @@
 * [**quiver-signal** - FRP signal type for Quiver front end](https://github.com/quiverjs/quiver-signal)
 * [**frpjs** - Functional Reactive Programming Library for JavaScript](https://github.com/santoshrajan/frpjs)
 * [**nexus** - An FRP cell application framework](https://github.com/DaQuirm/nexus)
+* [**catalyst** - Experimenting with push/pull FRP](https://github.com/briancavalier/catalyst)
+* [**basic-streams** - Experimental very basic reactive streams implementation for JavaScript](https://github.com/rpominov/basic-streams)
 
 ## Frameworks
 * [**Yolk** - A library for building asynchronous user interfaces](https://github.com/garbles/yolk)

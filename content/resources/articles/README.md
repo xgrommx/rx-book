@@ -93,6 +93,8 @@
 * [RxJS is great. So why have I moved on?](https://medium.com/@puppybits/rxjs-is-great-so-why-have-i-moved-on-534c513e7af3#.5jddxnvb9)
 * [Functional Reactive Programming with RxSwift](https://realm.io/news/slug-max-alexander-functional-reactive-rxswift)
 * [Experimentation with Rx](http://blog.joanzapata.com/experimentation-with-rx)
+* [RxJS form submission by Enter key and button click](https://medium.com/@kevinle/rxjs-form-submission-by-enter-key-and-button-click-b0742291f06a#.e8dpjno6o)
+* [Lightweight event bus with RxJava](http://blog.human-readable.net/2015/08/lightweight-event-bus.html)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

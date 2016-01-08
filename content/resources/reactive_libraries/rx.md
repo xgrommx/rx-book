@@ -145,6 +145,7 @@
 ### Standalone packages
 * [https://github.com/Reactive-Extensions/rx.priorityqueue](https://github.com/Reactive-Extensions/rx.priorityqueue)
 * [https://github.com/Reactive-Extensions/rx.disposables](https://github.com/Reactive-Extensions/rx.disposables)
+* [https://github.com/Reactive-Extensions/rx.schedulers](https://github.com/Reactive-Extensions/rx.schedulers)
 
 ### [MongoDB](https://github.com/mongodb/mongo)
 ***

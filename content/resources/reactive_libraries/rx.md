@@ -194,6 +194,10 @@
 ***
 * [https://github.com/vuejs/vue-rx](https://github.com/vuejs/vue-rx)
 
+### [Ractive](http://www.ractivejs.org)
+***
+* [https://github.com/nusson/ractive-rx](https://github.com/nusson/ractive-rx)
+
 ### Pub/Sub
 ***
 * [https://github.com/rxmqjs/rxmq.js](https://github.com/rxmqjs/rxmq.js)

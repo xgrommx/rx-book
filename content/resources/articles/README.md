@@ -95,6 +95,7 @@
 * [Experimentation with Rx](http://blog.joanzapata.com/experimentation-with-rx)
 * [RxJS form submission by Enter key and button click](https://medium.com/@kevinle/rxjs-form-submission-by-enter-key-and-button-click-b0742291f06a#.e8dpjno6o)
 * [Lightweight event bus with RxJava](http://blog.human-readable.net/2015/08/lightweight-event-bus.html)
+* [Retrofit and RxJava, Android multi-threaded REST requests](http://randomdotnext.com/retrofit-rxjava)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -127,6 +128,8 @@
 * [Plug and Play All Your Observable Streams With Cycle.js](https://medium.com/@fkrautwald/plug-and-play-all-your-observable-streams-with-cycle-js-e543fc287872)
 * [Detect touch gestures with Cycle.js and Hammer.js](https://cyclicmaterials.github.io/2015/11/26/release-cycle-hammer-driver-0.1.1.html)
 * [Why I chose to use Cycle.js](https://medium.com/@_cmdv_/why-i-chose-to-use-cycle-js-9156173c2752#.rpfz3uuzw)
+* [Building an app with Cycle.JS - Creating components](http://www.zsiegel.com/2016/01/10/building-an-app-with-cyclejs--creating-components)
+* [Cycle.js with arcgis js api](http://odoe.net/blog/cyclejs-with-arcgis-js-api)
 
 ## Bacon
 * [Functional Reactive Programming in JavaScript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)

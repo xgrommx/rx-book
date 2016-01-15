@@ -9,7 +9,8 @@
     * [**angular-observe** - Angular directive for representing the different states of an Observable](https://github.com/ggoodman/angular-observe)
     * [**store** - RxJS powered Redux for Angular2 apps](https://github.com/ngrx/store)
 * #### Examples
-    * [https://github.com/meenie/angular2-store-example](https://github.com/meenie/angular2-store-example)
+    * [https://github.com/simpulton/ngrx-rest-app](https://github.com/simpulton/ngrx-rest-app)
+    * [https://github.com/ngrx/angular2-store-example](https://github.com/ngrx/angular2-store-example)
     * [https://github.com/fxck/ng2-rx-redux](https://github.com/fxck/ng2-rx-redux) (angular 2 + rx5 + redux)
     * [https://github.com/cvuorinen/reactive-life](https://github.com/cvuorinen/reactive-life)
     * [https://github.com/mjw56/ng2-rx](https://github.com/mjw56/ng2-rx) (angular 2)
@@ -59,6 +60,7 @@
         * [**fluorine** - State Accumulation from a single stream of actions](https://github.com/philplckthun/fluorine)
         * [**luxor** - Flux-ish action/store framework. Built with Typescript and Rx.js](https://github.com/brynbellomy/luxor)
 * #### Examples
+    * [https://github.com/flq/reax](https://github.com/flq/reax)
     * [https://github.com/justinwoo/redux-rx-fun](https://github.com/justinwoo/redux-rx-fun)
     * [https://github.com/incrediblesound/RxReact-ToDo](https://github.com/incrediblesound/RxReact-ToDo)
     * [https://github.com/mattpodwysocki/rx-fluxish](https://github.com/mattpodwysocki/rx-fluxish)
@@ -193,6 +195,7 @@
 ### [Vue](https://github.com/vuejs/vue)
 ***
 * [https://github.com/vuejs/vue-rx](https://github.com/vuejs/vue-rx)
+* [https://github.com/LiuJi-Jim/rxjs-pull-to-refresh-demo](https://github.com/LiuJi-Jim/rxjs-pull-to-refresh-demo)
 
 ### [Ractive](http://www.ractivejs.org)
 ***
@@ -338,6 +341,8 @@
 * [https://github.com/Widdershin/rx-audible](https://github.com/Widdershin/rx-audible)
 * [https://github.com/jeremymwells/rxstream](https://github.com/jeremymwells/rxstream)
 * [https://github.com/jadbox/rxjs-cluster](https://github.com/jadbox/rxjs-cluster)
+* [https://github.com/arkverse/lell](https://github.com/arkverse/lell)
+* [https://github.com/ostera/rx-history](https://github.com/ostera/rx-history)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

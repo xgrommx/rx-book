@@ -49,6 +49,7 @@
 * [https://github.com/pykello/alien-panic](https://github.com/pykello/alien-panic)
 * [https://github.com/KualiCo/ReConfigurator](https://github.com/KualiCo/ReConfigurator)
 * [https://github.com/VerbalExpressions/elm-verbal-expressions](https://github.com/VerbalExpressions/elm-verbal-expressions)
+* [https://github.com/popc0rn/fr-playground](https://github.com/popc0rn/fr-playground)
 
 ## Resources
 * [http://planet.elm-lang.org](http://planet.elm-lang.org)

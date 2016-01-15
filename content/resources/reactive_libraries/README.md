@@ -44,6 +44,7 @@
 * [**nexus** - An FRP cell application framework](https://github.com/DaQuirm/nexus)
 * [**catalyst** - Experimenting with push/pull FRP](https://github.com/briancavalier/catalyst)
 * [**basic-streams** - Experimental very basic reactive streams implementation for JavaScript](https://github.com/rpominov/basic-streams)
+* [**phlorx** - A light-weight, task efficient, fault tolerant JavaScript library for functional reactive programming](https://github.com/isocroft/phlorx)
 
 ## Frameworks
 * [**Yolk** - A library for building asynchronous user interfaces](https://github.com/garbles/yolk)

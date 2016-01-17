@@ -343,6 +343,7 @@
 * [https://github.com/jadbox/rxjs-cluster](https://github.com/jadbox/rxjs-cluster)
 * [https://github.com/arkverse/lell](https://github.com/arkverse/lell)
 * [https://github.com/ostera/rx-history](https://github.com/ostera/rx-history)
+* [https://github.com/mbalex99/rxjsfirebase](https://github.com/mbalex99/rxjsfirebase)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

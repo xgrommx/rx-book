@@ -172,4 +172,8 @@
     {% video %}https://www.youtube.com/watch?v=yIlDBPiMb0o{% endvideo %}
     ***
 * #### PolyConf 15: Post FRP Frontend Programming / Bodil Stokke
-    {% video %}https://www.youtube.com/watch?v=X5YBsy6PaDw{% endvideo %}  
+    {% video %}https://www.youtube.com/watch?v=X5YBsy6PaDw{% endvideo %}
+    ***
+* #### Remote Talk - Introduction to Functional Reactive Programming with Elm
+    {% video %}https://www.youtube.com/watch?v=bx3mOTGRvs4{% endvideo %}    
+    

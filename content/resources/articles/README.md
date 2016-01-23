@@ -96,6 +96,12 @@
 * [RxJS form submission by Enter key and button click](https://medium.com/@kevinle/rxjs-form-submission-by-enter-key-and-button-click-b0742291f06a#.e8dpjno6o)
 * [Lightweight event bus with RxJava](http://blog.human-readable.net/2015/08/lightweight-event-bus.html)
 * [Retrofit and RxJava, Android multi-threaded REST requests](http://randomdotnext.com/retrofit-rxjava)
+* [Managing State in Angular 2 Applications](http://victorsavkin.com/post/137821436516/managing-state-in-angular-2-applications)
+* [RxJS Error and Completed events demystified](http://paqmind.com/posts/rxjs-error-and-completed-events-demystified)
+* [Rx-ifying a chat room built with ReactJS and Socket.io](https://medium.com/front-end-hacking/rx-ifying-a-chat-room-built-with-reactjs-and-socket-io-459156b7d7ab#.xfonqssz1)
+* [Understanding Reactive Programming with RxRuby](http://eftimov.net/reactive-programming-rxruby)
+* [Rate Limiting Events with the Reactive Extensions Rx](http://granitestatehacker.kataire.com/2016/01/rate-limiting-observables-with-reactive.html?spref=tw)
+* [Reactive Data Flow in Angular 2](http://blog.lambda-it.ch/reactive-data-flow-in-angular-2)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

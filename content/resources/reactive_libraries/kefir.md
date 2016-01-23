@@ -54,6 +54,7 @@
 * [https://github.com/iofjuupasli/kefir-bus-property](https://github.com/iofjuupasli/kefir-bus-property)
 * [https://github.com/iofjuupasli/kefir-proxy](https://github.com/iofjuupasli/kefir-proxy)
 * [https://github.com/iofjuupasli/kefir-cron](https://github.com/iofjuupasli/kefir-cron)
+* [https://github.com/milankinen/kefir-model](https://github.com/milankinen/kefir-model)
 
 ## Dialects
 

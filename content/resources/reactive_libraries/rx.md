@@ -9,6 +9,8 @@
     * [**angular-observe** - Angular directive for representing the different states of an Observable](https://github.com/ggoodman/angular-observe)
     * [**store** - RxJS powered Redux for Angular2 apps](https://github.com/ngrx/store)
 * #### Examples
+    * [https://github.com/screenm0nkey/angular2-examples/tree/http-rx-examples](https://github.com/screenm0nkey/angular2-examples/tree/http-rx-examples) (angular 2)
+    * [https://github.com/mkalish/ng-rx-demo](https://github.com/mkalish/ng-rx-demo)
     * [https://github.com/simpulton/ngrx-rest-app](https://github.com/simpulton/ngrx-rest-app)
     * [https://github.com/ngrx/angular2-store-example](https://github.com/ngrx/angular2-store-example)
     * [https://github.com/fxck/ng2-rx-redux](https://github.com/fxck/ng2-rx-redux) (angular 2 + rx5 + redux)
@@ -44,6 +46,7 @@
         * [**rx-recompose** - RxJS utilities for Recompose](https://github.com/acdlite/recompose/tree/master/src/packages/rx-recompose)
         * [**react-combinators** - Seamless combination of React and reactive programming](https://github.com/milankinen/react-combinators)
         * [**react-rx-subscriber** - React component enhancer to easily subscribe to Rx Observables](https://github.com/BurntCaramel/react-rx-subscriber)
+        * [**react-rx-components** - Making React reactive](https://github.com/besuikerd/react-rx-components)
     * ##### Flux
         * [**rx-flux** - A Flux architecture implementation based on RxJS](https://github.com/fdecampredon/rx-flux)
         * [**River** - Reactive stream composer for React application](https://github.com/d6u/River)
@@ -60,6 +63,8 @@
         * [**fluorine** - State Accumulation from a single stream of actions](https://github.com/philplckthun/fluorine)
         * [**luxor** - Flux-ish action/store framework. Built with Typescript and Rx.js](https://github.com/brynbellomy/luxor)
 * #### Examples
+    * [https://github.com/flq/reax](https://github.com/flq/reax)
+    * [https://github.com/low-ghost/react-rx-elm-architecture](https://github.com/low-ghost/react-rx-elm-architecture) Elm architecture
     * [https://github.com/flq/reax](https://github.com/flq/reax)
     * [https://github.com/justinwoo/redux-rx-fun](https://github.com/justinwoo/redux-rx-fun)
     * [https://github.com/incrediblesound/RxReact-ToDo](https://github.com/incrediblesound/RxReact-ToDo)
@@ -344,6 +349,8 @@
 * [https://github.com/arkverse/lell](https://github.com/arkverse/lell)
 * [https://github.com/ostera/rx-history](https://github.com/ostera/rx-history)
 * [https://github.com/mbalex99/rxjsfirebase](https://github.com/mbalex99/rxjsfirebase)
+* [https://github.com/annatomka/rxjs-examples](https://github.com/annatomka/rxjs-examples)
+* [https://github.com/bholloway/rx-operators](https://github.com/bholloway/rx-operators)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

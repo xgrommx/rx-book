@@ -202,6 +202,7 @@
 * [https://github.com/cjdev/kafka-rx](https://github.com/cjdev/kafka-rx)
 * [https://github.com/evgenynacu/android-frp](https://github.com/evgenynacu/android-frp)
 * [https://github.com/widok/widok](https://github.com/widok/widok)
+* [https://github.com/monixio/monix](https://github.com/monixio/monix)
 
 # Groovy
 * [https://github.com/sys1yagi/rxandroid-usecase](https://github.com/sys1yagi/rxandroid-usecase)

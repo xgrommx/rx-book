@@ -102,6 +102,10 @@
 * [Understanding Reactive Programming with RxRuby](http://eftimov.net/reactive-programming-rxruby)
 * [Rate Limiting Events with the Reactive Extensions Rx](http://granitestatehacker.kataire.com/2016/01/rate-limiting-observables-with-reactive.html?spref=tw)
 * [Reactive Data Flow in Angular 2](http://blog.lambda-it.ch/reactive-data-flow-in-angular-2)
+* [Angular 2 Observable Data Services](https://coryrylan.com/blog/angular-2-observable-data-services)
+* [Angular 2 First App Post-Mortem](https://medium.com/@MikeRyan52/angular-2-first-app-post-mortem-b2b2b3618828#.o21bfd8ym)
+* [Use AOP with RxJS to make functions Observable](http://octodecillion.com/blog/use-aop-with-rxjs-to-make-functions-observable)
+* [State, Promises & Reactive Programming](https://realm.io/news/state-promises-reactive-programming)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -125,6 +129,7 @@
 * [Elm Architecture in PureScript ](http://www.parsonsmatt.org/programming/2015/10/03/elm_vs_purescript.html) (Elm vs Purescript)
 * [Learning FP the hard way: Experiences on the Elm language](https://gist.github.com/ohanhi/0d3d83cf3f0d7bbea9db)
 * [Elm + Electron](http://qiita.com/yasuyuky/items/e28106e3dd7fed17d50f)
+* [Creating a Function Index Using Cycle.js](http://joelgrus.com/2016/01/21/creating-a-function-index-using-cyclejs)
 
 ## Cycle
 * [A Dead-Simple Todo List with RxJS](http://blog.edanschwartz.com/2015/09/18/dead-simple-rxjs-todo-list)

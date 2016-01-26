@@ -9,6 +9,7 @@
     * [**angular-observe** - Angular directive for representing the different states of an Observable](https://github.com/ggoodman/angular-observe)
     * [**store** - RxJS powered Redux for Angular2 apps](https://github.com/ngrx/store)
 * #### Examples
+    * [https://github.com/wmaurer/todomvc-ng2-reactive](https://github.com/wmaurer/todomvc-ng2-reactive) (angular 2, cycle.js architecture)
     * [https://github.com/screenm0nkey/angular2-examples/tree/http-rx-examples](https://github.com/screenm0nkey/angular2-examples/tree/http-rx-examples) (angular 2)
     * [https://github.com/mkalish/ng-rx-demo](https://github.com/mkalish/ng-rx-demo)
     * [https://github.com/simpulton/ngrx-rest-app](https://github.com/simpulton/ngrx-rest-app)
@@ -62,10 +63,13 @@
         * [**luna** - a reactive redux library written using Rxjs with built-in thunk and async action support](https://github.com/escherpad/luna)
         * [**fluorine** - State Accumulation from a single stream of actions](https://github.com/philplckthun/fluorine)
         * [**luxor** - Flux-ish action/store framework. Built with Typescript and Rx.js](https://github.com/brynbellomy/luxor)
+        * [**snow-flux** - A simple and practical unidirectional data flow implementation with Reactive Extensions RxJS](https://github.com/modesty/snow-flux)
 * #### Examples
+    * [https://github.com/ostera/unveil.js](https://github.com/ostera/unveil.js)
+    * [https://github.com/code-artisan/react-rxjs-todomvc](https://github.com/code-artisan/react-rxjs-todomvc)
+    * [https://github.com/oscarduignan/rxjs-redux-react](https://github.com/oscarduignan/rxjs-redux-react)
     * [https://github.com/flq/reax](https://github.com/flq/reax)
     * [https://github.com/low-ghost/react-rx-elm-architecture](https://github.com/low-ghost/react-rx-elm-architecture) Elm architecture
-    * [https://github.com/flq/reax](https://github.com/flq/reax)
     * [https://github.com/justinwoo/redux-rx-fun](https://github.com/justinwoo/redux-rx-fun)
     * [https://github.com/incrediblesound/RxReact-ToDo](https://github.com/incrediblesound/RxReact-ToDo)
     * [https://github.com/mattpodwysocki/rx-fluxish](https://github.com/mattpodwysocki/rx-fluxish)
@@ -350,7 +354,8 @@
 * [https://github.com/ostera/rx-history](https://github.com/ostera/rx-history)
 * [https://github.com/mbalex99/rxjsfirebase](https://github.com/mbalex99/rxjsfirebase)
 * [https://github.com/annatomka/rxjs-examples](https://github.com/annatomka/rxjs-examples)
-* [https://github.com/bholloway/rx-operators](https://github.com/bholloway/rx-operators)
+* [https://github.com/bholloway/rxjs-operators](https://github.com/bholloway/rxjs-operators)
+* [https://github.com/range-me/rx-store](https://github.com/range-me/rx-store)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

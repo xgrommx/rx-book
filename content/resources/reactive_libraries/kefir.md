@@ -55,6 +55,8 @@
 * [https://github.com/iofjuupasli/kefir-proxy](https://github.com/iofjuupasli/kefir-proxy)
 * [https://github.com/iofjuupasli/kefir-cron](https://github.com/iofjuupasli/kefir-cron)
 * [https://github.com/milankinen/kefir-model](https://github.com/milankinen/kefir-model)
+* [https://github.com/LittleHelicase/kefir-process](https://github.com/LittleHelicase/kefir-process)
+* [https://github.com/mazehall/kefir-storage](https://github.com/mazehall/kefir-storage)
 
 ## Dialects
 

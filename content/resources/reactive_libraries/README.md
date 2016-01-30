@@ -72,18 +72,6 @@
 * [https://github.com/RWTreichel/frp-demo](https://github.com/RWTreichel/frp-demo)
 * [https://github.com/d6u/reactdc-rxjs-talk](https://github.com/d6u/reactdc-rxjs-talk)
 
-### Most
-
-##### React
-* [https://github.com/izaakschroeder/afflux](https://github.com/izaakschroeder/afflux)
-* [https://github.com/roman01la/most-react](https://github.com/roman01la/most-react)
-* [https://github.com/jcouyang/react-most](https://github.com/jcouyang/react-most)
-
-#### Other
-* [https://github.com/s2js/fabulous](https://github.com/s2js/fabulous)
-* [https://github.com/TylorS/most-subject](https://github.com/TylorS/most-subject)
-* [https://github.com/axefrog/most-replay](https://github.com/axefrog/most-replay)
-
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)
 * [https://github.com/JamesTimms/FRPGameEngine](https://github.com/JamesTimms/FRPGameEngine)

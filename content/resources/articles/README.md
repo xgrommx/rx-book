@@ -106,6 +106,7 @@
 * [Angular 2 First App Post-Mortem](https://medium.com/@MikeRyan52/angular-2-first-app-post-mortem-b2b2b3618828#.o21bfd8ym)
 * [Use AOP with RxJS to make functions Observable](http://octodecillion.com/blog/use-aop-with-rxjs-to-make-functions-observable)
 * [State, Promises & Reactive Programming](https://realm.io/news/state-promises-reactive-programming)
+* [Taking advantage of Observables in Angular 2](http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

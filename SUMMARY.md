@@ -328,6 +328,7 @@
         * [Flyd](content/resources/reactive_libraries/flyd.md)
         * [Kefir](content/resources/reactive_libraries/kefir.md)
         * [RxJS](content/resources/reactive_libraries/rx.md)
+        * [Most](content/resources/reactive_libraries/most.md)
     * [Presentations](content/resources/presentations/README.md)
     * [Video](content/resources/video/README.md)
 {% endif %}

@@ -107,6 +107,7 @@
 * [Use AOP with RxJS to make functions Observable](http://octodecillion.com/blog/use-aop-with-rxjs-to-make-functions-observable)
 * [State, Promises & Reactive Programming](https://realm.io/news/state-promises-reactive-programming)
 * [Taking advantage of Observables in Angular 2](http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html)
+* [Angular 2: HTTP, Observables, and concurrent data loading](http://www.metaltoad.com/blog/angular-2-http-observables)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

@@ -108,6 +108,8 @@
 * [State, Promises & Reactive Programming](https://realm.io/news/state-promises-reactive-programming)
 * [Taking advantage of Observables in Angular 2](http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html)
 * [Angular 2: HTTP, Observables, and concurrent data loading](http://www.metaltoad.com/blog/angular-2-http-observables)
+* [Build a Better Angular 2 Application with Redux and ngrx](http://onehungrymind.com/build-better-angular-2-application-redux-ngrx)
+* [Functional Reactive Programming for Angular 2 Developers - RxJs and Observables](http://blog.jhades.org/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

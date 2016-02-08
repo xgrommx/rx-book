@@ -9,6 +9,8 @@
     * [**angular-observe** - Angular directive for representing the different states of an Observable](https://github.com/ggoodman/angular-observe)
     * [**store** - RxJS powered Redux for Angular2 apps](https://github.com/ngrx/store)
 * #### Examples
+    * [https://github.com/simpulton/ngrx-rest-app](https://github.com/simpulton/ngrx-rest-app) (angular 2, ngrx)
+    * [https://github.com/btroncone/ngrx-examples](https://github.com/btroncone/ngrx-examples) (angular 2, ngrx)
     * [https://github.com/wmaurer/todomvc-ng2-reactive](https://github.com/wmaurer/todomvc-ng2-reactive) (angular 2, cycle.js architecture)
     * [https://github.com/screenm0nkey/angular2-examples/tree/http-rx-examples](https://github.com/screenm0nkey/angular2-examples/tree/http-rx-examples) (angular 2)
     * [https://github.com/mkalish/ng-rx-demo](https://github.com/mkalish/ng-rx-demo)

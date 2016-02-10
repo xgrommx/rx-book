@@ -64,6 +64,7 @@
 * [From jQuery to Cycle](http://widdersh.in/cycle-talk)
 * [Et si l'utilisateur était une fonction ?](http://real34.github.io/slides/si-utilisateur-etait-fonction)
 * [Reactive Programming with RxJS and Cycle](https://speakerdeck.com/bennyhobart/reactive-programming-with-rxjs-and-cycle)
+* [Next generation of frontend architectures](http://www.slideshare.net/flashplatform/next-generation-of-frontend-architectures)
 
 ## RxJava
 * [Applying RxJava to Existing Applications at Philly ETE 2015](https://speakerdeck.com/benjchristensen/applying-rxjava-to-existing-applications-at-philly-ete-2015)

@@ -23,4 +23,4 @@ relative time is supported.
 
 #### Example
 
-[](http://jsbin.com/hezadu/1/embed?js,console)
+[](http://jsbin.com/peleyayike/1/edit?html,js,console)

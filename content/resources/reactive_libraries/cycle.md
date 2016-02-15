@@ -98,3 +98,5 @@
 * [https://github.com/joelgrus/todo-cycle-js](https://github.com/joelgrus/todo-cycle-js)
 * [https://github.com/alex-milanov/rxjs-cycle-tests](https://github.com/alex-milanov/rxjs-cycle-tests)
 * [https://github.com/widdershin/cycle-hot-reloading-example/tree/preserve-state](https://github.com/widdershin/cycle-hot-reloading-example/tree/preserve-state)
+* [https://github.com/mmai/cyclejs-sparklines](https://github.com/mmai/cyclejs-sparklines)
+* [https://github.com/trivial-space/entity-editor-cycle](https://github.com/trivial-space/entity-editor-cycle)

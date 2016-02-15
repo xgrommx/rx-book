@@ -76,5 +76,6 @@
 
 ## Elm
 * [Elm kyivfprog 2015](http://www.slideshare.net/alexandermostovenko/elm-kyivfprog-2015)
+* [Can Innovation Labs Save The World?](http://www.slideshare.net/Paulbromford/can-innovation-labs-save-the-world-58183863)
 
 

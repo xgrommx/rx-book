@@ -52,7 +52,9 @@
         * [**react-combinators** - Seamless combination of React and reactive programming](https://github.com/milankinen/react-combinators)
         * [**react-rx-subscriber** - React component enhancer to easily subscribe to Rx Observables](https://github.com/BurntCaramel/react-rx-subscriber)
         * [**react-rx-components** - Making React reactive](https://github.com/besuikerd/react-rx-components)
+        * [**react-streamable** - A small library for accessing React component events as functional reactive streams](https://github.com/Lokeh/react-streamable)
     * ##### Flux
+        * [**rxdux** - Yet another flux implementation based on redux with asynchronous reducer feature](https://github.com/stomita/rxdux)
         * [**rx-redux**](https://github.com/mathieuancelin/rx-redux)
         * [**rx-flux** - A Flux architecture implementation based on RxJS](https://github.com/fdecampredon/rx-flux)
         * [**River** - Reactive stream composer for React application](https://github.com/d6u/River)
@@ -70,6 +72,8 @@
         * [**luxor** - Flux-ish action/store framework. Built with Typescript and Rx.js](https://github.com/brynbellomy/luxor)
         * [**snow-flux** - A simple and practical unidirectional data flow implementation with Reactive Extensions RxJS](https://github.com/modesty/snow-flux)
 * #### Examples
+    * [https://github.com/shakyShane/rx-react](https://github.com/shakyShane/rx-react)
+    * [https://github.com/almasakchabayev/frix](https://github.com/almasakchabayev/frix)
     * [https://github.com/ostera/unveil.js](https://github.com/ostera/unveil.js)
     * [https://github.com/code-artisan/react-rxjs-todomvc](https://github.com/code-artisan/react-rxjs-todomvc)
     * [https://github.com/oscarduignan/rxjs-redux-react](https://github.com/oscarduignan/rxjs-redux-react)

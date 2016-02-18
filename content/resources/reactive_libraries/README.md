@@ -115,6 +115,7 @@
 * [https://github.com/Marchuck/RxRealm](https://github.com/Marchuck/RxRealm)
 * [https://github.com/Reyurnible/RxAnimation](https://github.com/Reyurnible/RxAnimation)
 * [https://github.com/digitalbuddha/StoreDemo](https://github.com/digitalbuddha/StoreDemo)
+* [https://github.com/pakoito/RxPartialApplication](https://github.com/pakoito/RxPartialApplication)
 
 ## Android
 * [https://github.com/requery/requery](https://github.com/requery/requery)
@@ -199,6 +200,7 @@
 * [https://github.com/sys1yagi/rxandroid-usecase](https://github.com/sys1yagi/rxandroid-usecase)
 
 # Kotlin
+* [https://github.com/prt2121/Ktown](https://github.com/prt2121/Ktown)
 * [https://github.com/ReactiveX/RxKotlin](https://github.com/ReactiveX/RxKotlin)
 * [https://github.com/cy6erGn0m/kotlin-rxokhttp-websocket](https://github.com/cy6erGn0m/kotlin-rxokhttp-websocket)
 * [https://github.com/griffio/kotlin-rx-android](https://github.com/griffio/kotlin-rx-android)

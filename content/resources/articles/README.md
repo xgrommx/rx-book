@@ -113,6 +113,8 @@
 * [Kotlin + RxJava = Functional Powerhouse](http://tomstechnicalblog.blogspot.co.uk/2016/02/kotlin-rxjava-what-rxjava-should-be.html)
 * [RxJava - Understanding observeOn() and subscribeOn()](http://tomstechnicalblog.blogspot.com/2016/02/rxjava-understanding-observeon-and.html)
 * [RxSwift в действии — пишем реактивное приложение](https://habrahabr.ru/post/276971) (ru)
+* [Building Redux-like Apps Using RxJs](https://dzone.com/articles/building-redux-like-apps-using-rxjs)
+* [Adding Redux with NgRx/Store to Angular 2 – Part 1](http://orizens.com/wp/topics/adding-redux-with-ngrxstore-to-angular-2-part-1)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

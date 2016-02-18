@@ -51,7 +51,9 @@
 * [https://github.com/VerbalExpressions/elm-verbal-expressions](https://github.com/VerbalExpressions/elm-verbal-expressions)
 * [https://github.com/popc0rn/fr-playground](https://github.com/popc0rn/fr-playground)
 * [https://github.com/liubko/elm-snake](https://github.com/liubko/elm-snake)
+* [https://github.com/justinwoo/purescript-etch-sketch](https://github.com/justinwoo/purescript-etch-sketch)
 
 ## Resources
 * [http://planet.elm-lang.org](http://planet.elm-lang.org)
 * [http://builtwithelm.co](http://builtwithelm.co)
+* [https://github.com/yang-wei/elmflux](https://github.com/yang-wei/elmflux)

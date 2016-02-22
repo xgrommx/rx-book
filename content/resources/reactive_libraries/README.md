@@ -210,6 +210,7 @@
 * [https://github.com/importre/popular](https://github.com/importre/popular)
 * [https://github.com/satorufujiwara/kotlin-android-example](https://github.com/satorufujiwara/kotlin-android-example)
 * [https://github.com/ian-ellis/kotlin-mvvm](https://github.com/ian-ellis/kotlin-mvvm)
+* [https://github.com/pine613/rxkotlin-collections](https://github.com/pine613/rxkotlin-collections)
 
 # .NET
 * [https://github.com/TORISOUP/PhotonRx](https://github.com/TORISOUP/PhotonRx)

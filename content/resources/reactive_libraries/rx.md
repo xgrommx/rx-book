@@ -9,6 +9,7 @@
     * [**angular-observe** - Angular directive for representing the different states of an Observable](https://github.com/ggoodman/angular-observe)
     * [**store** - RxJS powered Redux for Angular2 apps](https://github.com/ngrx/store)
 * #### Examples
+    * [https://github.com/jgluhov/AngularRxApp](https://github.com/jgluhov/AngularRxApp)
     * [https://github.com/artemdemo/angular2-todo](https://github.com/artemdemo/angular2-todo) (angular 2)
     * [https://github.com/jhades/angular2-rxjs-observable-data-services](https://github.com/jhades/angular2-rxjs-observable-data-services) (angular 2)
     * [https://github.com/simpulton/ngrx-rest-app](https://github.com/simpulton/ngrx-rest-app) (angular 2, ngrx)
@@ -52,7 +53,7 @@
         * [**react-combinators** - Seamless combination of React and reactive programming](https://github.com/milankinen/react-combinators)
         * [**react-rx-subscriber** - React component enhancer to easily subscribe to Rx Observables](https://github.com/BurntCaramel/react-rx-subscriber)
         * [**react-rx-components** - Making React reactive](https://github.com/besuikerd/react-rx-components)
-        * [**react-streamable** - A small library for accessing React component events as functional reactive streams](https://github.com/Lokeh/react-streamable)
+        * [**observe-component** - A small library for accessing React component events as functional reactive streams](https://github.com/Lokeh/observe-component)
     * ##### Flux
         * [**rxdux** - Yet another flux implementation based on redux with asynchronous reducer feature](https://github.com/stomita/rxdux)
         * [**rx-redux**](https://github.com/mathieuancelin/rx-redux)
@@ -72,6 +73,8 @@
         * [**luxor** - Flux-ish action/store framework. Built with Typescript and Rx.js](https://github.com/brynbellomy/luxor)
         * [**snow-flux** - A simple and practical unidirectional data flow implementation with Reactive Extensions RxJS](https://github.com/modesty/snow-flux)
 * #### Examples
+    * [https://github.com/almasakchabayev/ez](https://github.com/almasakchabayev/ez)
+    * [https://github.com/FourSS/refar](https://github.com/FourSS/refar)
     * [https://github.com/shakyShane/rx-react](https://github.com/shakyShane/rx-react)
     * [https://github.com/almasakchabayev/frix](https://github.com/almasakchabayev/frix)
     * [https://github.com/ostera/unveil.js](https://github.com/ostera/unveil.js)
@@ -266,6 +269,7 @@
 * [https://github.com/JulienMoumne/rx-training-games](https://github.com/JulienMoumne/rx-training-games)
 
 ## Other
+* [https://github.com/amilosevic/rxmorse](https://github.com/amilosevic/rxmorse)
 * [https://github.com/alexvictoor/RxJsKata](https://github.com/alexvictoor/RxJsKata)
 * [https://github.com/kt3kstudio/long-dream-core](https://github.com/kt3kstudio/long-dream-core)
 * [https://github.com/fdecampredon/react-observe-todomvc](https://github.com/fdecampredon/react-observe-todomvc)

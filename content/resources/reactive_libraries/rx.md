@@ -73,6 +73,7 @@
         * [**luxor** - Flux-ish action/store framework. Built with Typescript and Rx.js](https://github.com/brynbellomy/luxor)
         * [**snow-flux** - A simple and practical unidirectional data flow implementation with Reactive Extensions RxJS](https://github.com/modesty/snow-flux)
 * #### Examples
+    * [https://github.com/peterjoel/frpreact](https://github.com/peterjoel/frpreact)
     * [https://github.com/almasakchabayev/ez](https://github.com/almasakchabayev/ez)
     * [https://github.com/FourSS/refar](https://github.com/FourSS/refar)
     * [https://github.com/shakyShane/rx-react](https://github.com/shakyShane/rx-react)
@@ -246,6 +247,7 @@
 * [https://github.com/grisendo/Percussion](https://github.com/grisendo/Percussion)
 * [https://github.com/Astn/rxjs-marble-diagram](https://github.com/Astn/rxjs-marble-diagram)
 * [https://github.com/iamssen/rxjs-marble-renderer](https://github.com/iamssen/rxjs-marble-renderer)
+* [https://github.com/moredip/marbelous](https://github.com/moredip/marbelous)
 
 ## Dialects
 

@@ -115,6 +115,7 @@
 * [RxSwift в действии — пишем реактивное приложение](https://habrahabr.ru/post/276971) (ru)
 * [Building Redux-like Apps Using RxJs](https://dzone.com/articles/building-redux-like-apps-using-rxjs)
 * [Adding Redux with NgRx/Store to Angular 2 – Part 1](http://orizens.com/wp/topics/adding-redux-with-ngrxstore-to-angular-2-part-1)
+* [Reactive Programming in JavaScript With RxJS](https://dzone.com/refcardz/rxjs-streams)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

@@ -113,7 +113,7 @@ The instance based `onErrorResumeNext` is similar to the class based version, th
 
 ## Retrying Sequences ##
 
-When catching errors isn't enough and we want to retry our logic, we can do so with `retry` or `retryWhen` operators.  With the `retry` operator, we can try a certain operation a number of times before an error is thrown.  This is useful when you need to get data from a resource which may have intermittent failures due to load or any other issue.
+When catching errors isn't enough and we want to retry our logic, we can do so with `retry` or `retryWhen` operators.  With the `retry` operator, we can try a certain operation a number of times after an error is thrown.  This is useful when you need to get data from a resource which may have intermittent failures due to load or any other issue.
 
 Let's take a look at a simple example of trying to get some data from a URL and giving up after three tries.
 

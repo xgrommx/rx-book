@@ -198,6 +198,7 @@
 * [Isomorphic apps = normal React+FRP apps](https://medium.com/@milankinen/isomorphic-apps-normal-react-frp-apps-63a2177f7eac)
 * [A simpler web architecture using Flux, CSP, and FRP concepts](http://codrspace.com/allenkim67/a-simpler-web-architecture-using-flux-csp-and-frp-concepts)
 * [Functional Reactive Programming in reactive-banana](https://github.com/dimecon/frp-presentation)
+* [Single-Subscription vs. Broadcast Streams](https://www.dartlang.org/articles/broadcast-streams)
 
 ## Unity
 * [Многопоточность в Unity средствами реактивных расширений](http://habrahabr.ru/company/nixsolutions/blog/268781) (ru)

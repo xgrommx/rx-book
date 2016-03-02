@@ -77,7 +77,7 @@ source1.onErrorResumeNext(source2)
 
 The [`select`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypeselectselector-thisarg) or [`map`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypemapselector-thisarg) operator can translate each element of an observable sequence into another form.
 
-In the following example, we project a sequence of strings into an a series of integers representing the length.
+In the following example, we project a sequence of strings into a series of integers representing the length.
 
 ```js
 var array = ['Reactive', 'Extensions', 'RxJS'];

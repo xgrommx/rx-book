@@ -7,7 +7,7 @@ Many operations can be composed from existing operators. This will lead to small
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.flatMap = selector => this.map(selector).mergeAll();
+Rx.Observable.prototype.flatMap = function(selector) { return this.map(selector).mergeAll(); }
 ```
 
 In this sample, the `flatMap` operator uses two existing operators: [`map`](../../observable/observable_instance_methods/map.html) and [`mergeAll`](../../observable/observable_instance_methods/mergeall.html). The [`map`](../../observable/observable_instance_methods/map.html) operator already deals with any issues around the selector function throwing an exception. The [`mergeAll`](../../observable/observable_instance_methods/mergeall.html) operator already deals with concurrency issues of multiple observable sequences firing at the same time.
@@ -27,7 +27,7 @@ When it is not possible to follow guideline 5.1, use the Observable.Create(WithD
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.map = (selector, thisArg) => {
+Rx.Observable.prototype.map = function(selector, thisArg) {
   var source = this;
   return Rx.Observable.create(observer => {
     var idx = 0;
@@ -70,7 +70,7 @@ Common kinds of user code that should be protected:
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.map = (selector, thisArg) => {
+Rx.Observable.prototype.map = function(selector, thisArg) {
   var source = this;
   return Rx.Observable.create(observer => {
     var idx = 0;
@@ -134,7 +134,7 @@ As normal control flow in JavaScript uses abort semantics for exceptions (the st
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.minimumBuffer = bufferSize => {
+Rx.Observable.prototype.minimumBuffer = function(bufferSize) {
   var source = this;
   return Rx.Observable.create(observer => {
     var data = [];
@@ -250,7 +250,7 @@ By adding concurrency, we change the timeliness of an observable sequence. Messa
 #### Sample 1 ####
 
 ```js
-Rx.Observable.prototype.map = (selector, thisArg) => {
+Rx.Observable.prototype.map = function(selector, thisArg) {
   var source = this;
   return Rx.Observable.create(observer => {
     var idx = 0;
@@ -317,7 +317,7 @@ ScheduledDisposable        | Uses a scheduler to dispose an underlying disposabl
 #### Sample ####
 
 ```js
-Observable.prototype.zip = () => {
+Observable.prototype.zip = function() {
   var parent = this,
       sources = slice.call(arguments),
       resultSelector = sources.pop();
@@ -386,7 +386,7 @@ By making an operator blocking we lose these asynchronous characteristics. We al
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.sum = () => this.reduce((acc, x) => acc + x, 0);
+Rx.Observable.prototype.sum = function() { return this.reduce((acc, x) => acc + x, 0); }
 ```
 
 In this sample, the `sum` operator has a return type of `Observable<Number>` instead of `Number`. By doing this, the operator does not block. It also allows the result value to be used in further composition.
@@ -443,7 +443,7 @@ As guideline 5.3 specifies that the `Observable.create` operator should not thro
 #### Sample ####
 
 ```js
-Rx.Observable.prototype.map = (selector, thisArg) => {
+Rx.Observable.prototype.map = function(selector, thisArg) {
   if (this == null) {
     throw new TypeError('Must be an instance of an Observable');
   }

@@ -72,6 +72,10 @@
 * [https://github.com/annamalai-saro/Rx.js-REPL](https://github.com/annamalai-saro/Rx.js-REPL)
 * [https://github.com/RWTreichel/frp-demo](https://github.com/RWTreichel/frp-demo)
 * [https://github.com/d6u/reactdc-rxjs-talk](https://github.com/d6u/reactdc-rxjs-talk)
+* [Introduction to Reactive Programming](https://egghead.io/series/introduction-to-reactive-programming)
+* [Cycle.js Fundamentals](https://egghead.io/series/cycle-js-fundamentals)
+* [Step-by-Step Async JavaScript with RxJS](https://egghead.io/series/step-by-step-async-javascript-with-rxjs)
+* [Reactive polyglot](https://github.com/ivan-kleshnin/reactive-polyglot)
 
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)
@@ -116,6 +120,7 @@
 * [https://github.com/Reyurnible/RxAnimation](https://github.com/Reyurnible/RxAnimation)
 * [https://github.com/digitalbuddha/StoreDemo](https://github.com/digitalbuddha/StoreDemo)
 * [https://github.com/pakoito/RxPartialApplication](https://github.com/pakoito/RxPartialApplication)
+* [https://github.com/JakeWharton/RxReplayingShare](https://github.com/JakeWharton/RxReplayingShare)
 
 ## Android
 * [https://github.com/requery/requery](https://github.com/requery/requery)
@@ -211,6 +216,7 @@
 * [https://github.com/satorufujiwara/kotlin-android-example](https://github.com/satorufujiwara/kotlin-android-example)
 * [https://github.com/ian-ellis/kotlin-mvvm](https://github.com/ian-ellis/kotlin-mvvm)
 * [https://github.com/pine613/rxkotlin-collections](https://github.com/pine613/rxkotlin-collections)
+* [https://github.com/brianegan/bansa](https://github.com/brianegan/bansa)
 
 # .NET
 * [https://github.com/TORISOUP/PhotonRx](https://github.com/TORISOUP/PhotonRx)

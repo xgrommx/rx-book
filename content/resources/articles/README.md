@@ -116,6 +116,10 @@
 * [Building Redux-like Apps Using RxJs](https://dzone.com/articles/building-redux-like-apps-using-rxjs)
 * [Adding Redux with NgRx/Store to Angular 2 – Part 1](http://orizens.com/wp/topics/adding-redux-with-ngrxstore-to-angular-2-part-1)
 * [Reactive Programming in JavaScript With RxJS](https://dzone.com/refcardz/rxjs-streams)
+* [Learning Observable By Building Observable](https://medium.com/@benlesh/learning-observable-by-building-observable-d5da57405d87#.1bj6ws1v2)
+* [Let's build a multiplayer Fallout 4 map using RxJS!](https://getcarina.com/blog/lets-build-a-reactive-map)
+* [Model-View-Intent with React and RxJS](https://satishchilukuri.com/blog/entry/model-view-intent-with-react-and-rxjs)
+* [Angular 2 – Communication Between Components & Components Design](http://orizens.com/wp/topics/angular-2-communication-between-components-components-design)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -151,6 +155,7 @@
 * [Why I chose to use Cycle.js](https://medium.com/@_cmdv_/why-i-chose-to-use-cycle-js-9156173c2752#.rpfz3uuzw)
 * [Building an app with Cycle.JS - Creating components](http://www.zsiegel.com/2016/01/10/building-an-app-with-cyclejs--creating-components)
 * [Cycle.js with arcgis js api](http://odoe.net/blog/cyclejs-with-arcgis-js-api)
+* [MODEL-VIEW-INTENT ON ANDROID](http://hannesdorfmann.com/android/model-view-intent)
 
 ## Bacon
 * [Functional Reactive Programming in JavaScript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)

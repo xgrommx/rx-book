@@ -75,7 +75,7 @@
         data-chapter-title="Operator Implementations"
         data-filepath="content/guidelines/implementations/README.md"
         data-basepath="../../.."
-        data-revision="Mon Feb 29 2016 15:30:08 GMT+0200 (EET)"
+        data-revision="Thu Mar 10 2016 04:38:39 GMT+0200 (EET)"
         data-innerlanguage="">
     
 
@@ -5325,7 +5325,7 @@
 <h3 id="implement-new-operators-by-composing-existing-operators"><a name="implement-new-operators-by-composing-existing-operators" class="plugin-anchor" href="#implement-new-operators-by-composing-existing-operators"><span class="fa fa-link"></span></a>Implement new operators by composing existing operators</h3>
 <p>Many operations can be composed from existing operators. This will lead to smaller, easier to maintain code. The Rx team has put a lot of effort in dealing with all corner cases in the base operators. By reusing these operators you&#x2019;ll get all that work for free in your operator.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.flatMap = selector =&gt; <span class="hljs-keyword">this</span>.map(selector).mergeAll();
+<pre><code class="lang-js">Rx.Observable.prototype.flatMap = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">selector</span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.map(selector).mergeAll(); }
 </code></pre>
 <p>In this sample, the <code>flatMap</code> operator uses two existing operators: <a href="../../observable/observable_instance_methods/map.html"><code>map</code></a> and <a href="../../observable/observable_instance_methods/mergeall.html"><code>mergeAll</code></a>. The <a href="../../observable/observable_instance_methods/map.html"><code>map</code></a> operator already deals with any issues around the selector function throwing an exception. The <a href="../../observable/observable_instance_methods/mergeall.html"><code>mergeAll</code></a> operator already deals with concurrency issues of multiple observable sequences firing at the same time.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5340,7 +5340,7 @@
 <li>Any subscribed observer instance will only see a single OnError or OnCompleted message. No more messages are sent through. This ensures the Rx grammar of onNext* (onError|onCompleted)?</li>
 </ul>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
+<pre><code class="lang-js">Rx.Observable.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">selector, thisArg</span>) </span>{
   <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
   <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
@@ -5377,7 +5377,7 @@
 </ul>
 <p><strong>Note:</strong> calls to <code>Scheduler</code> implementations are not considered for this guideline. The reason for this is that only a small set of issues would be caught as most schedulers deal with asynchronous calls. Instead, protect the arguments passed to schedulers inside each scheduler implementation.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
+<pre><code class="lang-js">Rx.Observable.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">selector, thisArg</span>) </span>{
   <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
   <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
@@ -5424,7 +5424,7 @@
 <h3 id="onerror-messages-should-have-abort-semantics"><a name="onerror-messages-should-have-abort-semantics" class="plugin-anchor" href="#onerror-messages-should-have-abort-semantics"><span class="fa fa-link"></span></a><code>onError</code> messages should have abort semantics</h3>
 <p>As normal control flow in JavaScript uses abort semantics for exceptions (the stack is unwound, current code path is interrupted), RxJS mimics this behavior. To ensure this behavior, no messages should be sent out by an operator once one of it sources has an error message or an exception is thrown within the operator.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.minimumBuffer = bufferSize =&gt; {
+<pre><code class="lang-js">Rx.Observable.prototype.minimumBuffer = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">bufferSize</span>) </span>{
   <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
   <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">var</span> data = [];
@@ -5509,7 +5509,7 @@
 <h3 id="avoid-introducing-concurrency"><a name="avoid-introducing-concurrency" class="plugin-anchor" href="#avoid-introducing-concurrency"><span class="fa fa-link"></span></a>Avoid introducing concurrency</h3>
 <p>By adding concurrency, we change the timeliness of an observable sequence. Messages will be scheduled to arrive later. The time it takes to deliver a message is data itself, by adding concurrency we skew that data.  This includes not using such mechanisms as <code>setTimeout</code>, <code>setImmediate</code>, <code>requestAnimationFrame</code>, <code>process.nextTick</code>, etc which should be avoided directly in your code, and instead be wrapped by a <code>Scheduler</code> class.</p>
 <h4 id="sample-1"><a name="sample-1" class="plugin-anchor" href="#sample-1"><span class="fa fa-link"></span></a>Sample 1</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
+<pre><code class="lang-js">Rx.Observable.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">selector, thisArg</span>) </span>{
   <span class="hljs-keyword">var</span> source = <span class="hljs-keyword">this</span>;
   <span class="hljs-keyword">return</span> Rx.Observable.create(observer =&gt; {
     <span class="hljs-keyword">var</span> idx = <span class="hljs-number">0</span>;
@@ -5580,7 +5580,7 @@
 </tbody>
 </table>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Observable.prototype.zip = () =&gt; {
+<pre><code class="lang-js">Observable.prototype.zip = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">var</span> parent = <span class="hljs-keyword">this</span>,
       sources = slice.call(<span class="hljs-built_in">arguments</span>),
       resultSelector = sources.pop();
@@ -5640,7 +5640,7 @@
 <p>RxJS is a library for composing asynchronous and event-based programs using observable collections.</p>
 <p>By making an operator blocking we lose these asynchronous characteristics. We also potentially lose composability (e.g. by returning a value typed as <code>T</code> instead of <code>Observable&lt;T&gt;</code>).  This is in contrast to the Array#extras such as <code>sum</code>, <code>reduce</code>, <code>some</code> and <code>every</code> which return a single value.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.sum = () =&gt; <span class="hljs-keyword">this</span>.reduce((acc, x) =&gt; acc + x, <span class="hljs-number">0</span>);
+<pre><code class="lang-js">Rx.Observable.prototype.sum = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.reduce((acc, x) =&gt; acc + x, <span class="hljs-number">0</span>); }
 </code></pre>
 <p>In this sample, the <code>sum</code> operator has a return type of <code>Observable&lt;Number&gt;</code> instead of <code>Number</code>. By doing this, the operator does not block. It also allows the result value to be used in further composition.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
@@ -5677,7 +5677,7 @@
 <h3 id="argument-validation-should-occur-outside-observablecreate"><a name="argument-validation-should-occur-outside-observablecreate" class="plugin-anchor" href="#argument-validation-should-occur-outside-observablecreate"><span class="fa fa-link"></span></a>Argument validation should occur outside <code>Observable.create</code></h3>
 <p>As guideline 5.3 specifies that the <code>Observable.create</code> operator should not throw, any argument validation that potentially throws exceptions should be done outside the <code>Observable.create</code> operator.</p>
 <h4 id="sample"><a name="sample" class="plugin-anchor" href="#sample"><span class="fa fa-link"></span></a>Sample</h4>
-<pre><code class="lang-js">Rx.Observable.prototype.map = (selector, thisArg) =&gt; {
+<pre><code class="lang-js">Rx.Observable.prototype.map = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">selector, thisArg</span>) </span>{
   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span> == <span class="hljs-literal">null</span>) {
     <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&apos;Must be an instance of an Observable&apos;</span>);
   }

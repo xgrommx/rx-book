@@ -73,6 +73,7 @@
         * [**luxor** - Flux-ish action/store framework. Built with Typescript and Rx.js](https://github.com/brynbellomy/luxor)
         * [**snow-flux** - A simple and practical unidirectional data flow implementation with Reactive Extensions RxJS](https://github.com/modesty/snow-flux)
 * #### Examples
+    * [https://github.com/tbo/react-rxjs-immutablejs-evaluation](https://github.com/tbo/react-rxjs-immutablejs-evaluation)
     * [https://github.com/peterjoel/frpreact](https://github.com/peterjoel/frpreact)
     * [https://github.com/almasakchabayev/ez](https://github.com/almasakchabayev/ez)
     * [https://github.com/FourSS/refar](https://github.com/FourSS/refar)
@@ -271,6 +272,7 @@
 * [https://github.com/JulienMoumne/rx-training-games](https://github.com/JulienMoumne/rx-training-games)
 
 ## Other
+* [https://github.com/marcusnielsen/rxjs-server](https://github.com/marcusnielsen/rxjs-server)
 * [https://github.com/amilosevic/rxmorse](https://github.com/amilosevic/rxmorse)
 * [https://github.com/alexvictoor/RxJsKata](https://github.com/alexvictoor/RxJsKata)
 * [https://github.com/kt3kstudio/long-dream-core](https://github.com/kt3kstudio/long-dream-core)

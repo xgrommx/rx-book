@@ -175,5 +175,7 @@
     {% video %}https://www.youtube.com/watch?v=X5YBsy6PaDw{% endvideo %}
     ***
 * #### Remote Talk - Introduction to Functional Reactive Programming with Elm
-    {% video %}https://www.youtube.com/watch?v=bx3mOTGRvs4{% endvideo %}    
-    
+    {% video %}https://www.youtube.com/watch?v=bx3mOTGRvs4{% endvideo %}
+    ***    
+* #### Netflix JavaScript Talks - RxJS Version 5
+    {% video %}https://www.youtube.com/watch?v=COviCoUtwx4{% endvideo %}       

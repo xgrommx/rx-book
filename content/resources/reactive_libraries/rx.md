@@ -40,6 +40,9 @@
     * [https://github.com/r-park/todo-angular-rx](https://github.com/r-park/todo-angular-rx) (angular 1.5)
     * [https://github.com/veyo-care/angular-2-redux](https://github.com/veyo-care/angular-2-redux)
     * [https://github.com/ariesxje/ng2-rxjs-tryout](https://github.com/ariesxje/ng2-rxjs-tryout)
+    * [http://plnkr.co/edit/OxbpcZGXH2aSDlkacYyr?p=preview](http://plnkr.co/edit/OxbpcZGXH2aSDlkacYyr?p=preview) (angular 2, rx5)
+    * [http://plnkr.co/edit/Hb4pJP3jGtOp6b7JubzS?p=preview](http://plnkr.co/edit/Hb4pJP3jGtOp6b7JubzS?p=preview) (angular 2, rx5, ngrx)
+    * [https://gist.run/?id=80c06fbf2daa0cb12793](https://gist.run/?id=80c06fbf2daa0cb12793) (angular 2, rx5)
 
 ### [React](https://github.com/facebook/react)
 ***
@@ -72,6 +75,8 @@
         * [**fluorine** - State Accumulation from a single stream of actions](https://github.com/philplckthun/fluorine)
         * [**luxor** - Flux-ish action/store framework. Built with Typescript and Rx.js](https://github.com/brynbellomy/luxor)
         * [**snow-flux** - A simple and practical unidirectional data flow implementation with Reactive Extensions RxJS](https://github.com/modesty/snow-flux)
+        * [**redux-observable-middleware** - Redux middleware for subscribing to observables](https://github.com/d6u/redux-observable-middleware)
+        * [**rxjs-redux-react** - RxJS based Redux style state management for React (using Recompose)](https://github.com/oscarduignan/rxjs-redux-react)
 * #### Examples
     * [https://github.com/tbo/react-rxjs-immutablejs-evaluation](https://github.com/tbo/react-rxjs-immutablejs-evaluation)
     * [https://github.com/peterjoel/frpreact](https://github.com/peterjoel/frpreact)
@@ -81,7 +86,6 @@
     * [https://github.com/almasakchabayev/frix](https://github.com/almasakchabayev/frix)
     * [https://github.com/ostera/unveil.js](https://github.com/ostera/unveil.js)
     * [https://github.com/code-artisan/react-rxjs-todomvc](https://github.com/code-artisan/react-rxjs-todomvc)
-    * [https://github.com/oscarduignan/rxjs-redux-react](https://github.com/oscarduignan/rxjs-redux-react)
     * [https://github.com/flq/reax](https://github.com/flq/reax)
     * [https://github.com/low-ghost/react-rx-elm-architecture](https://github.com/low-ghost/react-rx-elm-architecture) Elm architecture
     * [https://github.com/justinwoo/redux-rx-fun](https://github.com/justinwoo/redux-rx-fun)

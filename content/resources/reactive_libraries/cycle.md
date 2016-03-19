@@ -102,3 +102,4 @@
 * [https://github.com/trivial-space/entity-editor-cycle](https://github.com/trivial-space/entity-editor-cycle)
 * [https://github.com/edge/electron-cycle-media](https://github.com/edge/electron-cycle-media)
 * [https://github.com/sdebaun/sparks-cyclejs](https://github.com/sdebaun/sparks-cyclejs)
+* [https://github.com/whitecolor/cycle-async-driver](https://github.com/whitecolor/cycle-async-driver)

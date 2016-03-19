@@ -57,6 +57,7 @@
 * [**jsblocks** - Better MV-ish Framework](https://github.com/astoilkov/jsblocks) (doesn't use Rx but use frp)
 * [**reaxtor** - Falcor + Rx + virtual-dom](https://github.com/trxcllnt/reaxtor)
 * [**RxUI** - A MVVM framework that integrates Reactive Extensions for JavaScript. Inspired by ReactiveUI for .Net](https://github.com/KallynGowdy/RxUI)
+* [**tsers** - Transducer-Signal-Executor framework for Reactive Streams](https://github.com/tsers-js/core)
 
 ## Resources
 * [https://github.com/christianramsey/rx-react-flux](https://github.com/christianramsey/rx-react-flux)

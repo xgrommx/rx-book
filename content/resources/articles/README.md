@@ -120,6 +120,8 @@
 * [Let's build a multiplayer Fallout 4 map using RxJS!](https://getcarina.com/blog/lets-build-a-reactive-map)
 * [Model-View-Intent with React and RxJS](https://satishchilukuri.com/blog/entry/model-view-intent-with-react-and-rxjs)
 * [Angular 2 – Communication Between Components & Components Design](http://orizens.com/wp/topics/angular-2-communication-between-components-components-design)
+* [Angular 2 Services With Observables And Firebase](http://octomonkey.com/angular-2-services-with-observables-and-firebase)
+* [Look Ma, No Server: Developing Apps with Angular 2 MockBackend](http://www.sitepoint.com/angular-2-mockbackend)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

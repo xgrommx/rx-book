@@ -37,6 +37,7 @@
 * [A Playful Introduction to Rx](http://www.slideshare.net/andreycheptsov/a-playful-introduction-to-rx)
 * [Reactive Programming with Rx](http://www.slideshare.net/InfoQ/reactive-programming-with-rx) (*)
 * [Mini training - Reactive Extensions (Rx)](http://www.slideshare.net/betclicTech/mini-training-reactive-extensions-rx) (*)
+* [Everything is a stream](http://slides.com/robwormald/everything-is-a-stream#/)
 
 ## Bacon
 * [Reactive Programming in Practice – (Using Bacon JS)](http://slidedeck.io/eamodeorubio/reactive-baconjs)

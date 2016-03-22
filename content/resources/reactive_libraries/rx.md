@@ -8,7 +8,9 @@
     * [**reactiveproperty-angular** - ReactiveProperty for AngularJS](https://github.com/zoetrope/reactiveproperty-angular)
     * [**angular-observe** - Angular directive for representing the different states of an Observable](https://github.com/ggoodman/angular-observe)
     * [**store** - RxJS powered Redux for Angular2 apps](https://github.com/ngrx/store)
+    * [**ng-rx-redux**](https://github.com/bgoscinski/ng-rx-redux)
 * #### Examples
+    * [https://github.com/bgoscinski/ng-rx-redux-demo](https://github.com/bgoscinski/ng-rx-redux-demo)
     * [https://github.com/jgluhov/AngularRxApp](https://github.com/jgluhov/AngularRxApp)
     * [https://github.com/artemdemo/angular2-todo](https://github.com/artemdemo/angular2-todo) (angular 2)
     * [https://github.com/jhades/angular2-rxjs-observable-data-services](https://github.com/jhades/angular2-rxjs-observable-data-services) (angular 2)
@@ -378,6 +380,7 @@
 * [https://github.com/bholloway/rxjs-operators](https://github.com/bholloway/rxjs-operators)
 * [https://github.com/range-me/rx-store](https://github.com/range-me/rx-store)
 * [https://github.com/agconti/flight-delays](https://github.com/agconti/flight-delays)
+* [https://github.com/yongjhih/rx-facebook.js](https://github.com/yongjhih/rx-facebook.js)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

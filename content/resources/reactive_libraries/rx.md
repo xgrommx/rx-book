@@ -96,7 +96,6 @@
     * [https://github.com/zxbodya/rx-react-container](https://github.com/zxbodya/rx-react-container)
     * [https://github.com/almasakchabayev/react-rx-falcor](https://github.com/almasakchabayev/react-rx-falcor)
     * [https://github.com/winsonwq/erc](https://github.com/winsonwq/erc)
-    * [https://github.com/foxdonut/adventures-reactive-web-dev](https://github.com/foxdonut/adventures-reactive-web-dev)
     * [https://github.com/jamesknelson/numbat-ui-example](https://github.com/jamesknelson/numbat-ui-example)
     * [https://github.com/yanglinz/reddio](https://github.com/yanglinz/reddio)
     * [https://github.com/brabadu/tanok](https://github.com/brabadu/tanok) Elm architecture

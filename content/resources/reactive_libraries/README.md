@@ -78,6 +78,9 @@
 * [Cycle.js Fundamentals](https://egghead.io/series/cycle-js-fundamentals)
 * [Step-by-Step Async JavaScript with RxJS](https://egghead.io/series/step-by-step-async-javascript-with-rxjs)
 * [Reactive polyglot](https://github.com/ivan-kleshnin/reactive-polyglot)
+* [**awesome-rxjava** - Useful resources for working with RxJava](https://github.com/eleventigers/awesome-rxjava)
+* [**awesome-rxjs** - A collection of awesome RxJS resources](https://github.com/ichpuchtli/awesome-rxjs)
+* [**adventures-reactive-web-dev** - Adventures in Reactive Web Development](https://github.com/foxdonut/adventures-reactive-web-dev)
 
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)
@@ -93,7 +96,6 @@
 # Java
 * [https://github.com/skimarxall/RxFlux](https://github.com/skimarxall/RxFlux)
 * [https://gist.github.com/cesarferreira/510aa2456dc0879f559f](https://gist.github.com/cesarferreira/510aa2456dc0879f559f)
-* [https://github.com/eleventigers/awesome-rxjava](https://github.com/eleventigers/awesome-rxjava)
 * [https://github.com/ReactiveX/RxJava](https://github.com/ReactiveX/RxJava)
 * [https://github.com/davidmoten/rxjava-extras](https://github.com/davidmoten/rxjava-extras)
 * [https://github.com/davidmoten/rxjava-jdbc](https://github.com/davidmoten/rxjava-jdbc)

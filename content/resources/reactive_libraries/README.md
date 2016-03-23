@@ -58,6 +58,7 @@
 * [**reaxtor** - Falcor + Rx + virtual-dom](https://github.com/trxcllnt/reaxtor)
 * [**RxUI** - A MVVM framework that integrates Reactive Extensions for JavaScript. Inspired by ReactiveUI for .Net](https://github.com/KallynGowdy/RxUI)
 * [**tsers** - Transducer-Signal-Executor framework for Reactive Streams](https://github.com/tsers-js/core)
+* [**stanga** - The essential Cycling gear that every Cyclist needs](https://github.com/milankinen/stanga)
 
 ## Resources
 * [https://github.com/christianramsey/rx-react-flux](https://github.com/christianramsey/rx-react-flux)
@@ -81,6 +82,7 @@
 * [**awesome-rxjava** - Useful resources for working with RxJava](https://github.com/eleventigers/awesome-rxjava)
 * [**awesome-rxjs** - A collection of awesome RxJS resources](https://github.com/ichpuchtli/awesome-rxjs)
 * [**adventures-reactive-web-dev** - Adventures in Reactive Web Development](https://github.com/foxdonut/adventures-reactive-web-dev)
+* [**angular2-community-faq**](https://github.com/escardin/angular2-community-faq)
 
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)

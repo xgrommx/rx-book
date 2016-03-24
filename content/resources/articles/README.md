@@ -125,6 +125,7 @@
 * [RxJava - The Problem with Subjects](http://tomstechnicalblog.blogspot.com/2016/03/rxjava-problem-with-subjects.html)
 * [Lossless rate limiting with RxJS](http://www.g9labs.com/2016/03/21/lossless-rate-limiting-with-rxjs/)
 * [Lessons Learned (Re) Writing a 6502 Emulator in TypeScript with Angular 2 and RxJs](http://csharperimage.jeremylikness.com/2016/03/lessons-learned-re-writing-6502.html)
+* [Adopting RxJava on Airbnb Android](https://realm.io/news/kau-felipe-lima-adopting-rxjava-airbnb-android/)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

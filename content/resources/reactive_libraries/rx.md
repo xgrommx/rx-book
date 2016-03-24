@@ -380,6 +380,7 @@
 * [https://github.com/range-me/rx-store](https://github.com/range-me/rx-store)
 * [https://github.com/agconti/flight-delays](https://github.com/agconti/flight-delays)
 * [https://github.com/yongjhih/rx-facebook.js](https://github.com/yongjhih/rx-facebook.js)
+* [https://github.com/niieani/aurelia-rxjs](https://github.com/niieani/aurelia-rxjs)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

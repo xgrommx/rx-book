@@ -178,4 +178,10 @@
     {% video %}https://www.youtube.com/watch?v=bx3mOTGRvs4{% endvideo %}
     ***    
 * #### Netflix JavaScript Talks - RxJS Version 5
-    {% video %}https://www.youtube.com/watch?v=COviCoUtwx4{% endvideo %}       
+    {% video %}https://www.youtube.com/watch?v=COviCoUtwx4{% endvideo %}
+    ***
+* #### FluentConf 2016 - Building our reactive future - Matthew Podwysocki (Microsoft)
+    {% video %}https://www.youtube.com/watch?v=IB4BHRtu2MA{% endvideo %}
+    ***
+* #### Elm - An Introduction - by Randall Britten at Movio
+    {% video %}https://www.youtube.com/watch?v=y9N6JBKNKas{% endvideo %}

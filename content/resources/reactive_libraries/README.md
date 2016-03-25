@@ -83,6 +83,7 @@
 * [**awesome-rxjs** - A collection of awesome RxJS resources](https://github.com/ichpuchtli/awesome-rxjs)
 * [**adventures-reactive-web-dev** - Adventures in Reactive Web Development](https://github.com/foxdonut/adventures-reactive-web-dev)
 * [**angular2-community-faq**](https://github.com/escardin/angular2-community-faq)
+* [**reactive-states** - Reactive state implementations (brainstorming)](https://github.com/ivan-kleshnin/reactive-states)
 
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)

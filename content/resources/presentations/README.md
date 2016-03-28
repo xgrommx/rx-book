@@ -67,6 +67,7 @@
 * [Et si l'utilisateur était une fonction ?](http://real34.github.io/slides/si-utilisateur-etait-fonction)
 * [Reactive Programming with RxJS and Cycle](https://speakerdeck.com/bennyhobart/reactive-programming-with-rxjs-and-cycle)
 * [Next generation of frontend architectures](http://www.slideshare.net/flashplatform/next-generation-of-frontend-architectures)
+* [Cycle.js: Functional and Reactive](http://www.slideshare.net/2j2e/cyclejs-functional-and-reactive)
 
 ## RxJava
 * [Applying RxJava to Existing Applications at Philly ETE 2015](https://speakerdeck.com/benjchristensen/applying-rxjava-to-existing-applications-at-philly-ete-2015)
@@ -79,5 +80,6 @@
 ## Elm
 * [Elm kyivfprog 2015](http://www.slideshare.net/alexandermostovenko/elm-kyivfprog-2015)
 * [Can Innovation Labs Save The World?](http://www.slideshare.net/Paulbromford/can-innovation-labs-save-the-world-58183863)
+* [Elm: give it a try](http://www.slideshare.net/2j2e/elm-give-it-a-try)
 
 

@@ -127,6 +127,7 @@
 * [Lessons Learned (Re) Writing a 6502 Emulator in TypeScript with Angular 2 and RxJs](http://csharperimage.jeremylikness.com/2016/03/lessons-learned-re-writing-6502.html)
 * [Adopting RxJava on Airbnb Android](https://realm.io/news/kau-felipe-lima-adopting-rxjava-airbnb-android/)
 * [Real Time System Using RxJS Abstractions and Fake Data](http://engineering.footballradar.com/real-time-system-using-rxjs-abstractions-and-fake-data/)
+* [Pulling a User Timeline from Twitter ES6 and RXJS Style](https://claudiordgz.com/pulling-a-user-timeline-from-twitter-es6-and-rxjs-style/)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

@@ -185,3 +185,6 @@
     ***
 * #### Elm - An Introduction - by Randall Britten at Movio
     {% video %}https://www.youtube.com/watch?v=y9N6JBKNKas{% endvideo %}
+    ***
+* ### A Reactive Typeahead: A Soft Intro to Observables and CycleJS
+    {% video %}https://www.youtube.com/watch?v=M60845GVIDU{% endvideo %}

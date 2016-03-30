@@ -128,6 +128,8 @@
 * [Adopting RxJava on Airbnb Android](https://realm.io/news/kau-felipe-lima-adopting-rxjava-airbnb-android/)
 * [Real Time System Using RxJS Abstractions and Fake Data](http://engineering.footballradar.com/real-time-system-using-rxjs-abstractions-and-fake-data/)
 * [Pulling a User Timeline from Twitter ES6 and RXJS Style](https://claudiordgz.com/pulling-a-user-timeline-from-twitter-es6-and-rxjs-style/)
+* [Reactive programming, HTTP and Angular 2](https://jaxenter.com/reactive-programming-http-and-angular-2-124560.html)
+* [Hot vs Cold Observables](https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339#.3opwcukmd)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

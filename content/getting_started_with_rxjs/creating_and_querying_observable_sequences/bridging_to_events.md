@@ -132,7 +132,7 @@ There may be instances dealing with libraries which have different ways of subsc
 For example, you might want to bridge to using jQuery [`on`](http://api.jquery.com/on/) method.  We can convert the following code which alerts based upon the click of a table row.
 
 ```js
-$( "#dataTable tbody" ).on('click', 'tr', () => alert($( this ).text()));
+$( "#dataTable tbody" ).on('click', 'tr', e => alert($( e.target ).text()));
 ```
 
 The converted code looks like this while using the `fromEventPattern` method.  Each function passes in the handler function which allows you to call the `on` and `off` methods to properly handle disposal of events.
@@ -144,7 +144,7 @@ var source = Rx.Observable.fromEventPattern(
   function addHandler (h) { $tbody.on('click', 'tr', h); },
   function delHandler (h) { $tbody.off('click', 'tr', h); });
 
-var subscription = source.subscribe(e => alert($( this ).text()));
+var subscription = source.subscribe(e => alert($( e.target ).text()));
 ```
 
 In addition to this normal support, we also support if the `addHandler` returns an object, it can be passed to the `removeHandler` to properly unsubscribe.  In this example, we'll use the [Dojo Toolkit](http://dojotoolkit.org) and the [`on`](http://dojotoolkit.org/api/1.9/dojo/on.html) module.

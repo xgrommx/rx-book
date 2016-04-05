@@ -130,6 +130,11 @@
 * [Pulling a User Timeline from Twitter ES6 and RXJS Style](https://claudiordgz.com/pulling-a-user-timeline-from-twitter-es6-and-rxjs-style/)
 * [Reactive programming, HTTP and Angular 2](https://jaxenter.com/reactive-programming-http-and-angular-2-124560.html)
 * [Hot vs Cold Observables](https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339#.3opwcukmd)
+* [Reactive Programming on iOS and Android](https://blog.xamarin.com/why-every-mobile-developer-should-use-reactive-programming/)
+* [Xamarin に Reactive Extensions を導入する](http://qiita.com/amay077/items/2acdbacfb7ba25d178ee)
+* [Why you should use RxJava in Android a short introduction to RxJava](http://blog.feedpresso.com/2016/01/25/why-you-should-use-rxjava-in-android-a-short-introduction-to-rxjava.html)
+* [RxJS, the smartest dumbest tool ever](http://www.christianalfoni.com/articles/2016_03_31_RxJs-the-smartest-dumbest-tool-ever)
+* [Creating apps with observables](http://www.christianalfoni.com/articles/2016_03_27_Creating-apps-with-observables)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

@@ -47,3 +47,4 @@
 * [https://github.com/paldepind/flyd-sampleon](https://github.com/paldepind/flyd-sampleon)
 * [https://github.com/paldepind/flyd-keepwhen](https://github.com/paldepind/flyd-keepwhen)
 * [https://github.com/paldepind/flyd-flatmap](https://github.com/paldepind/flyd-flatmap)
+* [https://github.com/jordalgo/flyd-eithers](https://github.com/jordalgo/flyd-eithers)

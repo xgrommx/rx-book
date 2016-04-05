@@ -59,6 +59,7 @@
         * [**react-rx-subscriber** - React component enhancer to easily subscribe to Rx Observables](https://github.com/BurntCaramel/react-rx-subscriber)
         * [**react-rx-components** - Making React reactive](https://github.com/besuikerd/react-rx-components)
         * [**observe-component** - A small library for accessing React component events as functional reactive streams](https://github.com/Lokeh/observe-component)
+        * [**rxjs-react-component** - A component allowing you to change state using observables](https://github.com/christianalfoni/rxjs-react-component)  
     * ##### Flux
         * [**rxdux** - Yet another flux implementation based on redux with asynchronous reducer feature](https://github.com/stomita/rxdux)
         * [**rx-redux**](https://github.com/mathieuancelin/rx-redux)
@@ -228,6 +229,7 @@
 ### [Ractive](http://www.ractivejs.org)
 ***
 * [https://github.com/nusson/ractive-rx](https://github.com/nusson/ractive-rx)
+* [https://github.com/ractivejs/ractive-adaptors-rxjs](https://github.com/ractivejs/ractive-adaptors-rxjs)
 
 ### Pub/Sub
 ***
@@ -381,6 +383,7 @@
 * [https://github.com/agconti/flight-delays](https://github.com/agconti/flight-delays)
 * [https://github.com/yongjhih/rx-facebook.js](https://github.com/yongjhih/rx-facebook.js)
 * [https://github.com/niieani/aurelia-rxjs](https://github.com/niieani/aurelia-rxjs)
+* [https://github.com/topheman/rxjs-experiments](https://github.com/topheman/rxjs-experiments)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

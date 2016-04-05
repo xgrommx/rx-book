@@ -84,6 +84,9 @@
 * [**adventures-reactive-web-dev** - Adventures in Reactive Web Development](https://github.com/foxdonut/adventures-reactive-web-dev)
 * [**angular2-community-faq**](https://github.com/escardin/angular2-community-faq)
 * [**reactive-states** - Reactive state implementations (brainstorming)](https://github.com/ivan-kleshnin/reactive-states)
+* [A collection of markdown on Reactive Extensions](https://github.com/evturn/rxjs-md)
+* [Tutorials](http://reactivex.io/tutorials.html)
+* [Useful resources for Reactive Extensions](https://github.com/riiid/awesome-rx)
 
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)
@@ -273,6 +276,8 @@
 * [https://github.com/ExRam/ExRam.ReactiveCollections](https://github.com/ExRam/ExRam.ReactiveCollections)
 * [https://github.com/Anna-Rx/Anna](https://github.com/Anna-Rx/Anna)
 * [https://github.com/akarnokd/RxAdvancedFlow](https://github.com/akarnokd/RxAdvancedFlow)
+* [https://github.com/AdaptiveConsulting/ReactiveTraderCloud](https://github.com/AdaptiveConsulting/ReactiveTraderCloud)
+* [https://github.com/jcmm33/ReactiveUI.Validation](https://github.com/jcmm33/ReactiveUI.Validation)
 
 # C++
 * [https://github.com/Reactive-Extensions/RxCpp](https://github.com/Reactive-Extensions/RxCpp)

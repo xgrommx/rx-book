@@ -191,3 +191,6 @@
     ***
 * ### Droidcon SF - Common RxJava Mistakes
     {% video %}https://www.youtube.com/watch?v=QdmkXL7XikQ{% endvideo %}
+    ***
+* ### Richard Feldman - Introduction to ELM (March 22, 2016)
+    {% video %}https://www.youtube.com/watch?v=3_M2G9U51GA{% endvideo %}

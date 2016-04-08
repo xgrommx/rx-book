@@ -135,6 +135,7 @@
 * [Why you should use RxJava in Android a short introduction to RxJava](http://blog.feedpresso.com/2016/01/25/why-you-should-use-rxjava-in-android-a-short-introduction-to-rxjava.html)
 * [RxJS, the smartest dumbest tool ever](http://www.christianalfoni.com/articles/2016_03_31_RxJs-the-smartest-dumbest-tool-ever)
 * [Creating apps with observables](http://www.christianalfoni.com/articles/2016_03_27_Creating-apps-with-observables)
+* [Разбираемся с многопоточностью в RxJava](https://habrahabr.ru/company/rambler-co/blog/280388/) (ru)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -171,6 +172,8 @@
 * [Building an app with Cycle.JS - Creating components](http://www.zsiegel.com/2016/01/10/building-an-app-with-cyclejs--creating-components)
 * [Cycle.js with arcgis js api](http://odoe.net/blog/cyclejs-with-arcgis-js-api)
 * [MODEL-VIEW-INTENT ON ANDROID](http://hannesdorfmann.com/android/model-view-intent)
+* [CycleJS driven by state](http://www.christianalfoni.com/articles/2016_04_06_CycleJS-driven-by-state)
+* [Building realtime applications with CycleJS and RxJS](https://blog.pusher.com/building-realtime-applications-with-cyclejs-and-rxjs/)
 
 ## Bacon
 * [Functional Reactive Programming in JavaScript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)

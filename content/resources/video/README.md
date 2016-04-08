@@ -188,3 +188,6 @@
     ***
 * ### A Reactive Typeahead: A Soft Intro to Observables and CycleJS
     {% video %}https://www.youtube.com/watch?v=M60845GVIDU{% endvideo %}
+    ***
+* ### Droidcon SF - Common RxJava Mistakes
+    {% video %}https://www.youtube.com/watch?v=QdmkXL7XikQ{% endvideo %}

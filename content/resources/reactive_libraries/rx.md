@@ -46,6 +46,8 @@
     * [http://plnkr.co/edit/OxbpcZGXH2aSDlkacYyr?p=preview](http://plnkr.co/edit/OxbpcZGXH2aSDlkacYyr?p=preview) (angular 2, rx5)
     * [http://plnkr.co/edit/Hb4pJP3jGtOp6b7JubzS?p=preview](http://plnkr.co/edit/Hb4pJP3jGtOp6b7JubzS?p=preview) (angular 2, rx5, ngrx)
     * [https://gist.run/?id=80c06fbf2daa0cb12793](https://gist.run/?id=80c06fbf2daa0cb12793) (angular 2, rx5)
+    * [https://github.com/screenm0nkey/ngrx-angular2-app](https://github.com/screenm0nkey/ngrx-angular2-app) (angular 2, rx5, ngrx)
+    * [https://github.com/manfredsteyer/ngrx-angular2-sample](https://github.com/manfredsteyer/ngrx-angular2-sample) (angular 2, rx5, ngrx)
 
 ### [React](https://github.com/facebook/react)
 ***
@@ -60,7 +62,8 @@
         * [**react-rx-subscriber** - React component enhancer to easily subscribe to Rx Observables](https://github.com/BurntCaramel/react-rx-subscriber)
         * [**react-rx-components** - Making React reactive](https://github.com/besuikerd/react-rx-components)
         * [**observe-component** - A small library for accessing React component events as functional reactive streams](https://github.com/Lokeh/observe-component)
-        * [**rxjs-react-component** - A component allowing you to change state using observables](https://github.com/christianalfoni/rxjs-react-component)  
+        * [**rxjs-react-component** - A component allowing you to change state using observables](https://github.com/christianalfoni/rxjs-react-component) 
+        * [**rx-react-container** - Connects observables and observers to react components](https://github.com/zxbodya/rx-react-container) 
     * ##### Flux
         * [**rxdux** - Yet another flux implementation based on redux with asynchronous reducer feature](https://github.com/stomita/rxdux)
         * [**rx-redux**](https://github.com/mathieuancelin/rx-redux)
@@ -95,7 +98,6 @@
     * [https://github.com/justinwoo/redux-rx-fun](https://github.com/justinwoo/redux-rx-fun)
     * [https://github.com/incrediblesound/RxReact-ToDo](https://github.com/incrediblesound/RxReact-ToDo)
     * [https://github.com/mattpodwysocki/rx-fluxish](https://github.com/mattpodwysocki/rx-fluxish)
-    * [https://github.com/zxbodya/rx-react-container](https://github.com/zxbodya/rx-react-container)
     * [https://github.com/almasakchabayev/react-rx-falcor](https://github.com/almasakchabayev/react-rx-falcor)
     * [https://github.com/winsonwq/erc](https://github.com/winsonwq/erc)
     * [https://github.com/jamesknelson/numbat-ui-example](https://github.com/jamesknelson/numbat-ui-example)

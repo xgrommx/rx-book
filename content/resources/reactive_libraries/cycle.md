@@ -104,3 +104,4 @@
 * [https://github.com/sdebaun/sparks-cyclejs](https://github.com/sdebaun/sparks-cyclejs)
 * [https://github.com/whitecolor/cycle-async-driver](https://github.com/whitecolor/cycle-async-driver)
 * [https://github.com/toribaric/cycle-falcor](https://github.com/toribaric/cycle-falcor)
+* [https://github.com/edge/cycle-blessed](https://github.com/edge/cycle-blessed)

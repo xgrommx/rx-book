@@ -227,6 +227,7 @@
 * [https://github.com/ian-ellis/kotlin-mvvm](https://github.com/ian-ellis/kotlin-mvvm)
 * [https://github.com/pine613/rxkotlin-collections](https://github.com/pine613/rxkotlin-collections)
 * [https://github.com/brianegan/bansa](https://github.com/brianegan/bansa)
+* [https://github.com/GavinPacini/daysuntil](https://github.com/GavinPacini/daysuntil)
 
 # .NET
 * [https://github.com/TORISOUP/PhotonRx](https://github.com/TORISOUP/PhotonRx)
@@ -307,6 +308,7 @@
 # Rust
 * [https://github.com/owickstrom/rust-rx](https://github.com/owickstrom/rust-rx)
 * [https://github.com/ReactiveX/RxRust](https://github.com/ReactiveX/RxRust)
+* [https://github.com/SCareAngel/kick-rs](https://github.com/SCareAngel/kick-rs)
 
 # Haskell
 * [https://github.com/raimohanska/rx-haskell](https://github.com/raimohanska/rx-haskell)

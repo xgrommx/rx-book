@@ -10,7 +10,6 @@ var navigation = require('./navigation');
 var sidebar = require('./sidebar');
 var toolbar = require('./toolbar');
 
-
 function start(config) {
     // Init sidebar
     sidebar.init();

@@ -174,6 +174,7 @@
 * [MODEL-VIEW-INTENT ON ANDROID](http://hannesdorfmann.com/android/model-view-intent)
 * [CycleJS driven by state](http://www.christianalfoni.com/articles/2016_04_06_CycleJS-driven-by-state)
 * [Building realtime applications with CycleJS and RxJS](https://blog.pusher.com/building-realtime-applications-with-cyclejs-and-rxjs/)
+* [Demystifying Cycle.js (core source)](https://medium.com/@whitecolory/7bcae39fb64c#.okyqawtaj)
 
 ## Bacon
 * [Functional Reactive Programming in JavaScript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)

@@ -11,6 +11,7 @@
     * [**router** - Reactive Router for Angular2](https://github.com/ngrx/router)    
     * [**ng-rx-redux**](https://github.com/bgoscinski/ng-rx-redux)
 * #### Examples
+    * [https://github.com/fxck/ngrx-example](https://github.com/fxck/ngrx-example) (angular 2, ngrx, rx5, sagas)
     * [https://github.com/bgoscinski/ng-rx-redux-demo](https://github.com/bgoscinski/ng-rx-redux-demo)
     * [https://github.com/jgluhov/AngularRxApp](https://github.com/jgluhov/AngularRxApp)
     * [https://github.com/artemdemo/angular2-todo](https://github.com/artemdemo/angular2-todo) (angular 2)
@@ -85,6 +86,8 @@
         * [**redux-observable-middleware** - Redux middleware for subscribing to observables](https://github.com/d6u/redux-observable-middleware)
         * [**rxjs-redux-react** - RxJS based Redux style state management for React (using Recompose)](https://github.com/oscarduignan/rxjs-redux-react)
 * #### Examples
+    * [https://github.com/meizilp/ts-react-rxjs](https://github.com/meizilp/ts-react-rxjs)
+    * [https://github.com/flegall/devoxx-redux-rxjs](https://github.com/flegall/devoxx-redux-rxjs)
     * [https://github.com/tbo/react-rxjs-immutablejs-evaluation](https://github.com/tbo/react-rxjs-immutablejs-evaluation)
     * [https://github.com/peterjoel/frpreact](https://github.com/peterjoel/frpreact)
     * [https://github.com/almasakchabayev/ez](https://github.com/almasakchabayev/ez)
@@ -387,6 +390,8 @@
 * [https://github.com/yongjhih/rx-facebook.js](https://github.com/yongjhih/rx-facebook.js)
 * [https://github.com/niieani/aurelia-rxjs](https://github.com/niieani/aurelia-rxjs)
 * [https://github.com/topheman/rxjs-experiments](https://github.com/topheman/rxjs-experiments)
+* [https://github.com/jeron-diovis/rx-cast-subscription](https://github.com/jeron-diovis/rx-cast-subscription)
+* [https://github.com/screenm0nkey/rxjs-examples](https://github.com/screenm0nkey/rxjs-examples)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

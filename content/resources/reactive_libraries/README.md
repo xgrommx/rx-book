@@ -87,6 +87,10 @@
 * [A collection of markdown on Reactive Extensions](https://github.com/evturn/rxjs-md)
 * [Tutorials](http://reactivex.io/tutorials.html)
 * [Useful resources for Reactive Extensions](https://github.com/riiid/awesome-rx)
+* [RxJS 5 Operators By Example](https://gist.github.com/btroncone/d6cf141d6f2c00dc6b35)
+* [Comprehensive Introduction to @ngrx/store](https://gist.github.com/btroncone/a6e4347326749f938510)
+* [Visualization of Elm Signals](https://github.com/yang-wei/elmflux)
+* [How much operators you can use together?](https://gist.run/?id=b2154a8fadaf0d7f253bb40e8365675d)
 
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)
@@ -131,6 +135,7 @@
 * [https://github.com/digitalbuddha/StoreDemo](https://github.com/digitalbuddha/StoreDemo)
 * [https://github.com/pakoito/RxPartialApplication](https://github.com/pakoito/RxPartialApplication)
 * [https://github.com/JakeWharton/RxReplayingShare](https://github.com/JakeWharton/RxReplayingShare)
+* [https://github.com/akarnokd/RxAgera](https://github.com/akarnokd/RxAgera)
 
 ## Android
 * [https://github.com/requery/requery](https://github.com/requery/requery)

@@ -136,6 +136,9 @@
 * [RxJS, the smartest dumbest tool ever](http://www.christianalfoni.com/articles/2016_03_31_RxJs-the-smartest-dumbest-tool-ever)
 * [Creating apps with observables](http://www.christianalfoni.com/articles/2016_03_27_Creating-apps-with-observables)
 * [Разбираемся с многопоточностью в RxJava](https://habrahabr.ru/company/rambler-co/blog/280388/) (ru)
+* [Functional Reactive Game Programming – RxJS Breakout](https://manu.ninja/functional-reactive-game-programming-rxjs-breakout)
+* [Counting promises vs Rx](https://glebbahmutov.com/blog/counting-promises-vs-rx/)
+* [RxSwift шпаргалка по операторам (+ PDF)](https://habrahabr.ru/post/281292/)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -175,6 +178,7 @@
 * [CycleJS driven by state](http://www.christianalfoni.com/articles/2016_04_06_CycleJS-driven-by-state)
 * [Building realtime applications with CycleJS and RxJS](https://blog.pusher.com/building-realtime-applications-with-cyclejs-and-rxjs/)
 * [Demystifying Cycle.js (core source)](https://medium.com/@whitecolory/7bcae39fb64c#.okyqawtaj)
+* [Motorcycle.js And Lessons Learned The Hard Way](http://vanslaars.io/post/motorcycle-declarative-form-input/)
 
 ## Bacon
 * [Functional Reactive Programming in JavaScript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)
@@ -229,3 +233,6 @@
 
 ## Flyd
 * [Fluid configuration of d3.js bandlines with FRP](http://bl.ocks.org/monfera/35be5626a47110312c35)
+
+## Mobx
+* [Ten minute introduction to MobX and React](https://mobxjs.github.io/mobx/getting-started.html)

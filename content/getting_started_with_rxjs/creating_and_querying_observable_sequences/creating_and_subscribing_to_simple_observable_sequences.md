@@ -23,8 +23,8 @@ In this example, we will simply yield a single value of 42 and then mark it as c
 ```js
 var source = Rx.Observable.create(observer => {
   // Yield a single value and complete
-  observer.onNext(42);
-  observer.onCompleted();
+  observer.next(42);
+  observer.complete();
 
   // Any cleanup logic might go here
   return () => console.log('disposed')

@@ -194,3 +194,6 @@
     ***
 * ### Richard Feldman - Introduction to ELM (March 22, 2016)
     {% video %}https://www.youtube.com/watch?v=3_M2G9U51GA{% endvideo %}
+    ***
+* ### A General Theory of Reactivity
+    {% video %}https://www.youtube.com/watch?v=2p51PE1MZ8U{% endvideo %}

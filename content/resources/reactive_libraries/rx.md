@@ -271,6 +271,10 @@
 * [https://github.com/bodil/purescript-signal](https://github.com/bodil/purescript-signal)
 * [https://gist.github.com/roman/98c0999ba003b6a8f6c5](https://gist.github.com/roman/98c0999ba003b6a8f6c5)
 
+### [ScalaJS](http://www.scala-js.org/)
+***
+* [https://github.com/LukaJCB/rxscala-js](https://github.com/LukaJCB/rxscala-js)
+
 ## Tutorials
 * [https://github.com/staltz/rxjs-training](https://github.com/staltz/rxjs-training)
 * [https://gist.github.com/staltz/868e7e9bc2a7b8c1f754](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)

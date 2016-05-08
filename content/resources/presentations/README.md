@@ -39,6 +39,8 @@
 * [Mini training - Reactive Extensions (Rx)](http://www.slideshare.net/betclicTech/mini-training-reactive-extensions-rx) (*)
 * [Everything is a stream](http://slides.com/robwormald/everything-is-a-stream#/)
 * [INTRODUCTION TO REACTIVE PROGRAMMING with RxJS & Angular2](http://cvuorinen.github.io/reactive-programming-slides/)
+* [Recipes in RxJava for Android, v.2 by Sasa Sekulic](https://speakerdeck.com/mrsasha/recipes-in-rxjava-for-android-v-dot-2)
+* [Java 8 Stream API and RxJava Comparison](http://www.slideshare.net/jpaumard/java-8-stream-api-and-rxjava-comparison)
 
 ## Bacon
 * [Reactive Programming in Practice – (Using Bacon JS)](http://slidedeck.io/eamodeorubio/reactive-baconjs)

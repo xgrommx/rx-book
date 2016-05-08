@@ -91,6 +91,7 @@
 * [Comprehensive Introduction to @ngrx/store](https://gist.github.com/btroncone/a6e4347326749f938510)
 * [Visualization of Elm Signals](https://github.com/yang-wei/elmflux)
 * [How much operators you can use together?](https://gist.run/?id=b2154a8fadaf0d7f253bb40e8365675d)
+* [RxSwift Operators Cheat Sheet by Donghua Li](https://www.cheatography.com/donghua-li/cheat-sheets/rxswift-operators/)
 
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)

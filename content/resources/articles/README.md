@@ -139,6 +139,9 @@
 * [Functional Reactive Game Programming – RxJS Breakout](https://manu.ninja/functional-reactive-game-programming-rxjs-breakout)
 * [Counting promises vs Rx](https://glebbahmutov.com/blog/counting-promises-vs-rx/)
 * [RxSwift шпаргалка по операторам (+ PDF)](https://habrahabr.ru/post/281292/)
+* [TAKING ADVANTAGE OF OBSERVABLES IN ANGULAR 2 - PART 2](http://blog.thoughtram.io/angular/2016/01/07/taking-advantage-of-observables-in-angular2-pt2.html)
+* [RxJava: subscribeOn vs observeOn](https://upday.github.io/blog/subscribe_on/)
+* [Functional Programming as the Pillar of Reactive Programming](https://dzone.com/articles/functional-programming-as-the-pillar-of-reactive-p)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

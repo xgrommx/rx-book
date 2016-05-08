@@ -33,6 +33,7 @@
 
 ### Other
 ***
+* [https://github.com/geigerzaehler/fixi](https://github.com/geigerzaehler/fixi)
 * [https://github.com/elsehow/kefir-get](https://github.com/elsehow/kefir-get)
 * [https://github.com/systeminsights/kefir-contrib-crud](https://github.com/systeminsights/kefir-contrib-crud)
 * [https://github.com/pixelpicosean/panda-reactive](https://github.com/pixelpicosean/panda-reactive)

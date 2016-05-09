@@ -92,6 +92,7 @@
 * [Visualization of Elm Signals](https://github.com/yang-wei/elmflux)
 * [How much operators you can use together?](https://gist.run/?id=b2154a8fadaf0d7f253bb40e8365675d)
 * [RxSwift Operators Cheat Sheet by Donghua Li](https://www.cheatography.com/donghua-li/cheat-sheets/rxswift-operators/)
+* [Duality and the End of Reactive](https://channel9.msdn.com/events/Lang-NEXT/Lang-NEXT-2014/Keynote-Duality)
 
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)

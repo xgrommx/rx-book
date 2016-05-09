@@ -142,6 +142,8 @@
 * [TAKING ADVANTAGE OF OBSERVABLES IN ANGULAR 2 - PART 2](http://blog.thoughtram.io/angular/2016/01/07/taking-advantage-of-observables-in-angular2-pt2.html)
 * [RxJava: subscribeOn vs observeOn](https://upday.github.io/blog/subscribe_on/)
 * [Functional Programming as the Pillar of Reactive Programming](https://dzone.com/articles/functional-programming-as-the-pillar-of-reactive-p)
+* [Use RxJS with React](http://michalzalecki.com/use-rxjs-with-react/)
+* [RxSwift: работа с GUI](https://habrahabr.ru/post/283128/) (ru)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

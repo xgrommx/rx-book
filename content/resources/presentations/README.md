@@ -83,5 +83,5 @@
 * [Elm kyivfprog 2015](http://www.slideshare.net/alexandermostovenko/elm-kyivfprog-2015)
 * [Can Innovation Labs Save The World?](http://www.slideshare.net/Paulbromford/can-innovation-labs-save-the-world-58183863)
 * [Elm: give it a try](http://www.slideshare.net/2j2e/elm-give-it-a-try)
-
+* [Accidentally Concurrent](https://prezi.com/oi4ujfhlnn3r/accidentally-concurrent/)
 

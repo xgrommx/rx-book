@@ -286,6 +286,7 @@
 * [https://github.com/akarnokd/RxAdvancedFlow](https://github.com/akarnokd/RxAdvancedFlow)
 * [https://github.com/AdaptiveConsulting/ReactiveTraderCloud](https://github.com/AdaptiveConsulting/ReactiveTraderCloud)
 * [https://github.com/jcmm33/ReactiveUI.Validation](https://github.com/jcmm33/ReactiveUI.Validation)
+* [https://github.com/Weingartner/ReactiveCompositeCollections](https://github.com/Weingartner/ReactiveCompositeCollections)
 
 # C++
 * [https://github.com/Reactive-Extensions/RxCpp](https://github.com/Reactive-Extensions/RxCpp)

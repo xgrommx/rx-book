@@ -144,6 +144,13 @@
 * [Functional Programming as the Pillar of Reactive Programming](https://dzone.com/articles/functional-programming-as-the-pillar-of-reactive-p)
 * [Use RxJS with React](http://michalzalecki.com/use-rxjs-with-react/)
 * [RxSwift: работа с GUI](https://habrahabr.ru/post/283128/) (ru)
+* [Two Phases of Angular 2 Applications](http://victorsavkin.com/post/114168430846/two-phases-of-angular-2-applications)
+* [Change Detection in Angular 2](http://victorsavkin.com/post/110170125256/change-detection-in-angular-2)
+* [How to build Angular 2 apps using Observable Data Services - Pitfalls to avoid](http://blog.jhades.org/how-to-build-angular2-apps-using-rxjs-observable-data-services-pitfalls-to-avoid)
+* [Angular 2 Application Architecture - Building Redux-like apps using RxJs](http://blog.jhades.org/angular-2-application-architecture-building-applications-using-rxjs-and-functional-reactive-programming-vs-redux/)
+* [How does Angular 2 Change Detection Really Work ?](http://blog.jhades.org/how-does-angular-2-change-detection-really-work/)
+* [Angular 2 Services With Observables And Firebase](http://octomonkey.com/angular-2-services-with-observables-and-firebase/)
+* [redux-observable](https://medium.com/@benlesh/redux-observable-ec0b00d2eb52#.40v71jt76)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

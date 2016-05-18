@@ -57,3 +57,4 @@
 * [http://planet.elm-lang.org](http://planet.elm-lang.org)
 * [http://builtwithelm.co](http://builtwithelm.co)
 * [https://github.com/yang-wei/elmflux](https://github.com/yang-wei/elmflux)
+* [http://www.elmweekly.nl/](http://www.elmweekly.nl/)

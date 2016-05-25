@@ -191,6 +191,7 @@
 * [Building realtime applications with CycleJS and RxJS](https://blog.pusher.com/building-realtime-applications-with-cyclejs-and-rxjs/)
 * [Demystifying Cycle.js (core source)](https://medium.com/@whitecolory/7bcae39fb64c#.okyqawtaj)
 * [Motorcycle.js And Lessons Learned The Hard Way](http://vanslaars.io/post/motorcycle-declarative-form-input/)
+* [Cycle.js, RxJS and cold observables](http://blog.thomasbelin.fr/p/cyclejs-rx-newbie-trap/)
 
 ## Bacon
 * [Functional Reactive Programming in JavaScript](http://modernweb.com/2013/09/30/functional-reactive-programming-in-javascript)
@@ -239,6 +240,7 @@
 * [A simpler web architecture using Flux, CSP, and FRP concepts](http://codrspace.com/allenkim67/a-simpler-web-architecture-using-flux-csp-and-frp-concepts)
 * [Functional Reactive Programming in reactive-banana](https://github.com/dimecon/frp-presentation)
 * [Single-Subscription vs. Broadcast Streams](https://www.dartlang.org/articles/broadcast-streams)
+* [Why I cannot say FRP but I just did](https://medium.com/@andrestaltz/why-i-cannot-say-frp-but-i-just-did-d5ffaa23973b#.53gcohk61)
 
 ## Unity
 * [Многопоточность в Unity средствами реактивных расширений](http://habrahabr.ru/company/nixsolutions/blog/268781) (ru)

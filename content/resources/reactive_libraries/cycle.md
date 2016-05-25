@@ -105,3 +105,5 @@
 * [https://github.com/whitecolor/cycle-async-driver](https://github.com/whitecolor/cycle-async-driver)
 * [https://github.com/toribaric/cycle-falcor](https://github.com/toribaric/cycle-falcor)
 * [https://github.com/edge/cycle-blessed](https://github.com/edge/cycle-blessed)
+* [https://github.com/Paqmind/memory-game](https://github.com/Paqmind/memory-game)
+* [https://github.com/whitecolor/cycle-mongoose](https://github.com/whitecolor/cycle-mongoose)

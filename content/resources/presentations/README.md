@@ -41,6 +41,7 @@
 * [INTRODUCTION TO REACTIVE PROGRAMMING with RxJS & Angular2](http://cvuorinen.github.io/reactive-programming-slides/)
 * [Recipes in RxJava for Android, v.2 by Sasa Sekulic](https://speakerdeck.com/mrsasha/recipes-in-rxjava-for-android-v-dot-2)
 * [Java 8 Stream API and RxJava Comparison](http://www.slideshare.net/jpaumard/java-8-stream-api-and-rxjava-comparison)
+* ["Kotlin и rx в android" Дмитрий Воронин (Avito)](http://www.slideshare.net/AvitoTech/kotlin-rx-android-avito)
 
 ## Bacon
 * [Reactive Programming in Practice – (Using Bacon JS)](http://slidedeck.io/eamodeorubio/reactive-baconjs)

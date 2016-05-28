@@ -64,7 +64,10 @@
         * [**react-rx-components** - Making React reactive](https://github.com/besuikerd/react-rx-components)
         * [**observe-component** - A small library for accessing React component events as functional reactive streams](https://github.com/Lokeh/observe-component)
         * [**rxjs-react-component** - A component allowing you to change state using observables](https://github.com/christianalfoni/rxjs-react-component) 
-        * [**rx-react-container** - Connects observables and observers to react components](https://github.com/zxbodya/rx-react-container) 
+        * [**rx-react-container** - Connects observables and observers to react components](https://github.com/zxbodya/rx-react-container)
+        * [**woven-react** - Experimenting w/ a React + Reactive Programming stack](https://github.com/woven/woven-react)        
+        * [**react-rxjs** - bringing react and rxjs, and IOC together](https://github.com/jhoguet/react-rxjs)
+        * [**react-observable-subscribe** - <Subscribe> component to automatically consume observables declaratively in React JSX](https://github.com/jayphelps/react-observable-subscribe) 
     * ##### Flux
         * [**rxdux** - Yet another flux implementation based on redux with asynchronous reducer feature](https://github.com/stomita/rxdux)
         * [**rx-redux**](https://github.com/mathieuancelin/rx-redux)
@@ -396,6 +399,7 @@
 * [https://github.com/topheman/rxjs-experiments](https://github.com/topheman/rxjs-experiments)
 * [https://github.com/jeron-diovis/rx-cast-subscription](https://github.com/jeron-diovis/rx-cast-subscription)
 * [https://github.com/screenm0nkey/rxjs-examples](https://github.com/screenm0nkey/rxjs-examples)
+* [https://github.com/dpraimeyuu/rx-simple-game](https://github.com/dpraimeyuu/rx-simple-game)
 
 ## Build tools
 * [https://github.com/plumberjs/plumber](https://github.com/plumberjs/plumber)

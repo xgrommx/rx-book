@@ -151,6 +151,7 @@
 * [How does Angular 2 Change Detection Really Work ?](http://blog.jhades.org/how-does-angular-2-change-detection-really-work/)
 * [Angular 2 Services With Observables And Firebase](http://octomonkey.com/angular-2-services-with-observables-and-firebase/)
 * [redux-observable](https://medium.com/@benlesh/redux-observable-ec0b00d2eb52#.40v71jt76)
+* [RxJS + PouchDB — persistent data flows](https://medium.com/@luijar/rxjs-pouchdb-persistent-data-flows-480f503ee41f#.qp5zypux8)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

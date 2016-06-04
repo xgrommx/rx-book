@@ -152,6 +152,7 @@
 * [Angular 2 Services With Observables And Firebase](http://octomonkey.com/angular-2-services-with-observables-and-firebase/)
 * [redux-observable](https://medium.com/@benlesh/redux-observable-ec0b00d2eb52#.40v71jt76)
 * [RxJS + PouchDB — persistent data flows](https://medium.com/@luijar/rxjs-pouchdb-persistent-data-flows-480f503ee41f#.qp5zypux8)
+* [Real World Observables](https://medium.com/@sergimansilla/real-world-observables-1f65748c8f9#.u9pw0llyg)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -242,6 +243,7 @@
 * [Functional Reactive Programming in reactive-banana](https://github.com/dimecon/frp-presentation)
 * [Single-Subscription vs. Broadcast Streams](https://www.dartlang.org/articles/broadcast-streams)
 * [Why I cannot say FRP but I just did](https://medium.com/@andrestaltz/why-i-cannot-say-frp-but-i-just-did-d5ffaa23973b#.53gcohk61)
+* [Functional Core Reactive Shell](http://www.mokacoding.com/blog/functional-core-reactive-shell/)
 
 ## Unity
 * [Многопоточность в Unity средствами реактивных расширений](http://habrahabr.ru/company/nixsolutions/blog/268781) (ru)

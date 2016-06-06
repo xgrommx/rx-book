@@ -94,6 +94,8 @@
 * [RxSwift Operators Cheat Sheet by Donghua Li](https://www.cheatography.com/donghua-li/cheat-sheets/rxswift-operators/)
 * [Duality and the End of Reactive](https://channel9.msdn.com/events/Lang-NEXT/Lang-NEXT-2014/Keynote-Duality)
 
+* [A Survey on Reactive Programming](ftp://progftp.vub.ac.be/tech_report/2012/vub-soft-tr-12-13.pdf)
+
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)
 * [https://github.com/JamesTimms/FRPGameEngine](https://github.com/JamesTimms/FRPGameEngine)

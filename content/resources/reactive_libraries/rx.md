@@ -292,6 +292,7 @@
 * [https://github.com/JulienMoumne/rx-training-games](https://github.com/JulienMoumne/rx-training-games)
 
 ## Other
+* [https://github.com/nickwinger/autoproperty](https://github.com/nickwinger/autoproperty)
 * [https://github.com/marcusnielsen/rxjs-server](https://github.com/marcusnielsen/rxjs-server)
 * [https://github.com/amilosevic/rxmorse](https://github.com/amilosevic/rxmorse)
 * [https://github.com/alexvictoor/RxJsKata](https://github.com/alexvictoor/RxJsKata)

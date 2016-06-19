@@ -11,6 +11,7 @@
     * [**router** - Reactive Router for Angular2](https://github.com/ngrx/router)    
     * [**ng-rx-redux**](https://github.com/bgoscinski/ng-rx-redux)
 * #### Examples
+    * [https://github.com/JavascriptMick/ng2-state-demo](https://github.com/JavascriptMick/ng2-state-demo) (angular 2, ngrx, ngrx/effects)
     * [https://github.com/fxck/ngrx-example](https://github.com/fxck/ngrx-example) (angular 2, ngrx, rx5, sagas)
     * [https://github.com/bgoscinski/ng-rx-redux-demo](https://github.com/bgoscinski/ng-rx-redux-demo)
     * [https://github.com/jgluhov/AngularRxApp](https://github.com/jgluhov/AngularRxApp)
@@ -68,6 +69,7 @@
         * [**woven-react** - Experimenting w/ a React + Reactive Programming stack](https://github.com/woven/woven-react)        
         * [**react-rxjs** - bringing react and rxjs, and IOC together](https://github.com/jhoguet/react-rxjs)
         * [**react-observable-subscribe** - <Subscribe> component to automatically consume observables declaratively in React JSX](https://github.com/jayphelps/react-observable-subscribe) 
+        * [**connect-rxjs-to-react** - Connect rxjs to React component in Redux style... but without dispatch and constants](https://github.com/MichalZalecki/connect-rxjs-to-react)    
     * ##### Flux
         * [**rxdux** - Yet another flux implementation based on redux with asynchronous reducer feature](https://github.com/stomita/rxdux)
         * [**rx-redux**](https://github.com/mathieuancelin/rx-redux)
@@ -88,6 +90,7 @@
         * [**snow-flux** - A simple and practical unidirectional data flow implementation with Reactive Extensions RxJS](https://github.com/modesty/snow-flux)
         * [**redux-observable-middleware** - Redux middleware for subscribing to observables](https://github.com/d6u/redux-observable-middleware)
         * [**rxjs-redux-react** - RxJS based Redux style state management for React (using Recompose)](https://github.com/oscarduignan/rxjs-redux-react)
+        * [**react-udeo** - React bindings for Udeo](https://github.com/mcoetzee/react-udeo)
 * #### Examples
     * [https://github.com/meizilp/ts-react-rxjs](https://github.com/meizilp/ts-react-rxjs)
     * [https://github.com/flegall/devoxx-redux-rxjs](https://github.com/flegall/devoxx-redux-rxjs)

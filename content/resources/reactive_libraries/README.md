@@ -59,6 +59,7 @@
 * [**RxUI** - A MVVM framework that integrates Reactive Extensions for JavaScript. Inspired by ReactiveUI for .Net](https://github.com/KallynGowdy/RxUI)
 * [**tsers** - Transducer-Signal-Executor framework for Reactive Streams](https://github.com/tsers-js/core)
 * [**stanga** - The essential Cycling gear that every Cyclist needs](https://github.com/milankinen/stanga)
+* [**udeo** - RxJS based state streams](https://github.com/mcoetzee/udeo)
 
 ## Resources
 * [https://github.com/christianramsey/rx-react-flux](https://github.com/christianramsey/rx-react-flux)
@@ -343,6 +344,10 @@
 # Haskell
 * [https://github.com/ivanperez-keera/Yampa](https://github.com/ivanperez-keera/Yampa)
 * [https://github.com/raimohanska/reactive-bacon](https://github.com/raimohanska/reactive-bacon)
+* [https://github.com/jspahrsummers/RxHaskell](https://github.com/jspahrsummers/RxHaskell)
+* [https://github.com/raimohanska/rx-haskell](https://github.com/raimohanska/rx-haskell)
+* []()
+* []()
 
 # F
 * [https://github.com/intellifactory/reactive](https://github.com/intellifactory/reactive)

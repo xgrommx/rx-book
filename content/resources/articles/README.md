@@ -153,6 +153,8 @@
 * [redux-observable](https://medium.com/@benlesh/redux-observable-ec0b00d2eb52#.40v71jt76)
 * [RxJS + PouchDB — persistent data flows](https://medium.com/@luijar/rxjs-pouchdb-persistent-data-flows-480f503ee41f#.qp5zypux8)
 * [Real World Observables](https://medium.com/@sergimansilla/real-world-observables-1f65748c8f9#.u9pw0llyg)
+* [Multicasting in RxJava](http://blog.danlew.net/2016/06/13/multicasting-in-rxjava/)
+* [Why RxJS is the Better Tool for Unidirectional Data Flow](https://medium.com/@markusctz/state-streams-and-react-7921e3c376a4#.14v129t50)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

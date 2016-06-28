@@ -155,6 +155,11 @@
 * [Real World Observables](https://medium.com/@sergimansilla/real-world-observables-1f65748c8f9#.u9pw0llyg)
 * [Multicasting in RxJava](http://blog.danlew.net/2016/06/13/multicasting-in-rxjava/)
 * [Why RxJS is the Better Tool for Unidirectional Data Flow](https://medium.com/@markusctz/state-streams-and-react-7921e3c376a4#.14v129t50)
+* [THE TAXONOMY OF REACTIVE PROGRAMMING](http://victorsavkin.com/post/146359880996/the-taxonomy-of-reactive-programming)
+* [Angular 2 Tour of Heroes Tutorial With the NGRX Suite](https://bodiddlie.github.io/ng-2-toh-with-ngrx-suite/)
+* [Building an Angular 2 "reactive" auto logout timer with the redux pattern](https://blog.sstorie.com/building-an-angular-2-reactive-auto-logout-timer-with-the-redux-pattern/)
+* [State Streams and React - Why RxJS is the Better Tool for Unidirectional Data Flow](https://medium.com/@markusctz/state-streams-and-react-7921e3c376a4#.p9dpluux8)
+* [COLD VS HOT OBSERVABLES](http://blog.thoughtram.io/angular/2016/06/16/cold-vs-hot-observables.html)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

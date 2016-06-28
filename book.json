@@ -18,7 +18,8 @@
         "chart",
         "todo",
         "quiz",
-        "include-highlight"
+        "include-highlight",
+        "tonic"
     ],
     "theme": "theme",
     "pluginsConfig": {

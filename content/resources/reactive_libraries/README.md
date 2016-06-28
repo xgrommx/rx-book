@@ -99,6 +99,7 @@
 
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)
+* [https://github.com/SodiumFRP/sodium-typescript](https://github.com/SodiumFRP/sodium-typescript)
 * [https://github.com/JamesTimms/FRPGameEngine](https://github.com/JamesTimms/FRPGameEngine)
 * [https://github.com/SodiumFRP/sodium-kotlin](https://github.com/SodiumFRP/sodium-kotlin)
 
@@ -346,8 +347,6 @@
 * [https://github.com/raimohanska/reactive-bacon](https://github.com/raimohanska/reactive-bacon)
 * [https://github.com/jspahrsummers/RxHaskell](https://github.com/jspahrsummers/RxHaskell)
 * [https://github.com/raimohanska/rx-haskell](https://github.com/raimohanska/rx-haskell)
-* []()
-* []()
 
 # F
 * [https://github.com/intellifactory/reactive](https://github.com/intellifactory/reactive)

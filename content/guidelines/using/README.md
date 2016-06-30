@@ -139,7 +139,6 @@ var xs = Rx.Observable.create(observer => {
 
 xs.publish(sharedXs => {
   sharedXs.subscribe(console.log);
-  sharedXs.subscribe(console.log);
   return sharedXs;
 }).subscribe();
 ```

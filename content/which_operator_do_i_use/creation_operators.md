@@ -75,7 +75,7 @@ Use this page to find the creation operator implemented by the [`Observable`](..
       <td><a href="../observable/observable_methods/pairs.html">Observable.pairs</a></td>
     </tr>
     <tr>
-        <td>of asynchronous elements</td>
+        <td colspan="2">of asynchronous elements</td>
         <td><a href="../observable/observable_methods/for.html">Observable.for</a></td>
     </tr>
     <tr>

@@ -97,6 +97,11 @@
 
 * [A Survey on Reactive Programming](ftp://progftp.vub.ac.be/tech_report/2012/vub-soft-tr-12-13.pdf)
 
+## DerivableJS
+
+* [https://github.com/andreypopp/react-derivable](https://github.com/andreypopp/react-derivable)
+* [https://github.com/ds300/derivablejs](https://github.com/ds300/derivablejs)
+
 ## Sodium
 * [https://github.com/SodiumFRP/sodium](https://github.com/SodiumFRP/sodium)
 * [https://github.com/SodiumFRP/sodium-typescript](https://github.com/SodiumFRP/sodium-typescript)
@@ -324,6 +329,8 @@
 
 # Haskell
 * [https://github.com/raimohanska/rx-haskell](https://github.com/raimohanska/rx-haskell)
+* [https://github.com/avieth/frappe](https://github.com/avieth/frappe)
+* [https://github.com/schell/odin](https://github.com/schell/odin)
 
 # Lua
 * [https://github.com/bjornbytes/RxLua](https://github.com/bjornbytes/RxLua)

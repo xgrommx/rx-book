@@ -160,6 +160,10 @@
 * [Building an Angular 2 "reactive" auto logout timer with the redux pattern](https://blog.sstorie.com/building-an-angular-2-reactive-auto-logout-timer-with-the-redux-pattern/)
 * [State Streams and React - Why RxJS is the Better Tool for Unidirectional Data Flow](https://medium.com/@markusctz/state-streams-and-react-7921e3c376a4#.p9dpluux8)
 * [COLD VS HOT OBSERVABLES](http://blog.thoughtram.io/angular/2016/06/16/cold-vs-hot-observables.html)
+* [Understanding Angular 2 Components for AngularJS Devs](https://teamgaslight.com/blog/understanding-angular-2-components-for-angularjs-devs)
+* [Functional Reactive Programming for Angular 2 Developers — RxJs and Observables](https://dzone.com/articles/functional-reactive-programming-for-angular-2-deve)
+* [RxJS first steps - Subject and ReplaySubject](http://juristr.com/blog/2016/06/rxjs-1st-steps-subject/)
+* [Shake Detector для Android на RxJava](https://habrahabr.ru/company/badoo/blog/304488/)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -184,6 +188,7 @@
 * [Learning FP the hard way: Experiences on the Elm language](https://gist.github.com/ohanhi/0d3d83cf3f0d7bbea9db)
 * [Elm + Electron](http://qiita.com/yasuyuky/items/e28106e3dd7fed17d50f)
 * [Creating a Function Index Using Cycle.js](http://joelgrus.com/2016/01/21/creating-a-function-index-using-cyclejs)
+* [How to Use Elm at Work](http://elm-lang.org/blog/how-to-use-elm-at-work)
 
 ## Cycle
 * [A Dead-Simple Todo List with RxJS](http://blog.edanschwartz.com/2015/09/18/dead-simple-rxjs-todo-list)
@@ -251,6 +256,7 @@
 * [Single-Subscription vs. Broadcast Streams](https://www.dartlang.org/articles/broadcast-streams)
 * [Why I cannot say FRP but I just did](https://medium.com/@andrestaltz/why-i-cannot-say-frp-but-i-just-did-d5ffaa23973b#.53gcohk61)
 * [Functional Core Reactive Shell](http://www.mokacoding.com/blog/functional-core-reactive-shell/)
+* [Why you should stop using state reducers in your app to be fully reactive](https://journal.artfuldev.com/why-you-should-stop-using-state-reducers-in-your-app-to-be-fully-reactive-89a4279b3ece#.1ue9v3qga)
 
 ## Unity
 * [Многопоточность в Unity средствами реактивных расширений](http://habrahabr.ru/company/nixsolutions/blog/268781) (ru)
@@ -260,3 +266,5 @@
 
 ## Mobx
 * [Ten minute introduction to MobX and React](https://mobxjs.github.io/mobx/getting-started.html)
+* [How to initialize your MobX stores](https://medium.com/@GiacomoRebonato/how-to-initialize-your-mobx-stores-f946fdec0851#.fe3xlowp3)
+* [Handling React Forms with Mobx Observables](https://blog.risingstack.com/handling-react-forms-with-mobx-observables/)

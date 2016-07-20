@@ -91,6 +91,8 @@
         * [**redux-observable-middleware** - Redux middleware for subscribing to observables](https://github.com/d6u/redux-observable-middleware)
         * [**rxjs-redux-react** - RxJS based Redux style state management for React (using Recompose)](https://github.com/oscarduignan/rxjs-redux-react)
         * [**react-udeo** - React bindings for Udeo](https://github.com/mcoetzee/react-udeo)
+        * [**redurx** - Redux'ish Functional State Management using RxJS](https://github.com/shiftyp/redurx)
+        * [**redux-stream** - Use RxJS 5 to compose side effect streams with Redux](https://github.com/mcoetzee/redux-stream)
 * #### Examples
     * [https://github.com/meizilp/ts-react-rxjs](https://github.com/meizilp/ts-react-rxjs)
     * [https://github.com/flegall/devoxx-redux-rxjs](https://github.com/flegall/devoxx-redux-rxjs)

@@ -72,6 +72,7 @@
 * [Next generation of frontend architectures](http://www.slideshare.net/flashplatform/next-generation-of-frontend-architectures)
 * [Cycle.js: Functional and Reactive](http://www.slideshare.net/2j2e/cyclejs-functional-and-reactive)
 * [Cycle.js, a framework that gave me the "aha!" moment](http://lmatteis.github.io/cyclejs-slides/keynote/assets/player/KeynoteDHTMLPlayer.html)
+* [CYCLE.JS: GET IN THE LOOP](http://slides.com/bahmutov/cyclejs-frontendcamp#/)
 
 ## RxJava
 * [Applying RxJava to Existing Applications at Philly ETE 2015](https://speakerdeck.com/benjchristensen/applying-rxjava-to-existing-applications-at-philly-ete-2015)

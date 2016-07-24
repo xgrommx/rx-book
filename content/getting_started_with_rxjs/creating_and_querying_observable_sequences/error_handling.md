@@ -16,7 +16,7 @@ try {
 
 These actions mirror exactly our `Observer` class which has the following contract for handing zero to infinite items with `onNext` and optionally handling either an `Error` with `onError` or successful completion with `onCompleted`.
 ```typescript
-interface Observable<T> {
+interface Observer<T> {
   onNext(value: T) : void
   onError(error: Error) : void
   onCompleted() : void
@@ -183,7 +183,7 @@ var subscription = source.subscribe(
   }
 );
 ```
-But,we can do a better job in terms of managing resources if need be by using the `using` method.
+But we can do a better job in terms of managing resources if need be by using the `using` method.
 
 ## Ensuring Resource Disposal ##
 

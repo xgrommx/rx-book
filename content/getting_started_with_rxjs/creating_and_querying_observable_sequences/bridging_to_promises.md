@@ -1,6 +1,6 @@
 # Bridging to Promises #
 
-Promises are a defacto standard within JavaScript community and is part of the ECMAScript Standard.  A promise represents the eventual result of an asynchronous operation. The primary way of interacting with a promise is through its then method, which registers callbacks to receive either a promise’s eventual value or the reason why the promise cannot be fulfilled.  You can create them very easily where the constructor has two functions, `resolve` and `reject` which resolves the value or rejects it for a given reason.  RxJS is fully committed to standards and has native support for Promises for any number of methods where they can be used interchangeably with Observable sequences.  
+Promises are a defacto standard within JavaScript community and is part of the ECMAScript Standard.  A promise represents the eventual result of an asynchronous operation. The primary way of interacting with a promise is through its `then` method, which registers callbacks to receive either a promise’s eventual value or the reason why the promise cannot be fulfilled.  You can create them very easily where the constructor has two functions, `resolve` and `reject` which resolves the value or rejects it for a given reason.  RxJS is fully committed to standards and has native support for Promises for any number of methods where they can be used interchangeably with Observable sequences.  
 
 The advantage that you get when you intermix Promises with Observable sequences is that unlike the ES6 Promise standard, you get cancellation semantics which means you can disregard values if you no longer are interested.  One of the biggest problems around Promises right now are around cancellation, as to cancel the operation, such as an XHR is not easily done with the existing standard, nor is it to only get the last value to ensure no out of order requests.  With Observable sequences, you get that behavior for free in a multicast behavior, instead of the unicast Promise behavior.
 
@@ -51,7 +51,7 @@ var subscription = source.subscribe(
 // => onCompleted
 ```
 
-This is just scatching the surface of what Promises and RxJS can do together so that we have first class single values and first class multiple values working together.
+This is just scratching the surface of what Promises and RxJS can do together so that we have first class single values and first class multiple values working together.
 
 ## Converting Promises to Observable Sequences ##
 
@@ -83,10 +83,10 @@ var subscription2 = source2.subscribe(
   e => console.log('onError: %s', e),
   () => console.log('onCompleted'));
 
-// => onError: reject
+// => onError: reason
 ```
 
-Notice that in this sample, these promises becomes an observable sequences in which we can manipulate further. The [Querying Observable Sequences](querying.md) topic will show you how you can project this sequence into another, filter its content, so that your application will only receive values that satisfy a certain criteria.
+Notice that in this sample, these promises become observable sequences which we can manipulate further. The [Querying Observable Sequences](querying.md) topic will show you how you can project this sequence into another, filter its content, so that your application will only receive values that satisfy a certain criteria.
 
 ## Converting Observable Sequences to Promises ##
 

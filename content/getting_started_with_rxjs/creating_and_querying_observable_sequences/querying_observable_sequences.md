@@ -8,7 +8,7 @@ We have already used the [`create`](https://github.com/Reactive-Extensions/RxJS/
 
 ## Combining different sequences ##
 
-In this section, we will examine some of the operators that combine various observable sequences into a single observable sequence. Notice that data are not transformed when we combine sequences.
+In this section, we will examine some of the operators that combine various observable sequences into a single observable sequence. Notice that data is not transformed when we combine sequences.
 In the following sample, we use the Concat operator to combine two sequences into a single sequence and subscribe to it. For illustration purpose, we will use the very simple `range(x, y)` operator to create a sequence of integers that starts with x and produces y sequential numbers afterwards.
 
 ```js
@@ -49,7 +49,7 @@ Another comparison can be done with the [`catch`](https://github.com/Reactive-Ex
 
 ```js
 var source1 = Rx.Observable.range(1, 3);
-var source2 = Rx.Observable.range(4, 6);
+var source2 = Rx.Observable.range(4, 3);
 
 source1.catch(source2)
    .subscribe(console.log.bind(console));
@@ -84,7 +84,7 @@ var array = ['Reactive', 'Extensions', 'RxJS'];
 
 var seqString = Rx.Observable.from(array);
 
-var seqNum = seqString.map(x =>x.length);
+var seqNum = seqString.map(x => x.length);
 
 seqNum
    .subscribe(console.log.bind(console));
@@ -94,7 +94,7 @@ seqNum
 // => 4
 ```
 
-In the following sample, which is an extension of the event conversion example we saw in the [Bridging with Existing Events](events.md) topic, we use the `select` or `map` operator to project the event arguments to a point of x and y. In this way, we are transforming a mouse move event sequence into a data type that can be parsed and manipulated further, as can be seen in the next "Filtering" section.
+In the following sample, which is an extension of the event conversion example we saw in the [Bridging with Existing Events](events.md) topic, we use the `select` or `map` operator to project the event arguments to a point of x and y. This way, we are transforming a mouse move event sequence into a data type that can be parsed and manipulated further, as can be seen in the next "Filtering" section.
 
 ```js
 var move = Rx.Observable.fromEvent(document, 'mousemove');
@@ -154,7 +154,7 @@ var subscription = source.subscribe(
 // => onCompleted
 ```
 
-The following example is an extension of the projection example you have seen earlier in this topic. In that sample, we have used the `select` or `map` operator to project the event arguments into a point with x and y. In the following example, we use the `filter` or `where` and `select` or `map` operator to pick only those mouse movement that we are interested. In this case, we filter the mouse moves to those over the first bisector (where the x and y coordinates are equal).
+The following example is an extension of the projection example you have seen earlier in this topic. In that sample, we have used the `select` or `map` operator to project the event arguments into a point with x and y. In the following example, we use the `filter` or `where` and `select` or `map` operators to pick only those mouse movements that we are interested in. In this case, we filter the mouse moves to those over the first bisector (where the x and y coordinates are equal).
 
 ```js
 var move = Rx.Observable.fromEvent(document, 'mousemove');
@@ -172,7 +172,7 @@ You can use the Buffer operators to perform time-based operations.
 
 Buffering an observable sequence means that an observable sequence’s values are put into a buffer based on either a specified timespan or by a count threshold. This is especially helpful in situations when you expect a tremendous amount of data to be pushed out by the sequence, and the subscriber does not have the resource to process these values. By buffering the results based on time or count, and only returning a sequence of values when the criteria is exceeded (or when the source sequence has completed), the subscriber can process OnNext calls at its own pace.
 
-In the following example, we first create a simple sequence of integers for every second. We then use the `bufferWithCount` operator and specify that each buffer will hold 5 items from the sequence. The `onNext` is called when the buffer is full. We then tally the sum of the buffer using calling `Array.reduce`. The buffer is automatically flushed and another cycle begins. The printout will be 10, 35, 60… in which 10=0+1+2+3+4, 35=5+6+7+8+9, and so on.
+In the following example, we first create a simple sequence of integers for every second. We then use the `bufferWithCount` operator and specify that each buffer will hold 5 items from the sequence. The `onNext` is called when the buffer is full. We then tally the sum of the buffer using `Array.reduce`. The buffer is automatically flushed and another cycle begins. The printout will be 10, 35, 60… in which 10=0+1+2+3+4, 35=5+6+7+8+9, and so on.
 
 ```js
 var seq = Rx.Observable.interval(1000);
@@ -205,7 +205,7 @@ Note that if you are using any of the `buffer*` or `window*` operators, you have
 
 ## Operators by Categories ##
 
-The [Operators by Categories](operators.md) topic lists of all major operators implemented by the `Observable` type by their categories; specifically: creation, conversion, combine, functional, mathematical, time, exceptions, miscellaneous, selection and primitives.
+The [Operators by Categories](operators.md) topic lists all of the major operators implemented by the `Observable` type by their categories; specifically: creation, conversion, combine, functional, mathematical, time, exceptions, miscellaneous, selection and primitives.
 
 ## See Also ##
 

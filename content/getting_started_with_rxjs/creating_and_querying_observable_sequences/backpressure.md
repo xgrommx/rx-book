@@ -1,12 +1,12 @@
 # Backpressure #
 
-When it comes to streaming data, streams can be overly chatty in which the consumer cannot keep up with the producer.  To that end, we need mechanisms to control the source so that the consumer does not get overwhelmed.  These mechanisms can come in either the form of lossy or loss-less operations, each of which depends on the requirements.  For example, if you miss a few mouse movements, it may not be a problem, however, if you miss a few bank transactions, that could be a definite problem.  This section covers which techniques you can use to handle backpressure in either lossy or loss-less ways.
+When it comes to streaming data, streams can be overly chatty in which the consumer cannot keep up with the producer.  To that end, we need mechanisms to control the source so that the consumer does not get overwhelmed.  These mechanisms can come in either the form of lossy or loss-less operations, each of which depends on the requirements.  For example, if you miss a few mouse movements, it may not be a problem, however, if you miss a few bank transactions, that could definitely be a problem.  This section covers which techniques you can use to handle backpressure in either lossy or loss-less ways.
 
 For example, imagine using the `zip` operator to zip together two infinite Observables, one of which emits items twice as frequently as the other. A naive implementation of the zip operator would have to maintain an ever-expanding buffer of items emitted by the faster Observable to eventually combine with items emitted by the slower one. This could cause RxJS to seize an unwieldy amount of system resources.
 
 ## Hot and Cold Observables and Multicast ##
 
-A cold Observable emits a particular sequence of items, but can begin emitting this sequence when its Observer finds it to be convenient, and at whatever rate the Observer desires, without disrupting the integrity of the sequence. For example if you convert a iterable such as array, Map, Set, or generator into an Observable, that Observable will emit the same sequence of items no matter when it is later subscribed to or how frequently those items are observed. Examples of items emitted by a cold Observable might include the results of a database query, file retrieval, or web request.
+A cold Observable emits a particular sequence of items, but can begin emitting this sequence when its Observer finds it to be convenient, and at whatever rate the Observer desires, without disrupting the integrity of the sequence. For example if you convert an iterable such as array, Map, Set, or generator into an Observable, that Observable will emit the same sequence of items no matter when it is later subscribed to or how frequently those items are observed. Examples of items emitted by a cold Observable might include the results of a database query, file retrieval, or web request.
 
 A hot Observable begins generating items to emit immediately when it is created. Subscribers typically begin observing the sequence of items emitted by a hot Observable from somewhere in the middle of the sequence, beginning with the first item emitted by the Observable subsequent to the establishment of the subscription. Such an Observable emits items at its own pace, and it is up to its observers to keep up. Examples of items emitted by a hot Observable might include mouse & keyboard events, system events, or stock prices.
 
@@ -106,7 +106,7 @@ var keys = Rx.Observable.fromEvent(document, 'keyup')
   .subscribeOnNext(() => console.log('KONAMI!'));
 ```
 
-On the other hand, you can also get the data within a buffer for a given amount of time with the [`bufferWithTime`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/bufferwithtime.md).  This is useful for example if you are tracking volume of data that is coming across the network, which can then be handled uniformly.
+On the other hand, you can also get the data within a buffer for a given amount of time with the [`bufferWithTime`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/operators/bufferwithtime.md) method.  This is useful for example if you are tracking volume of data that is coming across the network, which can then be handled uniformly.
 
 ```js
 var source = getStockData()

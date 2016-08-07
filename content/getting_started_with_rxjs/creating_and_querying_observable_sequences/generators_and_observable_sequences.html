@@ -75,7 +75,7 @@
         data-chapter-title="Generators And Observable Sequences"
         data-filepath="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/generators_and_observable_sequences.md"
         data-basepath="../../.."
-        data-revision="Sun Aug 07 2016 04:03:42 GMT+0300 (EEST)"
+        data-revision="Sun Aug 07 2016 04:08:27 GMT+0300 (EEST)"
         data-innerlanguage="">
     
 
@@ -5360,7 +5360,7 @@ it.next();
 <p>This of course is only scratching the surface of what generators are capable of doing as we&apos;re more focused on the simple nature of yielding values.</p>
 <p>Since RxJS believes heavily in standards, we also look for ways to incorporate new language features as they become standardized so that you can take advantage of them, combined with the power of RxJS.</p>
 <h2 id="asyncawait-style-and-rxjs"><a name="asyncawait-style-and-rxjs" class="plugin-anchor" href="#asyncawait-style-and-rxjs"><span class="fa fa-link"></span></a>Async/Await Style and RxJS</h2>
-<p>One common complaint of JavaScript is the callback nature to asynchronous behavior.  Luckily, this can be solved quite easily with a library approach.  To that end, we introduce <a href="../../observable/observable_methods/spawn.html"><code>Rx.Observable.spawn</code></a> which allows you to write straight forward code manner and can yield not only Observable sequences, but also Promises, Callbacks, Arrays, etc.  This allows you to write your code in a very imperative manner without all the callbacks, but also brings the power of RxJS whether you want to call <code>timeout</code>, <code>retry</code>, <code>catch</code> or any other method for that matter.  Note that this only yields a single value, but in RxJS terms, this is still quite useful.  </p>
+<p>One common complaint of JavaScript is the callback nature to asynchronous behavior.  Luckily, this can be solved quite easily with a library approach.  To that end, we introduce <a href="../../observable/observable_methods/spawn.html"><code>Rx.Observable.spawn</code></a> which allows you to write code in a straight forward manner and can yield not only Observable sequences, but also Promises, Callbacks, Arrays, etc.  This allows you to write your code in a very imperative manner without all the callbacks, but also brings the power of RxJS whether you want to call <code>timeout</code>, <code>retry</code>, <code>catch</code> or any other method for that matter.  Note that this only yields a single value, but in RxJS terms, this is still quite useful.  </p>
 <p>For example, we could get the HTML from Bing.com and write it to the console, with a timeout of 5 seconds which will throw an error should it not respond in time.  We could also add in things like <code>retry</code> and <code>catch</code> so that we could for example try three times and then if it fails, give a default response or cached version.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Rx = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;rx&apos;</span>);
 <span class="hljs-keyword">var</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;request&apos;</span>);

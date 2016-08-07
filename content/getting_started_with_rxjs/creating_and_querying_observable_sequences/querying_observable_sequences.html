@@ -75,7 +75,7 @@
         data-chapter-title="Querying Observable Sequences"
         data-filepath="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/querying_observable_sequences.md"
         data-basepath="../../.."
-        data-revision="Sun Aug 07 2016 04:03:42 GMT+0300 (EEST)"
+        data-revision="Sun Aug 07 2016 04:08:27 GMT+0300 (EEST)"
         data-innerlanguage="">
     
 
@@ -5326,7 +5326,7 @@
 <h2 id="using-different-operators"><a name="using-different-operators" class="plugin-anchor" href="#using-different-operators"><span class="fa fa-link"></span></a>Using Different Operators</h2>
 <p>We have already used the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe" target="_blank"><code>create</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablerangestart-count-scheduler" target="_blank"><code>range</code></a> operators in previous topics to create and return simple sequences. We have also used the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromeventelement-eventname" target="_blank"><code>fromEvent</code></a> and <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablefromeventpatternaddhandler-removehandler" target="_blank"><code>fromEventPattern</code></a> operators to convert existing  events into observable sequences. In this topic, we will use other operators of the <code>Observable</code> type so that you can filter, group and transform data. Such operators take observable sequence(s) as input, and produce observable sequence(s) as output.</p>
 <h2 id="combining-different-sequences"><a name="combining-different-sequences" class="plugin-anchor" href="#combining-different-sequences"><span class="fa fa-link"></span></a>Combining different sequences</h2>
-<p>In this section, we will examine some of the operators that combine various observable sequences into a single observable sequence. Notice that data are not transformed when we combine sequences.
+<p>In this section, we will examine some of the operators that combine various observable sequences into a single observable sequence. Notice that data is not transformed when we combine sequences.
 In the following sample, we use the Concat operator to combine two sequences into a single sequence and subscribe to it. For illustration purpose, we will use the very simple <code>range(x, y)</code> operator to create a sequence of integers that starts with x and produces y sequential numbers afterwards.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);
 <span class="hljs-keyword">var</span> source2 = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);
@@ -5358,7 +5358,7 @@ source1.merge(source2)
 </code></pre>
 <p>Another comparison can be done with the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypecatchsecond--handler" target="_blank"><code>catch</code></a> operator. In this case, if source1 completes without any error, then source2 will not start. Therefore, if you run the following sample code, you will get 1,2,3 only since source2 (which produces 4,5,6) is ignored.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> source1 = Rx.Observable.range(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);
-<span class="hljs-keyword">var</span> source2 = Rx.Observable.range(<span class="hljs-number">4</span>, <span class="hljs-number">6</span>);
+<span class="hljs-keyword">var</span> source2 = Rx.Observable.range(<span class="hljs-number">4</span>, <span class="hljs-number">3</span>);
 
 source1.catch(source2)
    .subscribe(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));
@@ -5385,7 +5385,7 @@ source1.onErrorResumeNext(source2)
 
 <span class="hljs-keyword">var</span> seqString = Rx.Observable.from(array);
 
-<span class="hljs-keyword">var</span> seqNum = seqString.map(x =&gt;x.length);
+<span class="hljs-keyword">var</span> seqNum = seqString.map(x =&gt; x.length);
 
 seqNum
    .subscribe(<span class="hljs-built_in">console</span>.log.bind(<span class="hljs-built_in">console</span>));
@@ -5394,7 +5394,7 @@ seqNum
 <span class="hljs-comment">// =&gt; 10</span>
 <span class="hljs-comment">// =&gt; 4</span>
 </code></pre>
-<p>In the following sample, which is an extension of the event conversion example we saw in the <a href="events.md">Bridging with Existing Events</a> topic, we use the <code>select</code> or <code>map</code> operator to project the event arguments to a point of x and y. In this way, we are transforming a mouse move event sequence into a data type that can be parsed and manipulated further, as can be seen in the next &quot;Filtering&quot; section.</p>
+<p>In the following sample, which is an extension of the event conversion example we saw in the <a href="events.md">Bridging with Existing Events</a> topic, we use the <code>select</code> or <code>map</code> operator to project the event arguments to a point of x and y. This way, we are transforming a mouse move event sequence into a data type that can be parsed and manipulated further, as can be seen in the next &quot;Filtering&quot; section.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> move = Rx.Observable.fromEvent(<span class="hljs-built_in">document</span>, <span class="hljs-string">&apos;mousemove&apos;</span>);
 
 <span class="hljs-keyword">var</span> points = move.map(e =&gt; ({x: e.clientX, y: e.clientY }));
@@ -5442,7 +5442,7 @@ points.subscribe(
 <span class="hljs-comment">// =&gt; onNext: 4</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
-<p>The following example is an extension of the projection example you have seen earlier in this topic. In that sample, we have used the <code>select</code> or <code>map</code> operator to project the event arguments into a point with x and y. In the following example, we use the <code>filter</code> or <code>where</code> and <code>select</code> or <code>map</code> operator to pick only those mouse movement that we are interested. In this case, we filter the mouse moves to those over the first bisector (where the x and y coordinates are equal).</p>
+<p>The following example is an extension of the projection example you have seen earlier in this topic. In that sample, we have used the <code>select</code> or <code>map</code> operator to project the event arguments into a point with x and y. In the following example, we use the <code>filter</code> or <code>where</code> and <code>select</code> or <code>map</code> operators to pick only those mouse movements that we are interested in. In this case, we filter the mouse moves to those over the first bisector (where the x and y coordinates are equal).</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> move = Rx.Observable.fromEvent(<span class="hljs-built_in">document</span>, <span class="hljs-string">&apos;mousemove&apos;</span>);
 
 <span class="hljs-keyword">var</span> points = move.map(e =&gt; ({ x: e.clientX, y: e.clientY }));
@@ -5454,7 +5454,7 @@ points.subscribe(
 <h2 id="timebased-operation"><a name="timebased-operation" class="plugin-anchor" href="#timebased-operation"><span class="fa fa-link"></span></a>Time-based Operation</h2>
 <p>You can use the Buffer operators to perform time-based operations.</p>
 <p>Buffering an observable sequence means that an observable sequence&#x2019;s values are put into a buffer based on either a specified timespan or by a count threshold. This is especially helpful in situations when you expect a tremendous amount of data to be pushed out by the sequence, and the subscriber does not have the resource to process these values. By buffering the results based on time or count, and only returning a sequence of values when the criteria is exceeded (or when the source sequence has completed), the subscriber can process OnNext calls at its own pace.</p>
-<p>In the following example, we first create a simple sequence of integers for every second. We then use the <code>bufferWithCount</code> operator and specify that each buffer will hold 5 items from the sequence. The <code>onNext</code> is called when the buffer is full. We then tally the sum of the buffer using calling <code>Array.reduce</code>. The buffer is automatically flushed and another cycle begins. The printout will be 10, 35, 60&#x2026; in which 10=0+1+2+3+4, 35=5+6+7+8+9, and so on.</p>
+<p>In the following example, we first create a simple sequence of integers for every second. We then use the <code>bufferWithCount</code> operator and specify that each buffer will hold 5 items from the sequence. The <code>onNext</code> is called when the buffer is full. We then tally the sum of the buffer using <code>Array.reduce</code>. The buffer is automatically flushed and another cycle begins. The printout will be 10, 35, 60&#x2026; in which 10=0+1+2+3+4, 35=5+6+7+8+9, and so on.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> seq = Rx.Observable.interval(<span class="hljs-number">1000</span>);
 
 <span class="hljs-keyword">var</span> bufSeq = seq.bufferWithCount(<span class="hljs-number">5</span>);
@@ -5479,7 +5479,7 @@ bufSeq
 </code></pre>
 <p>Note that if you are using any of the <code>buffer*</code> or <code>window*</code> operators, you have to make sure that the sequence is not empty before filtering on it.</p>
 <h2 id="operators-by-categories"><a name="operators-by-categories" class="plugin-anchor" href="#operators-by-categories"><span class="fa fa-link"></span></a>Operators by Categories</h2>
-<p>The <a href="operators.md">Operators by Categories</a> topic lists of all major operators implemented by the <code>Observable</code> type by their categories; specifically: creation, conversion, combine, functional, mathematical, time, exceptions, miscellaneous, selection and primitives.</p>
+<p>The <a href="operators.md">Operators by Categories</a> topic lists all of the major operators implemented by the <code>Observable</code> type by their categories; specifically: creation, conversion, combine, functional, mathematical, time, exceptions, miscellaneous, selection and primitives.</p>
 <h2 id="see-also"><a name="see-also" class="plugin-anchor" href="#see-also"><span class="fa fa-link"></span></a>See Also</h2>
 <p><em>Reference</em></p>
 <ul>

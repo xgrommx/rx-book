@@ -75,7 +75,7 @@
         data-chapter-title="Error Handling With Observable Sequences"
         data-filepath="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/error_handling.md"
         data-basepath="../../.."
-        data-revision="Sun Aug 07 2016 04:03:42 GMT+0300 (EEST)"
+        data-revision="Sun Aug 07 2016 04:08:27 GMT+0300 (EEST)"
         data-innerlanguage="">
     
 
@@ -5334,7 +5334,7 @@
 }
 </code></pre>
 <p>These actions mirror exactly our <code>Observer</code> class which has the following contract for handing zero to infinite items with <code>onNext</code> and optionally handling either an <code>Error</code> with <code>onError</code> or successful completion with <code>onCompleted</code>.</p>
-<pre><code class="lang-typescript"><span class="hljs-interface"><span class="hljs-keyword">interface</span> Observable&lt;T&gt; </span>{
+<pre><code class="lang-typescript"><span class="hljs-interface"><span class="hljs-keyword">interface</span> Observer&lt;T&gt; </span>{
   onNext(value: T) : <span class="hljs-built_in">void</span>
   onError(error: <span class="hljs-built_in">Error</span>) : <span class="hljs-built_in">void</span>
   onCompleted() : <span class="hljs-built_in">void</span>
@@ -5466,7 +5466,7 @@
   }
 );
 </code></pre>
-<p>But,we can do a better job in terms of managing resources if need be by using the <code>using</code> method.</p>
+<p>But we can do a better job in terms of managing resources if need be by using the <code>using</code> method.</p>
 <h2 id="ensuring-resource-disposal"><a name="ensuring-resource-disposal" class="plugin-anchor" href="#ensuring-resource-disposal"><span class="fa fa-link"></span></a>Ensuring Resource Disposal</h2>
 <p>As stated above, <code>finally</code> can be used to ensure proper cleanup of any resources or perform any side effects as necessary.  There is a cleaner approach we can take by creating a disposable wrapper around our object with a <code>dispose</code> method so that when our scope is complete, then the resource is automatically disposed through the <code>using</code> operator.</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DisposableWebSocket</span>(<span class="hljs-params">url, protocol</span>) </span>{

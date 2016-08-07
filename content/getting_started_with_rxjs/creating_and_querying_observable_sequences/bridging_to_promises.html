@@ -75,7 +75,7 @@
         data-chapter-title="Bridging To Promises"
         data-filepath="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/bridging_to_promises.md"
         data-basepath="../../.."
-        data-revision="Sun Aug 07 2016 04:03:42 GMT+0300 (EEST)"
+        data-revision="Sun Aug 07 2016 04:08:27 GMT+0300 (EEST)"
         data-innerlanguage="">
     
 
@@ -5322,7 +5322,7 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="bridging-to-promises"><a name="bridging-to-promises" class="plugin-anchor" href="#bridging-to-promises"><span class="fa fa-link"></span></a>Bridging to Promises</h1>
-<p>Promises are a defacto standard within JavaScript community and is part of the ECMAScript Standard.  A promise represents the eventual result of an asynchronous operation. The primary way of interacting with a promise is through its then method, which registers callbacks to receive either a promise&#x2019;s eventual value or the reason why the promise cannot be fulfilled.  You can create them very easily where the constructor has two functions, <code>resolve</code> and <code>reject</code> which resolves the value or rejects it for a given reason.  RxJS is fully committed to standards and has native support for Promises for any number of methods where they can be used interchangeably with Observable sequences.  </p>
+<p>Promises are a defacto standard within JavaScript community and is part of the ECMAScript Standard.  A promise represents the eventual result of an asynchronous operation. The primary way of interacting with a promise is through its <code>then</code> method, which registers callbacks to receive either a promise&#x2019;s eventual value or the reason why the promise cannot be fulfilled.  You can create them very easily where the constructor has two functions, <code>resolve</code> and <code>reject</code> which resolves the value or rejects it for a given reason.  RxJS is fully committed to standards and has native support for Promises for any number of methods where they can be used interchangeably with Observable sequences.  </p>
 <p>The advantage that you get when you intermix Promises with Observable sequences is that unlike the ES6 Promise standard, you get cancellation semantics which means you can disregard values if you no longer are interested.  One of the biggest problems around Promises right now are around cancellation, as to cancel the operation, such as an XHR is not easily done with the existing standard, nor is it to only get the last value to ensure no out of order requests.  With Observable sequences, you get that behavior for free in a multicast behavior, instead of the unicast Promise behavior.</p>
 <p>The following list of operators natively support Promises:</p>
 <ul>
@@ -5369,7 +5369,7 @@
 <span class="hljs-comment">// =&gt; onNext: 4</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
-<p>This is just scatching the surface of what Promises and RxJS can do together so that we have first class single values and first class multiple values working together.</p>
+<p>This is just scratching the surface of what Promises and RxJS can do together so that we have first class single values and first class multiple values working together.</p>
 <h2 id="converting-promises-to-observable-sequences"><a name="converting-promises-to-observable-sequences" class="plugin-anchor" href="#converting-promises-to-observable-sequences"><span class="fa fa-link"></span></a>Converting Promises to Observable Sequences</h2>
 <p>It&apos;s quite simple to convert a Promise object which conforms to the ES6 Standard Promise where the behavior is uniform across implementations.  To support this, we provide the <a href="https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/frompromise.md" target="_blank"><code>Rx.Observable.fromPromise</code></a> method which calls the <code>then</code> method of the promise to handle both success and error cases.</p>
 <p>In the following example, we create promise objects using <a href="https://github.com/tildeio/rsvp.js" target="_blank">RSVP</a> library.</p>
@@ -5396,9 +5396,9 @@
   e =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onError: %s&apos;</span>, e),
   () =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;onCompleted&apos;</span>));
 
-<span class="hljs-comment">// =&gt; onError: reject</span>
+<span class="hljs-comment">// =&gt; onError: reason</span>
 </code></pre>
-<p>Notice that in this sample, these promises becomes an observable sequences in which we can manipulate further. The <a href="querying.md">Querying Observable Sequences</a> topic will show you how you can project this sequence into another, filter its content, so that your application will only receive values that satisfy a certain criteria.</p>
+<p>Notice that in this sample, these promises become observable sequences which we can manipulate further. The <a href="querying.md">Querying Observable Sequences</a> topic will show you how you can project this sequence into another, filter its content, so that your application will only receive values that satisfy a certain criteria.</p>
 <h2 id="converting-observable-sequences-to-promises"><a name="converting-observable-sequences-to-promises" class="plugin-anchor" href="#converting-observable-sequences-to-promises"><span class="fa fa-link"></span></a>Converting Observable Sequences to Promises</h2>
 <p>Just as you can convert a Promise to an Observable sequence, you can also convert an Observable sequence to a Promise.  This either requires native support for Promises, or a Promise library you can add yourself, such as <a href="https://github.com/kriskowal/q" target="_blank">Q</a>, <a href="https://github.com/tildeio/rsvp.js" target="_blank">RSVP</a>, <a href="https://github.com/cujojs/when" target="_blank">when.js</a> among others.  These libraries must conform to the ES6 standard for construction where it provides two functions to resolve or reject the promise.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; resolve(<span class="hljs-number">42</span>));

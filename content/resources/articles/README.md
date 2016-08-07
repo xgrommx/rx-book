@@ -164,6 +164,8 @@
 * [Functional Reactive Programming for Angular 2 Developers — RxJs and Observables](https://dzone.com/articles/functional-reactive-programming-for-angular-2-deve)
 * [RxJS first steps - Subject and ReplaySubject](http://juristr.com/blog/2016/06/rxjs-1st-steps-subject/)
 * [Shake Detector для Android на RxJava](https://habrahabr.ru/company/badoo/blog/304488/)
+* [Computed Values with RxJS and @ngrx/store](http://blog.rangle.io/computed-values-with-rxjs-ngrx-store/)
+* [Observables and Reactive Programming in Angular 2](http://blog.rangle.io/observables-and-reactive-programming-in-angular-2/)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

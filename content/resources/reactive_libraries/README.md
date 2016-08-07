@@ -60,6 +60,7 @@
 * [**tsers** - Transducer-Signal-Executor framework for Reactive Streams](https://github.com/tsers-js/core)
 * [**stanga** - The essential Cycling gear that every Cyclist needs](https://github.com/milankinen/stanga)
 * [**udeo** - RxJS based state streams](https://github.com/mcoetzee/udeo)
+* [**act** - A simple reactive front-end framework](https://github.com/act-framework/act)
 
 ## Resources
 * [https://github.com/christianramsey/rx-react-flux](https://github.com/christianramsey/rx-react-flux)
@@ -226,6 +227,7 @@
 * [https://github.com/evgenynacu/android-frp](https://github.com/evgenynacu/android-frp)
 * [https://github.com/widok/widok](https://github.com/widok/widok)
 * [https://github.com/monixio/monix](https://github.com/monixio/monix)
+* [https://github.com/dylemma/scala.frp](https://github.com/dylemma/scala.frp)
 
 # Groovy
 * [https://github.com/sys1yagi/rxandroid-usecase](https://github.com/sys1yagi/rxandroid-usecase)

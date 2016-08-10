@@ -27,7 +27,7 @@ var source = Rx.Observable.create(observer => {
   observer.onCompleted();
 
   // Any cleanup logic might go here
-  return () => console.log('disposed')
+  return { dispose : () => console.log('disposed') }
 });
 
 var subscription = source.subscribe(

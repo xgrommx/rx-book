@@ -34,6 +34,7 @@
 * [https://github.com/aparticka/react-bacon-component](https://github.com/aparticka/react-bacon-component)
 * [https://github.com/spkerkela/mmh-js](https://github.com/spkerkela/mmh-js)
 * [https://github.com/polytypic/bacon.react](https://github.com/polytypic/bacon.react)
+* [https://github.com/Intai/bdux](https://github.com/Intai/bdux)
 
 ### Other
 ***

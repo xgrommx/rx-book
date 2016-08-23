@@ -362,3 +362,6 @@
 
 # Go
 * [https://github.com/gmlewis/go-frp](https://github.com/gmlewis/go-frp)
+
+# ClojureScript
+* [https://github.com/mpare-net/weir](https://github.com/mpare-net/weir)

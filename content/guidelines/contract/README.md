@@ -50,7 +50,7 @@ Rx.Observable.
   ).subscribe();
 ```
 
-In this sample the Using operator creates a resource that will be disposed upon unsubscription. The Rx contract for cleanup ensures that unsubscription will be called automatically once an `onError` or `onCompleted` message is sent.
+In this sample the `using` operator creates a resource that will be disposed upon unsubscription. The Rx contract for cleanup ensures that unsubscription will be called automatically once an `onError` or `onCompleted` message is sent.
 
 #### When to ignore this guideline ####
 

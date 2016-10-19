@@ -75,7 +75,7 @@
         data-chapter-title="Rx.Subject"
         data-filepath="content/subjects/subject/README.md"
         data-basepath="../../.."
-        data-revision="Tue Aug 23 2016 19:47:32 GMT+0300 (EEST)"
+        data-revision="Wed Oct 19 2016 18:35:43 GMT+0300 (EEST)"
         data-innerlanguage="">
     
 
@@ -5380,7 +5380,7 @@ subject.onCompleted();
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> subject = <span class="hljs-keyword">new</span> Rx.Subject();
 
-<span class="hljs-keyword">var</span> subscription = source.subscribe(
+<span class="hljs-keyword">var</span> subscription = subject.subscribe(
     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) </span>{
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Next: &apos;</span> + x);
     },

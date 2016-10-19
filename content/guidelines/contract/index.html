@@ -75,7 +75,7 @@
         data-chapter-title="The RxJS Contract"
         data-filepath="content/guidelines/contract/README.md"
         data-basepath="../../.."
-        data-revision="Tue Aug 23 2016 19:47:32 GMT+0300 (EEST)"
+        data-revision="Wed Oct 19 2016 18:35:43 GMT+0300 (EEST)"
         data-innerlanguage="">
     
 
@@ -5358,7 +5358,7 @@ Rx.Observable.
     fd =&gt; Rx.Observable.range(<span class="hljs-number">0</span>, <span class="hljs-number">10000</span>).map(v =&gt; Buffer(v)).flatMap(buffer =&gt; appendAsync(fd, buffer))
   ).subscribe();
 </code></pre>
-<p>In this sample the Using operator creates a resource that will be disposed upon unsubscription. The Rx contract for cleanup ensures that unsubscription will be called automatically once an <code>onError</code> or <code>onCompleted</code> message is sent.</p>
+<p>In this sample the <code>using</code> operator creates a resource that will be disposed upon unsubscription. The Rx contract for cleanup ensures that unsubscription will be called automatically once an <code>onError</code> or <code>onCompleted</code> message is sent.</p>
 <h4 id="when-to-ignore-this-guideline"><a name="when-to-ignore-this-guideline" class="plugin-anchor" href="#when-to-ignore-this-guideline"><span class="fa fa-link"></span></a>When to ignore this guideline</h4>
 <p>There are currently no known cases where to ignore this guideline.</p>
 <h3 id="assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe"><a name="assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe" class="plugin-anchor" href="#assume-a-best-effort-to-stop-all-outstanding-work-on-unsubscribe"><span class="fa fa-link"></span></a>Assume a best effort to stop all outstanding work on Unsubscribe</h3>

@@ -75,7 +75,7 @@
         data-chapter-title="Creating And Subscribing To Simple Observable Sequences"
         data-filepath="content/getting_started_with_rxjs/creating_and_querying_observable_sequences/creating_and_subscribing_to_simple_observable_sequences.md"
         data-basepath="../../.."
-        data-revision="Tue Aug 23 2016 19:47:32 GMT+0300 (EEST)"
+        data-revision="Wed Oct 19 2016 18:35:43 GMT+0300 (EEST)"
         data-innerlanguage="">
     
 
@@ -5481,10 +5481,10 @@ subscription.dispose();
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
 <p>We can also do a <code>Map</code> as well by applying the same technique.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([[<span class="hljs-string">&apos;key1&apos;</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">&apos;key2&apos;</span>, <span class="hljs-number">2</span>]]);
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([[<span class="hljs-string">&apos;key1&apos;</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">&apos;key2&apos;</span>, <span class="hljs-number">2</span>]]);
 
-<span class="hljs-comment">// Converts a Set to an observable sequence</span>
-<span class="hljs-keyword">var</span> source = Rx.Observable.from(set);
+<span class="hljs-comment">// Converts a Map to an observable sequence</span>
+<span class="hljs-keyword">var</span> source = Rx.Observable.from(map);
 
 <span class="hljs-comment">// Prints out each item</span>
 <span class="hljs-keyword">var</span> subscription = source.subscribe(

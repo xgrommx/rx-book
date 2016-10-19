@@ -95,8 +95,9 @@
 * [How much operators you can use together?](https://gist.run/?id=b2154a8fadaf0d7f253bb40e8365675d)
 * [RxSwift Operators Cheat Sheet by Donghua Li](https://www.cheatography.com/donghua-li/cheat-sheets/rxswift-operators/)
 * [Duality and the End of Reactive](https://channel9.msdn.com/events/Lang-NEXT/Lang-NEXT-2014/Keynote-Duality)
-
 * [A Survey on Reactive Programming](ftp://progftp.vub.ac.be/tech_report/2012/vub-soft-tr-12-13.pdf)
+* [Hello RxJS](http://courses.ultimateangular.com/courses/enrolled/hello-rxjs)
+* [Modernization of Reactivity](https://davidwalsh.name/modernization-reactivity)
 
 ## DerivableJS
 
@@ -346,6 +347,9 @@
 # MObservable
 * [https://github.com/dschalk/mobservable-monads](https://github.com/dschalk/mobservable-monads)
 * [https://github.com/survivejs/mobservable-demo](https://github.com/survivejs/mobservable-demo)
+
+# DerivableJS
+* [https://github.com/andreypopp/react-derivable](https://github.com/andreypopp/react-derivable)
 
 # Other
 * [https://github.com/kalcifer/absolem](https://github.com/kalcifer/absolem)

@@ -85,10 +85,10 @@ var subscription = source.subscribe(
 // => onCompleted
 ```
 
-You can treat the observable sequence (such as a sequence of mouse-over events) as if it were a normal collection. Thus you can write queries over the collection to do things like filtering, grouping, composing, etc. To make observable sequences more useful, the RxJS libraries provide many factory operators so that you do not need to implement any of these on your own. This will be covered in the [Querying Observable Sequences](querying.md) topic.
+You can treat the observable sequence (such as a sequence of mouse-over events) as if it were a normal collection. Thus you can write queries over the collection to do things like filtering, grouping, composing, etc. To make observable sequences more useful, the RxJS libraries provide many factory operators so that you do not need to implement any of these on your own. This will be covered in the [Querying Observable Sequences](creating_and_querying_observable_sequences/README.md) topic.
 
 ### Caution:
-You do not need to implement the Observable/Observer objects yourself.  Rx provides internal implementations of these interfaces for you and exposes them through various extension methods provided by the Observable and Observer types.  See the [Creating and Querying Observable Sequences](creatingquerying.md) topic for more information.
+You do not need to implement the Observable/Observer objects yourself.  Rx provides internal implementations of these interfaces for you and exposes them through various extension methods provided by the Observable and Observer types.  See the [Creating and Querying Observable Sequences](creating_and_querying_observable_sequences/README.md) topic for more information.
 
 ### See Also
 
@@ -96,4 +96,4 @@ Concepts
 - [Querying Observable Sequences](querying.md)
 
 Other Resources
-- [Creating and Querying Observable Sequences](creatingquerying.md)
+- [Creating and Querying Observable Sequences](creating_and_querying_observable_sequences/README.md)

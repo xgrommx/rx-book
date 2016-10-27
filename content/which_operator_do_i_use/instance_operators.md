@@ -277,7 +277,7 @@ Use this page to find the instance operator implemented by the [`Observable`](ht
         </td>
     </tr>
     <tr>
-        <td colspan="2">and suppy the last value to future subscribers</td>
+        <td colspan="2">and supply the last value to future subscribers</td>
         <td>
           <a href="../observable/observable_instance_methods/publishlast.html">publishLast</a><br>
           <a href="../observable/observable_instance_methods/sharelast.html">shareLast</a>

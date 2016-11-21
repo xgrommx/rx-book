@@ -8,7 +8,7 @@ The `Observable` / `Observer` objects are available in the core distribution of 
 
 Rx exposes asynchronous and event-based data sources as push-based, observable sequences abstracted by the [`Observable`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md) object in the core distribution of RxJS. It represents a data source that can be observed, meaning that it can send data to anyone who is interested.
 
-As described in [What is RxJS](what.md), the other half of the push model is represented by the [`Observer`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md) object, which represents an observer who registers an interest through a subscription. Items are subsequently handed to the observer from the observable sequence to which it subscribes.
+As described in [What is RxJS](what_are_the_reactive_extensions.md), the other half of the push model is represented by the [`Observer`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md) object, which represents an observer who registers an interest through a subscription. Items are subsequently handed to the observer from the observable sequence to which it subscribes.
 
 In order to receive notifications from an observable collection, you use the [`subscribe`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted) method of `Observable` to hand it an `Observer` object. In return for this observer, the [`subscribe`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted) method returns a `Disposable` object that acts as a handle for the subscription. This allows you to clean up the subscription after you are done.  Calling `dispose` on this object detaches the observer from the source so that notifications are no longer delivered. As you can infer, in RxJS you do not need to explicitly unsubscribe from an event as in the common JavaScript event model.
 
@@ -85,10 +85,10 @@ var subscription = source.subscribe(
 // => onCompleted
 ```
 
-You can treat the observable sequence (such as a sequence of mouse-over events) as if it were a normal collection. Thus you can write queries over the collection to do things like filtering, grouping, composing, etc. To make observable sequences more useful, the RxJS libraries provide many factory operators so that you do not need to implement any of these on your own. This will be covered in the [Querying Observable Sequences](querying.md) topic.
+You can treat the observable sequence (such as a sequence of mouse-over events) as if it were a normal collection. Thus you can write queries over the collection to do things like filtering, grouping, composing, etc. To make observable sequences more useful, the RxJS libraries provide many factory operators so that you do not need to implement any of these on your own. This will be covered in the [Querying Observable Sequences](creating_and_querying_observable_sequences/README.md) topic.
 
 ### Caution:
-You do not need to implement the Observable/Observer objects yourself.  Rx provides internal implementations of these interfaces for you and exposes them through various extension methods provided by the Observable and Observer types.  See the [Creating and Querying Observable Sequences](creatingquerying.md) topic for more information.
+You do not need to implement the Observable/Observer objects yourself.  Rx provides internal implementations of these interfaces for you and exposes them through various extension methods provided by the Observable and Observer types.  See the [Creating and Querying Observable Sequences](creating_and_querying_observable_sequences/README.md) topic for more information.
 
 ### See Also
 
@@ -96,4 +96,4 @@ Concepts
 - [Querying Observable Sequences](querying.md)
 
 Other Resources
-- [Creating and Querying Observable Sequences](creatingquerying.md)
+- [Creating and Querying Observable Sequences](creating_and_querying_observable_sequences/README.md)

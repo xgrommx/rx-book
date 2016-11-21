@@ -75,7 +75,7 @@
         data-chapter-title="Introduction"
         data-filepath="content/guidelines/introduction/README.md"
         data-basepath="../../.."
-        data-revision="Wed Oct 19 2016 18:35:43 GMT+0300 (EEST)"
+        data-revision="Tue Nov 22 2016 01:48:56 GMT+0200 (EET)"
         data-innerlanguage="">
     
 
@@ -5439,7 +5439,7 @@ Where a is the string &apos;https://api.github.com/users&apos;
     <span class="hljs-keyword">return</span> Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
   });
 </code></pre>
-<p>Then we will have created a beast called &quot;<em>metastream</em>&quot;: a stream of streams. Don&apos;t panic yet. A metastream is a stream where each emitted value is yet another stream. You can think of it as <a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming" target="_blank">pointers</a>): each emitted value is a <em>pointer</em> to another stream. In our example, each request URL is mapped to a pointer to the promise stream containing the corresponding response.</p>
+<p>Then we will have created a beast called &quot;<em>metastream</em>&quot;: a stream of streams. Don&apos;t panic yet. A metastream is a stream where each emitted value is yet another stream. You can think of it as <a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)" target="_blank">pointers</a>: each emitted value is a <em>pointer</em> to another stream. In our example, each request URL is mapped to a pointer to the promise stream containing the corresponding response.</p>
 <p><img src="http://i.imgur.com/HHnmlac.png" alt="Response metastream"></p>
 <p>A metastream for responses looks confusing, and doesn&apos;t seem to help us at all. We just want a simple stream of responses, where each emitted value is a JSON object, not a &apos;Promise&apos; of a JSON object. Say hi to <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypeflatmapselector-resultselector" target="_blank">Mr. Flatmap</a>: a version of <code>map()</code> that &quot;flattens&quot; a metastream, by emitting on the &quot;trunk&quot; stream everything that will be emitted on &quot;branch&quot; streams. Flatmap is not a &quot;fix&quot; and metastreams are not a bug, these are really the tools for dealing with asynchronous responses in Rx.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> responseStream = requestStream

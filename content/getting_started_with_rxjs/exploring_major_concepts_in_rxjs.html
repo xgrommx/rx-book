@@ -75,7 +75,7 @@
         data-chapter-title="Exploring Major Concepts In RxJS"
         data-filepath="content/getting_started_with_rxjs/exploring_major_concepts_in_rxjs.md"
         data-basepath="../.."
-        data-revision="Wed Oct 19 2016 18:35:43 GMT+0300 (EEST)"
+        data-revision="Tue Nov 22 2016 01:48:56 GMT+0200 (EET)"
         data-innerlanguage="">
     
 
@@ -5326,7 +5326,7 @@
 <p>The <code>Observable</code> / <code>Observer</code> objects are available in the core distribution of RxJS.</p>
 <h2 id="observable--observer"><a name="observable--observer" class="plugin-anchor" href="#observable--observer"><span class="fa fa-link"></span></a><code>Observable</code> / <code>Observer</code></h2>
 <p>Rx exposes asynchronous and event-based data sources as push-based, observable sequences abstracted by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md" target="_blank"><code>Observable</code></a> object in the core distribution of RxJS. It represents a data source that can be observed, meaning that it can send data to anyone who is interested.</p>
-<p>As described in <a href="what.md">What is RxJS</a>, the other half of the push model is represented by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md" target="_blank"><code>Observer</code></a> object, which represents an observer who registers an interest through a subscription. Items are subsequently handed to the observer from the observable sequence to which it subscribes.</p>
+<p>As described in <a href="what_are_the_reactive_extensions.html">What is RxJS</a>, the other half of the push model is represented by the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md" target="_blank"><code>Observer</code></a> object, which represents an observer who registers an interest through a subscription. Items are subsequently handed to the observer from the observable sequence to which it subscribes.</p>
 <p>In order to receive notifications from an observable collection, you use the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted" target="_blank"><code>subscribe</code></a> method of <code>Observable</code> to hand it an <code>Observer</code> object. In return for this observer, the <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypesubscribeobserver--onnext-onerror-oncompleted" target="_blank"><code>subscribe</code></a> method returns a <code>Disposable</code> object that acts as a handle for the subscription. This allows you to clean up the subscription after you are done.  Calling <code>dispose</code> on this object detaches the observer from the source so that notifications are no longer delivered. As you can infer, in RxJS you do not need to explicitly unsubscribe from an event as in the common JavaScript event model.</p>
 <p>Observers support three publication events, reflected by the object&apos;s methods. The <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observer.md#rxobserverprototypeonnextvalue" target="_blank"><code>onNext</code></a> can be called zero or more times, when the observable data source has data available. For example, an observable data source used for mouse move events can send out an event object every time the mouse has moved. The other two methods are used to indicate completion or errors.</p>
 <p>The following lists the <code>Observable</code> / <code>Observer</code> objects in addition to the <code>Disposable</code> object.</p>
@@ -5394,9 +5394,9 @@ Observer.prototype.onCompleted = () =&gt; { ... };
 <span class="hljs-comment">// =&gt; onNext: 5</span>
 <span class="hljs-comment">// =&gt; onCompleted</span>
 </code></pre>
-<p>You can treat the observable sequence (such as a sequence of mouse-over events) as if it were a normal collection. Thus you can write queries over the collection to do things like filtering, grouping, composing, etc. To make observable sequences more useful, the RxJS libraries provide many factory operators so that you do not need to implement any of these on your own. This will be covered in the <a href="querying.md">Querying Observable Sequences</a> topic.</p>
+<p>You can treat the observable sequence (such as a sequence of mouse-over events) as if it were a normal collection. Thus you can write queries over the collection to do things like filtering, grouping, composing, etc. To make observable sequences more useful, the RxJS libraries provide many factory operators so that you do not need to implement any of these on your own. This will be covered in the <a href="creating_and_querying_observable_sequences/index.html">Querying Observable Sequences</a> topic.</p>
 <h3 id="caution"><a name="caution" class="plugin-anchor" href="#caution"><span class="fa fa-link"></span></a>Caution:</h3>
-<p>You do not need to implement the Observable/Observer objects yourself.  Rx provides internal implementations of these interfaces for you and exposes them through various extension methods provided by the Observable and Observer types.  See the <a href="creatingquerying.md">Creating and Querying Observable Sequences</a> topic for more information.</p>
+<p>You do not need to implement the Observable/Observer objects yourself.  Rx provides internal implementations of these interfaces for you and exposes them through various extension methods provided by the Observable and Observer types.  See the <a href="creating_and_querying_observable_sequences/index.html">Creating and Querying Observable Sequences</a> topic for more information.</p>
 <h3 id="see-also"><a name="see-also" class="plugin-anchor" href="#see-also"><span class="fa fa-link"></span></a>See Also</h3>
 <p>Concepts</p>
 <ul>
@@ -5404,7 +5404,7 @@ Observer.prototype.onCompleted = () =&gt; { ... };
 </ul>
 <p>Other Resources</p>
 <ul>
-<li><a href="creatingquerying.md">Creating and Querying Observable Sequences</a></li>
+<li><a href="creating_and_querying_observable_sequences/index.html">Creating and Querying Observable Sequences</a></li>
 </ul>
 
                     

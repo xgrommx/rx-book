@@ -168,6 +168,7 @@
 * [Observables and Reactive Programming in Angular 2](http://blog.rangle.io/observables-and-reactive-programming-in-angular-2/)
 * [Understanding Reactive Programming and RxJS](https://auth0.com/blog/understanding-reactive-programming-and-rxjs/)
 * [building hacker news with angular 2 cli, rxjs and webpack](http://houssein.me/angular2-hacker-news)
+* [Redux in a single line of code with RxJS](http://rudiyardley.com/redux-single-line-of-code-rxjs/)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)

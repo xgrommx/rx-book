@@ -169,6 +169,10 @@
 * [Understanding Reactive Programming and RxJS](https://auth0.com/blog/understanding-reactive-programming-and-rxjs/)
 * [building hacker news with angular 2 cli, rxjs and webpack](http://houssein.me/angular2-hacker-news)
 * [Redux in a single line of code with RxJS](http://rudiyardley.com/redux-single-line-of-code-rxjs/)
+* [Angular 2 Tour of Heroes Tutorial With the NGRX Suite](http://bodiddlie.github.io/ng-2-toh-with-ngrx-suite/)
+* [Teaching RxJS](http://www.ericponto.com/blog/2016/12/05/teaching-rxjs/)
+* [Tutorial: Build an Interactive Chart on QIX with RxQAP](http://blog.axc.net/tutorial-build-an-interactive-chart-on-qix-with-rxqap/)
+* [NgRx Store – Redux in AngularJs with super powers](http://www.dzurico.com/ngrx-store/)
 
 ## Falcor
 * [Falcor for Android](http://techblog.netflix.com/2015/10/falcor-for-android.html)
@@ -273,3 +277,4 @@
 * [Ten minute introduction to MobX and React](https://mobxjs.github.io/mobx/getting-started.html)
 * [How to initialize your MobX stores](https://medium.com/@GiacomoRebonato/how-to-initialize-your-mobx-stores-f946fdec0851#.fe3xlowp3)
 * [Handling React Forms with Mobx Observables](https://blog.risingstack.com/handling-react-forms-with-mobx-observables/)
+* [An artificial example where MobX really shines and Redux is not really suited for it](https://hackernoon.com/an-artificial-example-where-mobx-really-shines-and-redux-is-not-really-suited-for-it-1a58313c0c70#.v9lb7ta70)

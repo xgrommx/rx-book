@@ -159,9 +159,9 @@ requestStream.subscribe(function(requestUrl) {
   // execute the request
   var responseStream = Rx.Observable.create(function (observer) {
     jQuery.getJSON(requestUrl)
-    .done(function(response) { observer.onNext(response); })
-    .fail(function(jqXHR, status, error) { observer.onError(error); })
-    .always(function() { observer.onCompleted(); });
+    .done(function(response) { observer.next(response); })
+    .fail(function(jqXHR, status, error) { observer.error(error); })
+    .always(function() { observer.complete(); });
   });
   
   responseStream.subscribe(function(response) {
@@ -170,7 +170,7 @@ requestStream.subscribe(function(requestUrl) {
 }
 ```
 
-What [`Rx.Observable.create()`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe) does is create your own custom stream by explicitly informing each observer (or in other words, a "subscriber") about data events (`onNext()`) or errors (`onError()`). What we did was just wrap that jQuery Ajax Promise. **Excuse me, does this mean that a Promise is an Observable?**
+What [`Rx.Observable.create()`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservablecreatesubscribe) does is create your own custom stream by explicitly informing each observer (or in other words, a "subscriber") about data events (`next()`) or errors (`error()`). What we did was just wrap that jQuery Ajax Promise. **Excuse me, does this mean that a Promise is an Observable?**
 
 &nbsp;
 &nbsp;

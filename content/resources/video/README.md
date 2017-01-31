@@ -1,5 +1,14 @@
 # Video
 
+* #### RxJS 5 Thinking Reactively | Ben Lesh
+    {% video %}https://www.youtube.com/watch?v=3LKMwkuK0ZE{% endvideo %}
+    ***
+* #### André Staltz: You will learn RxJS at ng-europe 2016
+    {% video %}https://www.youtube.com/watch?v=uQ1zhJHclvs{% endvideo %}
+    ***
+* #### RxJS: destroy the state machine! – Stenver Jerkku / Front-Trends 2016
+    {% video %}https://www.youtube.com/watch?v=1abiJ9VBsDc{% endvideo %}
+    ***
 * #### Expert to Expert: Brian Beckman and Erik Meijer - Inside the .NET Reactive Framework (Rx)
     {% video %}https://www.youtube.com/watch?v=looJcaeboBY{% endvideo %}
     ***

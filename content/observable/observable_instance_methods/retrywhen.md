@@ -122,7 +122,7 @@ var subscription = source.subscribe(
 // => Completed
 ```
 
-An incrememntal back-off strategy for handling errors:
+An incremental back-off strategy for handling errors:
 ```js
 Rx.Observable.create(function (o) {
     console.log("subscribing");

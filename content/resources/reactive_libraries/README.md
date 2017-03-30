@@ -46,6 +46,7 @@
 * [**basic-streams** - Experimental very basic reactive streams implementation for JavaScript](https://github.com/rpominov/basic-streams)
 * [**phlorx** - A light-weight, task efficient, fault tolerant JavaScript library for functional reactive programming](https://github.com/isocroft/phlorx)
 * [**Emit** - Simple Reactive JavaScript library using ES6 generators/iterators](https://github.com/DanShappir/Emit)
+* [**graflow** - A graph stream library for JavaScript](https://github.com/pmros/graflow)
 
 ## Frameworks
 * [**Yolk** - A library for building asynchronous user interfaces](https://github.com/garbles/yolk)

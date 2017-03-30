@@ -61,6 +61,7 @@
 * [**stanga** - The essential Cycling gear that every Cyclist needs](https://github.com/milankinen/stanga)
 * [**udeo** - RxJS based state streams](https://github.com/mcoetzee/udeo)
 * [**act** - A simple reactive front-end framework](https://github.com/act-framework/act)
+* [**cyclow** - A reactive frontend framework for JavaScript](http://cyclow.js.org/)
 
 ## Resources
 * [https://github.com/christianramsey/rx-react-flux](https://github.com/christianramsey/rx-react-flux)

@@ -35,7 +35,7 @@ We'll cover each of those scenarios and more in this section.
 
 ## Catching Errors ##
 
-The first topic is catching errors as they happen with our streams. In the Reactive Extensions, any error is propogated through the `onError` channel which halts the sequence.  We can compensate for this by using the `catch` operator, at both the class and instance level.  
+The first topic is catching errors as they happen with our streams. In the Reactive Extensions, any error is propagated through the `onError` channel which halts the sequence.  We can compensate for this by using the `catch` operator, at both the class and instance level.  
 
 Using the class level `catch` method, we can catch errors as they happen with the current sequence and then move to the next sequence should there be an error.  For example, we could try getting data from several URLs, it doesn't matter which since they all have the same data, and then if that fails, default to a cached version, so an error should never propagate.  One thing to note is that if `get('url')` calls succeed, then it will not move onto the next sequence in the list.
 

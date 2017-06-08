@@ -33,7 +33,7 @@ var exists = Rx.Observable.fromCallback(fs.exists);
 var source = exists('file.txt');
 
 var subscription = source.subscribe(
-    function (x) {
+    function (result) {
         console.log('Next: ' + result);
     },
     function (err) {

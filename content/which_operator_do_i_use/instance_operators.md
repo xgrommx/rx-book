@@ -25,7 +25,7 @@ Use this page to find the instance operator implemented by the [`Observable`](ht
     <tr>
         <td rowspan="6">I want to include values</td>
         <td colspan="2">based on custom logic</td>
-        <td><a href="../observable/observable_instance_methods/where.html">filter/where</a></td>
+        <td><a href="../observable/observable_instance_methods/filter.html">filter/where</a></td>
     </tr>
     <tr>
         <td rowspan="2">from the start of the sequence</td>

@@ -22,15 +22,15 @@ var subscription = subject.subscribe(
         console.log('Completed');
     });
 
-subject.onNext(42);
+subject.next(42);
 
 // => Next: 42
 
-subject.onNext(56);
+subject.next(56);
 
 // => Next: 56
 
-subject.onCompleted();
+subject.complete();
 
 // => Completed
 ```

@@ -279,7 +279,7 @@ var requestOnRefreshStream = refreshClickStream
 var startupRequestStream = Rx.Observable.just('https://api.github.com/users');
 ```
 
-But how can we "merge" these two into one? Well, there's [`merge()`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypemergemaxconcurrent--other). Explained in the diagram dialect, this is what it does:
+But how can we "merge" these two into one? Well, there's [`merge()`](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-merge). Explained in the diagram dialect, this is what it does:
 
 ```
 stream A: ---a--------e-----o----->
@@ -325,7 +325,7 @@ var requestStream = refreshClickStream
   .startWith('https://api.github.com/users');
 ```
 
-The [`startWith()`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypestartwithscheduler-args) function does exactly what you think it does. No matter how your input stream looks like, the output stream resulting of `startWith(x)` will have `x` at the beginning. But I'm not [DRY](https://en.wikipedia.org/wiki/Don't_repeat_yourself) enough, I'm repeating the API endpoint string. One way to fix this is by moving the `startWith()` close to the `refreshClickStream`, to essentially "emulate" a refresh click on startup.  
+The [`startWith()`](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-startWith) function does exactly what you think it does. No matter how your input stream looks like, the output stream resulting of `startWith(x)` will have `x` at the beginning. But I'm not [DRY](https://en.wikipedia.org/wiki/Don't_repeat_yourself) enough, I'm repeating the API endpoint string. One way to fix this is by moving the `startWith()` close to the `refreshClickStream`, to essentially "emulate" a refresh click on startup.  
 
 ```javascript
 var requestStream = refreshClickStream.startWith('startup click')
@@ -469,7 +469,7 @@ close1ClickStream: ------------c----->
 suggestion1Stream: ------s-----s----->
 ```
 
-In Rx* there is a combinator function called [`combineLatest`](https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md#rxobservableprototypecombinelatestargs-resultselector) that seems to do what we need. It takes two streams A and B as inputs, and whenever either stream emits a value, `combineLatest` joins the two most recently emitted values `a` and `b` from both streams and outputs a value `c = f(x,y)`, where `f` is a function you define. It is better explained with a diagram:
+In Rx* there is a combinator function called [`combineLatest`](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#static-method-combineLatest) that seems to do what we need. It takes two streams A and B as inputs, and whenever either stream emits a value, `combineLatest` joins the two most recently emitted values `a` and `b` from both streams and outputs a value `c = f(x,y)`, where `f` is a function you define. It is better explained with a diagram:
 
 ```
 stream A: --a-----------e--------i-------->

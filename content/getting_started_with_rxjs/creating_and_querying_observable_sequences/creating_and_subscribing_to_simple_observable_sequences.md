@@ -70,7 +70,7 @@ var subscription = source.subscribe(
 
 When an observer subscribes to an observable sequence, the `subscribe` method may be using asynchronous behavior behind the scenes depending on the operator. Therefore, the `subscribe` call is asynchronous in that the caller is not blocked until the observation of the sequence completes. This will be covered in more details in the [Using Schedulers](schedulers.md) topic.
 
-Notice that the [`subscribe`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/susbcribe.md) method returns a `Disposable`, so that you can unsubscribe to a sequence and dispose of it easily. When you invoke the `dispose` method on the observable sequence, the observer will stop listening to the observable for data.  Normally, you do not need to explicitly call `dispose` unless you need to unsubscribe early, or when the source observable sequence has a longer life span than the observer. Subscriptions in Rx are designed for fire-and-forget scenarios without the usage of a finalizer. Note that the default behavior of the Observable operators is to dispose of the subscription as soon as possible (i.e, when an `onCompleted` or `onError` messages is published). For example, the code will subscribe x to both sequences a and b. If a throws an error, x will immediately be unsubscribed from b.
+Notice that the [`subscribe`](https://github.com/Reactive-Extensions/RxJS/tree/master/doc/api/core/operators/susbcribe.md) method returns a `Disposable`, so that you can unsubscribe to a sequence and of it easily. When you invoke the `unsubscribe` method on the observable sequence, the observer will stop listening to the observable for data.  Normally, you do not need to explicitly call `unsubscribe` unless you need to unsubscribe early, or when the source observable sequence has a longer life span than the observer. Subscriptions in Rx are designed for fire-and-forget scenarios without the usage of a finalizer. Note that the default behavior of the Observable operators is to unsubscribe of the subscription as soon as possible (i.e, when an `onCompleted` or `onError` messages is published). For example, the code will subscribe x to both sequences a and b. If a throws an error, x will immediately be unsubscribed from b.
 
 ```js
 var x = Rx.Observable.zip(a, b, (a1, b1) => a1 + b1).subscribe();
@@ -285,8 +285,8 @@ var subscription2 = source.subscribe(
   () => console.log('Observer 2: onCompleted'));
 
 setTimeout(() => {
-  subscription1.dispose();
-  subscription2.dispose();
+  subscription1.unsubscribe();
+  subscription2.unsubscribe();
 }, 5000);
 
 // => Observer 1: onNext: 0

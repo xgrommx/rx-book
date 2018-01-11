@@ -27,7 +27,7 @@ var source = Rx.Observable.create(observer => {
   observer.onCompleted();
 
   // Any cleanup logic might go here
-  return () => console.log('disposed')
+  return () => console.log('unsubscribed')
 });
 
 var subscription = source.subscribe(
@@ -38,8 +38,8 @@ var subscription = source.subscribe(
 // => onNext: 42
 // => onCompleted
 
-subscription.dispose();
-// => disposed
+subscription.unsubscribe();
+// => unsubscribed
 ```
 
 For most operations, this is completely overkill, but shows the very basics of how most RxJS operators work.

@@ -67,7 +67,7 @@ Use this page to find the creation operator implemented by the [`Observable`](..
         <td rowspan="2">over the values in an array</td>
         <td></td>
         <td>
-            <a href="../observable/observable_methods/fromarray.html">Observable.fromArray</a><br>
+            <a href="../observable/observable_methods/fromarray.html">Observable.fromArray</a><br>(obsolete aka .from)
         </td>
     </tr>
     <tr>

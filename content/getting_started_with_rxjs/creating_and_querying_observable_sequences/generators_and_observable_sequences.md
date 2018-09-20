@@ -9,7 +9,7 @@ function printNumberOfTimes(msg, n) {
   }
 }
 
-printNumberOfTime('Hello world', 1);
+printNumberOfTimes('Hello world', 1);
 // => Hello world
 
 // Asynchronous

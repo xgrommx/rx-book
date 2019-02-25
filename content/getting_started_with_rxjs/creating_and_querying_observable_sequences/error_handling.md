@@ -219,7 +219,7 @@ Another issue may arise when you are dealing with flattening sequences into a si
 To illustrate, we can create this little sample that has an errored sequence in the middle when it is trying to flatten the sequences.
 ```js
 var source1 = Rx.Observable.of(1,2,3);
-var source2 = Rx.Observable.throwError(new Error('woops'));
+var source2 = Rx.Observable.throw(new Error('woops'));
 var source3 = Rx.Observable.of(4,5,6);
 
 var source = Rx.Observable.mergeDelayError(source1, source2, source3);
@@ -229,13 +229,13 @@ var subscription = source.subscribe(
   e => console.log('onError: %s', e),
   () => console.log('onCompleted'));
 
-// => 1
-// => 2
-// => 3
-// => 4
-// => 5
-// => 6
-// => Error: Error: woops
+// => onNext: 1
+// => onNext: 2
+// => onNext: 3
+// => onNext: 4
+// => onNext: 5
+// => onNext: 6
+// => onError: Error: woops
 ```
 
 ## Further Reading ##

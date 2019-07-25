@@ -120,13 +120,13 @@ var subscription = source.subscribe(
   e => console.log('onError: %s', e),
   () => console.log('onCompleted'));
 
-// => Next: 2
-// => Next: 2
-// => Next: 5
-// => Next: 5
-// => Next: 8
-// => Next: 8
-// => Completed
+// => onNext: 2
+// => onNext: 2
+// => onNext: 5
+// => onNext: 5
+// => onNext: 8
+// => onNext: 8
+// => onCompleted
 ```
 
 The future of JavaScript is exciting and generators add new possibilities to our applications to allow them to mix and match our programming styles.

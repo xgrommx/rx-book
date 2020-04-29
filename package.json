@@ -41,7 +41,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-shell": "^0.5.1",
     "gulp-util": "^3.0.7",
-    "jquery": "^2.1.4",
+    "jquery": "^3.5.0",
     "lodash": "^3.10.1",
     "merge-stream": "^1.0.0",
     "mousetrap": "^1.5.3",

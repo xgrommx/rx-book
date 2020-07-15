@@ -42,7 +42,7 @@
     "gulp-shell": "^0.5.1",
     "gulp-util": "^3.0.7",
     "jquery": "^2.1.4",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.19",
     "merge-stream": "^1.0.0",
     "mousetrap": "^1.5.3",
     "run-sequence": "^1.1.5",

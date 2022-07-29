@@ -265,6 +265,7 @@
 * [Single-Subscription vs. Broadcast Streams](https://www.dartlang.org/articles/broadcast-streams)
 * [Why I cannot say FRP but I just did](https://medium.com/@andrestaltz/why-i-cannot-say-frp-but-i-just-did-d5ffaa23973b#.53gcohk61)
 * [Functional Core Reactive Shell](http://www.mokacoding.com/blog/functional-core-reactive-shell/)
+* [Functional Core Imperative Shell](https://doordash.engineering/2022/07/26/functional-core-imperative-shell-using-structured-concurrency-to-write-maintainable-grpc-endpoints-in-kotlin/)
 * [Why you should stop using state reducers in your app to be fully reactive](https://journal.artfuldev.com/why-you-should-stop-using-state-reducers-in-your-app-to-be-fully-reactive-89a4279b3ece#.1ue9v3qga)
 
 ## Unity
